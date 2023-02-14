@@ -1,5 +1,5 @@
 {   
-"spider": "./JAR/cs.jar;md5;3ac536e39a06645528a13de9b2a6710a",    
+"spider": "img+http://hutool.ml/jar;md5;ef2d242e59d6b8154c49429817ac2043",    
 
 "wallpaper": "http://www.kf666888.cn/api/tvbox/img",
 
@@ -31,8 +31,8 @@
 {"key":"py_纪录片","name":"🅱哔站纪录","type":3,"api":"py_bilimd","searchable":1,"quickSearch":1,"filterable":1,"ext":"./EXT/纪录片.py"},     
 {"key":"py_bilimd","name":"🅱哔站影视","type":3,"api":"py_bilimd","searchable":1,"quickSearch":1,"filterable":1,"ext":"./EXT/哔站影视.py"},     
 
-{"key":"Gitcafe","name":"🍃纸条(4K)","type":3,"api":"csp_Paper","playerType":2,"searchable":1,"quickSearch":1,"filterable":1,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/Pandora2277/box/main/token.txt"},    
-{"key":"Yisou","name":"🍃一搜","type":3,"api":"csp_YiSo","playerType":2,"searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/Pandora2277/box/main/token.txt"},    
+{"key":"Gitcafe","name":"🍃纸条(4K)","type":3,"api":"csp_Paper","playerType":2,"searchable":1,"quickSearch":1,"filterable":1,"ext":"https://agit.ai/Yoursmile7/TVBox/raw/branch/master/token.txt"},    
+{"key":"Yisou","name":"🍃一搜","type":3,"api":"csp_YiSo","playerType":2,"searchable":1,"quickSearch":1,"filterable":0,"ext":"https://agit.ai/Yoursmile7/TVBox/raw/branch/master/token.txt"},    
 {"key":"csp_AList","name":"🍃AList网盘","type":3,"api":"csp_AList","searchable":1,"quickSearch":1,"filterable":1,"ext":"./EXT/Alist"}
 ],
     
