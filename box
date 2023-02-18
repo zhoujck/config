@@ -3,7 +3,7 @@
 
 "wallpaper": "http://www.kf666888.cn/api/tvbox/img",
 
-"tvtalk":"你好世界！",
+"tvtalk":"糖果说:本软件及片源仅供学习交流，请勿传播及商用！",
 
 "lives": [
 {"name": "live","type": 0,"url": "./live","epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}"}
