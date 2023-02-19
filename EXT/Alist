@@ -1,20 +1,6 @@
 {
-  "drives": [
-    {"name": "小雅","server": "http://alist.xiaoya.pro"},
-    {
-      "name": "杜比",
-      "server": "https://dubi.tk"
-    },
-    {
-       "name": "🐭米奇妙妙屋",
-       "server": "https://anime.mqmmw.ga",
-       "type": "alist"
-    },
-    {
-       "name": "🌤晴园的宝藏库",
-       "server": "https://alist.52qy.repl.co",
-       "type": "alist"
-    },   
-    {"name": "9T","server": "https://drive.9t.ee"}
-  ]
+    "小雅","http://alist.xiaoya.pro",
+    "杜比","https://dubi.tk",
+    "🐭米奇妙妙屋","https://anime.mqmmw.ga",
+    "🌤晴园的宝藏库","https://alist.52qy.repl.co"
 }
