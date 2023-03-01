@@ -3,7 +3,7 @@
 
 "wallpaper": "http://www.kf666888.cn/api/tvbox/img",
 
-"tvtalk" : "./EXT/tvtalk.json",
+"tvtalk" : "Hello world！",
 
 "lives": [
 {"name": "live","type": 0,"url": "./live","epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}"}
