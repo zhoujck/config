@@ -3,7 +3,7 @@
 
 "wallpaper": "http://www.kf666888.cn/api/tvbox/img",
 
-"tvtalk" : "Hello world！",
+"tvtalk" : "https://v1.hitokoto.cn/?c=i",
 
 "lives": [
 {"name": "live","type": 0,"url": "./live","epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}"}
