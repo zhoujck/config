@@ -12,7 +12,7 @@
 ],
         
 "sites":[ 
-{"key": "dr_drpy","name": "🎬影视推荐(长按搜索)","type": 3,"api": "https://ftyyy.tk/JS/lib/drpy.min.js","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": "./JS/豆瓣"},                         
+{"key": "dr_drpy","name": "🎬影视推荐(长按搜索)","type": 3,"api": "https://gitee.com/zhoujck/dr_py/raw/master/libs/drpy2.min.js","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": "./JS/豆瓣"},                         
 //{"key":"js豆瓣","name":"🎬影视推荐","type":3,"api":"https://ftyyy.tk/JS/lib/drpy.min.js","ext":"http://ftyyy.tk/JS/js/drpy.js","searchable": 0,"quickSearch": 0,"filterable": 1},
 {"key":"t4public","name":"🎬备用","type":4,"api":"https://t4.饭太硬.ml/vod","searchable":1,"quickSearch":1,"filterable":1,"jar":"./JAR/xo1.txt;md5;a4a90401116d9f1f6a3358c63167ff1f"},
 {"key":"Kunyu77","name":"🥇酷云(极速)","type":"3","api":"csp_Dora","searchable":"1","quickSearch":"1","filterable":"1","ext":"8b48a0834ee08e5e64977bc9fc8bc3e0"},
