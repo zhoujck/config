@@ -22,8 +22,16 @@
 {"key":"Lezhu","name":"🥇乐猪影视","api":"csp_XBPQ","type":3,"filterable":1,"quickSearch":1,"searchable":1,"ext":"http://我不是.肥猫.love:63/json/乐猪.json","jar":"http://我不是.肥猫.love:63/Jar/panda230203.jar;md5;EE39D6223759E1B9683EFD45D15F9134"},
 {"key":"IKan","name":"🥇爱看影视","type":"3","api":"csp_Dora","searchable":"1","quickSearch":"1","filterable":"1","ext":"a4ce9a4ba7d4f4bced2ff9dfc4ab4e50"},
 {"key":"Kuaikan","name":"🥇快看影视","type":"3","api":"csp_Dora","searchable":"1","quickSearch":"1","filterable":"1","ext":"459b1cb892e317546676a2c9dcec2bff"},
-{"key":"SP360","name":"🥇360","type":"3","api":"csp_Dora","searchable":"1","quickSearch":"1","filterable":"1","ext":"9248c57eb22ace4a3431fbd1a979465f"},
-{"key":"Dy555","name":"🥇555","type":"3","api":"csp_Dora","searchable":"1","quickSearch":"1","filterable":"1","ext":"f41992bd740145ed58cb212dc0876582"},
+
+{"key":"世界杯","name":"🥈一起看","type":"3","api":"csp_Dora","searchable":"1","quickSearch":"1","filterable":"1","ext":"8e3aefcba838d8dc5102ac786719d837"},
+{"key":"Tian","name":"🥈天天","type":"3","api":"csp_Dora","searchable":"1","quickSearch":"1","filterable":"1","ext":"bdc1c75081e5e477189a463baa47e392"},
+{"key":"Hei19","name":🥈"石榴","type":"3","api":"csp_Dora","searchable":"1","quickSearch":"1","filterable":"1","ext":"3bff500c8b1e06c052a1b0f1f7a62b45"},
+{"key":"Pang","name":"🥈胖虎","type":"3","api":"csp_Dora","searchable":"1","quickSearch":"1","filterable":"1","ext":"c41fdb671b20925c76fa9b6ff8bad027"},
+{"key":"Lgyy","name":"🥈蓝光","type":"3","api":"csp_Dora","searchable":"1","quickSearch":"1","filterable":"1","ext":"b2e573ff040fcd54b50475660ee1a7d1"},
+{"key":"Smdyy","name":"🥈神马","type":"3","api":"csp_Dora","searchable":"1","quickSearch":"1","filterable":"1","ext":"16705ee9f4764be8499806f52d4bf1e7"},
+{"key":"Ddys","name":"🥈低端","type":"3","api":"csp_Dora","searchable":"1","quickSearch":"1","filterable":"1","ext":"1cc92323700909e7d46623bc85b958d6"},
+   
+
 {"key":"Dm84","name":"🥇动漫","type":"3","api":"csp_Dora","searchable":"1","quickSearch":"1","filterable":"1","ext":"572192a9fe2136041a58e7219a46fb2b"},
 
 //{"key":"csp_SP360","name":"🥈360┃官源","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":1,"ext":"http://我不是.肥猫.love:63/json/360影视.json","jar":"http://我不是.肥猫.love:63/Jar/panda230203.jar;md5;EE39D6223759E1B9683EFD45D15F9134"},
