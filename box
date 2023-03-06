@@ -17,7 +17,7 @@
 {"key":"t4public","name":"🎬备用","type":4,"api":"https://t4.饭太硬.ml/vod","searchable":1,"quickSearch":1,"filterable":1,"jar":"./JAR/xo1.txt;md5;a4a90401116d9f1f6a3358c63167ff1f"},
 {"key":"Kunyu77","name":"🥇酷云(极速)","type":"3","api":"csp_Dora","searchable":"1","quickSearch":"1","filterable":"1","ext":"8b48a0834ee08e5e64977bc9fc8bc3e0"},
 {"key":"csp_AppTT","name":"🥇图图影视","type":3,"api": "csp_AppTT","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": "tv/$$$dlJYWW16R0IqbmlsV3JMdCNkMFZ0OE1JdzRJQW1yY3I=$$$Y2hpbm16R0JiKnpYUCNWWg==$$$aHR0cDovL2FwaS50dDU4LnR2L2NvbmZpZy9uZXd0di5qc29uP3NzPQ==","jar":"http://我不是.肥猫.love:63/Jar/panda230305.jar;md5;C7A548F950E99C50A3465918F2AAB475"},
-{"key":"LiteApple","name":"🥇苹果影视","type":"3","api":"csp_Dora","searchable":"1","quickSearch":"1","filterable":"1","ext":"6deed4548c44b18d268a5d828f04d86e"},
+//{"key":"LiteApple","name":"🥇苹果影视","type":"3","api":"csp_Dora","searchable":"1","quickSearch":"1","filterable":"1","ext":"6deed4548c44b18d268a5d828f04d86e"},
 {"key":"LiteApple","name":"🥇苹果影视","type":"3","api":"csp_LiteApple","searchable":"1","quickSearch":"1","filterable":"1","jar":"http://我不是.肥猫.love:63/Jar/panda230305.jar;md5;C7A548F950E99C50A3465918F2AAB475"},
 {"key":"Czsapp","name":"🥇厂长影视","type":"3","api":"csp_Dora","searchable":"1","quickSearch":"1","filterable":"1","ext":"8ee655f702d0d21f3643504783babbc3"},
 {"key":"Lezhu","name":"🥇乐猪影视","api":"csp_XBPQ","type":3,"filterable":1,"quickSearch":1,"searchable":1,"ext":"http://我不是.肥猫.love:63/json/乐猪.json","jar":"http://我不是.肥猫.love:63/Jar/panda230305.jar;md5;C7A548F950E99C50A3465918F2AAB475"},
