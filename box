@@ -5,7 +5,7 @@
 
 "tvtalk" : "惊蛰，春雷始鸣，万物复苏。",
 
-//"daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20",
+"daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20",
 
 "lives": [
 {"name": "live","type": 0,"url": "./live","epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}"}
