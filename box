@@ -7,7 +7,7 @@
 
 "daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20",
 
-"warningText" : "接口完全免费，切勿付费购买。"
+"warningText" : "接口完全免费，切勿付费购买。",
 
 "lives": [{"name": "live","type": 0,"url": "./live","epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}"}],
         
