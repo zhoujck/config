@@ -7,7 +7,7 @@
 
 "daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20",
 
-"lives":[{"name":"live","type":0,"url":"./live","playerType":1,"epg":"http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}"}],
+"lives":[{"name":"live","type":0,"url":"./live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}"}],
         
 "sites":[ 
 {"key": "dr_drpy","name": "🎬影视推荐","type": 3,"api": "https://gitee.com/zhoujck/dr_py/raw/master/libs/drpy2.min.js","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": "./JS/豆瓣"},                         
