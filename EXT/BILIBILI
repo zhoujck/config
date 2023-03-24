@@ -1,9 +1,9 @@
 {
 
 "classes": [
-{"type_name": "语文","type_id": "人教版小学语文&order=1"},
-{"type_name": "数学","type_id": "苏教版小学数学&order=1"},
-{"type_name": "英语","type_id": "译林版小学英语&order=1"}
+{"type_name": "语文","type_id": "人教版小学语文&order=stow"},
+{"type_name": "数学","type_id": "苏教版小学数学&order=stow"},
+{"type_name": "英语","type_id": "译林版小学英语&order=stow"}
 ],
 
 "filter": {
