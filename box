@@ -23,7 +23,7 @@
 //jar
 {"key":"Kunyu77","name":"🥇酷云(极速)","type":3,"api":"https://gitee.com/zhoujck/dr_py/raw/master/libs/drpy2.min.js","ext":"./JS/酷云77.js","searchable": 1,"quickSearch": 1,"filterable": 1},
 {"key":"LiteApple","name":"🥇苹果","type":"3","api":"csp_LiteApple","searchable":"1","quickSearch":"1","filterable":"1","m3u8ads":"hd.youyhn.com"},
-{"key":"csp_xb_达达龟","name":"🥇达达龟","type":3,"api":"csp_XBiu","searchable":1,"quickSearch":1,"filterable":0,"m3u8ads":"hd.youyhn.com","ext":"https://www.dadagui.me/vodshow/{cateId}--------{catePg}---.html"},
+{"key":"csp_xb_达达龟","name":"🥇达达龟","type":3,"api":"csp_XBiu","searchable":1,"quickSearch":1,"filterable":1,"m3u8ads":"hd.youyhn.com","ext":"https://www.dadagui.me/vodshow/{cateId}--------{catePg}---.html"},
 {"key":"csp_AppTT","name":"🥇图图","type":3,"api": "csp_AppTT","searchable": 1,"quickSearch": 1,"filterable": 1,"m3u8ads":"hd.youyhn.com","ext": "tv/$$$dlJYWW16R0IqbmlsV3JMdCNkMFZ0OE1JdzRJQW1yY3I=$$$Y2hpbm16R0JiKnpYUCNWWg==$$$aHR0cDovL2FwaS50dDU4LnR2L2NvbmZpZy9uZXd0di5qc29uP3NzPQ=="},
 //{"key":"Lezhu","name":"🥇乐猪影视","api":"csp_XBPQ","type":3,"filterable":1,"quickSearch":1,"searchable":1,"ext":"http://我不是.肥猫.love:63/json/乐猪.json"},
 {"key":"Dm84","name":"🥇动漫巴士","type":"3","api":"csp_Dm84","searchable":"1","quickSearch":"1","filterable":"1"},
