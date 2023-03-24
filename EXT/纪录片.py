@@ -51,7 +51,7 @@ class Spider(Spider):  # 元类 默认的元类 type
 	cookies = ''
 	def getCookie(self):
 		#在cookies_str中填入会员或大会员cookie，以获得更好的体验
-		cookies_str = "DedeUserID=701168335;DedeUserID__ckMd5=7219483457203958;SESSDATA=772c448a%2C1695181918%2C8ab46%2A31;bili_jct=a7fb0ac6258206e8fa84ca951c7bee09;"
+		cookies_str = "buvid3=497B3DD9-AEE5-CD6F-D901-5A4CA60D400E87130infoc; b_nut=1679401387; CURRENT_FNVAL=4048; _uuid=7D1210109B-D4B6-3976-AAA9-F2E71081010519B90270infoc; buvid_fp=93bd8b9358eec21bdecb3f1ab2be0382; buvid4=6B6BD83F-FCE9-AA65-2F5F-75AC9D779F6E91423-023032120-eFmjOr2kdfwMjSpDN2xPRg%3D%3D; rpdid=|(J~RllJ)~mY0J'uY~mR|uJml; innersign=0; i-wanna-go-back=-1; b_lsid=C8EFE85C_18711BE1AA9; bsource=search_bing; header_theme_version=CLOSE; SESSDATA=772c448a%2C1695181918%2C8ab46%2A31; bili_jct=a7fb0ac6258206e8fa84ca951c7bee09; DedeUserID=701168335; DedeUserID__ckMd5=7219483457203958; sid=5otzzldi; b_ut=5; home_feed_column=4"
 		cookies_dic = dict([co.strip().split('=') for co in cookies_str.split(';')])
 		rsp = session()
 		cookies_jar = utils.cookiejar_from_dict(cookies_dic)
