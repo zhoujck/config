@@ -17,8 +17,8 @@
 
 //bilibili
 {"key": "Bili","name": "🅱哔站学习","type":3,"api":"csp_Bili", "searchable":0, "quickSearch":0, "filterable":1,"ext": "./EXT/BILIBILI"},
-{"key":"py_纪录片","name":"🅱哔站纪录","type":3,"api":"py_bilimd","searchable":1,"quickSearch":1,"filterable":1,"ext":"./EXT/纪录片.py"},     
-{"key":"py_bilimd","name":"🅱哔站影视","type":3,"api":"py_bilimd","searchable":1,"quickSearch":1,"filterable":1,"ext":"./EXT/哔站影视.py"},     
+{"key":"py_纪录片","name":"🅱哔站纪录片","type":3,"api":"py_bilimd","searchable":1,"quickSearch":1,"filterable":1,"ext":"./EXT/纪录片.py"},     
+//{"key":"py_bilimd","name":"🅱哔站影视","type":3,"api":"py_bilimd","searchable":1,"quickSearch":1,"filterable":1,"ext":"./EXT/哔站影视.py"},     
 
 //jar
 {"key":"Kunyu77","name":"🥇酷云(极速)","type":3,"api":"https://gitee.com/zhoujck/dr_py/raw/master/libs/drpy2.min.js","ext":"./JS/酷云77.js","searchable": 1,"quickSearch": 1,"filterable": 1},
