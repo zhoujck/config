@@ -22,8 +22,8 @@
 
 //jar
 {"key":"Kunyu77","name":"🥇酷云(极速)","type":3,"api":"csp_Kunyu77","ext":"","searchable": 1,"quickSearch": 1,"filterable": 1},
-//{"key":"LiteApple","name":"🥇苹果","type":"3","api":"csp_LiteApple","searchable":"1","quickSearch":"1","filterable":"1","m3u8ads":"hd.youyhn.com"},
-{"key":"csp_xb_达达龟","name":"🥇达达龟","type":3,"api":"csp_XBiu","searchable":1,"quickSearch":1,"filterable":1,"m3u8ads":"hd.youyhn.com","ext":"https://www.dadagui.me/vodshow/{cateId}--------{catePg}---.html"},
+{"key":"LiteApple","name":"🥇苹果","type":"3","api":"csp_LiteApple","searchable":"1","quickSearch":"1","filterable":"1","m3u8ads":"hd.youyhn.com"},
+//{"key":"csp_xb_达达龟","name":"🥇达达龟","type":3,"api":"csp_XBiu","searchable":1,"quickSearch":1,"filterable":1,"m3u8ads":"hd.youyhn.com","ext":"https://www.dadagui.me/vodshow/{cateId}--------{catePg}---.html"},
 {"key":"csp_AppTT","name":"🥇图图","type":3,"api": "csp_AppTT","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": "tv$$$dlJYWXFYbkgqbmlsU1JLIyNkMFZ0OE1JdzRJQW1yY3I=$$$Y2hpbkpaUzdiKnpYbzZzWQ==$$$aHR0cDovL2FwaS50dDU4LnR2L2NvbmZpZy9uZXd0di5qc29uP3NzPQ==","m3u8ads": "hd.youyhn.com"},
 {"key":"XBPQ_fant","name":"🥇饭团","type":3,"api":"csp_Fantuan","filterable":1,"quickSearch":1,"searchable":1,"ext":"https://www.fantuanhd.com"},
 {"key":"Dm84","name":"🥇动漫巴士","type":"3","api":"csp_Dm84","searchable":"1","quickSearch":"1","filterable":"1"},
