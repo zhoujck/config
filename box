@@ -31,7 +31,7 @@
 
 //云盘n
 {"key":"Gitcafe","name":"🍃纸条┃4K","type":3,"api":"csp_Paper","playerType":2,"searchable":1,"quickSearch":1,"filterable":1,"ext":"http://我不是.肥猫.love:63/token.php"},   
-{"key":"Yisou","name":"🍃一搜┃4K","type":3,"api":"csp_YiSo","playerType":2,"searchable":1,"quickSearch":1,"filterable":0,"ext":"./EXT/Token"},    
+{"key":"Yisou","name":"🍃一搜┃4K","type":3,"api":"csp_YiSo","playerType":2,"searchable":1,"quickSearch":1,"filterable":0,"ext":"http://ali.饭太硬.ml/alitoken"},    
 //{"key":"csp_search_Upyunso","name":"🍃云搜┃4K","type":3,"api":"csp_UpYun","playerType":1,"searchable":1,"quickSearch" :1,"filterable":0,"ext":"http://我不是.肥猫.love:63/token.php"},
 {"key":"csp_search_Alips","name":"🍃盘搜┃4K","type":3,"api":"csp_PanSou","playerType":1,"searchable":1,"quickSearch" :1,"filterable":0,"ext":"http://我不是.肥猫.love:63/token.php"},
 {"key":"csp_AList","name":"🍃AList┃4K","type":3,"api":"csp_AList","searchable":1,"quickSearch":1,"filterable":1,"ext":"./EXT/Alist"}
