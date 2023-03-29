@@ -1,10 +1,10 @@
 {
-
+"cookie": "https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/config/master/EXT/cookie",
 "classes": [
 {"type_name": "语文","type_id": "人教版小学语文&order=stow"},
 {"type_name": "数学","type_id": "苏教版小学数学&order=stow"},
 {"type_name": "英语","type_id": "译林版小学英语&order=stow"},
-{"type_name": "绘本","type_id": "绘本&order=stow"}
+{"type_name": "绘本","type_id": "一年级书单&order=stow"}
 ],
 
 "filter": {
@@ -27,10 +27,19 @@
 {"n": "10~30分钟","v": "2"},
 {"n": "10分钟以下", "v": "1"}
 ]}],  
-"绘本&order=stow": [ 
+"一年级书单&order=stow": [ 
 {"key": "tid","name": "分类","value":[
 { "n": "米莉的帽子变变变","v": "米莉的帽子变变变" },
-{ "n": "小学","v": "小学生绘本故事" }
+{ "n": "世界的一天","v": "世界的一天" },
+{ "n": "让路给小鸭子","v": "让路给小鸭子" },
+{ "n": "邋遢熊和六只白鼠","v": "邋遢熊和六只白鼠" },
+{ "n": "老鼠嫁女","v": "老鼠嫁女" },
+{ "n": "老鼠娶新娘","v": "老鼠娶新娘" },
+{ "n": "100层的房子","v": "100层的房子" },
+{ "n": "笨狼的故事","v": "笨狼的故事" },
+{ "n": "青蛙弗洛格的成长故事","v": "青蛙弗洛格的成长故事" },
+{ "n": "青蛙和蟾蜍","v": "青蛙和蟾蜍" },
+{ "n": "我不知道我是谁","v": "我不知道我是谁" }
 ]},
 {"key": "order","name": "排行","value": [
 {"n": "综合排序","v": "totalrank"},
