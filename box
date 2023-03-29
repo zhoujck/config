@@ -2,8 +2,8 @@
 "spider":"http://我不是.肥猫.love:63/Jar/panda230325.jar;md5;B9F2D7A68F72583F8BBF45CED2FD4B68",   
 "wallpaper": "https://yydsys.top/bg.php",
 
-//"daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20",
-"daily_sentence" : "新版地址点击复制 https://www.aliyundrive.com/s/VNhsdcExEXx",
+"daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20",
+//"daily_sentence" : "新版地址点击复制 https://www.aliyundrive.com/s/VNhsdcExEXx",
 
 "lives":[{"name":"live","type":0,"url":"./live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}"}],
         
