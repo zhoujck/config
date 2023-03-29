@@ -1,5 +1,4 @@
 {  
-//"spider":"https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/jar/fan.txt;md5;61bca6e5fd49bef5a2834109f23303a9",
 "spider":"http://我不是.肥猫.love:63/Jar/panda230325.jar;md5;B9F2D7A68F72583F8BBF45CED2FD4B68",   
 "wallpaper": "https://yydsys.top/bg.php",
 
@@ -12,13 +11,11 @@
         
 "sites":[ 
 
-//{"key":"t4public","name":"🎬影视推荐(备用)","type":4,"api":"https://t4.饭太硬.ml/vod","searchable":1,"quickSearch":1,"filterable":1,"jar":"./JAR/xo1.txt;md5;a4a90401116d9f1f6a3358c63167ff1f"},
 {"key": "dr_drpy","name": "🎬影视推荐","type": 3,"api": "./JS/drpy2.min.js","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": "./JS/豆瓣"},
 
 //bilibili
 {"key": "Bili","name": "🅱哔站学习","type":3,"api":"csp_Bili", "searchable":0, "quickSearch":0, "filterable":1,"ext": "./EXT/BILIBILI"},
 {"key": "dr_drpy_bili","name": "🅱哔站影视","type": 3,"api": "./JS/drpy2.min.js","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": "./JS/bili影视"},
-//{"key":"py_纪录片","name":"🅱哔站纪录片","type":3,"api":"py_bilimd","searchable":1,"quickSearch":1,"filterable":1,"ext":"./EXT/纪录片.py"},     
  
 
 //jar
