@@ -10,12 +10,12 @@
         
 "sites":[ 
 
-{"key": "dr_drpy","name": "🎬影视推荐","type": 3,"api": "https://agit.ai/zhoujck/config/raw/branch/master/JS/drpy.min.js","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": "./JS/豆瓣.js"},
+{"key": "dr_drpy","name": "🎬影视推荐","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": "./JS/豆瓣.js"},
 {"key":"js豆瓣","name":"🐼影视推荐","type":3,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"http://alist.xn--z7x900a.love:63/豆瓣.js"},
 
 //bilibili
 {"key": "Bili","name": "🅱哔站学习","type":3,"api":"csp_Bili", "searchable":0, "quickSearch":0, "filterable":1,"ext": "./EXT/BILIBILI"},
-{"key": "dr_drpy_bili","name": "🅱哔站影视","type": 3,"api": "https://agit.ai/zhoujck/config/raw/branch/master/JS/drpy.min.js","searchable": 1,"quickSearch": 0,"filterable": 1,"ext": "./JS/哔站影视.js"},
+{"key": "dr_drpy_bili","name": "🅱哔站影视","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","searchable": 1,"quickSearch": 0,"filterable": 1,"ext": "./JS/哔站影视.js"},
  
 //jar
 {"key":"Kunyu77","name":"🥇酷云(极速)","type":3,"api":"csp_Kunyu77","ext":"","searchable": 1,"quickSearch": 1,"filterable": 1},
