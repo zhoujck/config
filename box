@@ -21,16 +21,17 @@
 {"key":"LiteApple","name":"🥇苹果","type":"3","api":"csp_LiteApple","searchable":"1","quickSearch":"1","filterable":"1","m3u8ads":"hd.youyhn.com"},
 //{"key":"csp_xb_达达龟","name":"🥇达达龟","type":3,"api":"csp_XBiu","searchable":1,"quickSearch":1,"filterable":1,"m3u8ads":"hd.youyhn.com","ext":"https://www.dadagui.me/vodshow/{cateId}--------{catePg}---.html"},
 {"key":"csp_AppTT","name":"🥇图图","type":3,"api": "csp_AppTT","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": "tv$$$dlJYWXFYbkgqbmlsU1JLIyNkMFZ0OE1JdzRJQW1yY3I=$$$Y2hpbkpaUzdiKnpYbzZzWQ==$$$aHR0cDovL2FwaS50dDU4LnR2L2NvbmZpZy9uZXd0di5qc29uP3NzPQ==","m3u8ads": "hd.youyhn.com"},
-{"key":"XBPQ_fant","name":"🥇饭团","type":3,"api":"csp_Fantuan","filterable":1,"quickSearch":1,"searchable":1,"ext":"https://www.fantuanhd.com"},
+{"key":"XBPQ_fant","name":"🥇饭团","type":3,"api":"csp_Fantuan","filterable":1,"quickSearch":1,"searchable":1,"ext":"http://我不是.肥猫.love:63/json/饭团影视.json"},
 {"key":"Dm84","name":"🥇动漫巴士","type":"3","api":"csp_Dm84","searchable":"1","quickSearch":"1","filterable":"1"},
 {"key": "csp_Ying","name": "🥇樱花动漫","type": 3,"api": "csp_Ying","searchable": 1,"quickSearch": 1,"filterable": 1},
 
-//云盘n
-{"key":"Gitcafe","name":"🍃纸条┃4K","type":3,"api":"csp_Paper","playerType":2,"searchable":1,"quickSearch":1,"filterable":1,"ext":"http://我不是.肥猫.love:63/token.php"},   
-{"key":"Yisou","name":"🍃一搜┃4K","type":3,"api":"csp_YiSo","playerType":2,"searchable":1,"quickSearch":1,"filterable":0,"ext":"http://ali.饭太硬.ml/alitoken"},    
-//{"key":"csp_search_Upyunso","name":"🍃云搜┃4K","type":3,"api":"csp_UpYun","playerType":1,"searchable":1,"quickSearch" :1,"filterable":0,"ext":"http://我不是.肥猫.love:63/token.php"},
-{"key":"csp_search_Alips","name":"🍃盘搜┃4K","type":3,"api":"csp_PanSou","playerType":1,"searchable":1,"quickSearch" :1,"filterable":0,"ext":"http://我不是.肥猫.love:63/token.php"},
-{"key":"csp_AList","name":"🍃AList┃4K","type":3,"api":"csp_AList","searchable":1,"quickSearch":1,"filterable":1,"ext":"./EXT/Alist"}
+//云盘
+{"key":"csp_AList","name":"🍃AList┃4K","type":3,"api":"csp_AList","searchable":1,"quickSearch":1,"filterable":1,"ext":"./EXT/Alist"},
+{"key":"Gitcafe","name":"🍃纸条┃4K","type":3,"api":"csp_Paper","playerType":2,"searchable":1,"quickSearch":1,"filterable":1,"ext":"4cda2bf963f84cc4b35b7845d5f91c3b"},   
+{"key":"Yisou","name":"🍃一搜┃4K","type":3,"api":"csp_YiSo","playerType":2,"searchable":1,"quickSearch":1,"filterable":0,"ext":"4cda2bf963f84cc4b35b7845d5f91c3b"},    
+//{"key":"csp_search_Upyunso","name":"🍃云搜┃4K","type":3,"api":"csp_UpYun","playerType":1,"searchable":1,"quickSearch" :1,"filterable":0,"ext":"4cda2bf963f84cc4b35b7845d5f91c3b"},
+{"key":"csp_search_Alips","name":"🍃盘搜┃4K","type":3,"api":"csp_PanSou","playerType":1,"searchable":1,"quickSearch" :1,"filterable":0,"ext":"4cda2bf963f84cc4b35b7845d5f91c3b"}
+
 ],
     
 "parses": [
