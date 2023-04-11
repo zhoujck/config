@@ -18,7 +18,7 @@
 {"key": "dr_drpy_bili","name": "🅱哔站影视","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","searchable": 1,"quickSearch": 0,"filterable": 1,"ext": "./JS/哔站影视.js"},
  
 //jar
-{"key":"csp_XBPQ_农民影视","name":"🥇糖果","type":3,"api":"csp_XBPQ","playerType":1,"ext":"./EXT/农民影视.json"},
+//{"key":"csp_XBPQ_农民影视","name":"🥇糖果","type":3,"api":"csp_XBPQ","playerType":1,"ext":"./EXT/农民影视.json"},
 {"key":"Kunyu77","name":"🥇酷云(极速)","type":3,"api":"csp_Kunyu77","ext":"","searchable": 1,"quickSearch": 1,"filterable": 1},
 {"key":"LiteApple","name":"🥇苹果","type":"3","api":"csp_LiteApple","searchable":"1","quickSearch":"1","filterable":"1","m3u8ads":"hd.youyhn.com"},
 //{"key":"csp_xb_达达龟","name":"🥇达达龟","type":3,"api":"csp_XBiu","searchable":1,"quickSearch":1,"filterable":1,"m3u8ads":"hd.youyhn.com","ext":"https://www.dadagui.me/vodshow/{cateId}--------{catePg}---.html"},
