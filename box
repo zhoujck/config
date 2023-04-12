@@ -32,6 +32,8 @@
 {"key":"Dm84","name":"🥇动漫巴士","type":"3","api":"csp_Dm84","searchable":"1","quickSearch":"1","filterable":"1"},
 {"key": "csp_Ying","name": "🥇樱花动漫","type": 3,"api": "csp_Ying","searchable": 1,"quickSearch": 1,"filterable": 1},
 
+{"key":"直播","name":"💻电视直播","type":3,"api":"https://agit.ai/Yoursmile7/TVBox/raw/branch/master/js/lib/直播转点播.js","ext":"糖果$./live#南风$https://agit.ai/Yoursmile7/TVBox/raw/branch/master/live.txt#肥猫$http://我不是.肥猫.love:63/TV/tvzb.txt#饭太硬$https://agit.ai/fantaiying/fty/raw/branch/master/live.txt#影视范$https://agit.ai/fantaiying/fmm/raw/branch/main/tv/m3u/global.m3u&&&https://api.caonm.net/api/mc/"},
+
 //云盘
 {"key":"csp_AList","name":"🍃AList┃4K","type":3,"api":"csp_AList","searchable":1,"quickSearch":0,"filterable":1,"ext":"./EXT/Alist"},
 {"key":"Gitcafe","name":"🍃纸条┃4K","type":3,"api":"csp_Paper","searchable":1,"quickSearch":1,"filterable":1,"ext":"4cda2bf963f84cc4b35b7845d5f91c3b"},   
