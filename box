@@ -32,11 +32,11 @@
 {"key": "csp_Ying","name": "🥇樱花动漫","type": 3,"api": "csp_Ying","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},
 
 //云盘
-{"key":"csp_AList","name":"🍃AList┃4K","type":3,"api":"csp_AList","ext":"./EXT/Alist","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":0},
+{"key":"csp_AList","name":"🍃AList┃4K","type":3,"api":"csp_AList","ext":"./EXT/Alist","searchable": 1,"quickSearch": 0,"filterable": 1,"changeable":0},
 {"key":"Gitcafe","name":"🍃纸条┃4K","type":3,"api":"csp_Paper","ext":"./ext/Token","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},   
-{"key":"Yisou","name":"🍃一搜┃4K","type":3,"api":"csp_YiSo","ext":"./ext/Token","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":0},    
+{"key":"Yisou","name":"🍃一搜┃4K","type":3,"api":"csp_YiSo","ext":"./ext/Token","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},    
 //{"key":"csp_search_Upyunso","name":"🍃云搜┃4K","type":3,"api":"csp_UpYun","searchable":1,"quickSearch" :1,"filterable":0,"ext":"4cda2bf963f84cc4b35b7845d5f91c3b"},
-{"key":"csp_search_Alips","name":"🍃盘搜┃4K","type":3,"api":"csp_PanSou","ext":"4973e3b42610429ca77662fe641279ef","searchable": 1,"quickSearch": 0,"filterable": 1,"changeable":0}
+{"key":"csp_search_Alips","name":"🍃盘搜┃4K","type":3,"api":"csp_PanSou","ext":"./ext/Token","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1}
 ],
     
 "parses": [
