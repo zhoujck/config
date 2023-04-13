@@ -1,4 +1,5 @@
 {
+  "vodPic": "https://s1.ax1x.com/2023/04/04/pp5M5Jx.png",
   "drives": [
     {
       "name": "小雅",
@@ -27,10 +28,6 @@
     {
       "name": "梓澪",
       "server": "https://zi0.cc"
-    },
-    {
-      "name": "🌤晴园的宝藏库",
-      "server": "https://alist.52qy.repl.co"
-    }   
+    }
   ]
 }
