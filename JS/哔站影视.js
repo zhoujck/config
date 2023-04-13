@@ -12,7 +12,7 @@ var rule = {
     headers:{
         'User-Agent':'PC_UA',
         "Referer": "https://www.bilibili.com",
-        "Cookie":"DedeUserID=3493083203242585;DedeUserID__ckMd5=7b86f3894ed7f8c0;SESSDATA=2d6f63c8%2C1684568607%2C19eb6%2Ab1;bili_jct=21d538b01566c26afc81ff68c2ac7dca"
+        "Cookie":"https://agit.ai/zhoujck/config/raw/branch/master/Json/cookie"
     },
     timeout:5000,
     class_name:'纪录片&番剧&国创&电影&电视剧&综艺&全部',
