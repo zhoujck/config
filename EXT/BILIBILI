@@ -1,5 +1,5 @@
 {
-"Cookie":"https://agit.ai/zhoujck/config/src/branch/master/Json/cookie",
+"Cookie":"https://agit.ai/zhoujck/config/raw/branch/master/Json/cookie",
 "classes": [
 {"type_name": "语文","type_id": "人教版小学语文&order=stow"},
 {"type_name": "数学","type_id": "苏教版小学数学&order=stow"},
