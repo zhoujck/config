@@ -11,7 +11,6 @@
 "sites":[ 
 {"key": "dr_drpy","name": "🎬影视推荐","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","searchable": 0,"changeable": 1,"filterable": 1,"ext": "./JS/豆瓣.js"},
 {"key":"直播","name":"💻电视直播","type":3,"api":"https://agit.ai/Yoursmile7/TVBox/raw/branch/master/js/lib/直播转点播.js","ext":"糖果$./live#肥猫直播$http://我不是.肥猫.love:63/TV/tvzb.txt#饭饭直播$https://agit.ai/fantaiying/fty/raw/branch/master/live.txt"},
-{"key":"Gitcafe","name":"🍃纸条┃4K","type":3,"api":"csp_Paper","ext":"./ext/Token","searchable": 1,"filterable": 1,"changeable":1},
 //bilibili
 {"key": "dr_drpy_bili","name": "🅱哔站影视","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","searchable": 1,"changeable": 1,"quickSearch": 0,"filterable": 1,"ext": "./JS/哔站影视.js"},
 {"key": "Bili","name": "🅱哔站学习","type":3,"api":"csp_Bili", "searchable":0, "quickSearch":0,"changeable": 1, "filterable":1,"ext": "./EXT/BILIBILI"},
@@ -33,6 +32,7 @@
 
 //云盘
 {"key":"csp_AList","name":"🍃AList┃4K","type":3,"api":"csp_AList","ext":"./EXT/Alist","searchable": 1,"quickSearch": 0,"filterable": 1,"changeable":0},
+{"key":"Gitcafe","name":"🍃纸条┃4K","type":3,"api":"csp_Paper","ext":"./ext/Token","searchable": 1,"filterable": 1,"changeable":1},
 {"key":"Yisou","name":"🍃一搜┃4K","type":3,"api":"csp_YiSo","ext":"./ext/Token","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},    
 //{"key":"csp_search_Upyunso","name":"🍃云搜┃4K","type":3,"api":"csp_UpYun","searchable":1,"quickSearch" :1,"filterable":0,"ext":"4cda2bf963f84cc4b35b7845d5f91c3b"},
 {"key":"csp_search_Alips","name":"🍃盘搜┃4K","type":3,"api":"csp_PanSou","ext":"./ext/Token","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1}
