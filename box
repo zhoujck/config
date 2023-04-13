@@ -10,7 +10,7 @@
         
 "sites":[ 
 {"key": "dr_drpy","name": "🎬影视推荐","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","searchable": 0,"changeable": 1,"filterable": 1,"ext": "./JS/豆瓣.js"},
-{"key":"直播","name":"💻电视直播","type":3,"api":"https://agit.ai/Yoursmile7/TVBox/raw/branch/master/js/lib/直播转点播.js","ext":"糖果$./live#肥猫直播$http://我不是.肥猫.love:63/TV/tvzb.txt#饭饭直播$https://agit.ai/fantaiying/fty/raw/branch/master/live.txt},
+{"key":"直播","name":"💻电视直播","type":3,"api":"https://agit.ai/Yoursmile7/TVBox/raw/branch/master/js/lib/直播转点播.js","ext":"糖果$./live#肥猫直播$http://我不是.肥猫.love:63/TV/tvzb.txt#饭饭直播$https://agit.ai/fantaiying/fty/raw/branch/master/live.txt"},
 
 //bilibili
 {"key": "dr_drpy_bili","name": "🅱哔站影视","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","searchable": 1,"changeable": 1,"quickSearch": 0,"filterable": 1,"ext": "./JS/哔站影视.js"},
