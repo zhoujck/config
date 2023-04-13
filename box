@@ -9,16 +9,14 @@
 "lives":[{"name":"live","type":0,"url":"./live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}"}],
         
 "sites":[ 
-
 {"key": "dr_drpy","name": "🎬影视推荐","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","searchable": 0,"changeable": 1,"filterable": 1,"ext": "./JS/豆瓣.js"},
-{"key":"直播","name":"💻电视直播","type":3,"api":"https://agit.ai/Yoursmile7/TVBox/raw/branch/master/js/lib/直播转点播.js","ext":"糖果$./live#肥猫直播$http://我不是.肥猫.love:63/TV/tvzb.txt#饭饭直播$https://agit.ai/fantaiying/fty/raw/branch/master/live.txt#影视范$./EXT/live181"},
+{"key":"直播","name":"💻电视直播","type":3,"api":"https://agit.ai/Yoursmile7/TVBox/raw/branch/master/js/lib/直播转点播.js","ext":"糖果$./live#肥猫直播$http://我不是.肥猫.love:63/TV/tvzb.txt#饭饭直播$https://agit.ai/fantaiying/fty/raw/branch/master/live.txt},
 
 //bilibili
-{"key": "Bili","name": "🅱哔站学习","type":3,"api":"csp_Bili", "searchable":0, "quickSearch":0,"changeable": 1, "filterable":1,"ext": "./EXT/BILIBILI"},
 {"key": "dr_drpy_bili","name": "🅱哔站影视","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","searchable": 1,"changeable": 1,"quickSearch": 0,"filterable": 1,"ext": "./JS/哔站影视.js"},
+{"key": "Bili","name": "🅱哔站学习","type":3,"api":"csp_Bili", "searchable":0, "quickSearch":0,"changeable": 1, "filterable":1,"ext": "./EXT/BILIBILI"},
 
 //jar
-
 {"key":"Kunyu77","name":"🥇酷云(极速)","type":3,"api":"csp_Kunyu77","ext":"","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},
 {"key":"csp_XBPQ_农民影视","name":"🥇糖果","type":3,"api":"csp_XBPQ","ext":"./EXT/农民影视.json","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},
 {"key":"LiteApple","name":"🥇苹果","type":"3","api":"csp_LiteApple","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},
@@ -34,11 +32,11 @@
 {"key": "csp_Ying","name": "🥇樱花动漫","type": 3,"api": "csp_Ying","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},
 
 //云盘
-{"key":"csp_AList","name":"🍃AList┃4K","type":3,"api":"csp_AList","ext":"./EXT/Alist","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},
-{"key":"Gitcafe","name":"🍃纸条┃4K","type":3,"api":"csp_Paper","ext":"a5b9ef44beb14f179d2387a7f1efa81e","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":0},   
+{"key":"csp_AList","name":"🍃AList┃4K","type":3,"api":"csp_AList","ext":"./EXT/Alist","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":0},
+{"key":"Gitcafe","name":"🍃纸条┃4K","type":3,"api":"csp_Paper","ext":"a5b9ef44beb14f179d2387a7f1efa81e","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},   
 {"key":"Yisou","name":"🍃一搜┃4K","type":3,"api":"csp_YiSo","ext":"4cda2bf963f84cc4b35b7845d5f91c3b","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":0},    
-//{"key":"csp_search_Upyunso","name":"🍃云搜┃4K","type":3,"api":"csp_UpYun","playerType":1,"searchable":1,"quickSearch" :1,"filterable":0,"ext":"4cda2bf963f84cc4b35b7845d5f91c3b"},
-{"key":"csp_search_Alips","name":"🍃盘搜┃4K","type":3,"api":"csp_PanSou","playerType":1,"ext":"a5b9ef44beb14f179d2387a7f1efa81e","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":0}
+//{"key":"csp_search_Upyunso","name":"🍃云搜┃4K","type":3,"api":"csp_UpYun","searchable":1,"quickSearch" :1,"filterable":0,"ext":"4cda2bf963f84cc4b35b7845d5f91c3b"},
+{"key":"csp_search_Alips","name":"🍃盘搜┃4K","type":3,"api":"csp_PanSou","ext":"a5b9ef44beb14f179d2387a7f1efa81e","searchable": 1,"quickSearch": 0,"filterable": 1,"changeable":0}
 ],
     
 "parses": [
