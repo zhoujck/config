@@ -24,7 +24,7 @@
 {"key":"csp_Bttoo","name":"✌两个BT","type":3,"api":"csp_Bttwoo","searchable":1,"quickSearch":1,"filterable":1,"changeable":1},
 {"key":"csp_AppMr","name":"👻明明影视","type":3,"api":"csp_AppMr","searchable":1,"quickSearch":1,"filterable":1,"changeable":1},
 {"key":"csp_DiDuan","name":"📺低端","type":3,"api":"csp_Ddrk","searchable":1,"quickSearch":1,"filterable":1,"changeable":1},
-{"key": "獨播","name": "🥇獨播","type": 3,"api": "csp_XPath","searchable": 1,"filterable": 1,"changeable": 1,"ext": "./EXT/duboku.json"},
+
 {"key":"csp_AppTT","name":"🐰图图","type":3,"api":"csp_AppTT","ext":"dk1YWXFYbkhNbmlsU1JLI01kMFZ0OE1JdzRJQW1yY3I=$$$Y2hpbkpaUzdiTXpYbzZzWQ==$$$aHR0cDovL2FwaS50dDU4LnR2L2NvbmZpZy9uZXd0di5qc29uP3NzPQ==","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},
 {"key":"XBPQ_fant","name":"🥇饭团","type":3,"api":"csp_Fantuan","filterable":1,"quickSearch":1,"searchable":1,"changeable":1,"ext":"https://www.fantuanhd.com"},
 {"key":"csp_XBPQ_农民影视","name":"🥇糖果","type":3,"api":"csp_XBPQ","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1,"ext":"./EXT/农民影视.json"},
