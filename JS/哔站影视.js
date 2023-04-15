@@ -12,8 +12,8 @@ var rule = {
     headers:{
         'User-Agent':'PC_UA',
         "Referer": "https://www.bilibili.com",
-        "Cookie":"DedeUserID=690781341;DedeUserID__ckMd5=cabc96906269c5b6;SESSDATA=2245ba24%2C1684212125%2C466fd%2Ab2;bili_jct=de6fdb60c10f8a83910aa55d79407b4e"
-        //"Cookie":"DedeUserID=701168335;DedeUserID__ckMd5=7219483457203958;SESSDATA=772c448a%2C1695181918%2C8ab46%2A31;bili_jct=a7fb0ac6258206e8fa84ca951c7bee09"
+        //"Cookie":"DedeUserID=690781341;DedeUserID__ckMd5=cabc96906269c5b6;SESSDATA=2245ba24%2C1684212125%2C466fd%2Ab2;bili_jct=de6fdb60c10f8a83910aa55d79407b4e"
+        "Cookie":"DedeUserID=701168335;DedeUserID__ckMd5=7219483457203958;SESSDATA=772c448a%2C1695181918%2C8ab46%2A31;bili_jct=a7fb0ac6258206e8fa84ca951c7bee09"
         //"Cookie":"DedeUserID=3493083203242585;DedeUserID__ckMd5=7b86f3894ed7f8c0;SESSDATA=2d6f63c8%2C1684568607%2C19eb6%2Ab1;bili_jct=21d538b01566c26afc81ff68c2ac7dca"
     },
     timeout:5000,
