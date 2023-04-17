@@ -1,5 +1,5 @@
 {
-"spider":"https://github.com/c120487/00/blob/main/jar/xc0126.jar?raw=true",
+"spider":"https://ghproxy.com/https://github.com/c120487/00/blob/main/jar/xc0126.jar?raw=true",
 //"spider": "https://ghproxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/jar/custom_spider.jar;md5;130be941d3dc5eace206287935bd5ccd",
 "lives":[{"name":"FongMi","type":0,"url":"https://gh-proxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/txt/adult.txt"},
 {"name":"初秋语","type":0,"url":"./listx.txt"},
@@ -17,9 +17,9 @@
  {"name":"秋雨","server":"https://share.laowang.me","password":"s8;K^h[j<b"}
  ]}},
 
-{"key":"vv001","name":"️💃女優💃","type":4,"api":"https://raw.githubusercontent.com/c120487/00/main/api/00title05151.json","searchable":0,"quickSearch":0,"filterable":0},
-{"key":"vv002","name":"️👠番號👠","type":4,"api":"https://raw.githubusercontent.com/c120487/00/main/api/00title05152.json","searchable":0,"quickSearch":0,"filterable":0},
-{"key":"vv003","name":"️👙主題👙","type":4,"api":"https://raw.githubusercontent.com/c120487/00/main/api/00title05153.json","searchable":0,"quickSearch":0,"filterable":0},
+{"key":"vv001","name":"️💃女優💃","type":4,"api":"https://ghproxy.com/https://raw.githubusercontent.com/c120487/00/main/api/00title05151.json","searchable":0,"quickSearch":0,"filterable":0},
+{"key":"vv002","name":"️👠番號👠","type":4,"api":"https://ghproxy.com/https://raw.githubusercontent.com/c120487/00/main/api/00title05152.json","searchable":0,"quickSearch":0,"filterable":0},
+{"key":"vv003","name":"️👙主題👙","type":4,"api":"https://ghproxy.com/https://raw.githubusercontent.com/c120487/00/main/api/00title05153.json","searchable":0,"quickSearch":0,"filterable":0},
 
 //
 //
