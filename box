@@ -10,17 +10,17 @@
 {"key": "dr_drpy","name": "🎬影视推荐","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","searchable": 0,"changeable": 1,"filterable": 1,"ext": "./JS/豆瓣.js"},
 {"key":"直播","name":"💻电视直播","type":3,"api":"https://agit.ai/Yoursmile7/TVBox/raw/branch/master/js/lib/直播转点播.js","ext":"糖果$./live#肥猫直播$http://我不是.肥猫.love:63/TV/tvzb.txt#饭饭直播$https://agit.ai/fantaiying/fty/raw/branch/master/live.txt"},
 
-//bilibili
-{"key": "dr_drpy_bili","name": "🅱哔站影视","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","searchable": 1,"changeable": 1,"quickSearch": 0,"filterable": 1,"ext": "./JS/哔站影视.js"},
+//Bilibili
+{"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","searchable": 1,"changeable": 1,"quickSearch": 0,"filterable": 1,"ext": "./JS/哔站影视.js"},
 
-//jar 
+//Jar 精选
 {"key":"Kunyu77","name":"🥇酷云(极速)","type":3,"api":"csp_Kunyu77"},
+{"key":"csp_XYQBiu_磁力熊","name":"🐼糖果","type":3,"api":"csp_XYQBiu","ext":"./EXT/磁力熊.json"},
 {"key":"LiteApple","name":"🥇苹果","type":"3","api":"csp_LiteApple"},
-{"key":"csp_XYQBiu_磁力熊","name":"🐼磁力","type":3,"api":"csp_XYQBiu","ext":"./EXT/磁力熊.json"},
 {"key":"Czsapp","name":"🏭厂长","type":"3","api":"csp_Czsapp"},
 {"key":"csp_AppTT","name":"🐰图图","type":3,"api":"csp_AppTT","ext":"dk1YWXFYbkhNbmlsU1JLI01kMFZ0OE1JdzRJQW1yY3I=$$$Y2hpbkpaUzdiTXpYbzZzWQ==$$$aHR0cDovL2FwaS50dDU4LnR2L2NvbmZpZy9uZXd0di5qc29uP3NzPQ==","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},
 {"key":"XBPQ_fant","name":"🥇饭团","type":3,"api":"csp_Fantuan","ext":"https://www.fantuanhd.com"},
-{"key":"csp_XBPQ_农民影视","name":"🥇糖果","type":3,"api":"csp_XBPQ","ext":"./EXT/农民影视.json"},
+{"key":"csp_XBPQ_农民影视","name":"🥇农民","type":3,"api":"csp_XBPQ","ext":"./EXT/农民影视.json"},
 {"key":"快看","name":"👀快看","type":3,"api":"csp_Kuaikan"},
 
 //{"key":"BuLei","name":"⚡布雷","type":3,"api":"csp_BuLei","searchable":1,"quickSearch":1,"filterable":1,"changeable":1},
