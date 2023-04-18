@@ -44,19 +44,11 @@
 {"key":"搜狐资源","name":"🍷搜狐|官","type":1,"api":"http://anltv.cn/api.php/provide/vod/from/sohu/?at/xml/","playUrl":"https://jx.xmflv.com/?url="},
 
 //视听盛宴
-{"key":"DJ音乐","name":"🎵DJ|DR","type":3,"playerType":"2","searchable":0,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/DJ音乐.js"},
 {"key":"种子音乐","name":"🎵种子|DR","type":3,"playerType":"2","searchable":0,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/种子音乐.js"},
 {"key":"蜻蜓FM","name":"🎵蜻蜓|DR","type":3,"playerType":"2","searchable":0,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/蜻蜓FM.js"},
-//{"key":"DJ呦呦音乐网","name":"🎵DJ呦|XH","type":3,"api":"csp_XYQHiker","ext":"./js/DJ呦呦音乐网.json"},
-{"key":"喜马拉雅","name":"📕喜雅|DR","type":3,"playerType":"2","searchable":1,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/喜马拉雅.js"}
-//{"key":"博看听书","name":"📕博看|DR","type":3,"playerType":"2","searchable":0,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/博看听书.js"},
-//{"key":"海洋听书","name":"📕海洋|DR","type":3,"playerType":"2","searchable":0,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/海洋听书.js"},
-//{"key":"有声小说","name":"📕有声|DR","type":3,"playerType":"2","searchable":0,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/有声小说吧.js"},
-//{"key":"幻听网听书","name":"📕幻听|DR","type":3,"playerType":"2","searchable":0,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/幻听网听书.js"},
-//{"key":"酷6网","name":"🈴酷❻网|DR","type":3,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/酷6网.js"},
-//{"key":"网易公版影像","name":"🈴网易影|DR","type":3,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/网易公版影像.js"},
-//{"key":"A8音乐","name":"Ⓜ️A8|DR","type":3,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/A8音乐.js"},
-//{"key":"音悦网","name":"Ⓜ️音悦|DR","type":3,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/音悦网.js"}
+{"key":"DJ呦呦音乐网","name":"🎵DJ呦|XH","type":3,"api":"csp_XYQHiker","ext":"./js/DJ呦呦音乐网.json"},
+{"key":"A8音乐","name":"Ⓜ️A8|DR","type":3,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/A8音乐.js"},
+{"key":"音悦网","name":"Ⓜ️音悦|DR","type":3,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/音悦网.js"}
 ],
     
 "parses": [
