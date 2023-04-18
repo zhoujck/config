@@ -10,10 +10,10 @@
 {"name":"live","type":0,"url":"./live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","ua":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/108.0.0.0Safari/537.36"}],
         
 "sites":[ 
-{"key": "dr_drpy","name": "🎬影视推荐","type": 3,"api": "./lib/drpy2.min.js","searchable": 0,"changeable": 1,"filterable": 1,"ext": "./js/豆瓣.js"},
+{"key": "dr_drpy","name": "🎬影视推荐","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","searchable": 0,"changeable": 1,"filterable": 1,"ext": "./js/豆瓣.js"},
 
 //Bilibili
-{"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./lib/drpy2.min.js","ext": "./js/doc.js"},
+{"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","ext": "./js/doc.js"},
 
 //Jar 精选
 {"key":"Kunyu77","name":"🥇酷云(极速)","type":3,"api":"csp_Kunyu77"},
@@ -50,19 +50,19 @@
 {"key":"直播","name":"💻电视直播","type":3,"api":"./lib/live.js","ext":"./json/liveapi.json"},
 
 //视听盛宴
-//{"key":"DJ音乐","name":"🎵DJ|DR","type":3,"playerType":"2","searchable":0,"api":"./lib/drpy2.min.js","ext":"./js/DJ音乐.js"},
-//{"key":"种子音乐","name":"🎵种子|DR","type":3,"playerType":"2","searchable":0,"api":"./lib/drpy2.min.js","ext":"./js/种子音乐.js"},
-{"key":"蜻蜓FM","name":"🎵蜻蜓|DR","type":3,"playerType":"2","searchable":0,"api":"./lib/drpy2.min.js","ext":"./js/蜻蜓FM.js"},
+//{"key":"DJ音乐","name":"🎵DJ|DR","type":3,"playerType":"2","searchable":0,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/DJ音乐.js"},
+//{"key":"种子音乐","name":"🎵种子|DR","type":3,"playerType":"2","searchable":0,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/种子音乐.js"},
+{"key":"蜻蜓FM","name":"🎵蜻蜓|DR","type":3,"playerType":"2","searchable":0,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/蜻蜓FM.js"},
 //{"key":"DJ呦呦音乐网","name":"🎵DJ呦|XH","type":3,"api":"csp_XYQHiker","ext":"./js/DJ呦呦音乐网.json"},
-{"key":"喜马拉雅","name":"📕喜雅|DR","type":3,"playerType":"2","searchable":0,"api":"./lib/drpy2.min.js","ext":"./js/喜马拉雅.js"}
-//{"key":"博看听书","name":"📕博看|DR","type":3,"playerType":"2","searchable":0,"api":"./lib/drpy2.min.js","ext":"./js/博看听书.js"},
-//{"key":"海洋听书","name":"📕海洋|DR","type":3,"playerType":"2","searchable":0,"api":"./lib/drpy2.min.js","ext":"./js/海洋听书.js"},
-//{"key":"有声小说","name":"📕有声|DR","type":3,"playerType":"2","searchable":0,"api":"./lib/drpy2.min.js","ext":"./js/有声小说吧.js"},
-//{"key":"幻听网听书","name":"📕幻听|DR","type":3,"playerType":"2","searchable":0,"api":"./lib/drpy2.min.js","ext":"./js/幻听网听书.js"},
-//{"key":"酷6网","name":"🈴酷❻网|DR","type":3,"api":"./lib/drpy2.min.js","ext":"./js/酷6网.js"},
-//{"key":"网易公版影像","name":"🈴网易影|DR","type":3,"api":"./lib/drpy2.min.js","ext":"./js/网易公版影像.js"},
-//{"key":"A8音乐","name":"Ⓜ️A8|DR","type":3,"api":"./lib/drpy2.min.js","ext":"./js/A8音乐.js"},
-//{"key":"音悦网","name":"Ⓜ️音悦|DR","type":3,"api":"./lib/drpy2.min.js","ext":"./js/音悦网.js"}
+{"key":"喜马拉雅","name":"📕喜雅|DR","type":3,"playerType":"2","searchable":0,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/喜马拉雅.js"}
+//{"key":"博看听书","name":"📕博看|DR","type":3,"playerType":"2","searchable":0,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/博看听书.js"},
+//{"key":"海洋听书","name":"📕海洋|DR","type":3,"playerType":"2","searchable":0,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/海洋听书.js"},
+//{"key":"有声小说","name":"📕有声|DR","type":3,"playerType":"2","searchable":0,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/有声小说吧.js"},
+//{"key":"幻听网听书","name":"📕幻听|DR","type":3,"playerType":"2","searchable":0,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/幻听网听书.js"},
+//{"key":"酷6网","name":"🈴酷❻网|DR","type":3,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/酷6网.js"},
+//{"key":"网易公版影像","name":"🈴网易影|DR","type":3,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/网易公版影像.js"},
+//{"key":"A8音乐","name":"Ⓜ️A8|DR","type":3,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/A8音乐.js"},
+//{"key":"音悦网","name":"Ⓜ️音悦|DR","type":3,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/音悦网.js"}
 ],
     
 "parses": [
