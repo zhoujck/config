@@ -36,7 +36,7 @@
 {"key":"Yisou","name":"🍃一搜┃4K","type":3,"api":"csp_YiSo","ext":"./ext/alitoken"},    
 {"key":"Upyunso","name":"🍃云搜┃4K","type":3,"api":"csp_UpYun","ext":"./ext/alitoken"},
 {"key":"Alips","name":"🍃盘搜┃4K","type":3,"api":"csp_PanSou","ext":"./ext/alitoken"},
-{"key":"直播","name":"💻电视直播","type":3,"api":"./lib/Live.js","ext":"./json/liveapi.json"}
+{"key":"直播","name":"💻电视直播","type":3,"api":"./lib/live.js","ext":"./json/liveapi.json"}
 ],
     
 "parses": [
