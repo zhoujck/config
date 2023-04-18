@@ -12,7 +12,7 @@ var rule = {
     headers:{
         'User-Agent':'PC_UA',
         "Referer": "https://www.bilibili.com",
-        "Cookie":"https://framagit.org/zhoujck/config/-/raw/master/ext/cookie"
+        "Cookie":"DedeUserID=701168335;DedeUserID__ckMd5=7219483457203958;SESSDATA=772c448a%2C1695181918%2C8ab46%2A31;bili_jct=a7fb0ac6258206e8fa84ca951c7bee09;"
     },
     timeout:5000,
     class_name:'历史&人文&宇宙&自然&动物&科技&美食&探险',
