@@ -2,7 +2,7 @@
   "spider": "https://ghproxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/jar/custom_spider.jar;md5;b6ec08b3b229db2be16b5975104b7e56",
   "wallpaper": "",
   "sites": [
-    {"key":"直播","name":"💻电视直播","type":3,"api":"https://framagit.org/zhoujck/config/-/raw/master/lib/live.js","ext":"./json/live18"}
+    {"key":"直播","name":"💻电视直播","type":3,"api":"https://framagit.org/zhoujck/config/-/raw/master/lib/live.js","ext":"./json/live18"},
     {
       "key": "泥巴",
       "name": "泥巴",
