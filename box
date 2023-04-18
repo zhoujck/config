@@ -7,7 +7,7 @@
 "lives":[{"name":"live","type":0,"url":"./live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}"}],
         
 "sites":[ 
-{"key": "dr_drpy","name": "🎬影视推荐","type": 3,"api": "./JS/drpy2.min.js","searchable": 0,"changeable": 1,"filterable": 1,"ext": "./JS/豆瓣.js"},
+{"key": "dr_drpy","name": "🎬影视推荐","type": 3,"api": "https://framagit.org/zhoujck/config/-/raw/master/JS/drpy2.min.js","searchable": 0,"changeable": 1,"filterable": 1,"ext": "./JS/豆瓣.js"},
 
 //Bilibili
 {"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./JS/drpy2.min.js","ext": "./JS/哔站纪录片.js"},
