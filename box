@@ -1,5 +1,7 @@
 {  
-"spider":"https://agit.ai/Yoursmile7/TVBox/raw/branch/master/Yoursmile.jar;md5;613066B0150C902B3D51BDE7A433BE83",
+//"spider":"https://agit.ai/Yoursmile7/TVBox/raw/branch/master/Yoursmile.jar;md5;613066B0150C902B3D51BDE7A433BE83",
+"spider":"./jar/Yoursmile.jar",
+
 "wallpaper": "https://yydsys.top/bg.php",
 
 "daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20",
