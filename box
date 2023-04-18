@@ -52,7 +52,7 @@
 //视听盛宴
 {"key":"DJ音乐","name":"🎵DJ|DR","type":3,"playerType":"2","searchable":0,"api":"./lib/drpy2.min.js","ext":"./js/DJ音乐.js"},
 {"key":"种子音乐","name":"🎵种子|DR","type":3,"playerType":"2","searchable":0,"api":"./lib/drpy2.min.js","ext":"./js/种子音乐.js"},
-{"key":"蜻蜓FM","name":"🎵蜻蜓|DR","type":3,"playerType":"2","searchable":0,"api":"../lib/drpy2.min.js","ext":"./js/蜻蜓FM.js"},
+{"key":"蜻蜓FM","name":"🎵蜻蜓|DR","type":3,"playerType":"2","searchable":0,"api":"./lib/drpy2.min.js","ext":"./js/蜻蜓FM.js"},
 {"key":"DJ呦呦音乐网","name":"🎵DJ呦|XH","type":3,"api":"csp_XYQHiker","ext":"./js/DJ呦呦音乐网.json"},
 {"key":"喜马拉雅","name":"📕喜雅|DR","type":3,"playerType":"2","searchable":0,"api":"./lib/drpy2.min.js","ext":"./js/喜马拉雅.js"},
 {"key":"博看听书","name":"📕博看|DR","type":3,"playerType":"2","searchable":0,"api":"./lib/drpy2.min.js","ext":"./js/博看听书.js"},
