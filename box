@@ -7,10 +7,10 @@
 "lives":[{"name":"live","type":0,"url":"./live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}"}],
         
 "sites":[ 
-{"key": "dr_drpy","name": "🎬影视推荐","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","searchable": 0,"changeable": 1,"filterable": 1,"ext": "./JS/豆瓣.js"},
+{"key": "dr_drpy","name": "🎬影视推荐","type": 3,"api": "./JS/drpy2.min.js","searchable": 0,"changeable": 1,"filterable": 1,"ext": "./JS/豆瓣.js"},
 
 //Bilibili
-{"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","searchable": 1,"changeable": 1,"quickSearch": 0,"filterable": 1,"ext": "./JS/哔站纪录片.js"},
+{"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./JS/drpy2.min.js","ext": "./JS/哔站纪录片.js"},
 
 //Jar 精选
 {"key":"Kunyu77","name":"🥇酷云(极速)","type":3,"api":"csp_Kunyu77"},
@@ -32,11 +32,11 @@
 
 //云盘
 {"key":"csp_AList","name":"🍃AList┃4K","type":3,"api":"csp_AList","searchable": 1,"quickSearch": 0,"filterable": 1,"changeable":0,"ext":"./EXT/Alist"},
-{"key":"Gitcafe","name":"🍃纸条┃4K","type":3,"api":"csp_Paper","ext":"./ext/Token"},
-{"key":"Yisou","name":"🍃一搜┃4K","type":3,"api":"csp_YiSo","ext":"./ext/Token"},    
-{"key":"Upyunso","name":"🍃云搜┃4K","type":3,"api":"csp_UpYun","ext":"./ext/Token"},
-{"key":"Alips","name":"🍃盘搜┃4K","type":3,"api":"csp_PanSou","ext":"./ext/Token"},
-{"key":"直播","name":"💻电视直播","type":3,"api":"https://agit.ai/Yoursmile7/TVBox/raw/branch/master/js/lib/直播转点播.js","ext":"糖果$./live#肥猫直播$http://我不是.肥猫.love:63/TV/tvzb.txt#饭饭直播$https://agit.ai/fantaiying/fty/raw/branch/master/live.txt"}
+{"key":"Gitcafe","name":"🍃纸条┃4K","type":3,"api":"csp_Paper","ext":"./EXT/Token"},
+{"key":"Yisou","name":"🍃一搜┃4K","type":3,"api":"csp_YiSo","ext":"./EXT/Token"},    
+{"key":"Upyunso","name":"🍃云搜┃4K","type":3,"api":"csp_UpYun","ext":"./EXT/Token"},
+{"key":"Alips","name":"🍃盘搜┃4K","type":3,"api":"csp_PanSou","ext":"./EXT/Token"},
+{"key":"直播","name":"💻电视直播","type":3,"api":"./JS/Live.js","ext":"./Json/Liveapi.json"}
 ],
     
 "parses": [
