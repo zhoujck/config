@@ -7,10 +7,10 @@
 "lives":[{"name":"live","type":0,"url":"./live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}"}],
         
 "sites":[ 
-{"key": "dr_drpy","name": "🎬影视推荐","type": 3,"api": "./Libs/drpy2.min.js","searchable": 0,"changeable": 1,"filterable": 1,"ext": "./JS/豆瓣.js"},
+{"key": "dr_drpy","name": "🎬影视推荐","type": 3,"api": "./lib/drpy2.min.js","searchable": 0,"changeable": 1,"filterable": 1,"ext": "./JS/豆瓣.js"},
 
 //Bilibili
-{"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./JS/drpy2.min.js","ext": "./JS/哔站纪录片.js"},
+{"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./lib/drpy2.min.js","ext": "./JS/哔站纪录片.js"},
 
 //Jar 精选
 {"key":"Kunyu77","name":"🥇酷云(极速)","type":3,"api":"csp_Kunyu77"},
@@ -36,7 +36,7 @@
 {"key":"Yisou","name":"🍃一搜┃4K","type":3,"api":"csp_YiSo","ext":"./EXT/Token"},    
 {"key":"Upyunso","name":"🍃云搜┃4K","type":3,"api":"csp_UpYun","ext":"./EXT/Token"},
 {"key":"Alips","name":"🍃盘搜┃4K","type":3,"api":"csp_PanSou","ext":"./EXT/Token"},
-{"key":"直播","name":"💻电视直播","type":3,"api":"./JS/Live.js","ext":"./Json/Liveapi.json"}
+{"key":"直播","name":"💻电视直播","type":3,"api":"./lib/Live.js","ext":"./Json/Liveapi.json"}
 ],
     
 "parses": [
