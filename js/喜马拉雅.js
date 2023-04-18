@@ -5,7 +5,7 @@ var rule = {
     url: '/revision/metadata/v2/channel/albums?pageNum=fypage&pageSize=50&sort=1&metadata=&groupId=fyclass',
     detailUrl: '/revision/album/v1/getTracksList?albumId=fyid',//二级详情拼接链接(json格式用)
     searchUrl: '/revision/search/main?core=album&kw=**&page=fypage&spellchecker=true&rows=20&condition=relation&device=iPhone&fq=&paidFilter=false',
-    searchable: 2,
+    searchable: 1,
     quickSearch: 0,
     headers: {
         'User-Agent': 'PC_UA'
