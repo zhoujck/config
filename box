@@ -44,7 +44,7 @@
 
 //视听盛宴
 {"key":"直播","name":"💻电视直播","type":3,"api":"./lib/live.js","ext":"./json/liveapi.json"},
-{"key":"蜻蜓FM","name":"🎵蜻蜓|DR","type":3,"playerType":"2","searchable":0,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/蜻蜓FM.js"}
+{"key":"蜻蜓FM","name":"🎵蜻蜓FM","type":3,"playerType":"2","searchable":0,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/蜻蜓FM.js"}
 ],
     
 "parses": [
