@@ -20,11 +20,9 @@
 {"key":"csp_XYQBiu_磁力熊","name":"🍬糖果","type":3,"api":"csp_XYQBiu","ext":"./ext/磁力熊.json"},
 {"key":"Kunyu77","name":"🥇酷云(极速)","type":3,"api":"csp_Kunyu77"},
 
-{"key":"☪夕|✿晨","name":"☪夕|✿晨","type": 1,"playerType":2,"api":"http://calekr.eu.org/api.php/provide/vod/?ac=list"},
 {"key":"LiteApple","name":"🥇苹果","type":"3","api":"csp_LiteApple"},
-//{"key":"Czsapp","name":"🏭厂长","type":"3","api":"csp_Czsapp"},
-{"key":"Tutu_spider","name":"🗺️图图|ZhL","api":"csp_AppTT","type":3,"changeable":1,"ext":"tv$$$dlJYWXFYbkgqbmlsU1JLIyNkMFZ0OE1JdzRJQW1yY3I=$$$Y2hpbkpaUzdiKnpYbzZzWQ==$$$aHR0cDovL2FwaS50dDU4LnR2L2NvbmZpZy9uZXd0di5qc29uP3NzPQ=="},
-//{"key":"csp_AppTT","name":"🐰图图","type":3,"api":"csp_AppTT","ext":"dk1YWXFYbkhNbmlsU1JLI01kMFZ0OE1JdzRJQW1yY3I=$$$Y2hpbkpaUzdiTXpYbzZzWQ==$$$aHR0cDovL2FwaS50dDU4LnR2L2NvbmZpZy9uZXd0di5qc29uP3NzPQ==","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},
+{"key":"Czsapp","name":"🏭厂长","type":"3","api":"csp_Czsapp"},
+{"key":"csp_AppTT","name":"🐰图图","type":3,"api":"csp_AppTT","ext":"dk1YWXFYbkhNbmlsU1JLI01kMFZ0OE1JdzRJQW1yY3I=$$$Y2hpbkpaUzdiTXpYbzZzWQ==$$$aHR0cDovL2FwaS50dDU4LnR2L2NvbmZpZy9uZXd0di5qc29uP3NzPQ==","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},
 {"key":"XBPQ_fant","name":"🥇饭团","type":3,"api":"csp_Fantuan","ext":"https://www.fantuanhd.com"},
 {"key":"csp_XBPQ_农民影视","name":"🥇农民","type":3,"api":"csp_XBPQ","ext":"./ext/农民影视.json"},
 {"key":"快看","name":"👀快看","type":3,"api":"csp_Kuaikan"},
