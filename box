@@ -10,34 +10,35 @@
 {"name":"🍬糖果","type":0,"url":"./live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","ua":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/108.0.0.0Safari/537.36"},
 {"name":"☪夕晨","type":0,"url":"http://calendre.top/TVBox/lives/live.txt","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","ua":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/108.0.0.0Safari/537.36"}
 ],
-        
+
+//playerType：播放器  (1：IJK、2：EXO)       
 "sites":[ 
 {"key": "dr_drpy","name": "🎬影视推荐","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","searchable": 0,"changeable": 1,"filterable": 1,"ext": "./js/豆瓣.js"},
 
 //Bilibili
-{"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","ext": "./js/doc.js"},
+{"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"playerType":2,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","ext": "./js/doc.js"},
 {"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"filterable":1,"ext":"./ext/bilibili.json"},
 
 //Jar 精选
-{"key":"csp_XYQBiu_磁力熊","name":"🍬糖果","type":3,"api":"csp_XYQBiu","ext":"./ext/磁力熊.json"},
-{"key":"Kunyu77","name":"🥇酷云(极速)","type":3,"api":"csp_Kunyu77"},
+{"key":"csp_XYQBiu_磁力熊","name":"🍬糖果","type":3,"playerType":2,"api":"csp_XYQBiu","ext":"./ext/磁力熊.json"},
+{"key":"Kunyu77","name":"🥇酷云(极速)","type":3,"playerType":2,"api":"csp_Kunyu77"},
 
-{"key":"LiteApple","name":"🥇苹果","type":"3","api":"csp_LiteApple"},
-{"key":"Czsapp","name":"🏭厂长","type":"3","api":"csp_Czsapp"},
-{"key":"csp_AppTT","name":"🐰图图","type":3,"api":"csp_AppTT","ext":"dk1YWXFYbkhNbmlsU1JLI01kMFZ0OE1JdzRJQW1yY3I=$$$Y2hpbkpaUzdiTXpYbzZzWQ==$$$aHR0cDovL2FwaS50dDU4LnR2L2NvbmZpZy9uZXd0di5qc29uP3NzPQ==","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},
-{"key":"XBPQ_fant","name":"🥇饭团","type":3,"api":"csp_Fantuan","ext":"https://www.fantuanhd.com"},
-{"key":"csp_XBPQ_农民影视","name":"🥇农民","type":3,"api":"csp_XBPQ","ext":"./ext/农民影视.json"},
-{"key":"快看","name":"👀快看","type":3,"api":"csp_Kuaikan"},
+{"key":"LiteApple","name":"🥇苹果","type":"3","playerType":1,"api":"csp_LiteApple"},
+{"key":"Czsapp","name":"🏭厂长","type":"3","playerType":2,"api":"csp_Czsapp"},
+{"key":"csp_AppTT","name":"🐰图图","type":3,"playerType":2,"api":"csp_AppTT","ext":"dk1YWXFYbkhNbmlsU1JLI01kMFZ0OE1JdzRJQW1yY3I=$$$Y2hpbkpaUzdiTXpYbzZzWQ==$$$aHR0cDovL2FwaS50dDU4LnR2L2NvbmZpZy9uZXd0di5qc29uP3NzPQ==","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},
+{"key":"XBPQ_fant","name":"🥇饭团","type":3,"playerType":2,"api":"csp_Fantuan","ext":"https://www.fantuanhd.com"},
+{"key":"csp_XBPQ_农民影视","name":"🥇农民","type":3,"playerType":2,"api":"csp_XBPQ","ext":"./ext/农民影视.json"},
+{"key":"快看","name":"👀快看","type":3,"playerType":2,"api":"csp_Kuaikan"},
 
 {"key":"Dm84","name":"🥇动漫巴士","type":"3","api":"csp_Dm84","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},
 {"key": "csp_Ying","name": "🥇樱花动漫","type": 3,"api": "csp_Ying","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},
 
 //云盘
-{"key":"csp_AList","name":"🍃AList┃4K","type":3,"api":"csp_AList","searchable": 1,"quickSearch": 0,"filterable": 1,"changeable":0,"ext":"./ext/alist.json"},
-{"key":"Gitcafe","name":"🍃纸条┃4K","type":3,"api":"csp_Paper","ext":"./ext/alitoken"},
-{"key":"Yisou","name":"🍃一搜┃4K","type":3,"api":"csp_YiSo","ext":"./ext/alitoken"},    
-{"key":"Upyunso","name":"🍃云搜┃4K","type":3,"api":"csp_UpYun","ext":"./ext/alitoken"},
-{"key":"Alips","name":"🍃盘搜┃4K","type":3,"api":"csp_PanSou","ext":"./ext/alitoken"},
+{"key":"csp_AList","name":"🍃AList┃4K","type":3,"playerType":2,"api":"csp_AList","searchable": 1,"quickSearch": 0,"filterable": 1,"changeable":0,"ext":"./ext/alist.json"},
+{"key":"Gitcafe","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","ext":"./ext/alitoken"},
+{"key":"Yisou","name":"🍃一搜┃4K","type":3,"playerType":1,"api":"csp_YiSo","ext":"./ext/alitoken"},    
+{"key":"Upyunso","name":"🍃云搜┃4K","type":3,"playerType":1,"api":"csp_UpYun","ext":"./ext/alitoken"},
+{"key":"Alips","name":"🍃盘搜┃4K","type":3,"playerType":1,"api":"csp_PanSou","ext":"./ext/alitoken"},
 
 //视听
 {"key":"直播","name":"💻电视直播","type":3,"api":"./lib/live.js","ext":"./json/liveapi.json"},
@@ -113,3 +114,5 @@
 "ads":["wan.51img1.com","iqiyi.hbuioo.com","vip.ffzyad.com","https://lf1-cdn-tos.bytegoofy.com/obj/tos-cn-i-dy/455ccf9e8ae744378118e4bd289288dd"]
   
 } 
+
+
