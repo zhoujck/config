@@ -1,6 +1,6 @@
 {  
-//"spider":"https://agit.ai/Yoursmile7/TVBox/raw/branch/master/Yoursmile.jar;md5;613066B0150C902B3D51BDE7A433BE83",
-"spider":"./jar/Yoursmile.jar",
+"spider":"http://我不是.肥猫.love:63/Jar/panda230422.jar;md5;5E5DEB59AEE747D99B4885E26DFEBBFA"
+//"spider":"./jar/Yoursmile.jar",
 
 "wallpaper": "https://yydsys.top/bg.php",
 
@@ -41,7 +41,7 @@
 {"key":"Alips","name":"🍃盘搜┃4K","type":3,"playerType":1,"api":"csp_PanSou","ext":"./ext/alitoken"},
 
 //视听
-{"key":"直播","name":"💻电视直播","type":3,"api":"./lib/live.js","ext":"./json/liveapi.json"},
+{"key":"直播","name":"💻电视直播","type":3,"api":"http://我不是.肥猫.love:63/JS/直播转点播2.js","ext":"./json/liveapi.json"},
 {"key":"蜻蜓FM","name":"🎵蜻蜓FM","type":3,"playerType":"2","searchable":0,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/蜻蜓FM.js"}
 ],
     
