@@ -21,7 +21,7 @@
 
 //Jar 精选
 {"key":"Kunyu77","name":"☁️酷云(极速)","type":3,"playerType":2,"api":"csp_Kunyu77"},
-{"key":"csp_XYQBiu_磁力熊","name":"🐻熊熊","type":3,"playerType":2,"api":"csp_XYQBiu","ext":"./ext/磁力熊.json"},
+{"key":"csp_XYQBiu_磁力熊","name":"🍬糖果🍬","type":3,"playerType":2,"api":"csp_XYQBiu","ext":"./ext/磁力熊.json"},
 {"key":"LiteApple","name":"🍎苹果","type":"3","playerType":1,"api":"csp_LiteApple"},
 {"key":"Czsapp","name":"🏭厂长","type":"3","playerType":2,"api":"csp_Czsapp"},
 {"key":"csp_AppTT","name":"🐰图图","type":3,"playerType":2,"api":"csp_AppTT","ext":"dk1YWXFYbkhNbmlsU1JLI01kMFZ0OE1JdzRJQW1yY3I=$$$Y2hpbkpaUzdiTXpYbzZzWQ==$$$aHR0cDovL2FwaS50dDU4LnR2L2NvbmZpZy9uZXd0di5qc29uP3NzPQ==","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},
@@ -29,7 +29,7 @@
 {"key":"csp_XBPQ_农民影视","name":"👨‍🌾农民","type":3,"playerType":2,"api":"csp_XBPQ","ext":"./ext/农民影视.json"},
 {"key":"快看","name":"👀快看","type":3,"playerType":2,"api":"csp_Kuaikan"},
 {"key":"csp_Ikan","name":"爱看影视","type":3,"api":"csp_xBPQ","playerType":2,"searchable":1,"quickSearch":1,"filterable":1,"ext":"https://framagit.org/00700/tvbox/-/raw/main/xBPQ/ikan.json"},
-{"key":"csp_Voflix","name":"🍬糖果🍬","type":3,"api":"csp_Voflix"},
+{"key":"csp_Voflix","name":"Voflix","type":3,"api":"csp_Voflix"},
 {"key":"csp_Auete","name":"奥特影视","type":3,"api":"csp_Auete"},
 {"key":"Dm84","name":"🚌动漫巴士","type":"3","api":"csp_Dm84","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},
 {"key": "csp_Ying","name": "🌸樱花动漫","type": 3,"api": "csp_Ying","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},
