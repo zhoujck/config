@@ -13,9 +13,8 @@
 
 //playerType：播放器  (1：IJK、2：EXO)       
 "sites":[ 
-{"key": "dr_drpy","name": "🎬影视推荐","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","searchable": 0,"changeable": 1,"filterable": 1,"ext": "./js/豆瓣.js"},
-{"key": "dr_drpy_2","name": "🎬影视推荐2","type": 3,"api":"./js/drpy2.min.js","ext": "./js/豆瓣.js"},
-{"key":"drpy_js_豆瓣","name":"搜索|豆瓣[js]","type":3,"api":"./lib/drpy2.min.js","ext":"./js/豆瓣.js"},
+{"key": "dr_drpy","name": "🎬影视推荐","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","ext": "./js/豆瓣.js"},
+
 //Bilibili
 {"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"playerType":2,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","ext": "./js/doc.js"},
 {"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"filterable":1,"ext":"./ext/bilibili.json"},
