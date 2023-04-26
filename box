@@ -28,9 +28,7 @@
 {"key":"XBPQ_fant","name":"🍙饭团","type":3,"playerType":2,"api":"csp_Fantuan","ext":"https://www.fantuanhd.com"},
 {"key":"csp_XBPQ_农民影视","name":"👨‍🌾农民","type":3,"playerType":2,"api":"csp_XBPQ","ext":"./ext/农民影视.json"},
 {"key":"快看","name":"👀快看","type":3,"playerType":2,"api":"csp_Kuaikan"},
-{"key":"csp_Ikan","name":"爱看影视","type":3,"api":"csp_xBPQ","playerType":2,"searchable":1,"quickSearch":1,"filterable":1,"ext":"https://framagit.org/00700/tvbox/-/raw/main/xBPQ/ikan.json"},
-{"key":"csp_Voflix","name":"Voflix","type":3,"api":"csp_Voflix"},
-{"key":"csp_Auete","name":"奥特影视","type":3,"api":"csp_Auete"},
+{"key":"csp_Voflix","name":"✌️Voflix","type":3,"api":"csp_Voflix"},
 {"key":"Dm84","name":"🚌动漫巴士","type":"3","api":"csp_Dm84","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},
 {"key": "csp_Ying","name": "🌸樱花动漫","type": 3,"api": "csp_Ying","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},
 
