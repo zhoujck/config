@@ -15,10 +15,6 @@
 "sites":[ 
 {"key": "dr_drpy","name": "📽️影视推荐","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","ext": "./js/豆瓣.js"},
 
-//Bilibili
-{"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","ext": "./js/doc.js"},
-{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"filterable":1,"ext":"./ext/bilibili.json"},
-
 //Jar 精选
 {"key":"Kunyu77","name":"☁️酷云(极速)","type":3,"api":"csp_Kunyu77"},
 //{"key":"csp_XYQBiu_磁力熊","name":"🍬糖果🍬","type":3,"api":"csp_XYQBiu","ext":"./ext/磁力熊.json"},
@@ -28,15 +24,16 @@
 {"key":"XBPQ_fant","name":"🍙饭团","type":3,"api":"csp_Fantuan","ext":"https://www.fantuanhd.com"},
 {"key":"csp_XBPQ_农民影视","name":"👨‍🌾农民","type":3,"api":"csp_XBPQ","ext":"./ext/农民影视.json"},
 {"key":"快看","name":"👀快看","type":3,"api":"csp_Kuaikan"},
-{"key":"csp_Cokemv","name":"影视┃可乐影视","type":3,"api":"csp_Cokemv","playerType":2,"searchable":1,"filterable":1,"changeable":1},
-{"key":"csp_Xinsj","name":"影视┃新视觉源","type":3,"api":"csp_Xinsj","playerType":2,"searchable":1,"filterable":1,"changeable":1,"ext":"https://www.6080dy3.com"},
-{"key":"csp_zxzjH3","name":"影视┃在线之家","type":3,"api":"csp_ZxzjH3","playerType":2,"searchable":1,"filterable":1,"changeable":1,"ext":"https://www.zxzjhd.com"},
-{"key":"csp_Lib","name":"影视┃利奥影视","type":3,"api":"csp_Libvio","playerType":2,"searchable":1,"filterable":1,"changeable":1,"ext":"https://tv.libvio.cc/"},
-{"key":"csp_Voflix","name":"影视┃沃利克斯","type":3,"api":"csp_XBPQ","playerType":2,"searchable":1,"filterable":1,"changeable":1,"ext":"https://framagit.org/00700/tvbox/-/raw/main/xBPQ/voflix.json"},
-{"key":"csp_Rebozj","name":"影视┃热播之家","type":3,"api":"csp_XBPQ","playerType":2,"searchable":1,"filterable":1,"changeable":1,"ext":"https://rebozj.pro/show/{cateId}--------{catePg}---.html"},
-
+{"key":"csp_Cokemv","name":"🍹可乐","type":3,"api":"csp_Cokemv","playerType":2,"searchable":1,"filterable":1,"changeable":1},
+{"key":"360","name":"💘360影视","type":3,"api":"csp_SP33"},
+{"key":"csp_Lib","name":"✨利奥","type":3,"api":"csp_Libvio","playerType":2,"searchable":1,"filterable":1,"changeable":1,"ext":"https://tv.libvio.cc/"},
+{"key":"csp_Voflix","name":"🌀Voflix","type":3,"api":"csp_XBPQ","playerType":2,"searchable":1,"filterable":1,"changeable":1,"ext":"https://framagit.org/00700/tvbox/-/raw/main/xBPQ/voflix.json"},
 {"key":"Dm84","name":"🚌动漫巴士","type":"3","api":"csp_Dm84","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},
 {"key": "csp_Ying","name": "🌸樱花动漫","type": 3,"api": "csp_Ying","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable":1},
+
+//Bilibili
+{"key": "dr_drpy_bili","name": "🅱哔站纪录片","searchable":0,"type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","ext": "./js/doc.js"},
+{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"filterable":1,"ext":"./ext/bilibili.json"},
 
 //云盘
 {"key":"csp_AList","name":"🍃AList┃4K","type":3,"api":"csp_AList","searchable": 1,"quickSearch": 0,"filterable": 1,"changeable":0,"ext":"./ext/alist.json"},
