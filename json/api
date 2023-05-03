@@ -5,8 +5,12 @@
             "name": "🍬糖果影视"
         }, 
         {
+            "url": "https://raw.iqiq.io/zhoujck/config/master/box",
+            "name": "🍬糖果影视(git)"
+        },       
+        {
             "url": "https://agit.ai/abkier/TVBoxSE/src/branch/master/FongMi.json",
-            "name": "🍬se"
+            "name": "📱网络〔se〕"
         }, 
         {
             "url": "https://agit.ai/straydx/TVboxo/raw/branch/main/Text/18.json",
@@ -24,10 +28,7 @@
             "url": "http://饭太硬.ga/tv",
             "name": "📱网络〔饭太硬〕"
         },
-        {
-            "url": "https://yydsys.top/duo",
-            "name": "📱网络〔多多〕"
-        }, 
+
         {
             "url": "http://我不是.肥猫.love:63/接口禁止贩卖",
             "name": "📱网络〔肥猫〕"
