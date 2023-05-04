@@ -15,12 +15,16 @@
 "sites":[ 
 {"key": "dr_drpy","name": "📽️影视推荐","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","ext": "./js/豆瓣.js"},
 
+//Bilibili
+{"key": "dr_drpy_bili","name": "🅱哔站纪录片","searchable":0,"type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","ext": "./js/doc.js"},
+{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"filterable":1,"ext":"./ext/bilibili.json"},
+
 //Jar 精选
 {"key":"Kunyu77","name":"☁️酷云(极速)","type":3,"api":"csp_Kunyu77"},
 {"key":"LiteApple","name":"🍎苹果","type":"3","playerType":1,"api":"csp_LiteApple"},
 {"key":"Czsapp","name":"🏭厂长","type":"3","api":"csp_Czsapp"},
 //{"key":"csp_AppTT","name":"🐰图图","type":3,"api":"csp_AppTT","searchable":1,"filterable":1,"changeable":1,"ext":"dldYWXFObkhNTWlsV1pMdFNSSyN0ME1JdzVJQVJyY3I=$$$Q2hpbko5UzdvNnNZbU1WTQ==$$$aHR0cDovL2FwaS50dDU4LnR2L2NvbmZpZy9uZXd0di5qc29uP3NzPQ=="},
-{"key":"XBPQ_fant","name":"🍙饭团","type":3,"api":"csp_Fantuan","searchable":1,"filterable":1,"changeable":1,"ext":"https://www.fantuanhd.com"},
+{"key":"dr_饭团影视","name":"🍙饭团","type":3,"api":"./lib/drpy2.min.js","ext":"./js/饭团影视.js"},
 {"key":"csp_XBPQ_农民影视","name":"👨‍🌾农民","type":3,"api":"csp_XBPQ","ext":"./ext/农民影视.json"},
 {"key":"快看","name":"👀快看","type":3,"api":"csp_Kuaikan"},
 {"key":"csp_Cokemv","name":"🍹可乐","type":3,"api":"csp_Cokemv","searchable":1,"filterable":1,"changeable":1},
@@ -31,9 +35,6 @@
 {"key":"Dm84","name":"🚌动漫巴士","type":"3","api":"csp_Dm84","searchable": 1,"filterable": 1,"changeable":1},
 {"key": "csp_Ying","name": "🌸樱花动漫","type": 3,"api": "csp_Ying","searchable": 1,"filterable": 1,"changeable":1},
 
-//Bilibili
-{"key": "dr_drpy_bili","name": "🅱哔站纪录片","searchable":0,"type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","ext": "./js/doc.js"},
-{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"filterable":1,"ext":"./ext/bilibili.json"},
 
 //云盘
 {"key":"csp_AList","name":"🍃AList┃4K","type":3,"api":"csp_AList","searchable": 1,"quickSearch": 0,"filterable": 1,"changeable":0,"ext":"./ext/alist.json"},
