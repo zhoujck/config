@@ -1,5 +1,5 @@
 {
-"spider":""spider": "https://raw.iqiq.io/FongMi/CatVodSpider/main/jar/custom_spider.jar;md5;e276d142b10b9f2c2971664d0b9dc9a3",",
+"spider":""spider": "https://raw.iqiq.io/FongMi/CatVodSpider/main/jar/custom_spider.jar;md5;e276d142b10b9f2c2971664d0b9dc9a3",
 "lives":[{"group":"redirect","channels":[{"name":"redirect","urls":["proxy://do=live&type=txt&ext=aHR0cHM6Ly9yYXcuaXFpcS5pby96aGFuZ2hvbmcxOTgzL1RWQk9YWlkvbWFpbi9UVi9saXZlLnR4dA=="]}]}],
 "wallpaper":"http://maoyingshi.cc/api.php",
 
