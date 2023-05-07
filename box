@@ -18,7 +18,7 @@
 
 //Bilibili
 {"key": "dr_drpy_bili","name": "🅱哔站纪录片","searchable":1,"type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","ext": "./js/doc.js"},
-{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"filterable":1,"ext":"./ext/bilibili.json"},
+{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":1,"changeable":0,"filterable":1,"ext":"./ext/bilibili.json"},
 
 //视听
 {"key":"直播","name":"📺电视直播","type":3,"api":"http://我不是.肥猫.love:63/JS/直播转点播2.js","ext":"./json/liveapi.json"},
