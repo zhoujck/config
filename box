@@ -33,7 +33,6 @@
 {"key":"dr_饭团影视","name":"🍙饭团","type":3,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/饭团影视.js"},
 {"key":"csp_XBPQ_农民影视","name":"👨‍🌾农民","type":3,"api":"csp_XBPQ","ext":"./ext/农民影视.json"},
 {"key":"快看","name":"👀快看","type":3,"api":"csp_Kuaikan"},
-{"key":"csp_fantuan","name":"饭团┃直连","type":3,"api":"csp_Fantuan","searchable":1,"quickSearch":1,"filterable":1,"ext":"https://www.fantuanhd.com"},
 {"key":"csp_Cokemv","name":"🍹可乐","type":3,"api":"csp_Cokemv","searchable":1,"filterable":1,"changeable":1},
 {"key":"360","name":"💘360影视","type":3,"api":"csp_SP33"},
 {"key":"csp_XYQBiu_磁力熊","name":"🐼磁力熊","type":3,"api":"csp_XYQBiu","ext":"./ext/磁力熊.json"},
