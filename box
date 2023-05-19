@@ -14,7 +14,7 @@
 
 //playerType：播放器  (1：IJK、2：EXO)       
 "sites":[ 
-{"key": "dr_drpy","name": "📽️影视推荐","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","ext": "./js/豆瓣.js"},
+{"key": "dr_drpy","name": "📽️糖果影视","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","ext": "./js/豆瓣.js"},
 
 //Bilibili
 {"key": "dr_drpy_bili","name": "🅱哔站纪录片","searchable":1,"type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","ext": "./js/doc.js"},
