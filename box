@@ -18,7 +18,7 @@
 
 //Bilibili
 {"key": "dr_drpy_bili","name": "🅱哔站纪录片","searchable":1,"type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","ext": "./js/doc.js"},
-{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":1,"changeable":0,"filterable":1,"ext":"./ext/bilibili.json"},
+{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
 
 //视听
 //{"key":"直播","name":"📺电视直播","type":3,"api":"http://我不是.肥猫.love:63/JS/直播转点播2.js","ext":"./json/liveapi.json"},
@@ -46,7 +46,7 @@
 {"key": "csp_Ying","name": "🌸樱花动漫","type": 3,"api": "csp_Ying","searchable": 1,"filterable": 1,"changeable":1},
 
 //云盘
-{"key":"csp_AList","name":"🍃AList┃4K","type":3,"api":"csp_AList","searchable": 1,"quickSearch": 0,"filterable": 1,"changeable":0,"ext":"./ext/alist.json"},
+{"key":"csp_AList","name":"🍃AList┃4K","type":3,"api":"csp_AList","searchable": 0,"quickSearch": 0,"filterable": 1,"changeable":0,"ext":"./ext/alist.json"},
 {"key":"Gitcafe","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","ext":"./ext/alitoken"},
 {"key":"Yisou","name":"🍃一搜┃4K","type":3,"playerType":1,"api":"csp_YiSo","ext":"./ext/alitoken"},    
 {"key":"Upyunso","name":"🍃云搜┃4K","type":3,"playerType":1,"api":"csp_UpYun","ext":"./ext/alitoken"},
