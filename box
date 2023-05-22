@@ -1,7 +1,7 @@
 {  
 //"spider":"http://我不是.肥猫.love:63/Jar/pandaQ230505.jar;md5;2E66E687653E42A40A391C1EE105C137",
-"spider":"https://agit.ai/00700/vvebo/raw/branch/main/Spider/T00700.jar;md5;F4C4D1A6A37B2531F4298B8060405BE3",
-//"spider": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/Yoursmile.jar;md5;E8FE5D2C9D119879E383A85DF8FFD027",
+//"spider":"https://agit.ai/00700/vvebo/raw/branch/main/Spider/T00700.jar;md5;F4C4D1A6A37B2531F4298B8060405BE3",
+"spider": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/Yoursmile.jar;md5;E8FE5D2C9D119879E383A85DF8FFD027",
 //"spider": "https://raw.iqiq.io/FongMi/CatVodSpider/main/jar/custom_spider.jar;md5;e276d142b10b9f2c2971664d0b9dc9a3",
 
 "wallpaper": "https://jianbian.chuqiuyu.tk",
@@ -9,8 +9,8 @@
 "daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20",
 
 "lives":[
-{"name":"🍬糖果🍬","type":0,"url":"./live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","ua":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/108.0.0.0Safari/537.36"},
-{"name":"☪夕晨","type":0,"url":"http://calendre.top/TVBox/lives/live.txt","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","ua":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/108.0.0.0Safari/537.36"}
+{"name":"🍬糖果🍬","type":0,"url":"./live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}"},
+{"name":"☪夕晨","type":0,"url":"http://calendre.top/TVBox/lives/live.txt","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}"}
 ],
 
 //playerType：播放器  (1：IJK、2：EXO)       
