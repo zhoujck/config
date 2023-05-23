@@ -1,24 +1,23 @@
 {
     "urls": [
-        {
-            "url": "https://raw.iqiq.io/zhoujck/config/master/box",
-            "name": "🍬糖果影视"
-        },  
-        {
+           {
             "url": "https://agit.ai/zhoujck/config/raw/branch/master/box",
             "name": "🍬糖果影视(agit)"
         }, 
-     
+        {
+            "url": "https://raw.iqiq.io/zhoujck/config/master/box",
+            "name": "🍬糖果影视"
+        },       
         {
             "url": "https://agit.ai/abkier/TVBoxSE/raw/branch/master/FongMi.json",
             "name": "📱网络〔se〕"
         }, 
         {
-            "url": "https://raw.iqiq.io/zhoujck/config/master/json/18",
+            "url": "https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/config/master/json/18",
             "name": "🍬糖果影视(18）"
         },    
         {
-            "url": "https://raw.iqiq.io/gaotianliuyun/gao/master/9918.json",
+            "url": "https://gh-proxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/9918.json",
             "name": "🍬糖果影视(18-）"
         }, 
         {
