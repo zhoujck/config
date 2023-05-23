@@ -2,11 +2,11 @@
     "urls": [
            {
             "url": "https://agit.ai/zhoujck/config/raw/branch/master/box",
-            "name": "🍬糖果影视(agit)"
+            "name": "🍬糖果影视"
         }, 
         {
             "url": "https://raw.iqiq.io/zhoujck/config/master/box",
-            "name": "🍬糖果影视"
+            "name": "🍬糖果影视(raw)"
         },       
         {
             "url": "https://agit.ai/abkier/TVBoxSE/raw/branch/master/FongMi.json",
