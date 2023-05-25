@@ -2,11 +2,11 @@
     "urls": [
         {
             "url": "https://agit.ai/zhoujck/config/raw/branch/master/box",
-            "name": "🍬糖果影视"
-        },  
-          {
-            "url": "https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/config/master/box",
-            "name": "🍬糖果影视(Raw)"
-        }             
+            "name": "🍬糖果影视(agit)"
+        }, 
+        {
+            "url": "https://ghproxy.net/https://raw.githubusercontent.com/zhoujck/config/master/box",
+            "name": "🍬糖果影视(raw)"
+        }            
     ]
 }
