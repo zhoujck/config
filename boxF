@@ -1,10 +1,7 @@
 {  
-//"spider":"http://我不是.肥猫.love:63/Jar/pandaQ230505.jar;md5;2E66E687653E42A40A391C1EE105C137",
+//"spider":"http://我不是.肥猫.love:63/Jar/pandaQ230505.jar",
 "spider": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/Yoursmile.jar",
-//"spider": "https://raw.iqiq.io/FongMi/CatVodSpider/main/jar/custom_spider.jar;md5;e276d142b10b9f2c2971664d0b9dc9a3",
-
 "wallpaper": "https://jianbian.chuqiuyu.tk",
-
 "daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20",
 
 "lives":[
