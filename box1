@@ -41,8 +41,8 @@
 {"key": "dr_Yanaifei","name": "🦆奈飞影视","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","playerType": 2,"ext": "./js/鸭奈飞.js"}, 
 {"key":"dr_真不卡","name":"🐢真不卡","type":3,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/真不卡.js"},
 {"key":"csp_Voflix","name":"🌀Voflix","type":3,"api":"csp_XBPQ","searchable":1,"filterable":1,"changeable":1,"ext":".ext/voflix.json"},
-//{"key": "csp_Ffzyapi","name": "🗼非凡资源","type": 1,"api": "http://cj.ffzyapi.com/api.php/provide/vod/","playurl": "https://jxjson.cf/?url="}, 
-//{"key": "csp_Lziapi","name": "🌟量子资源","type": 1,"api": "https://cj.lziapi.com/api.php/provide/vod/"},
+{"key": "csp_Ffzyapi","name": "🗼非凡资源","type": 1,"api": "http://cj.ffzyapi.com/api.php/provide/vod/","playurl": "https://jxjson.cf/?url="}, 
+{"key": "csp_Lziapi","name": "🌟量子资源","type": 1,"api": "https://cj.lziapi.com/api.php/provide/vod/"},
 {"key":"Dm84","name":"🚌动漫巴士","type":"3","api":"csp_Dm84","searchable": 1,"filterable": 1,"changeable":1},
 {"key": "csp_Ying","name": "🌸樱花动漫","type": 3,"api": "csp_Ying","searchable": 1,"filterable": 1,"changeable":1},
 
@@ -108,7 +108,26 @@
 ],
 
 "rules":
-[
+[   {
+      "name": "量子廣告",
+      "hosts": [
+        "vip.lz",
+        "hd.lz"
+      ],
+      "regex": [
+        "#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:6.433333,[\\s\\S]*?#EXT-X-DISCONTINUITY"
+      ]
+    },
+    {
+      "name": "非凡廣告",
+      "hosts": [
+        "vip.ffzy",
+        "hd.ffzy"
+      ],
+      "regex": [
+        "#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:6.666667,[\\s\\S]*?#EXT-X-DISCONTINUITY"
+      ]
+    },
 {"host":"*","rule":["default.365yg.com"]},
 {"host":"dyxs20.com","rule":[".m3u8"]},
 {"host":"www.agemys.cc","rule":["cdn-tos","obj/tos-cn"]},
