@@ -1,8 +1,6 @@
 {  
-//"spider":"http://我不是.肥猫.love:63/Jar/pandaQ230505.jar",
-"spider": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/Yoursmile.jar;md5;22BEA96778121A176132C5D1D2E92889",
+"spider": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/Yoursmile.jar;md5;EBB1F03776FE4CB56896B10B7834739C",
 "wallpaper": "https://jianbian.chuqiuyu.tk",
-"daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20",
 
 "lives":[
 {"name":"🍬糖果🍬","type":0,"url":"./live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","ua":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/108.0.0.0Safari/537.36"},
