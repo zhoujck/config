@@ -28,6 +28,10 @@
        {
             "url": "https://ghproxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/9918.json",
             "name": "📱网络〔不好用〕"
-        }     
+        },
+        {
+            "url": "https://ghproxy.com/https://raw.githubusercontent.com/StartMoney/tvbox/main/daren.json",
+            "name": "📱网络〔daren〕"
+        }
     ]
 }
