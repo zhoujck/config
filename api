@@ -1,13 +1,13 @@
 {
     "urls": [
         {
-            "url": "https://agit.ai/zhoujck/config/raw/branch/master/boxF",
-            "name": "🍬糖果影视(F)"
-        }, 
-        {
             "url": "https://ghproxy.net/https://raw.githubusercontent.com/zhoujck/config/master/box",
             "name": "🍬糖果影视(raw)"
         }, 
+        {
+            "url": "https://agit.ai/zhoujck/config/raw/branch/master/boxF",
+            "name": "🍬糖果影视(F)"
+        },
         {
             "url": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/XC.json",
             "name": "📱网络〔🍎yoursmaile备用〕"
