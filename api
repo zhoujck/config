@@ -20,7 +20,6 @@
             "url": "http://饭太硬.ga/tv",
             "name": "📱网络〔饭太硬〕"
         },
-
         {
             "url": "http://我不是.肥猫.love:63/接口禁止贩卖",
             "name": "📱网络〔肥猫〕"
@@ -28,10 +27,6 @@
        {
             "url": "https://ghproxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/9918.json",
             "name": "📱网络〔不好用〕"
-        },
-        {
-            "url": "https://ghproxy.com/https://raw.githubusercontent.com/yyfxz/fl/main/xa2.json",
-            "name": "📱网络〔daren〕"
         }
     ]
 }
