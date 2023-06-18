@@ -24,6 +24,7 @@
 
 //Jar 精选
 {"key":"Kunyu77","name":"☁️酷云(极速)","type":3,"api":"csp_Kunyu77","searchable": 1,"filterable": 1,"changeable":1},
+{"key":"csp_Lib","name":"✨利奥","type":3,"api":"csp_Libvio","searchable":1,"filterable":1,"changeable":1,"ext":"https://tv.libvio.cc/"},
 {"key":"csp_Ddrk","name":"💘DDRK","type":3,"api":"csp_Ddrk","playerType":2},
 {"key":"LiteApple","name":"🍎苹果","type":"3","playerType":1,"api":"csp_LiteApple"},
 {"key":"Czsapp","name":"🏭厂长","type":"3","api":"csp_Czsapp"},
@@ -33,7 +34,6 @@
 {"key":"快看","name":"👀快看","type":3,"api":"csp_Kuaikan"},
 {"key":"360","name":"💘360影视","type":3,"api":"csp_SP33"},
 {"key":"csp_XYQBiu_磁力熊","name":"🐼磁力熊","type":3,"api":"csp_XYQBiu","ext":"./ext/磁力熊.json"},
-{"key":"csp_Lib","name":"✨利奥","type":3,"api":"csp_Libvio","searchable":1,"filterable":1,"changeable":1,"ext":"https://tv.libvio.cc/"},
 {"key": "dr_Yanaifei","name": "🦆奈飞影视","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","playerType": 2,"ext": "./js/鸭奈飞.js"}, 
 {"key":"dr_真不卡","name":"🐢真不卡","type":3,"api":"http://alist.xn--z7x900a.love:63/drpy2.min.js","ext":"./js/真不卡.js"},
 {"key":"csp_Voflix","name":"🌀Voflix","type":3,"api":"csp_XBPQ","ext":".ext/voflix.json"},
