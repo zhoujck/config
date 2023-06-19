@@ -27,6 +27,10 @@
        {
             "url": "https://ghproxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/9918.json",
             "name": "📱网络〔不好用〕"
+        },
+       {
+            "url": "https://agit.ai/CloudMist/TVBox/raw/branch/master/18.m3u8",
+            "name": "📱网络〔不好用1〕"
         }
     ]
 }
