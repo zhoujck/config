@@ -5,8 +5,7 @@
 
 "lives":[
 {"name":"🍬糖果🍬","type":0,"url":"./json/live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","ua":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/108.0.0.0Safari/537.36"},
-{"name":"🍬糖果Radio🍬","type":0,"url":"./json/radio.txt","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","ua":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/108.0.0.0Safari/537.36"},
-{"name":"☪夕晨","type":0,"url":"http://calendre.top/TVBox/lives/live.txt","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","ua":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/108.0.0.0Safari/537.36"}
+{"name":"🍬糖果Radio🍬","type":0,"url":"./json/radio.txt","playerType":1}
 ],
 
 //playerType：播放器  (1：IJK、2：EXO)       
