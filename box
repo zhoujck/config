@@ -1,5 +1,5 @@
 {  
-"spider": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/Yoursmile.jar;md5;AA78BA556383BD1ADBAD7745478EA5AA",
+"spider": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/Yoursmile.jar",
 "wallpaper": "https://jianbian.chuqiuyu.tk",
 "daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20",
 
@@ -42,7 +42,7 @@
 {"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","ext":"./ext/alitoken","jar":"https://agit.ai/00700/vvebo/raw/branch/main/Spider/ali.jar"},
 {"key":"Yisou","name":"🍃一搜┃4K","type":3,"playerType":1,"api":"csp_YiSo","ext":"./ext/alitoken"},  
 //{"key":"Upyunso","name":"🍃云搜┃4K","type":3,"playerType":1,"api":"csp_UpYun","ext":"./ext/alitoken"},
-//{"key":"Alips","name":"🍃盘搜┃4K","type":3,"playerType":1,"api":"csp_PanSou","ext":"./ext/alitoken"}，
+//{"key":"Alips","name":"🍃盘搜┃4K","type":3,"playerType":1,"api":"csp_PanSou","ext":"./ext/alitoken"},
 
 //视听
 {"key":"直播","name":"📺电视直播","type":3,"api":"http://我不是.肥猫.love:63/JS/直播转点播2.js","ext":"./json/liveapi.json"},
