@@ -5,32 +5,20 @@
             "name": "🍬糖果影视(raw)"
         }, 
         {
-            "url": "https://agit.ai/zhoujck/config/raw/branch/master/boxF",
-            "name": "🍬糖果影视(F)"
-        },
-        {
             "url": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/XC.json",
-            "name": "📱网络〔🍎yoursmaile备用〕"
+            "name": "📱网络〔🍎yoursmaile〕"
         },
         {
             "url": "https://agit.ai/abkier/TVBoxSE/raw/branch/master/FongMi.json",
-            "name": "📱网络〔se〕"
+            "name": "📱网络〔蜂蜜〕"
         },         
         {
             "url": "https://ghproxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/0821.json",
-            "name": "📱网络〔gao〕"
+            "name": "📱网络〔高天流云〕"
         },
         {
             "url": "http://我不是.肥猫.love:63/接口禁止贩卖",
             "name": "📱网络〔肥猫〕"
-        }, 
-       {
-            "url": "https://ghproxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/9918.json",
-            "name": "📱网络〔不好用〕"
-        },
-       {
-            "url": "https://agit.ai/CloudMist/TVBox/raw/branch/master/18.m3u8",
-            "name": "📱网络〔不好用1〕"
         }
     ]
 }
