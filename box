@@ -30,7 +30,7 @@
 {"key":"csp_WoGG","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext":"./ext/alitoken$http://127.0.0.1:9978/file/tvfan/token.txt+4k|fhd|auto+4k|fhd|auto$$$http://tvfan.xxooo.cf/"},
 {"key":"csp_AList","name":"🍃AList┃4K","type":3,"api":"csp_AList","searchable": 0,"quickSearch": 0,"filterable": 1,"changeable":0,"ext":"./ext/alist.json"},
 {"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","ext":"./ext/alitoken","jar":"https://agit.ai/00700/vvebo/raw/branch/main/Spider/ali.jar"},
-{"key":"Yisou","name":"🍃一搜┃4K","type":3,"playerType":1,"api":"csp_YiSo","ext":"./ext/alitoken"},  
+//{"key":"Yisou","name":"🍃一搜┃4K","type":3,"playerType":1,"api":"csp_YiSo","ext":"./ext/alitoken"},  
 
 //视听
 {"key":"直播","name":"📺电视直播","type":3,"api":"http://我不是.肥猫.love:63/JS/直播转点播2.js","ext":"./json/liveapi.json"},
