@@ -9,10 +9,10 @@
 "导演": "导演：&&</div>",
 "主演": "主演：&&</div>",
 "简介": "introduction-content\">&&</span>",
-"线路数组": "<span class=\"pull-right\">&&/h3>[替换:非云>>超清#蓝光>>1080P无广#自营云播e>>高清#非凡云播>>非凡#量子云播>>量子#无尽云播>>无尽][排序:超清>1080P1>1080P2>非凡>无尽>量子]",
+"线路数组": "<span class=\"pull-right\">&&/h3>[替换:非云>>糖果专享#蓝光>>1080P1#自营云播e>>1080P2#非凡云播>>非凡#量子云播>>量子#无尽云播>>无尽][排序:超清>1080P1>1080P2>非凡>无尽>量子]",
 "线路标题": "<h3>&&<",
 "分类": "电影$1#连续剧$2#综艺$3#动漫$4",
-"跳转解析": "默认$空#超清$https://www.dadagui.me/webcloud/?vid=#1080P1无广$https://www.dadagui.me/webcloud/?vid=",
+"跳转解析": "默认$空#糖果专享$https://www.dadagui.me/webcloud/?vid=#1080P1$https://www.dadagui.me/webcloud/?vid=#1080P2$https://www.dadagui.me/webcloud/?vid=",
 "跳转播放链接": "解析+link_pre*url\":\"&&\"",
 "分类url": "http://www.dadagui.me/vodtype/{cateId}.html"
 }
