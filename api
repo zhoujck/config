@@ -21,23 +21,12 @@
             "name": "📱网络〔高天流云〕"
         },
         {
-            "url": "http://我不是.肥猫.love:63/接口禁止贩卖",
+            "url": "http://xn--ihqu10cn4c.xn--z7x900a.love:63/接口禁止贩卖",
             "name": "📱网络〔肥猫〕"
         },
-{"name":"小米","url":"http://xhww.fun:63/小米/DEMO.json"},
-
-{"name":"运输车","url":"https://weixine.net/ysc.json"},
-
-{"name":"运输车备用","url":"http://ysc.weixine.net:33/"},
-
-{"name":"香雅晴","url":"https://fastly.jsdelivr.net/gh/yw88075/tvbox@main/XYQTVBox/XYQTVBox.json"},
-
-{"name":"唐三","url":"https://gh.t4tv.hz.cz/newtang.bmp"},
-
-{"name":"大聪明","url":"https://agit.ai/66666/mao/raw/branch/master/00/000.m3u8"},
-
-{"name":"小苹果","url":"https://la.kstore.space/download/3376/xpg.txt"},
-
-{"name":"小苹果JS","url":"https://s2.pub/xpg"}
+        {
+            "name":"📱网络〔小米〕",
+           "url":"http://xhww.fun:63/小米/DEMO.json"
+        }   
     ]
 }
