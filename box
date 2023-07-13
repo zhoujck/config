@@ -16,8 +16,8 @@
 //{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
 
 {"key":"Kunyu77","name":"☁️酷云(极速)","type":3,"api":"csp_Kunyu77","searchable": 1,"filterable": 1,"changeable":1},
-{"key":"csp_xb_达达龟","name":"🐢龟龟","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":0,"ext":"./ext/达达龟.json"},
-{"key":"饭团","name":"🍬糖果","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":0,"ext":"./ext/芸芸.json"},
+{"key":"csp_xb_达达龟","name":"🍬糖果🍬","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":0,"ext":"./ext/达达龟.json"},
+{"key":"饭团","name":"🐢飞云","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":0,"ext":"./ext/芸芸.json"},
 {"key":"csp_YQKAPP","name":"🌎一起看","type":3,"api":"csp_YQKAPP","playerType":2,"searchable":1,"quickSearch":1,"filterable":1,"ext":"https://hk-api-cf.yqk5659.com"},
 //{"key":"LiteApple","name":"🍎苹果","type":"3","playerType":1,"api":"csp_LiteApple"},
 {"key":"csp_Ddrk","name":"💘DDRK","type":3,"api":"csp_Ddrk","playerType":2},
