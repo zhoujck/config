@@ -16,8 +16,8 @@
 //{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
 
 {"key":"Kunyu77","name":"☁️酷云(极速)","type":3,"api":"csp_Kunyu77","searchable": 1,"filterable": 1,"changeable":1},
-{"key":"csp_xb_达达龟","name":"🐢达达龟","type":3,"api":"csp_XBiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"./ext/达达龟.json"},
-{"key":"csp_fantuan","name":"🍙饭团","type":3,"api":"csp_Fantuan","searchable":1,"quickSearch":1,"filterable":1,"ext":{
+{"key":"csp_xb_达达龟","name":"🐢达达龟","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":0,"ext":"./ext/达达龟.json"},
+{"key":"csp_fantuan","name":"🍙饭团","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":1,"ext":{
 	"站名": "饭团影视HD",
 	"请求头": "Cookie$PHPSESSID=oa18972o947a5f2cuuhni0tc07; Hm_lvt_a4d1dc00e59cb76eda39cd5a5402f863=1686998487; Hm_lpvt_a4d1dc00e59cb76eda39cd5a5402f863=1686998537",
 	"主页url": "https://www.fantuanhd.com/",
