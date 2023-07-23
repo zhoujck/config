@@ -1,5 +1,5 @@
 {  
-"spider": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/Yoursmile.jar;md5;E0C92F27999DD969A31709E7561A7EEA",
+"spider": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/Yoursmile.jar;md5;0A4B198EEC040AB9088F865A169BD04B",
 //"spider": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/Yoursmile.jar",
 "wallpaper": "https://jianbian.chuqiuyu.tk",
 "daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20",
@@ -22,6 +22,7 @@
 {"key":"饭团","name":"🐢飞云","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":0,"ext":"./ext/芸芸.json"},
 {"key": "csp_appys_影探","name": "影探","type": 3,"api": "csp_AppYsV2","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": "http://ytcms.lfytyl.com/api.php/app/"},
 {"key":"迷你库","name":"Ⓜ️迷你库","type":3,"api":"csp_AppYsV2","searchable":1,"quickSearch":1,"filterable":1,"ext":"http://www.miniku.cc/xgapp.php/v1/"},
+{"key":"新视觉","name":"✨新视觉","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":1,"changeable":1,"ext":"https://agit.ai/Yoursmile7/TVBox/raw/branch/master/sub/新视觉影院.json"},
 {"key":"csp_YQKAPP","name":"🌎一起看","type":3,"api":"csp_YQKAPP","playerType":2,"searchable":1,"quickSearch":1,"filterable":1,"ext":"https://api-aws.11ty.top"},
 {"key":"csp_Nmys","name":"🥝农民","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":1,"ext":"./ext/农民影视.json"},
 //{"key":"LiteApple","name":"🍎苹果","type":"3","playerType":1,"api":"csp_LiteApple"},
