@@ -13,7 +13,7 @@
 "sites":[ 
 {"key": "dr_drpy","name": "📽️糖果影视","type": 3,"api": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/js/lib/drpy2.min.js","ext": "./js/豆瓣.js","searchable": 0,"quickSearch": 0,"filterable": 0},
 
-{"key": "dr_drpy_bili","name": "🅱哔站纪录片","searchable":1,"changeable":0","type": 3,"api": "http://alist.xn--z7x900a.love:63/drpy2.min.js","ext": "./js/doc.js"},
+{"key": "dr_drpy_bili","name": "🅱哔站纪录片","searchable":1,"changeable":0","type": 3,"api": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/js/lib/drpy2.min.js","ext": "./js/doc.js"},
 //{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
 
 {"key":"csp_xb_糖果","name":"🍬糖果","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":0,"ext":"./ext/看看.json"},
