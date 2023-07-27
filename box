@@ -40,8 +40,8 @@
 ],
     
 "parses": [
-{"name":"解析聚合","type":3,"url":"Demo"},
-{"name":"自动嗅探","type":3,"url":"Web","header":{"User-Agent":"Mozilla/5.0"}},
+
+{"name":"Cai","type":0,"url":"https://jx.cainisi.cf/?v="},
 {"name":"QIQI","type":0,"url":"https://jx.777jiexi.com/player/?url="},
 {"name":"小新","type":0,"url":"http://xiaoxin.1080p.me/home/api?type=ys&uid=3649782&key=akmyzCHIMOUVY13569&url="},
 {"name":"MIAO","type":0,"url":"http://www.miaoys.cc/vip/?url="},
