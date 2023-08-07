@@ -1,6 +1,7 @@
 {  
-"spider": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/Yoursmile.jar;md5;A98B4051E372CC7AE6D6EE03B61B0FFB",
-//"spider": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/Yoursmile.jar",
+"spider": "http://我不是.肥猫.love:63/Jar/pandaQ230803.jar;md5;F3186F44835CD46EF458744D797BD9CC",
+//"spider": "http://xhww.fun:63/小米/0802.jar;md5;538304754b268f733245e29504f03254",
+
 "wallpaper": "https://jianbian.chuqiuyu.tk",
 "daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20",
 
@@ -12,9 +13,9 @@
 
 //playerType：播放器  (1：IJK、2：EXO)       
 "sites":[ 
-{"key": "dr_drpy","name": "📽️糖果影视","type": 3,"api": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/js/lib/drpy2.min.js","ext": "./js/豆瓣.js","searchable": 0,"quickSearch": 0,"filterable": 0},
+{"key": "dr_drpy","name": "📽️糖果影视","type": 3,"api": "./lib/drpy2.min.js","ext": "./js/豆瓣.js","searchable": 0,"quickSearch": 0,"filterable": 0},
 
-{"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/js/lib/drpy2.min.js","ext": "./js/doc.js","searchable": 0,"changeable":1},
+{"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./lib/drpy2.min.js","ext": "./js/doc.js","searchable": 0,"changeable":1},
 //{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
 
 {"key":"csp_xb_糖果","name":"🍬糖果","type":3,"api":"csp_XBPQ","searchable":1,"filterable":0,"ext":"./ext/看看.json"},
