@@ -21,17 +21,15 @@
 //{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
 
 {"key":"迷你库","name":"🍬糖果","type":3,"api":"csp_AppYsV2","searchable":1,"quickSearch":1,"filterable":1,"ext":"http://www.miniku.cc/xgapp.php/v1/"},
-{"key":"Kunyu77","name":"🍬酷云（极速）","type":3,"api":"csp_Kunyu77"},
-
-{"key":"快看","name":"👀快看","type":3,"api":"csp_Kuaikan"},
-
+{"key":"Kunyu77","name":"🍬酷云(极速)","type":3,"api":"csp_Kunyu77"},
 {"key":"csp_xb_看看","name":"🍬看看","type":3,"api":"csp_XBPQ","searchable":1,"filterable":0,"ext":"./ext/看看.json"},
 {"key":"csp_xb_达达龟","name":"🍬龟龟","type":3,"api":"csp_XBPQ","searchable":1,"filterable":0,"ext":"./ext/达达龟.json"},
 {"key":"360","name":"🍬360","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":0,"ext":"./ext/360.json"},
 {"key":"csp_Nmys","name":"🥝农民","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":1,"ext":"./ext/农民影视.json"},
-
+{"key":"快看","name":"👀快看","type":3,"api":"csp_Kuaikan"},
+{"key": "csp_影探","name": "影探┃4K","type": 3,"api": "csp_YT","searchable": 1,"quickSearch": 1,"changeable": 1},
 {"key":"csp_WoGG","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "./ext/alitoken$$$http://tvfan.xxooo.cf/"},
-{"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","changeable":0,"ext":"./ext/alitoken","jar":"https://agit.ai/00700/vvebo/raw/branch/main/Spider/ali.jar"},
+{"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","changeable":0,"ext":"./ext/alitoken","jar":"./jar/ali.jar"},
 
 //视听
 {"key":"直播","name":"📺电视直播","type":3,"api":"http://我不是.肥猫.love:63/JS/直播转点播2.js","ext":"./json/liveapi.json"},
