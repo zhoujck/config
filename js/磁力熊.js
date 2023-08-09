@@ -22,22 +22,22 @@ var rule = {
 	play_parse:true,
 	lazy:'',
 	limit:6,
-	推荐: `js:
-		pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
-		var d = [];
-		var html = request(input);
-		var list = pdfa(html, 'body&&.col');
-		list.forEach(it => {
-			d.push({
-				title: pdfh(it, 'h2&&Text'),
-				desc: pdfh(it, '.me-auto&&Text') + '分 / ' + pdfh(it, '.small&&Text'),
-				// pic_url: pd(it, '.card-img&&style'), // 只有 影视TV&爱佬版 有图片
-				pic_url: /!'/.test(pd(it, '.card-img&&style'))?pd(it, '.card-img&&style'):pd(it, '.card-img&&style').replaceAll("'",""), // 兼容 影视TV&爱佬版 以外的其它壳子
-				url: pd(it, 'a&&href')
-			});
-		})
-		setResult(d);
-	`,
+	// 推荐: `js:
+	// 	pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
+	// 	var d = [];
+	// 	var html = request(input);
+	// 	var list = pdfa(html, 'body&&.col');
+	// 	list.forEach(it => {
+	// 		d.push({
+	// 			title: pdfh(it, 'h2&&Text'),
+	// 			desc: pdfh(it, '.me-auto&&Text') + '分 / ' + pdfh(it, '.small&&Text'),
+	// 			// pic_url: pd(it, '.card-img&&style'), // 只有 影视TV&爱佬版 有图片
+	// 			pic_url: /!'/.test(pd(it, '.card-img&&style'))?pd(it, '.card-img&&style'):pd(it, '.card-img&&style').replaceAll("'",""), // 兼容 影视TV&爱佬版 以外的其它壳子
+	// 			url: pd(it, 'a&&href')
+	// 		});
+	// 	})
+	// 	setResult(d);
+	// `,
 	一级: `js:
 		pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
 		var d = [];
@@ -59,43 +59,43 @@ var rule = {
 		setResult(d);
 	`,
 	二级:{
-		title:'h1&&Text;p.mb-2:eq(4)&&Text',
-		desc:'p.mb-2:eq(1)&&Text;;;p.mb-2:eq(7)&&Text;p.mb-2:eq(5)&&Text',
-		img:'.rounded-2&&src',
-		content:'.mv_card_box&&Text',
-		// tabs:'js:TABS = ["道长磁力"]',
-		// lists:'.mv_down:eq(#id)&&.border-bottom',
-		// list_text:'a&&Text',
-		// list_url:'a&&href',
+	// 	title:'h1&&Text;p.mb-2:eq(4)&&Text',
+	// 	desc:'p.mb-2:eq(1)&&Text;;;p.mb-2:eq(7)&&Text;p.mb-2:eq(5)&&Text',
+	// 	img:'.rounded-2&&src',
+	// 	content:'.mv_card_box&&Text',
+	// 	// tabs:'js:TABS = ["道长磁力"]',
+	// 	// lists:'.mv_down:eq(#id)&&.border-bottom',
+	// 	// list_text:'a&&Text',
+	// 	// list_url:'a&&href',
 
-		tabs:'js:TABS = ["道长磁力","道长在线预览"]',
-		lists:`js:
-		log(TABS);
-		pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
-		LISTS = [];
-		var dd=[];
-		TABS.forEach(function(tab) {
-			if (/道长磁力/.test(tab)) {
-				var d = pdfa(html, '.mv_down&&.border-bottom');
-				d = d.map(function(it) {
-					var title = pdfh(it, 'a&&Text');
-					log('title >>>>>>>>>>>>>>>>>>>>>>>>>>' + title);
-					var burl = pd(it, 'a&&href');
-					log('burl >>>>>>>>>>>>>>>>>>>>>>>>>>' + burl);
-					return title + '$' + burl
-				});
-				LISTS.push(d)
-			} else if (/道长在线预览/.test(tab)) {
-				var d = pd(html, 'iframe&&src');
-				if (d) {
-					d=['第一集在线播放预览$' + d]
-				} else {
-					d=['没有预览不要点$http://www.sharenice.net/douyin/23852']
-				}
-				LISTS.push(d)
-			}
-		});
-		`,
-	},
+	// 	tabs:'js:TABS = ["道长磁力","道长在线预览"]',
+	// 	lists:`js:
+	// 	log(TABS);
+	// 	pdfh=jsp.pdfh;pdfa=jsp.pdfa;pd=jsp.pd;
+	// 	LISTS = [];
+	// 	var dd=[];
+	// 	TABS.forEach(function(tab) {
+	// 		if (/道长磁力/.test(tab)) {
+	// 			var d = pdfa(html, '.mv_down&&.border-bottom');
+	// 			d = d.map(function(it) {
+	// 				var title = pdfh(it, 'a&&Text');
+	// 				log('title >>>>>>>>>>>>>>>>>>>>>>>>>>' + title);
+	// 				var burl = pd(it, 'a&&href');
+	// 				log('burl >>>>>>>>>>>>>>>>>>>>>>>>>>' + burl);
+	// 				return title + '$' + burl
+	// 			});
+	// 			LISTS.push(d)
+	// 		} else if (/道长在线预览/.test(tab)) {
+	// 			var d = pd(html, 'iframe&&src');
+	// 			if (d) {
+	// 				d=['第一集在线播放预览$' + d]
+	// 			} else {
+	// 				d=['没有预览不要点$http://www.sharenice.net/douyin/23852']
+	// 			}
+	// 			LISTS.push(d)
+	// 		}
+	// 	});
+	// 	`,
+	// },
 	搜索:'.col;h2&&Text;.card-img&&style;.me-auto&&Text;a&&href',
 }
