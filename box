@@ -33,7 +33,7 @@
 {"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","changeable":0,"ext":"./ext/alitoken","jar":"./jar/ali.jar"},
 
 //视听
-{"key":"直播","name":"📺电视直播","type":3,"api":"./lib/live.js","ext":"./json/liveapi.json"},
+{"key":"直播","name":"📺电视直播","type":3,"api":"http://我不是.肥猫.love:63/JS/直播转点播2.js","ext":"./json/liveapi.json"},
 {"key":"310直播","name":"🏀体育直播","type":3,"api":"./lib/drpy2.min.js","ext":"./js/310直播.js"}
 ],
     
