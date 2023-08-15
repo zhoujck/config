@@ -3,7 +3,8 @@
 //"spider": "https://files.zohopublic.com.cn/public/workdrive-public/download/uyv0t678c488189af47bb91dc108484d17431;md5;43d5af5fc45bbff83ae54e4f3fe703e5",
 
 "wallpaper": "https://jianbian.chuqiuyu.tk",
-"daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20",
+"daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20", 
+"warningText": "请勿相信软件内任何广告和公众号",
 
 "lives":[
 {"name":"🍬糖果🍬","type":0,"url":"./json/live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","ua":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/108.0.0.0Safari/537.36"},
