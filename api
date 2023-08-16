@@ -10,16 +10,20 @@
             "name": "📱网络〔肥猫〕"
         },
         {
-            "url": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/XC.json",
-            "name": "📱网络〔🍎yoursmaile〕"
+            "url": "https://tvbox.cainisi.cf",
+            "name": "📱网络〔采尼丝〕"
         },      
         {
             "url": "https://ghproxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/0821.json",
             "name": "📱网络〔高天流云〕"
         },
        {
-            "url": "https://agit.ai/zhoujck/config/raw/branch/master/box",
-            "name": "🍬糖果影视(agit)"
+            "url": "http://itvbox.cc/tvbox/云星日记/1.m3u8",
+            "name": "📱网络〔云星日记〕"
+        },
+       {
+            "url": "http://饭太硬.top/tv",
+            "name": "📱网络〔饭太硬〕"
         },
         {
             "name":"📱网络〔小米〕",
