@@ -1,17 +1,7 @@
 {
 "spider":"https://tvbox.cainisi.cf/jar/fty0808.jar;md5;43d5af5fc45bbff83ae54e4f3fe703e5",
-"lives":[{"name":"初秋语","type":0,"url":"https://gh-proxy.com/https://raw.githubusercontent.com/gao/master/listx.m3u"},
-{"name":"YanG","type":0,"url":"https://gh-proxy.com/https://raw.githubusercontent.com/YanG-1989/m3u/main/Adult.m3u"},
-{"name":"atsushi","type":0,"url":"https://gh-proxy.com/https://raw.githubusercontent.com/atsushi444/iptv-epg/main/Adult.m3u"},
-{"name":"AV","type":0,"url":"./livex.m3u"}
-],
-
 "sites":[
-{"key":"直播","name":"📺电视直播","type":3,"api":"./lib/直播转点播.js","ext":"./json/liveapi.json"}
-],
-"rules":[
-{"name":"量子廣告","hosts":["vip.lz","hd.lz"],"regex":["#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:6.433333,[\\s\\S]*?#EXT-X-DISCONTINUITY","#EXTINF.*?\\s+.*?1o.*?\\.ts\\s+"]},
-{"name":"非凡廣告","hosts":["vip.ffzy","hd.ffzy"],"regex":["#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:6.666667,[\\s\\S]*?#EXT-X-DISCONTINUITY","#EXTINF.*?\\s+.*?1o.*?\\.ts\\s+"]}
+{"key":"直播","name":"📺电视直播","type":3,"api":"./lib/直播转点播.js","ext":"./json/liveapi18.json"}
 ]
 }
 
