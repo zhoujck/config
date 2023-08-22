@@ -22,8 +22,8 @@
 //{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
 
 {"key":"迷你库","name":"🍬糖果","type":3,"api":"csp_AppYsV2","ext":"http://www.miniku.cc/xgapp.php/v1/"},
-{"key":"Kunyu77","name":"🍬酷云(极速)","type":3,"api": "./lib/drpy2.min.js","ext": "./js/酷云.js"},
-{"key":"酷云","name":"🍬酷云(极速)","type":3,"api":"csp_Kunyu77"},
+{"key":"Kunyu77","name":"🍬酷云","type":3,"api": "./lib/drpy2.min.js","ext": "./js/酷云.js"},
+{"key":"酷云","name":"🍬酷云(极速)","type":3,"api":"csp_Kunyu77,"jar":"https://tvbox.cainisi.cf/jar/fty0808.jar"},
 {"key": "蚂蚁","name": "️🍬蚂蚁","type": 3,"api": "csp_AppYsV2","ext": "http://wushutvcms.byzz.top/api.php/app/"},
 {"key":"乐猪","name":"🍬乐猪","type":3,"api":"csp_XBPQ","ext":"./ext/乐猪.json"},
 {"key":"看看","name":"🍬看看","type":3,"api":"csp_XBPQ","ext":"./ext/看看.json"},
