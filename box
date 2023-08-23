@@ -28,6 +28,10 @@
 {"key":"360","name":"🍬360","type":3,"api":"csp_XBPQ","ext":"./ext/360.json"},
 {"key":"农民","name":"🍬农民","type":3,"api":"csp_XBPQ","ext":"./ext/农民影视.json"},
 
+{"key": "廠長1","name": "廠長1","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/czzy_open.js"},
+{"key": "愛看","name": "愛看","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/ikanbot_open.js"},
+{"key": "快看","name": "快看","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/kkys_open.js"},
+
 {"key":"csp_WoGG","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "./ext/alitoken$$$http://tvfan.xxooo.cf/","jar":"./jar/ali.jar"},
 {"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","changeable":0,"ext":"./ext/alitoken","jar":"./jar/ali.jar"},
 
@@ -51,8 +55,6 @@
 {"name":"jsonplayer","type":0,"url":"https://jx.jsonplayer.com/player/?url="},
 {"name":"777","type":0,"url":"https://jx.777jiexi.com/player/?url="}
 ],
-
-"flags": ["qq","腾讯","企鹅","IQiYi","qiyi","爱奇艺","奇艺","youku","YouKu","优酷","sohu","SoHu","搜狐","letv","LeShi","乐视","imgo","mgtv","MangGuo","芒果","SLYS4k","BYGA","luanzi","AliS","dxzy","bilibili","QEYSS","xigua","西瓜视频","腾讯视频","奇艺视频","优酷视频","芒果视频","乐视视频"],
 
 "rules":[{"name":"量子","hosts":["vip.lz","hd.lz"],"regex":["#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:6.433333,[\\s\\S]*?#EXT-X-DISCONTINUITY"]},{"name":"非凡","hosts":["vip.ffzy","hd.ffzy"],"regex":["#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:6.666667,[\\s\\S]*?#EXT-X-DISCONTINUITY"]},{"name":"火山嗅探","hosts":["huoshan.com"],"regex":["item_id="]},{"name":"抖音嗅探","hosts":["douyin.com"],"regex":["is_play_url="]}],
 
