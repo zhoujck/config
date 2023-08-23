@@ -1,6 +1,6 @@
 {  
-//"spider": "https://tvbox.cainisi.cf/jar/fty0808.jar;md5;43d5af5fc45bbff83ae54e4f3fe703e5",
-"spider": "http://xhww.fun:63/小米/5.jar;md5;c570b052645834a1109b54421c1552f9",
+"spider": "./jar/小米XBQP.jar",
+//"spider": "http://xhww.fun:63/小米/5.jar;md5;c570b052645834a1109b54421c1552f9",
 
 "wallpaper": "https://jianbian.chuqiuyu.tk",
 "daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20", 
@@ -18,19 +18,18 @@
 "sites":[ 
 {"key": "dr_drpy","name": "📽️糖果影视","type": 3,"api": "./lib/drpy2.min.js","ext": "./js/豆瓣.js"},
 //{"key":"磁力熊","name":"🧲熊熊","type":3,"playerType": "1","api":"./lib/drpy2.min.js","ext":"http://smallmi.xiaohewanwan.love:63/jp.js"},
-{"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./lib/drpy2.min.js","ext": "./js/doc.js","searchable": 0,"changeable":1},
+{"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./lib/drpy2.min.js","ext": "./js/doc.js","searchable": 1,"changeable":1},
 //{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
 
 {"key":"迷你库","name":"🍬糖果","type":3,"api":"csp_AppYsV2","ext":"http://www.miniku.cc/xgapp.php/v1/"},
 {"key":"Kunyu77","name":"🍬酷云","type":3,"api": "./lib/drpy2.min.js","ext": "./js/酷云.js"},
-{"key":"酷云","name":"🍬酷云(极速)","type":3,"api":"csp_Kunyu77","jar":"https://tvbox.cainisi.cf/jar/fty0808.jar"},
 {"key": "蚂蚁","name": "️🍬蚂蚁","type": 3,"api": "csp_AppYsV2","ext": "http://wushutvcms.byzz.top/api.php/app/"},
 {"key":"乐猪","name":"🍬乐猪","type":3,"api":"csp_XBPQ","ext":"./ext/乐猪.json"},
 {"key":"看看","name":"🍬看看","type":3,"api":"csp_XBPQ","ext":"./ext/看看.json"},
 {"key":"龟龟","name":"🍬龟龟","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json"},
 {"key":"360","name":"🍬360","type":3,"api":"csp_XBPQ","ext":"./ext/360.json"},
 {"key":"农民","name":"🥝农民","type":3,"api":"csp_XBPQ","ext":"./ext/农民影视.json"},
-{"key":"快看","name":"👀快看","type":3,"api":"csp_Kuaikan"},
+
 
 {"key":"csp_WoGG","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "./ext/alitoken$$$http://tvfan.xxooo.cf/"},
 {"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","changeable":0,"ext":"./ext/alitoken","jar":"./jar/ali.jar"},
