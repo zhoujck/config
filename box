@@ -17,18 +17,16 @@
 "sites":[ 
 {"key": "dr_drpy","name": "🍬糖果影视🍬","type": 3,"api": "./lib/drpy2.min.js","ext": "./js/豆瓣.js"},
 {"key":"Kunyu77","name":"🍬酷云","type":3,"api": "./lib/drpy2.min.js","ext": "./js/酷云.js"},
-{"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./lib/drpy2.min.js","ext": "./js/doc.js","searchable": 1,"changeable":1},
+{"key":"厂长","name":"🍬厂长","type":3,"api":"./lib/drpy2.min.js","playerType":2,"ext":"./js/厂长.js"},
+{"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./lib/drpy2.min.js","ext": "./js/doc.js","searchable": 0},
 
 {"key":"迷你库","name":"🍬糖果","type":3,"api":"csp_AppYsV2","ext":"http://www.miniku.cc/xgapp.php/v1/"},
 {"key": "蚂蚁","name": "️🍬蚂蚁","type": 3,"api": "csp_AppYsV2","ext": "http://wushutvcms.byzz.top/api.php/app/"},
-
 {"key":"乐猪","name":"🍬乐猪","type":3,"api":"csp_XBPQ","ext":"./ext/乐猪.json"},
 {"key":"看看","name":"🍬看看","type":3,"api":"csp_XBPQ","ext":"./ext/看看.json"},
 {"key":"龟龟","name":"🍬龟龟","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json"},
 {"key":"360","name":"🍬360","type":3,"api":"csp_XBPQ","ext":"./ext/360.json"},
 {"key":"农民","name":"🍬农民","type":3,"api":"csp_XBPQ","ext":"./ext/农民影视.json"},
-
-{"key":"厂长","name":"🍬厂长","type":3,"api":"csp_Czsapp","playerType":2,"ext":"./js/厂长.js"},
 
 {"key":"csp_WoGG","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "./ext/alitoken$$$http://tvfan.xxooo.cf/","jar":"./jar/ali.jar"},
 {"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","changeable":0,"ext":"./ext/alitoken","jar":"./jar/ali.jar"},
