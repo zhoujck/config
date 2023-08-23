@@ -45,12 +45,11 @@
 {"name": "稻香🌾","type": 1,"url": "http://27.124.4.42:4567//jhjson//ceshi.php?url=","ext": {"flag": ["qiqi","CL4K","JHHD","JHB","NBY","爱奇艺","奇艺","qq","腾讯","youku","优酷","pptv","PPTV","letv","乐视","leshi","bilibili","哔哩哔哩","哔哩","mgtv","芒果"],"header": {"User-Agent": "okhttp/3.12.0"}}},
 {"name": "春风🥭","type": 1,"url": "http://111.230.24.38:4433/qingfeng.php/?url=","ext": {"flag": ["qiqi-","mgtv","芒果"]}},
 {"name": "玉米🥭","type": 1,"url": "http://123.99.192.241:5000/api/jiexi/xg?Key=NLoNjn48GAF3UQdsP0&url=","ext": {"flag": ["YuMi-vip","YuMi-AL","芒果"]},"header": {"User-Agent": "okhttp/3.12.0"}},
-{"name": "芒果🥭","type": 1,"url": "https://jx.255tv.tk/api/?key=S6kQHaE1gVEY5KAv8L&url=","ext": {"flag": ["imgo","mgtv","芒果"]}}
+{"name": "芒果🥭","type": 1,"url": "https://jx.255tv.tk/api/?key=S6kQHaE1gVEY5KAv8L&url=","ext": {"flag": ["imgo","mgtv","芒果"]}},
 {"name":"Cai","type":0,"url":"https://jx.cainisi.cf/?v="},
 {"name":"夜幕","type":0,"url":"https://www.yemu.xyz/?url="},
 {"name":"jsonplayer","type":0,"url":"https://jx.jsonplayer.com/player/?url="},
-{"name":"777","type":0,"url":"https://jx.777jiexi.com/player/?url="},
-
+{"name":"777","type":0,"url":"https://jx.777jiexi.com/player/?url="}
 ],
 
 "flags": ["qq","腾讯","企鹅","IQiYi","qiyi","爱奇艺","奇艺","youku","YouKu","优酷","sohu","SoHu","搜狐","letv","LeShi","乐视","imgo","mgtv","MangGuo","芒果","SLYS4k","BYGA","luanzi","AliS","dxzy","bilibili","QEYSS","xigua","西瓜视频","腾讯视频","奇艺视频","优酷视频","芒果视频","乐视视频"],
