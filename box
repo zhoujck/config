@@ -21,7 +21,7 @@
 {"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./lib/drpy2.min.js","ext": "./js/doc.js","searchable": 0},
 
 {"key":"迷你库","name":"🍬糖果","type":3,"api":"csp_AppYsV2","ext":"http://www.miniku.cc/xgapp.php/v1/"},
-{"key": "蚂蚁","name": "️🍬蚂蚁","type": 3,"api": "csp_AppYsV2","ext": "http://wushutvcms.byzz.top/api.php/app/"},
+
 {"key":"乐猪","name":"🍬乐猪","type":3,"api":"csp_XBPQ","ext":"./ext/乐猪.json"},
 {"key":"龟龟","name":"🍬龟龟","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json"},
 {"key":"360","name":"🍬360","type":3,"api":"csp_XBPQ","ext":"./ext/360.json"},
@@ -41,8 +41,6 @@
 ],
     
 "parses": [
-{"name": "聚合1","type": 3,"url": "Demo"},
-{"name": "聚合0","type": 3,"url": "Web"},
 {"name": "小米🌾","type": 1,"url": "http:/xhww.fun:63/小米.php?url=","ext": {"flag": ["qiqi","CL4K","JHHD","JHB","NBY","爱奇艺","奇艺","qq","腾讯","youku","优酷","pptv","PPTV","letv","乐视","leshi","bilibili","哔哩哔哩","哔哩","mgtv","芒果"],"header": {"User-Agent": "okhttp/3.12.0"}}},
 {"name": "黄黄🍌","type": 1,"url": "http://110.42.2.247:880/analysis/json/?uid=2449&my=acfgikquvzFGJRW459&format=data&url=","ext": {"flag": ["qiqi","CL4K","JHHD","JHB","NBY","爱奇艺","奇艺","qq","腾讯","youku","优酷","pptv","PPTV","letv","乐视","leshi","bilibili","哔哩哔哩","哔哩","mgtv","芒果"],"header": {"User-Agent": "okhttp/3.12.0"}}},
 {"name": "稻香🌾","type": 1,"url": "http://27.124.4.42:4567//jhjson//ceshi.php?url=","ext": {"flag": ["qiqi","CL4K","JHHD","JHB","NBY","爱奇艺","奇艺","qq","腾讯","youku","优酷","pptv","PPTV","letv","乐视","leshi","bilibili","哔哩哔哩","哔哩","mgtv","芒果"],"header": {"User-Agent": "okhttp/3.12.0"}}},
