@@ -28,7 +28,7 @@
 {"key":"360","name":"🍬360","type":3,"api":"csp_XBPQ","ext":"./ext/360.json"},
 {"key":"农民","name":"🍬农民","type":3,"api":"csp_XBPQ","ext":"./ext/农民影视.json"},
 
-{"key": "廠長1","name": "廠長1","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/czzy_open.js"},
+{"key": "厂长","name": "厂长","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/czzy_open.js"},
 {"key": "愛看","name": "愛看","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/ikanbot_open.js"},
 {"key": "快看","name": "快看","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/kkys_open.js"},
 
