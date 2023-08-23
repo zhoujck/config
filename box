@@ -29,7 +29,7 @@
 {"key":"360","name":"🍬360","type":3,"api":"csp_XBPQ","ext":"./ext/360.json"},
 {"key":"农民","name":"🍬农民","type":3,"api":"csp_XBPQ","ext":"./ext/农民影视.json"},
 
-{"key":"厂长","name":"🍬厂长","type":3,"api":"csp_Czsapp","playerType":2,"ext":"https://cz01.me/","jar":"./jar/Yoursmail.jar"},
+{"key":"厂长","name":"🍬厂长","type":3,"api":"csp_Czsapp","playerType":2,"ext":"https://cz01.me/","jar":"./jar/Yoursmaile.jar"},
 
 {"key":"csp_WoGG","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "./ext/alitoken$$$http://tvfan.xxooo.cf/","jar":"./jar/ali.jar"},
 {"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","changeable":0,"ext":"./ext/alitoken","jar":"./jar/ali.jar"},
