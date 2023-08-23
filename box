@@ -15,7 +15,7 @@
 //"searchable": 1,"filterable": 1,"changeable":1
 
 "sites":[ 
-{"key": "dr_drpy","name": "🍬糖 果 影 视🍬","type": 3,"api": "./lib/drpy2.min.js","ext": "./js/豆瓣.js"},
+{"key": "dr_drpy","name": "🍬糖果影视🍬","type": 3,"api": "./lib/drpy2.min.js","ext": "./js/豆瓣.js"},
 {"key":"Kunyu77","name":"🍬酷云","type":3,"api": "./lib/drpy2.min.js","ext": "./js/酷云.js"},
 {"key":"厂长","name":"🍬厂长","type":3,"api":"./lib/drpy2.min.js","playerType":2,"ext":"./js/厂长.js"},
 {"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./lib/drpy2.min.js","ext": "./js/doc.js","searchable": 0},
