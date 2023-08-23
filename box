@@ -15,9 +15,9 @@
 //"searchable": 1,"filterable": 1,"changeable":1
 
 "sites":[ 
-{"key": "dr_drpy","name": "🍬糖果影视🍬","type": 3,"api": "./lib/drpy2.min.js","ext": "./js/豆瓣.js"},
-{"key":"Kunyu77","name":"🍬酷云","type":3,"api": "./lib/drpy2.min.js","ext": "./js/酷云.js"},
-{"key":"厂长","name":"🍬厂长","type":3,"api":"./lib/drpy2.min.js","playerType":2,"ext":"./js/厂长.js"},
+{"key": "dr_drpy","name": "🍬糖果影视🍬","type": 3,"api": "./lib/drpy2.js","ext": "./js/豆瓣.js"},
+{"key":"Kunyu77","name":"🍬酷云","type":3,"api": "./lib/drpy2.js","ext": "./js/酷云.js"},
+{"key":"厂长","name":"🍬厂长","type":3,"api":"./lib/drpy2.js","playerType":2,"ext":"./js/厂长.js"},
 {"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./lib/drpy2.min.js","ext": "./js/doc.js","searchable": 0},
 
 {"key":"迷你库","name":"🍬糖果","type":3,"api":"csp_AppYsV2","ext":"http://www.miniku.cc/xgapp.php/v1/"},
@@ -34,7 +34,7 @@
 //视听
 //{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
 {"key":"直播","name":"📺电视直播","type":3,"api":"./lib/直播转点播.js","ext":"./json/liveapi.json"},
-{"key":"310直播","name":"🏀体育直播","type":3,"api":"./lib/drpy2.min.js","ext":"./js/310直播.js"}
+{"key":"310直播","name":"🏀体育直播","type":3,"api":"./lib/drpy.js","ext":"./js/310直播.js"}
 ],
     
 "parses": [
