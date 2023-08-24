@@ -1,7 +1,7 @@
 {
 "spider":"https://tvbox.cainisi.cf/jar/fty0808.jar;md5;43d5af5fc45bbff83ae54e4f3fe703e5",
 "sites":[
-{"key":"直播","name":"📺电视直播","type":3,"api":"./lib/直播转点播.js","ext":"./json/liveapi18.json"}
+{"key":"直播","name":"📺电视直播","type":3,"api":"./lib/live.js","ext":"./json/liveapi18.json"}
 ]
 }
 
