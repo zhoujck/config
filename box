@@ -17,19 +17,18 @@
 "sites":[ 
 {"key": "dr_drpy","name": "🍬糖果影视🍬","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/豆瓣.js"},
 {"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/doc.js","searchable": 0},
-//{"key": "酷云","name": "🍬酷云","type": 3,"api": "csp_Kunyu77"},
-//{"key":"Kunyu77","name":"🍬酷云","type":3,"api": "./libs/drpy2.min.js","ext": "./js/酷云.js"},
-//{"key":"厂长","name":"🍬厂长","type":3,"api":"./libs/drpy2.min.js","playerType":2,"ext":"./js/厂长.js"},
 
 {"key": "厂长","name": "🍬厂长影视","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/czzy_open.js"},
 {"key": "爱看","name": "🍬爱看影视","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/ikanbot_open.js"},
 {"key": "快看","name": "🍬糖果影视","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/kkys_open.js"},
+{"key":"暴风","name":"🍬暴风影视","type":1,"api":"https://bfzyapi.com/api.php/provide/vod/?ac=list"},
+{"key":"量子","name":"🍬量子影视","type":0,"api":"https://cj.lziapi.com/api.php/provide/vod/at/xml/"},
+{"key":"星星","name":"🍬星星影视","type":3,"api":"csp_star","jar":"https://fongmi.cachefly.net/FongMi/CatVodSpider/main/jar/custom_spider.jar;md5;a296bd2bc81da9960738fa6edd394246"},
 
 {"key":"迷你库","name":"🍬迷你影视","type":3,"api":"csp_AppYsV2","ext":"http://www.miniku.cc/xgapp.php/v1/"},
 {"key":"乐猪","name":"🍬乐猪影视","type":3,"api":"csp_XBPQ","ext":"./ext/乐猪.json"},
 {"key":"龟龟","name":"🍬龟龟影视","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json"},
 {"key":"360","name":"🍬三六影视","type":3,"api":"csp_XBPQ","ext":"./ext/360.json"},
-//{"key":"农民","name":"🍬农民","type":3,"api":"csp_XBPQ","ext":"./ext/农民影视.json"},
 
 {"key":"csp_WoGG","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "./ext/alitoken$$$http://tvfan.xxooo.cf/","jar":"./jar/ali.jar"},
 {"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","changeable":0,"ext":"./ext/alitoken","jar":"./jar/ali.jar"},
