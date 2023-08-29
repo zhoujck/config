@@ -1,7 +1,6 @@
 [
-{"name":"花城","url":"https://ghproxy.net/https://raw.githubusercontent.com/zhoujck/config/master/json/18"}, 
-{"name":"饭饭","url":"https://ghproxy.net/https://raw.githubusercontent.com/zhoujck/gao/master/livex.m3u"},
-{"name":"初秋语","type":0,"url":"https://gh-proxy.com/https://raw.githubusercontent.com/gao/master/listx.m3u"},
+{"name":"gao1","url":"https://ghproxy.net/https://raw.githubusercontent.com/zhoujck/gao/master/livex.m3u"},
+{"name":"gao2","type":0,"url":"https://gh-proxy.com/https://raw.githubusercontent.com/gao/master/listx.txt"},
 {"name":"YanG","type":0,"url":"https://gh-proxy.com/https://raw.githubusercontent.com/YanG-1989/m3u/main/Adult.m3u"},
-{"name":"atsushi","type":0,"url":"https://gh-proxy.com/https://raw.githubusercontent.com/atsushi444/iptv-epg/main/Adult.m3u"}
+{"name":"atsushi","type":0,"url":"https://gh-proxy.com/https://raw.githubusercontent.com/atsushi444/iptv-epg/main/Adult.m3u"}  
 ]
