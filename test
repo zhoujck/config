@@ -1,5 +1,5 @@
 {
 "spider": "http://xhww.fun:63/小米/5.jar;md5;c570b052645834a1109b54421c1552f9",
-"sites":[{"key":"直播","name":"📺电视直播","type":3,"api":"./libs/live.js","ext":"./json/18"}]
+"sites":[{"key":"直播","name":"📺电视直播","type":3,"api":"./libs/live.js","ext":"./json/live$./json/18"}]
 }
 
