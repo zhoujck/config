@@ -1,5 +1,5 @@
 {
 "spider": "./jar/ali.jar",
-"sites":[{"key":"直播","name":"📺电视直播","type":3,"api":"./lib/live.js","ext":"./json/liveapi18.json"}]
+"sites":[{"key":"直播","name":"📺电视直播","type":3,"api":"./lib/live.js","ext":"./json/18"}]
 }
 
