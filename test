@@ -33,7 +33,7 @@
 
 //视听
 //{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
-{"key":"直播","name":"📺电视直播","type":3,"api":"./libs/live.js","ext":"https://ghproxy.net/https://raw.githubusercontent.com/zhoujck/config/master/json/18"},
+{"key":"直播","name":"📺电视直播","type":3,"api":"./libs/live.js","ext":"https://ghproxy.net/https://raw.githubusercontent.com/zhoujck/config/master/json/18api"},
 {"key":"310直播","name":"🏀体育直播","type":3,"api":"./libs/drpy2.min.js","ext":"./js/310直播.js"}
 ],
     
