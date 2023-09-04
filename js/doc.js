@@ -12,9 +12,8 @@ var rule = {
     headers:{
         'User-Agent':'PC_UA',
         "Referer": "https://www.bilibili.com",
-        //"Cookie":"DedeUserID=701168335;DedeUserID__ckMd5=7219483457203958;SESSDATA=772c448a%2C1695181918%2C8ab46%2A31;bili_jct=a7fb0ac6258206e8fa84ca951c7bee09;"
+        "Cookie":"DedeUserID=701168335;DedeUserID__ckMd5=7219483457203958;SESSDATA=772c448a%2C1695181918%2C8ab46%2A31;bili_jct=a7fb0ac6258206e8fa84ca951c7bee09;"
         //"Cookie":"DedeUserID=3493271303096985;DedeUserID__ckMd5=212a836c164605b7;SESSDATA=7624af93%2C1696008331%2C862c8%2A42;bili_jct=141a474ef3ce8cf2fedf384e68f6625d;"
-        "Cookie":"SESSDATA=7624af93%2C1696008331%2C862c8%2A42;bili_jct=141a474ef3ce8cf2fedf384e68f6625d;DedeUserID=3493271303096985;DedeUserID__ckMd5=212a836c164605b7;"
     },
     timeout:5000,
     class_name:'历史&人文&宇宙&自然&动物&科技&美食&探险',
