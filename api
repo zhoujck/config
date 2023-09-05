@@ -24,6 +24,10 @@
         {
             "name":"📱网络〔小米〕",
            "url":"http://xhww.fun:63/小米/DEMO.json"
-        }   
+        },        
+        {
+            "name":"📱网络〔cat〕",
+           "url":"https://ghproxy.com/raw.githubusercontent.com/gaotianliuyun/gao/master/cat.json"
+        }     
     ]
 }
