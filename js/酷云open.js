@@ -1,4 +1,4 @@
-import { Crypto, dayjs, jinja2, Uri, _ } from './lib/cat.js';
+import { Crypto, dayjs, jinja2, Uri, _ } from './libs/cat.js';
 
 let key = 'kunyu77';
 let url = 'http://api.tyun77.cn';
