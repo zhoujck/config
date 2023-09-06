@@ -17,7 +17,7 @@
 "sites":[ 
 {"key": "dr_drpy","name": "🍬糖果影视🍬","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/豆瓣.js"},
 {"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/doc.js","searchable": 0},
-{"key":"酷云","name":"🍬酷云","type":3,"api":"./js/酷云open.js"},
+//{"key":"酷云","name":"🍬酷云","type":3,"api":"./js/酷云open.js"},
 
 {"key": "厂长","name": "🍬厂长影视","type": 3,"api": "./js/厂长.js"},
 {"key": "爱看","name": "🍬爱看影视","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/ikanbot_open.js"},
