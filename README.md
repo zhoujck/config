@@ -4,4 +4,4 @@ emoji大全
 https://emojixd.com/ 
 
 多仓接口
-https://ghproxy.net/https://raw.githubusercontent.com/zhoujck/config/master/box
+https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/config/master/api
