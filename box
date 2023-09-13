@@ -23,11 +23,11 @@
 {"key": "爱看","name": "🍬爱看影视","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/ikanbot_open.js"},
 {"key": "快看","name": "🍬快看影视","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/kkys_open.js"},
 
-//{"key":"迷你库","name":"🍬糖果影视","type":3,"api":"csp_AppYsV2","ext":"http://www.miniku.cc/xgapp.php/v1/"},
-{"key":"乐猪","name":"🍬乐猪影视","type":3,"api":"csp_XBPQ","ext":"./ext/乐猪.json"},
-{"key":"龟龟","name":"🍬龟龟影视","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json"},
-{"key":"360","name":"🍬糖果影视","type":3,"api":"csp_XBPQ","ext":"./ext/360.json"},
-{"key":"糖果","name":"🍬黑狐影视","type":3,"api":"csp_XBPQ","ext":"./ext/黑狐.json"},
+
+{"key":"乐猪","name":"🍬乐猪影视","type":3,"api":"csp_XBPQ","ext":"./ext/乐猪.json","jar":"./jar/小米XBQP.jar"},
+{"key":"龟龟","name":"🍬龟龟影视","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json","jar":"./jar/小米XBQP.jar"},
+{"key":"360","name":"🍬糖果影视","type":3,"api":"csp_XBPQ","ext":"./ext/360.json","jar":"./jar/小米XBQP.jar"},
+{"key":"糖果","name":"🍬黑狐影视","type":3,"api":"csp_XBPQ","ext":"./ext/黑狐.json","jar":"./jar/小米XBQP.jar"},
 
 {"key":"csp_WoGG","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "./ext/alitoken$$$http://tvfan.xxooo.cf/","jar":"./jar/ali.jar"},
 {"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","changeable":0,"ext":"./ext/alitoken","jar":"./jar/ali.jar"},
