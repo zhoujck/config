@@ -19,7 +19,7 @@
 {"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/doc.js","searchable": 0},
 {"key": "dr_drpy","name": "🍬爱看","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/爱看机器人.js"},
 
-{"key": "厂长","name": "🍬厂长影视","type": 3,"api": "./js/厂长.js"},
+{"key": "厂长","name": "🍬厂长影视","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/czzy_open.js"},
 {"key": "爱看","name": "🍬爱看影视","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/ikanbot_open.js"},
 {"key": "快看","name": "🍬快看影视","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/kkys_open.js"},
 
