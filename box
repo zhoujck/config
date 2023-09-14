@@ -47,7 +47,7 @@
 {"key":"sukan","name":"影视 | 速看","type":3,"api":"./libs/AppYsV2.js","ext":"https://sk100.tv/api.php/app/"},
 {"key":"midi","name":"影视 | 明帝","type":3,"api":"./libs/AppYsV2.js","ext":"https://ys.md214.cn/api.php/app/"},
 {"key":"dadou","name":"影视 | 大豆","type":3,"api":"./libs/AppYsV2.js","ext":"http://www.dadou.cm/api.php/app/"},
-{"key":"qtw","name":"影视 | 彩虹","type":3,"api":"./libs/AppYsV2.js","ext":"http://ys.qtw.asia/lvdou_api.php/v1.vod"}
+{"key":"qtw","name":"影视 | 彩虹","type":3,"api":"./libs/AppYsV2.js","ext":"http://ys.qtw.asia/lvdou_api.php/v1.vod"},
 
 //视听
 //{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
