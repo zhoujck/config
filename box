@@ -29,7 +29,7 @@
 {"key":"360","name":"🍬糖果影视","type":3,"api":"csp_XBPQ","ext":"./ext/360.json","jar":"./jar/小米XBQP.jar"},
 {"key":"糖果","name":"🍬黑狐影视","type":3,"api":"csp_XBPQ","ext":"./ext/黑狐.json","jar":"./jar/小米XBQP.jar"},
 
-{"key":"csp_WoGG","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "./ext/alitoken$$$http://tvfan.xxooo.cf/","jar":"./jar/ali.jar"},
+{"key":"csp_WoGG","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "./ext/alitoken$$$http://www.wogg.xyz:2052/","jar":"./jar/ali.jar"},
 {"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","changeable":0,"ext":"./ext/alitoken","jar":"./jar/ali.jar"},
 
 //视听
