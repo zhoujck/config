@@ -38,7 +38,7 @@
 {"key":"aidi","name":"影视 | 爱迪","type":3,"api":"./libs/AppYsV2.js","ext":"https://api123.adys.app/xgapp.php/v3/"},
 {"key":"yaya","name":"影视 | 鸭鸭","type":3,"api":"./libs/AppYsV2.js","ext":"https://yayayaaapp.ynf.icu/api.php/app/"},
 {"key":"kuku","name":"影视 | 酷酷","type":3,"api":"./libs/AppYsV2.js","ext":"http://cms.realdou.cn:35264/api.php/app/"},
-{"key":"beijihu","name":"影视 | 极狐","type":3,"api":"./clibs/AppYsV2.js","ext":"https://www.kuin.one/api.php/app/"},
+{"key":"beijihu","name":"影视 | 极狐","type":3,"api":"./libs/AppYsV2.js","ext":"https://www.kuin.one/api.php/app/"},
 {"key":"kuk","name":"影视 | 天堂","type":3,"api":"./libs/AppYsV2.js","ext":"http://dytt996.com/api.php/app/"},
 {"key":"kku","name":"影视 | 酷影","type":3,"api":"./libs/AppYsV2.js","ext":"https://www.gsjtlxy.top/xgapp.php/v3/"},
 {"key":"kuu","name":"影视 | 酷客","type":3,"api":"./libs/AppYsV2.js","ext":"https://www.kuin.one/api.php/app/"},
