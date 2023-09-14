@@ -32,6 +32,23 @@
 {"key":"csp_WoGG","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "./ext/alitoken$$$http://www.wogg.xyz:2052/","jar":"./jar/ali.jar"},
 {"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","changeable":0,"ext":"./ext/alitoken","jar":"./jar/ali.jar"},
 
+{"key":"哈喽","name":"影视 | 哈喽","type":3,"api":"./libs/AppYsV2.js","ext":"http://www.miniku.cc/xgapp.php/v1/"},
+{"key":"1080dyw","name":"影视 | 视界","type":3,"api":"./libs/AppYsV2.js","ext":"https://www.1080dyw.cc/api.php/v1.vod"},
+{"key":"miniku","name":"影视 | 迷你","type":3,"api":"./libs/AppYsV2.js","ext":"http://www.miniku.cc/xgapp.php/v1/"},
+{"key":"aidi","name":"影视 | 爱迪","type":3,"api":"./libs/AppYsV2.js","ext":"https://api123.adys.app/xgapp.php/v3/"},
+{"key":"yaya","name":"影视 | 鸭鸭","type":3,"api":"./libs/AppYsV2.js","ext":"https://yayayaaapp.ynf.icu/api.php/app/"},
+{"key":"kuku","name":"影视 | 酷酷","type":3,"api":"./libs/AppYsV2.js","ext":"http://cms.realdou.cn:35264/api.php/app/"},
+{"key":"beijihu","name":"影视 | 极狐","type":3,"api":"./clibs/AppYsV2.js","ext":"https://www.kuin.one/api.php/app/"},
+{"key":"kuk","name":"影视 | 天堂","type":3,"api":"./libs/AppYsV2.js","ext":"http://dytt996.com/api.php/app/"},
+{"key":"kku","name":"影视 | 酷影","type":3,"api":"./libs/AppYsV2.js","ext":"https://www.gsjtlxy.top/xgapp.php/v3/"},
+{"key":"kuu","name":"影视 | 酷客","type":3,"api":"./libs/AppYsV2.js","ext":"https://www.kuin.one/api.php/app/"},
+{"key":"ruidou","name":"影视 | 锐豆","type":3,"api":"./libs/AppYsV2.js","ext":"http://ys.realdou.cn:2683/api.php/app/"},
+{"key":"mayi","name":"影视 | 蚂蚁","type":3,"api":"./libs/AppYsV2.js","ext":"http://wushutvcms.byzz.top/api.php/app/"},
+{"key":"sukan","name":"影视 | 速看","type":3,"api":"./libs/AppYsV2.js","ext":"https://sk100.tv/api.php/app/"},
+{"key":"midi","name":"影视 | 明帝","type":3,"api":"./libs/AppYsV2.js","ext":"https://ys.md214.cn/api.php/app/"},
+{"key":"dadou","name":"影视 | 大豆","type":3,"api":"./libs/AppYsV2.js","ext":"http://www.dadou.cm/api.php/app/"},
+{"key":"qtw","name":"影视 | 彩虹","type":3,"api":"./libs/AppYsV2.js","ext":"http://ys.qtw.asia/lvdou_api.php/v1.vod"}
+
 //视听
 //{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
 {"key":"直播","name":"📺电视直播","type":3,"api":"./libs/live.js","ext":"./json/liveapi.json"},
