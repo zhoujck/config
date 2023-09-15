@@ -1,5 +1,5 @@
 {  
-"spider": "https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/CatVodTVSpider/main/jar/custom_spider.jar;md5;3e2a31fa193feb964a0f62f907ceec4e",
+"spider": "./jar/小米XBQP.jar",
 //"spider": "http://xhww.fun:63/小米/5.jar;md5;c570b052645834a1109b54421c1552f9",
 
 "wallpaper": "https://jianbian.chuqiuyu.tk",
