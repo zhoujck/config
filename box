@@ -23,10 +23,10 @@
 {"key": "快看","name": "🍬快看影视","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/kkys_open.js"},
 
 
-{"key":"乐猪","name":"🍬乐猪影视","type":3,"api":"csp_XBPQ","ext":"./ext/乐猪.json","jar":"./jar/小米XBQP.jar"},
+{"key":"乐猪","name":"🍬速映影视","type":3,"api":"csp_XBPQ","ext":"./ext/速映.json","jar":"./jar/小米XBQP.jar"},
 {"key":"龟龟","name":"🍬龟龟影视","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json","jar":"./jar/小米XBQP.jar"},
 {"key":"360","name":"🍬糖果影视","type":3,"api":"csp_XBPQ","ext":"./ext/360.json","jar":"./jar/小米XBQP.jar"},
-{"key":"糖果","name":"🍬黑狐影视","type":3,"api":"csp_XBPQ","ext":"./ext/黑狐.json","jar":"./jar/小米XBQP.jar"},
+{"key":"糖果","name":"🍬热播影视","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"./jar/小米XBQP.jar"},
 
 {"key":"csp_WoGG","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "./ext/alitoken","jar":"./jar/fan.txt"},
 {"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","changeable":0,"ext":"./ext/alitoken","jar":"./jar/ali.jar"},
