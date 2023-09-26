@@ -12,7 +12,7 @@ var rule = {
     headers:{
         'User-Agent':'PC_UA',
         "Referer": "https://www.bilibili.com",
-        "Cookie":"DedeUserID=701168335;DedeUserID__ckMd5=7219483457203958;SESSDATA=69a509e4%2C1709346074%2C76a03%2A91wIfjjN26N9hIkfsVzNdHz93cwYNyVXgKKOUZ3k4DbOue2O3vQsJcAEulcMRWEz1BreiCrAAAIwA;bili_jct=e4824012e62961bf32d0bf65dbaf4d2a;"
+        "Cookie":"DedeUserID=701168335;DedeUserID__ckMd5=7219483457203958;SESSDATA=8cd3ccdd%2C1711242865%2C32d31%2A92CjBJFj-KEJf-QbhKctuczeXHjE7WFq-LcLXiLDZiK1jObTvN6sKU40ftcLFYXZIR0tESVjBzYzJpMDl2a2VDTkx3QmJQT3VnSFZwTDRxd2syWXoxNGFRQkx2TzNVSWFoQmxZcUF6YTFSYzlMcGUwZzRCcFJJR3Ruc0dLa0lLVzlzMWVrM2lGM21RIIEC;bili_jct=cc78d46f2ba89379a345521c050fe5bc;"
         //"Cookie":"DedeUserID=3493271303096985;DedeUserID__ckMd5=7b86f3894ed7f8c0;SESSDATA=2d6f63c8%2C1684568607%2C19eb6%2Ab1;bili_jct=21d538b01566c26afc81ff68c2ac7dca;"
     },
     timeout:5000,
