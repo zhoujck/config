@@ -3,6 +3,8 @@
 "wallpaper": "https://jianbian.chuqiuyu.tk",
 "daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20", 
 
+//certutil -hashfile C:\Users\c8t48\Desktop\fan.jar MD5
+
 "lives":[
 {"name":"🍬糖果🍬","type":0,"url":"./json/live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","ua":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/108.0.0.0Safari/537.36"},
 {"name":"YueChan•综合","type":0,"url":"https://gh-proxy.com/https://raw.githubusercontent.com/YueChan/Live/main/IPTV.m3u","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","logo":"https://epg.112114.xyz/logo/{name}.png"},
@@ -26,8 +28,8 @@
 {"key":"乐猪","name":"速映┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/速映.json","jar":"./jar/小米XBQP.jar"},
 {"key":"糖果","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"./jar/小米XBQP.jar"},
 
-{"key":"csp_WoGG","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "./ext/alitoken","jar":"./jar/fan.txt"},
-{"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","changeable":0,"ext":"./ext/alitoken","jar":"./jar/ali.jar"},
+{"key":"csp_WoGG","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "./ext/alitoken"},
+{"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","changeable":0,"ext":"./ext/alitoken","jar":""},
 
 {"key":"泰泰","name":"影视┃泰泰","type":3,"api":"./libs/AppYsV2.js","ext":"https://www.gsjtlxy.top/xgapp.php/v3/"},
 {"key":"奇奇","name":"影视┃奇奇","type":3,"api":"./libs/AppYsV2.js","ext":"http://mp4.ghlyys.com/api.php/app/"},
