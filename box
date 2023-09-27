@@ -1,7 +1,5 @@
 {  
-"spider": "./jar/fan.jar",
-//"spider": "http://xhww.fun:63/小米/5.jar;md5;c570b052645834a1109b54421c1552f9",
-
+"spider": "./jar/fan.jar;MD5;9ed61a62158945c95c24537e5f89634b",
 "wallpaper": "https://jianbian.chuqiuyu.tk",
 "daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20", 
 
@@ -18,29 +16,27 @@
 {"key": "dr_drpy","name": "🍬糖果影视🍬","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/豆瓣.js"},
 {"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/doc.js","searchable": 0},
 
-{"key": "酷云","name": "酷云","type": 3,"api": "csp_Kunyu77"},
-
-{"key": "厂长","name": "🍬厂长影视","type": 3,"api": "./js/厂长.js"},
-{"key": "爱看","name": "🍬爱看影视","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/ikanbot_open.js"},
-{"key": "快看","name": "🍬快看影视","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/kkys_open.js"},
+{"key": "酷云","name": "酷云┃直连","type": 3,"api": "csp_Kunyu77"},
+{"key": "厂长","name": "厂长┃直连","type": 3,"api": "csp_Czsapp"},
+{"key":"Auete","name":"奥特┃直连","type": 3,"api":"csp_Auete","searchable":1,"quickSearch":1,"changeable":1},
 {"key":"新视觉","name":"视觉┃直连","type":3,"api":"csp_Xinsj","searchable":1,"quickSearch":1,"changeable":1,"ext":"https://www.6080yy3.com/"}, 
 
-{"key":"乐猪","name":"🍬速映影视","type":3,"api":"csp_XBPQ","ext":"./ext/速映.json","jar":"./jar/小米XBQP.jar"},
-//{"key":"龟龟","name":"🍬龟龟影视","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json","jar":"./jar/小米XBQP.jar"},
-//{"key":"360","name":"🍬糖果影视","type":3,"api":"csp_XBPQ","ext":"./ext/360.json","jar":"./jar/小米XBQP.jar"},
-{"key":"糖果","name":"🍬热播影视","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"./jar/小米XBQP.jar"},
+{"key": "快看","name": "快看影视","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/kkys_open.js"},
+
+{"key":"乐猪","name":"速映┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/速映.json","jar":"./jar/小米XBQP.jar"},
+{"key":"糖果","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"./jar/小米XBQP.jar"},
 
 {"key":"csp_WoGG","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "./ext/alitoken","jar":"./jar/fan.txt"},
 {"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","changeable":0,"ext":"./ext/alitoken","jar":"./jar/ali.jar"},
 
-{"key":"泰泰","name":"影视 | 泰泰","type":3,"api":"./libs/AppYsV2.js","ext":"https://www.gsjtlxy.top/xgapp.php/v3/"},
-{"key":"奇奇","name":"影视 | 奇奇","type":3,"api":"./libs/AppYsV2.js","ext":"http://mp4.ghlyys.com/api.php/app/"},
-{"key":"miniku","name":"影视 | 迷你","type":3,"api":"./libs/AppYsV2.js","ext":"http://www.miniku.cc/xgapp.php/v1/"},
-{"key":"陌陌","name":"影视 | 陌陌","type":3,"api":"./libs/AppYsV2.js","ext":"https://www.kuin.one/api.php/app/"},
-{"key":"辣辣","name":"影视 | 辣辣","type":3,"api":"./libs/AppYsV2.js","ext":"http://www.miniku.cc/xgapp.php/v2/"},
-{"key":"嘉嘉","name":"影视 | 嘉嘉","type":3,"api":"./libs/AppYsV2.js","ext":"http://cms.jialiangos.com/api.php/app/"},
+{"key":"泰泰","name":"影视┃泰泰","type":3,"api":"./libs/AppYsV2.js","ext":"https://www.gsjtlxy.top/xgapp.php/v3/"},
+{"key":"奇奇","name":"影视┃奇奇","type":3,"api":"./libs/AppYsV2.js","ext":"http://mp4.ghlyys.com/api.php/app/"},
+{"key":"miniku","name":"影视┃迷你","type":3,"api":"./libs/AppYsV2.js","ext":"http://www.miniku.cc/xgapp.php/v1/"},
+{"key":"陌陌","name":"影视┃陌陌","type":3,"api":"./libs/AppYsV2.js","ext":"https://www.kuin.one/api.php/app/"},
+{"key":"辣辣","name":"影视┃辣辣","type":3,"api":"./libs/AppYsV2.js","ext":"http://www.miniku.cc/xgapp.php/v2/"},
+{"key":"嘉嘉","name":"影视┃嘉嘉","type":3,"api":"./libs/AppYsV2.js","ext":"http://cms.jialiangos.com/api.php/app/"},
 
-{"key": "快帆","name": "影视 |快帆","type": 1,"api": "https://api.kuaifan.tv/api.php/provide/vod"},
+{"key": "快帆","name": "快帆┃直采","type": 1,"api": "https://api.kuaifan.tv/api.php/provide/vod"},
 
 //视听
 //{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
