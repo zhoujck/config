@@ -31,12 +31,12 @@
 {"key":"csp_WoGG","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "./ext/alitoken"},
 {"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","changeable":0,"ext":"./ext/alitoken","jar":"./jar/ali.jar"},
 
-{"key":"泰泰","name":"泰泰┃直连","type":3,"api":"csp_AppYsV2","ext":"https://www.gsjtlxy.top/xgapp.php/v3/"},
-{"key":"奇奇","name":"奇奇┃直连","type":3,"api":"csp_AppYsV2","ext":"http://mp4.ghlyys.com/api.php/app/"},
-{"key":"miniku","name":"迷你┃直连","type":3,"api":"csp_AppYsV2","ext":"http://www.miniku.cc/xgapp.php/v1/"},
-{"key":"陌陌","name":"陌陌┃直连","type":3,"api":"csp_AppYsV2","ext":"https://www.kuin.one/api.php/app/"},
-{"key":"辣辣","name":"辣辣┃直连","type":3,"api":"csp_AppYsV2","ext":"http://www.miniku.cc/xgapp.php/v2/"},
-{"key":"嘉嘉","name":"嘉嘉┃直连","type":3,"api":"csp_AppYsV2","ext":"http://cms.jialiangos.com/api.php/app/"},
+{"key":"泰泰","name":"泰泰┃直连","type":3,"api":"./libs/AppYsV2.js","ext":"https://www.gsjtlxy.top/xgapp.php/v3/"},
+{"key":"奇奇","name":"奇奇┃直连","type":3,"api":"./libs/AppYsV2.js","ext":"http://mp4.ghlyys.com/api.php/app/"},
+{"key":"miniku","name":"迷你┃直连","type":3,"api":"./libs/AppYsV2.js","ext":"http://www.miniku.cc/xgapp.php/v1/"},
+{"key":"陌陌","name":"陌陌┃直连","type":3,"api":"./libs/AppYsV2.js","ext":"https://www.kuin.one/api.php/app/"},
+{"key":"辣辣","name":"辣辣┃直连","type":3,"api":"./libs/AppYsV2.js","ext":"http://www.miniku.cc/xgapp.php/v2/"},
+{"key":"嘉嘉","name":"嘉嘉┃直连","type":3,"api":"./libs/AppYsV2.js","ext":"http://cms.jialiangos.com/api.php/app/"},
 
 {"key": "快帆","name": "快帆┃直采","type": 1,"api": "https://api.kuaifan.tv/api.php/provide/vod"},
 
