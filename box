@@ -1,5 +1,5 @@
 {  
-"spider": "./jar/fan.jar",
+"spider": "./jar/fan.jar;md5;9ed61a62158945c95c24537e5f89634b",
 "wallpaper": "https://jianbian.chuqiuyu.tk",
 "daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20", 
 
