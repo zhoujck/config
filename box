@@ -18,7 +18,7 @@
 {"key": "dr_drpy","name": "🍬糖果影视🍬","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/豆瓣.js"},
 {"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/doc.js","searchable": 0},
 
-{"key": "酷云","name": "酷云┃直连","type": 3,"api": "csp_Kunyu77"},
+//{"key": "酷云","name": "酷云┃直连","type": 3,"api": "csp_Kunyu77"},
 {"key": "厂长","name": "厂长┃直连","type": 3,"api": "csp_Czsapp"},
 {"key":"Auete","name":"奥特┃直连","type": 3,"api":"csp_Auete","searchable":1,"quickSearch":1,"changeable":1},
 {"key":"新视觉","name":"视觉┃直连","type":3,"api":"csp_Xinsj","searchable":1,"quickSearch":1,"changeable":1,"ext":"https://www.6080yy3.com/"}, 
