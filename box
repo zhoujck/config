@@ -6,23 +6,7 @@
 //certutil -hashfile C:\Users\c8t48\Desktop\fan.jar MD5
 
 "lives":[
-{"name":"🍬糖果🍬","type":0,"url":"./json/live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","ua":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/108.0.0.0Safari/537.36"},
-{"name":"初秋语•综合","type":0,"url":"./list.txt","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","logo":"https://epg.112114.xyz/logo/{name}.png"},
-{"name":"YanG•综合","type":0,"url":"https://ghproxy.com/https://raw.githubusercontent.com/YanG-1989/m3u/main/Gather.m3u","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","logo":"https://epg.112114.xyz/logo/{name}.png"},
-{"name":"范明明•综合","type":0,"url":"https://ghproxy.com/https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/global.m3u","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","logo":"https://epg.112114.xyz/logo/{name}.png"},
-{"name":"YueChan•综合","type":0,"url":"https://ghproxy.com/https://raw.githubusercontent.com/YueChan/Live/main/IPTV.m3u","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","logo":"https://epg.112114.xyz/logo/{name}.png"},
-{"name":"Yoursmile•综合","type":0,"url":"https://agit.ai/Yoursmile7/TVBox/raw/branch/master/live.txt","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","logo":"https://epg.112114.xyz/logo/{name}.png"},
-{"name":"饭太硬•综合","type":0,"url":"https://agit.ai/fantaiying/0/raw/branch/main/tvlive.txt","playerType":1,"ua": "okhttp/3.15","epg":"http://epg.112114.xyz/?ch={name}&date={date}","logo": "https://epg.112114.xyz/logo/{name}.png"},
-{"name":"Ray•综合","type":0,"url":"https://xhdwc.tk/tvlive.txt","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","logo":"https://epg.112114.xyz/logo/{name}.png"},
-{"name":"俊于•综合","type":0,"url":"http://home.jundie.top:81/Cat/tv/live.txt","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","logo": "https://epg.112114.xyz/logo/{name}.png"},
-{"name":"初秋语•电台","type":0,"url":"./radio.txt","playerType":1},
-{"name":"范明明•电台","type":0,"url":"https://ghproxy.com/https://raw.githubusercontent.com/fanmingming/live/main/radio/m3u/index.m3u","playerType":1},
-{"name":"肥羊•斗鱼","type":0,"url":"https://ghproxy.com/https://raw.githubusercontent.com/Ftindy/IPTV-URL/main/douyuyqk.m3u","playerType":1},
-{"name":"肥羊•虎牙","type":0,"url":"https://ghproxy.com/https://raw.githubusercontent.com/Ftindy/IPTV-URL/main/huyayqk.m3u","playerType":1},
-{"name":"肥羊•YY","type":0,"url":"https://ghproxy.com/https://raw.githubusercontent.com/Ftindy/IPTV-URL/main/yylunbo.m3u","playerType":1},
-{"name":"初秋语•哔哩","type":0,"url":"./bili.m3u","playerType":1},
-{"name":"YuanHsing•油管","type":0,"url":"https://ghproxy.com/https://raw.githubusercontent.com/YuanHsing/YouTube_to_m3u/main/youtube.m3u"}
-],
+{"name":"🍬糖果🍬","type":0,"url":"./json/live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","ua":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/108.0.0.0Safari/537.36"}],
 
 //playerType：播放器  (1：IJK、2：EXO)       
 //"searchable": 1,"filterable": 1,"changeable":1
@@ -35,7 +19,7 @@
 {"key": "厂长","name": "厂长┃直连","type": 3,"api": "csp_Czsapp"},
 {"key":"Auete","name":"奥特┃直连","type": 3,"api":"csp_Auete","searchable":1,"quickSearch":1,"changeable":1},
 {"key":"新视觉","name":"视觉┃直连","type":3,"api":"csp_Xinsj","searchable":1,"quickSearch":1,"changeable":1,"ext":"https://www.6080yy3.com/"}, 
-{"key": "世界","name": "世界┃直连","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/世界.js"},
+{"key": "世界","name": "🍬世界┃推荐","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/世界.js"},
 
 {"key": "快看","name": "快看影视","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/kkys_open.js"},
 
