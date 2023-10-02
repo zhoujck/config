@@ -8,7 +8,7 @@
   
   "分类url": "https://www.sjz42.net/sjvodshow/id-{cateId}{area}{by}{class}/page/{catePg}{year}.html",
   
-  "数组": "class=\"fed-list-pics fed-lazy fed-part-2by3\"",
+  "数组": "class=\"fed-list-item fed-padding fed-col-xs4 fed-col-sm3 fed-col-md2\&&"</a",
   "图片": "data-original=\"&&\"",
   "标题": "title=\"&&\"",
   "副标题": "text-right\">&&</span>",
