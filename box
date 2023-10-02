@@ -18,14 +18,11 @@
 {"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/doc.js","searchable": 0},
 
 //{"key": "酷云","name": "酷云┃直连","type": 3,"api": "csp_Kunyu77"},
-//{"key": "厂长","name": "厂长┃直连","type": 3,"api": "csp_Czsapp"},
-{"key":"新视觉","name":"视觉┃直连","type":3,"api":"csp_Xinsj","searchable":1,"quickSearch":1,"changeable":1,"ext":"https://www.6080yy3.com/"}, 
+
 {"key": "世界","name": "🍬世界┃推荐","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/世界.js"},
-
+{"key": "低端","name": "低端影视","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/低端.js"},
 {"key": "快看","name": "快看影视","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/kkys_open.js"},
-{"key": "厂长open","name": "厂长影视","type": 3,"api": "./js/厂长.js"},
 {"key": "厂长js","name": "厂长","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/厂长.js"},
-
 
 {"key":"速映","name":"速映┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/速映.json","jar":"./jar/小米XBQP.jar"},
 {"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"./jar/小米XBQP.jar"},
