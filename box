@@ -20,7 +20,7 @@
 //{"key": "酷云","name": "酷云┃直连","type": 3,"api": "csp_Kunyu77"},
 
 {"key": "世界","name": "世界影视","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/世界.js"},
-//{"key": "低端","name": "低端影视","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/低端.js"},
+{"key": "酷云","name": "酷云影视","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/酷云.js"},
 {"key": "快看","name": "快看影视","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/kkys_open.js"},
 {"key": "厂长","name": "厂长影视","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/厂长.js"},
 
