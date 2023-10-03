@@ -9,9 +9,9 @@
   "分类url": "https://www.sjz42.net/sjvodtype/{cateId}.html",
   
   "数组": "class=\"fed-swip-slide\"&&</a",
-  "图片": "data-original=\"&&\"",
-  "标题": "title=\"&&\"",
-  "副标题": "text-right\">&&</span>",
+  "图片": "data-background=\"&&\"",
+  "标题": "<span class=\"fed-part-eone fed-font-xviii fed-swip-head\">&&</span>",
+  "副标题": "<span class=\"fed-part-eone fed-font-xviii fed-swip-head\">&&</span>",
   "链接": "href=\"&&\"",
   
   "搜索模式": "0",
