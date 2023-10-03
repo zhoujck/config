@@ -24,7 +24,7 @@
   //"主演": "主演：&&</p>",
   //"简介": "display: none;\">&&</span>",
   
-  "线路数组": "<li class=\"fed-padding fed-col-xs3 fed-col-md6 fed-col-lg4\">&&</li>",
+  "线路数组": "<ul class=\"fed-padding fed-part-rows\">&&</ul>",
   "线路标题": ">&&</a>",
   
   "播放数组": "<ul class=\"fed-tabs-btm fed-padding fed-part-rows fed-hidden fed-show\">&&</ul>"
