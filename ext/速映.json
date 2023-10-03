@@ -8,7 +8,7 @@
   
   "分类url": "https://www.sjz42.net/sjvodshow/{cateId}-{area}---{lang}-------{year}.html",
 
-  "数组": "li class=\"fed-list-item fed-padding fed-col-xs4 fed-col-sm3 fed-col-md2\"&&</li>",
+  "数组": "<li class=\"fed-list-item fed-padding fed-col-xs4 fed-col-sm3 fed-col-md2\">&&</li>",
   "图片": "data-original=\"&&\"",
   "标题": ">&&</a>",
   "副标题": "<span class=\"fed-list-remarks fed-font-xii fed-text-white fed-text-center\">&&</span>",
@@ -24,9 +24,9 @@
   //"主演": "主演：&&</p>",
   //"简介": "display: none;\">&&</span>",
   
-  "线路数组": "<ul class=/"fed-padding fed-part-rows/">&&</ul>",
+  "线路数组": "<ul class=\"fed-padding fed-part-rows\">&&</ul>",
   "线路标题": ">&&</a>",
   
-  //"播放数组": "<ul class=\"fed-tabs-btm fed-padding fed-part-rows fed-visible\">&&</ul>"
+  "播放数组": "<ul class=\"fed-tabs-btm fed-padding fed-part-rows fed-visible\">&&</ul>"
   
 }
