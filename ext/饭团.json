@@ -15,7 +15,7 @@
   "链接": "href=\"&&\"",
   
   "搜索模式": "0",
-  "搜索后缀": "/detail/id-"
+  "搜索后缀": "/detail/id-",
   
   //"影片年代": "年份：&&</p>",
   //"影片地区": "地区：&&/",
@@ -24,9 +24,9 @@
   //"主演": "主演：&&</p>",
   //"简介": "display: none;\">&&</span>",
   
-  //"线路数组": "<li class=\"fed-padding fed-col-xs3 fed-col-md6 fed-col-lg4\">&&</li>",
-  //"线路标题": ">&&</a>"
+  "线路数组": "<li class=\"fed-padding fed-col-xs3 fed-col-md6 fed-col-lg4\">&&</li>",
+  "线路标题": ">&&</a>",
   
-  //"播放数组": "<ul class=\"fed-tabs-btm fed-padding fed-part-rows fed-visible\">&&</ul>"
+  "播放数组": "<ul class=\"fed-tabs-btm fed-padding fed-part-rows fed-hidden fed-show\">&&</ul>"
   
 }
