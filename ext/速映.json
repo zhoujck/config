@@ -10,7 +10,7 @@
 
   "数组": "class=\"fed-list-item fed-padding fed-col-xs4 fed-col-sm3 fed-col-md2\"&&</a",
   "图片": "data-original=\"&&\"",
-  //"标题": "<span class=\"fed-list-play fed-hide-xs\">&&</span>",
+  "标题": "<span class=\"fed-list-play fed-hide-xs\">&&</span>",
   "副标题": "<span class=\"fed-list-remarks fed-font-xii fed-text-white fed-text-center\">&&</span>",
   "链接": "href=\"&&\"",
   
@@ -24,7 +24,7 @@
   //"主演": "主演：&&</p>",
   //"简介": "display: none;\">&&</span>",
   
-  "线路数组": "<li class=\"fed-padding fed-col-xs3 fed-col-sm2\">&&/a>"
+  "线路数组": "<li class=\"fed-padding fed-col-xs3 fed-col-sm2\">&&/a>",
   "线路标题": "<h3>&&<",
   
   "播放数组": "<ul class=\"fed-tabs-btm fed-padding fed-part-rows fed-visible&&</ul>"
