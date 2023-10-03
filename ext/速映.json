@@ -6,8 +6,8 @@
   "分类": "电影&电视剧&综艺&动漫&TOP250",
   "分类值": "1&2&3&4&40",
   
-  "分类url": "https://www.sjz42.net/sjvodtype/{cateId}.html",
-  
+  "分类url": "https://www.sjz42.net/sjvodshow/{cateId}-{area}---{lang}-------{year}.html",
+
   "数组": "class=\"fed-swip-slide\"&&</a",
   "图片": "data-background=\"&&\"",
   "标题": "<span class=\"fed-part-eone fed-font-xviii fed-swip-head\">&&</span>",
