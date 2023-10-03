@@ -25,8 +25,8 @@
   //"简介": "display: none;\">&&</span>",
   
   "线路数组": "<li class=\"fed-padding fed-col-xs3 fed-col-sm2\">&&</li>",
-  "线路标题": ">&&</a>",
+  "线路标题": ">&&</a>"
   
-  "播放数组": "<ul class=\"fed-tabs-btm fed-padding fed-part-rows fed-visible\">&&</ul>"
+  //"播放数组": "<ul class=\"fed-tabs-btm fed-padding fed-part-rows fed-visible\">&&</ul>"
   
 }
