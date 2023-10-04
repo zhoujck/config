@@ -15,7 +15,7 @@
   "链接": "href=\"&&\"",
   
   //"搜索模式": "1",
-  "搜索二次截取": "<div class=\"fed-tabr-info fed-back-whits fed-min-width fed-line-top fed-hide-sm\">&&<div class=\"fed-main-right fed-col-xs12 fed-col-md3\">",
+  //"搜索二次截取": "<div class=\"fed-tabr-info fed-back-whits fed-min-width fed-line-top fed-hide-sm\">&&<div class=\"fed-main-right fed-col-xs12 fed-col-md3\">",
   "搜索url": "https://www.sjz42.net/sjvodsearch/-------------.html?wd={wd}",
   "搜索数组": "<dt class=\"fed-deta-images fed-list-info fed-col-xs3\">&&</h3>",
   "搜索图片": "data-original=\"&&\"",
