@@ -15,10 +15,13 @@
   "链接": "href=\"&&\"",
   
   "搜索模式": "1",
-  //"搜索数组": "<dt class=\"fed-deta-images fed-list-info fed-col-xs3\">&&</dt>",
+  "搜索数组": "<dl class=\"fed-list-deta fed-deta-padding fed-line-top fed-margin fed-part-rows fed-part-over\">">&&</dl>",
+  "搜索图片": "data-original=\"&&\"",
+  "搜索标题": "html\">&&</a></h3>",
   "搜索链接": "href=\"&&\"",
   "搜索链接前缀": "https://www.sjz42.net",
-  "搜索后缀": "/detail/id-",
+  //"搜索后缀": "/detail/id-",
+  "搜索副标题："<span class=\"fed-list-remarks fed-font-xii fed-text-white fed-text-center\">&&</span>"
   
   //"影片年代": "年份：&&</p>",
   //"影片地区": "地区：&&/",
