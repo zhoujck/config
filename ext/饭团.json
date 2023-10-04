@@ -15,10 +15,10 @@
   "链接": "href=\"&&\"",
   
   "搜索模式": "1",
-  "搜索数组": "<dt class=\"fed-deta-images fed-list-info fed-col-xs3\">&&</dt>",
+  //"搜索数组": "<dt class=\"fed-deta-images fed-list-info fed-col-xs3\">&&</dt>",
   "搜索链接": "href=\"&&\"",
   "搜索链接前缀": "https://www.sjz42.net",
-  //"搜索后缀": "/detail/id-",
+  "搜索后缀": "/detail/id-",
   
   //"影片年代": "年份：&&</p>",
   //"影片地区": "地区：&&/",
