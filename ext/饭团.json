@@ -15,6 +15,8 @@
   "链接": "href=\"&&\"",
   
   "搜索模式": "1",
+  "搜索数组": "<dd class=\"fed-deta-content fed-col-xs7 fed-col-sm8\">&&<ul class=\"fed-part-rows\">",
+  "搜索链接": "href=\"&&\"",
   "搜索后缀": "/detail/id-",
   
   //"影片年代": "年份：&&</p>",
