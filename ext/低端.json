@@ -7,7 +7,7 @@
   "分类": "所有电影&连载剧集&本季新番&欧美电影&日韩电影&华语电影&豆瓣电影Top250&欧美剧&日剧&韩剧&华语剧&其他地区&动画",
   "分类值": "category/movie&category/airing&category/anime/new-bangumi&category/movie/western-movie&category/movie/asian-movie&category/movie/chinese-movie&tag/douban-top250&category/drama/western-drama&category/drama/jp-drama&category/drama/kr-drama&category/drama/cn-drama&category/drama/other&category/anime",
   
-  "分类url": "https://ddys.tv/{cateId}/page/{catePg}/",
+  "分类url": "https://ddys.pro/{cateId}/page/{catePg}/",
   
   "数组": "<article id=\"post&&<div class=\"post-complete",
   "图片": "url(&&)",
