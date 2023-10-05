@@ -22,19 +22,11 @@
   "搜索标题": "-1.html\">&&</a></h3>",
   "搜索副标题":"<span class=\"fed-list-remarks fed-font-xii fed-text-white fed-text-center\">&&</span>",
   "搜索链接": "xs4\" href=\"&&\"",
-  //"搜索链接前缀": "https://www.sjz42.net",
   
-  
-  //"影片年代": "年份：&&</p>",
-  //"影片地区": "地区：&&/",
-  //"影片类型": "类型：&&/",
-  //"导演": "导演：&&</p>",
-  //"主演": "主演：&&</p>",
-  //"简介": "display: none;\">&&</span>",
   //"线路二次截取": "<ul class=\"fed-padding fed-part-rows\">&&</ul>",
-  //"线路数组": "<li class=\"fed-padding fed-col-xs3 fed-col-sm2\">&&</li>",
-  //"线路标题": ">&&</a>",
+  "线路数组": "<a class=\"fed-tabs-btn&&</li>",
+  "线路标题": ">&&</a>"
   
-  "播放数组": "<li class=\"fed-padding fed-col-xs3 fed-col-sm2 my-find-frist-play\">&&</li>"
+  //"播放数组": "<li class=\"fed-padding fed-col-xs3 fed-col-sm2 my-find-frist-play\">&&</li>"
   
 }
