@@ -29,7 +29,6 @@
 {"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/饭团.json","jar":"./jar/小米XBQP.jar"},
 //{"key":"低端","name":"低端┃BQP","type":3,"api":"csp_XBPQ","click":"ddys.pro;.vjs-big-play-button","ext":"./ext/低端.json","jar":"./jar/小米XBQP.jar"},
 {"key":"真不卡","name":"真不卡┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/真不卡.json","jar":"./jar/小米XBQP.jar"},
-//{"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"./jar/小米XBQP.jar"},
 {"key":"龟龟","name":"龟龟┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json","jar":"./jar/小米XBQP.jar"},
 {"key":"384","name":"384┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/384.json","jar":"./jar/小米XBQP.jar"},
 
@@ -40,8 +39,7 @@
 
 //视听
 //{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
-{"key":"直播","name":"📺电视直播","type":3,"api":"./libs/live.js","ext":"./json/liveapi.json"},
-{"key":"310直播","name":"🏀体育直播","type":3,"api":"./libs/drpy2.min.js","ext":"./js/310直播.js"}
+{"key":"310直播","name":"🏀球赛直播","type":3,"api":"./libs/drpy2.min.js","ext":"./js/310直播.js"}
 ],
     
 "parses": [
