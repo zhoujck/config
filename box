@@ -38,7 +38,7 @@
 {"key":"龟龟","name":"龟龟┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json","jar":""},
 {"key":"384","name":"384┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/384.json","jar":""},
 
-{"key":"csp_WoGG","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "./ext/alitoken"},
+{"key":"csp_WoGG","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "./ext/alitoken","jar":"./jar/fm.jar"},
 {"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","changeable":0,"ext":"./ext/alitoken","jar":"./jar/ali.jar"},
 
 {"key": "快帆","name": "快帆┃直采","type": 1,"api": "https://api.kuaifan.tv/api.php/provide/vod"},
