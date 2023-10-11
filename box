@@ -32,11 +32,11 @@
 {"key": "厂长","name": "厂长影视","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/厂长.js"},
 {"key": "低端","name": "低端影视","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/低端.js"},
 
-{"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/饭团.json","jar":"./jar/小米XBQP.jar"},
-{"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"./jar/小米XBQP.jar"},
-{"key":"真不卡","name":"真不卡┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/真不卡.json","jar":"./jar/小米XBQP.jar"},
-{"key":"龟龟","name":"龟龟┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json","jar":"./jar/小米XBQP.jar"},
-{"key":"384","name":"384┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/384.json","jar":"./jar/小米XBQP.jar"},
+{"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/饭团.json","jar":""},
+{"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":""},
+{"key":"真不卡","name":"真不卡┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/真不卡.json","jar":""},
+{"key":"龟龟","name":"龟龟┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json","jar":""},
+{"key":"384","name":"384┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/384.json","jar":""},
 
 {"key":"csp_WoGG","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "./ext/alitoken","jar":"./jar/ali.jar"},
 {"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_paper","changeable":0,"ext":"./ext/alitoken","jar":"./jar/ali.jar"},
