@@ -42,8 +42,7 @@
 {"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_XiaoZhiTiao","changeable":0,"ext":"./ext/alitoken","jar":""},
 
 {"key": "快帆","name": "快帆┃直采","type": 1,"api": "https://api.kuaifan.tv/api.php/provide/vod"},
-{"key":"暴風","name":"暴風┃直采","type":1,"api":"https://bfzyapi.com/api.php/provide/vod","searchable":1,"changeable":1},
-{"key":"索尼","name":"索尼┃直采","type":1,"api":"https://suoniapi.com/api.php/provide/vod","searchable":1,"changeable":1},
+{"key":"索尼","name":"索尼┃直采","type":1,"api":"https://suoniapi.com/api.php/provide/vod/from/snm3u8/","searchable":1,"changeable":1},
 
 //视听
 //{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
