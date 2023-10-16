@@ -1,5 +1,5 @@
 {  
-"spider": "./jar/小米XBPQ.jar",
+"spider": "./jar/小米XBPQ.jar;md5;fa797d3f25f35eb3fea9a369bc55620f",
 "wallpaper": "https://jianbian.chuqiuyu.tk",
 "daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20", 
 
