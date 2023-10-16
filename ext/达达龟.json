@@ -1,18 +1,13 @@
 {
-"主页url": "http://www.dadagui.me/",
+"主页url": "https://www.jugege.cc/",
 "副标题": "pic-text text-right\">&&</b>",
 "搜索模式": "1",
-"搜索url": "https://www.dadagui.me/vodsearch/{wd}-------------.html",
+"搜索url": "https://www.jugege.cc/vodsearch/{wd}-------------.html",
 "图片": "data-original=\"&&\"",
-"嗅探词": "huoshanvod.com#mp4#m3u8#.m3u8#.mp4#video_mp4#feiyunNB.mp4#.mp4#cdn.123pan.cn#huoshanvod.com#v.123pan.cn#auth_key#app-ali-cdn.fqfilm.com",
+"嗅探词": "huoshanvod.com#.mp4#m3u8#.m3u8#/tos/",
 "影片类型": "<div class=\"module-info-tag\">&&立即播放",
 "导演": "导演：&&</div>",
 "主演": "主演：&&</div>",
-"简介": "introduction-content\">&&</span>",
-"线路数组": "<span class=\"pull-right\">&&/h3>[替换:Y云播>>糖果专享#暴风云播>>1080P1#自营云播e>>1080P2#非凡云播>>非凡#量子云播>>量子#无尽云播>>无尽][排序:糖果专享>1080P1>1080P2>非凡>无尽>量子]",
-"线路标题": "<h3>&&<",
 "分类": "电影$1#连续剧$2#综艺$3#动漫$4",
-//"跳转解析": "默认$空#糖果专享$https://www.dadagui.me/webcloud/?vid=#1080P1$https://www.dadagui.me/webcloud/?vid=#1080P2$https://www.dadagui.me/webcloud/?vid=",
-//"跳转播放链接": "解析+link_pre*url\":\"&&\"",
-"分类url": "http://www.dadagui.me/vodshow/{cateId}-{area}-{by}--{lang}----{catePg}---{year}.html"
+"分类url": "https://www.jugege.cc/vodshow/{cateId}-{area}-{by}--{lang}----{catePg}---{year}.html"
 }
