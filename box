@@ -31,6 +31,7 @@
 {"key": "快看","name": "快看影视","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/kkys_open.js"},
 {"key": "厂长","name": "厂长影视","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/厂长.js"},
 {"key": "低端","name": "低端影视","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/低端.js"},
+{"key": "五五","name": "五五影视","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/555dy_open.js"},
 
 {"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/饭团.json"},
 {"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json"},
