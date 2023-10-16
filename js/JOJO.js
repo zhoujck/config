@@ -1,4 +1,4 @@
-import { Crypto, load, _, dayjs } from './libs/cat.js';
+import { Crypto, load, _, dayjs } from './lib/cat.js';
 
 let key = 'jiohub';
 let url = 'https://jiohub.top';
