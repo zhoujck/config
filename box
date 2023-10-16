@@ -1,7 +1,5 @@
 {  
-"spider": "./jar/小米XBPQ.jar;md5;fa797d3f25f35eb3fea9a369bc55620f",
-//"spider": "https://fongmi.cachefly.net/FongMi/CatVodSpider/main/jar/custom_spider.jar;md5;badfd75846df45e8cf06b53654312ccf",
-
+"spider": "https://fongmi.cachefly.net/FongMi/CatVodSpider/main/jar/custom_spider.jar;md5;badfd75846df45e8cf06b53654312ccf",
 "wallpaper": "https://jianbian.chuqiuyu.tk",
 "daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20", 
 
@@ -32,14 +30,15 @@
 {"key": "厂长","name": "厂长影视","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/厂长.js"},
 {"key": "低端","name": "低端影视","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/低端.js"},
 
-{"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/饭团.json"},
-{"key":"低端BPQ","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/低端.json"},
-{"key":"真不卡","name":"真不卡┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/真不卡.json"},
-{"key":"龟龟","name":"龟龟┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json"},
-{"key":"384","name":"384┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/384.json"},
+{"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/饭团.json","jar":"./jar/小米XBPQ.jar"},
+{"key":"低端BPQ","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/低端.json","jar":"./jar/小米XBPQ.jar"},
+{"key":"真不卡","name":"真不卡┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/真不卡.json","jar":"./jar/小米XBPQ.jar"},
+{"key":"龟龟","name":"龟龟┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json","jar":"./jar/小米XBPQ.jar"},
+{"key":"384","name":"384┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/384.json","jar":"./jar/小米XBPQ.jar"},
 
-{"key":"csp_WoGG","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "./ext/alitoken","jar":"https://ghproxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/jar/fan.txt"},
-{"key":"csp_Paper","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_Paper","changeable":0,"ext":"./ext/alitoken","jar":"./jar/ali.jar"},
+    {"key":"玩偶","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext":{"token":"./ext/alitoken", "filter":"https://fongmi.cachefly.net/FongMi/CatVodSpider/main/json/wogg.json"}},
+{"key":"纸条","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_XiaoZhiTiao","changeable":0,"ext":"./ext/alitoken"},
+{"key":"盘搜","name":"🍃云盘┃4K","type": 3,"api": "csp_PanSearch","ext": "./ext/alitoken"},
 
 {"key": "快帆","name": "快帆┃直采","type": 1,"api": "https://api.kuaifan.tv/api.php/provide/vod"},
 {"key":"索尼","name":"索尼┃直采","type":1,"api":"https://suoniapi.com/api.php/provide/vod/from/snm3u8/","searchable":1,"changeable":1},
