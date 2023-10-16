@@ -1,4 +1,4 @@
-import {load, _, Uri} from 'https://fongmi.cachefly.net/zhoujck/config/master/libs/cat.js';
+import {load, _, Uri} from './lib/cat.js';
 import {log} from 'https://fongmi.cachefly.net/zhoujck/config/master/libs/utils.js';
 import {initAli, detailContent, playContent}  from 'https://fongmi.cachefly.net/zhoujck/config/master/libs/ali.js';
 
