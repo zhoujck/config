@@ -1,41 +1,23 @@
 {
-  "作者": "菜妮丝https://cainisi.cf",
-  "站名": "低端影视",
-  "主页url": "https://ddys.pro",
-  
-  
-  "分类": "所有电影&连载剧集&本季新番&欧美电影&日韩电影&华语电影&豆瓣电影Top250&欧美剧&日剧&韩剧&华语剧&其他地区&动画",
-  "分类值": "category/movie&category/airing&category/anime/new-bangumi&category/movie/western-movie&category/movie/asian-movie&category/movie/chinese-movie&tag/douban-top250&category/drama/western-drama&category/drama/jp-drama&category/drama/kr-drama&category/drama/cn-drama&category/drama/other&category/anime",
-  
-  "分类url": "https://ddys.pro/{cateId}/page/{catePg}/",
-  
-  "数组": "<article id=\"post&&<div class=\"post-complete",
-  "图片": "url(&&)",
-  "标题": "rel=\"bookmark\">&&<",
-  "副标题": "rel=\"category tag\">&&<",
-  "链接": "data-href=\"&&\"",
-  
-  "搜索模式": "1",
-  "搜索url": "/?s={wd}&post_type=post",
-  "搜索数组": "<article id=\"post&&class=\"entry-content",
-  "搜索图片": "https://tuapi.eees.cc/api.php?category={dongman,fengjing,meinv}&type=302",
-  "搜索标题": "rel=\"bookmark\">&&<",
-  "搜索链接": "href=\"&&\"",
-  
-  "影片地区": "地区:&&<br",
-  "影片类型": "类型:&&<br",
-  "导演": "导演:&&<br",
-  "主演": "演员:&&<br",
-  "简介": "简介:&&</p>",
-  
-  "线路二次截取": "<div class=\"page-links\">&&</div>",
-  "线路数组": "<a&&/a>",
-  "线路链接": "href=\"&&\"",
-  "线路合并": "1",
-  
-  "播放数组": "tracks\":&&</script>",
-  "播放列表": "javascript&&\"image\"[替换:.mp4>>你我他.mp5#/v/*你>>空#我>>/?ep=#他>><序号>]",
-  "播放标题": "caption\":\"&&\"",
-  "播放链接": "src0\":\"&&.mp5",
-  "播放链接前缀": "rel=\"canonical\" href=\"&&/\"[替换:https://ddrk.me>>https://ddys.tv]"
+"主页url": "https://ddys.pro",
+                "数组": "class=\"stui-vodlist__thumb lazyload&&</a>",
+                "图片": "data-original=\"&&\"",
+                "标题": "title=\"&&\"",
+                "链接": "href=\"&&\"",
+                "副标题": "class=\"pic-text text-right\"><b>&&</span>",
+                "搜索模式": "0",
+                "嗅探词": ".m3u8#video_mp4#tos-#.mp4#cdn.123pan.cn#huoshanvod.com",
+                "线路数组": " <div class=\"stui-pannel__head clearfix\">&&</div[排序:蓝光-Ymv>蓝光-put>蓝光-01>蓝光-02>极速-01>极速-02][不包含:蓝光-m3#极速-03#蓝光-01]",
+                "线路标题": "<h3 class=\"iconfont icon-iconfontplay2\">&&</h3>",
+                "播放列表": "<a&&/a>",
+                "播放标题": ">&&<",
+                "影片类型": "类型：&&</p>",
+                "导演": "导演：&&</p>",
+                "主演": "主演：&&</p>",
+                "简介": "display: none;\">&&</span>",
+                "分类": "电视剧$2#电影$1#综艺$3#动漫$4",
+                "分类url": "https://ddys.fun//show/{cateId}--{area}------{catePg}---{year}.html;;au0",
+                "跳转解析": "默认$空#极速-02$http://118.25.184.129:9668/?url=#极速-01$http://118.25.184.129:9668/?url=#蓝光-Ymv$http://111.231.2.179//?url=#蓝光-put$https://jiexi.ahailove.cn/qingjian.php?url=",
+                "跳转播放链接": "解析+urlDecode(Base64(vod_class*url\":\"&&\"))",
+                "二次跳转播放链接": "\"url\"*\"&&\""  
 }
