@@ -32,7 +32,7 @@
 {"key": "JOJO","name": "JO影视","type": 3,"api": "./libs/drpy2.min.js","ext": "./js/JOJO.js"},
 
 {"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/饭团.json"},
-{"key":"真不卡","name":"真不卡┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/真不卡.json"},
+{"key":"真不卡","name":"不卡┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/真不卡.json"},
 {"key":"龟龟","name":"龟龟┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json"},
 {"key":"384","name":"384┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/384.json"},
 {"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json"},
