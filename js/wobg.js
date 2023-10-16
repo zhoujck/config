@@ -1,6 +1,6 @@
 import {load, _, Uri} from './lib/cat.js';
-import {log} from 'https://fongmi.cachefly.net/zhoujck/config/master/libs/utils.js';
-import {initAli, detailContent, playContent}  from 'https://fongmi.cachefly.net/zhoujck/config/master/libs/ali.js';
+import {log} from './lib/utils.js';
+import {initAli, detailContent, playContent}  from './lib/ali.js';
 
 let siteKey = 'wobg';
 let siteType = 0;
