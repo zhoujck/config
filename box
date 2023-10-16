@@ -35,6 +35,7 @@
 {"key":"真不卡","name":"真不卡┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/真不卡.json"},
 {"key":"龟龟","name":"龟龟┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json"},
 {"key":"384","name":"384┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/384.json"},
+{"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json"},
 
 {"key":"玩偶","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "./ext/alitoken","jar": "./jar/FM.jar"},
 {"key":"纸条","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_XiaoZhiTiao","ext":"./ext/alitoken","jar": "./jar/FM.jar"},
