@@ -1,4 +1,4 @@
-import { Crypto, _ } from './libs/cat.js'
+import { Crypto, _ } from './lib/cat.js'
 
 let host = '';
 let header = {
