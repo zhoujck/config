@@ -25,21 +25,23 @@
 {"key":"伊人","name":"伊人┃App","type":3,"api":"csp_AppMao","searchable":1,"quickSearch":1,"changeable":1,"ext":"FbjDcUxPqpfNr0QF4QvE6sExbdNRCYYRDm4TsLq0wUJWQNbPrS+dwlqC76K9AyqwdDOMy2knm2EiXG8sW5g6aRAKRJjRnA/LOWYSnzESgu5FcYzNNG0xf0roJwduq4GBwQbeWKtxcqo79EgUmk7wBAMaZaqxv0MMB5dPInMBPwj4oPNY9+tFWr1sZPUWRk05bRxflgcCQg7kmHtl4gEYx5tMq/vShEkoZE45l40NTUAGsbOf4i+SQPTRyR7qlo+cV4WBYm4fabOOK2gUwMdqZn7P8u3StM3Sk8ps5+RaATUfFuU1+0/f847wGAW7SmBGalhgcQsG2RPKhagprd32llnF+1i1CLkWiYTK/QyhtCfS+tl+jAy/0UlG7Fq1kZlC1+3/"},
 {"key":"布雷","name":"布雷┃App","type":3,"api":"csp_AppMao","playerType":2,"ext":"FbjDcUxPqpfNr0QF4QvE6sExbctTA5hPEi0VqbGzxElfS8iS6G6dxFvYo6amRiS2bHOKw3Esnj46QzIsRoZ8bk4fG4OYi0iCaWwRj2ddkaM/FqHtLjQhalHiNTh6w9P3uBbzOpYja64omwk1u3D/dlZ+e5i4lng3PuAGTEUBPE34oPNY9+tFWr0Ibd9pVxAueSBD3QUsYQDulUET8DZ4nPtGpPvrhlgkKksJ9s4mWmxer4u57B2OO9qc8jua09TybbufTjMaeJGQem8U1MtbZnyk1e3UtOPZyIlX24R7PWpyLc4U0VzmkquLAB3kRiQZa1pOYUYuwm6vu/8spvSLhGbMhy+5bLc5qpPAk0mnh1ezzPQa03Cfg3JV6WGwrolC1+3/"},
 {"key":"一起看 ","name":"一起┃App","type":3,"api":"csp_YQKan","searchable":1,"quickSearch":1,"changeable":1},
+
 {"key": "世界","name": "世界影视","type": 3,"api": "./js/lib/drpy2.min.js","ext": "./js/世界.js"},
 {"key": "快看","name": "快看影视","type": 3,"api": "https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/kkys_open.js"},
 {"key": "厂长","name": "厂长影视","type": 3,"api": "./js/厂长.js"},
 {"key": "低端","name": "低端影视","type": 3,"api": "./js/lib/drpy2.min.js","ext": "./js/低端.js"},
-{"key": "JOJO","name": "JO影视","type": 3,"api": "./js/JOJO.js","ext":{"danmu":true}},
+{"key": "JOJO","name": "JO影视","type": 3,"api": "./js/JOJO.js"},
 {"key": "wobg","name": "玩偶影视","type": 3,"api": "./js/wobg.js","ext":""},
+
 {"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/饭团.json"},
 {"key":"真不卡","name":"不卡┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/真不卡.json"},
 {"key":"龟龟","name":"龟龟┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json"},
 {"key":"384","name":"384┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/384.json"},
 {"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json"},
 
-{"key":"玩偶","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "","jar": "./jar/FM.jar"},
+{"key":"玩偶","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": ""},
 {"key":"纸条","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_XiaoZhiTiao","ext":"","jar": "./jar/FM.jar"},
-{"key":"盘搜","name":"🍃云盘┃4K","type": 3,"api": "csp_PanSearch","ext": "","jar": "./jar/FM.jar"},
+{"key":"盘搜","name":"🍃云盘┃4K","type": 3,"api": "csp_PanSearch","ext": ""},
 
 {"key": "快帆","name": "快帆┃直采","type": 1,"api": "https://api.kuaifan.tv/api.php/provide/vod"},
 {"key":"索尼","name":"索尼┃直采","type":1,"api":"https://suoniapi.com/api.php/provide/vod/from/snm3u8/","searchable":1,"changeable":1},
