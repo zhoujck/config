@@ -282,7 +282,7 @@ async function category(tid, page, filter, ext) {
     } catch (e) { }
     return null;
 }
-
+/*
 async function detail(ids) {
     try {
         const bvid = ids;
@@ -459,7 +459,7 @@ async function play(flag, id, flags) {
     } catch (e) { }
     return null;
 }
-
+*/
 async function search(key, quick, pg) {
     let page = pg || 1;
     if (page == 0) page = 1;
