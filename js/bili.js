@@ -205,7 +205,7 @@ async function category(tid, page, filter, ext) {
                 if (k == 'tid') {
                     continue;
                 }
-                    if (k == "历史") {
+                    if (k == 历史) {
                     url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10033&type=1&season_type=3&st=3";
                     } 
             }
