@@ -197,7 +197,7 @@ async function category(tid, page, filter, ext) {
             tid = ext['tid'];
         }
         let url = '';
-        url = `https://api.bilibili.com/x/web-interface/search/type?search_type=video&keyword=${encodeURIComponent(tid)}`;
+        url = `https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=-1&type=1&season_type=3&st=3`;
 /*
         if (Object.keys(ext).length > 0) {
             for (const k in ext) {
