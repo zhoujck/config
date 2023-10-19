@@ -197,14 +197,15 @@ async function category(tid, page, filter, ext) {
             tid = ext['tid'];
         }
         let url = '';
-        url = `https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&type=1&season_type=3&st=3style_id=${encodeURIComponent(tid)}`;
+        url = `https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&type=1&season_type=3&st=3style_id=${tid}`;
 
         if (Object.keys(ext).length > 0) {
             for (const k in ext) {
                 if (k == 'tid') {
                     continue;
                 }
-                url += `&${encodeURIComponent(k)}=${encodeURIComponent(ext[k])}`;
+                if（）
+                url += `&${k}=${ext[k]}`;
             }
            
         }
