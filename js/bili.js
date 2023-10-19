@@ -224,7 +224,7 @@ async function category(tid, page, filter, ext) {
         let items = data.result;
         if (tid == "历史记录") {
                 items = data;
-        } else {
+        } else if  (tid == "首页"){
             items = data.list;
         }
 
