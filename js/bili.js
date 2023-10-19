@@ -198,7 +198,7 @@ async function category(tid, page, filter, ext) {
         }
         let url = '';
         url = `https://api.bilibili.com/x/web-interface/search/type?search_type=video&keyword=${encodeURIComponent(tid)}`;
-
+/*
         if (Object.keys(ext).length > 0) {
             for (const k in ext) {
                 if (k == 'tid') {
@@ -207,7 +207,7 @@ async function category(tid, page, filter, ext) {
                 url += `&${encodeURIComponent(k)}=${encodeURIComponent(ext[k])}`;
             }
         }
-
+*/
         url += `&page=${encodeURIComponent(page)}`;
         
    /* class_name:'历史&人文&宇宙&自然&动物&科技&美食&探险',
