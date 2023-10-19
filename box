@@ -28,7 +28,7 @@
 
 {"key":"一起看 ","name":"一起看","type":3,"api":"./js/一起看.js"},
 {"key": "酷云","name": "酷云七七","type": 3,"api": "./js/酷云open.js"},
-{"key": "快看","name": "快看影视","type": 3,"api": "./js/kkys.js"},
+{"key": "快看","name": "快看影视","type": 3,"api": "./js/快看.js"},
 {"key": "厂长","name": "厂长影视","type": 3,"api": "./js/厂长.js"},
 {"key": "低端","name": "低端影视","type": 3,"api": "./js/lib/drpy2.min.js","ext": "./js/低端.js"},
 {"key": "JOJO","name": "JO影视","type": 3,"api": "./js/JOJO.js"},
