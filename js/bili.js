@@ -223,22 +223,22 @@ async function category(tid, page, filter, ext) {
             url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10033&type=1&season_type=3&st=3" + page;
         }
          else if (tid == "人文") {
-            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10033&type=1&season_type=3&st=3" + page;
+            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10065&type=1&season_type=3&st=3" + page;
         }
          else if (tid == "宇宙") {
-            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10033&type=1&season_type=3&st=3" + page;
+            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10068&type=1&season_type=3&st=3" + page;
         }
          else if (tid == "自然") {
-            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10033&type=1&season_type=3&st=3" + page;
+            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10072&type=1&season_type=3&st=3" + page;
         }
          else if (tid == "动物") {
-            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10033&type=1&season_type=3&st=3" + page;
+            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10071&type=1&season_type=3&st=3" + page;
         }
          else if (tid == "科技") {
-            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10033&type=1&season_type=3&st=3" + page;
+            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10066&type=1&season_type=3&st=3" + page;
         }
          else if (tid == "探险") {
-            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10033&type=1&season_type=3&st=3" + page;
+            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10067&type=1&season_type=3&st=3" + page;
         }
         const data = JSON.parse(await request(url, getHeaders())).data;
         let items = data.result;
