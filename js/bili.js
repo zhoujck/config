@@ -228,11 +228,9 @@ async function category(tid, page, filter, ext) {
         
         if (tid == "历史记录") {
                 items = data;
-        } else if  (tid == "首页"){
+        } else if  {
             items = data.list;
-        } else if  (tid == "历史"){
-            items = data.list;
-        }
+        } 
 
         const videos = [];
         for (const list of items) {
