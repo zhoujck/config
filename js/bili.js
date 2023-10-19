@@ -270,9 +270,9 @@ async function category(tid, page, filter, ext) {
                 videos.push(video);
         }
         
-        url += `&page=${encodeURIComponent(page)}`;
+//        url += `&page=${encodeURIComponent(page)}`;
         
-        const result = {
+        const result1 = {
             page: page,
             pagecount: data.numPages ?? (page + 1),
             limit: videos.length,
@@ -280,7 +280,7 @@ async function category(tid, page, filter, ext) {
             list: videos,
         };
 
-        return JSON.stringify(result);
+        return JSON.stringify(result1);
     } catch (e) { }
     return null;
 }
