@@ -9,7 +9,7 @@ let vip = false;
 let extendObj = {};
 let bili_jct = '';
 let vod_audio_id = {
-    30280: 192000,
+    10033: 192000,
     30232: 132000,
     30216: 64000,
 };
