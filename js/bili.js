@@ -300,7 +300,7 @@ async function detail(ids) {
             await post(historyReport, dataPost, getHeaders(), 'form');
         }
        // let cd = getFullTime(detailData.duration);
-        const aid = detailData.aid;
+        //const aid = detailData.aid;
         const video = {
             vod_id: media_id,
             vod_name: detailData.media.title,
