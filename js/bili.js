@@ -217,7 +217,7 @@ async function category(tid, page, filter, ext) {
         const data = JSON.parse(await request(url, getHeaders())).data;
         let items = data.result;
         if (tid == "首页") {
-            items = data.item;
+            items = data.list;
         } else if (tid == "历史记录") {
             items = data;
         }
@@ -227,11 +227,11 @@ async function category(tid, page, filter, ext) {
             const video = {};
             let pic = list.cover;
             if (cover.startsWith('//')) {
-                cover = 'https:' + cover;
+                pic = 'https:' + pic;
             }
-            let cd = getFullTime(item.duration);
+            //let cd = getFullTime(list.duration);
 
-            video.vod_remarks = cd;
+           // video.vod_remarks = cd;
             video.vod_id = list.media_id;
             video.vod_name = removeTags(list.title);
             video.vod_pic = pic;
