@@ -157,8 +157,8 @@ function home(filter) {
 
 async function homeVod() {
     try {
-        const list = [];
-        const url = 'https://api.bilibili.com/pgc/season/index/result?order=1&pagesize=20&style_id=10033&type=1&season_type=3&st=3';
+        const list1 = [];
+        const url = 'https://api.bilibili.com/pgc/season/index/result?order=1&pagesize=20&style_id=1&type=1&season_type=3&st=3';
 
         const response = await request(url, getHeaders());
         const responseData = JSON.parse(response);
@@ -180,10 +180,10 @@ async function homeVod() {
                 type: 'rect',
                 ratio: 1.33,
             },
-                list.push(vod);
+                list1.push(vod);
         }
 
-        const result = { list: list };
+        const result = { list1: list1 };
         return JSON.stringify(result);
     } catch (e) { }
 }
