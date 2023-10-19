@@ -209,7 +209,7 @@ async function category(tid, page, filter, ext) {
         url += `&page=${encodeURIComponent(page)}`;
 
         if (tid == "首页") {
-            url = "https://api.bilibili.com/pgc/season/index/result?order=1&pagesize=20&style_id=10033&type=1&season_type=3&st=3" + page + "&fresh_idx_1h=" + page;
+            url = "https://api.bilibili.com/pgc/season/index/result?order=1&pagesize=20&style_id=10033&type=1&season_type=3&st=3";
         } else if (tid == "历史记录") {
             url = "https://api.bilibili.com/x/v2/history?pn=" + page;
         }
