@@ -155,7 +155,7 @@ function home(filter) {
     }
 }
 
-
+/*
 async function homeVod() {
     try {
         const list = [];
@@ -188,7 +188,7 @@ async function homeVod() {
         return JSON.stringify(result);
     } catch (e) { }
 }
-
+*/
 
 async function category(tid, page, filter, ext) {
     if (page < 1) page = 1;
