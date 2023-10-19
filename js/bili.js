@@ -213,7 +213,7 @@ async function category(tid, page, filter, ext) {
    /* class_name:'历史&人文&宇宙&自然&动物&科技&美食&探险',
     class_url:'10033&10065&10068&10072&10071&10066&10045&10067',*/
 
-        if (tid == "首页") {
+        if (tid == "人文") {
             url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=-1&type=1&season_type=3&st=3" + page;
         } 
         else if (tid == "历史记录") {
@@ -222,10 +222,10 @@ async function category(tid, page, filter, ext) {
 
         const data = JSON.parse(await request(url, getHeaders())).data;
         let items = data.result;
-        if (tid == "首页") {
+        if (tid == "历史记录") {
+                items = data;
+        } else {
             items = data.list;
-        } else if (tid == "历史记录") {
-            items = data;
         }
 
         const videos = [];
