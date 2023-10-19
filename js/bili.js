@@ -226,6 +226,8 @@ async function category(tid, page, filter, ext) {
                 items = data;
         } else if  (tid == "首页"){
             items = data.list;
+        } else if  (tid == "历史"){
+            items = data.list;
         }
 
         const videos = [];
