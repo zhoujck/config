@@ -214,7 +214,7 @@ async function category(tid, page, filter, ext) {
     class_url:'10033&10065&10068&10072&10071&10066&10045&10067',*/
 
         if (tid == "首页") {
-            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=-1&type=1&season_type=3&st=3&pagesize=20&page="+page;
+            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=-1&type=1&season_type=3&st=3"+page;
         }     
         else if (tid == "历史记录") {
             url = "https://api.bilibili.com/x/v2/history?pn=" + page;
@@ -272,18 +272,16 @@ async function category(tid, page, filter, ext) {
                 videos.push(video);
         }
         
-//        url += `&page=${encodeURIComponent(page)}`;
-        
-/*        const result1 = {
+//        url += `&page=${encodeURIComponent(page)}`;        
+        const result1 = {
             page: page,
-            pagecount: data.numPages ?? (page + 1),
-            limit: videos.length,
-            total: videos.length * (page + 1),
+            pagecount: data.num ?? (page + 1),
+            limit: videos.size,
+            total: videos.size * (page + 1),
             list: videos,
         };
 
-        return JSON.stringify(result1);
-*/        
+        return JSON.stringify(result1);        
     } catch (e) { }
     return null;
 }
