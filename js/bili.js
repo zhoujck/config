@@ -282,7 +282,7 @@ async function category(tid, page, filter, ext) {
     } catch (e) { }
     return null;
 }
-/*
+
 async function detail(ids) {
     try {
         const bvid = ids;
@@ -632,7 +632,7 @@ function getFullTime(numberSec) {
         return `${minutes}分钟 ${seconds}秒`;
     }
 }
-*/
+
 export function __jsEvalReturn() {
     return {
         init: init,
