@@ -219,9 +219,13 @@ async function category(tid, page, filter, ext) {
         else if (tid == "历史记录") {
             url = "https://api.bilibili.com/x/v2/history?pn=" + page;
         }
+        else if (tid == "历史") {
+            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=-1&type=1&season_type=3&st=3" + page;
+        }
 
         const data = JSON.parse(await request(url, getHeaders())).data;
         let items = data.result;
+        
         if (tid == "历史记录") {
                 items = data;
         } else if  (tid == "首页"){
