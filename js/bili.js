@@ -197,6 +197,7 @@ async function category(tid, page, filter, ext) {
             tid = ext['tid'];
         }
         let url = '';
+        url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=-1&type=1&season_type=3&st=3" + page;
 /*       
         url = `https://api.bilibili.com/x/web-interface/search/type?search_type=video&keyword=${encodeURIComponent(tid)}`;
 
@@ -215,10 +216,9 @@ async function category(tid, page, filter, ext) {
         
    /* class_name:'历史&人文&宇宙&自然&动物&科技&美食&探险',
     class_url:'10033&10065&10068&10072&10071&10066&10045&10067',*/
-          if (tid == 历史 ) {
+         if (tid == "历史" ) {
             url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=-1&type=1&season_type=3&st=3" + page;
         }   
-
          else if (tid == "首页") {
             url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=-1&type=1&season_type=3&st=3" + page;
         }     
