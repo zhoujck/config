@@ -198,20 +198,20 @@ async function category(tid, page, filter, ext) {
         }
         let url = '';
 /*       
-        url = `https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&type=1&season_type=3&st=3style_id={tid}`;
+        url = `https://api.bilibili.com/x/web-interface/search/type?search_type=video&keyword=${encodeURIComponent(tid)}`;
 
         if (Object.keys(ext).length > 0) {
             for (const k in ext) {
                 if (k == 'tid') {
                     continue;
                 }
-                url += `&{k}={ext[k]}`;
+                url += `&${encodeURIComponent(k)}=${encodeURIComponent(ext[k])}`;
             }
            
         }
-*/
-        url += `&page=${encodeURIComponent(page)}`;
 
+        url += `&page=${encodeURIComponent(page)}`;
+*/
    /* class_name:'历史&人文&宇宙&自然&动物&科技&美食&探险',
     class_url:'10033&10065&10068&10072&10071&10066&10045&10067',*/
 
