@@ -272,17 +272,14 @@ async function category(tid, page, filter, ext) {
                 videos.push(video);
         }
         
-     const result = { videos: videos };
-        return JSON.stringify(result);
- /*           const result = {
+          const result = {
             page: page,
             pagecount: data.numPages ?? (page + 1),
             limit: videos.length,
             total: videos.length * (page + 1),
             list: videos,
         };
-
-        return JSON.stringify(result1);   */     
+        return JSON.stringify(result);  
     } catch (e) { }
     return null;
 }
