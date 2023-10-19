@@ -196,10 +196,11 @@ async function category(tid, page, filter, ext) {
         if (Object.keys(ext).length > 0 && ext.hasOwnProperty('tid') && ext['tid'].length > 0) {
             tid = ext['tid'];
         }
-        if (tid == "历史"){
+        
+
              let url = '';
         url = `https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10033&type=1&season_type=3&st=3`;
-        }
+
        
         if (Object.keys(ext).length > 0) {
             for (const k in ext) {
