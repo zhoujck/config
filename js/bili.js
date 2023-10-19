@@ -270,7 +270,7 @@ async function category(tid, page, filter, ext) {
                 videos.push(video);
         }
 
-        const result = {
+        const result1 = {
             page: page,
             pagecount: data.numPages ?? (page + 1),
             limit: videos.length,
