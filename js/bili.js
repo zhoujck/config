@@ -272,8 +272,9 @@ async function category(tid, page, filter, ext) {
                 videos.push(video);
         }
         
-    
-            const result = {
+     const result = { videos: videos };
+        return JSON.stringify(result);
+ /*           const result = {
             page: page,
             pagecount: data.numPages ?? (page + 1),
             limit: videos.length,
@@ -281,7 +282,7 @@ async function category(tid, page, filter, ext) {
             list: videos,
         };
 
-        return JSON.stringify(result1);        
+        return JSON.stringify(result1);   */     
     } catch (e) { }
     return null;
 }
