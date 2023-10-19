@@ -214,12 +214,12 @@ async function category(tid, page, filter, ext) {
     class_url:'10033&10065&10068&10072&10071&10066&10045&10067',*/
 
         if (tid == "首页") {
-            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=-1&type=1&season_type=3&st=3" + page;
+            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=-1&type=1&season_type=3&st=3&pagesize=20&page="+page;
         }     
         else if (tid == "历史记录") {
             url = "https://api.bilibili.com/x/v2/history?pn=" + page;
         }
-        else if (tid == "历史") {
+      /*  else if (tid == "历史") {
             url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10033&type=1&season_type=3&st=3" + page;
         }
          else if (tid == "人文") {
@@ -240,6 +240,7 @@ async function category(tid, page, filter, ext) {
          else if (tid == "探险") {
             url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10067&type=1&season_type=3&st=3" + page;
         }
+        /*
         const data = JSON.parse(await request(url, getHeaders())).data;
         let items = data.result;
         
@@ -272,7 +273,7 @@ async function category(tid, page, filter, ext) {
         
 //        url += `&page=${encodeURIComponent(page)}`;
         
-        const result1 = {
+/*        const result1 = {
             page: page,
             pagecount: data.numPages ?? (page + 1),
             limit: videos.length,
@@ -281,6 +282,7 @@ async function category(tid, page, filter, ext) {
         };
 
         return JSON.stringify(result1);
+*/        
     } catch (e) { }
     return null;
 }
