@@ -228,7 +228,7 @@ async function category(tid, page, filter, ext) {
         
         if (tid == "历史记录") {
                 items = data;
-        } else if  {
+        } else {
             items = data.list;
         } 
 
