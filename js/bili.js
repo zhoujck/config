@@ -285,12 +285,12 @@ async function category(tid, page, filter, ext) {
 
 async function detail(ids) {
     try {
-        const media_id = ids;
-        const detailUrl = `https://api.bilibili.com/pgc/review/user?media_id=${media_id}`;
+        const bvid = ids;
+        const detailUrl = `https://api.bilibili.com/x/web-interface/view?bvid=${bvid}`;
 
-        const detailData = JSON.parse(await request(detailUrl, getHeaders())).media;
+        const detailData = JSON.parse(await request(detailUrl, getHeaders())).data;
         // 记录历史
-    /*    if (!_.isEmpty(bili_jct)) {
+        if (!_.isEmpty(bili_jct)) {
             const historyReport = 'https://api.bilibili.com/x/v2/history/report';
             let dataPost = {
                 aid: detailData.aid,
@@ -299,20 +299,19 @@ async function detail(ids) {
             }
             await post(historyReport, dataPost, getHeaders(), 'form');
         }
-        */
-       // let cd = getFullTime(detailData.duration);
+        let cd = getFullTime(detailData.duration);
         const aid = detailData.aid;
         const video = {
-            vod_id: media_id,
+            vod_id: bvid,
             vod_name: detailData.title,
-            vod_pic: detailData.cover,
-            type_name: detailData.type_name,
+            vod_pic: detailData.pic,
+            type_name: detailData.tname,
             vod_year: '',
             vod_area: '',
-           // vod_remarks: detailData.score,
+            vod_remarks: cd,
             vod_actor: '',
             vod_director: '',
-           // vod_content: detailData.desc,
+            vod_content: detailData.desc,
         };
 
         const playurldata = 'https://api.bilibili.com/x/player/playurl?avid=' + aid + '&cid=' + detailData.cid + '&qn=127&fnval=4048&fourk=1';
