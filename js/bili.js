@@ -278,7 +278,7 @@ async function category(tid, page, filter, ext) {
             list: videos,
         };
 
-        return JSON.stringify(result);
+        return JSON.stringify(result1);
     } catch (e) { }
     return null;
 }
