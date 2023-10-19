@@ -158,24 +158,24 @@ function home(filter) {
 async function homeVod() {
     try {
         const list = [];
-        const url = 'https://api.bilibili.com/x/web-interface/index/top/rcmd?ps=14&fresh_idx=1&fresh_idx_1h=1';
+        const url = 'https://api.bilibili.com/pgc/season/index/result?order=1&pagesize=20&style_id=10033&type=1&season_type=3&st=3';
 
         const response = await request(url, getHeaders());
         const responseData = JSON.parse(response);
-        const vods = responseData.data.item;
+        const vods = responseData.data.list;
 
         for (const item of vods) {
             const vod = {};
-            let imageUrl = item.pic;
+            let imageUrl = list.cover;
             if (imageUrl.startsWith('//')) {
                 imageUrl = 'https:' + imageUrl;
             }
-            let cd = getFullTime(item.duration);
+           // let cd = getFullTime(item.duration);
 
-            vod.vod_id = item.bvid;
-            vod.vod_name = removeTags(item.title);
+            vod.vod_id = list.media_id;
+            vod.vod_name = removeTags(list.title);
             vod.vod_pic = imageUrl;
-            vod.vod_remarks = cd;
+          //  vod.vod_remarks = cd;
             vod.style = {
                 type: 'rect',
                 ratio: 1.33,
