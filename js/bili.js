@@ -1,4 +1,4 @@
-import { Crypto, jinja2, _ } from './lib/cat.js';
+import { Crypto, jinja2, _ } from 'assets://js/lib/cat.js';
 
 let siteKey = '';
 let siteType = 0;
@@ -9,7 +9,7 @@ let vip = false;
 let extendObj = {};
 let bili_jct = '';
 let vod_audio_id = {
-    10033: 192000,
+    30280: 192000,
     30232: 132000,
     30216: 64000,
 };
@@ -157,33 +157,33 @@ function home(filter) {
 
 async function homeVod() {
     try {
-        const list1 = [];
-        const url = 'https://api.bilibili.com/pgc/season/index/result?order=1&pagesize=20&style_id=1&type=1&season_type=3&st=3';
+        const list = [];
+        const url = 'https://api.bilibili.com/x/web-interface/index/top/rcmd?ps=14&fresh_idx=1&fresh_idx_1h=1';
 
         const response = await request(url, getHeaders());
         const responseData = JSON.parse(response);
-        const vods = responseData.data.list;
+        const vods = responseData.data.item;
 
         for (const item of vods) {
             const vod = {};
-            let imageUrl = list.cover;
+            let imageUrl = item.pic;
             if (imageUrl.startsWith('//')) {
                 imageUrl = 'https:' + imageUrl;
             }
-           // let cd = getFullTime(item.duration);
+            let cd = getFullTime(item.duration);
 
-            vod.vod_id = list.media_id;
-            vod.vod_name = removeTags(list.title);
+            vod.vod_id = item.bvid;
+            vod.vod_name = removeTags(item.title);
             vod.vod_pic = imageUrl;
-          //  vod.vod_remarks = cd;
+            vod.vod_remarks = cd;
             vod.style = {
                 type: 'rect',
                 ratio: 1.33,
             },
-                list1.push(vod);
+                list.push(vod);
         }
 
-        const result = { list1: list1 };
+        const result = { list: list };
         return JSON.stringify(result);
     } catch (e) { }
 }
@@ -209,7 +209,7 @@ async function category(tid, page, filter, ext) {
         url += `&page=${encodeURIComponent(page)}`;
 
         if (tid == "首页") {
-            url = "https://api.bilibili.com/pgc/season/index/result?order=1&pagesize=20&style_id=10033&type=1&season_type=3&st=3";
+            url = "https://api.bilibili.com/pgc/season/index/result?order=1&pagesize=20&style_id=10033&type=1&season_type=3&st=3" + page;
         } else if (tid == "历史记录") {
             url = "https://api.bilibili.com/x/v2/history?pn=" + page;
         }
@@ -223,16 +223,16 @@ async function category(tid, page, filter, ext) {
         }
 
         const videos = [];
-        for (const item of list) {
+        for (const list of items) {
             const video = {};
             let pic = list.cover;
-            if (cover.startsWith('//')) {
+            if (pic.startsWith('//')) {
                 pic = 'https:' + pic;
             }
-            //let cd = getFullTime(list.duration);
+            //let cd = getFullTime(item.duration);
 
-           // video.vod_remarks = cd;
-            video.vod_id = list.media_id;
+            video.vod_remarks = list.index_show;
+            video.vod_id ='ss' + list.season_id;
             video.vod_name = removeTags(list.title);
             video.vod_pic = pic;
 
