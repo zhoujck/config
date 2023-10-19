@@ -158,7 +158,7 @@ function home(filter) {
 
 async function homeVod() {
     try {
-        const list = [];
+        const lists = [];
         const url = 'https://api.bilibili.com/x/web-interface/index/top/rcmd?ps=14&fresh_idx=1&fresh_idx_1h=1';
 
         const response = await request(url, getHeaders());
@@ -181,10 +181,10 @@ async function homeVod() {
                 type: 'rect',
                 ratio: 1.33,
             },
-                list.push(vod);
+                lists.push(vod);
         }
 
-        const result = { list: list };
+        const result = { lists: lists };
         return JSON.stringify(result);
     } catch (e) { }
 }
