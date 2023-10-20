@@ -219,28 +219,28 @@ async function category(tid, page, filter, ext) {
         else if (tid == "历史记录") {
             url = "https://api.bilibili.com/x/v2/history?pn=" + page;
         }
-      /*  else if (tid == "历史") {
-            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10033&type=1&season_type=3&st=3" + page;
+       else if (tid == "历史") {
+            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10033&type=1&season_type=3&st=3&pagesize=20&page="+page;
         }
          else if (tid == "人文") {
-            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10065&type=1&season_type=3&st=3" + page;
+            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10065&type=1&season_type=3&st=3&pagesize=20&page="+page;
         }
          else if (tid == "宇宙") {
-            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10068&type=1&season_type=3&st=3" + page;
+            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10068&type=1&season_type=3&st=3&pagesize=20&page="+page;
         }
          else if (tid == "自然") {
-            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10072&type=1&season_type=3&st=3" + page;
+            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10072&type=1&season_type=3&st=3&pagesize=20&page="+page;
         }
          else if (tid == "动物") {
-            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10071&type=1&season_type=3&st=3" + page;
+            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10071&type=1&season_type=3&st=3&pagesize=20&page="+page;
         }
          else if (tid == "科技") {
-            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10066&type=1&season_type=3&st=3" + page;
+            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10066&type=1&season_type=3&st=3&pagesize=20&page="+page;
         }
          else if (tid == "探险") {
-            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10067&type=1&season_type=3&st=3" + page;
+            url = "https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=10067&type=1&season_type=3&st=3&pagesize=20&page="+page;
         }
-        */
+   
         
         const data = JSON.parse(await request(url, getHeaders())).data;
         let items = data.result;
@@ -283,7 +283,7 @@ async function category(tid, page, filter, ext) {
     } catch (e) { }
     return null;
 }
-
+/*
 async function detail(ids) {
     try {
         const bvid = ids;
@@ -370,7 +370,7 @@ async function detail(ids) {
     } catch (e) { }
     return null;
 }
-
+*/
 async function play(flag, id, flags) {
     try {
         const playHeaders = { Referer: 'https://www.bilibili.com', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36' };
@@ -640,7 +640,7 @@ export function __jsEvalReturn() {
         home: home,
         homeVod: homeVod,
         category: category,
-        detail: detail,
+       // detail: detail,
         play: play,
         proxy: proxy,
         search: search,
