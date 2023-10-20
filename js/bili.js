@@ -84,7 +84,7 @@ async function init(cfg) {
     vip = result.data.vipStatus;
     const ext = extend.split('#');
     const jsonData = [
-    {
+        {
             key:'order',
             name:'排序',
             value:[
@@ -97,6 +97,7 @@ async function init(cfg) {
              {n:'上映时间',v:'6'},
             ]，
          },
+ /*  
         {
             key:'season_status',
             name:'付费',
@@ -107,7 +108,7 @@ async function init(cfg) {
                 {n:'大会员',v:'4%2C6'},
                 ]，
         }，
-        /*  
+       
         {
             key: 'order',
             name: '排序',
