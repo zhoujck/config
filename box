@@ -1,5 +1,5 @@
 {  
-"spider":"./jar/fan.txt;md5;e60ee56ecb22ea3575471e7dd9e0c338",
+"spider":"https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/jar/fan.txt;md5;5bb14e6d9ccfac7135fe1573382355cc",
 //"spider": "./jar/小米XBPQ.jar;md5;fa797d3f25f35eb3fea9a369bc55620f",
 //certutil -hashfile C:\Users\c8t48\Desktop\fan.jar MD5
 
