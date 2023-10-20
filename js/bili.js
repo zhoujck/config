@@ -180,11 +180,11 @@ function home(filter) {
     }
 }
 
-/*
+
 async function homeVod() {
     try {
         const lists = [];
-        const url = 'https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=-1&type=1&season_type=3&st=3&pagesize=20&page=1';
+        const url = 'https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=-1&type=1&season_type=3&st=3';
 
         const response = await request(url, getHeaders());
         const responseData = JSON.parse(response);
@@ -196,24 +196,22 @@ async function homeVod() {
             if (imageUrl.startsWith('//')) {
                 imageUrl = 'https:' + imageUrl;
             }
-           // let cd = getFullTime(item.duration);
-            video.vod_remarks = list.index_show;
-            video.vod_id = list.media_id;
-            video.vod_name = removeTags(list.title);
-            video.vod_pic = pic;
-           
+            vod.vod_id = list.media_id;
+            vod.vod_name = removeTags(list.title);
+            vod.vod_pic = imageUrl;
+            vod.vod_remarks = list.index_show;
             vod.style = {
                 type: 'rect',
-                ratio: 1.33,
+                ratio: 1,
             },
-                lists.push(vod);
+                list.push(vod);
         }
 
         const result = { lists: lists };
         return JSON.stringify(result);
     } catch (e) { }
 }
-*/
+
 
 async function category(tid, page, filter, ext) {
     if (page < 1) page = 1;
@@ -663,7 +661,7 @@ export function __jsEvalReturn() {
     return {
         init: init,
         home: home,
-       // homeVod: homeVod,
+        homeVod: homeVod,
         category: category,
        // detail: detail,
         play: play,
