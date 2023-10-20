@@ -85,6 +85,29 @@ async function init(cfg) {
     const ext = extend.split('#');
     const jsonData = [
         {
+            key:"order",
+            name:"排序",
+            value:[
+             {n:"播放数量",v:"2"},
+             {n:"更新时间",v:"0"},
+             {n:"最高评分",v:"4"},
+             {n:"弹幕数量",v:"1"},
+             {n:"追看人数",v:"3"},
+             {n:"开播时间",v:"5"},
+             {n:"上映时间",v:"6"}
+            ]，
+         },
+        {
+            key:"season_status",
+            name:"付费",
+            value:[
+                {n:"全部",v:"-1"},
+                {n:"免费",v:"1"},
+                {n:"付费",v:"2%2C6"},
+                {n:"大会员",v:"4%2C6"}
+                ]，
+        }，
+      /*  {
             key: 'order',
             name: '排序',
             value: [
@@ -106,6 +129,7 @@ async function init(cfg) {
                 { n: '10分钟以下', v: '1' },
             ],
         },
+        */
     ];
     const newarr = [];
     const d = {};
