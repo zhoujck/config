@@ -85,26 +85,26 @@ async function init(cfg) {
     const ext = extend.split('#');
     const jsonData = [
         {
-            key:"order",
-            name:"排序",
+            key:'order',
+            name:'排序',
             value:[
-             {n:"播放数量",v:"2"},
-             {n:"更新时间",v:"0"},
-             {n:"最高评分",v:"4"},
-             {n:"弹幕数量",v:"1"},
-             {n:"追看人数",v:"3"},
-             {n:"开播时间",v:"5"},
-             {n:"上映时间",v:"6"}
+             {n:'播放数量',v:'2'},
+             {n:'更新时间',v:'0'},
+             {n:'最高评分',v:'4'},
+             {n:'弹幕数量',v:'1'},
+             {n:'追看人数',v:'3'},
+             {n:'开播时间',v:'5'},
+             {n:'上映时间',v:'6'},
             ]，
          },
         {
-            key:"season_status",
-            name:"付费",
+            key:'season_status',
+            name:'付费',
             value:[
-                {n:"全部",v:"-1"},
-                {n:"免费",v:"1"},
-                {n:"付费",v:"2%2C6"},
-                {n:"大会员",v:"4%2C6"}
+                {n:'全部',v:'-1'},
+                {n:'免费',v:'1'},
+                {n:'付费',v:'2%2C6'},
+                {n:'大会员',v:'4%2C6'},
                 ]，
         }，
       /*  {
@@ -183,24 +183,24 @@ function home(filter) {
 async function homeVod() {
     try {
         const lists = [];
-        const url = 'https://api.bilibili.com/x/web-interface/index/top/rcmd?ps=14&fresh_idx=1&fresh_idx_1h=1';
+        const url = 'https://api.bilibili.com/pgc/season/index/result?order=2&pagesize=20&style_id=-1&type=1&season_type=3&st=3&pagesize=20&page=1';
 
         const response = await request(url, getHeaders());
         const responseData = JSON.parse(response);
-        const vods = responseData.data.item;
+        const vods = responseData.data.list;
 
         for (const item of vods) {
             const vod = {};
-            let imageUrl = item.pic;
+            let imageUrl = list.cover;
             if (imageUrl.startsWith('//')) {
                 imageUrl = 'https:' + imageUrl;
             }
-            let cd = getFullTime(item.duration);
-
-            vod.vod_id = item.bvid;
-            vod.vod_name = removeTags(item.title);
-            vod.vod_pic = imageUrl;
-            vod.vod_remarks = cd;
+           // let cd = getFullTime(item.duration);
+            video.vod_remarks = list.index_show;
+            video.vod_id = list.media_id;
+            video.vod_name = removeTags(list.title);
+            video.vod_pic = pic;
+           
             vod.style = {
                 type: 'rect',
                 ratio: 1.33,
