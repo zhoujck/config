@@ -307,15 +307,15 @@ async function category(tid, page, filter, ext) {
     } catch (e) { }
     return null;
 }
-/*
+
 async function detail(ids) {
     try {
-        const bvid = ids;
-        const detailUrl = `https://api.bilibili.com/x/web-interface/view?bvid=${bvid}`;
+        const season_id = ids;
+        const detailUrl = `https://api.bilibili.com/pgc/view/web/season?season_id=${season_id}`;
 
         const detailData = JSON.parse(await request(detailUrl, getHeaders())).data;
         // 记录历史
-        if (!_.isEmpty(bili_jct)) {
+      /*  if (!_.isEmpty(bili_jct)) {
             const historyReport = 'https://api.bilibili.com/x/v2/history/report';
             let dataPost = {
                 aid: detailData.aid,
@@ -324,22 +324,24 @@ async function detail(ids) {
             }
             await post(historyReport, dataPost, getHeaders(), 'form');
         }
-        let cd = getFullTime(detailData.duration);
+      //  let cd = getFullTime(detailData.duration);
         const aid = detailData.aid;
+        */
         const video = {
-            vod_id: bvid,
-            vod_name: detailData.title,
-            vod_pic: detailData.pic,
-            type_name: detailData.tname,
+            ep_id: detailData.list.first_ep.ep_id,
+            vod_id: season_id,
+            vod_name: detailData.list.title,
+            vod_pic: detailData.list.cover,
+            type_name: detailData.list.subTitle,
             vod_year: '',
             vod_area: '',
-            vod_remarks: cd,
+            vod_remarks: detailData.list.index_show,
             vod_actor: '',
             vod_director: '',
-            vod_content: detailData.desc,
+           // vod_content: detailData.desc,
         };
 
-        const playurldata = 'https://api.bilibili.com/x/player/playurl?avid=' + aid + '&cid=' + detailData.cid + '&qn=127&fnval=4048&fourk=1';
+        const playurldata = "https://api.bilibili.com/pgc/player/web/playurl?qn=116&ep_id=" + ep_id;
         const playurldatas = JSON.parse(await request(playurldata, getHeaders()));
 
         const playurldatalist = playurldatas.data;
@@ -394,7 +396,7 @@ async function detail(ids) {
     } catch (e) { }
     return null;
 }
-*/
+
 async function play(flag, id, flags) {
     try {
         const playHeaders = { Referer: 'https://www.bilibili.com', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36' };
