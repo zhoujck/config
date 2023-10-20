@@ -244,7 +244,7 @@ async function category(tid, page, filter, ext) {
             url = "https://api.bilibili.com/x/v2/history?pn=" + page;
         }
        else if (tid == "历史") {
-            url = "https://api.bilibili.com/pgc/season/index/result?order="+order+"&pagesize=20&style_id=10033&type=1&season_type=3&st=3&page="+page;
+            url = "https://api.bilibili.com/pgc/season/index/result?pagesize=20&style_id=10033&type=1&season_type=3&st=3&page="+page;
         }
            
          else if (tid == "人文") {
