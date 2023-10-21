@@ -32,7 +32,7 @@
 {"key": "快看","name": "快看影视","type": 3,"api": "./js/快看.js"},
 {"key": "厂长","name": "厂长影视","type": 3,"api": "./js/厂长.js"},
 {"key": "低端","name": "低端影视","type": 3,"api": "./js/lib/drpy2.min.js","ext": "./js/低端.js"},
-{"key": "JOJO","name": "JO影视","type": 3,"api": "./js/JOJO.js"},
+{"key": "JOJO","name": "JO影视","type": 3,"api": "https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/cat/js/jiohub.js"},
 {"key": "wobg","name": "玩偶影视","type": 3,"api": "./js/wobg.js"},
 
 {"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/饭团.json"},
