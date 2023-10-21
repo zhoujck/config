@@ -307,7 +307,7 @@ async function category(tid, page, filter, ext) {
     } catch (e) { }
     return null;
 }
-
+ /*
 async function detail(ids) {
     try {
         const season_id = ids;
@@ -315,7 +315,7 @@ async function detail(ids) {
 
         const detailData = JSON.parse(await request(detailUrl, getHeaders())).data;
         // 记录历史
-      /*  if (!_.isEmpty(bili_jct)) {
+        if (!_.isEmpty(bili_jct)) {
             const historyReport = 'https://api.bilibili.com/x/v2/history/report';
             let dataPost = {
                 aid: detailData.aid,
@@ -326,7 +326,7 @@ async function detail(ids) {
         }
       //  let cd = getFullTime(detailData.duration);
         const aid = detailData.aid;
-        */
+        
         const video = {
             ep_id: detailData.list.first_ep.ep_id,
             vod_id: season_id,
@@ -486,7 +486,7 @@ async function play(flag, id, flags) {
     } catch (e) { }
     return null;
 }
-
+*/
 async function search(key, quick, pg) {
     let page = pg || 1;
     if (page == 0) page = 1;
@@ -667,7 +667,7 @@ export function __jsEvalReturn() {
        // homeVod: homeVod,
         category: category,
        // detail: detail,
-        play: play,
+       // play: play,
         proxy: proxy,
         search: search,
     };
