@@ -18,7 +18,7 @@
 //"searchable": 1,"filterable": 1,"changeable":1
 
 "sites":[ 
-//{"key": "dr_drpy","name": "糖果影视🍬10.19🍬","type": 3,"api": "https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js","ext": "./js/豆瓣.js"},
+//{"key": "dr_drpy","name": "糖果影视🍬10.20🍬","type": 3,"api": "https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js","ext": "./js/豆瓣.js"},
 {"key": "豆豆","name": "糖果影视🍬10.21🍬","type": 3,"api": "csp_DouDou","searchable": 0,"quickSearch": 0,"filterable": 0},
 {"key": "dr_drpy_bili_open","name": "🅱哔站纪录片🅱","type": 3,"api": "./js/bili.js","searchable": 0,"ext": {"categories": "历史#人文#宇宙#自然#动物#科技#美食#探险","cookie": ""}},
 {"key": "dr_drpy_bili","name": "🅱哔站纪录片-测试","type": 3,"api": "./js/lib/drpy2.min.js","searchable": 0,"ext": "./js/doc.js"},
