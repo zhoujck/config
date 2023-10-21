@@ -44,7 +44,7 @@ async function getString(url) {
     return res.content;
 }
 
-let classes = [{'type_id': 1, 'type_name' : '自营电影'},{'type_id': 2, 'type_name' : '自营剧集'},{'type_id': 3, 'type_name' : '动漫'},{'type_id': 4, 'type_name' : '综艺'},{'type_id': 5, 'type_name' : '音乐'}];
+let classes = [{'type_id': 1, 'type_name' : '自营电影'},{'type_id': 2, 'type_name' : '自营剧集'},{'type_id': 44, 'type_name' : '自营短剧'},{'type_id': 3, 'type_name' : '动漫'},{'type_id': 4, 'type_name' : '综艺'},{'type_id': 5, 'type_name' : '音乐'}];
 let filterObj = {};
 async function home(filter) {
     return JSON.stringify({
