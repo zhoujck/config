@@ -17,6 +17,12 @@
             "name": "📱网络〔小米〕"
         },
         {
+            "url": "https://raw.githubusercontent.com/KSHMR530/Kenshin/master/drpy_js/drjs_config.json",
+            "name": "📱网络〔kenshin〕"
+        },
+
+
+        {
             "url": "https://ghproxy.com/https://raw.githubusercontent.com/YuanHsing/CatVodOpen/main/js/config_open2.json",
             "name": "📱网络〔cat〕"
         }
