@@ -35,6 +35,11 @@
 {"key": "JOJO","name": "JO影视","type": 3,"api": "./js/jiohub.js"},
 {"key": "wobg","name": "玩偶影视","type": 3,"api": "./js/wobg.js"},
 
+{"key":"csp_Sp360","name":"360影视┃弹幕","type":3,"api":"csp_Sp360","searchable":1,"quickSearch":1,"filterable":1,"changeable":1,"ext":{"danmu":true},"jar":"https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/jar/1022.repl.jar;md5;698f192dd9dffdf73e45572b4b72be39","timeout":30},
+{"key":"csp_Jiohub","name":"JOJO影视┃弹幕","type":3,"api":"csp_Jiohub","searchable":1,"quickSearch":1,"filterable":1,"changeable":1,"ext":{"danmu":true},"jar":"https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/jar/1022.repl.jar;md5;698f192dd9dffdf73e45572b4b72be39","timeout":30},
+{"key":"荐片","name":"荐片┃弹幕","type":3,"api":"csp_Jianpian","searchable":1,"quickSearch":1,"filterable":1,"changeable":1,"ext":{"danmu":true},"jar":"https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/jar/1022.repl.jar;md5;698f192dd9dffdf73e45572b4b72be39","timeout":60},
+{"key":"玩偶","name":"玩偶┃弹幕","type":3,"api":"csp_Wogg","searchable":1,"filterable":1,"changeable":1,"ext":{"token":"http://127.0.0.1:9978/file/tvfan/token.txt","filter":"./json/wogg.json","danmu":true},"jar":"https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/jar/1022.repl.jar;md5;698f192dd9dffdf73e45572b4b72be39","timeout":30},
+
 {"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/饭团.json"},
 {"key":"真不卡","name":"不卡┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/真不卡.json"},
 {"key":"龟龟","name":"龟龟┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json"},
