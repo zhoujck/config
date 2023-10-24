@@ -23,7 +23,7 @@
 {"key":"csp_Sp360","name":"360┃弹幕","type":3,"api":"csp_Sp360","ext":{"danmu":true},"jar":"https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/jar/1022.repl.jar;md5;698f192dd9dffdf73e45572b4b72be39","timeout":30},
 {"key":"csp_Jiohub","name":"JOJO┃弹幕","type":3,"api":"csp_Jiohub","ext":{"danmu":true},"jar":"https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/jar/1022.repl.jar;md5;698f192dd9dffdf73e45572b4b72be39","timeout":30},
 {"key":"荐片","name":"荐片┃弹幕","type":3,"api":"csp_Jianpian","ext":{"danmu":true},"jar":"https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/jar/1022.repl.jar;md5;698f192dd9dffdf73e45572b4b72be39","timeout":60},
-{"key":"玩偶","name":"玩偶┃弹幕","type":3,"api":"csp_Wogg","ext":{http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd$$$弹},"timeout":30},
+{"key":"玩偶","name":"玩偶┃弹幕","type":3,"api":"csp_Wogg","ext":"http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd$$$弹","timeout":30},
 
 
 {"key":"一起看 ","name":"一起看","type":3,"api":"./js/一起看.js"},
