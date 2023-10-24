@@ -1,5 +1,5 @@
 {  
-"spider":"https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/jar/1022.repl.jar;md5;698f192dd9dffdf73e45572b4b72be39",
+"spider":"https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/jar/fan.txt;md5;9c19e5e073a7f0bd30fed7305fe1bfba",
 
 //certutil -hashfile C:\Users\c8t48\Desktop\fan.jar MD5
 
@@ -21,10 +21,10 @@
 {"key":"艾艾","name":"艾艾┃App","type":3,	"jar": "http://xhww.fun:63/小米/ab2.jar;md5;77a7f4d8c203027fe8e07c916276e879","api":"csp_Appto","playerType":2,"ext":"hcAuLY8Gg7Eb0oRkB84jw+9rQLeiFinDuZH5RMmF6KKO8irmlYhtPQnzRpQe4LPY98R+w/5FmQ0qHpjZJi2IO6Jhj3g50wP9mK/hGAw0EyahT8kphU0Uq+3kgSSMo7xszUGN9EwRotCqpXDfs2g4Cb/mdPhy8Q3I+QIck7eFAPLquyGgZS9WsK/GEwH5WbMKWMQxEhakYUrj0NV1WwSeHOVAuhsgn+Pewj71uD4AOk2UzeTmLbhwvqrRo5zcYCdCzh+e3pUpbuAtK/zaxi7r64ASfqb64bP8TPizK03pSz4b5ksSfBXaFY9HgVOl1ybO7EZS5fttTHxgPNslV+JC3Xhci41Dw8TnXR4ou92WZsj+X9bJAJlDOmLERN0e8hael2DuBA1AR1HaYpSbxPioonGsbr3SheAKfra/RvtjVXciKokPaWRxCNPSlZF8+wKsr9UG4IC35I07Xf5VHfdr9fOH1cCxi+JIS6tZDWg3B858ae1tm24USJsLnHhx2gG/j0X+h0Z4uCCA/uFPqJNZZJ56EqiyG3ZHfdDr0hwKbPTXi1IYSzLz/sYovi1dubRG+ht7C4yaYaZgjllWpkM2i8sG9vvpzF0YXuPrCDEg0B2x+KFpgnMZ2sfY864BRWI5z7JMt4rZhiE2la+PJ3Bw5e+C5/o8UJ4iR0CsirL03EFU="},
 {"key": "追忆影视","name": "追忆┃影视","type": 3,"jar": "http://xhww.fun:63/小米/ab2.jar;md5;77a7f4d8c203027fe8e07c916276e879","api": "csp_Appto","playerType": 2,"ext": "SgfqwZ7mXT9kHnNF5fEfBFRfJVGiy4+WwnapqG/NY3BxdbcjxuSmnXN/KMdKfEmAbW86nRfRRsx8wG3JuaVRwKtFGrTNs9GKFMjzDysgVx+vXROKpT7GgFNl6mjK8KYx2Cd9N8wv9vOboEhX87E2+ckvZL2uDPkYk9cW+IePzeeW7N1VrtZGAJ5s8cnPumrviNowWKczX9/9g3IUgNAchFGWS8MIHy2LHJ/Jj1upM3boVaFchNX3fkkXpdfPjIHoRSgjQ3AkFnS7tcqEno/ZHQexTvGGwDN760tqsJnQiOJgr6wl3DaOAZpfS75U+i5cpvHkX9cYjCMp7Q33fl5FhFiMZruipNxP3ujfF1Y2sKhANvz+fycqBzvJr5ogkLc1sPDw+St4uFsGkDnmAraX0zPzwwggknimRXeudT7TZz1fk8Pfuh1acXEju5g8H6XPzbsi8KcJskusAiIoPiu86apOh6wNcWuD13IDIfs0RXSn+AkD6ELJFa+hPa1UZ8BddfI0Cd+LV15gKaZg0eiKs9n4t8rasm6x4KpP/XBwYR/kzMIS6aYri42R37koBsuHChJkOdsaRjS0+xUNTuIN8aM9QOWBK4fmoU1f4qYW3Nf/sdICVIh0FflXgHO0NgfE9tenAPWDCtxZia8eo3C4JcR43a7wRgJf3HyA6zcIh7eOs74eDoak9b1wU82+EHNhec3XrkfzSoSpqUzqz2NMtPYe8RU+lRXAiS6xGU8Uq7fYBzLiw/LfCnfoMXPbsQuwGCCy5348lrN3MqK1v/WMxHY2/7iGEDgHZAs/YJ+0Visz0mULi4bau8BJ9z/VYTZ9O67XWYSpZTvMA55rIDee9OwMGqqgRFVYE4xiiSj8JYVHT0WwxSYkcZes5qBL3h6hcCWUZoUXoY3rvNkdweATQ/nvnD5+Z6hvX6eNP4yUJWvB4CwqCI5htdXwTFQH6sdJWOLVK+oQiicDS8Non9FbFfgI6dGG+W5p5reMIfFExV+MdpOs5QWqVaw8tMPEMqKnG"},
 
-{"key":"csp_Sp360","name":"360影视┃弹幕","type":3,"api":"csp_Sp360","ext":{"danmu":true},"timeout":30},
-{"key":"csp_Jiohub","name":"JOJO影视┃弹幕","type":3,"api":"csp_Jiohub","ext":{"danmu":true},"timeout":30},
-{"key":"荐片","name":"荐片┃弹幕","type":3,"api":"csp_Jianpian","ext":{"danmu":true},"timeout":60},
-{"key":"玩偶","name":"玩偶┃弹幕","type":3,"api":"csp_Wogg","ext":{"token":"http://127.0.0.1:9978/file/tvfan/token.txt","filter":"./json/wogg.json","danmu":true},"timeout":30},
+{"key":"csp_Sp360","name":"360影视┃弹幕","type":3,"api":"csp_Sp360","ext":{"danmu":true},"jar":"https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/jar/1022.repl.jar;md5;698f192dd9dffdf73e45572b4b72be39","timeout":30},
+{"key":"csp_Jiohub","name":"JOJO影视┃弹幕","type":3,"api":"csp_Jiohub","ext":{"danmu":true},"jar":"https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/jar/1022.repl.jar;md5;698f192dd9dffdf73e45572b4b72be39","timeout":30},
+{"key":"荐片","name":"荐片┃弹幕","type":3,"api":"csp_Jianpian","ext":{"danmu":true},"jar":"https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/jar/1022.repl.jar;md5;698f192dd9dffdf73e45572b4b72be39","timeout":60},
+{"key":"玩偶","name":"玩偶┃弹幕","type":3,"api":"csp_Wogg","ext":{"token":"http://127.0.0.1:9978/file/tvfan/token.txt","danmu":true},"jar":"https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/jar/1022.repl.jar;md5;698f192dd9dffdf73e45572b4b72be39","timeout":30},
 
 
 {"key":"一起看 ","name":"一起看","type":3,"api":"./js/一起看.js"},
