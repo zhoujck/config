@@ -23,7 +23,7 @@
 {"key":"csp_Sp360","name":"360┃弹幕","type":3,"api":"csp_Sp360","ext":{"danmu":true},"jar":"https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/jar/1022.repl.jar;md5;698f192dd9dffdf73e45572b4b72be39","timeout":30},
 {"key":"csp_Jiohub","name":"JOJO┃弹幕","type":3,"api":"csp_Jiohub","ext":{"danmu":true},"jar":"https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/jar/1022.repl.jar;md5;698f192dd9dffdf73e45572b4b72be39","timeout":30},
 {"key":"荐片","name":"荐片┃弹幕","type":3,"api":"csp_Jianpian","ext":{"danmu":true},"jar":"https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/jar/1022.repl.jar;md5;698f192dd9dffdf73e45572b4b72be39","timeout":60},
-{"key":"玩偶","name":"玩偶┃弹幕","type":3,"api":"csp_Wogg","ext":"http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd$$$弹","timeout":30},
+{"key":"玩偶","name":"玩偶┃弹幕","type":3,"api":"csp_Wogg","ext":"./ext/alitoken+4k|fhd|auto$$$http://fd.888484.xyz:33/$$$弹","timeout":30},
 
 
 {"key":"一起看 ","name":"一起看","type":3,"api":"./js/一起看.js"},
@@ -40,9 +40,9 @@
 {"key":"子子","name":"子子┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/子子.json"},
 {"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json"},
 
-{"key":"玩偶","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": ""},
-{"key":"纸条","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_XiaoZhiTiao","ext":"","jar": "./jar/FM.jar"},
-{"key":"盘搜","name":"🍃云盘┃4K","type": 3,"api": "csp_PanSearch","ext": ""},
+{"key":"玩偶","name":"🍃玩偶┃4K","type":3,"api":"csp_WoGG","ext": "./ext/alitoken"},
+{"key":"纸条","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_XiaoZhiTiao","ext":"./ext/alitoken","jar": "./jar/FM.jar"},
+{"key":"盘搜","name":"🍃云盘┃4K","type": 3,"api": "csp_PanSearch","ext": "./ext/alitoken"},
 
 //视听
 //{"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
