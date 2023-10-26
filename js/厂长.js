@@ -50,7 +50,7 @@ async function init(cfg) {
     siteKey = cfg.skey;
     siteType = cfg.stype;
     let html = await request(host);
-    url = html.match(/推荐访问<a href="(.*)"/)[1];
+    url = html.match(/新地址<a href="(.*)"/)[1];
     console.debug('厂长跳转地址 =====>' + url); // js_debug.log
 }
 
