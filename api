@@ -1,15 +1,15 @@
 {
     "urls": [
         {
-            "url": "https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/config/master/box",
+            "url": "https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/config/master/box",
             "name": "🍬糖果影视(raw)"
         }, 
         {
-            "url": "https://ghproxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/cat.json",
+            "url": "https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/cat.json",
             "name": "📱网络〔采尼丝〕"
         },      
         {
-            "url": "https://ghproxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/json/config.json",
+            "url": "https://gh-proxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/json/config.json",
             "name": "📱网络〔FONGMI〕"
         },
         {
@@ -23,7 +23,7 @@
 
 
         {
-            "url": "https://ghproxy.com/https://raw.githubusercontent.com/bestpvp/tm/main/cvo/3rd/mao/config_open.jsonn",
+            "url": "https://gh-proxy.com/https://raw.githubusercontent.com/bestpvp/tm/main/cvo/3rd/mao/config_open.jsonn",
             "name": "📱网络〔cat〕"
         }
 
