@@ -1,7 +1,7 @@
 {  
-"spider":"https://files.zohopublic.com.cn/public/workdrive-public/download/uyv0t678c488189af47bb91dc108484d17431;md5;eeeaf811c4c9abfc7d7eb731faf209d4",
+"spider":"https://files.zohopublic.com.cn/public/workdrive-public/download/uyv0t678c488189af47bb91dc108484d17431;md5;354a9990b9ad9bfe5c009157751c7769",
 
-//certutil -hashfile C:\Users\c8t48\Desktop\fan.jar MD5
+//certutil -hashfile C:\Users\c8t48\Desktop\fan.jar MD5 eeeaf811c4c9abfc7d7eb731faf209d4
 
 "lives":[
 {"name":"🍬糖果🍬","type":0,"url":"./json/live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","ua":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/108.0.0.0Safari/537.36"},
