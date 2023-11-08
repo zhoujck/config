@@ -36,7 +36,7 @@
 {"key":"子子","name":"子子┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/子子.json","jar":"./jar/小米XB.jar;md5;52a96f8841a0b952cbab5af9420be0f5"},
 {"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"./jar/小米XB.jar;md5;52a96f8841a0b952cbab5af9420be0f5"},
 
-{"key":"纸条","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_XiaoZhiTiao","ext":"./ext/alitoken","jar": "./jar/FM.jar"},
+{"key":"纸条","name":"🍃纸条┃4K","type":3,"playerType":1,"api":"csp_XiaoZhiTiao","ext":"http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd","jar": "./jar/FM.jar"},
 {"key":"YiSo","name":"😹易搜┃搜索","type":3,"api":"csp_YiSo","searchable":1,"quickSearch":1,"changeable":0,"ext":"http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
 {"key":"Zhaozy","name":"🐺找资源┃搜索","type":3,"api":"csp_Zhaozy","searchable":1,"quickSearch":1,"changeable":0,"ext":"http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd$$$fanty$$$qqq111"},
 {"key":"PanSou","name":"🦊盘搜┃搜索","type":3,"api":"csp_PanSou","searchable":1,"quickSearch":1,"changeable":0,"ext":"http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
