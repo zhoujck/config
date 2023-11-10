@@ -12,7 +12,7 @@
 //"searchable": 1,"filterable": 1,"changeable":1
 
 "sites":[ 
-{"key": "豆豆","name": "糖果影视🍬11.08🍬","type": 3,"api": "csp_DouDou","searchable": 0,"quickSearch": 0,"filterable": 0},
+{"key": "豆豆","name": "糖果影视🍬11.10🍬","type": 3,"api": "csp_DouDou","searchable": 0,"quickSearch": 0,"filterable": 0},
 //{"key": "dr_drpy","name": "🍬糖果影视-备用🍬","type": 3,"api": "./js/lib/drpy2.min.js","ext": "./js/豆瓣.js"},
 {"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./js/lib/drpy2.min.js","searchable": 0,"ext": "./js/doc.js"},
 {"key":"310直播","name":"🏀球赛直播","type":3,"api":"https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js","ext":"./js/310直播.js"},
@@ -33,7 +33,7 @@
 {"key":"子子","name":"子子┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/子子.json","jar":"./jar/小米XB.jar;md5;52a96f8841a0b952cbab5af9420be0f5"},
 {"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"./jar/小米XB.jar;md5;52a96f8841a0b952cbab5af9420be0f5"},
 
-{"key":"荐片","name":"荐片┃弹幕","type":3,"api":"csp_Jianpian","searchable":1,"quickSearch":1,"filterable":1,"changeable":1,"ext":{"danmu":true},"jar":".https://gh-proxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/jar/1023.repl.jar;md5;bab8f39fda844e7b2a8a423010aec3dd","timeout":60},
+{"key":"荐片","name":"荐片┃弹幕","type":3,"api":"csp_Jianpian","searchable":1,"quickSearch":1,"filterable":1,"changeable":1,"ext":"","jar":".https://gh-proxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/jar/1023.repl.jar;md5;bab8f39fda844e7b2a8a423010aec3dd","timeout":60},
 {"key":"玩偶","name":"玩偶┃弹幕","type":3,"api":"csp_Wogg","searchable":1,"filterable":1,"changeable":1,"ext":{"token":"http://127.0.0.1:9978/file/tvfan/token.txt","filter":"./json/wogg.json","danmu":true},"jar":"https://gh-proxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/jar/1023.repl.jar;md5;bab8f39fda844e7b2a8a423010aec3dd","timeout":30},
 {"key":"纸条弹幕版","name":"纸条┃弹幕","type":3,"api":"csp_XiaoZhiTiao","searchable":1,"filterable":1,"changeable":1,"ext":{"token":"http://127.0.0.1:9978/file/tvfan/token.txt","danmu":true}, "timeout":30,"jar":"https://gh-proxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/jar/1023.repl.jar;md5;bab8f39fda844e7b2a8a423010aec3dd"},
 {"key":"盘Se弹幕版","name":"盘Se┃弹幕","type":3,"api":"csp_PanSearch","searchable":1,"filterable":0,"changeable":1,"ext":{"token":"http://127.0.0.1:9978/file/tvfan/token.txt","danmu":true}, "timeout":30,"jar":"https://gh-proxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/jar/1023.repl.jar;md5;bab8f39fda844e7b2a8a423010aec3dd"},
