@@ -8,14 +8,12 @@
   
   "分类url": "https://www.sjz42.net/sjvodshow/{cateId}-{area}---{lang}-------{year}.html",
 
-  "数组": "<dt class=\"fed-deta-images fed-list-info fed-col-xs3\">&&</ul>",
+  "数组": "<li class=\"fed-list-item fed-padding fed-col-xs4 fed-col-sm3 fed-col-md2\">&&</li>",
   "图片": "data-original=\"&&\"",
   "标题": ".html\">&&</a>",
   "副标题": "<span class=\"fed-list-remarks fed-font-xii fed-text-white fed-text-center\">&&</span>",
-  "链接": "<h3 class=\"fed-part-eone\"><a href=\"&&\"",
+  "链接": "href=\"&&\"",
   
-  //"搜索模式": "1",
-  //"搜索二次截取": "<div class=\"fed-tabr-info fed-back-whits fed-min-width fed-line-top fed-hide-sm\">&&<div class=\"fed-main-right fed-col-xs12 fed-col-md3\">",
   "搜索url": "https://www.sjz42.net/sjvodsearch/-------------.html?wd={wd}",
   "搜索数组": "<dd class=\"fed-deta-content fed-col-xs7 fed-col-sm8\">&&</dl>",
   "搜索图片": "data-original=\"&&\"",
@@ -23,10 +21,6 @@
   "搜索副标题":"<span class=\"fed-list-remarks fed-font-xii fed-text-white fed-text-center\">&&</span>",
   "搜索链接": "xs4\" href=\"&&\"",
   
-  //"线路二次截取": "<ul class=\"fed-padding fed-part-rows\">&&</ul>",
   "线路数组": "<a class=\"fed-tabs-btn&&</li>",
   "线路标题": ">&&</a>"
-  
-  //"播放数组": "<li class=\"fed-padding fed-col-xs3 fed-col-sm2 my-find-frist-play\">&&</li>"
-  
 }
