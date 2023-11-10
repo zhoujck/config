@@ -15,11 +15,11 @@
   "链接": "href=\"&&\"",
   
   "搜索url": "https://www.sjz42.net/sjvodsearch/-------------.html?wd={wd}",
-  "搜索数组": "<dd class=\"fed-deta-content fed-col-xs7 fed-col-sm8\">&&</dl>",
+  "搜索数组": "<dt class=\"fed-deta-images fed-list-info fed-col-xs3\">&&</dl>",
   "搜索图片": "data-original=\"&&\"",
   "搜索标题": "-1.html\">&&</a></h3>",
   "搜索副标题":"<span class=\"fed-list-remarks fed-font-xii fed-text-white fed-text-center\">&&</span>",
-  "搜索链接": "xs4\" href=\"&&\"",
+  "搜索链接": "xs4\" href=\"&&\">查看详情",
   
   "线路数组": "<a class=\"fed-tabs-btn&&</li>",
   "线路标题": ">&&</a>"
