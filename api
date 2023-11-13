@@ -5,15 +5,15 @@
             "name": "🍬糖果影视(raw)"
         }, 
         {
-            "url": "http://肥猫.love",
-            "name": "📱网络〔肥猫〕"
+            "url": "https://gh-proxy.com/https://github.com/tvbox520/tvbox/blob/main/tvbox.json",
+            "name": "📱网络〔1〕"
         },      
         {
             "url": "https://gh-proxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/json/config.json",
             "name": "📱网络〔FONGMI〕"
         },
         {
-            "url": "http://xhww.fun:63/小米/DEMO.json",
+            "url": "https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/config/master/xiaomi.json",
             "name": "📱网络〔小米〕"
         },
         {
@@ -21,7 +21,7 @@
             "name": "📱网络〔FTY〕"
         },
         {
-            "url": "https://gh-proxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/main/0821.jsonn",
+            "url": "https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/0821.jsonn",
             "name": "📱网络〔高天流云〕"
         }
 
