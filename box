@@ -37,7 +37,7 @@
 {"key":"盘搜弹幕版","name":"盘搜┃阿里","type":3,"api":"csp_PanSou","searchable":1,"filterable":0,"changeable":1,"ext":{"token":"http://127.0.0.1:9978/file/tvfan/token.txt","danmu":true}, "timeout":30,"jar":"https://gh-proxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/jar/1023.repl.jar;md5;bab8f39fda844e7b2a8a423010aec3dd"},
 {"key":"易搜弹幕版","name":"易搜┃阿里","type":3,"api":"csp_YiSo","searchable":1,"filterable":0,"changeable":1,"ext":{"token":"http://127.0.0.1:9978/file/tvfan/token.txt","danmu":true}, "timeout":30,"jar":"https://gh-proxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/jar/1023.repl.jar;md5;bab8f39fda844e7b2a8a423010aec3dd"},
 
-{"key":"csp_AList","name":"AList┃网盘","type":"3","api":"csp_AList","searchable":"0","quickSearch":"0","filterable":"1","changeable":0,"ext":"./ext/alist.json"}
+{"key":"csp_AList","name":"AList┃网盘","type":"3","api":"csp_AList","searchable":"0","quickSearch":"0","filterable":"1","changeable":0,"ext":"http://xhww.fun:63/alist.json"}
 ],
     
 "parses": [
