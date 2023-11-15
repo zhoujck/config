@@ -4,7 +4,8 @@
 {"type_name": "语文","type_id": "人教版小学语文&order=stow"},
 {"type_name": "数学","type_id": "苏教版小学数学&order=stow"},
 {"type_name": "英语","type_id": "译林版小学英语&order=stow"},
-{"type_name": "绘本","type_id": "一年级书单&order=stow"}
+{"type_name": "象棋","type_id": "象棋&order=stow"}
+ 
 ],
 
 "filter": {
@@ -96,14 +97,13 @@
 ]}],
 
 
-
-
-
-"田径超清&order=stow": [ 
+"象棋&order=stow": [ 
 {"key": "tid","name": "分类",
 "value": [
-{ "n": "短跑","v": "田径短跑&order=stow" },
-{ "n": "博尔特","v": "博尔特&order=stow"},
+{ "n": "四郎讲棋","v": "四郎讲棋&order=stow" },
+{ "n": "板牙象棋","v": "板牙象棋&order=stow" },
+{ "n": "悟空象棋","v": "悟空象棋&order=stow" },
+{ "n": "象棋研究者","v": "象棋研究者&order=stow" },
 {"n": "","v": "" }
 ]},
 {"key": "duration","name": "时长","value": [
