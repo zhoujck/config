@@ -20,6 +20,7 @@
 
 {"key": "达人","name": "达人┃聚合","type": 3, "api": "csp_AppYsV2","jar": "./jar/小米1110.jar","ext": "http://4k.953365.cn:8090/xgapp.php/v2/"},
 {"key": "酷云","name": "酷云┃影视","type": 3,"api": "./js/酷云open.js"},
+{"key": "一起看","name": "一起┃影视","type": 3,"api": "./js/一起看.js"},
 {"key":"csp_Sp360","name":"360┃弹幕","type":3,"api":"csp_Sp360","searchable":1,"quickSearch":1,"filterable":1,"changeable":1,"jar":"https://gh-proxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/jar/1023.repl.jar;md5;bab8f39fda844e7b2a8a423010aec3dd","timeout":30},
 
 {"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/饭团.json","jar":"./jar/小米1110.jar"},
