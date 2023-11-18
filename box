@@ -28,7 +28,7 @@
 {"key":"子子","name":"子子┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/子子.json","jar":"./jar/小米1110.jar"},
 {"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"./jar/小米1110.jar"},
 
-{"key": "csp_XYQHiker_A8影视","name": "艾八〓香版","type": 3,"api": "csp_XYQHiker","ext": "./ext/A8影视.json"},
+{"key": "csp_XYQHiker_A8影视","name": "艾八〓香版","type": 3,"api": "csp_XYQHiker","ext": "./ext/A8影视.json","jar":"./jar/nb.jar"},
 
 {"key": "PanSou","name": "盘搜┃阿里","type": 3,"api": "csp_PanSou","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
 {"key": "玩偶哥哥","name": "玩偶┃阿里","type": 3,"api": "csp_WoGG","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd$$$https://api.wogg.xyz/$$$弹"},
