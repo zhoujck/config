@@ -1,6 +1,6 @@
 {  
-"spider":"https://files.zohopublic.com.cn/public/workdrive-public/download/uyv0t678c488189af47bb91dc108484d17431;md5;364c0f012e73a8801a69900fc25ae9c1",
-
+//"spider":"https://files.zohopublic.com.cn/public/workdrive-public/download/uyv0t678c488189af47bb91dc108484d17431;md5;364c0f012e73a8801a69900fc25ae9c1",
+"spider":"./jar/nb.jar;md5;85a9554677bd734a2fce41b62bc8f2d3",
 //certutil -hashfile C:\Users\c8t48\Desktop\fan.jar MD5 eeeaf811c4c9abfc7d7eb731faf209d4
 
 "lives":[
@@ -20,7 +20,7 @@
 
 {"key": "达人","name": "达人┃聚合","type": 3, "api": "csp_AppYsV2","jar": "./jar/小米1110.jar","ext": "http://4k.953365.cn:8090/xgapp.php/v2/"},
 {"key": "酷云","name": "酷云┃影视","type": 3,"api": "./js/酷云open.js"},
-{"key":"csp_Sp360","name":"360┃弹幕","type":3,"api":"csp_Sp360","searchable":1,"quickSearch":1,"filterable":1,"changeable":1,"ext":{"danmu":true},"jar":"https://gh-proxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/jar/1023.repl.jar;md5;bab8f39fda844e7b2a8a423010aec3dd","timeout":30},
+{"key":"csp_Sp360","name":"360┃弹幕","type":3,"api":"csp_Sp360","searchable":1,"quickSearch":1,"filterable":1,"changeable":1,"jar":"https://gh-proxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/jar/1023.repl.jar;md5;bab8f39fda844e7b2a8a423010aec3dd","timeout":30},
 
 {"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/饭团.json","jar":"./jar/小米1110.jar"},
 {"key":"真不卡","name":"不卡┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/真不卡.json","jar":"./jar/小米1110.jar"},
@@ -28,7 +28,7 @@
 {"key":"子子","name":"子子┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/子子.json","jar":"./jar/小米1110.jar"},
 {"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"./jar/小米1110.jar"},
 
-{"key": "csp_XYQHiker_A8影视","name": "艾八〓香版","type": 3,"api": "csp_XYQHiker","ext": "./ext/A8影视.json","jar":"./jar/nb.jar"},
+{"key": "csp_XYQHiker_A8影视","name": "艾八〓香版","type": 3,"api": "csp_XYQHiker","ext": "./ext/A8影视.json"},
 
 {"key": "PanSou","name": "盘搜┃阿里","type": 3,"api": "csp_PanSou","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
 {"key": "玩偶哥哥","name": "玩偶┃阿里","type": 3,"api": "csp_WoGG","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd$$$https://api.wogg.xyz/$$$弹"},
