@@ -21,8 +21,8 @@
 {"key": "csp_Ikanbot", "name": "爱看┃聚合", "type": 3,"api": "csp_Ikanbot"},
 {"key": "达人","name": "达人┃聚合","type": 3, "api": "csp_AppYsV2","jar": "./jar/小米1110.jar","ext": "http://4k.953365.cn:8090/xgapp.php/v2/"},
 {"key": "csp_XYQHiker_A8影视","name": "艾八┃聚合","type": 3,"api": "csp_XYQHiker","ext": "./ext/A8影视.json"},
-{"key": "77","name": "七七┃影视","type": 3,"api": "csp_Kunyu77","searchable": 1,"quickSearch": 1,"changeable": 1},
-{"key": "酷云","name": "酷云┃影视","type": 3,"api": "./js/酷云open.js"},
+{"key": "酷云","name": "酷云┃影视","type": 3,"api": "csp_Kunyu77","searchable": 1,"quickSearch": 1,"changeable": 1},
+//{"key": "酷云","name": "酷云┃影视","type": 3,"api": "./js/酷云open.js"},
 {"key": "一起看","name": "一起┃影视","type": 3,"api": "./js/一起看.js"},
 
 {"key": "csp_SNzy","name": "索尼┃聚合","type": 1,"api": "https://suoniapi.com/api.php/provide/vod/?ac=list"},
