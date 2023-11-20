@@ -23,7 +23,11 @@
 {"key": "csp_XYQHiker_A8影视","name": "艾八┃聚合","type": 3,"api": "csp_XYQHiker","ext": "./ext/A8影视.json"},
 {"key": "酷云","name": "酷云┃影视","type": 3,"api": "csp_Kunyu77","searchable": 1,"quickSearch": 1,"changeable": 1},
 
-{"key":"蝴蝶","name":"蝴蝶┃弹幕","type":3,"api":"csp_Hudie","playerType":2,"ext":"https://yundun-hdsign.zhuifeng100.cn|kT2taP|75f7fac7f56d812d1f9ce89d9f312984|b7688bd6347da0b2b62515b0730b872b$$$null$$$1"},
+{"key":"蝴蝶","name":"蝴蝶┃弹幕","type":3,"api":"csp_Hudie","playerType":2,"jar": "./jar/fm.jar","ext":"https://yundun-hdsign.zhuifeng100.cn|kT2taP|75f7fac7f56d812d1f9ce89d9f312984|b7688bd6347da0b2b62515b0730b872b$$$null$$$1"},
+{"key":"新6V","name":"6V┃弹幕","type":3,"api":"csp_Xb6v","jar": "./jar/fm.jar","ext":"http://127.0.0.1:9978/file/tvfan/token.json$$$http://www.xb6v.com$$$1"},
+{"key":"4KHDR","name":"4K┃弹幕","type":3,"api":"csp_FourKHDR","jar": "./jar/fm.jar",ext":"http://127.0.0.1:9978/file/tvfan/token.json$$$http://127.0.0.1:9978/file/tvfan/4khdr.txt"},
+{"key":"校长影视","校长┃弹幕","type":3,"api":"csp_XiaoZhang","jar": "./jar/fm.jar","ext":"http://127.0.0.1:9978/file/tvfan/token.json"},
+{"key":"团长资源","name":"团长┃弹幕","type":3,"api":"csp_TZFile","jar": "./jar/fm.jar","ext":"http://127.0.0.1:9978/file/tvfan/token.json"},
 
 {"key": "csp_SNzy","name": "索尼┃聚合","type": 1,"api": "https://suoniapi.com/api.php/provide/vod/?ac=list"},
 
