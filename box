@@ -19,16 +19,17 @@
 {"key":"310直播","name":"🏀球赛直播","type":3,"api":"https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js","ext":"./js/310直播.js"},
 {"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
 
+{"key": "csp_Bttwoo","name": "比特┃聚合","type": 3,"api": "csp_Bttwoo"},
 {"key": "csp_Ikanbot", "name": "爱看┃聚合", "type": 3,"api": "csp_Ikanbot"},
-{"key": "达人","name": "达人┃聚合","type": 3, "api": "csp_AppYsV2","jar": "./jar/小米1110.jar","ext": "http://4k.953365.cn:8090/xgapp.php/v2/"},
 {"key": "csp_XYQHiker_A8影视","name": "艾八┃聚合","type": 3,"api": "csp_XYQHiker","ext": "./ext/A8影视.json"},
 {"key": "酷云","name": "酷云┃影视","type": 3,"api": "csp_Kunyu77"},
+
+{"key": "达人","name": "达人┃聚合","type": 3, "api": "csp_AppYsV2","jar": "./jar/小米1110.jar","ext": "http://4k.953365.cn:8090/xgapp.php/v2/"},
 
 {"key":"蝴蝶","name":"蝴蝶┃弹幕","type":3,"api":"csp_Hudie","playerType":2,"jar":"./jar/fm.jar","ext":"https://yundun-hdsign.zhuifeng100.cn|kT2taP|75f7fac7f56d812d1f9ce89d9f312984|b7688bd6347da0b2b62515b0730b872b$$$null$$$1"},
 {"key":"csp_Sp360","name":"360┃弹幕","type":3,"api":"csp_Sp360","jar":"./jar/fm.jar"},
 
 {"key": "csp_SNzy","name": "索尼┃聚合","type": 1,"api": "https://suoniapi.com/api.php/provide/vod/?ac=list"},
-
 
 {"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看剧.json","jar":"./jar/小米1110.jar"},
 {"key":"真不卡","name":"不卡┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/灰鸽子.json","jar":"./jar/小米1110.jar"},
@@ -36,14 +37,10 @@
 {"key":"子子","name":"子子┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/麻衣.json","jar":"./jar/小米1110.jar"},
 {"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"./jar/小米1110.jar"},
 
-
-
 {"key": "PanSou","name": "盘搜┃阿里","type": 3,"api": "csp_PanSou","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
 {"key": "玩偶哥哥","name": "玩偶┃阿里","type": 3,"api": "csp_WoGG","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd$$$https://api.wogg.xyz/$$$弹"},
-
 {"key":"纸条","name":"纸条┃阿里","type":3,"api":"csp_XiaoZhiTiao","searchable":1,"filterable":1,"changeable":1, "jar":"https://gh-proxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/jar/custom_spider.jar"},
 {"key":"盘Se","name":"盘Se┃阿里","type":3,"api":"csp_PanSearch","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
-
 {"key":"csp_AList","name":"AList┃网盘","type":"3","api":"csp_AList","searchable":"0","quickSearch":"0","filterable":"1","changeable":0,"ext":"http://xhww.fun:63/alist.json"}
 ],
     
