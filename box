@@ -43,7 +43,7 @@
 {"key":"盘Se","name":"盘Se┃阿里","type":3,"api":"csp_PanSearch","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
 		{
 			"key": "alist",
-			"name": "🍰小鸭┃网盘",
+			"name": "小鸭┃网盘",
 			"type": 3,
 			"playerType": "1",
 			"api": "csp_AList",
