@@ -1,12 +1,16 @@
 {
     "urls": [
         {
-            "url": "https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/config/master/box",
+            "url": "https://raw.gitmirror.com/zhoujck/config/master/box",
             "name": "🍬糖果影视(raw)"
         }, 
- 
+
         {
-            "url": "https://gh-proxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/json/config.json",
+            "url": " https://raw.gitmirror.com/T00700/TVBoxSE/master/FongMi.json",
+            "name": "📱网络〔T00700〕"
+        },
+        {
+            "url": "https://raw.gitmirror.com/FongMi/CatVodSpider/main/json/config.json",
             "name": "📱网络〔FONGMI〕"
         },
         {
@@ -18,7 +22,7 @@
             "name": "📱网络〔FTY〕"
         },
         {
-            "url": "https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/gao/master/0821.json",
+            "url": "https://raw.gitmirror.com/zhoujck/gao/master/0821.json",
             "name": "📱网络〔高天流云〕"
         }
 
