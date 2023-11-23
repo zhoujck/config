@@ -1,5 +1,5 @@
 {  
-"spider": "https://gh-proxy.com/https://raw.githubusercontent.com/FongMi/CatVodSpider/main/jar/custom_spider.jar;md5;4bc4aada582cd00fafe20d12508dc2a7",
+"spider": "https://files.zohopublic.com.cn/public/workdrive-public/download/uyv0t678c488189af47bb91dc108484d17431;md5;364c0f012e73a8801a69900fc25ae9c1",
 //"spider":"./jar/nb.jar;md5;85a9554677bd734a2fce41b62bc8f2d3",
 //"spider": "http://xhww.fun:63/小米/5.jar;md5;c570b052645834a1109b54421c1552f9",
 
@@ -7,19 +7,17 @@
 "daily_sentence" : "https://v1.hitokoto.cn/?c=i&max_length=20", 
 
 "lives":[
-{"name":"🍬糖果🍬","type":0,"url":"./json/live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","ua":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/108.0.0.0Safari/537.36"},
-{"name":"YueChan•综合","type":0,"url":"https://gh-proxy.com/https://raw.githubusercontent.com/YueChan/Live/main/IPTV.m3u","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","logo":"https://epg.112114.xyz/logo/{name}.png"},
-{"name":"🍬糖果Radio🍬","type":0,"url":"https://gh-proxy.com/https://raw.githubusercontent.com/YueChan/Live/main/Radio.m3u","playerType":1}
+{"name":"🍬糖果🍬","type":0,"url":"./json/live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","ua":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/108.0.0.0Safari/537.36"}
 ],
 
 //playerType：播放器  (1：IJK、2：EXO)       
 //"searchable": 1,"filterable": 1,"changeable":1
 
 "sites":[ 
-//{"key": "豆豆","name": "糖果影视🍬11.20🍬","type": 3,"api": "csp_DouDou","searchable": 0,"quickSearch": 0,"filterable": 0},
-{"key": "dr_drpy","name": "🍬糖果影视-备用🍬","type": 3,"api": "./js/lib/drpy2.min.js","ext": "./js/豆瓣.js"},
+{"key": "豆豆","name": "糖果影视🍬11.23🍬","type": 3,"api": "csp_DouDou","searchable": 0,"quickSearch": 0,"filterable": 0},
+//{"key": "dr_drpy","name": "🍬糖果影视-备用🍬","type": 3,"api": "./js/lib/drpy2.min.js","ext": "./js/豆瓣.js"},
 {"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./js/lib/drpy2.min.js","searchable": 0,"ext": "./js/doc.js"},
-{"key":"310直播","name":"🏀球赛直播","type":3,"api":"https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js","ext":"./js/310直播.js"},
+{"key":"310直播","name":"🏀球赛直播","type":3,"api":"./js/lib/drpy2.min.js","ext":"./js/310直播.js"},
 {"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
 
 {"key": "csp_Bttwoo","name": "比特┃聚合","type": 3,"api": "csp_Bttwoo"},
@@ -27,403 +25,25 @@
 {"key": "csp_XYQHiker_A8影视","name": "艾八┃聚合","type": 3,"api": "csp_XYQHiker","ext": "./ext/A8影视.json"},
 {"key": "酷云","name": "酷云┃影视","type": 3,"api": "csp_Kunyu77"},
 
-{"key": "达人","name": "达人┃聚合","type": 3, "api": "csp_AppYsV2","jar": "./jar/小米1110.jar","ext": "http://4k.953365.cn:8090/xgapp.php/v2/"},
+{"key": "达人","name": "达人┃聚合","type": 3, "api": "csp_AppYsV2","jar": "http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968","ext": "http://4k.953365.cn:8090/xgapp.php/v2/"},
 
 {"key":"蝴蝶","name":"蝴蝶┃弹幕","type":3,"api":"csp_Hudie","playerType":2,"jar":"./jar/fm.jar","ext":"https://yundun-hdsign.zhuifeng100.cn|kT2taP|75f7fac7f56d812d1f9ce89d9f312984|b7688bd6347da0b2b62515b0730b872b$$$null$$$1"},
 {"key":"csp_Sp360","name":"360┃弹幕","type":3,"api":"csp_Sp360","jar":"./jar/fm.jar"},
 
 {"key": "csp_SNzy","name": "索尼┃聚合","type": 1,"api": "https://suoniapi.com/api.php/provide/vod/?ac=list"},
 
-{"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看剧.json","jar":"./jar/小米1110.jar"},
-{"key":"真不卡","name":"不卡┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/灰鸽子.json","jar":"./jar/小米1110.jar"},
-{"key":"龟龟","name":"龟龟┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json","jar":"./jar/小米1110.jar"},
-{"key":"子子","name":"子子┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/麻衣.json","jar":"./jar/小米1110.jar"},
-{"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"./jar/小米1110.jar"},
+{"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看剧.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
+{"key":"真不卡","name":"不卡┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/灰鸽子.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
+{"key":"龟龟","name":"龟龟┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
+{"key":"子子","name":"子子┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/麻衣.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
+{"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 
-  {
-      "key": "玩偶",
-      "name": "玩偶",
-      "type": 3,
-      "api": "csp_Doll",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.309
-      }
-    },
-    {
-      "key": "18AV",
-      "name": "18AV",
-      "type": 3,
-      "api": "csp_Eighteen",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.485
-      }
-    },
-    {
-      "key": "18A貓",
-      "name": "18A貓",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/FongMi/CatVodOpen/main/open/18a_open.js",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.485
-      }
-    },
-    {
-      "key": "Jable",
-      "name": "Jable",
-      "type": 3,
-      "api": "csp_Jable",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.77
-      }
-    },
-    {
-      "key": "MissAV",
-      "name": "MissAV",
-      "type": 3,
-      "api": "csp_Miss",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.78
-      }
-    },
-    {
-      "key": "Hanime",
-      "name": "Hanime",
-      "type": 3,
-      "api": "csp_Hanime",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 0.68
-      }
-    },
-    {
-      "key": "apilj.com",
-      "name": "成人01",
-      "type": 1,
-      "api": "http://apilj.com/api.php/provide/vod/at/json/",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "dadiapi.com",
-      "name": "成人02",
-      "type": 0,
-      "api": "http://dadiapi.com/api.php",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "91md.me",
-      "name": "成人03",
-      "type": 1,
-      "api": "http://91md.me/api.php/provide/vod/",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "jcspcj8.com",
-      "name": "成人04",
-      "type": 0,
-      "api": "http://jcspcj8.com/api?ac=videolist",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "bttcj.com",
-      "name": "成人05",
-      "type": 0,
-      "api": "http://bttcj.com/inc/sapi.php",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "cjmygzy.com",
-      "name": "成人06",
-      "type": 0,
-      "api": "http://cjmygzy.com/inc/sapi.php?ac=videolist",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "api.sexnguon.com",
-      "name": "成人07",
-      "type": 1,
-      "api": "http://api.sexnguon.com/api.php/provide/vod/",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "feifei67.com",
-      "name": "成人08",
-      "type": 1,
-      "api": "http://www.feifei67.com/api.php/provide/vod/",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "llzxcj.com",
-      "name": "成人09",
-      "type": 0,
-      "api": "http://llzxcj.com/inc/sck.php?ac=videolist",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "f2dcj6.com",
-      "name": "成人10",
-      "type": 0,
-      "api": "http://f2dcj6.com/sapi?ac=videolist",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "ggmmzy.com",
-      "name": "成人11",
-      "type": 0,
-      "api": "http://www.ggmmzy.com:9999/inc/xml",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "fhapi9.com",
-      "name": "成人12",
-      "type": 1,
-      "api": "http://fhapi9.com/api.php/provide/vod/",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "madouse.la",
-      "name": "成人13",
-      "type": 1,
-      "api": "http://madouse.la/api.php/provide/vod/",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "lbapiby.com",
-      "name": "成人14",
-      "type": 0,
-      "api": "http://lbapiby.com/api.php/provide/vod/at/xml",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "api.maozyapi.com",
-      "name": "成人15",
-      "type": 1,
-      "api": "https://api.maozyapi.com/inc/apijson_vod.php",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "msnii.com",
-      "name": "成人16",
-      "type": 0,
-      "api": "https://www.msnii.com/api/xml.php",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "gdlsp.com",
-      "name": "成人17",
-      "type": 0,
-      "api": "https://www.gdlsp.com/api/xml.php",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "caiji.huakuiapi.com",
-      "name": "成人18",
-      "type": 1,
-      "api": "https://caiji.huakuiapi.com/inc/apijson_vod.php",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "kxgav.com",
-      "name": "成人19",
-      "type": 0,
-      "api": "https://www.kxgav.com/api/xml.php",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "xrbsp.com",
-      "name": "成人20",
-      "type": 0,
-      "api": "https://www.xrbsp.com/api/xml.php",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "pgxdy.com",
-      "name": "成人21",
-      "type": 0,
-      "api": "https://www.pgxdy.com/api/xml.php",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "afasu.com",
-      "name": "成人22",
-      "type": 0,
-      "api": "https://www.afasu.com/api/xml.php",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "kkzy.me",
-      "name": "成人23",
-      "type": 1,
-      "api": "https://kkzy.me/api.php/provide/vod/",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "888dav.com",
-      "name": "成人24",
-      "type": 1,
-      "api": "https://www.888dav.com/api.php/provide/vod/",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "apittzy.com",
-      "name": "成人25",
-      "type": 1,
-      "api": "https://apittzy.com/api.php/provide/vod/",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "lbapi9.com",
-      "name": "成人26",
-      "type": 1,
-      "api": "https://lbapi9.com/api.php/provide/vod/",
-      "searchable": 1,
-      "recordable": 0,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
+{"key": "PanSou","name": "盘搜┃阿里","type": 3,"api": "csp_PanSou","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
+{"key": "玩偶哥哥","name": "玩偶┃阿里","type": 3,"api": "csp_WoGG","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd$$$https://api.wogg.xyz/$$$弹"},
+{"key":"纸条","name":"纸条┃阿里","type":3,"api":"csp_XiaoZhiTiao","searchable":1,"filterable":1,"changeable":1, "jar":"./jar/fongmi.jar"},
+{"key":"盘Se","name":"盘Se┃阿里","type":3,"api":"csp_PanSearch","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
+
+
 {"key": "msv ","name": "美少女 ","type": 0,"api": "https://www.msnii.com/api/xml.php ","searchable": 1,"changeable": 1},
 {"key": "ysj ","name": "饮水机 ","type": 0,"api": "https://www.xrbsp.com/api/xml.php ","searchable": 1,"changeable": 1},
 {"key": "xne ","name": "香奶儿 ","type": 0,"api": "https://www.gdlsp.com/api/xml.php ","searchable": 1,"changeable": 1},
