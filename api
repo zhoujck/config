@@ -4,7 +4,14 @@
             "url": "https://raw.gitmirror.com/zhoujck/config/master/box",
             "name": "🍬糖果影视(raw)"
         }, 
-
+        {
+            "url": "https://raw.gitmirror.com/zhoujck/0207/main/tvboxqq/香雅情XYQ/api.json",
+            "name": "📱网络〔香雅晴〕"
+        }
+        {
+            "url": "https://raw.gitmirror.com/zhoujck/0207/main/tvboxqq/道长js/api.json",
+            "name": "📱网络〔道长〕"
+        }
         {
             "url": "https://raw.gitmirror.com/T00700/TVBoxSE/master/FongMi.json",
             "name": "📱网络〔T00700〕"
@@ -14,7 +21,7 @@
             "name": "📱网络〔FONGMI〕"
         },
         {
-            "url": "http://xhww.fun:63/小米/DEMO.json",
+            "url": "https://raw.gitmirror.com/zhoujck/0207/main/tvboxqq/小米/api.json",
             "name": "📱网络〔小米〕"
         },
         {
