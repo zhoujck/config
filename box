@@ -24,9 +24,9 @@
 {"key": "酷云","name": "酷云┃影视","type": 3,"api": "csp_Kunyu77"},
 {"key": "csp_SNzy","name": "索尼┃聚合","type": 1,"api": "https://suoniapi.com/api.php/provide/vod/?ac=list"},
 
-{"key": "csp_XYQHiker_A8影视","name": "艾八┃聚合","type": 3,"api": "csp_XYQHiker","ext": "./ext/A8影视.json","jar":"https://raw.gitmirror.com/zhoujck/gao/master/jar/XYQ.jar;md5;3b3265737234ff17fc66539dd99efc66""},
-{"key":"蝴蝶","name":"蝴蝶┃弹幕","type":3,"api":"csp_Hudie","playerType":2,"jar":"./jar/fm.jar","ext":"https://yundun-hdsign.zhuifeng100.cn|kT2taP|75f7fac7f56d812d1f9ce89d9f312984|b7688bd6347da0b2b62515b0730b872b$$$null$$$1"},
-{"key":"csp_Sp360","name":"360┃弹幕","type":3,"api":"csp_Sp360","jar":""},
+{"key": "csp_XYQHiker_A8影视","name": "艾八┃聚合","type": 3,"api": "csp_XYQHiker","ext": "./ext/A8影视.json","jar":"https://raw.gitmirror.com/zhoujck/gao/master/jar/XYQ.jar;md5;3b3265737234ff17fc66539dd99efc66"},
+{"key":"蝴蝶","name":"蝴蝶┃弹幕","type":3,"api":"csp_Hudie","playerType":2,"jar":"https://raw.gitmirror.com/zhoujck/gao/master/jar/20231121-1019.pg.jar;md5;ba7b40f58ea2170ca20b967b155c7d71","ext":"https://yundun-hdsign.zhuifeng100.cn|kT2taP|75f7fac7f56d812d1f9ce89d9f312984|b7688bd6347da0b2b62515b0730b872b$$$null$$$1"},
+{"key":"csp_Sp360","name":"360┃弹幕","type":3,"api":"csp_Sp360","jar":"https://raw.gitmirror.com/zhoujck/gao/master/jar/20231121-1019.pg.jar;md5;ba7b40f58ea2170ca20b967b155c7d71"},
 
 
 
