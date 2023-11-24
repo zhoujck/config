@@ -31,8 +31,8 @@
 
 {"key": "csp_SNzy","name": "索尼┃聚合","type": 1,"api": "https://suoniapi.com/api.php/provide/vod/?ac=list"},
 
-{"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看剧.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{"key":"真不卡","name":"不卡┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/灰鸽子.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
+{"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看剧.json","jar":"./jar/小米1110.jar"},
+{"key":"真不卡","name":"不卡┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/灰鸽子.json","jar":""},
 {"key":"龟龟","name":"龟龟┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 {"key":"子子","name":"子子┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/麻衣.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 {"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
