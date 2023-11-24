@@ -7,11 +7,11 @@
         {
             "url": "https://raw.gitmirror.com/zhoujck/0207/main/tvboxqq/香雅情XYQ/api.json",
             "name": "📱网络〔香雅晴〕"
-        }
+        },
         {
             "url": "https://raw.gitmirror.com/zhoujck/0207/main/tvboxqq/道长js/api.json",
             "name": "📱网络〔道长〕"
-        }
+        },
         {
             "url": "https://raw.gitmirror.com/T00700/TVBoxSE/master/FongMi.json",
             "name": "📱网络〔T00700〕"
@@ -32,6 +32,5 @@
             "url": "https://raw.gitmirror.com/zhoujck/gao/master/0821.json",
             "name": "📱网络〔高天流云〕"
         }
-
     ]
 }
