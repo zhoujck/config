@@ -36,28 +36,11 @@
 {"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 {"key": "达人","name": "达人┃聚合","type": 3, "api": "csp_AppYsV2","ext": "http://4k.953365.cn:8090/xgapp.php/v2/","jar": "http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 
-
 {"key": "PanSou","name": "盘搜┃阿里","type": 3,"api": "csp_PanSou","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
 {"key": "玩偶哥哥","name": "玩偶┃阿里","type": 3,"api": "csp_WoGG","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd$$$https://api.wogg.xyz/$$$弹"},
 {"key":"纸条","name":"纸条┃阿里","type":3,"api":"csp_XiaoZhiTiao","searchable":1,"filterable":1,"changeable":1, "jar":"./jar/fongmi.jar"},
 {"key":"盘Se","name":"盘Se┃阿里","type":3,"api":"csp_PanSearch","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
-		{
-			"key": "alist",
-			"name": "小鸭┃网盘",
-			"type": 3,
-			"playerType": "1",
-			"api": "csp_AList",
-			"searchable": 0,
-			"quickSearch": 1,
-			"filterable": 1,
-			"ext": {
-				"vodPic": "https://s1.imagehub.cc/images/2023/11/13/98b4ce8284509da2525ddb9d8aac83a0.th.jpeg",
-				"drives": [{
-					"name": "🦆托盘",
-					"server": "https://pan.mediy.cn/"
-				}]
-			}
-		}
+{"key": "商店","name": "商店","type": 3,"api": "csp_Market","searchable": 0,"changeable": 0,"ext": "https://fm.t4tv.hz.cz/json/market.json", "jar":"./jar/fongmi.jar"}
 ],
     
 "parses": [
