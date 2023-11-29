@@ -28,13 +28,13 @@
 {"key":"csp_Sp360","name":"360┃弹幕","type":3,"api":"csp_Sp360","jar":""},
 
 //小米
-{"key":"爱看","name":"爱看┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看剧.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{"key":"真不卡","name":"不卡┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/灰鸽子.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{"key":"龟龟","name":"龟龟┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{"key":"子子","name":"子子┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/麻衣.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{"key": "达人","name": "达人┃聚合","type": 3, "api": "csp_AppYsV2","ext": "http://4k.953365.cn:8090/xgapp.php/v2/","jar": "http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
+{"key":"爱看","name":"爱看┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看.json","jar":"http://luoye.shop/b.jar;md5;1484e86a3a4463eaf8ef41c6832a1df0"},
+{"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看剧.json","jar":"http://luoye.shop/b.jar;md5;1484e86a3a4463eaf8ef41c6832a1df0"},
+{"key":"真不卡","name":"不卡┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/灰鸽子.json","jar":"http://luoye.shop/b.jar;md5;1484e86a3a4463eaf8ef41c6832a1df0"},
+{"key":"龟龟","name":"龟龟┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json","jar":"http://luoye.shop/b.jar;md5;1484e86a3a4463eaf8ef41c6832a1df0"},
+{"key":"子子","name":"子子┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/麻衣.json","jar":"http://luoye.shop/b.jar;md5;1484e86a3a4463eaf8ef41c6832a1df0"},
+{"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"http://luoye.shop/b.jar;md5;1484e86a3a4463eaf8ef41c6832a1df0"},
+{"key": "达人","name": "达人┃聚合","type": 3, "api": "csp_AppYsV2","ext": "http://4k.953365.cn:8090/xgapp.php/v2/","jar": "http://luoye.shop/b.jar;md5;1484e86a3a4463eaf8ef41c6832a1df0"},
 
 {"key": "PanSou","name": "盘搜┃阿里","type": 3,"api": "csp_PanSou","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
 {"key": "玩偶哥哥","name": "玩偶┃阿里","type": 3,"api": "csp_WoGG","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd$$$https://api.wogg.xyz/$$$弹"},
