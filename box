@@ -1,5 +1,5 @@
 {  
-"spider": "https://files.zohopublic.com.cn/public/workdrive-public/download/uyv0t678c488189af47bb91dc108484d17431;md5;364c0f012e73a8801a69900fc25ae9c1",
+"spider": "https://files.zohopublic.com.cn/public/workdrive-public/download/uyv0t678c488189af47bb91dc108484d17431;md5;ea2690fc66083afe1431071968e60395",
 
 //"spider":"./jar/nb.jar;md5;85a9554677bd734a2fce41b62bc8f2d3",
 //certutil -hashfile C:\Users\c8t48\Desktop\fan.jar MD5 eeeaf811c4c9abfc7d7eb731faf209d4
@@ -12,7 +12,7 @@
 //"searchable": 1,"filterable": 1,"changeable":1
 
 "sites":[ 
-{"key": "豆豆","name": "糖果影视🍬11.24🍬","type": 3,"api": "csp_DouDou","searchable": 0,"quickSearch": 0,"filterable": 0},
+{"key": "豆豆","name": "糖果影视🍬11.29🍬","type": 3,"api": "csp_DouDou","searchable": 0,"quickSearch": 0,"filterable": 0},
 //{"key": "dr_drpy","name": "🍬糖果影视-备用🍬","type": 3,"api": "./js/lib/drpy2.min.js","ext": "./js/豆瓣.js"},
 {"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./js/lib/drpy2.min.js","searchable": 0,"ext": "./js/doc.js"},
 {"key":"310直播","name":"🏀球赛直播","type":3,"api":"./js/lib/drpy2.min.js","ext":"./js/310直播.js"},
