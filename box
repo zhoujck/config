@@ -36,7 +36,7 @@
 {"key":"夜猫","name":"夜猫┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/夜猫.json","jar":"./jar/xmbb.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 {"key":"free","name":"Free┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/free.json","jar":"./jar/xmbb.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 {"key": "达人","name": "达人┃聚合","type": 3, "api": "csp_AppYsV2","ext": "http://4k.953365.cn:8090/xgapp.php/v2/","jar": "./jar/xmbb.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{"key": "迷你","name": "迷你┃APP","type": 3,"api": "csp_AppYs","ext": "http://www.miniku.cc/xgapp.php/v2/",	"jar": "./jar/xmbb.jarmd5;bb155c3f0133bbce4756ad52003f5968"},
+{"key": "迷你","name": "迷你┃APP","type": 3,"api": "csp_AppYs","ext": "http://www.miniku.cc/xgapp.php/v2/",	"jar": "./jar/xmbb.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 
 //{"key": "PanSou","name": "盘搜┃阿里","type": 3,"api": "csp_PanSou","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
 {"key": "玩偶哥哥","name": "玩偶┃阿里","type": 3,"api": "csp_WoGG","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd$$$https://api.wogg.xyz/$$$弹"},
