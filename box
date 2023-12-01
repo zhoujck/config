@@ -2,7 +2,7 @@
 "spider": "https://files.zohopublic.com.cn/public/workdrive-public/download/uyv0t678c488189af47bb91dc108484d17431;md5;ea2690fc66083afe1431071968e60395",
 
 //"spider":"./jar/nb.jar;md5;85a9554677bd734a2fce41b62bc8f2d3",
-//certutil -hashfile C:\Users\c8t48\Desktop\fan.jar MD5 eeeaf811c4c9abfc7d7eb731faf209d4
+//certutil -hashfile C:\Users\c8t48\Downloads\小米1201.jar MD5 eeeaf811c4c9abfc7d7eb731faf209d4
 
 "lives":[
 {"name":"🍬糖果🍬","type":0,"url":"./json/live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","ua":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/108.0.0.0Safari/537.36"}
@@ -28,6 +28,7 @@
 {"key": "Xinsj","name": "视觉┃聚合","type": 3,"api": "csp_Xinsj","ext": "https://www.80yy1.com/"},
 
 //小米
+
 {"key":"爱看","name":"爱看┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看.json","jar":"./jar/小米1201.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 {"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看剧.json","jar":"./jar/小米1201.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 {"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"./jar/小米1201.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
@@ -35,6 +36,7 @@
 {"key":"夜猫","name":"夜猫┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/夜猫.json","jar":"./jar/小米1201.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 {"key":"free","name":"Free┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/free.json","jar":"./jar/小米1201.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 {"key": "达人","name": "达人┃聚合","type": 3, "api": "csp_AppYsV2","ext": "http://4k.953365.cn:8090/xgapp.php/v2/","jar": "./jar/小米1201.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
+{"key": "迷你","name": "迷你┃APP","type": 3,"api": "csp_AppYs","ext": "http://www.miniku.cc/xgapp.php/v2/",	"jar": "http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 
 //{"key": "PanSou","name": "盘搜┃阿里","type": 3,"api": "csp_PanSou","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
 {"key": "玩偶哥哥","name": "玩偶┃阿里","type": 3,"api": "csp_WoGG","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd$$$https://api.wogg.xyz/$$$弹"},
