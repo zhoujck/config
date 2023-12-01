@@ -25,6 +25,7 @@
 {"key": "csp_SNzy","name": "索尼┃聚合","type": 1,"api": "https://suoniapi.com/api.php/provide/vod/from/snm3u8/"},
 {"key": "一起看 ","name": "一起┃App","type": 3,"api": "csp_YQKan"},
 {"key":"csp_Sp360","name":"360┃聚合","type":3,"api":"csp_SP33"},
+{"key": "Xinsj","name": "视觉┃聚合","type": 3,"api": "csp_Xinsj","ext": "https://www.6080yy3.com/"},
 
 //小米
 {"key":"爱看","name":"爱看┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
