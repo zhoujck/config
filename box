@@ -23,7 +23,7 @@
 //{"key": "csp_Ikanbot", "name": "爱看┃聚合", "type": 3,"api": "csp_Ikanbot"},
 {"key": "酷云","name": "酷云┃影视","type": 3,"api": "csp_Kunyu77"},
 {"key": "csp_SNzy","name": "索尼┃聚合","type": 1,"api": "https://suoniapi.com/api.php/provide/vod/from/snm3u8/"},
-{"key": "一起看 ","name": "👑一起┃App","type": 3,"api": "csp_YQKan"},
+{"key": "一起看 ","name": "一起┃App","type": 3,"api": "csp_YQKan"},
 {"key":"csp_Sp360","name":"360┃聚合","type":3,"api":"csp_SP33"},
 
 //小米
