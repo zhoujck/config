@@ -1,4 +1,3 @@
-{
 "站名": "夜猫影视",
 				"主页url": "http://43.248.97.249:5564/appto/v1/home/cateData?id=1",
 				"请求头": "User-Agent$Dart/2.19 (dart:io)",
@@ -25,4 +24,3 @@
 				"搜索模式": "1",
 				"分类url": "http://43.248.97.249:5564/addons/apptov4/app.php/v1/vod/getLists?area=&lang=&year=&order=time&type_id={cateId}&type_name=&page={catePg}&pageSize=21;;u0",
 				"分类": "电影$1#电视剧$2#动漫$3#综艺$4"
-}
