@@ -1,8 +1,8 @@
 [
 {"name":"18","url":"https://framagit.org/zhoujck/config/-/raw/master/json/18"},    
 {"name":"19","url":"https://framagit.org/zhoujck/config/-/raw/master/json/19"},
-{"name":"初秋语","url":"https://raw.gitmirror.com/zhoujck/gao/master/listx.txt"},
-{"name":"初秋语1","url":"https://raw.gitmirror.com/YanG-1989/m3u/main/Adult.m3u"},
-{"name":"初秋语2","url":"https://raw.gitmirror.com/atsushi444/iptv-epg/main/Adult.m3u"},
-{"name":"初秋语3","url":"https://raw.gitmirror.com/YanG-1989/m3u/main/XX.m3u"}
+{"name":"初秋语","url":"https://fongmi.cachefly.net/zhoujck/gao/master/listx.txt"},
+{"name":"初秋语1","url":"https://fongmi.cachefly.net/YanG-1989/m3u/main/Adult.m3u"},
+{"name":"初秋语2","url":"https://fongmi.cachefly.net/atsushi444/iptv-epg/main/Adult.m3u"},
+{"name":"初秋语3","url":"https://fongmi.cachefly.net/YanG-1989/m3u/main/XX.m3u"}
 ]
