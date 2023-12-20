@@ -19,14 +19,14 @@
 {"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
 
 //小米
-{"key": "达人","name": "达人┃聚合","type": 3, "api": "csp_AppYsV2","ext": "http://4k.953365.cn:8090/xgapp.php/v2/","jar": "http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{"key": "迷你","name": "迷你┃APP","type": 3,"api": "csp_AppYs","ext": "http://www.miniku.cc/xgapp.php/v2/",	"jar": "http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{"key":"爱看","name":"爱看┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看剧.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{"key":"龟龟","name":"龟龟┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{"key":"夜猫","name":"夜猫┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/夜猫.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{"key":"free","name":"Free┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/free.json","jar":"http://luoye.shop/b.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
+{"key": "达人","name": "达人┃聚合","type": 3, "api": "csp_AppYsV2","ext": "http://4k.953365.cn:8090/xgapp.php/v2/","jar": "http://luoye.shop/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
+{"key": "迷你","name": "迷你┃APP","type": 3,"api": "csp_AppYs","ext": "http://www.miniku.cc/xgapp.php/v2/",	"jar": "http://luoye.shop/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
+{"key":"爱看","name":"爱看┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看.json","jar":"http://luoye.shop/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
+{"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看剧.json","jar":"http://luoye.shop/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
+{"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"http://luoye.shop/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
+{"key":"龟龟","name":"龟龟┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json","jar":"http://luoye.shop/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
+{"key":"夜猫","name":"夜猫┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/夜猫.json","jar":"http://luoye.shop/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
+{"key":"free","name":"Free┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/free.json","jar":"http://luoye.shop/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 
 //jar
 {"key": "农民","name": "农民┃聚合","type": 3,"api": "./js/lib/drpy2.min.js","ext": "./js/农民影视.js"},
