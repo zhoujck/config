@@ -29,6 +29,7 @@
 {"key":"free","name":"Free┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/free.json","jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 
 //jar
+{"key":"Czsapp","name":"厂长┃直连","type":3,"api":"csp_Czsapp","playerType":2,"searchable":1,"quickSearch":1,"changeable":1,"ext": "https://www.czzy33.com/"},
 {"key": "农民","name": "农民┃聚合","type": 3,"api": "./js/lib/drpy2.min.js","ext": "./js/农民影视.js"},
 {"key": "csp_Bttwoo","name": "比特┃聚合","type": 3,"api": "csp_Bttwoo"},
 //{"key": "csp_Ikanbot", "name": "爱看┃聚合", "type": 3,"api": "csp_Ikanbot"},
