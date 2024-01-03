@@ -33,7 +33,7 @@
 {"key": "农民","name": "农民┃聚合","type": 3,"api": "./js/lib/drpy2.min.js","ext": "./js/农民影视.js"},
 {"key": "csp_Bttwoo","name": "比特┃聚合","type": 3,"api": "csp_Bttwoo"},
 //{"key": "csp_Ikanbot", "name": "爱看┃聚合", "type": 3,"api": "csp_Ikanbot"},
-{"key": "酷云","name": "酷云┃影视","type": 3,"api": "csp_Kunyu77"},
+{"key": "酷云","name": "酷云┃👍","type": 3,"api": "csp_Kunyu77"},
 {"key": "一起看 ","name": "一起┃App","type": 3,"api": "csp_YQKan"},
 {"key":"csp_Sp360","name":"360┃聚合","type":3,"api":"csp_SP33"},
 
