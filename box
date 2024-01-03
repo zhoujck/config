@@ -43,7 +43,7 @@
 //{"key":"盘Se","name":"盘Se┃阿里","type":3,"api":"csp_PanSearch","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
 {"key": "alist","name": "小鸭┃网盘","type": 3,"playerType": "1","api": "csp_AList","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"vodPic": "https://s1.imagehub.cc/images/2023/11/13/98b4ce8284509da2525ddb9d8aac83a0.th.jpeg","drives": [{"name": "🦆托盘","server": "https://pan.mediy.cn/"}]}},
 
-{"key": "商店","name": "应用商店","type": 3,"api": "csp_Market","searchable": 0,"changeable": 0,"ext": "https://fm.t4tv.hz.cz/jar/custom_spider.jar;md5;db8ee47ff1095679871f083b2f5bf388"}
+{"key": "商店","name": "应用商店","type": 3,"api": "csp_Market","searchable": 0,"changeable": 0,"jar": "https://fm.t4tv.hz.cz/jar/custom_spider.jar;md5;6bf74e9b02f310ddcab9c460b7e0983c","ext": "https://fm.t4tv.hz.cz/json/market.json"}
 ],
     
 "parses": [
