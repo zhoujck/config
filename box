@@ -19,7 +19,7 @@
 {"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
 
 //小米
-{"key":"达人","name": "达人┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api":"csp_AppYsV2","ext":"http://154.12.21.186:119/api.php/app/"},
+{"key":"达人","name": "达人┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api":"csp_AppYsV2","ext":"http://122.228.84.103:6117/api.php/app/"},
 {"key":"迷你","name": "迷你┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api":"csp_AppYsV2","ext": "http://api.jialiangos.com:65533/api.php/app/"},
 {"key":"爱看","name":"爱看┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看.json","jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 {"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看剧.json","jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
