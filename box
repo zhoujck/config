@@ -37,7 +37,7 @@
 {"key": "一起看 ","name": "一起┃App","type": 3,"api": "csp_YQKan"},
 {"key":"csp_Sp360","name":"360┃聚合","type":3,"api":"csp_SP33"},
 
-//{"key": "PanSou","name": "盘搜┃阿里","type": 3,"api": "csp_PanSou","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
+{"key": "PanSou","name": "盘搜┃阿里","type": 3,"api": "csp_PanSou","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
 {"key":"玩偶哥哥","name":"玩偶┃👍","type":3,"api":"csp_WoGG","searchable":1,"quickSearch":1,"changeable":0,"ext":"http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd$$$https://wogg.xyz/$$$弹"},
 {"key":"纸条","name":"纸条┃👍","type":3,"api":"csp_XiaoZhiTiao","jar":"./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537"},
 //{"key":"盘Se","name":"盘Se┃阿里","type":3,"api":"csp_PanSearch","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
