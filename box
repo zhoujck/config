@@ -12,7 +12,7 @@
 //"searchable": 1,"filterable": 1,"changeable":1
 
 "sites":[ 
-{"key": "豆豆","name": "糖果影视🍬1.3🍬","type": 3,"api": "csp_DouDou","searchable": 0,"quickSearch": 0,"filterable": 0},
+{"key": "豆豆","name": "糖果影视🍬1.7🍬","type": 3,"api": "csp_DouDou","searchable": 0,"quickSearch": 0,"filterable": 0},
 //{"key": "dr_drpy","name": "🍬糖果影视-备用🍬","type": 3,"api": "./js/lib/drpy2.min.js","ext": "./js/豆瓣.js"},
 {"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./js/lib/drpy2.min.js","searchable": 0,"ext": "./js/doc.js"},
 {"key":"310直播","name":"🏀⚽球赛直播","type":3,"api":"./js/lib/drpy2.min.js","ext":"./js/310直播.js"},
@@ -39,7 +39,7 @@
 
 //{"key": "PanSou","name": "盘搜┃阿里","type": 3,"api": "csp_PanSou","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
 {"key":"玩偶哥哥","name":"玩偶┃👍","type":3,"api":"csp_WoGG","searchable":1,"quickSearch":1,"changeable":0,"ext":"http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd$$$https://wogg.xyz/$$$弹"},
-{"key":"纸条","name":"纸条┃👍","type":3,"api":"csp_XiaoZhiTiao","jar":"https://fm.t4tv.hz.cz/jar/custom_spider.jar;md5;db8ee47ff1095679871f083b2f5bf388"},
+{"key":"纸条","name":"纸条┃👍","type":3,"api":"csp_XiaoZhiTiao","jar":"./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537"},
 //{"key":"盘Se","name":"盘Se┃阿里","type":3,"api":"csp_PanSearch","ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
 {"key": "alist","name": "小鸭┃网盘","type": 3,"playerType": "1","api": "csp_AList","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"vodPic": "https://s1.imagehub.cc/images/2023/11/13/98b4ce8284509da2525ddb9d8aac83a0.th.jpeg","drives": [{"name": "🦆托盘","server": "https://pan.mediy.cn/"}]}},
 
