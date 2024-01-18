@@ -22,7 +22,7 @@
 {"key":"赞赞","name": "达人┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api":"csp_AppYsV2","ext": "http://111.230.51.151:9696//api.php/app/"},
 {"key":"加速","name": "迷你┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api":"csp_AppYsV2","ext": "http://122.228.84.103:6117/api.php/app/"},
 {"key": "要啥脸","name": "苹果┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api": "csp_AppYsV2","ext": "http://122.228.84.103:5822/api.php/app/"},
-"key": "小胡","name": "橘子┃👍","type": 1,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","playerType": 1,"api": "http://c.小胡.icu/api.php/provide/vod/"},
+{"key": "小胡","name": "橘子┃👍","type": 1,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","playerType": 1,"api": "http://c.小胡.icu/api.php/provide/vod/"},
 
 
 {"key":"爱看","name":"爱看┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看.json","jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
