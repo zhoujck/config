@@ -21,7 +21,7 @@
 //小米
 {
 "key": "亮亮","name": "主源3┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api": "csp_AppYsV2","ext": "http://xiutan.shiyifacai.com/zuoan/api.php/app/"},
-{"key": "要啥脸","name": "主源1┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api": "csp_AppYsV2","ext": "http://122.228.84.103:5822/api.php/app/"},
+{"key": "要啥脸","name": "主源2┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api": "csp_AppYsV2","ext": "http://122.228.84.103:5822/api.php/app/"},
 {"key":"赞赞","name": "主源1┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api":"csp_AppYsV2","ext": "http://111.230.51.151:9696//api.php/app/"},
 {"key":"加速","name": "迷你┃app","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api":"csp_AppYsV2","ext": "http://122.228.84.103:6117/api.php/app/"},
 {"key": "小胡","name": "橘子┃app","type": 1,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","playerType": 1,"api": "http://c.小胡.icu/api.php/provide/vod/"},
