@@ -12,16 +12,19 @@
 //"searchable": 1,"filterable": 1,"changeable":1
 
 "sites":[ 
-{"key": "豆豆","name": "糖果影视🍬1.18🍬","type": 3,"api": "csp_DouDou","searchable": 0,"quickSearch": 0,"filterable": 0},
+{"key": "豆豆","name": "糖果影视🍬1.20🍬","type": 3,"api": "csp_DouDou","searchable": 0,"quickSearch": 0,"filterable": 0},
 //{"key": "dr_drpy","name": "🍬糖果影视-备用🍬","type": 3,"api": "./js/lib/drpy2.min.js","ext": "./js/豆瓣.js"},
 {"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./js/lib/drpy2.min.js","searchable": 0,"ext": "./js/doc.js"},
 {"key":"310直播","name":"🏀⚽球赛直播","type":3,"api":"./js/lib/drpy2.min.js","ext":"./js/310直播.js"},
 {"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
 
 //小米
+{
+"key": "亮亮","name": "主源1┃👍👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api": "csp_AppYsV2","ext": "http://xiutan.shiyifacai.com/zuoan/api.php/app/"},
+{"key": "要啥脸","name": "主源2┃👍👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api": "csp_AppYsV2","ext": "http://122.228.84.103:5822/api.php/app/"},
+
 {"key":"赞赞","name": "达人┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api":"csp_AppYsV2","ext": "http://111.230.51.151:9696//api.php/app/"},
 {"key":"加速","name": "迷你┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api":"csp_AppYsV2","ext": "http://122.228.84.103:6117/api.php/app/"},
-{"key": "要啥脸","name": "苹果┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api": "csp_AppYsV2","ext": "http://122.228.84.103:5822/api.php/app/"},
 {"key": "小胡","name": "橘子┃👍","type": 1,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","playerType": 1,"api": "http://c.小胡.icu/api.php/provide/vod/"},
 
 
@@ -33,19 +36,19 @@
 {"key":"free","name":"Free┃👍","type":3,"api":"csp_XBPQ","ext":"./ext/free.json","jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 
 //jar
-{"key":"Czsapp","name":"厂长┃直连","type":3,"api":"csp_Czsapp","playerType":2,"ext": "https://www.czzy33.com/"},
 {"key": "农民","name": "农民┃聚合","type": 3,"api": "./js/lib/drpy2.min.js","ext": "./js/农民影视.js"},
 {"key": "csp_Bttwoo","name": "比特┃聚合","type": 3,"api": "csp_Bttwoo"},
 {"key": "酷云","name": "酷云┃👍","type": 3,"api": "csp_Kunyu77"},
 {"key": "一起看 ","name": "一起┃App","type": 3,"api": "csp_YQKan"},
 {"key":"csp_Sp360","name":"360┃聚合","type":3,"api":"csp_SP33"},
 
-{"key":"UpYun","name":"Up搜┃搜索","type":3,"api":"csp_UpYun","searchable":1,"quickSearch":1,"changeable":0,"ext":"http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
-{"key":"PanSearch","name":"盘Se┃搜索","type":3,"api":"csp_PanSearch","searchable":1,"quickSearch":1,"changeable":0,"ext":"http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
-{"key":"七夜","name":"七夜┃👍","type":3,"api":"csp_Dovx","searchable":1,"quickSearch":1,"changeable":0,"ext":"http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
+{"key":"UpYun","name":"阿里云盘1（阿里云盘扫描观看）","type":3,"api":"csp_UpYun","searchable":1,"quickSearch":1,"changeable":0,"ext":"http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
+{"key":"PanSearch","name":"阿里云盘2","type":3,"api":"csp_PanSearch","searchable":1,"quickSearch":1,"changeable":0,"ext":"http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
+{"key":"七夜","name":"阿里云盘3","type":3,"api":"csp_Dovx","searchable":1,"quickSearch":1,"changeable":0,"ext":"http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
+{"key":"纸条","name":"阿里云盘4","type":3,"api":"csp_XiaoZhiTiao","jar":"./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537"},
 
-{"key":"玩偶哥哥","name":"玩偶┃👍","type":3,"api":"csp_WoGG","searchable":1,"quickSearch":1,"changeable":0,"ext":"http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd$$$https://wogg.xyz/$$$弹"},
-{"key":"纸条","name":"纸条┃👍","type":3,"api":"csp_XiaoZhiTiao","jar":"./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537"},
+{"key":"玩偶哥哥","name":"玩偶┃👍","type":3,"api":"csp_WoGG","searchable":1,"quickSearch":1,"changeable":0,"ext":"http://127.0.0.1:9978/file/tvfan/token.txt+auto|4k|fhd$$$https://api.wogg.xyz/$$$弹"},
+
 
 {"key": "alist","name": "小鸭┃网盘","type": 3,"playerType": "1","api": "csp_AList","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"vodPic": "https://s1.imagehub.cc/images/2023/11/13/98b4ce8284509da2525ddb9d8aac83a0.th.jpeg","drives": [{"name": "🦆托盘","server": "https://pan.mediy.cn/"}]}},
 
