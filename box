@@ -5,7 +5,10 @@
 //certutil -hashfile C:\Users\c8t48\Downloads\小米1201.jar MD5 eeeaf811c4c9abfc7d7eb731faf209d4
 
 "lives":[
-{"name":"🍬糖果🍬","type":0,"url":"./json/live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","ua":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/108.0.0.0Safari/537.36"}
+{"name":"🍬糖果🍬","type":0,"url":"./json/live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","ua":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/108.0.0.0Safari/537.36"},
+{"name":"🍬小米🍬","type":0,"url":"http://124.223.177.85:88/svip/直播挺快.txt","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","ua":"okhttp/3.12.13"}
+
+
 ],
 
 //playerType：播放器  (1：IJK、2：EXO)       
