@@ -5,3 +5,6 @@ https://emojixd.com/
 
 多仓接口
 https://framagit.org/zhoujck/config/-/raw/master/api
+
+FastGitHub下载地址
+https://raw.gitmirror.com/wdw1016/FastGitHub/main/fastgithub_win-x64.zip
