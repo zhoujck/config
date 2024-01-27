@@ -23,7 +23,7 @@
 {
 //"key": "亮亮","name": "主源3┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api": "csp_AppYsV2","ext": "http://xiutan.shiyifacai.com/zuoan/api.php/app/"},
 //{"key": "蚂蚁","name": "主源2┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api": "csp_AppYsV2","ext": "http://122.228.84.103:5822/api.php/app/"},
-//{"key":"赞赞","name": "主源1┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api":"csp_AppYsV2","ext": "http://111.230.51.151:2323/api.php/app/"},
+{"key":"赞赞","name": "主源1┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api":"csp_AppYsV2","ext": "http://111.230.51.151:2323/api.php/app/"},
 {"key":"加速","name": "迷你┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api":"csp_AppYsV2","ext": "http://43.154.162.194/ruifenglb_api.php/v1.vod"},
 
 
