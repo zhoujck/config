@@ -17,18 +17,19 @@
 {"key": "dr_drpy_bili","name": "🅱哔站纪录片","type": 3,"api": "./js/lib/drpy2.min.js","searchable": 0,"ext": "./js/doc.js"},
 {"key":"310直播","name":"🏀⚽球赛直播","type":3,"api":"./js/lib/drpy2.min.js","ext":"./js/310直播.js"},
 {"key":"csp_Bili","name":"🅱哔站学习","type":3,"api":"csp_Bili","searchable":0,"changeable":0,"ext":"./ext/bilibili.json"},
+{"key":"贱贱","name":"贱贱┃👍","type":3,"searchable":1,"quickSearch":1,"changeable":1,"playerType":"1","api":"./js/lib/drpy2.min.js","ext":"./js/jp.js"},
 
 //小米
 {
-"key": "亮亮","name": "主源3┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api": "csp_AppYsV2","ext": "http://xiutan.shiyifacai.com/zuoan/api.php/app/"},
-{"key": "蚂蚁","name": "主源2┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api": "csp_AppYsV2","ext": "http://122.228.84.103:5822/api.php/app/"},
-{"key":"赞赞","name": "主源1┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api":"csp_AppYsV2","ext": "http://111.230.51.151:9696//api.php/app/"},
-{"key":"加速","name": "迷你┃app","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api":"csp_AppYsV2","ext": "http://43.154.162.194/ruifenglb_api.php/v1.vod"},
-{"key": "小胡","name": "橘子┃app","type": 1,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","playerType": 1,"api": "http://c.小胡.icu/api.php/provide/vod/"},
+//"key": "亮亮","name": "主源3┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api": "csp_AppYsV2","ext": "http://xiutan.shiyifacai.com/zuoan/api.php/app/"},
+//{"key": "蚂蚁","name": "主源2┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api": "csp_AppYsV2","ext": "http://122.228.84.103:5822/api.php/app/"},
+//{"key":"赞赞","name": "主源1┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api":"csp_AppYsV2","ext": "http://111.230.51.151:2323/api.php/app/"},
+{"key":"加速","name": "迷你┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api":"csp_AppYsV2","ext": "http://43.154.162.194/ruifenglb_api.php/v1.vod"},
 
 
-{"key":"爱看","name":"爱看┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看.json","jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看剧.json","jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
+
+{"key":"03","name":"03┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/03.json","jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
+{"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/视觉.json","jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 {"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 {"key":"龟龟","name":"龟龟┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json","jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 {"key":"夜猫","name":"夜猫┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/夜猫.json","jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
@@ -36,10 +37,9 @@
 
 //jar
 {"key": "农民","name": "农民┃聚合","type": 3,"api": "./js/lib/drpy2.min.js","ext": "./js/农民影视.js"},
-{"key": "csp_Bttwoo","name": "比特┃聚合","type": 3,"api": "csp_Bttwoo"},
 {"key": "酷云","name": "酷云┃👍","type": 3,"api": "csp_Kunyu77"},
 {"key": "一起看 ","name": "一起┃App","type": 3,"api": "csp_YQKan"},
-{"key":"csp_Sp360","name":"360┃聚合","type":3,"api":"csp_SP33"},
+//{"key":"csp_Sp360","name":"360┃聚合","type":3,"api":"csp_SP33"},
 
 {"key":"PanSearch","name":"阿里┃盘搜（阿里云盘扫描观看）","type":3,"api":"csp_PanSearch","searchable":1,"quickSearch":1,"changeable":0,"ext":"http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
 {"key":"七夜","name":"阿里┃七夜","type":3,"api":"csp_Dovx","searchable":1,"quickSearch":1,"changeable":0,"ext":"http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
