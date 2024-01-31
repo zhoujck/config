@@ -6,16 +6,12 @@
             "name": "🍬糖果影视(git)"
         },
         {
-            "url": "https://raw.gitmirror.com/zhoujck/config/master/box",
-            "name": "🍬糖果影视(raw)"
-        }, 
-        {
             "url": "https://framagit.org/zhoujck/config/-/raw/master/xiaomi.json",
             "name": "📱网络〔小米〕"
         },
         {
-            "url": "https://raw.gitmirror.com/T00700/TVBoxSE/master/FongMi.json",
-            "name": "📱网络〔T00700〕"
+            "url": "http://肥猫.live",
+            "name": "📱网络〔肥猫〕"
         },
         {
             "url": "https://raw.gitmirror.com/FongMi/CatVodSpider/main/json/config.json",
