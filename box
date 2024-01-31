@@ -1,5 +1,5 @@
 {
-    "spider": "https://fs-im-kefu.7moor-fs1.com/29397395/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1706264384526/fan.txt;md5;5543dae038ce2248e7759e9cbca295b9",
+    "spider": "https://fs-im-kefu.7moor-fs1.com/29397395/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1706645996429/fan.txt;md5;1ff3df38a66ee5378031e4fac1799596",
     //"spider":"./jar/nb.jar;md5;85a9554677bd734a2fce41b62bc8f2d3",
     //certutil -hashfile C:\Users\c8t48\Downloads\小米1201.jar MD5 eeeaf811c4c9abfc7d7eb731faf209d4
     "lives": [
@@ -30,7 +30,7 @@
         { "key": "饭团", "name": "饭团┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/视觉.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968" },
         { "key": "热播", "name": "热播┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/热播.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968" },
         { "key": "龟龟", "name": "龟龟┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/达达龟.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968" },
-        { "key": "夜猫", "name": "夜猫┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/夜猫.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968" },
+        { "key": "茶杯", "name": "茶杯┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/夜猫.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968" },
         { "key": "free", "name": "Free┃👍", "type": 3, "api": "csp_XBPQ", "ext": "./ext/free.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968" },
         //jar
         { "key": "农民", "name": "农民┃聚合", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/农民影视.js" },
