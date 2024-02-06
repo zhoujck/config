@@ -17,7 +17,10 @@
             "url": "https://raw.gitmirror.com/FongMi/CatVodSpider/main/json/config.json",
             "name": "📱网络〔FONGMI〕"
         },
-
+        {
+            "url": "https://agit.ai/zhoujck/TVBoxY/raw/branch/master/XC.json",
+            "name": "📱网络〔Yoursmail〕"
+        },
         {
             "url": "http://饭太硬.top/tv",
             "name": "📱网络〔FTY〕"
