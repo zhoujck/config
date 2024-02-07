@@ -8,6 +8,9 @@
 
 //小米
 
+{ "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537", "ext": "./json/se4" }
+
+
 
 {"key":"vv001","name":"️💃女優💃","type":4,"api":"./json/se1","searchable":0,"quickSearch":0,"filterable":0},
 {"key":"vv002","name":"️👠番號👠","type":4,"api":"./json/se2","searchable":0,"quickSearch":0,"filterable":0},
