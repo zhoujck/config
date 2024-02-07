@@ -1,6 +1,5 @@
 {  
-"spider": "https://fs-im-kefu.7moor-fs1.com/29397395/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1704615937579/fan.txt;md5;5aee1ff968a3dc5cbbf225399e9441e9",
-
+"spider":"https://mirror.ghproxy.com/https://raw.githubusercontent.com/c120487/00/main/jar/xc0126.jar",
 
 "lives":[{"name":"🍬糖果🍬","type":0,"url":"./json/live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}"}],
 
@@ -8,36 +7,22 @@
 {"key": "豆豆","name": "糖果影视🍬12/28🍬","type": 3,"api": "csp_DouDou","searchable": 0,"quickSearch": 0,"filterable": 0},
 
 //小米
-{"key":"达人","name": "达人┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api":"csp_AppYsV2","ext":"http://154.12.21.186:119/api.php/app/"},
-{"key":"迷你","name": "迷你┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api":"csp_AppYsV2","ext": "http://api.jialiangos.com:65533/api.php/app/"},
-{"key":"爱看","name":"爱看┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看.json","jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{"key":"饭团","name":"饭团┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/爱看剧.json","jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{"key":"热播","name":"热播┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/热播.json","jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{"key":"龟龟","name":"龟龟┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/达达龟.json","jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{"key":"夜猫","name":"夜猫┃BQP","type":3,"api":"csp_XBPQ","ext":"./ext/夜猫.json","jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 
 
-{"key":"csp_JavBus","name":"JavBus","type":3,"api":"csp_JavBus","searchable":1,"quickSearch":1,"filterable":1,"changeable":0,"style":{"type":"rect","ratio":1.77},"timeout":60},
-{"key":"csp_JavDb","name":"JavDb","type":3,"api":"csp_JavDb","searchable":1,"quickSearch":1,"filterable":1,"changeable":0,"style":{"type":"rect","ratio":1.77},"timeout":60},
-{"key":"nivod18","name":"泥巴貓","type":3,"api":"./cat/js/nivod_op.js","ext":"做爱"},
-{"key":"mtsp_open","name":"蜜桃貓","type":3,"api":"./cat/js/mtsp_open.js","style":{"type":"rect","ratio":1.485}},
-{"key":"18av_open","name":"18av貓","type":3,"api":"./cat/js/18av_open.js","style":{"type":"rect","ratio":1.485}},
-{"key":"泥巴","name":"泥巴","type":3,"api":"csp_NiNi","searchable":1,"ext":"1"},
+{"key":"vv001","name":"️💃女優💃","type":4,"api":"https://mirror.ghproxy.com/https://raw.githubusercontent.com/c120487/00/main/api/00title05151.json","searchable":0,"quickSearch":0,"filterable":0},
+{"key":"vv002","name":"️👠番號👠","type":4,"api":"https://mirror.ghproxy.com/https://raw.githubusercontent.com/c120487/00/main/api/00title05152.json","searchable":0,"quickSearch":0,"filterable":0},
+{"key":"vv003","name":"️👙主題👙","type":4,"api":"https://mirror.ghproxy.com/https://raw.githubusercontent.com/c120487/00/main/api/00title05153.json","searchable":0,"quickSearch":0,"filterable":0},
+{"key":"Jable","name":"🐞Jable","type":3,"api":"csp_Jable","searchable":1,"quickSearch":1,"filterable":1},
+
+
+{"name":"apilyzy老鸭资源","key":"11老鸭资源","type":1,"api":"https://api.apilyzy.com/api.php/provide/vod/","searchable":1,"quickSearch":1,"filterable":1},
+
+
+
+
+
 {"key":"量子","name":"量子","type":0,"api":"https://cj.lziapi.com/api.php/provide/vod/at/xml/","searchable":1,"changeable":1,"categories":["伦理片"]},
 {"key":"非凡","name":"非凡","type":0,"api":"http://cj.ffzyapi.com/api.php/provide/vod/at/xml/","searchable":1,"changeable":1,"categories":["伦理片"]},
-{"key":"玩偶","name":"玩偶","type":3,"api":"csp_Doll","searchable":1,"recordable":0,"style":{"type":"rect","ratio":1.309}},
-{"key":"18AV","name":"18AV","type":3,"api":"csp_Eighteen","searchable":1,"recordable":0,"style":{"type":"rect","ratio":1.485}},
-{"key":"18A貓","name":"18A貓","type":3,"api":"https://fongmi.cachefly.net/FongMi/CatVodOpen/main/open/18a_open.js","searchable":1,"recordable":0,"style":{"type":"rect","ratio":1.485}},
-{"key":"Jable","name":"Jable","type":3,"api":"csp_Jable","searchable":1,"recordable":0,"style":{"type":"rect","ratio":1.77}},
-{"key":"MissAV","name":"MissAV","type":3,"api":"csp_Miss","searchable":1,"recordable":0,"style":{"type":"rect","ratio":1.78}},
-{"key":"Hanime","name":"Hanime","type":3,"api":"csp_Hanime","searchable":1,"recordable":0,"style":{"type":"rect","ratio":0.68}},
-{"key":"国产","name":"顶级国产","type":3,"api":"csp_XBPQ","style":{"type":"rect","ratio":1.333},"ext":{"分类url":"https://aoo.qoqoavideo2.sbs/vodtype/{cateId}/page/{catePg}.html","直接播放":"1","分类":"国产$20#日本无码$22#饵食牝$136#欧美$23#欧美精品$104#三级$25#韩片$129#韩国唯美三级$132#韩国明星学生$130#韩国主播$131#AI换脸$41#国产精品$26#SWAG$135#偷拍自拍$29#精彩时刻$33#91大神$137#国产主播$35#3P群交$127#麻豆传媒$134#国产调教$81#美熟少妇$125#网红模特$86#女神学生$124#野合车震$90"},"jar":"./jar/fan.txt","style":{"type":"rect","ratio":1.33}},
-{"key":"姐姐","name":"姐姐","type":3,"api":"csp_XBPQ","style":{"type":"rect","ratio":1.309},"ext":{"图片":"data-src=\"&&\"","直接播放":"1","分类url":"https://hongkongdollvideo.com/{cateId}/{catePg}.html","分类":"麻豆$麻豆传媒#天美$天美传媒#91$91制片厂#蜜桃$蜜桃传媒#香港$HongkongDoll#皇家$皇家华人#精东$精东影业#乐播$乐播传媒#成人$成人头条#乌鸦$乌鸦传媒#兔子$兔子先生#杏吧$杏吧原创#mini$mini传媒#大象$大象传媒#开心鬼$开心鬼传媒#pass$PsychoPorn#糖心$糖心Vlog"},"jar":"./jar/fan.txt","style":{"type":"rect","ratio":1.33}},
-{"key":"玉兔资源","name":"玉兔资源","type":0,"api":"https://apiyutu.com/api.php/provide/vod/at/xml/","searchable":1,"style":{"type":"rect","ratio":1.333},"quickSearch":1},
-{"key":"kd","name":"酷豆","type":0,"api":"https://api.kdapi.info/api.php/provide/vod/at/xml/","searchable":1,"quickSearch":1,"filterable":0},
-{"key":"kulunli","name":"酷伦理","type":1,"api":"https://api.kudian70.com/api.php/provide/vod/","searchable":1,"quickSearch":1,"filterable":1},
-{"key": "timizy","name": "甜蜜资源 ","type": 1,"api": "https://timizy10.cc/api.php/provide/vod/?ac=list","searchable": 1,"changeable": 1,"quickSearch": 1,"filterable": 1},
-{"key": "奥斯卡资源网","name": "奥斯卡资源网","type": 1,"api": "https://aosikazy.com/api.php/provide/vod/"},
 {"key":"apilj.com","name":"成人01","type":1,"api":"http://apilj.com/api.php/provide/vod/at/json/","searchable":1,"recordable":0,"style":{"type":"rect","ratio":1.33}},
 {"key":"dadiapi.com","name":"成人02","type":0,"api":"http://dadiapi.com/api.php","searchable":1,"recordable":0,"style":{"type":"rect","ratio":1.33}},
 {"key":"91md.me","name":"成人03","type":1,"api":"http://91md.me/api.php/provide/vod/","searchable":1,"recordable":0,"style":{"type":"rect","ratio":1.33}},
