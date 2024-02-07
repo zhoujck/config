@@ -1,5 +1,5 @@
 {  
-"spider":"./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537",
+"spider":"./jar/test.jar",
 
 "lives":[{"name":"🍬糖果🍬","type":0,"url":"./json/live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}"}],
 
