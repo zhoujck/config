@@ -8,7 +8,7 @@
 
 //小米
 
-{ "key": "商店", "name": "筛选", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537", "ext": "./json/se4" }
+{ "key": "商店", "name": "筛选", "type": 3, "api": "csp_Market",  "jar": "./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537", "ext": "./json/se4" },
 
 
 
