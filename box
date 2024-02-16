@@ -1,7 +1,6 @@
 {
-    "spider": "https://fs-im-kefu.7moor-fs1.com/29397395/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1707044072121/fan.txt;md5;c3e8c08b4cd6f7fd0f868ea48dd42cb2",
-    //"spider":"./jar/nb.jar;md5;85a9554677bd734a2fce41b62bc8f2d3",
-    //certutil -hashfile C:\Users\c8t48\Downloads\小米1201.jar MD5 eeeaf811c4c9abfc7d7eb731faf209d4
+    "spider": "https://fs-im-kefu.7moor-fs1.com/29397395/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1707044072121/fan.txt;md5;5543dae038ce2248e7759e9cbca295b9",
+
     "lives": [
         { "name": "🍬糖果🍬", "type": 0, "url": "./json/live", "playerType": 1 },
         { "name": "YanG•综合", "type": 0, "url": "https://fongmi.cachefly.net/YanG-1989/m3u/main/Gather.m3u", "playerType": 1, "epg": "http://epg.112114.xyz/?ch={name}&date={date}", "logo": "https://epg.112114.xyz/logo/{name}.png" },
@@ -13,18 +12,17 @@
         { "name": "Ray•综合", "type": 0, "url": "https://xhdwc.tk/tvlive.txt", "playerType": 1, "epg": "http://epg.112114.xyz/?ch={name}&date={date}", "logo": "https://epg.112114.xyz/logo/{name}.png" },
         { "name": "俊于•综合", "type": 0, "url": "http://home.jundie.top:81/Cat/tv/live.txt", "playerType": 1, "epg": "http://epg.112114.xyz/?ch={name}&date={date}", "logo": "https://epg.112114.xyz/logo/{name}.png" }
     ],
-    //playerType：播放器  (1：IJK、2：EXO)       
-    //"searchable": 1,"filterable": 1,"changeable":1
+
     "sites": [
         { "key": "豆豆", "name": "糖果影视🍬新年🍬", "type": 3, "api": "csp_DouDou", "searchable": 0, "quickSearch": 0, "filterable": 0 },
         //{"key": "dr_drpy","name": "🍬糖果影视-备用🍬","type": 3,"api": "./js/lib/drpy2.min.js","ext": "./js/豆瓣.js"},
         { "key": "dr_drpy_bili", "name": "🅱哔站纪录片", "type": 3, "api": "./js/lib/drpy2.min.js", "searchable": 0, "ext": "./js/doc.js" },
         { "key": "310直播", "name": "🏀⚽球赛直播", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
         { "key": "csp_Bili", "name": "🅱哔站学习", "type": 3, "api": "csp_Bili", "searchable": 0, "changeable": 0, "ext": "./ext/bilibili.json" },
-        { "key": "贱贱", "name": "贱贱┃👍", "type": 3, "searchable": 1, "quickSearch": 1, "changeable": 1, "playerType": "1", "api": "./js/lib/drpy2.min.js", "ext": "./js/jp.js" },
+        { "key": "贱贱", "name": "主源1┃👍", "type": 3, "searchable": 1, "quickSearch": 1, "changeable": 1, "playerType": "1", "api": "./js/lib/drpy2.min.js", "ext": "./js/jp.js" },
         //小米
         {"key": "亮亮","name": "主源3┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api": "csp_AppYsV2","ext": "http://xiutan.shiyifacai.com/zuoan/api.php/app/"},
-        { "key": "赞赞", "name": "主源1┃👍", "type": 3, "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968", "api": "csp_AppYsV2", "ext": "http://111.230.51.151:2323/api.php/app/" },
+        { "key": "赞赞", "name": "主源2┃👍", "type": 3, "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968", "api": "csp_AppYsV2", "ext": "http://111.230.51.151:2323/api.php/app/" },
         { "key": "加速", "name": "迷你┃👍", "type": 3, "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968", "api": "csp_AppYsV2", "ext": "http://43.154.162.194/ruifenglb_api.php/v1.vod" },
         { "key": "03", "name": "03┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/03.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968" },
         { "key": "饭团", "name": "饭团┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/视觉.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968" },
