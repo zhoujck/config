@@ -9,7 +9,7 @@
 
 //小米
 
-{ "key": "商店", "name": "筛选", "type": 3, "api": "csp_Market",  "jar": "./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537", "ext": "./json/18/18筛选" },
+{ "key": "商店", "name": "筛选", "type": 3, "api": "csp_Market",  "jar": "./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537", "ext": "./json/18+/18筛选" },
 
 
 {"key":"Jable","name":"🐞Jable","type":3,"api":"csp_Jable","searchable":1,"quickSearch":1,"filterable":1},
