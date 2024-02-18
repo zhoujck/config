@@ -31,6 +31,7 @@
         { "key": "茶杯", "name": "茶杯┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/夜猫.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968" },
         { "key": "free", "name": "Free┃👍", "type": 3, "api": "csp_XBPQ", "ext": "./ext/free.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968" },
         //jar
+        {"key":"csp_Czsapp","name":"🏭️厂长┃直连","type":3,"api":"csp_Czsapp","playerType":2,"ext":"https://www.czz55.com/","filterable":1},
         { "key": "农民", "name": "农民┃聚合", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/农民影视.js" },
         { "key": "酷云", "name": "酷云┃👍", "type": 3, "api": "csp_Kunyu77" },
         { "key": "一起看 ", "name": "一起┃App", "type": 3, "api": "csp_YQKan" },
