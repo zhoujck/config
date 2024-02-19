@@ -12,7 +12,7 @@ var rule = {
     headers:{
         'User-Agent':'PC_UA',
         "Referer": "https://www.bilibili.com",
-        "Cookie":"DedeUserID=701168335; DedeUserID__ckMd5=7219483457203958; SESSDATA=80d74fe4%2C1719105297%2C1b1f6%2Ac1CjDL4OavJSdx6YtwPhGOERj_p04BhnOsPq6HHDgpyqhzg35I1oI-Zv9tsR0jxHiDk6MSVmlwWTJwaktSTlJsZDhZUWFBeVYxelZTcmFaRGdxSkJnaFlUZDhET2kyMV9aRVlxXzREdDBRRThwOENublpWZ19ER05fYmpMVGd0MTV3S3RXWVB1QWxRIIEC; bili_jct=d9afc16b78425a417539da6c9b06c33c; sid=4j2gm733; header_theme_version=CLOSE; CURRENT_FNVAL=4048;"
+        "Cookie":"DedeUserID=701168335; DedeUserID__ckMd5=7219483457203958; SESSDATA=b709d67b%2C1723899349%2C9ff6a%2A22CjBPpqQvwWkAWu5wBZi_SxOAyL4KNoRLdxmHSpXsUFo3N4APUgTwFlNQm9m27EPl20ASVnpiWHdLekhxd2syLVdidTVYNlNnSWZqdnh2VkdObjJEMnFjYmtMYzl3dF9FWllUa2J6b0dfeDFMekdWNW54S05Sa1YwMEQ3VDM4OF9rRVYwTlVfUjlnIIEC; bili_jct=a13b78a6242c5506bf9c37f62ef7c603;"
         
         //"Cookie":"DedeUserID=3493271303096985;DedeUserID__ckMd5=7b86f3894ed7f8c0;SESSDATA=2d6f63c8%2C1684568607%2C19eb6%2Ab1;bili_jct=21d538b01566c26afc81ff68c2ac7dca;"
     },
