@@ -1,10 +1,5 @@
-[
-    {
-    "class":[{"type_id":"1","type_name":"點播1"}],
-    "list":[{"vod_name":"","vod_remarks":"","vod_pic":""}]
-    },
-    {
-    "class":[{"type_id":"2","type_name":"點播2"}],
-    "list":[{"vod_name":"","vod_remarks":"","vod_pic":""}]
-    }
-]
+{
+"class":[{"type_id":"1","type_name":"點播1"}],
+"list":[{"vod_name":"","vod_remarks":"","vod_pic":""}]
+}
+
