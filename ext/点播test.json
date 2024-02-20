@@ -5,10 +5,7 @@
         {"type_id":"2","type_name":"點播2"}
     ],
 "list":
-    {        
-    "1":[{"vod_name":"3","vod_remarks":"","vod_pic":""}],
-    "2":[{"vod_name":"4","vod_remarks":"","vod_pic":""}] 
-    }
+    [{"vod_name":"3","vod_remarks":"","vod_pic":""}]
 }
 
 
