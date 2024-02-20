@@ -1,5 +1,5 @@
 {  
-"spider":"./jar/pg.jar",
+"spider":"./jar/tset.jar",
 
 "lives":[{"name":"🍬糖果🍬","type":0,"url":"./json/live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}"}],
 
@@ -12,7 +12,7 @@
 {"key":"lf_js_p2p","name":"磁力","type":3,"searchable":1,"changeable":1,"quickSearch":1,"filterable":1,"api":"./js/lib/lf_p2p2_min.js","ext":"18+","timeout":60},
 {"key":"lf_js_lf_live","name":"直播","type":3,"api":"./js/lib/lf_live_min.js","style":{ "type":"oval"},"searchable":1,"changeable":0,"quickSearch":1,"filterable":1,"ext":"./json/18+/18api2"},
 
-{"key":"Jable","name":"🐞Jable","type":3,"api":"csp_Jable","searchable":1,"quickSearch":1,"filterable":1,"jar":"./jar/test.jar"},
+{"key":"Jable","name":"🐞Jable","type":3,"api":"csp_Jable","searchable":1,"quickSearch":1,"filterable":1},
 {"name":"apilyzy老鸭资源","key":"11老鸭资源","type":1,"api":"https://api.apilyzy.com/api.php/provide/vod/","searchable":1,"quickSearch":1,"filterable":1},
 
 {"key":"PikPakShare","name":"PikPak","type":3,"api":"csp_PikPakShare","searchable":1,"quickSearch":1, "changeable":0, "filterable":0, "timeout":60, "ext":"http://127.0.0.1:9978/file/TV/token.json$$$./json/pikpakclass.a.json$$$./json/pikpakclass.a.json.db.gz"},
