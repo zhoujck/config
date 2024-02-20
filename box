@@ -4,7 +4,7 @@
 //"spider": "https://fs-im-kefu.7moor-fs1.com/29397395/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1707932830072/fan.txt;md5;be7060a567ce9e8021946b6de0ed8dae",
 
 
-"spider": "./jar/test.jar",
+"spider": "./jar/pc0205.jar",
 
 "lives": [
 { "name": "🍬糖果🍬", "type": 0, "url": "./json/live", "playerType": 1 },
@@ -26,7 +26,7 @@
 { "key": "csp_Bili", "name": "🅱哔站学习", "type": 3, "api": "csp_Bili", "searchable": 0, "changeable": 0, "ext": "./ext/bilibili.json" },
 { "key": "贱贱", "name": "主源1┃👍", "type": 3, "searchable": 1, "quickSearch": 1, "changeable": 1, "playerType": "1", "api": "./js/lib/drpy2.min.js", "ext": "./js/jp.js" },
 //小米
-{"key":"dd004","name":"🕷OLE","type":3,"api":"csp_XBPQe","searchable":1,"quickSearch":1,"filterable":1,"ext":"https://olevodtv.com/index.php/vod/show/area/{area}/by/{by}/id/{cateId}/page/{catePg}/year/{year}.html"},
+{"key":"dd004","name":"🕷OLE","type":3,"api":"csp_XBPQe","ext":"https://rebozj.pro/show/{cateId}--{area}------{catePg}---{year}.html;;a"},
 {"key": "亮亮","name": "主源3┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api": "csp_AppYsV2","ext": "http://xiutan.shiyifacai.com/zuoan/api.php/app/"},
 
 { "key": "赞赞", "name": "主源2┃👍", "type": 3, "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968", "api": "csp_AppYsV2", "ext": "http://111.230.51.151:2323/api.php/app/" },
