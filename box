@@ -1,7 +1,10 @@
 {
 //更改缩进（Shift+Tab和Tab） 
 
-"spider": "https://fs-im-kefu.7moor-fs1.com/29397395/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1707932830072/fan.txt;md5;be7060a567ce9e8021946b6de0ed8dae",
+//"spider": "https://fs-im-kefu.7moor-fs1.com/29397395/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1707932830072/fan.txt;md5;be7060a567ce9e8021946b6de0ed8dae",
+
+
+"spider": "./jar/test.jar",
 
 "lives": [
 { "name": "🍬糖果🍬", "type": 0, "url": "./json/live", "playerType": 1 },
