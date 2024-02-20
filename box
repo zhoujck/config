@@ -31,7 +31,7 @@
 
 { "key": "赞赞", "name": "主源2┃👍", "type": 3, "api": "./js/lib/AppYsV2.js", "ext": "http://111.230.51.151:2323/api.php/app/" },
 {"key": "亮亮","name": "主源3┃👍","type": 3,"api": "./js/lib/AppYsV2.js", "ext": "http://xiutan.shiyifacai.com/zuoan/api.php/app/"},
-{ "key": "加速", "name": "迷你┃👍", "type": 3, ,"api": "./js/lib/AppYsV2.js", "ext": "http://43.154.162.194/ruifenglb_api.php/v1.vod" },
+{ "key": "加速", "name": "迷你┃👍", "type": 3, "api": "./js/lib/AppYsV2.js", "ext": "http://43.154.162.194/ruifenglb_api.php/v1.vod" },
 
 //{"key":"dd004","name":"🕷OLE","type":3,"api":"csp_XBPQe","ext":"https://rebozj.pro/show/{cateId}--{area}------{catePg}---{year}.html;;a"},
 { "key": "饭团", "name": "饭团┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/视觉.json"},
