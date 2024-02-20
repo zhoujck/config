@@ -20,7 +20,7 @@
 
 "sites": [
 { "key": "豆豆", "name": "糖果影视🍬新年🍬", "type": 3, "api": "csp_DouDou", "searchable": 0, "quickSearch": 0, "filterable": 0 },
-{ "key": "点播", "name": "电影点播", "type": 4, "api": "./ext/大片点播" },
+{ "key": "点播", "name": "大片点播", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537", "ext": "./json/大片点播" }
 
 { "key": "dr_drpy_bili", "name": "🅱哔站纪录片", "type": 3, "api": "./js/lib/drpy2.min.js", "searchable": 0, "ext": "./js/doc.js" },
 { "key": "csp_Bili", "name": "🅱哔站学习", "type": 3, "api": "csp_Bili", "searchable": 0, "changeable": 0, "ext": "./ext/bilibili.json" },
