@@ -20,36 +20,35 @@
 
 "sites": [
 { "key": "豆豆", "name": "糖果影视🍬新年🍬", "type": 3, "api": "csp_DouDou", "searchable": 0, "quickSearch": 0, "filterable": 0 },
-//{"key": "dr_drpy","name": "🍬糖果影视-备用🍬","type": 3,"api": "./js/lib/drpy2.min.js","ext": "./js/豆瓣.js"},
+
 { "key": "dr_drpy_bili", "name": "🅱哔站纪录片", "type": 3, "api": "./js/lib/drpy2.min.js", "searchable": 0, "ext": "./js/doc.js" },
-{ "key": "310直播", "name": "🏀⚽球赛直播", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
 { "key": "csp_Bili", "name": "🅱哔站学习", "type": 3, "api": "csp_Bili", "searchable": 0, "changeable": 0, "ext": "./ext/bilibili.json" },
-{ "key": "贱贱", "name": "主源1┃👍", "type": 3, "searchable": 1, "quickSearch": 1, "changeable": 1, "playerType": "1", "api": "./js/lib/drpy2.min.js", "ext": "./js/jp.js" },
-//小米
-{"key":"dd004","name":"🕷OLE","type":3,"api":"csp_XBPQe","ext":"https://rebozj.pro/show/{cateId}--{area}------{catePg}---{year}.html;;a"},
-{"key": "亮亮","name": "主源3┃👍","type": 3,"jar":"./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968","api": "csp_AppYsV2","ext": "http://xiutan.shiyifacai.com/zuoan/api.php/app/"},
+{ "key": "310直播", "name": "🏀⚽球赛直播", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
 
-{ "key": "赞赞", "name": "主源2┃👍", "type": 3, "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968", "api": "csp_AppYsV2", "ext": "http://111.230.51.151:2323/api.php/app/" },
-{ "key": "赞赞1", "name": "主源4┃👍", "type": 3,  "api": "./js/lib/AppYsV2.js", "ext": "http://111.230.51.151:2323/api.php/app/" },
+//JS
+{ "key": "贱贱", "name": "主源1┃👍", "type": 3,  "api": "./js/lib/drpy2.min.js", "ext": "./js/jp.js" },
+{ "key": "农民", "name": "农民┃聚合", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/农民影视.js" },
 
-{ "key": "加速", "name": "迷你┃👍", "type": 3, "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968", "api": "csp_AppYsV2", "ext": "http://43.154.162.194/ruifenglb_api.php/v1.vod" },
-{ "key": "03", "name": "03┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/03.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968" },
-{ "key": "饭团", "name": "饭团┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/视觉.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968" },
-{ "key": "热播", "name": "热播┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/热播.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968" },
+{ "key": "赞赞", "name": "主源2┃👍", "type": 3, "api": "./js/lib/AppYsV2.js", "ext": "http://111.230.51.151:2323/api.php/app/" },
+{"key": "亮亮","name": "主源3┃👍","type": 3,"api": "./js/lib/AppYsV2.js", "ext": "http://xiutan.shiyifacai.com/zuoan/api.php/app/"},
+{ "key": "加速", "name": "迷你┃👍", "type": 3, ,"api": "./js/lib/AppYsV2.js", "ext": "http://43.154.162.194/ruifenglb_api.php/v1.vod" },
+
+//{"key":"dd004","name":"🕷OLE","type":3,"api":"csp_XBPQe","ext":"https://rebozj.pro/show/{cateId}--{area}------{catePg}---{year}.html;;a"},
+{ "key": "饭团", "name": "饭团┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/视觉.json"},
+{ "key": "热播", "name": "热播┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/热播.json"},
 { "key": "龟龟", "name": "龟龟┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/达达龟.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968" },
 { "key": "茶杯", "name": "茶杯┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/夜猫.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968" },
 { "key": "free", "name": "Free┃👍", "type": 3, "api": "csp_XBPQ", "ext": "./ext/free.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968" },
+
 //jar
-{"key":"csp_Czsapp","name":"厂长┃直连","type":3,"api":"csp_Czsapp","playerType":2,"ext":"https://www.czz55.com/","filterable":1},
-{ "key": "农民", "name": "农民┃聚合", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/农民影视.js" },
 { "key": "酷云", "name": "酷云┃👍", "type": 3, "api": "csp_Kunyu77" },
 { "key": "一起看 ", "name": "一起┃App", "type": 3, "api": "csp_YQKan" },
-//{"key":"csp_Sp360","name":"360┃聚合","type":3,"api":"csp_SP33"},
-{ "key": "PanSearch", "name": "阿里┃盘搜（阿里云盘扫描观看）", "type": 3, "api": "csp_PanSearch", "searchable": 1, "quickSearch": 1, "changeable": 0, "ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd" },
-{ "key": "七夜", "name": "阿里┃七夜", "type": 3, "api": "csp_Dovx", "searchable": 1, "quickSearch": 1, "changeable": 0, "ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd" },
-{ "key": "纸条", "name": "阿里┃纸条", "type": 3, "api": "csp_XiaoZhiTiao", "jar": "./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537" },
-{ "key": "玩偶哥哥", "name": "阿里┃玩偶", "type": 3, "api": "csp_WoGG", "searchable": 1, "quickSearch": 1, "changeable": 0, "ext": "http://127.0.0.1:9978/file/tvfan/token.txt+auto|4k|fhd$$$https://api.wogg.xyz/$$$弹" },
-{ "key": "alist", "name": "小鸭┃网盘", "type": 3, "playerType": "1", "api": "csp_AList", "searchable": 1, "quickSearch": 1, "filterable": 1, "ext": { "vodPic": "https://s1.imagehub.cc/images/2023/11/13/98b4ce8284509da2525ddb9d8aac83a0.th.jpeg", "drives": [ { "name": "🦆托盘", "server": "https://pan.mediy.cn/" } ] } },
+{"key":"csp_Sp360","name":"360┃聚合","type":3,"api":"csp_SP33"},
+{ "key": "PanSearch", "name": "盘搜┃阿里（阿里云盘扫描观看）", "type": 3, "api": "csp_PanSearch", "ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd" },
+{ "key": "七夜", "name": "七夜┃阿里", "type": 3, "api": "csp_Dovx",  "ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd" },
+{ "key": "纸条", "name": "纸条┃阿里", "type": 3, "api": "csp_XiaoZhiTiao", "jar": "./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537" },
+{ "key": "玩偶哥哥", "name": "玩偶┃阿里", "type": 3, "api": "csp_WoGG", "ext": "http://127.0.0.1:9978/file/tvfan/token.txt+auto|4k|fhd$$$https://api.wogg.xyz/$$$弹" },
+{ "key": "alist", "name": "小鸭┃网盘", "type": 3, "playerType": "1", "api": "csp_AList",  "ext": { "vodPic": "https://s1.imagehub.cc/images/2023/11/13/98b4ce8284509da2525ddb9d8aac83a0.th.jpeg", "drives": [ { "name": "🦆托盘", "server": "https://pan.mediy.cn/" } ] } },
 { "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537", "ext": "./json/market.json" }
 ],
 
