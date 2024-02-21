@@ -1,11 +1,15 @@
 {
- "嗅探词": "v3.toutiaovod.com#v3-dy-o.zjcdn#.m3u8#/tos/#.mp4",
-                "请求头": "手机#Referer$https://www.cupfox1.cc",
-                "分类url": "https://www.cupfox1.cc/show/{cateId}/area/{area}/page/{catePg}/year/{year}.html",
-                "分类url": "https://cupfox1.cc/show/{cateId}/area/{area}/page/{catePg}/year/{year}.html",
-                "标题": "movie-title txtHide\"*>&&</div",
-                "副标题": "豆瓣评分+div class=\"movie-rating cor4\">&&</div>",
-                "分类": "电影$1#剧集$2#动漫$4#综艺$4",
-                "搜索模式": "0"
-
+    "请求头": "User-Agent$Mozilla/5.0(Linux;Android6.0;Nexus5Build/MRA58N)AppleWebKit/537.36(KHTML,likeGecko)Chrome/120.0.0.0MobileSafari/537.36#Referer$https://www.03yy.co/#Cookie$__ancc_token=W5jzBYpcImDP/Iik1IURZg==;PHPSESSID=j11nnfvlgq36kd9u80ua370i41;",
+    "数组": "<divclass=\"pic-contentpic-width-2\">&&</div>",
+    "副标题": "<span>&&</span>",
+    "嗅探词": ".mp4?#.m3u8",
+    "简介": "<p&&</p>",
+    "导演": "导演：&&</div>",
+    "主演": "主演：&&</div>",
+    "线路二次截取": "<ulid=\"playlist\">&&</ul",
+    "线路数组": "<li&&li>",
+    "线路标题": ">&&<",
+    "播放请求头": "Cookie$__ancc_token=W5jzBYpcImDP/Iik1IURZg==;PHPSESSID=j11nnfvlgq36kd9u80ua370i41;",
+    "分类url": "https://www.03yy.co/search.php?page={catePg}&searchtype=5&order=time&tid={cateId};;ar1",
+    "分类": "电影$1#电视剧$2#动漫$4#综艺$3"
 }
