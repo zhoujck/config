@@ -4,7 +4,7 @@
 //"spider": "https://fs-im-kefu.7moor-fs1.com/29397395/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1707932830072/fan.txt;md5;be7060a567ce9e8021946b6de0ed8dae",
 
 
-"spider": "./jar/pc0205.jar",
+"spider": "./jar/pc0205.jar;MD5;24d814060db549e92715492c6328cc74",
 
 "lives": [
 { "name": "🍬糖果🍬", "type": 0, "url": "./json/live", "playerType": 1 },
@@ -45,6 +45,7 @@
 { "key": "酷云", "name": "酷云┃👍", "type": 3, "api": "csp_Kunyu77" },
 { "key": "一起看 ", "name": "一起┃App", "type": 3, "api": "csp_YQKan" },
 {"key":"csp_Sp360","name":"360┃聚合","type":3,"api":"csp_SP33"},
+
 { "key": "PanSearch", "name": "盘搜┃阿里（阿里云盘扫描观看）", "type": 3, "api": "csp_PanSearch", "ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd" },
 { "key": "七夜", "name": "七夜┃阿里", "type": 3, "api": "csp_Dovx",  "ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd" },
 { "key": "纸条", "name": "纸条┃阿里", "type": 3, "api": "csp_XiaoZhiTiao", "jar": "./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537" },
