@@ -33,9 +33,6 @@
 { "key": "贱贱", "name": "主源1┃👍", "type": 3,  "api": "./js/lib/drpy2.min.js", "ext": "./js/jp.js" },
 { "key": "农民", "name": "农民┃聚合", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/农民影视.js" },
 
-//香雅晴
-{ "key": "玩偶妹妹","name":"玩偶┃Hiker","type":3,"api":"csp_XYQHikerAL","jar": "./jar/XYQ.jar;md5;9a9c3fffc0b2d762f1373a63c6d46fec","ext":"./ext/玩偶妹妹.json"},
-
 
 { "key": "赞赞", "name": "主源2┃👍", "type": 3, "api": "./js/lib/AppYsV2.js", "ext": "http://111.230.51.151:2323/api.php/app/" },
 {"key": "亮亮","name": "主源3┃👍","type": 3,"api": "./js/lib/AppYsV2.js", "ext": "http://xiutan.shiyifacai.com/zuoan/api.php/app/"},
