@@ -43,7 +43,7 @@
 { "key": "饭团", "name": "饭团┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/视觉.json"},
 { "key": "热播", "name": "热播┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/热播.json"},
 { "key": "龟龟", "name": "龟龟┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/达达龟.json"},
-{ "key": "茶杯", "name": "茶杯┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/夜猫.json"},
+{ "key": "茶杯", "name": "茶杯┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/新剧.json"},
 { "key": "free", "name": "Free┃👍", "type": 3, "api": "csp_XBPQ", "ext": "./ext/free.json"},
 
 //jar
