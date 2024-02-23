@@ -33,6 +33,8 @@
 { "key": "贱贱", "name": "主源1┃👍", "type": 3,  "api": "./js/lib/drpy2.min.js", "ext": "./js/jp.js" },
 { "key": "农民", "name": "农民┃聚合", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/农民影视.js" },
 
+//香雅晴
+{ "key": "玩偶妹妹","name":"玩偶┃Hiker","type":3,"api":"csp_XYQHikerAL","jar": "./jar/XYQ.jar;md5;9a9c3fffc0b2d762f1373a63c6d46fec","ext":"./ext/玩偶妹妹.json"},
 
 
 { "key": "赞赞", "name": "主源2┃👍", "type": 3, "api": "./js/lib/AppYsV2.js", "ext": "http://111.230.51.151:2323/api.php/app/" },
@@ -42,10 +44,7 @@
 //XBPQe 所有的选填字段都可以不填，程序会自己去猜，不一定能猜得出来，猜不出来的得自己去补规则
 //(必填) 主页地址，建议填list段中的url,程序会从url中提取homeUrl, url中至少要包含{cateId}和{catePg}才能被识别
 // https://www.zxzj.vip/vodshow/{cateId}-{area}--{class}-----{catePg}---{year}.html.com/vod/show/id/{cateId}/page/{catepg}.html"},
-
 { "key": "毛驴", "name": "毛驴┃BQP", "type": 3, "api": "csp_XBPQ", "ext": {"主页url": "https://www.maolvys.com/", "副标题": ">备注 :</strong>&&<", "搜索url": "https://www.maolvys.com/vod/search/wd/{wd}.html", "图片": "data-src=\"&&\"", "分类": "电影$1#连续剧$2#综艺$3#动漫$4", "分类url": "https://www.maolvys.com/vod/show/id/{cateid}/page/{catepg}.html" }},
-{ "key": "影视车", "name": "影视车┃BQP", "type": 3, "api": "csp_XBPQ", "ext":"https://www.weixine.net/vodshow/{cateId}--{by}------{catePg}---{year}.html" },
-
 
 { "key": "饭团", "name": "饭团┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/视觉.json"},
 { "key": "热播", "name": "热播┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/热播.json"},
