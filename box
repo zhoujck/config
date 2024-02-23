@@ -39,6 +39,9 @@
 {"key": "亮亮","name": "主源3┃👍","type": 3,"api": "./js/lib/AppYsV2.js", "ext": "http://xiutan.shiyifacai.com/zuoan/api.php/app/"},
 { "key": "加速", "name": "迷你┃👍", "type": 3, "api": "./js/lib/AppYsV2.js", "ext": "http://43.154.162.194/ruifenglb_api.php/v1.vod" },
 
+//XBPQe 所有的选填字段都可以不填，程序会自己去猜，不一定能猜得出来，猜不出来的得自己去补规则
+//(必填) 主页地址，建议填list段中的url,程序会从url中提取homeUrl, url中至少要包含{cateId}和{catePg}才能被识别
+// https://www.zxzj.vip/vodshow/{cateId}-{area}--{class}-----{catePg}---{year}.html
 {"key":"dd004","name":"🕷test","type":3,"api":"csp_XBPQe","ext":"https://www.maolvys.com/vod/show/area/{area}/class/{class}/id/{cateId}/lang/{lang}/year/{year}/page/{catepg}.html"},
 
 { "key": "饭团", "name": "饭团┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/视觉.json"},
