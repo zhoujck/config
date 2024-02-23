@@ -19,7 +19,7 @@
 ],
 
 "sites": [
-{ "key": "豆豆", "name": "糖果影视🍬2.21🍬", "type": 3, "api": "csp_DouDou", "searchable": 0, "quickSearch": 0, "filterable": 0 },
+{ "key": "豆豆", "name": "糖果影视🍬2.23🍬", "type": 3, "api": "csp_DouDou", "searchable": 0, "quickSearch": 0, "filterable": 0 },
 { "key": "dr_drpy_bili", "name": "🅱哔站纪录片", "type": 3, "api": "./js/lib/drpy2.min.js", "searchable": 0, "ext": "./js/doc.js" },
 { "key": "点播", "name": "点播", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537", "ext": "./ext/大片点播" },
 {"key":"lf_js_lf_live","name":"直播","type":3,"api":"./js/lib/lf_live_min.js","searchable":1,"changeable":0,"quickSearch":1,"filterable":1,"ext":"./json/liveapi.json"},
@@ -43,7 +43,7 @@
 //(必填) 主页地址，建议填list段中的url,程序会从url中提取homeUrl, url中至少要包含{cateId}和{catePg}才能被识别
 // https://www.zxzj.vip/vodshow/{cateId}-{area}--{class}-----{catePg}---{year}.html.com/vod/show/id/{cateId}/page/{catepg}.html"},
 
-{ "key": "毛驴", "name": "毛驴┃BQP", "type": 3, "api": "csp_XBPQe", "ext": {"主页url": "https://www.maolvys.com/", "副标题": ">备注 :</strong>&&<", "搜索url": "https://www.maolvys.com/vod/search/wd/{wd}.html", "图片": "data-src=\"&&\"", "分类": "电影$1#连续剧$2#综艺$3#动漫$4", "分类url": "https://www.maolvys.com/vod/show/id/{cateid}/page/{catepg}.html" }},
+{ "key": "毛驴", "name": "毛驴┃BQP", "type": 3, "api": "csp_XBPQ", "ext": {"主页url": "https://www.maolvys.com/", "副标题": ">备注 :</strong>&&<", "搜索url": "https://www.maolvys.com/vod/search/wd/{wd}.html", "图片": "data-src=\"&&\"", "分类": "电影$1#连续剧$2#综艺$3#动漫$4", "分类url": "https://www.maolvys.com/vod/show/id/{cateid}/page/{catepg}.html" }},
 { "key": "饭团", "name": "饭团┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/视觉.json"},
 { "key": "热播", "name": "热播┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/热播.json"},
 { "key": "龟龟", "name": "龟龟┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/达达龟.json"},
