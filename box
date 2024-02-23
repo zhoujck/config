@@ -39,7 +39,7 @@
 {"key": "亮亮","name": "主源3┃👍","type": 3,"api": "./js/lib/AppYsV2.js", "ext": "http://xiutan.shiyifacai.com/zuoan/api.php/app/"},
 { "key": "加速", "name": "迷你┃👍", "type": 3, "api": "./js/lib/AppYsV2.js", "ext": "http://43.154.162.194/ruifenglb_api.php/v1.vod" },
 
-{"key":"dd004","name":"🕷test","type":3,"api":"csp_XBPQe","ext":"https://wogg.link/index.php/vodshow/{cateId}-{area}--{lang}-------{year}.html"},
+{"key":"dd004","name":"🕷test","type":3,"api":"csp_XBPQe","ext":"https://www.maolvys.com/vod/show/area/{area}/class/{class}/id/{id}/lang/{lang}/year/{year}/"},
 
 { "key": "饭团", "name": "饭团┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/视觉.json"},
 { "key": "热播", "name": "热播┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/热播.json"},
