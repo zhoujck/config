@@ -28,7 +28,7 @@
 
 
 { "key": "赞赞", "name": "主源2┃👍", "type": 3, "api": "./js/lib/AppYsV2.js", "ext": "http://111.230.51.151:2323/api.php/app/" },
-{"key": "亮亮","name": "主源3┃👍","type": 3,"api": "./js/lib/AppYsV2.js", "ext": "http://xiutan.shiyifacai.com/zuoan/api.php/app/"},
+{ "key": "亮亮", "name": "主源3┃👍", "type": 3, "api": "./js/lib/AppYsV2.js", "ext": "http://xiutan.shiyifacai.com/zuoan/api.php/app/"},
 { "key": "加速", "name": "迷你┃👍", "type": 3, "api": "./js/lib/AppYsV2.js", "ext": "http://43.154.162.194/ruifenglb_api.php/v1.vod" },
 
 //XBPQe 所有的选填字段都可以不填，程序会自己去猜，不一定能猜得出来，猜不出来的得自己去补规则
@@ -70,20 +70,21 @@
 {"name":"YuMi-vip🥭","type":0,"url":"https://jx.xmflv.com/?url=","ext":{"flag":["爱奇艺","奇艺","qq","腾讯","youku","优酷","pptv","PPTV","letv","乐视","leshi","bilibili","哔哩哔哩","哔哩","mgtv","芒果","芒果"],"header":{"User-Agent":"Mozilla/5.0(Linux;Android6.0;Nexus5Build/MRA58N)AppleWebKit/537.36(KHTML,likeGecko)Chrome/118.0.0.0MobileSafari/537.36"}}}
 ],
 
-"rules": [
-{ "name": "proxy", "hosts": [ "raw.githubusercontent.com", "googlevideo.com", "cdn.v82u1l.com", "cdn.iz8qkg.com", "cdn.kin6c1.com", "c.biggggg.com", "c.olddddd.com", "haiwaikan.com", "www.histar.tv", "youtube.com", "uhibo.com", ".*boku.*", ".*nivod.*", ".*ulivetv.*" ] },
-{ "name": "海外看", "hosts": [ "haiwaikan" ], "regex": [ "8.1748", "10.0099", "10.3333" ] },
-{ "name": "暴风廣告", "hosts": [ "bfzy", "s5.bfzycdn" ], "regex": [ "#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:3,[\\s\\S]*?#EXT-X-DISCONTINUITY" ] },
-{ "name": "星星", "hosts": [ "aws.ulivetv.net" ], "regex": [ "#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:8,[\\s\\S]*?#EXT-X-DISCONTINUITY", "#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:9,[\\s\\S]*?#EXT-X-DISCONTINUITY" ] },
-{ "name": "量子廣告", "hosts": [ "vip.lz", "hd.lz", "v.cdnlz" ], "regex": [ "#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:6.433333,[\\s\\S]*?#EXT-X-DISCONTINUITY", "#EXTINF.*?\\s+.*?1o.*?\\.ts\\s+" ] },
-{ "name": "非凡廣告", "hosts": [ "vip.ffzy", "hd.ffzy" ], "regex": [ "#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:6.666667,[\\s\\S]*?#EXT-X-DISCONTINUITY", "#EXTINF.*?\\s+.*?1o.*?\\.ts\\s+" ] },
-{ "name": "火山嗅探", "hosts": [ "huoshan.com" ], "regex": [ "item_id=" ] },
-{ "name": "抖音嗅探", "hosts": [ "douyin.com" ], "regex": [ "is_play_url=" ] }
-],
+"flags":["youku","优酷","优 酷","优酷视频", "qq","腾讯","腾 讯","腾讯视频", "iqiyi", "qiyi","奇艺","爱奇艺","爱 奇 艺", "m1905", "xigua", "letv","leshi","乐视","乐 视", "sohu","搜狐","搜 狐","搜狐视频", "tudou","mgtv","芒果","imgo","芒果TV","芒 果 T V", "bilibili","哔 哩","哔 哩 哔 哩","SPA","YuMi-vip","pptv","PPTV","ltnb","rx","SLYS4k","tucheng","BYGA","luanzi","dxzy","QEYSS","aliyun","AliS","122","chuangying","CL4K","xfyun","wuduzy","wasu","renrenmi","ppayun","haiwaikan","cool","dbm3u8","xmm","funshion","ruyi1080","ruyib1080"],
 
-"doh": [ { "name": "Google", "url": "https://dns.google/dns-query", "ips": [ "8.8.4.4", "8.8.8.8" ] }, { "name": "Cloudflare", "url": "https://cloudflare-dns.com/dns-query", "ips": [ "1.1.1.1", "1.0.0.1", "2606:4700:4700::1111", "2606:4700:4700::1001" ] }, { "name": "AdGuard", "url": "https://dns.adguard.com/dns-query", "ips": [ "94.140.14.140", "94.140.14.141" ] }, { "name": "DNSWatch", "url": "https://resolver2.dns.watch/dns-query", "ips": [ "84.200.69.80", "84.200.70.40" ] }, { "name": "Quad9", "url": "https://dns.quad9.net/dns-quer", "ips": [ "9.9.9.9", "149.112.112.112" ] }],
+"doh":[{"name":"Google","url":"https://dns.google/dns-query","ips":["8.8.4.4","8.8.8.8"]},{"name":"Cloudflare","url":"https://cloudflare-dns.com/dns-query","ips":["1.1.1.1","1.0.0.1","2606:4700:4700::1111","2606:4700:4700::1001"]},{"name":"AdGuard","url":"https://dns.adguard.com/dns-query","ips":["94.140.14.140","94.140.14.141"]},{"name":"DNSWatch","url":"https://resolver2.dns.watch/dns-query","ips":["84.200.69.80","84.200.70.40"]},{"name":"Quad9","url":"https://dns.quad9.net/dns-quer","ips":["9.9.9.9","149.112.112.112"]}],
 
-"flags": [ "优酷视频", "youku", "优酷", "优 酷", "优酷视频", "qq", "腾讯", "腾 讯", "腾讯视频", "iqiyi", "qiyi", "奇艺", "爱奇艺", "爱 奇 艺", "m1905", "xigua", "letv", "leshi", "乐视", "乐 视", "sohu", "搜狐", "搜 狐", "搜狐视频", "tudou", "pptv", "mgtv", "芒果", "imgo", "芒果TV", "芒 果 T V", "bilibili", "哔 哩", "哔 哩 哔 哩" ],
-
-"ads": [ "wan.51img1.com", "iqiyi.hbuioo.com", "vip.ffzyad.com", "https://lf1-cdn-tos.bytegoofy.com/obj/tos-cn-i-dy/455ccf9e8ae744378118e4bd289288dd" ]
+"rules":[
+{"name":"hwk","hosts":["haiwaikan"],"regex":["10.0099","10.3333","16.0599","8.1748","12.33","10.85"]},
+{"name":"yqk","hosts":["yqk88"],"regex":["18.4","15.1666"]},
+{"name":"sn","hosts":["suonizy"],"regex":["#EXTINF.*?\\s+.*?original.*?\\.ts\\s+","15.1666","15.2666","16.3333","15.266667"]},
+{"name":"bf","hosts":["bfzy"],"regex":["#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:3,[\\s\\S]*?#EXT-X-DISCONTINUITY"]},
+{"name":"xx","hosts":["aws.ulivetv.net"],"regex":["#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:8,[\\s\\S]*?#EXT-X-DISCONTINUITY"]},
+{"name":"lz","hosts":["lz"],"regex":["18.5333","19.52"]},
+{"name":"ff","hosts":["vip.ffzy","hd.ffzy","ffzy"],"regex":["25.0666","25.08","20.52","25.1","25.1999"]},
+{"name":"hs","hosts":["huoshan.com"],"regex":["item_id="]},
+{"name":"dy","hosts":["douyin.com"],"regex":["is_play_url="]},
+{"name":"nm","hosts":["toutiaovod.com"],"regex":["video/tos/cn"]},
+{"name":"cl","hosts":["magnet"],"regex":["最 新","直 播","更 新"]}
+]
 }
