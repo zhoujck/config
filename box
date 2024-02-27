@@ -23,20 +23,20 @@
 { "key": "310直播", "name": "🏀⚽球赛直播", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
 
 //JS
-{ "key": "贱贱", "name": "主源2┃👍", "type": 3,  "api": "./js/lib/drpy2.min.js", "ext": "./js/jp.js" },
-{ "key": "农民", "name": "农民┃聚合", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/农民影视.js" },
+{ "key": "贱贱", "name": "主源┃贱贱", "type": 3,  "api": "./js/lib/drpy2.min.js", "ext": "./js/jp.js" },
+{ "key": "农民", "name": "农民┃👍", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/农民影视.js" },
 
 
 { "key": "赞赞", "name": "赞赞┃聚合", "type": 3, "api": "./js/lib/AppYsV2.js", "ext": "http://111.230.51.151:2323/api.php/app/" },
-{ "key": "亮亮", "name": "亮亮┃聚合", "type": 3, "api": "./js/lib/AppYsV2.js", "ext": "http://106.54.20.134:7788/zuoan/api.php/app/"},
-{ "key": "加速", "name": "加速┃聚合", "type": 3, "api": "./js/lib/AppYsV2.js", "ext": "http://43.154.162.194/ruifenglb_api.php/v1.vod" },
+//{ "key": "亮亮", "name": "亮亮┃聚合", "type": 3, "api": "./js/lib/AppYsV2.js", "ext": "http://106.54.20.134:7788/zuoan/api.php/app/"},
+//{ "key": "加速", "name": "加速┃聚合", "type": 3, "api": "./js/lib/AppYsV2.js", "ext": "http://43.154.162.194/ruifenglb_api.php/v1.vod" },
 
 //XBPQ (必填) 主页地址，建议填list段中的url,程序会从url中提取homeUrl, url中至少要包含{cateId}和{catePg}才能被识别
 // https://www.zxzj.vip/vodshow/{cateId}-{area}--{class}-----{catePg}---{year}.html.com/vod/show/id/{cateId}/page/{catepg}.html"},
 
 { "key": "毛驴", "name": "毛驴┃BQP", "type": 3, "api": "csp_XBPQ", "ext": {"主页url": "https://www.maolvys.com/", "副标题": ">备注 :</strong>&&<", "搜索url": "https://www.maolvys.com/vod/search/wd/{wd}.html", "图片": "data-src=\"&&\"", "分类": "电影$1#连续剧$2#综艺$3#动漫$4", "分类url": "https://www.maolvys.com/vod/show/id/{cateid}/page/{catepg}.html" }},
 { "key": "饭团", "name": "视觉┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/视觉.json"},
-{ "key": "热播", "name": "主源1┃👍, "type": 3, "api": "csp_XBPQ", "ext": "./ext/热播.json"},
+{ "key": "热播", "name": "热播┃👍, "type": 3, "api": "csp_XBPQ", "ext": "./ext/热播.json"},
 { "key": "龟龟", "name": "龟龟┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/达达龟.json"},
 { "key": "free", "name": "Free┃👍", "type": 3, "api": "csp_XBPQ", "ext": "./ext/free.json"},
 
