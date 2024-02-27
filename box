@@ -7,8 +7,8 @@
 "spider": "./jar/pc0205.jar;md5;24d814060db549e92715492c6328cc74",
 
 "lives": [
-{ "name": "🍬糖果🍬", "type": 0, "url": "./json/live", "playerType": 1 },
-{ "name": "IPV4", "type": 0, "url": "https://gh.con.sh/https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt", "playerType": 1 }
+{ "name": "🍬移动🍬", "type": 0, "url": "./json/移动live", "playerType": 1 },
+{ "name": "🍬电信🍬", "type": 0, "url": "./json/电信live", "playerType": 1 }
 ],
 
 "sites": [
