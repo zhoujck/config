@@ -23,7 +23,7 @@
 { "key": "310直播", "name": "🏀⚽球赛直播", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
 
 //JS
-{ "key": "贱贱", "name": "主源┃贱贱", "type": 3,  "api": "./js/lib/drpy2.min.js", "ext": "./js/jp.js" },
+{ "key": "贱贱", "name": "渐渐┃👍", "type": 3,  "api": "./js/lib/drpy2.min.js", "ext": "./js/jp.js" },
 { "key": "农民", "name": "农民┃👍", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/农民影视.js" },
 
 
