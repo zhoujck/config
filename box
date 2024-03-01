@@ -40,7 +40,7 @@
 "分类": "电影$1#电视剧$2#综艺$3#动漫$4",
 "搜索url": "http://www.yck0.cn/search.php?searchword={wd}",
 "线路数组": "playfrom&&</div>[替换:秒播资源>>一起看]",
-"线路标题": "i>&&<sup"
+"线路标题": "zhan\"></i>&&<sup"
 }},
 { "key": "毛驴", "name": "毛驴┃BQP", "type": 3, "api": "csp_XBPQ", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968", "ext": {"主页url": "https://www.maolvys.com/", "副标题": ">备注 :</strong>&&<", "搜索url": "https://www.maolvys.com/vod/search/wd/{wd}.html", "图片": "data-src=\"&&\"", "分类": "电影$1#连续剧$2#综艺$3#动漫$4", "分类url": "https://www.maolvys.com/vod/show/id/{cateid}/page/{catepg}.html" }},
 { "key": "饭团", "name": "视觉┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/视觉.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
