@@ -2,7 +2,7 @@
 "主页url": "http://www.yck0.cn/",
 "站名": "一起看",
 "分类url": "http://www.yck0.cn/yck/{cateId}-{catePg}.html",
-"分类": "电影$1#电视剧$2#综艺$3#动漫$4",
+"分类": "电影$1#电视剧$2#综艺$3#动漫$4#短剧$30",
 "搜索url": "http://www.yck0.cn/search.php?searchword={wd}",
 "搜索数组": "qcontainer&&</div>",
 "搜索标题": "title=\"&&\"",
