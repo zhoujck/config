@@ -1,0 +1,13 @@
+{
+"主页url": "http://www.yck0.cn/",
+"站名": "一起看",
+"分类url": "http://www.yck0.cn/yck/{cateId}-{catePg}.html",
+"分类": "电影$1#电视剧$2#综艺$3#动漫$4",
+"搜索url": "http://www.yck0.cn/search.php?searchword={wd}",
+"搜索数组": "qcontainer&&</div>",
+"搜索标题": "title=\"&&\"",
+"搜索副标题": "green\">&&<",
+"搜索图片": "data-original=\"&&\"",
+"线路数组": "Azhan&&up[替换:秒播资源>>一起看][排序:索尼资源>一起看]",
+"线路标题": "i>&&<s"
+}
