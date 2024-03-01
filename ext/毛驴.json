@@ -1,0 +1,8 @@
+{
+    "主页url": "https://www.maolvys.com/",
+    "副标题": ">备注 :</strong>&&<",
+    "搜索url": "https://www.maolvys.com/vod/search/wd/{wd}.html",
+    "图片": "data-src=\"&&\"",
+    "分类": "电影$1#连续剧$2#综艺$3#动漫$4",
+    "分类url": "https://www.maolvys.com/vod/show/id/{cateid}/page/{catepg}.html"
+}
