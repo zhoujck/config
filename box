@@ -1,10 +1,9 @@
 {
 //更改缩进（Shift+Tab和Tab） 
 
-//"spider": "https://fs-im-kefu.7moor-fs1.com/29397395/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1707932830072/fan.txt;md5;be7060a567ce9e8021946b6de0ed8dae",
+"spider":"https://fs-im-kefu.7moor-fs1.com/29397395/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1708940933062/fan.txt;md5;82a31f7dab4c0eb89a46584f3934d810",
 
-
-"spider": "./jar/pc0205.jar;md5;24d814060db549e92715492c6328cc74",
+//"spider": "./jar/pc0205.jar;md5;24d814060db549e92715492c6328cc74",
 
 "lives": [
 { "name": "🍬移动🍬", "type": 0, "url": "./json/移动live", "playerType": 1 },
@@ -39,6 +38,7 @@
 { "key": "热播", "name": "热播┃👍", "type": 3, "api": "csp_XBPQ", "ext": "./ext/热播.json"},
 { "key": "龟龟", "name": "龟龟┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/达达龟.json"},
 { "key": "free", "name": "Free┃👍", "type": 3, "api": "csp_XBPQ", "ext": "./ext/free.json"},
+{ "key": "非凡", "name": "非凡┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/ffzy.json"},
 
 //jar
 { "key": "酷云", "name": "酷云┃👍", "type": 3, "api": "csp_Kunyu77" },
@@ -47,7 +47,7 @@
 
 { "key": "PanSearch", "name": "盘搜┃阿里（阿里云盘扫描观看）", "type": 3, "api": "csp_PanSearch", "ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd" },
 { "key": "七夜", "name": "七夜┃阿里", "type": 3, "api": "csp_Dovx",  "ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd" },
-{ "key": "纸条", "name": "纸条┃阿里", "type": 3, "api": "csp_XiaoZhiTiao", "jar": "./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537" },
+{ "key": "纸条", "name": "纸条┃阿里", "type": 3, "api": "csp_XiaoZhiTiao",  "ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
 { "key": "玩偶哥哥", "name": "玩偶┃阿里", "type": 3, "api": "csp_WoGG", "ext": "http://127.0.0.1:9978/file/tvfan/token.txt+auto|4k|fhd$$$https://api.wogg.xyz/$$$弹" },
 { "key": "alist", "name": "小鸭┃网盘", "type": 3, "playerType": "1", "api": "csp_AList",  "ext": { "vodPic": "https://s1.imagehub.cc/images/2023/11/13/98b4ce8284509da2525ddb9d8aac83a0.th.jpeg", "drives": [ { "name": "🦆托盘", "server": "https://pan.mediy.cn/" } ] } },
 { "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537", "ext": "./json/market.json" }
