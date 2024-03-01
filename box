@@ -33,13 +33,13 @@
 
 //XBPQ (必填) 主页地址，建议填list段中的url,程序会从url中提取homeUrl, url中至少要包含{cateId}和{catePg}才能被识别
 // https://www.zxzj.vip/vodshow/{cateId}-{area}--{class}-----{catePg}---{year}.html.com/vod/show/id/{cateId}/page/{catepg}.html"},
-{ "key": "一起看XBQP", "name": "一起看┃BQP", "type": 3, "api": "csp_XBPQ", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968", "ext": {./ext/一起看.json},
-{ "key": "毛驴", "name": "毛驴┃BQP", "type": 3, "api": "csp_XBPQ", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968", "ext": {./ext/毛驴.json},
+{ "key": "一起", "name": "一起┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/一起看.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
+{ "key": "毛驴", "name": "毛驴┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/毛驴.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 { "key": "饭团", "name": "视觉┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/视觉.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 { "key": "热播", "name": "热播┃👍", "type": 3, "api": "csp_XBPQ", "ext": "./ext/热播.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 { "key": "龟龟", "name": "龟龟┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/达达龟.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 { "key": "free", "name": "Free┃👍", "type": 3, "api": "csp_XBPQ", "ext": "./ext/free.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{ "key": "非凡", "name": "非凡┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/ffzy.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
+
 
 
 //jar
