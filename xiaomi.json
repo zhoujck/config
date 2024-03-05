@@ -1,9 +1,11 @@
+//  当前接口：http://xhww.fun:63/小米/DEMO.json
+
 {
 "spider":"https://fs-im-kefu.7moor-fs1.com/29397395/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1708940933062/fan.txt;md5;82a31f7dab4c0eb89a46584f3934d810",
 "wallpaper":"http://饭太硬.top/深色壁纸/api.php",
 "sites":[
-{"key":"豆豆","name":"🎟豆瓣┃主页","type":3,"api":"csp_DouDou","searchable":0,"quickSearch":0,"filterable":0},
-{"key":"Bili","name":"🅱哔哩┃哔哩","type":3,"api":"csp_Bili","style":{"type":"rect","ratio":1.597},
+{"key":"豆豆","name":"🎟豆瓣┃接口免费","type":3,"api":"csp_DouDou","searchable":0,"quickSearch":0,"filterable":0},
+{"key":"Bili","name":"🅱哔哩┃收费可耻","type":3,"api":"csp_Bili","style":{"type":"rect","ratio":1.597},
 "searchable":1,"quickSearch":0,"changeable":0,"ext":"https://agit.ai/fantaiying/fty/raw/branch/master/json/bilibili.json"},
 {"key":"相声","name":"📻BPQ┃相声","type":3,"searchable":0,"style":{"type":"rect","ratio":1.597},
 "quickSearch":0,"api":"csp_XBPQ","jar":"https://fs-im-kefu.7moor-fs1.com/29397395/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1704761840381/c(1).txt;md5;1484e86a3a4463eaf8ef41c6832a1df0","ext":{"主页url":"https://www.xsmp3.com","数组二次截取":"<ulid=\"post_list_box\">&&</ul","数组":"<liclass=\"www_xsmp3_compost_list_li\">&&</div>","图片":"https://gd-filems.dancf.com/gaoding/cms/mcm79j/mcm79j/59385/6a211035-3658-45ce-a476-79f6f5dc02b71172884.png?x-oss-process=image/resize,h_1308/interlace,1","标题":"title=\"&&\"","副标题":">&&</a","链接":"href=\"&&\"","播放二次截取":"autoplay&&;</script>","播放数组":"\\[&&\\]","播放列表":"{&&}","播放链接":"url*\"&&\"","播放标题":"name*\"&&\"","播放副标题":"artist*\"&&\"","线路数组":"相声随身听","线路标题":"相声随身听","导演":"小米","主演":"相声明星","简介":"相声合集","分类url":"https://www.xsmp3.com/{cateId}/{catePg}.html;;av","分类":"郭德纲$gdg#德云社$dys#新势力$xsxsl#青区社$qqs#马三立$msl#更多$xsmj"}},
@@ -43,9 +45,8 @@
 {"name":"解析聚合","type":3,"url":"Demo"},
 {"name":"Json并发","type":2,"url":"Parallel"},
 {"name":"Json轮询","type":2,"url":"Sequence"},
-{"name":"稻香🌾","type":0,"url":"https://jx.xmflv.com/?url=","ext":{"flag":["mgtv","qiyi","imgo","爱奇艺","奇艺","qq","腾讯","youku","优酷","pptv","PPTV","letv","乐视","leshi","bilibili","哔哩哔哩","哔哩","mgtv","芒果","芒果"],"header":{"User-Agent":"okhttp/3.12.0"}}},
 {"name":"爱酷🌾","type":1,"url":"http://42.157.129.139:7788/json/aiku.php?url=","ext":{"flag":["seven","mgtv","qiyi","imgo","爱奇艺","奇艺","qq","腾讯","youku","优酷","pptv","PPTV","letv","乐视","leshi","bilibili","哔哩哔哩","哔哩","mgtv","芒果","芒果"],"header":{"User-Agent":"Lavf/58.12.100"}}},
-{"name":"蚂蚁🌾","type":1,"url":"http://121.62.61.51:6888/api/?key=5CWvFJheqm0EGrXAou&url=","ext":{"flag":["NBY"],"header":{"User-Agent":"okhttp/4.1.0"}}},
+{"name":"蚂蚁🌾","type":1,"url":"http://121.62.61.51:6888/api/?key=n669JAmIzmG1K813tb&url=","ext":{"flag":["NBY"],"header":{"User-Agent":"okhttp/4.1.0"}}},
 {"name":"米饭🌾","type":0,"url":"https://jx.yangtu.top/?url=","ext":{"flag":["爱奇艺","奇艺","qq","腾讯","youku","优酷","pptv","PPTV","letv","乐视","leshi","bilibili","哔哩哔哩","哔哩","mgtv","芒果","芒果"],"header":{"User-Agent":"Mozilla/5.0(Linux;Android6.0;Nexus5Build/MRA58N)AppleWebKit/537.36(KHTML,likeGecko)Chrome/120.0.0.0MobileSafari/537.36"}}}
 ],
 "lives":[
