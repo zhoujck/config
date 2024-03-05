@@ -31,7 +31,6 @@
 //XBPQ (必填) 主页地址，建议填list段中的url,程序会从url中提取homeUrl, url中至少要包含{cateId}和{catePg}才能被识别
 // https://www.zxzj.vip/vodshow/{cateId}-{area}--{class}-----{catePg}---{year}.html.com/vod/show/id/{cateId}/page/{catepg}.html"},
 
-{ "key": "一起", "name": "一起┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/一起看.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 { "key": "毛驴", "name": "毛驴┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/毛驴.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 { "key": "饭团", "name": "视觉┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/视觉.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 { "key": "热播", "name": "热播┃👍", "type": 3, "api": "csp_XBPQ", "ext": "./ext/热播.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
@@ -39,6 +38,7 @@
 { "key": "free", "name": "Free┃👍", "type": 3, "api": "csp_XBPQ", "ext": "./ext/free.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 
 //jar
+{ "key": "南瓜", "name": "南瓜┃👍","type":3,"api":"csp_NanGua","playerType":2},
 { "key": "酷云", "name": "酷云┃👍", "type": 3, "api": "csp_Kunyu77" },
 { "key": "一起看 ", "name": "一起┃App", "type": 3, "api": "csp_YQKan" },
 {"key":"csp_Sp360","name":"360┃聚合","type":3,"api":"csp_SP33"},
@@ -57,9 +57,8 @@
 {"name":"解析聚合","type":3,"url":"Demo"},
 {"name":"Json并发","type":2,"url":"Parallel"},
 {"name":"Json轮询","type":2,"url":"Sequence"},
-{"name":"稻香🌾","type":0,"url":"https://jx.xmflv.com/?url=","ext":{"flag":["mgtv","qiyi","imgo","爱奇艺","奇艺","qq","腾讯","youku","优酷","pptv","PPTV","letv","乐视","leshi","bilibili","哔哩哔哩","哔哩","mgtv","芒果","芒果"],"header":{"User-Agent":"okhttp/3.12.0"}}},
 {"name":"左岸🌾","type":1,"url":"http://42.157.129.139:7788/json/aiku.php?url=","ext":{"flag":["seven"],"header":{"User-Agent":"Lavf/58.12.100"}}},
-{"name":"蚂蚁🌾","type":1,"url":"http://y1.ys.33love.cn:8665/lunxun/index.php?url=","ext":{"flag":["NBY"],"header":{"User-Agent":"okhttp/4.1.0"}}},
+{"name":"蚂蚁🌾","type":1,"url":"http://121.62.61.51:6888/api/?key=n669JAmIzmG1K813tb&url=","ext":{"flag":["NBY"],"header":{"User-Agent":"okhttp/4.1.0"}}},
 {"name":"米饭🌾","type":0,"url":"https://jx.yangtu.top/?url=","ext":{"flag":["爱奇艺","奇艺","qq","腾讯","youku","优酷","pptv","PPTV","letv","乐视","leshi","bilibili","哔哩哔哩","哔哩","mgtv","芒果","芒果"],"header":{"User-Agent":"Mozilla/5.0(Linux;Android6.0;Nexus5Build/MRA58N)AppleWebKit/537.36(KHTML,likeGecko)Chrome/120.0.0.0MobileSafari/537.36"}}}
 ],
 
