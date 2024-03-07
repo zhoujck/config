@@ -1,9 +1,9 @@
 {
 	"主页url": "https://www.kukan9.com",
-	"分类url": "https://www.kukan9.com/vodshow/{cateId}-{area}-------{catePg}---{year}/",
+	"分类url": "https://www.kukan9.com/vodshow/{cateId}-{area}-------{catePg}---{year}.html",
 	"分类": "电影&剧集&动漫&综艺",
 	"分类值": "1&2&3&4",
-	"搜索url": "https://www.kukan9.com/vodsearch/-------------/?wd={wd}",
+	"搜索url": "https://www.kukan9.com/vodsearch/-------------/?wd={wd}.html",
 	"搜索模式": "1",
 	"搜索数组": "search-item&&</div>",
 	"搜索图片": "data-original=\"&&\"",
