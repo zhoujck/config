@@ -38,6 +38,8 @@
 { "key": "free", "name": "Free┃👍", "type": 3, "api": "csp_XBPQ", "ext": "./ext/free.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 
 //jar
+{"key":"酷看","name":"酷看┃","type":3,"api":"csp_Kkys","searchable":1,"quickSearch":1,"changeable":1},
+
 { "key": "南瓜", "name": "南瓜┃👍","type":3,"api":"csp_NanGua","playerType":2},
 { "key": "酷云", "name": "酷云┃👍", "type": 3, "api": "csp_Kunyu77" },
 { "key": "一起看 ", "name": "一起┃App", "type": 3, "api": "csp_YQKan" },
