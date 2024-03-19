@@ -23,10 +23,9 @@
 { "key": "310直播", "name": "🏀⚽球赛直播", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
 
 //JS
-{ "key": "贱贱", "name": "荐片┃👍", "type": 3,  "api": "./js/lib/drpy2.min.js", "ext": "./js/jp.js" },
 { "key": "农民", "name": "农民┃聚合", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/农民影视.js" },
 
-{ "key": "赞赞", "name": "赞赞┃聚合", "type": 3, "api": "./js/lib/AppYsV2.js", "ext": "http://111.230.51.151:2323/api.php/app/" },
+//{ "key": "赞赞", "name": "赞赞┃聚合", "type": 3, "api": "./js/lib/AppYsV2.js", "ext": "http://111.230.51.151:2323/api.php/app/" },
 
 //XBPQ (必填) 主页地址，建议填list段中的url,程序会从url中提取homeUrl, url中至少要包含{cateId}和{catePg}才能被识别
 // https://www.zxzj.vip/vodshow/{cateId}-{area}--{class}-----{catePg}---{year}.html.com/vod/show/id/{cateId}/page/{catepg}.html"},
@@ -39,6 +38,7 @@
 { "key": "云播", "name":  "云播┃BQP", "type":3, "api":"csp_XBPQ","ext":"./ext/云播.json"},
 
 //jar
+{"key":"csp_Jianpian","name":"荐片┃👍","type":3,"api":"csp_Jianpian","searchable":1,"quickSearch":1,"filterable":1,"ext":"http://api2.rinhome.com"},
 { "key": "酷看", "name": "酷看┃👍","type":3,"api":"csp_Kkys"},
 { "key": "南瓜", "name": "南瓜┃👍","type":3,"api":"csp_NanGua","playerType":2},
 { "key": "酷云", "name": "酷云┃👍", "type": 3, "api": "csp_Kunyu77" },
@@ -53,13 +53,13 @@
 { "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537", "ext": "./json/market.json" }
 ],
 
-"wallpaper": "./壁纸/竖屏壁纸.jpeg",
+"wallpaper": "",
 
 "parses":[
 {"name":"解析聚合","type":3,"url":"Demo"},
 {"name":"Json并发","type":2,"url":"Parallel"},
 {"name":"Json轮询","type":2,"url":"Sequence"},
-{"name":"左岸🌾","type":1,"url":"http://42.157.129.139:7788/json/aiku.php?url=","ext":{"flag":["seven"],"header":{"User-Agent":"Lavf/58.12.100"}}},
+{"name":"爱酷🌾","type":1,"url":"http://42.157.129.139:7788/json/aiku.php?url=","ext":{"flag":["seven","mgtv","qiyi","imgo","爱奇艺","奇艺","qq","腾讯","youku","优酷","pptv","PPTV","letv","乐视","leshi","bilibili","哔哩哔哩","哔哩","mgtv","芒果","芒果"],"header":{"User-Agent":"Lavf/58.12.100"}}},
 {"name":"蚂蚁🌾","type":1,"url":"http://121.62.61.51:6888/api/?key=n669JAmIzmG1K813tb&url=","ext":{"flag":["NBY"],"header":{"User-Agent":"okhttp/4.1.0"}}},
 {"name":"米饭🌾","type":0,"url":"https://jx.yangtu.top/?url=","ext":{"flag":["爱奇艺","奇艺","qq","腾讯","youku","优酷","pptv","PPTV","letv","乐视","leshi","bilibili","哔哩哔哩","哔哩","mgtv","芒果","芒果"],"header":{"User-Agent":"Mozilla/5.0(Linux;Android6.0;Nexus5Build/MRA58N)AppleWebKit/537.36(KHTML,likeGecko)Chrome/120.0.0.0MobileSafari/537.36"}}}
 ],
