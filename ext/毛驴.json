@@ -2,7 +2,6 @@
     "主页url": "https://www.maolvys.com/",
     "副标题": ">备注 :</strong>&&<",
     "搜索url": "https://www.maolvys.com/vod/search/wd/{wd}.html",
-    "搜索数组": "public-list-box&&thumb-menu",
     "搜索图片": "data-src=\"&&\"",
     "搜索标题": "",
     "搜索副标题": "ft2\">&&</span",
