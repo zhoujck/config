@@ -7,5 +7,5 @@
     "搜索副标题": "ft2\">&&</span",
     "图片": "data-src=\"&&\"",
     "分类": "电影$1#连续剧$2#综艺$3#动漫$4",
-    "分类url": "https://www.maolvys.com/vod/show/id/{cateid}/page/{catepg}.html"
+    "分类url": "https://www.maolvys.com/vod/show/id/{cateid}/page/{catepg}/"
 }
