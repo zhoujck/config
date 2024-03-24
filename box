@@ -11,7 +11,7 @@
 ],
 
 "sites": [
-{ "key": "豆豆", "name": "糖果影视🍬3.7🍬", "type": 3, "api": "csp_DouDou", "searchable": 0, "quickSearch": 0, "filterable": 0 },
+{ "key": "豆豆", "name": "糖果影视🍬3.24🍬", "type": 3, "api": "csp_DouDou", "searchable": 0, "quickSearch": 0, "filterable": 0 },
 { "key": "dr_drpy_bili", "name": "🅱哔站纪录片", "type": 3, "api": "./js/lib/drpy2.min.js", "searchable": 0, "ext": "./js/doc.js" },
 { "key": "点播", "name": "点播", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537", "ext": "./ext/大片点播" },
 {"key":"lf_js_lf_live","name":"直播","type":3,"api":"./js/lib/lf_live_min.js","searchable":1,"changeable":0,"quickSearch":1,"filterable":1,"ext":"./json/liveapi.json"},
