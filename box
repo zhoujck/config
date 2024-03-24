@@ -1,9 +1,8 @@
 {
 //更改缩进（Shift+Tab和Tab） 
 
-//"spider":"https://fs-im-kefu.7moor-fs1.com/29397395/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1709930083738/fan.txt;md5;9fdf355f7d803698900ccf4ceb4626cb",
-
-"spider": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/Yoursmile.jar;md5;7B3C4534B2E7856406E435F095D4BA33",
+"spider":"https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1711263158682/fan.txt;md5;6fcaf5603964547fd0e414312eb5cd92",
+//"spider": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/Yoursmile.jar;md5;7B3C4534B2E7856406E435F095D4BA33",
 //"spider": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968",
 
 "lives": [
@@ -35,13 +34,14 @@
 //{ "key": "热播", "name": "热播┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/热播.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 { "key": "龟龟", "name": "龟龟┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/达达龟.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 { "key": "free", "name": "Free┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/free.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
-{ "key": "云播", "name":  "云播┃BQP", "type":3, "api":"csp_XBPQ","ext":"./ext/云播.json"},
+{ "key": "云播", "name":  "云播┃BQP", "type":3, "api":"csp_XBPQ","ext":"./ext/云播.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 
 //jar
 {"key":"csp_Jianpian","name":"荐片┃👍","type":3,"api":"csp_Jianpian","searchable":1,"quickSearch":1,"filterable":1,"ext":"http://api2.rinhome.com"},
 { "key": "酷看", "name": "酷看┃👍","type":3,"api":"csp_Kkys"},
 { "key": "南瓜", "name": "南瓜┃👍","type":3,"api":"csp_NanGua","playerType":2},
 { "key": "酷云", "name": "酷云┃👍", "type": 3, "api": "csp_Kunyu77" },
+{ "key": "苹果", "name": "苹果┃复活","type":3,"api":"csp_LiteApple","searchable":1,"quickSearch":1,"changeable":1},
 { "key": "一起看 ", "name": "一起┃App", "type": 3, "api": "csp_YQKan" },
 {"key":"csp_Sp360","name":"360┃聚合","type":3,"api":"csp_SP33"},
 
