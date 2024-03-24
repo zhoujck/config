@@ -29,7 +29,7 @@
 //XBPQ (必填) 主页地址，建议填list段中的url,程序会从url中提取homeUrl, url中至少要包含{cateId}和{catePg}才能被识别
 // https://www.zxzj.vip/vodshow/{cateId}-{area}--{class}-----{catePg}---{year}.html.com/vod/show/id/{cateId}/page/{catepg}.html"},
 
-{ "key": "毛驴", "name": "毛驴┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/毛驴.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
+//{ "key": "毛驴", "name": "毛驴┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/毛驴.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 { "key": "饭团", "name": "视觉┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/视觉.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 //{ "key": "热播", "name": "热播┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/热播.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 { "key": "龟龟", "name": "龟龟┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/达达龟.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
@@ -44,6 +44,8 @@
 { "key": "苹果", "name": "苹果┃复活","type":3,"api":"csp_LiteApple","searchable":1,"quickSearch":1,"changeable":1},
 { "key": "一起看 ", "name": "一起┃App", "type": 3, "api": "csp_YQKan" },
 {"key":"csp_Sp360","name":"360┃聚合","type":3,"api":"csp_SP33"},
+{"key":"毛驴","name":"毛驴┃直连","type":3,"api":"csp_MLYS","timeout":15,"searchable":1,"quickSearch":1,"changeable":1,"ext":"https://www.maolvys.com/"},
+
 
 { "key": "PanSearch", "name": "盘搜┃阿里（阿里云盘扫描观看）", "type": 3, "api": "csp_PanSearch", "ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd" },
 { "key": "七夜", "name": "七夜┃阿里", "type": 3, "api": "csp_Dovx",  "ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd" },
