@@ -43,9 +43,9 @@
 { "key": "苹果", "name": "苹果┃👍","type":3,"api":"csp_LiteApple"},
 { "key": "一起看 ", "name": "一起┃App", "type": 3, "api": "csp_YQKan" },
 {"key" : "csp_Sp360","name":"360┃聚合","type":3,"api":"csp_SP33"},
-{"key" : "白嫖","name":"白飘┃无广","type":3,"api":"csp_BaiPiao","playerType":2,"ext":"https://www.baipiaoys.com:9092/"},
-{"key" : "萌米","name":"萌米┃App","type":3,"api":"csp_AppTT","timeout":15,"playerType":1,"ext":"AO7TcBkd8Iifux0Y8Qze6tVlMg=="},
-{"key" : "比特","name":"比特┃秒播","type":3,"api":"csp_Bttwoo"},
+{"key" : "白嫖","name":"白飘┃👍","type":3,"api":"csp_BaiPiao","playerType":2,"ext":"https://www.baipiaoys.com:9092/"},
+{"key" : "萌米","name":"萌米┃👍","type":3,"api":"csp_AppTT","timeout":15,"playerType":1,"ext":"AO7TcBkd8Iifux0Y8Qze6tVlMg=="},
+{"key" : "比特","name":"比特┃👍","type":3,"api":"csp_Bttwoo"},
 
 { "key": "PanSearch", "name": "盘搜┃阿里（阿里云盘扫描观看）", "type": 3, "api": "csp_PanSearch", "ext": {"aliToken":"tvfan/token.txt","from":"4k|auto|fhd"}},
 { "key": "七夜", "name": "七夜┃阿里", "type": 3, "api": "csp_Dovx",  "ext": {"aliToken":"tvfan/token.txt","from":"4k|auto|fhd"}},
