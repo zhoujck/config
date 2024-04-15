@@ -16,6 +16,7 @@
 { "key": "点播", "name": "点播", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537", "ext": "./ext/大片点播" },
 {"key":"lf_js_lf_live","name":"直播","type":3,"api":"./js/lib/lf_live_min.js","searchable":1,"changeable":0,"quickSearch":1,"filterable":1,"ext":"./json/liveapi.json"},
 //{"key":"MV_vod","name":"卡拉OK","type":1,"api":"https://mv.wogg.link/mv/vod","searchable":1,"style":{ "type":"oval", "ratio":1.1 },"changeable":1,"filterable":1,"changeable":0},
+{ "key": "荐片", "name": "荐片┃👍", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/jp.js" },
 
 
 { "key": "csp_Bili", "name": "🅱哔站学习", "type": 3, "api": "csp_Bili", "searchable": 0, "changeable": 0, "ext": "./ext/bilibili.json" },
@@ -36,20 +37,20 @@
 { "key": "云播", "name":  "云播┃BQP", "type":3, "api":"csp_XBPQ","ext":"./ext/云播.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 
 //jar
-{ "key":"csp_Jianpian","name":"荐片┃👍","type":3,"api":"csp_Jianpian","searchable":1,"quickSearch":1,"filterable":1,"ext":"http://api2.rinhome.com"},
 { "key": "酷看", "name": "酷看┃👍","type":3,"api":"csp_Kkys"},
-{ "key": "南瓜", "name": "南瓜┃👍","type":3,"api":"csp_NanGua","playerType":2},
+//{ "key": "南瓜", "name": "南瓜┃👍","type":3,"api":"csp_NanGua","playerType":2},
 { "key": "酷云", "name": "酷云┃👍", "type": 3, "api": "csp_Kunyu77" },
-{ "key": "苹果", "name": "苹果┃👍","type":3,"api":"csp_LiteApple","searchable":1,"quickSearch":1,"changeable":1},
+{ "key": "苹果", "name": "苹果┃👍","type":3,"api":"csp_LiteApple"},
 { "key": "一起看 ", "name": "一起┃App", "type": 3, "api": "csp_YQKan" },
-{"key":"csp_Sp360","name":"360┃聚合","type":3,"api":"csp_SP33"},
-{"key":"毛驴","name":"毛驴┃直连","type":3,"api":"csp_MLYS","timeout":15,"searchable":1,"quickSearch":1,"changeable":1,"ext":"https://www.maolvys.com/"},
+{"key" : "csp_Sp360","name":"360┃聚合","type":3,"api":"csp_SP33"},
+{"key" : "白嫖","name":"白飘┃无广","type":3,"api":"csp_BaiPiao","playerType":2,"ext":"https://www.baipiaoys.com:9092/"},
+{"key" : "萌米","name":"萌米┃App","type":3,"api":"csp_AppTT","timeout":15,"playerType":1,"ext":"AO7TcBkd8Iifux0Y8Qze6tVlMg=="},
+{"key" : "比特","name":"比特┃秒播","type":3,"api":"csp_Bttwoo"},
 
-
-{ "key": "PanSearch", "name": "盘搜┃阿里（阿里云盘扫描观看）", "type": 3, "api": "csp_PanSearch", "ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd" },
-{ "key": "七夜", "name": "七夜┃阿里", "type": 3, "api": "csp_Dovx",  "ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd" },
-{ "key": "纸条", "name": "纸条┃阿里", "type": 3, "api": "csp_XiaoZhiTiao",  "ext": "http://127.0.0.1:9978/file/tvfan/token.txt+4k|auto|fhd"},
-{ "key": "玩偶哥哥", "name": "玩偶┃阿里", "type": 3, "api": "csp_WoGG", "ext": "http://127.0.0.1:9978/file/tvfan/token.txt+auto|4k|fhd$$$https://api.wogg.xyz/$$$弹" },
+{ "key": "PanSearch", "name": "盘搜┃阿里（阿里云盘扫描观看）", "type": 3, "api": "csp_PanSearch", "ext": {"aliToken":"tvfan/token.txt","from":"4k|auto|fhd"}},
+{ "key": "七夜", "name": "七夜┃阿里", "type": 3, "api": "csp_Dovx",  "ext": {"aliToken":"tvfan/token.txt","from":"4k|auto|fhd"}},
+{ "key": "纸条", "name": "纸条┃阿里", "type": 3, "api": "csp_XiaoZhiTiao",  "ext": {"aliToken":"tvfan/token.txt","from":"4k|auto|fhd"}},
+{"key":"玩偶","name":"玩偶┃阿里","type":3,"api":"csp_WoGG","searchable":1,"quickSearch":1,"changeable":0,"ext":{"aliToken":"tvfan/token.txt","quarkCookie":"tvfan/cookie.txt","from":"4k|auto|fhd","siteUrl":"https://api.wogg.xyz/","danMu":"弹"}},
 { "key": "alist", "name": "小鸭┃网盘", "type": 3, "playerType": "1", "api": "csp_AList",  "ext": { "vodPic": "https://s1.imagehub.cc/images/2023/11/13/98b4ce8284509da2525ddb9d8aac83a0.th.jpeg", "drives": [ { "name": "🦆托盘", "server": "https://pan.mediy.cn/" } ] } },
 { "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537", "ext": "./json/market.json" }
 ],
