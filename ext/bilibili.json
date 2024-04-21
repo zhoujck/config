@@ -4,7 +4,8 @@
 {"type_name": "语文","type_id": "人教版小学语文&order=stow"},
 {"type_name": "数学","type_id": "苏教版小学数学&order=stow"},
 {"type_name": "英语","type_id": "译林版小学英语&order=stow"},
-{"type_name": "象棋","type_id": "象棋研究者&order=stow"}
+{"type_name": "象棋","type_id": "象棋研究者&order=stow"},
+{"type_name": "台球","type_id": "台球&order=stow"}
  
 ],
 
@@ -104,6 +105,21 @@
 { "n": "四郎讲棋","v": "四郎讲棋&order=stow" },
 { "n": "板牙象棋","v": "板牙象棋&order=stow" },
 { "n": "悟空象棋","v": "悟空象棋&order=stow" },
+{"n": "","v": "" }
+]},
+{"key": "duration","name": "时长","value": [
+{"n": "全部","v": "0"},
+{"n": "60分钟以上","v": "4"},
+{"n": "30~60分钟","v": "3"},
+{"n": "10~30分钟","v": "2"},
+{"n": "10分钟以下", "v": "1"}
+]}],
+
+"台球&order=stow": [ 
+{"key": "tid","name": "分类",
+"value": [
+{ "n": "九球","v": "九球&order=stow" },
+{ "n": "斯诺克","v": "斯诺克&order=stow" },
 {"n": "","v": "" }
 ]},
 {"key": "duration","name": "时长","value": [
