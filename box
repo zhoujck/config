@@ -1,7 +1,8 @@
 {
 //更改缩进（Shift+Tab和Tab） 
 
-"spider":"https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1713606500967/fan.txt;md5;5d951f2dbd9e24ce7cc82c59d46f8417",
+"spider":"https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1713780171700/fan.txt;md5;4af14dca6964a737a88b982cb8b20055",
+"wallpaper":"https://深色壁纸.xxooo.cf/",
 
 "lives": [
 { "name": "🍬移动🍬", "type": 0, "url": "./json/移动live", "playerType": 1 },
@@ -46,8 +47,7 @@
 {"key":"PanSou","name":"盘搜┃搜索","type":3,"api":"csp_PanSou","searchable":1,"quickSearch":1,"changeable":0,"ext":{"aliToken":"tvfan/token.txt","from":"4k|auto|fhd"}},
 {"key":"UpYun","name":"Up搜┃搜索","type":3,"api":"csp_UpYun","searchable":1,"quickSearch":1,"changeable":0,"ext":{"aliToken":"tvfan/token.txt","from":"4k|auto|fhd"}},
 {"key":"PanSearch","name":"盘Se┃搜索","type":3,"api":"csp_PanSearch","searchable":1,"quickSearch":1,"changeable":0,"ext":{"aliToken":"tvfan/token.txt","from":"4k|auto|fhd"}},
-
-{"key":"玩偶","name":"玩偶┃4K","type":3,"api":"csp_WoGG","searchable":1,"quickSearch":1,"changeable":0,"ext":{"aliToken":"tvfan/token.txt","quarkCookie":"tvfan/cookie.txt","from":"4k|auto|fhd","siteUrl":"https://api.wogg.xyz/","danMu":"弹"}},
+{"key":"玩偶","name":"玩偶┃4K弹幕","type":3,"api":"csp_WoGG","searchable":1,"quickSearch":1,"changeable":0,"ext":{"aliToken":"tvfan/token.txt","quarkCookie":"tvfan/cookie.txt","from":"4k|auto|fhd","siteUrl":"https://api.wogg.xyz/","danMu":"弹"}},
 { "key": "alist", "name": "小鸭┃网盘", "type": 3, "playerType": "1", "api": "csp_AList",  "ext": { "vodPic": "https://s1.imagehub.cc/images/2023/11/13/98b4ce8284509da2525ddb9d8aac83a0.th.jpeg", "drives": [ { "name": "🦆托盘", "server": "https://pan.mediy.cn/" } ] } },
 { "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537", "ext": "./json/market.json" }
 ],
