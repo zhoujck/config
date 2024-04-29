@@ -1,5 +1,5 @@
 {  
-"spider":"./jar/pg.jar",
+"spider":"https://github.moeyy.xyz/https://raw.githubusercontent.com/gaotianliuyun/gao/master/jar/pg.jar",
 
 "lives":[{"name":"🍬糖果🍬","type":0,"url":"./json/live","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}"}],
 
