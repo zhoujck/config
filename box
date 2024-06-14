@@ -1,7 +1,7 @@
 {
 //更改缩进（Shift+Tab和Tab） 
 
-"spider":"https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1713780171700/fan.txt;md5;4af14dca6964a737a88b982cb8b20055",
+"spider":"https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1713780171700/fan.txt;md5;d8f21fa84abb5ff61d7f1a0b7a78ec26",
 "wallpaper":"https://深色壁纸.xxooo.cf/",
 
 "lives": [
@@ -27,20 +27,12 @@
 { "key": "点播", "name": "点播", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537", "ext": "./ext/大片点播" },
 { "key": "lf_js_lf_live","name":"直播","type":3,"api":"./js/lib/lf_live_min.js","searchable":1,"changeable":0,"quickSearch":1,"filterable":1,"ext":"./json/liveapi.json"},
 { "key": "310直播", "name": "🏀⚽球赛直播", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
-{ "key": "农民", "name": "农民┃聚合", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/农民影视.js" },
-{ "key": "荐片", "name": "荐片┃👍", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/jp.js" },
-//{ "key": "free", "name": "Free┃BQP", "type": 3, "api": "csp_XBPQ", "ext": "./ext/free.json", "jar": "./jar/c.jar;md5;bb155c3f0133bbce4756ad52003f5968"},
 
-//jar
-{ "key": "酷看", "name": "酷看┃👍","type":3,"api":"csp_Kkys"},
-//{ "key": "南瓜", "name": "南瓜┃👍","type":3,"api":"csp_NanGua","playerType":2},
-{ "key": "酷云", "name": "酷云┃👍", "type": 3, "api": "csp_Kunyu77" },
-{ "key": "苹果", "name": "苹果┃👍","type":3,"api":"csp_LiteApple"},
-{ "key": "一起看 ", "name": "一起┃App", "type": 3, "api": "csp_YQKan" },
-{"key" : "csp_Sp360","name":"360┃聚合","type":3,"api":"csp_SP33"},
-{"key" : "白嫖","name":"白飘┃👍","type":3,"api":"csp_BaiPiao","playerType":2,"ext":"https://www.baipiaoys.com:9092/"},
-{"key" : "萌米","name":"萌米┃👍","type":3,"api":"csp_AppTT","timeout":15,"playerType":1,"ext":"AO7TcBkd8Iifux0Y8Qze6tVlMg=="},
-{"key" : "比特","name":"比特┃👍","type":3,"api":"csp_Bttwoo"},
+{ "key": "荐片", "name": "荐片", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/jp.js" },
+{ "key": "酷看", "name": "酷看","type":3,"api":"csp_Kkys"},
+{"key" : "萌米","name":"萌米","type":3,"api":"csp_AppTT","timeout":15,"playerType":1,"ext":"AO7TcBkd8Iifux0Y8Qze6tVlMg=="},
+{"key" : "比特","name":"比特","type":3,"api":"csp_Bttwoo"},
+{"key" : "比特","name":"比特","type":3,"api":"csp_Bttwoo","searchable":1,"quickSearch":1,"changeable":1},
 
 {"key":"夸搜","name":"夸搜┃搜索","type":3,"api":"csp_PanSearch","searchable":1,"quickSearch":1,"changeable":0,"ext":{"pan":"quark","quarkCookie":"tvfan/cookie.txt","from":"4k|auto|fhd"}},
 {"key":"YiSo","name":"易搜┃搜索","type":3,"api":"csp_YiSo","searchable":1,"quickSearch":1,"changeable":0,"ext":{"aliToken":"tvfan/token.txt","from":"4k|auto|fhd"}},
