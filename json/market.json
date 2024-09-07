@@ -1,0 +1,62 @@
+[
+  {
+    "name": "推薦",
+    "list": [
+      {
+        "url": "https://codeberg.org/zhoujck/config/raw/branch/master/pic/app_icon.png",
+        "icon": "https://codeberg.org/zhoujck/config/raw/branch/master/pic/app_icon.png"
+      }
+    ]
+  },
+  {
+    "name": "正式版",
+    "list": [
+      {
+        "name": "電視-5+",
+        "url": "https://gitee.com/zhoujckk/config/raw/master/app/leanback-python-armeabi_v7a.apk",
+        "icon": "https://codeberg.org/zhoujck/config/raw/branch/master/pic/app_icon.png",
+        "version": "v7a"
+      },
+      {
+        "name": "電視-4x",
+        "url": "https://gitee.com/zhoujckk/config/raw/master/app/leanback.apk",
+        "icon": "https://codeberg.org/zhoujck/config/raw/branch/master/pic/app_icon.png",
+        "version": "4.0x"
+      },     
+      {
+        "name": "手機-java",
+        "url": "https://gitee.com/zhoujckk/config/raw/master/app/mobile-python-arm64_v8a.apk",
+        "icon": "https://codeberg.org/zhoujck/config/raw/branch/master/pic/app_icon.png",
+        "version": "v8a"
+      }
+    ]
+  },
+    {
+    "name": "备用通道",
+    "list": [
+      {
+        "name": "電視-java",
+        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/FongMi/Release/main/apk/release/leanback-java-armeabi_v7a.apk",
+        "icon": "https://codeberg.org/zhoujck/config/raw/branch/master/pic/app_icon.png",
+        "version": "v7a正式版"
+      },   
+      {
+        "name": "手機-java",
+        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/FongMi/Release/main/apk/release/mobile-java-arm64_v8a.apk",
+        "icon": "https://codeberg.org/zhoujck/config/raw/branch/master/pic/app_icon.png",
+        "version": "v8a正式版"
+      },
+            {
+        "name": "電視-java",
+        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/FongMi/Release/main/apk/dev/leanback-java-armeabi_v7a.apk",
+        "icon": "https://codeberg.org/zhoujck/config/raw/branch/master/pic/app_icon.png",
+        "version": "v7a内测版"
+      },      {
+        "name": "手机-java",
+        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/FongMi/Release/main/apk/dev/mobile-java-arm64_v8a.apk",
+        "icon": "https://codeberg.org/zhoujck/config/raw/branch/master/pic/app_icon.png",
+        "version": "v8a内测版"
+      }
+    ]
+  }
+]
