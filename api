@@ -1,0 +1,44 @@
+{
+    "urls": [
+
+       {
+            "url": "https://framagit.org/zhoujck/config/-/raw/master/box",
+            "name": "🍬糖果影视"
+        },
+
+        {
+            "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/zhoujck/config/master/box",
+            "name": "🍬糖果影视(github)"
+        },
+
+        {
+            "url": "https://gitee.com/zhoujckk/config/raw/master/box",
+            "name": "🍬糖果影视(gitee)"
+        },
+
+
+        {
+            "url": "http://肥猫.com",
+            "name": "📱网络〔肥猫〕"
+        },
+
+        {
+            "url": "http://ok321.top/ok",
+            "name": "📱网络〔OK〕"
+        },
+
+        {
+            "url": "https://git.acwing.com/iduoduo/orange/-/raw/main/jsm.json",
+            "name": "📱网络〔PG〕"
+        },
+
+        {
+            "url": "http://www.饭太硬.com/tv",
+            "name": "📱网络〔FTY〕"
+        },
+        {
+            "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/zhoujck/gao/master/0821.json",
+            "name": "📱网络〔高天流云〕"
+        }
+    ]
+}
