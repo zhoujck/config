@@ -6,8 +6,8 @@
 "搜索url": "https://www.cupfoxyy.com/vodsearch.html?wd={wd}",
 "数组二次截取": "",
 "数组": " <div class=\"myui-vodbox-content\">&& <div class=\"myui-vodbox-content\">",
-"图片": " <img src=\"\" />",
-"标题": "title\">&&</div>",
+"图片": " <img src=\"&&\" />",
+"标题": "https://www.cupfoxyy.com+title\">&&</div>",
 "副标题": "tag text-overflow\">&&</div>",
 "链接": "href=\"&&\">",
 
@@ -22,6 +22,6 @@
 "播放列表": "",
 "播放标题": "",
 "跳转解析": "",
-"播放链接": " <a href=\"&&\">",
+"播放链接": "https://www.cupfoxyy.com+<a href=\"&&\">",
 "跳转播放链接": ""
 }
