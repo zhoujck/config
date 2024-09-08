@@ -1,7 +1,8 @@
 {
 "请求头": "",
 "主页url": "https://www.cupfoxyy.com/",
-"分类url": "https://www.cupfoxyy.com/vod/{cateId}/area/{area}/page/{catePg}/year/{year}.html",
+"分类url": "https://www.cupfoxyy.com/vod/{cateId}.html",
+"分类": "电影$1#剧集$2#动漫$4#综艺$3",
 "搜索模式": "0",
 "搜索url": "https://www.cupfoxyy.com/vodsearch.html?wd={wd}",
 "数组二次截取": "",
