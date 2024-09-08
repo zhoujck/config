@@ -1,0 +1,27 @@
+{
+"请求头": "",
+"主页url": "https://www.cupfoxyy.com/",
+"分类url": "https://www.cupfoxyy.com/vod/{cateId}.html",
+"搜索模式": "1",
+"搜索url": "https://www.cupfoxyy.com/vodsearch.html?wd={wd}",
+"数组二次截取": "",
+"数组": " <div class=\"myui-vodbox-content\">&& <div class=\"myui-vodbox-content\">",
+"图片": " <img src=\"\" />",
+"标题": "title\">&&</div>",
+"副标题": "tag text-overflow\">&&</div>",
+"链接": "href=\"&&\">",
+
+
+
+"线路二次截取": "",
+"线路数组": "<div class=\"other-box\">&&</button>",
+"线路标题": "",
+
+"播放二次截取": "",
+"播放数组": "<div class=\"other-box\">&&</button>",
+"播放列表": "",
+"播放标题": "",
+"跳转解析": "",
+"播放链接": " <a href=\"&&\">",
+"跳转播放链接": ""
+}
