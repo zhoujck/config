@@ -12,13 +12,11 @@
 "副标题": "tag text-overflow\">&&</div>",
 "链接": "href=\"&&\">",
 
-"线路数组": "player_name&&</ul>",
-"线路标题": "swiper-slide-text\">&&</a>",
+"线路数组": "player_name&&</li>",
+"线路标题": "text\">&&</a>",
 
-"播放数组": "tab-content&&myui-vodbox",
-"播放列表": "",
-"播放标题": "",
-"播放链接": ""
+"播放数组": "lists-box fade in&&lists-box fade in",
+"播放标题": "html\">&&</a></div>"
 
 
 }
