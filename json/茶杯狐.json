@@ -12,11 +12,11 @@
 "副标题": "tag text-overflow\">&&</div>",
 "链接": "href=\"&&\">",
 
-"线路数组": "player_name&&</li>",
-"线路标题": "text\">&&</a>",
+"线路数组": "data-toggle&&/a></li>",
+"线路标题": ">&&<",
 
-"播放数组": "lists-box fade in&&lists-box fade in",
-"播放标题": "html\">&&</a></div>"
+"播放数组": "",
+"播放标题": ""
 
 
 }
