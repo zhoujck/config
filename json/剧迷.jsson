@@ -1,7 +1,7 @@
 {
 "请求头": "",
 "主页url": "https://gimy.im/",
-"分类url": "https://gimy.im/show/{cateId}.html",
+"分类url": "https://gimy.im/type/{cateId}.html",
 "分类": "电影$1#剧集$2#动漫$4#综艺$3",
 
 "数组二次截取": "",
