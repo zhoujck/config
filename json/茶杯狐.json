@@ -1,24 +1,24 @@
 {
 "请求头": "",
 "主页url": "https://www.cupfoxyy.com/",
-"分类url": "https://www.cupfoxyy.com/vod/{cateId}.html",
-"搜索模式": "1",
+"分类url": "https://www.cupfoxyy.com/vod/{cateId}/area/{area}/page/{catePg}/year/{year}.html",
+"搜索模式": "0",
 "搜索url": "https://www.cupfoxyy.com/vodsearch.html?wd={wd}",
 "数组二次截取": "",
-"数组": " <div class=\"myui-vodbox-content\">&& <div class=\"myui-vodbox-content\">",
-"图片": "https://www.cupfoxyy.com+<img src=\"&&\" />",
+"数组": "myui-vodbox-content\">&&myui-vodbox-content\">",
+"图片": "img src=\"&&\" />",
 "标题": "title\">&&</div>",
 "副标题": "tag text-overflow\">&&</div>",
-"链接": "https://www.cupfoxyy.com+href=\"&&\">",
+"链接": "href=\"&&\">",
 
 
 
 "线路二次截取": "",
-"线路数组": "nav nav-btn swiper-wrapper clearfix\">&&</a>",
+"线路数组": "<li class=\"swiper-slide player_name\">&&</a>",
 "线路标题": "swiper-slide-text\">&&</a>",
 
 "播放二次截取": "",
-"播放数组": "id=\"playlist2&&</a>",
+"播放数组": "class=\"listitem&&</a>",
 "播放列表": "",
 "播放标题": "html\">&&</a>",
 "跳转解析": "",
