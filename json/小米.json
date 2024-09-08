@@ -1,3 +1,4 @@
+{
 "请求头": "User-Agent$okhttp/4.1.0",
 "主页url": "http://124.222.116.5/mb/api.php/provide/vod/?ac=list&ac=detail",
 "分类url": "http://124.222.116.5/mb/api.php/provide/vod/?ac=detail&t={cateId}&pg={catePg};;v",
@@ -25,3 +26,4 @@
 "跳转解析": "默认$http://pan.qiaoji8.com/tvbox/neibu.php?url=",
 "播放链接": "解析+$&&\"",
 "跳转播放链接": "url\"*\"&&\""
+}
