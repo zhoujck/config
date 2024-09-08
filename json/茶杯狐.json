@@ -4,7 +4,7 @@
 "分类url": "https://www.cupfoxyy.com/vod/{cateId}.html",
 "分类": "电影$1#剧集$2#动漫$4#综艺$3",
 "搜索模式": "0",
-"搜索url": "https://www.cupfoxyy.com/vodsearch.html?wd={wd}",
+"搜索url": "https://www.cupfoxyy.com/vodsearch.html?wd={wd}.html",
 "数组二次截取": "",
 "数组": "myui-vodbox-content\">&&myui-vodbox-content\">",
 "图片": "img src=\"&&\" />",
