@@ -18,7 +18,7 @@
 
 
 
-{"key":"laoyazy.com","name":"💕老鸭(直连)","type":1,"api":"https://api.apilyzy.com/api.php/provide/vod/?ac=list",
+{"key":"laoyazy.com","name":"💕老鸭(直连)","type":1,"api":"https://api.apilyzy.com/api.php/provide/vod/?ac=list"},
 
 {"key":"wmcj8.com","name":"成人05","type":0,"api":"http://wmcj8.com/inc/sapi.php","searchable":1,"recordable":0,"style":{"type":"rect","ratio":1.33},"header":{"Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7","User-Agent":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/117.0.0.0Safari/537.36"}},
 {"key":"apilj.com","name":"成人06","type":1,"api":"http://apilj.com/api.php/provide/vod/at/json/","playUrl": "json:http://127.0.0.1:10079/parse/?thread=0&proxy=&url=","searchable":1,"recordable":0,"style":{"type":"rect","ratio":1.33},"header":{"Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7","User-Agent":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/117.0.0.0Safari/537.36"}},
