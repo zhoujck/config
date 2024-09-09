@@ -6,7 +6,7 @@
 "sites":[ 
 
 {"key": "豆豆","name": "糖果影视","type": 3,"api": "csp_DouDou","jar": "https://fs-im-kefu.7moor-fs1.com/29397395/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1707932830072/fan.txt;md5;be7060a567ce9e8021946b6de0ed8dae"},
-{ "key": "商店", "name": "筛选", "type": 3, "api": "csp_Market",  "jar": "./jar/FM.jar;md5;d1c71df1849f7e6737c90ccb92409537", "ext": "./json/18+/18筛选" },
+{ "key": "商店", "name": "筛选", "type": 3, "api": "csp_Market",  "jar": "./jar/FM.jar", "ext": "./json/18+/18筛选" },
 
 {"key":"lf_js_lf_live","name":"直播","type":3,"api":"./js/lib/lf_live_min.js","style":{ "type":"oval"},"searchable":1,"changeable":0,"quickSearch":1,"filterable":1,"ext":"./json/18+/18api2"},
 
