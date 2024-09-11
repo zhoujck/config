@@ -1,15 +1,15 @@
 {
 "请求头": "",
-"主页url": "https://gimy.im/",
-"分类url": "https://gimy.im/show/{cateId}/page/{catePg}.html",
+"主页url": "https://www.wandou9.com/",
+"分类url": "https://www.wandou9.com/wd/{cateId}.html",
 "分类": "电影$1#剧集$2#动漫$4#综艺$3",
 
 
 "数组二次截取": "",
-"数组": "video-pic loading&&</h5>",
+"数组": "<div class=\"c-geToYD\">&&</a>",
 "图片": "data-original=\"&&\"",
-"标题": "title\"&&\"",
-"副标题": "note text-bg-r\">&&</span>",
+"标题": "name\"&&\"",
+"副标题": "",
 "链接": "href=\"&&\"",
 
 "搜索模式": "",
@@ -23,11 +23,11 @@
 "主演": "",
 "简介": "",
 
-"线路数组": "padding-left: 20px&&/a>",
-"线路标题": ">&&<",
+"线路数组": "hl-slide-swiper&&</a>",
+"线路标题": "art=\"&&\"",
 
-"播放数组": " <li ><a href&&</a></li>",
-"播放标题": ">&&<",
+"播放数组": " li class&&<li>",
+"播放标题": "html\">&&<",
 "倒序":"0"
 
 
