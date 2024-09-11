@@ -40,7 +40,7 @@
 {"key":"界视","name":"🌼界视┃影视","type":3,"api":"csp_XBPQ","jar":"./jar/xiaomi.jar","ext":"./json/界影视.json"},
 {"key":"小米","name":"🌼小米┃影视","type":3,"api":"csp_XBPQ","jar":"./jar/xiaomi.jar","ext":"./json/小米.json"},
 {"key":"茶杯","name":"🌼茶杯┃影视","type":3,"api":"csp_XBPQ","jar":"./jar/xiaomi.jar","ext":"./json/茶杯狐.json"},
-{"key":"豌豆","name":"🌼豌豆┃影视","type":3,"api":"csp_XBPQ","jar":"./jar/xiaomi.jar","ext":"./json/豌豆.json"},
+{"key":"茶杯2025","name":"🌼茶杯2025影视","type":3,"api":"csp_XBPQ","jar":"./jar/xiaomi.jar","ext":"./json/茶杯2025.json"},
 
 {"key":"米搜","name":"🦋小米┃盘搜","type":3,"api":"csp_MIPanSo","searchable":1,"quickSearch":1,"changeable":0,"ext": {"Cloud-drive":"tvfan/Cloud-drive.txt","from":"4k|auto"}},
 {"key":"抠搜","name":"😻抠抠┃搜搜","type":3,"api":"csp_KkSs","searchable":1,"quickSearch":1,"changeable":0,"ext": {"Cloud-drive":"tvfan/Cloud-drive.txt","from":"4k|auto"}},
