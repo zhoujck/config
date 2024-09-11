@@ -1,0 +1,35 @@
+{
+"请求头": "",
+"主页url": "https://www.cupfox2025.com/",
+"分类url": "https://www.cupfox2025.com/movie/fenlei{cateId}.html",
+"分类": "电影$1#剧集$2#动漫$4#综艺$3",
+
+
+"数组二次截取": "",
+"数组": "<a\">&&</a>",
+"图片": "data-original=\"&&\"",
+"标题": "title=\"&&\"",
+"副标题": "module-item-note\">&&<",
+"链接": "href=\"&&\"",
+
+"搜索模式": "",
+"搜索url": "https://www.cupfox2025.com/vodsearch/wd/{wd}.html",
+"搜索数组": "",
+"搜索图片": "",
+"搜索标题": "",
+"搜索副标题": "",
+
+"导演": "",
+"主演": "",
+"简介": "",
+
+"线路数组": "module-tab-item tab-item&&</div>",
+"线路标题": "<span>&&</span>",
+
+"播放数组": "module-play-list-link>&&</a>",
+"播放标题": "title=\"&&\"",
+"播放链接": "",
+"倒序":"0"
+
+
+}
