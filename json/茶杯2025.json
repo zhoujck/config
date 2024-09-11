@@ -1,7 +1,7 @@
 {
 "请求头": "",
 "主页url": "https://www.cupfox2025.com/",
-"分类url": "https://www.cupfox2025.com/movie/fenlei{cateId}.html",
+"分类url": "https://www.cupfox2025.com/vodshow/id/fenlei{cateId}/page/{catepg}.html",
 "分类": "电影$1#剧集$2#动漫$4#综艺$3",
 
 
