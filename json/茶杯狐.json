@@ -1,29 +1,29 @@
 {
 "请求头": "",
-"主页url": "https://www.cupfoxyy.com/",
-"分类url": "https://www.cupfoxyy.com/vod/{cateId}.html",
-"分类": "电影$1#剧集$2#动漫$4#综艺$3",
+"主页url": "https://cupfox.cupfox.la/",
+"分类url": "https://cupfox.cupfox.la/fox/{cateId}.html",
+"分类": "电影$dianying#剧集$TV#动漫$dongman#综艺$zongyi",
 
 "数组二次截取": "",
-"数组": "myui-vodbox-content\">&&myui-vodbox-content\">",
+"数组": "",
 "图片": "img src=\"&&\" />",
 "标题": "title\">&&</div>",
 "副标题": "tag text-overflow\">&&</div>",
 "链接": "href=\"&&\">",
 
 "搜索模式": "",
-"搜索url": "https://www.cupfoxyy.com/vodsearch.html?wd={wd}.html",
-"搜索数组": "myui-vodbox-content&&card-info",
-"搜索图片": "img src=\"&&\" />",
-"搜索标题": "title\">&&</div>",
-"搜索副标题": "tag text-overflow\">&&</div>",
+"搜索url": "https://cupfox.cupfox.la/茶杯狐免费在线/{wd}-------------.html.html",
+"搜索数组": "",
+"搜索图片": "",
+"搜索标题": "",
+"搜索副标题": "",
 
-"导演": "导演:</div>&&</div>",
-"主演": "主演:</div>&&</div>",
-"简介": "<p>&&</p>",
+"导演": "",
+"主演": "",
+"简介": "",
 
-"线路数组": "data-toggle&&/a></li>",
-"线路标题": ">&&<",
+"线路数组": "",
+"线路标题": "",
 
 "播放数组": "",
 "播放标题": ""
