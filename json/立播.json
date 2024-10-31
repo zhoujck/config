@@ -12,7 +12,7 @@
 "链接": "href=\"&&\">",
 
 "搜索模式": "",
-"搜索url": "https://libvioo.com/livodsearch/-------------.html?wd={wd}&submit=",
+"搜索url": "https://libvioo.com/livodsearch/-------------.html?wd={wd}",
 "搜索数组": "v-thumb stui-vodlist__thumb lazyload&&<p class=\"margin-0 \">",
 "搜索图片": "data-original=\"&&\"",
 "搜索标题": "title=\"&&\"",
@@ -23,11 +23,11 @@
 "主演": "主演：</span>&&</p>",
 "简介": "",
 
-"线路数组": "",
+"线路数组": "<h3 class=\"title\">&&</h3>",
 "线路标题": "",
 
-"播放数组": "",
-"播放标题": ""
+"播放数组": "my-find-frist-play&&/a></li>",
+"播放标题": "html\">&&<"
 
 
 }
