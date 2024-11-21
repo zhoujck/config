@@ -13,7 +13,7 @@
     "list": [
       {
         "name": "電視-5+",
-        "url": "https://framagit.org/zhoujck/config/-/raw/main/app/leanback-python-armeabi_v7a.apk",
+        "url": "https://framagit.org/zhoujck/config/-/raw/main/app/leanback-java-armeabi_v7a.apk",
         "icon": "https://framagit.org/zhoujck/config/-/raw/main/pic/app_icon.png",
         "version": "v7a"
       },
@@ -25,7 +25,7 @@
       },     
       {
         "name": "手機-java",
-        "url": "https://framagit.org/zhoujck/config/-/raw/main/app/mobile-python-arm64_v8a.apk",
+        "url": "https://framagit.org/zhoujck/config/-/raw/main/app/mobile-java-arm64_v8a.apk",
         "icon": "https://framagit.org/zhoujck/config/-/raw/main/pic/app_icon.png",
         "version": "v8a"
       }
@@ -45,17 +45,6 @@
         "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/FongMi/Release/main/apk/release/mobile-java-arm64_v8a.apk",
         "icon": "https://framagit.org/zhoujck/config/-/raw/main/pic/app_icon.png",
         "version": "v8a正式版"
-      },
-            {
-        "name": "電視-java",
-        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/FongMi/Release/main/apk/dev/leanback-java-armeabi_v7a.apk",
-        "icon": "https://framagit.org/zhoujck/config/-/raw/main/pic/app_icon.png",
-        "version": "v7a内测版"
-      },      {
-        "name": "手机-java",
-        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/FongMi/Release/main/apk/dev/mobile-java-arm64_v8a.apk",
-        "icon": "https://framagit.org/zhoujck/config/-/raw/main/pic/app_icon.png",
-        "version": "v8a内测版"
       }
     ]
   }
