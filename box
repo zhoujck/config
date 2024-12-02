@@ -7,10 +7,8 @@
 "logo": "./pic/app_icon.png",
 
 "lives": [
-{ "name": "🍬糖果🍬", "type": 0, "url": "./json/移动live", "playerType": 1 },
-{"name":"YanG•综合","type":0,"url":"https://github.moeyy.xyz/https://raw.githubusercontent.com/YanG-1989/m3u/main/Gather.m3u","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","logo":"https://epg.112114.xyz/logo/{name}.png"},
-{"name":"CUTV","type":0,"url":"https://github.moeyy.xyz/https://raw.githubusercontent.com/YueChan/Live/main/CUTV.txt","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","logo":"https://epg.112114.xyz/logo/{name}.png"},
-{"name":"范明明•ipv6","type":0,"url":"https://github.moeyy.xyz/https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","logo":"https://epg.112114.xyz/logo/{name}.png"}
+{ "name": "🍬糖果IPV4🍬", "type": 0, "url": "./json/移动ipv4", "playerType": 1 },
+{ "name": "🍬糖果IPV6🍬", "type": 0, "url": "./json/移动ipv6", "playerType": 1 }
 ],
 
 "sites": [
