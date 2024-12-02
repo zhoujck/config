@@ -23,7 +23,7 @@
 {"key":"立播","name":"🌼立播┃影视","type":3,"api":"csp_XBPQ","jar":"./jar/xiaomi.jar","ext":"./json/立播.json"},
 {"key":"界视","name":"🌼界视┃影视","type":3,"api":"csp_XBPQ","jar":"./jar/xiaomi.jar","ext":"./json/界影视.json"},
 {"key":"小米","name":"🌼小米┃影视","type":3,"api":"csp_XBPQ","jar":"./jar/xiaomi.jar","ext":"./json/小米.json"},
-{"key":"茶杯2025","name":"🍬糖果推荐🍬","type":3,"api":"csp_XBPQ","jar":"./jar/xiaomi.jar","ext":"./json/茶杯2025.json"},
+{"key":"茶杯2025","name":"🍬糖果🍬","type":3,"api":"csp_XBPQ","jar":"./jar/xiaomi.jar","ext":"./json/茶杯2025.json"},
 
 
 {"key":"文采","name":"💮文采┃秒播","type":3,"api":"csp_Jpys","playerType":2,"searchable":1,"quickSearch":1,"changeable":1},
