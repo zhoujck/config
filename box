@@ -8,7 +8,10 @@
 
 "lives": [
 { "name": "🍬糖果IPV4🍬", "type": 0, "url": "./json/移动ipv4", "playerType": 1 },
-{ "name": "🍬糖果IPV6🍬", "type": 0, "url": "./json/移动ipv6", "playerType": 1 }
+{ "name": "🍬糖果IPV6🍬", "type": 0, "url": "./json/移动ipv6", "playerType": 1 },
+{"name":"YanG•体育","type":0,"url":"https://tv.iill.top/m3u/Sport","ua": "okhttp/3.15","playerType":2},
+{"name":"范明明•ipv6","type":0,"url":"https://live.fanmingming.com/tv/m3u/ipv6.m3u","playerType":2,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","logo":"https://epg.112114.xyz/logo/{name}.png"},
+{"name":"YueChan•综合","type":0,"url":"https://github.moeyy.xyz/https://raw.githubusercontent.com/YueChan/Live/main/IPTV.m3u","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","logo":"https://epg.112114.xyz/logo/{name}.png"}
 ],
 
 "sites": [
