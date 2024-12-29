@@ -12,19 +12,19 @@
     "name": "正式版",
     "list": [
       {
-        "name": "電視-5+",
+        "name": "電視-5.0",
         "url": "https://framagit.org/zhoujck/config/-/raw/main/app/leanback-java-armeabi_v7a.apk",
         "icon": "https://framagit.org/zhoujck/config/-/raw/main/pic/app_icon.png",
         "version": "v7a"
       },
       {
-        "name": "電視-4x",
+        "name": "電視-4.x",
         "url": "https://framagit.org/zhoujck/config/-/raw/main/app/leanback.apk",
         "icon": "https://framagit.org/zhoujck/config/-/raw/main/pic/app_icon.png",
         "version": "4.0x"
       },     
       {
-        "name": "手機-java",
+        "name": "手機-64",
         "url": "https://framagit.org/zhoujck/config/-/raw/main/app/mobile-java-arm64_v8a.apk",
         "icon": "https://framagit.org/zhoujck/config/-/raw/main/pic/app_icon.png",
         "version": "v8a"
