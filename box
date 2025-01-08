@@ -29,7 +29,7 @@
 {"key":"界视","name":"🌼界视┃影视","type":3,"api":"csp_XBPQ","jar":"./jar/xiaomi.jar","ext":"./json/界影视.json"},
 {"key":"小米","name":"🌼小米┃影视","type":3,"api":"csp_XBPQ","jar":"./jar/xiaomi.jar","ext":"./json/小米.json"},
 {"key":"茶杯2025","name":"🍬糖果🍬","type":3,"api":"csp_XBPQ","jar":"./jar/xiaomi.jar","ext":"./json/茶杯2025.json"},
-{"key":"布谷","name":"🌼布谷┃4k","type":3,"api":"csp_XBPQ","jar":"./jar/xiaomi.jar","ext":"./json/布谷4K.json"},
+{"key":"农民","name":"🌼农民┃影视","type":3,"api":"csp_XBPQ","jar":"./jar/xiaomi.jar","ext":"./json/农民.json"},
 
 {"key":"Lib","name": "🌟立播┃秒播","type": 3,"api": "csp_Libvio","searchable": 1,"quickSearch": 1,"changeable":1,"ext": {"Cloud-drive":"tvfan/Cloud-drive.txt","from":"4k|auto"}},
 {"key":"文采","name":"💮文采┃秒播","type":3,"api":"csp_Jpys","playerType":2,"searchable":1,"quickSearch":1,"changeable":1},
