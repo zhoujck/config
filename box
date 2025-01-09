@@ -27,10 +27,10 @@
 { "key":"csp_Bili", "name": "🅱哔站学习", "type": 3, "api": "csp_Bili", "searchable": 0, "changeable": 0, "ext": "./ext/bilibili.json" },
 { "key": "310直播", "name": "🏀⚽球赛直播", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
 
-{"key":"立播","name":"🌼立播┃影视","type":3,"api":"csp_XBPQ","jar":"./jar/xiaomi.jar","ext":"./json/立播.json"},
-{"key":"界视","name":"🌼界视┃影视","type":3,"api":"csp_XBPQ","jar":"./jar/xiaomi.jar","ext":"./json/界影视.json"},
-{"key":"小米","name":"🌼小米┃影视","type":3,"api":"csp_XBPQ","jar":"./jar/xiaomi.jar","ext":"./json/小米.json"},
-{"key":"茶杯2025","name":"🍬糖果🍬","type":3,"api":"csp_XBPQ","jar":"./jar/xiaomi.jar","ext":"./json/茶杯2025.json"},
+{"key":"立播","name":"🌼立播┃影视","type":3,"api":"csp_XBPQ","jar":"./jar/Feimao.txt","ext":"./json/立播.json"},
+{"key":"界视","name":"🌼界视┃影视","type":3,"api":"csp_XBPQ","jar":"./jar/Feimao.txt","ext":"./json/界影视.json"},
+{"key":"小米","name":"🌼小米┃影视","type":3,"api":"csp_XBPQ","jar":"./jar/Feimao.txt","ext":"./json/小米.json"},
+{"key":"茶杯2025","name":"🌼茶杯┃影视"","type":3,"api":"csp_XBPQ","jar":"./jar/Feimao.txt","ext":"./json/茶杯2025.json"},
 {"key":"农民","name":"🌼农民┃影视","type":3,"api":"csp_XBPQ","jar":"./jar/Feimao.txt","ext":"./json/农民.json"},
 
 {"key":"Lib","name": "🌟立播┃秒播","type": 3,"api": "csp_Libvio","searchable": 1,"quickSearch": 1,"changeable":1,"ext": {"Cloud-drive":"tvfan/Cloud-drive.txt","from":"4k|auto"}},
