@@ -27,7 +27,7 @@
 { "key":"csp_Bili", "name": "🅱哔站学习", "type": 3, "api": "csp_Bili", "searchable": 0, "changeable": 0, "ext": "./ext/bilibili.json" },
 { "key": "310直播", "name": "🏀⚽球赛直播", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
 
-{"key":"玩偶","name":"👽玩偶哥哥┃4K弹幕","type":3,"api":"csp_WoGG","searchable":1,"quickSearch":1,"changeable":0, "ext": {"Cloud-drive":"tvfan/Cloud-drive.txt","from":"4k|auto","siteUrl":"https://www.wogg.net/","danMu":"弹"}},
+{"key":"玩偶","name":"🍬玩偶┃4K","type":3,"api":"csp_WoGG","searchable":1,"quickSearch":1,"changeable":0, "ext": {"Cloud-drive":"tvfan/Cloud-drive.txt","from":"4k|auto","siteUrl":"https://www.wogg.net/","danMu":"弹"}},
 {"key":"立播","name":"🌼立播┃影视","type":3,"api":"csp_XBPQ","jar":"./jar/Feimao.txt","ext":"./json/立播.json"},
 {"key":"界视","name":"🌼界视┃影视","type":3,"api":"csp_XBPQ","jar":"./jar/Feimao.txt","ext":"./json/界影视.json"},
 {"key":"小米","name":"🌼小米┃影视","type":3,"api":"csp_XBPQ","jar":"./jar/Feimao.txt","ext":"./json/小米.json"},
