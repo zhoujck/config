@@ -29,7 +29,7 @@
 
 { "key": "立播", "name": "🌼立播","type":3,"api":"csp_XBPQ","jar":"./jar/Feimao.txt","ext":"./json/立播.json"},
 //{ "key": "界视", "name": "🌼界视","type":3,"api":"csp_XBPQ","jar":"./jar/Feimao.txt","ext":"./json/界影视.json"},
-//{ "key": "小米", "name": "🌼小米","type":3,"api":"csp_XBPQ","jar":"./jar/Feimao.txt","ext":"./json/小米.json"},
+{ "key": "低端", "name": "🌼低端","type":3,"api":"csp_XBPQ","jar":"./jar/Feimao.txt","ext":"./json/低端.json"},
 { "key": "茶杯", "name": "🌼茶杯","type":3,"api":"csp_XBPQ","jar":"./jar/Feimao.txt","ext":"./json/茶杯2025.json"},
 
 { "key": "玩偶", "name": "🍬玩偶", "api": "csp_Wogg", "type": 3, "searchable": 1, "playerType": 2, "timeout": 30, "changeable": 0, "ext": "https://www.wogg.net" },
