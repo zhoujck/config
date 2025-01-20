@@ -38,7 +38,7 @@
 { "key": "饭团", "name": "🍎饭团", "type": 3, "api": "csp_Fantuan", "click": "document.querySelector(\"#playleft iframe\").contentWindow.document.querySelector(\"#start\").click();", "ext": "https://www.fantuan.vip" },
 { "key": "蜡笔", "name": "🍎蜡笔", "type": 3, "api": "csp_Duopan", "filterable": 1, "ext": { "site_urls": [ "https://duopan.fun", "http://labipan.com", "http://feimaoai.site", "https://mihdr.top" ], "url_key": "Duopan2" } },
 { "key": "云播", "name": "🍎️云播", "type": 3, "api": "csp_Tvyb" },
-{ "key": "苹果", "name": "🍎苹果", "type": 3, "api": "csp_LiteApple","searchable":1,"quickSearch":1,"changeable":1},
+{ "key": "三六", "name": "🍎️官源", "type": 3, "api": "csp_SP360" },
 { "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar", "ext": "./json/market.json" }
 ],
 
