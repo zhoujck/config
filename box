@@ -39,9 +39,6 @@
 { "key": "蜡笔", "name": "🍎蜡笔┃影视", "type": 3, "api": "csp_Duopan", "filterable": 1, "ext": { "site_urls": [ "https://duopan.fun", "http://labipan.com", "http://feimaoai.site", "https://mihdr.top" ], "url_key": "Duopan2" } },
 { "key": "云播", "name": "🍎️云播┃影视", "type": 3, "api": "csp_Tvyb" },
 { "key": "苹果", "name": "🍎苹果┃不卡", "type": 3, "api": "csp_LiteApple","searchable":1,"quickSearch":1,"changeable":1},
-
-
-
 { "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar", "ext": "./json/market.json" }
 ],
 
@@ -51,6 +48,6 @@
 {"name":"Json轮询","type":2,"url":"Sequence"},
 { "name": "qiyi[官源]", "type": 1, "url": "http://39.104.230.177:1122/lxjx/myyk.php?url=" },
 { "name": "肥猫最可爱", "type": 1, "url": "http://xn--ihqu10cn4c.xn--z7x900a.live/jx.php?id=2&url=", "ext": { "flag": [ "qq", "腾讯", "qiyi", "爱奇艺", "奇艺", "youku", "优酷", "tucheng", "sohu", "搜狐", "letv", "乐视", "mgtv", "芒果", "tnmb", "seven", "yzm", "aliyun", "RJuMao", "bilibili", "1905", "xinvip", "XAL", "qiqi", "XALS", "YuMi-vip" ] } }
-]ame":"抖音嗅探","hosts":["douyin.com"],"regex":["is_play_url="]}
+]
 
 }
