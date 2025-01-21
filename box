@@ -9,7 +9,7 @@
 "lives": [
 { "name": "🍬糖果IPV4🍬", "type": 0, "url": "./json/移动ipv4", "playerType": 1 },
 { "name": "🍬糖果IPV6🍬", "type": 0, "url": "./json/移动ipv6", "playerType": 1 },
-{"name":"YueChan•综合","type":0,"url":"https://github.moeyy.xyz/https://raw.githubusercontent.com/YueChan/Live/main/APTV.m3u","playerType":1,"epg":"http://epg.112114.xyz/?ch={name}&date={date}","logo":"https://epg.112114.xyz/logo/{name}.png"}
+{ "name": "备用•综合", "type":0, "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/skddyj/iptv/main/IPTV.m3u","playerType":1}
 ],
 
 "sites": [
