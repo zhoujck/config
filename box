@@ -1,5 +1,5 @@
 {
-//更改缩进（Shift+Tab和Tab） 
+//更改缩进（Shift+Tab和Tab） https://raw.githubusercontent.com/fanmingming/live/refs/heads/main/tv/m3u/ipv6.m3u
 "spider": "./jar/Feimao.txt",
 
 "wallpaper": "http://like.xn--z7x900a.com/ppic/feimao.php",
@@ -7,9 +7,10 @@
 "logo": "./pic/app_icon.png",
 
 "lives": [
-{ "name": "🍬糖果IPV4🍬", "type": 0, "url": "./json/移动ipv4", "playerType": 1 },
-{ "name": "🍬糖果IPV6🍬", "type": 0, "url": "./json/移动ipv6", "playerType": 1 },
-{ "name": "备用•综合", "type":0, "url": "https://gh.llkk.cc/https://raw.githubusercontent.com/fanmingming/live/refs/heads/main/tv/m3u/ipv6.m3u","playerType":1}
+{ "name": "🍬移动IPV4🍬", "type": 0, "url": "./json/移动ipv4", "playerType": 1 },
+{ "name": "🍬移动IPV6🍬", "type": 0, "url": "./json/移动ipv6", "playerType": 1 },
+{ "name": "移动•备用", "type":0, "url": "https://gh.llkk.cc/https://raw.githubusercontent.com/fanmingming/live/refs/heads/main/tv/m3u/ipv6.m3u","playerType":1},
+{ "name": "电信•备用", "type":0, "url": "https://gh.llkk.cc/https://raw.githubusercontent.com/fanmingming/live/refs/heads/main/tv/m3u/itv.m3u","playerType":1}
 ],
 
 "sites": [
