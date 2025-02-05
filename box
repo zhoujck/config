@@ -7,7 +7,7 @@
 "logo": "./pic/app_icon.png",
 
 "lives": [
-{ "name": "🍬移动IPV4🍬", "type": 0, "url": "./json/移动ipv4", "playerType": 1 },
+{ "name": "🍬IPV4🍬", "type": 0, "url": "./json/移动ipv4", "playerType": 1 },
 { "name": "🍬移动IPV6🍬", "type": 0, "url": "./json/移动ipv6", "playerType": 1 },
 { "name": "备用1", "type":0, "url": "https://live.fanmingming.cn/tv/m3u/ipv6.m3u","playerType":1},
 { "name": "备用2", "type":0, "url": "https://live.iptv365.org/live.txt","playerType":1}
