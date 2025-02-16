@@ -30,11 +30,11 @@
 {"key":"文采","name":"💮文采","type":3,"api":"csp_Jpys","playerType":2,"searchable":1,"quickSearch":1,"changeable":1},
 {"key":"厂长","name":"📔厂长","type":3,"api":"csp_NewCz","playerType":2,"searchable":1,"quickSearch":1,"changeable":1,"ext": "https://www.czzyvideo.com/"},
 
-{ "key": "线路5", "name": "🍬来看", "type": 3, "api": "csp_Lkdy", "jar": "Feimao.txt"},
-{ "key": "线路6", "name": "🍬农民", "type": 3, "api": "csp_Nongm", "ext": "https://wwgz.cn", "jar": "Feimao.txt"},
-{ "key": "线路8", "name": "🍬蜡笔", "type": 3, "api": "csp_Duopan", "filterable": 1, "ext": { "site_urls": [ "https://duopan.fun", "http://labipan.com", "http://feimaoai.site", "https://mihdr.top" ], "url_key": "Duopan2" }, "jar": "Feimao.txt"},
-{ "key": "线路9", "name": "🍬云播", "type": 3, "api": "csp_Tvyb" , "jar": "Feimao.txt"},
-{ "key": "线路10", "name": "🍬官源", "type": 3, "api": "csp_SP360" , "jar": "Feimao.txt"},
+{ "key": "线路5", "name": "🍬来看", "type": 3, "api": "csp_Lkdy", "jar": "./jar/Feimao.txt"},
+{ "key": "线路6", "name": "🍬农民", "type": 3, "api": "csp_Nongm", "ext": "https://wwgz.cn", "jar": "./jar/Feimao.txt"},
+{ "key": "线路8", "name": "🍬蜡笔", "type": 3, "api": "csp_Duopan", "filterable": 1, "ext": { "site_urls": [ "https://duopan.fun", "http://labipan.com", "http://feimaoai.site", "https://mihdr.top" ], "url_key": "Duopan2" }, "jar": "./jar/Feimao.txt"},
+{ "key": "线路9", "name": "🍬云播", "type": 3, "api": "csp_Tvyb" , "jar": "./jar/Feimao.txt"},
+{ "key": "线路10", "name": "🍬官源", "type": 3, "api": "csp_SP360" , "jar": "./jar/Feimao.txt"},
 { "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar", "ext": "./json/market.json" }
 ],
 
