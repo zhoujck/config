@@ -28,7 +28,7 @@
 {"key":"Lib","name": "🌟立播","type": 3,"api": "csp_Libvio","searchable": 1,"quickSearch": 1,"changeable":1,"ext": {"Cloud-drive":"tvfan/Cloud-drive.txt","from":"4k|auto"}},
 {"key":"欢视","name":"👓欢视","type":3,"api":"csp_AppTT","playerType":2,"searchable":1,"quickSearch":1,"changeable":1,"ext":"AO7TcBkd8I/B+Qsa7gqa+pU="},
 {"key":"文采","name":"💮文采","type":3,"api":"csp_Jpys","playerType":2,"searchable":1,"quickSearch":1,"changeable":1},
-{"key":"厂长","name":"📔厂长┃不卡","type":3,"api":"csp_NewCz","playerType":2,"searchable":1,"quickSearch":1,"changeable":1,"ext": "https://www.czzyvideo.com/"},
+{"key":"厂长","name":"📔厂长","type":3,"api":"csp_NewCz","playerType":2,"searchable":1,"quickSearch":1,"changeable":1,"ext": "https://www.czzyvideo.com/"},
 
 { "key": "线路5", "name": "🍬来看", "type": 3, "api": "csp_Lkdy", "jar": "Feimao.txt"},
 { "key": "线路6", "name": "🍬农民", "type": 3, "api": "csp_Nongm", "ext": "https://wwgz.cn", "jar": "Feimao.txt"},
