@@ -5,11 +5,11 @@
 "分类": "电影$1#剧集$2#动漫$4#综艺$3#短剧$5",
 
 "数组二次截取": "",
-"数组": "",
-"图片": "",
-"标题": "",
+"数组": "myui-vodbox-content&&info-bottom",
+"图片": "img src=\"&&\"",
+"标题": "title\">&&<",
 "副标题": "",
-"链接": "",
+"链接": "href=\"&&\"",
 
 "搜索模式": "",
 "搜索url": "https://www.gzvod.cc/index.php/vod/search.html?wd={wd}",
