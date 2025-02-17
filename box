@@ -22,6 +22,7 @@
 { "key": "线路1", "name": "🌼瓜子","type":3,"api":"csp_XBPQ","jar":"./jar/Feimao.txt","ext":"./json/瓜子.json"},
 { "key": "线路2", "name": "🌼低端","type":3,"api":"csp_XBPQ","jar":"./jar/Feimao.txt","ext":"./json/低端.json"},
 { "key": "线路3", "name": "🌼茶杯","type":3,"api":"csp_XBPQ","jar":"./jar/Feimao.txt","ext":"./json/茶杯2025.json"},
+{ "key": "线路4", "name": "🌼天龙","type":3,"api":"csp_XBPQ","jar":"./jar/Feimao.txt","ext":"./json/天龙.json"},
 
 {"key":"玩偶","name":"👽玩偶","type":3,"api":"csp_WoGG","searchable":1,"quickSearch":1,"changeable":0, "ext": {"Cloud-drive":"tvfan/Cloud-drive.txt","from":"4k|auto","siteUrl":"https://www.wogg.net/","danMu":"弹"}},
 {"key":"苹果","name":"🍎苹果","type":3,"api":"csp_LiteApple","searchable":1,"quickSearch":1,"changeable":1},
