@@ -18,6 +18,7 @@
 
 { "key":"dr_drpy_bili","name":"🅱哔站影视","type": 3,"api":"./js/lib/drpy2.min.js","searchable":1,"ext":"./js/doc.js"},
 { "key": "310直播", "name": "🏀⚽球赛直播", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
+{ "key": "ikan", "name": "🌼ikan", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/ikan.js" },
 
 { "key": "线路1", "name": "🌼瓜子","type":3,"api":"csp_XBPQ","ext":"./json/瓜子.json"},
 { "key": "线路2", "name": "🌼低端","type":3,"api":"csp_XBPQ","ext":"./json/低端.json"},
@@ -28,10 +29,10 @@
 { "key": "线路7", "name": "🍬云播", "type": 3, "api": "csp_Tvyb" },
 { "key": "线路8", "name": "🍬官源", "type": 3, "api": "csp_SP360" },
 { "key": "线路9", "name": "🍬蜡笔", "type": 3, "api": "csp_Duopan", "filterable": 1, "ext": { "site_urls": [ "https://duopan.fun", "http://labipan.com", "http://feimaoai.site", "https://mihdr.top" ], "url_key": "Duopan2" }},
-
+{ "key": "线路10", "name": "🍬苹果", "type":3, "api": "csp_LiteApple"},
 
 {"key":"玩偶","name":"👽玩偶","type":3,"api":"csp_WoGG","ext": {"Cloud-drive":"tvfan/Cloud-drive.txt","from":"4k|auto","siteUrl":"https://www.wogg.net/","danMu":"弹"}},
-{"key":"苹果","name":"🍎苹果","type":3,"api":"csp_LiteApple"},
+
 {"key":"Lib","name": "🌟立播","type": 3,"api": "csp_Libvio","ext": {"Cloud-drive":"tvfan/Cloud-drive.txt","from":"4k|auto"}},
 {"key":"欢视","name":"👓欢视","type":3,"api":"csp_AppTT","ext":"AO7TcBkd8I/B+Qsa7gqa+pU="},
 {"key":"文采","name":"💮文采","type":3,"api":"csp_Jpys"},
