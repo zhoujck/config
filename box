@@ -1,5 +1,5 @@
 {
-//更改缩进（Shift+Tab和Tab） , "jar": "./jar/Feimao.txt"
+//更改缩进（Shift+Tab和Tab） , "jar": "./jar/fan.jar"
 "spider": "./jar/Feimao.txt",
 
 "wallpaper": "http://like.xn--z7x900a.com/ppic/feimao.php",
@@ -33,10 +33,10 @@
 
 { "key": "玩偶", "name": "👲玩偶", "api": "csp_Wogg", "type": 3, "searchable": 1, "playerType": 2, "timeout": 30, "changeable": 0, "ext": "https://www.wogg.one/" },
 
-{"key":"Lib","name": "🌟立播","type": 3,"api": "csp_Libvio","ext": {"Cloud-drive":"tvfan/Cloud-drive.txt","from":"4k|auto"}},
-{"key":"欢视","name":"👓欢视","type":3,"api":"csp_AppTT","ext":"AO7TcBkd8I/B+Qsa7gqa+pU="},
-{"key":"文采","name":"💮文采","type":3,"api":"csp_Jpys"},
-{"key":"厂长","name":"📔厂长","type":3,"api":"csp_NewCz","ext": "https://www.czzyvideo.com/"},
+{"key":"Lib","name": "🌟立播","type": 3,"api": "csp_Libvio","ext": {"Cloud-drive":"tvfan/Cloud-drive.txt","from":"4k|auto"} , "jar": "./jar/fan.jar"},
+{"key":"欢视","name":"👓欢视","type":3,"api":"csp_AppTT","ext":"AO7TcBkd8I/B+Qsa7gqa+pU=" , "jar": "./jar/fan.jar"},
+{"key":"文采","name":"💮文采","type":3,"api":"csp_Jpys" , "jar": "./jar/fan.jar"},
+{"key":"厂长","name":"📔厂长","type":3,"api":"csp_NewCz","ext": "https://www.czzyvideo.com/" , "jar": "./jar/fan.jar"},
 
 
 
