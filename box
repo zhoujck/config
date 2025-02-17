@@ -29,6 +29,7 @@
 {"key":"欢视","name":"👓欢视","type":3,"api":"csp_AppTT","playerType":2,"searchable":1,"quickSearch":1,"changeable":1,"ext":"AO7TcBkd8I/B+Qsa7gqa+pU="},
 {"key":"文采","name":"💮文采","type":3,"api":"csp_Jpys","playerType":2,"searchable":1,"quickSearch":1,"changeable":1},
 {"key":"厂长","name":"📔厂长","type":3,"api":"csp_NewCz","playerType":2,"searchable":1,"quickSearch":1,"changeable":1,"ext": "https://www.czzyvideo.com/"},
+{"key": "快看", "name": "快看", "type": 3, "api": "csp_Kuaikan" },
 
 { "key": "线路5", "name": "🍬来看", "type": 3, "api": "csp_Lkdy", "jar": "./jar/Feimao.txt"},
 { "key": "线路6", "name": "🍬农民", "type": 3, "api": "csp_Nongm", "ext": "https://wwgz.cn", "jar": "./jar/Feimao.txt"},
@@ -39,13 +40,28 @@
 ],
 
 "parses":[
-{"name":"虾米1","type":0,"url":"https://jx.m3u8.tv/jiexi/?url=","ext":{"flag":["qq","腾讯","qiyi","爱奇艺","奇艺","youku","优酷","sohu","搜狐","letv","乐视","mgtv","芒果","imgo","rx","ltnb","bilibili","1905","xigua"]}},
-{"name":"yemu","type":0,"url":"https://www.yemu.xyz/?url=","ext":{"flag":["qq","腾讯","qiyi","爱奇艺","奇艺","youku","优酷","sohu","搜狐","letv","乐视","mgtv","芒果","imgo","rx","ltnb","bilibili","1905","xigua"]}},
-
-
+{ "name": "VIP1", "type": 0, "url": "https://jx.xmflv.com/?url=" },
+{ "name": "VIP2", "type": 0, "url": "https://t1.qlplayer.cyou/player/?url=" },
+{ "name": "VIP3", "type": 0, "url": "https://jx.m3u8.tv/jx/jx.php?url=" },
+{ "name": "VIP4", "type": 0, "url": "https://yparse.ik9.cc/index.php?url=" },
+{ "name": "VIP5", "type": 0, "url": "https://player.mrgaocloud.com/player/?url=" },
+{ "name": "VIP6", "type": 0, "url": "https://jx.yangtu.top/?url=" },
+{ "name": "VIP7", "type": 0, "url": "https://www.8090g.cn/jiexi/?url=" },
+{ "name": "VIP8", "type": 0, "url": "https://jx.2s0.cn/player/?url=" },
 {"name":"云解析","type":0,"url":"https://jx.yparse.com/index.php?url=","ext":{"header":{"user-agent":"Mozilla/5.0(Linux;Android13;V2049ABuild/TP1A.220624.014;wv)AppleWebKit/537.36(KHTML,likeGecko)Version/4.0Chrome/116.0.0.0MobileSafari/537.36"}}},
 {"name":"虾米","type":0,"url":"https://jx.xmflv.com/?url=","ext":{"flag":["qq","腾讯","qiyi","爱奇艺","奇艺","youku","优酷","sohu","搜狐","letv","乐视","mgtv","芒果","imgo","rx","ltnb","bilibili","1905","xigua"]}},
 { "name": "肥猫最可爱", "type": 1, "url": "http://xn--ihqu10cn4c.xn--z7x900a.live/jx.php?id=2&url=", "ext": { "flag": [ "qq", "腾讯", "qiyi", "爱奇艺", "奇艺", "youku", "优酷", "tucheng", "sohu", "搜狐", "letv", "乐视", "mgtv", "芒果", "tnmb", "seven", "yzm", "aliyun", "RJuMao", "bilibili", "1905", "xinvip", "XAL", "qiqi", "XALS", "YuMi-vip" ] } }
-]
+],
 
+"flags": 
+[ "youku", "qq", "iqiyi", "qiyi", "letv", "sohu", "tudou", "pptv", "mgtv", "wasu", "migu", "migo", "alivc", "1905", "douyin", "xigua", "leshi", "bilibili", "renrenmi" 
+],
+
+"hosts": [
+    "cache.ott.ystenlive.itv.cmvideo.cn=base-v4-free-mghy.e.cdn.chinamobile.com",
+    "cache.ott.bestlive.itv.cmvideo.cn=base-v4-free-mghy.e.cdn.chinamobile.com",
+    "cache.ott.wasulive.itv.cmvideo.cn=base-v4-free-mghy.e.cdn.chinamobile.com",
+     "cache.ott.fifalive.itv.cmvideo.cn=base-v4-free-mghy.e.cdn.chinamobile.com",
+     "cache.ott.hnbblive.itv.cmvideo.cn=base-v4-free-mghy.e.cdn.chinamobile.com"  
+  ]
 }
