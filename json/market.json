@@ -1,18 +1,9 @@
 [
   {
-    "name": "推薦",
+    "name": "稳定版",
     "list": [
       {
-        "url": " https://framagit.org/zhoujck/config/-/raw/main/pic/app_icon.png",
-        "icon": "https://framagit.org/zhoujck/config/-/raw/main/pic/app_icon.png"
-      }
-    ]
-  },
-  {
-    "name": "正式版",
-    "list": [
-      {
-        "name": "電視-5.0",
+        "name": "電視-5.0+",
         "url": "https://framagit.org/zhoujck/config/-/raw/main/app/leanback-java-armeabi_v7a.apk",
         "icon": "https://framagit.org/zhoujck/config/-/raw/main/pic/app_icon.png",
         "version": "v7a"
@@ -32,19 +23,25 @@
     ]
   },
     {
-    "name": "备用通道",
+    "name": "内测最新版",
     "list": [
       {
         "name": "電視-java",
-        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/FongMi/Release/main/apk/release/leanback-java-armeabi_v7a.apk",
+        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/FongMi/Release/okjack/apk/kitkat/leanback.apk",
         "icon": "https://framagit.org/zhoujck/config/-/raw/main/pic/app_icon.png",
-        "version": "v7a正式版"
+        "version": "电视4.4最新版"
+      }, 
+      {
+        "name": "電視-java",
+        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/FongMi/Release/okjack/apk/release/leanback-java-armeabi_v7a.apk",
+        "icon": "https://framagit.org/zhoujck/config/-/raw/main/pic/app_icon.png",
+        "version": "电视5+最新版"
       },   
       {
         "name": "手機-java",
-        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/FongMi/Release/main/apk/release/mobile-java-arm64_v8a.apk",
+        "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/FongMi/Release/okjack/apk/release/mobile-java-arm64_v8a.apk",
         "icon": "https://framagit.org/zhoujck/config/-/raw/main/pic/app_icon.png",
-        "version": "v8a正式版"
+        "version": "手机最新版"
       }
     ]
   }
