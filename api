@@ -16,6 +16,6 @@
 {"url": "http://www.fish2018.us.kg/p/jsm.json","name": "PG"},
 {"url": "https://tvbox.catvod.com/catvod.json","name": "Catvod"},
 {"url": "http://box.ufuzi.com/tv/qq/短剧频道/api.json","name": "短剧"},
-{"url": "https://jihulab.com/ymz1231/xymz/-/raw/main/ymshaoer","name": "少儿"}
+{"url": "https://tvbox.catvod.com/FongMi.json","name": "真心"}
     ]
 }
