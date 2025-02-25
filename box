@@ -11,7 +11,7 @@
 
 "lives": [
 { "name": "🍬糖果1🍬", "type": 0, "url": "./json/移动ipv4", "playerType": 1},
-{ "name": "🍬糖果2🍬", "type": 0, "url": "./json/移动test", "playerType": 1},
+{ "name": "🍬糖果2🍬", "type": 0, "url": "./json/移动2", "playerType": 1},
 { "name": "🍬糖果3🍬", "type": 0, "url": "https://gh-proxy.com/https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.m3u", "playerType": 1},
 { "name": "天微livev1", "type": 0, "url": "https://7337.kstore.space/twkj/tvzb.txt", "ua": "okhttp/3.15", "playerType": 1, "epg": "http://diyp2.112114.xyz/?ch={name}&date={date}", "logo": "http://diyp2.112114.xyz/logo/{name}.png" }
 ],
