@@ -1,5 +1,4 @@
 央视频道,#genre#
-CCTV1,http://211.101.234.24:866/aishang/migu.php/migu.php?id=cctv1$IPV4『线路1』
 CCTV1,https://cdn5.163189.xyz/live/cctv1/stream.m3u8$IPV4『线路2』
 CCTV1,http://39.135.133.157:80/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226016/1.m3u8?icpid=88888888&from=1&hmsdevid=1012&vqe=3$IPV4『线路3』
 CCTV1,http://39.135.133.157:80/ottrrs.hl.chinamobile.com/yinhe/88888888/224/3221226559/index.m3u8$IPV4『线路4』
@@ -56,7 +55,6 @@ CCTV1,http://104.36.87.93:5000/1000000005000265001/ystenlive/index.m3u8$IPV4『�
 CCTV1,http://54.200.240.27:35455/itv/1000000005000265001.m3u8?cdn=ystenlive$IPV4『线路55』
 CCTV1,http://205.185.120.154:50001/TVOD/1000000005000265001/ystenlive/index.m3u8$IPV4『线路56』
 CCTV1,http://218.93.208.172:35455/migu/608807420.m3u8?migutoken=c1e47192e21ebd32f0cc762a6749923a27468f3c407786209ce921f54a3faab96bf61281f3baee22f2ea266b1ec7e46d7bdfab0916f461bf38474fe38d0bdb2dcc56ee56853b8d6c509d866d80$IPV4『线路57』
-CCTV2,http://211.101.234.24:866/aishang/migu.php/migu.php?id=cctv2$IPV4『线路1』
 CCTV2,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226540/index.m3u8$IPV4『线路2』
 CCTV2,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/yinhe/88888888/224/3221226540/index.m3u8$IPV4『线路3』
 CCTV2,http://39.135.133.154:80/wh7f454c46tw1338203950_2016505455/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225588/index.m3u8?$IPV4『线路4』
@@ -85,7 +83,6 @@ CCTV2,http://54.200.240.27:35455/itv/1000000001000023315.m3u8?cdn=ystenlive$IPV4
 CCTV2,http://205.185.120.154:50001/TVOD/1000000001000023315/ystenlive/index.m3u8$IPV4『线路27』
 CCTV2,http://218.93.208.172:35455/migu/631780532.m3u8?migutoken=f37996961dda807c76bd64f9a2747f07f7fd95917e411e96a40281fd628bc4000eb7f71344d3bca848bfba138c3988d53652cdbc6fc8225515f1c0e1ea6c8920e7d1e957628a334e765280cc07$IPV4『线路28』
 CCTV2,http://116.77.32.59:8277/streams/d/cctv2/playlist.m3u8$IPV4『线路29』
-CCTV3,http://211.101.234.24:866/aishang/migu.php/migu.php?id=cctv3$IPV4『线路1』
 CCTV3,http://39.135.133.167:80/wh7f454c46tw1956839526_720028145/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226021/index.m3u8$IPV4『线路2』
 CCTV3,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221226021/index.m3u8$IPV4『线路3』
 CCTV3,http://39.135.133.157:80/ottrrs.hl.chinamobile.com/yinhe/88888888/224/3221226021/index.m3u8$IPV4『线路4』
@@ -120,7 +117,6 @@ CCTV3,http://54.200.240.27:35455/itv/1000000005000265003.m3u8?cdn=ystenlive$IPV4
 CCTV3,http://205.185.120.154:50001/TVOD/1000000005000265003/ystenlive/index.m3u8$IPV4『线路33』
 CCTV3,http://218.93.208.172:35455/migu/624878271.m3u8?migutoken=fc4d3188808753792a59fb9fb632ad0e1d099d6828db8758f8c977a28dc480e969bef66e8cd942d53ce07a039791c90b959a0f75df560f5966e3f5ed7c8cf5bbb0fac0f4394f21d52636ca79cb$IPV4『线路34』
 CCTV3,http://116.77.32.59:8277/streams/d/cctv3/playlist.m3u8$IPV4『线路35』
-CCTV4,http://211.101.234.24:866/aishang/migu.php/migu.php?id=cctv4o$IPV4『线路1』
 CCTV4,http://39.135.133.167:80/wh7f454c46tw2037638644_1228338163/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226007/index.m3u8$IPV4『线路2』
 CCTV4,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226428/index.m3u8$IPV4『线路3』
 CCTV4,http://39.135.133.167:80/TVOD/88888888/224/3221226092/main.m3u8$IPV4『线路4』
@@ -159,7 +155,6 @@ CCTV4,http://54.200.240.27:35455/itv/1000000005000265004.m3u8?cdn=ystenlive$IPV4
 CCTV4,http://205.185.120.154:50001/TVOD/1000000005000265004/ystenlive/index.m3u8$IPV4『线路37』
 CCTV4,http://218.93.208.172:35455/migu/631780421.m3u8?migutoken=c7f507bbd9cce24c2acdc93defad48a900f168c4ca906d6038ab0f6139f63ebe0ddaadfce8581b4e0014595c5d9de27f08f2398874e7990b2f98bca8c5e37775005a38dfdd40f4ea9bbfa10d23$IPV4『线路38』
 CCTV4,https://global.cgtn.cicc.media.caton.cloud/master/cgtn-america.m3u8$IPV4『线路39』
-CCTV5,http://211.101.234.24:866/aishang/migu.php/migu.php?id=cctv5$IPV4『线路1』
 CCTV5,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221226019/index.m3u8$IPV4『线路2』
 CCTV5,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226019/index.m3u8$IPV4『线路3』
 CCTV5,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/yinhe/88888888/224/3221226019/index.m3u8$IPV4『线路4』
@@ -212,7 +207,6 @@ CCTV5,http://54.200.240.27:35455/itv/1000000005000265005.m3u8?cdn=ystenlive$IPV4
 CCTV5,http://205.185.120.154:50001/TVOD/1000000005000265005/ystenlive/index.m3u8$IPV4『线路51』
 CCTV5,http://218.93.208.172:35455/migu/641886683.m3u8?migutoken=87d52e3d24e7d2e911e3dfd7ea18495fc128afee9e8b63e2945bdf50bb2105992d65245e2b914f41bb1b7218c76012d8e20573dfc0ca6ff336e3ba39c0a26c95030a5f99b9264b0583d92caea8$IPV4『线路52』
 CCTV5,http://116.77.32.59:8277/streams/d/cctv5/playlist.m3u8$IPV4『线路53』
-CCTV5+,http://211.101.234.24:866/aishang/migu.php/migu.php?id=cctv5p$IPV4『线路1』
 CCTV5+,http://39.135.133.157:80/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221225603/index.m3u8$IPV4『线路2』
 CCTV5+,http://39.135.133.157:80/ottrrs.hl.chinamobile.com/yinhe/88888888/224/3221225603/index.m3u8$IPV4『线路3』
 CCTV5+,http://39.135.133.157:80/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221225603/index.m3u8?$IPV4『线路4』
@@ -237,7 +231,6 @@ CCTV5+,http://54.200.240.27:35455/itv/1000000005000265016.m3u8?cdn=ystenlive$IPV
 CCTV5+,http://205.185.120.154:50001/TVOD/1000000005000265016/ystenlive/index.m3u8$IPV4『线路23』
 CCTV5+,http://222.70.152.149:7788/TVOD/6000000001000015875/wasusyt/index.m3u8$IPV4『线路24』
 CCTV5+,http://116.77.32.59:8277/streams/d/cctv5a/playlist.m3u8$IPV4『线路25』
-CCTV6,http://211.101.234.24:866/aishang/migu.php/migu.php?id=cctv6$IPV4『线路1』
 CCTV6,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226010/1.m3u8?icpid=88888888&from=1&hmsdevid=1012&vqe=3$IPV4『线路2』
 CCTV6,http://39.135.133.167:80/TVOD/88888888/224/3221225814/main.m3u8$IPV4『线路3』
 CCTV6,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221226010/index.m3u8?$IPV4『线路4』
@@ -291,7 +284,6 @@ CCTV6,http://104.36.87.93:5000/1000000005000265006/ystenlive/index.m3u8$IPV4『�
 CCTV6,http://54.200.240.27:35455/itv/1000000005000265006.m3u8?cdn=ystenlive$IPV4『线路52』
 CCTV6,http://205.185.120.154:50001/TVOD/1000000005000265006/ystenlive/index.m3u8$IPV4『线路53』
 CCTV6,http://116.77.32.59:8277/streams/d/cctv6/playlist.m3u8$IPV4『线路54』
-CCTV7,http://211.101.234.24:866/aishang/migu.php/migu.php?id=cctv7$IPV4『线路1』
 CCTV7,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221225733/index.m3u8?$IPV4『线路2』
 CCTV7,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221225733/index.m3u8$IPV4『线路3』
 CCTV7,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225733/index.m3u8$IPV4『线路4』
@@ -326,7 +318,6 @@ CCTV7,http://123.254.110.101:5000/1000000005000265007/ystenlive/index.m3u8$IPV4�
 CCTV7,http://104.36.87.93:5000/1000000005000265007/ystenlive/index.m3u8$IPV4『线路33』
 CCTV7,http://54.200.240.27:35455/itv/1000000005000265007.m3u8?cdn=ystenlive$IPV4『线路34』
 CCTV7,http://205.185.120.154:50001/TVOD/1000000005000265007/ystenlive/index.m3u8$IPV4『线路35』
-CCTV8,http://211.101.234.24:866/aishang/migu.php/migu.php?id=cctv8$IPV4『线路1』
 CCTV8,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226008/index.m3u8?$IPV4『线路2』
 CCTV8,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221226008/index.m3u8$IPV4『线路3』
 CCTV8,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/yinhe/88888888/224/3221226008/index.m3u8$IPV4『线路4』
@@ -371,7 +362,6 @@ CCTV8,http://54.200.240.27:35455/itv/1000000005000265008.m3u8?cdn=ystenlive$IPV4
 CCTV8,http://205.185.120.154:50001/TVOD/1000000005000265008/ystenlive/index.m3u8$IPV4『线路43』
 CCTV8,http://114.105.98.95:37377/migu/624878356.m3u8?migutoken=9d347588ab808559db972d3c94b0d970ec130153e4a6dde98c4466f1d3f85f58de23d16994f2f0ed903aa6727a7282cb17103e67b69c8e3f31d253bb78039a4df119e2cfeba6916d123a8003$IPV4『线路44』
 CCTV8,http://114.105.98.95:37377/migu/790187291.m3u8?migutoken=086ba6ec3f6268d44a6979043b9df04cccad70c2a183e6b46cc15be2d0bd40d33e0be32880248cf8d79ddcf04a82560af19d8d9cc76b700a59be26618056a02a5f822c76fe3ed7f3e0b81c94$IPV4『线路45』
-CCTV9,http://211.101.234.24:866/aishang/migu.php/migu.php?id=cctv9$IPV4『线路1』
 CCTV9,http://39.135.133.157:80/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221225734/index.m3u8?$IPV4『线路2』
 CCTV9,http://39.135.133.157:80/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225734/index.m3u8$IPV4『线路3』
 CCTV9,http://39.135.133.157:80/ottrrs.hl.chinamobile.com/yinhe/88888888/224/3221225734/index.m3u8$IPV4『线路4』
@@ -400,8 +390,7 @@ CCTV9,http://123.254.110.101:5000/1000000005000265009/ystenlive/index.m3u8$IPV4�
 CCTV9,http://104.36.87.93:5000/1000000005000265009/ystenlive/index.m3u8$IPV4『线路27』
 CCTV9,http://54.200.240.27:35455/itv/1000000005000265009.m3u8?cdn=ystenlive$IPV4『线路28』
 CCTV9,http://205.185.120.154:50001/TVOD/1000000005000265009/ystenlive/index.m3u8$IPV4『线路29』
-CCTV9,CCTV9$IPV4『线路30』
-CCTV10,http://211.101.234.24:866/aishang/migu.php/migu.php?id=cctv10$IPV4『线路1』
+
 CCTV10,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221225730/index.m3u8$IPV4『线路2』
 CCTV10,http://39.135.133.157:80/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221225730/index.m3u8?$IPV4『线路3』
 CCTV10,http://39.135.133.157:80/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225730/index.m3u8$IPV4『线路4』
@@ -442,7 +431,6 @@ CCTV10,http://123.254.110.101:5000/1000000005000265010/ystenlive/index.m3u8$IPV4
 CCTV10,http://104.36.87.93:5000/1000000005000265010/ystenlive/index.m3u8$IPV4『线路39』
 CCTV10,http://54.200.240.27:35455/itv/1000000005000265010.m3u8?cdn=ystenlive$IPV4『线路40』
 CCTV10,http://205.185.120.154:50001/TVOD/1000000005000265010/ystenlive/index.m3u8$IPV4『线路41』
-CCTV11,http://211.101.234.24:866/aishang/migu.php/migu.php?id=cctv11$IPV4『线路1』
 CCTV11,http://39.135.133.154:80/ottrrs.hl.chinamobile.com/yinhe/88888888/224/3221225597/index.m3u8$IPV4『线路2』
 CCTV11,http://39.135.133.177:80/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226565/index.m3u8$IPV4『线路3』
 CCTV11,http://39.135.133.177:80/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221225597/index.m3u8$IPV4『线路4』
@@ -465,7 +453,6 @@ CCTV11,http://123.254.110.101:5000/1000000005000265011/ystenlive/index.m3u8$IPV4
 CCTV11,http://104.36.87.93:5000/1000000005000265011/ystenlive/index.m3u8$IPV4『线路21』
 CCTV11,http://54.200.240.27:35455/itv/1000000005000265011.m3u8?cdn=ystenlive$IPV4『线路22』
 CCTV11,http://205.185.120.154:50001/TVOD/1000000005000265011/ystenlive/index.m3u8$IPV4『线路23』
-CCTV12,http://211.101.234.24:866/aishang/migu.php/migu.php?id=cctv12$IPV4『线路1』
 CCTV12,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225731/index.m3u8$IPV4『线路2』
 CCTV12,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221225731/index.m3u8?$IPV4『线路3』
 CCTV12,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221225731/index.m3u8$IPV4『线路4』
@@ -498,7 +485,6 @@ CCTV12,http://123.254.110.101:5000/1000000005000265012/ystenlive/index.m3u8$IPV4
 CCTV12,http://104.36.87.93:5000/1000000005000265012/ystenlive/index.m3u8$IPV4『线路31』
 CCTV12,http://54.200.240.27:35455/itv/1000000005000265012.m3u8?cdn=ystenlive$IPV4『线路32』
 CCTV12,http://205.185.120.154:50001/TVOD/1000000005000265012/ystenlive/index.m3u8$IPV4『线路33』
-CCTV13,http://211.101.234.24:866/aishang/migu.php/migu.php?id=cctv13$IPV4『线路1』
 CCTV13,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221226011/index.m3u8$IPV4『线路2』
 CCTV13,http://39.135.133.157:80/ottrrs.hl.chinamobile.com/yinhe/88888888/224/3221226537/index.m3u8$IPV4『线路3』
 CCTV13,http://39.135.133.157:80/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221226011/index.m3u8$IPV4『线路4』
@@ -530,7 +516,6 @@ CCTV13,http://120.196.232.124:8088/rrs03.hw.gmcc.net/PLTV/651/224/3221226717/1.m
 CCTV13,http://123.254.110.101:5000/1000000002000021303/ystenlive/index.m3u8$IPV4『线路30』
 CCTV13,http://104.36.87.93:5000/1000000002000021303/ystenlive/index.m3u8$IPV4『线路31』
 CCTV13,http://205.185.120.154:50001/TVOD/1000000002000021303/ystenlive/index.m3u8$IPV4『线路32』
-CCTV14,http://211.101.234.24:866/aishang/migu.php/migu.php?id=cctv14$IPV4『线路1』
 CCTV14,http://39.135.135.28:80/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225732/1.m3u8?icpid=88888888&from=1&hmsdevid=1012&vqe=3$IPV4『线路2』
 CCTV14,http://39.135.135.28:80/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225732/index.m3u8$IPV4『线路3』
 CCTV14,http://39.135.135.28:80/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221225732/index.m3u8$IPV4『线路4』
@@ -555,7 +540,6 @@ CCTV14,http://123.254.110.101:5000/1000000005000265013/ystenlive/index.m3u8$IPV4
 CCTV14,http://104.36.87.93:5000/1000000005000265013/ystenlive/index.m3u8$IPV4『线路23』
 CCTV14,http://54.200.240.27:35455/itv/1000000005000265013.m3u8?cdn=ystenlive$IPV4『线路24』
 CCTV14,http://205.185.120.154:50001/TVOD/1000000005000265013/ystenlive/index.m3u8$IPV4『线路25』
-CCTV15,http://211.101.234.24:866/aishang/migu.php/migu.php?id=cctv15$IPV4『线路1』
 CCTV15,http://39.135.133.177:80/wh7f454c46tw3678048063_1995458946/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225601/index.m3u8$IPV4『线路2』
 CCTV15,http://39.135.133.177:80/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221225601/index.m3u8$IPV4『线路3』
 CCTV15,http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225601/index.m3u8$IPV4『线路4』
@@ -572,7 +556,6 @@ CCTV15,http://123.254.110.101:5000/1000000005000265014/ystenlive/index.m3u8$IPV4
 CCTV15,http://104.36.87.93:5000/1000000005000265014/ystenlive/index.m3u8$IPV4『线路15』
 CCTV15,http://54.200.240.27:35455/itv/1000000005000265014.m3u8?cdn=ystenlive$IPV4『线路16』
 CCTV15,http://205.185.120.154:50001/TVOD/1000000005000265014/ystenlive/index.m3u8$IPV4『线路17』
-CCTV16,http://211.101.234.24:866/aishang/migu.php/migu.php?id=cctv16$IPV4『线路1』
 CCTV16,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221226100/index.m3u8?$IPV4『线路2』
 CCTV16,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226100/1.m3u8?icpid=88888888&from=1&hmsdevid=1012&vqe=3$IPV4『线路3』
 CCTV16,http://39.135.133.167:80/ottrrs.hl.chinamobile.com/yinhe/88888888/224/3221226100/index.m3u8$IPV4『线路4』
@@ -603,7 +586,6 @@ CCTV16,http://123.254.110.101:5000/1000000006000233002/ystenlive/index.m3u8$IPV4
 CCTV16,http://104.36.87.93:5000/1000000006000233002/ystenlive/index.m3u8$IPV4『线路29』
 CCTV16,http://54.200.240.27:35455/itv/1000000006000233002.m3u8?cdn=ystenlive$IPV4『线路30』
 CCTV16,http://205.185.120.154:50001/TVOD/1000000006000233002/ystenlive/index.m3u8$IPV4『线路31』
-CCTV17,http://211.101.234.24:866/aishang/migu.php/migu.php?id=cctv17$IPV4『线路1』
 CCTV17,http://39.135.135.28:80/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225765/index.m3u8$IPV4『线路2』
 CCTV17,http://39.135.135.28:80/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221225765/index.m3u8?$IPV4『线路3』
 CCTV17,http://39.135.135.28:80/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221225765/index.m3u8CCTV1$IPV4『线路4』
