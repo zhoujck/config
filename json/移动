@@ -142,13 +142,13 @@ CCTV9,http://ottrrs.hl.chinamobile.com/TVOD/88888888/224/3221225734/index.m3u8$I
 CCTV9,http://39.134.64.87:6610/PLTV/88888888/224/3221225734/index.m3u8?IASHttpSessionId=$IPV4『线路4』
 CCTV9,http://pan.taokee.vip:35455/itv/1000000005000265009.m3u8?cdn=ystenlive$IPV4『线路5』
 CCTV9,http://pan.taokee.vip:35455/gaoma/cctv9.m3u8$IPV4『线路6』
-CCTV9,CCTV9$IPV4『线路7』
+
 CCTV9,http://123.254.110.101:5000/1000000001000014583/ystenlive/index.m3u8$IPV4『线路8』
 CCTV9,http://123.254.110.101:5000/6000000001000032162/wasusyt/index.m3u8$IPV4『线路9』
 CCTV9,http://123.254.110.101:5000/1000000005000265009/ystenlive/index.m3u8$IPV4『线路10』
 CCTV9,http://180.105.209.130:55555/itv/1000000001000014583.m3u8?cdn=ystenlive$IPV4『线路11』
 CCTV9,http://39.134.64.87:6610/PLTV/88888888/224/3221225734/index.m3u8?IASHttpSessionId=$IPV4『线路12』
-CCTV9,CCTV9$IPV4『线路13』
+
 CCTV10,http://ottrrs.hl.chinamobile.com/TVOD/88888888/224/3221226473/index.m3u8$IPV4『线路1』
 CCTV10,http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225730/index.m3u8$IPV4『线路2』
 CCTV10,http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225730/index.m3u8?$IPV4『线路3』
@@ -291,14 +291,14 @@ CCTV世界地理,http://180.105.209.130:55555/rptv/G_SHIJIEDL-CQ.m3u8?license=gi
 CCTV世界地理,http://macyx.top:35455/rptv/G_SHIJIEDL-CQ.m3u8?license=gitv$IPV4『线路2』
 
 💓卫视频道,#genre#
-凤凰卫视中文台,http://180.105.209.130:55555/rptv/HD-10000k-1080P-fhchinese5s.m3u8?license=cntv$IPV4『线路1』
+
 凤凰卫视中文台,https://cdn.163189.xyz/live/fhzw/stream.m3u8$IPV4『线路2』
 凤凰卫视中文台,http://cdn.163189.xyz/live/fhzw/stream.m3u8$IPV4『线路3』
 凤凰卫视中文台,https://cdn.163189.xyz/live/fhzw/stream.m3u8$IPV4『线路4』
 凤凰卫视中文台,http://43.129.81.169/qctv.fengshows.cn/live/0701pcc72.flv$IPV4『线路5』
 凤凰卫视中文台,http://cdn.163189.xyz/live/fhzw/stream.m3u8$IPV4『线路6』
 凤凰卫视中文台,http://43.129.81.169/qctv.fengshows.cn/live/0701pcc72.flv$IPV4『线路7』
-凤凰卫视资讯台,http://180.105.209.130:55555/rptv/HD-10000k-1080P-fhzixun5s.m3u8?license=cntv$IPV4『线路1』
+
 凤凰卫视资讯台,https://cdn3.163189.xyz/live/fhzx/stream.m3u8$IPV4『线路2』
 凤凰卫视资讯台,http://108.181.20.197/livehttpplay?channel_id=30015$IPV4『线路3』
 凤凰卫视资讯台,https://cdn3.163189.xyz/live/fhzx/stream.m3u8$IPV4『线路4』
@@ -308,7 +308,7 @@ CCTV世界地理,http://macyx.top:35455/rptv/G_SHIJIEDL-CQ.m3u8?license=gitv$IPV
 凤凰卫视资讯台,http://43.129.81.169/qctv.fengshows.cn/live/0701pin72.flv$IPV4『线路8』
 凤凰卫视资讯台,http://cdn3.163189.xyz/live/fhzx/stream.m3u8$IPV4『线路9』
 凤凰卫视香港台,http://extraott.com:80/live/6772191932/1654508883/473557.m3u8$IPV4『线路1』
-凤凰卫视香港台,http://180.105.209.130:55555/rptv/HD-10000k-1080P-fhhongkong5s.m3u8?license=cntv$IPV4『线路2』
+
 凤凰卫视香港台,http://108.181.20.197/livehttpplay?channel_id=30016$IPV4『线路3』
 凤凰卫视香港台,http://43.129.81.169/qctv.fengshows.cn/live/0701phk72.flv$IPV4『线路4』
 凤凰卫视香港台,http://108.181.20.197/livehttpplay?channel_id=30016$IPV4『线路5』
