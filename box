@@ -28,7 +28,7 @@
 { "key": "线路3", "name": "🌼茶杯","type":3,"api":"csp_XBPQ","ext":"./json/茶杯2025.json"},
 { "key": "线路4", "name": "🌼天龙","type":3,"api":"csp_XBPQ","ext":"./json/天龙.json"},
 { "key": "线路5", "name": "🍬来看", "type": 3, "api": "csp_Lkdy"},
-{ "key": "线路6", "name": "🍬农民", "type": 3, "api": "csp_Nongm", "ext": "https://wwgz.cn"},
+{ "key": "线路6", "name": "🍬农民", "type": 3, "api": "csp_Wwys", "ext": "https://wwgz.cn"},
 { "key": "线路7", "name": "🍬云播", "type": 3, "api": "csp_Tvyb" },
 { "key": "线路8", "name": "🍬官源", "type": 3, "api": "csp_SP360" },
 { "key": "线路9", "name": "🍬蜡笔", "type": 3, "api": "csp_Duopan", "filterable": 1, "ext": { "site_urls": [ "https://duopan.fun", "http://labipan.com", "http://feimaoai.site", "https://mihdr.top" ], "url_key": "Duopan2" }},
