@@ -10,7 +10,7 @@
       },
       {
         "name": "電視-4.x",
-        "url": "https://framagit.org/zhoujck/config/-/raw/main/app/leanback2.6.7.apk",
+        "url": "https://framagit.org/zhoujck/config/-/raw/main/app/leanback275.apk",
         "icon": "https://framagit.org/zhoujck/config/-/raw/main/pic/app_icon.png",
         "version": "4.0x"
       },     
@@ -23,10 +23,28 @@
     ]
   },
     {
-    "name": "内测最新版",
+    "name": "Pro版",
     "list": [
       {
-        "name": "電視-java",
+        "name": "電視-5.0+",
+        "url": "https://framagit.org/zhoujck/config/-/raw/main/app/leanback-java-armeabi_v7a_pro.apk",
+        "icon": "https://framagit.org/zhoujck/config/-/raw/main/pic/app_icon.png",
+        "version": "v7a"
+      },
+    
+      {
+        "name": "手機-64",
+        "url": "https://framagit.org/zhoujck/config/-/raw/main/app/mobile-java-arm64_v8a_pro.apk",
+        "icon": "https://framagit.org/zhoujck/config/-/raw/main/pic/app_icon.png",
+        "version": "v8a"
+      }
+    ]
+  },
+    {
+    "name": "稳定版备用通道",
+    "list": [
+      {
+        "name": "電視-4.X",
         "url": "https://github.moeyy.xyz/https://raw.githubusercontent.com/FongMi/Release/okjack/apk/kitkat/leanback.apk",
         "icon": "https://framagit.org/zhoujck/config/-/raw/main/pic/app_icon.png",
         "version": "电视4.4最新版"
