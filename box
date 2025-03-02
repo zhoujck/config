@@ -18,7 +18,8 @@
 {"key":"豆豆","name":"🍬糖果影视🍬","type": 3, "api": "csp_Douban","searchable": 0,"quickSearch": 0,"filterable": 0},
 { "key":"config","name":"🍬┃配置中心","type":3,"api":"csp_Config"},
 
-{ "key":"dr_drpy_bili","name":"🅱哔站影视","type": 3,"api":"./js/lib/drpy2.min.js","searchable":1,"ext":"./js/doc.js"},
+{ "key": "bili影视", "name": "🅱哔站影视", "type": 3,"api":"./js/lib/drpy2.min.js","searchable":1,"ext":"./js/doc.js"},
+//{ "key": "bili视频", "name": "📚高中┃课堂┃教育", "type": 3, "api": "csp_BiliGuard", "style": { "type": "rect", "ratio": 1.597 }, "searchable": 0, "quickSearch": 0, "changeable": 0, "ext": { "json": "http://我不是.摸鱼儿.com/api/moyu.php?file=高中课堂" }
 { "key": "310直播", "name": "🏀⚽球赛直播", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
 { "key": "ikan", "name": "🌼ikan", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "https://tvbox.catvod.com/js/ik.js" },
 
