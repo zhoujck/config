@@ -24,22 +24,21 @@
 { "key": "ikan", "name": "🌼ikan", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "https://tvbox.catvod.com/js/ik.js" },
 
 { "key": "线路1", "name": "🌼瓜子", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "https://gitee.com/XIYANkong123/536992286/raw/moyuer/guazi.js"},
-//{ "key": "线路1", "name": "🌼瓜子","type":3,"api":"csp_XBPQ","ext":"./json/瓜子.json"},
-{ "key": "线路2", "name": "🍬ikan","type":3,"api":"csp_XBPQ","ext":"./json/ikan.json"},
+
 { "key": "线路3", "name": "🌼茶杯","type":3,"api":"csp_XBPQ","ext":"./json/茶杯2025.json"},
 { "key": "线路4", "name": "🌼天龙","type":3,"api":"csp_XBPQ","ext":"./json/天龙.json"},
-{ "key": "线路5", "name": "🍬来看", "type": 3, "api": "csp_Lkdy"},
-{ "key": "线路6", "name": "🍬农民", "type": 3, "api": "csp_Wwys", "ext": "https://wwgz.cn"},
-{ "key": "线路7", "name": "🍬云播", "type": 3, "api": "csp_Tvyb" },
-{ "key": "线路8", "name": "🍬官源", "type": 3, "api": "csp_SP360" },
-{ "key": "线路9", "name": "🍬蜡笔", "type": 3, "api": "csp_Duopan", "filterable": 1, "ext": { "site_urls": [ "https://duopan.fun", "http://labipan.com", "http://feimaoai.site", "https://mihdr.top" ], "url_key": "Duopan2" }},
-{ "key": "线路10", "name": "🍬潮流", "type": 3, "api": "csp_AppRJ", "ext": "sHR2rlsfjI4L3t4RXQMkn9mmg6Ofmy66+wcs9waIyn4hKqT9jG9s4kO6qzcu2OSqWS1/T+wfkqe+UwoipekwvcM11PTDrQqKYI8lmMXUc1vBHxp/2uWIw5HUoscBNWEb" },
-{ "key": "线路11", "name": "🍬星辉", "type": 3, "api": "csp_AppRJ", "ext": "sHR2rlsfjI4L3t4RXQMknxhunFUlA4159TKiKvIPpfcM1xianxebcSLajBbwFymqC+z9WoGzQYbh7FSvh8KdiC0BKF0CalaPaCEMOZm+ClGEeNzXAaR0FnrV04SiB2NK" },
-{"key":"玩偶","name":"👽玩偶哥哥┃4K弹幕","type":3,"api":"csp_WoGGGuard","searchable":1,"quickSearch":1,"changeable":0, "ext": {"Cloud-drive":"tvfan/Cloud-drive.txt","from":"4k|auto","siteUrl":"https://www.wogg.net/","danMu":"弹"}, "jar": "./jar/fan.jar"},
+{ "key": "线路5", "name": "🐼来看", "type": 3, "api": "csp_Lkdy"},
+//{ "key": "线路6", "name": "🍬农民", "type": 3, "api": "csp_Wwys", "ext": "https://wwgz.cn"},
+{ "key": "线路7", "name": "🐼云播", "type": 3, "api": "csp_Tvyb" },
+//{ "key": "线路8", "name": "🍬官源", "type": 3, "api": "csp_SP360" },
+{ "key": "线路9", "name": "🐼蜡笔", "type": 3, "api": "csp_Duopan", "filterable": 1, "ext": { "site_urls": [ "https://duopan.fun", "http://labipan.com", "http://feimaoai.site", "https://mihdr.top" ], "url_key": "Duopan2" }},
+{ "key": "线路10", "name": "🐼潮流", "type": 3, "api": "csp_AppRJ", "ext": "sHR2rlsfjI4L3t4RXQMkn9mmg6Ofmy66+wcs9waIyn4hKqT9jG9s4kO6qzcu2OSqWS1/T+wfkqe+UwoipekwvcM11PTDrQqKYI8lmMXUc1vBHxp/2uWIw5HUoscBNWEb" },
+{ "key": "线路11", "name": "🐼星辉", "type": 3, "api": "csp_AppRJ", "ext": "sHR2rlsfjI4L3t4RXQMknxhunFUlA4159TKiKvIPpfcM1xianxebcSLajBbwFymqC+z9WoGzQYbh7FSvh8KdiC0BKF0CalaPaCEMOZm+ClGEeNzXAaR0FnrV04SiB2NK" },
+{ "key": "线路12", "name": "🐼短剧", "type": 3, "api": "csp_AppXY" },
 
-{ "key": "csp_AppXY", "name": "🍬短剧", "type": 3, "api": "csp_AppXY" },
-
-{"key":"文采","name":"💮文采","type":3,"api":"csp_Jpys" , "jar": "./jar/fan.jar"},
+{ "key": "线路13", "name": "🦋蝴蝶", "type": 3, "api": "csp_Hudie", "jar": "http://我不是.摸鱼儿.com/by/jar/PizazzGY.php", "playerType": 2, "ext": "eaHR0cHM6Ly9kLmRjbW92aWUudG9w" },
+{ "key": "线路14", "name": "🦋文采", "type": 3, "api": "csp_Jpys" , "jar": "http://我不是.摸鱼儿.com/by/jar/PizazzGY.php"},
+{ "key": "线路15", "name": "🦋快看", "type": 3, "api": "csp_Kuaikan", "jar": "http://我不是.摸鱼儿.com/by/jar/PizazzGY.php", "searchable": 1, "quickSearch": 1, "filterable": 1 },
 
 { "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar", "ext": "./json/market.json" }
 ],
