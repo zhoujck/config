@@ -25,7 +25,7 @@
 
 { "key": "线路1", "name": "🌼瓜子", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "https://gitee.com/XIYANkong123/536992286/raw/moyuer/guazi.js"},
 //{ "key": "线路1", "name": "🌼瓜子","type":3,"api":"csp_XBPQ","ext":"./json/瓜子.json"},
-{ "key": "线路2", "name": "🌼低端","type":3,"api":"csp_XBPQ","ext":"./json/低端.json"},
+{ "key": "线路2", "name": "🍬ikan","type":3,"api":"csp_XBPQ","ext":"./json/ikan.json"},
 { "key": "线路3", "name": "🌼茶杯","type":3,"api":"csp_XBPQ","ext":"./json/茶杯2025.json"},
 { "key": "线路4", "name": "🌼天龙","type":3,"api":"csp_XBPQ","ext":"./json/天龙.json"},
 { "key": "线路5", "name": "🍬来看", "type": 3, "api": "csp_Lkdy"},
