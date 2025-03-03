@@ -21,7 +21,7 @@
 { "key": "bili影视", "name": "🅱哔站影视", "type": 3,"api":"./js/lib/drpy2.min.js","searchable":1,"ext":"./js/doc.js"},
 { "key": "bili视频", "name": "央视经典", "type": 3, "api": "csp_Bili", "ext": "./json/央视经典.json" },
 { "key": "310直播", "name": "🏀⚽球赛直播", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
-{ "key": "ikan", "name": "🍬ikan", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "https://tvbox.catvod.com/js/ik.js" },
+{ "key": "ikan", "name": "🍬ikan", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/ikan1.js" },
 { "key": "央视频", "name": "🍬央视频", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/央视频.js" },{ "key": "央视频", "name": "🌼央视频", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/央视频.js" },
 
 
