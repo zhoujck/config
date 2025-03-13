@@ -22,7 +22,9 @@
 //{ "key": "bili视频", "name": "央视经典", "type": 3, "api": "csp_Bili", "ext": "./json/央视经典.json" },
 { "key": "310直播", "name": "🏀⚽球赛直播", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
 { "key": "线路2", "name": "🍬ikan", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/ikan1.js" },
-{ "key": "央视频", "name": "🍬央视频", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/央视频.js" },{ "key": "央视频", "name": "🌼央视频", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/央视频.js" },
+{ "key": "央视频", "name": "🍬央视频", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/央视频.js" },
+{ "key": "荐片", "name": "🍬荐片", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/jp.js" },
+
 
 { "key": "线路1", "name": "🍬瓜子", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "https://gitee.com/XIYANkong123/536992286/raw/moyuer/guazi.js"},
 //{ "key": "线路3-1", "name": "🍬茶杯1","type":3,"api":"csp_XBPQ","ext":"./json/茶杯.json"},
@@ -37,9 +39,9 @@
 { "key": "线路11", "name": "🐼星辉", "type": 3, "api": "csp_AppRJ", "ext": "sHR2rlsfjI4L3t4RXQMknxhunFUlA4159TKiKvIPpfcM1xianxebcSLajBbwFymqC+z9WoGzQYbh7FSvh8KdiC0BKF0CalaPaCEMOZm+ClGEeNzXAaR0FnrV04SiB2NK" },
 { "key": "线路12", "name": "🐼短剧", "type": 3, "api": "csp_AppXY" },
 
-{ "key": "线路13", "name": "🦋蝴蝶", "type": 3, "api": "csp_Hudie", "jar": "http://我不是.摸鱼儿.com/by/jar/PizazzGY.php", "playerType": 2, "ext": "eaHR0cHM6Ly9kLmRjbW92aWUudG9w" },
-{ "key": "线路14", "name": "🦋文采", "type": 3, "api": "csp_Jpys" , "jar": "http://我不是.摸鱼儿.com/by/jar/PizazzGY.php"},
-{ "key": "线路15", "name": "🦋快看", "type": 3, "api": "csp_Kuaikan", "jar": "http://我不是.摸鱼儿.com/by/jar/PizazzGY.php", "searchable": 1, "quickSearch": 1, "filterable": 1 },
+{ "key": "线路13", "name": "🦋蝴蝶", "type": 3, "api": "csp_Hudie", "jar": "./jar/moyu.jar", "playerType": 2, "ext": "eaHR0cHM6Ly9kLmRjbW92aWUudG9w" },
+{ "key": "线路14", "name": "🦋文采", "type": 3, "api": "csp_Jpys" , "jar": "./jar/moyu.jar"},
+{ "key": "线路15", "name": "🦋快看", "type": 3, "api": "csp_Kuaikan", "jar": "./jar/moyu.jar", "searchable": 1, "quickSearch": 1, "filterable": 1 },
 
 { "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar", "ext": "./json/market.json" }
 ],
