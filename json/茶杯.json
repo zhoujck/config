@@ -7,8 +7,8 @@
 
 "二次截取": "",
 "数组": "vodlist_item num&&vodlist_titbox",
-"图片": "style=\"&&\"",
-"标题": "data-original=\">&&",
+"图片": "data-original=\">&&",
+"标题": "title=\"&&\"",
 "副标题": "",
 "链接": "href=\"&&\"",
 
@@ -16,7 +16,7 @@
 "搜索url": "https://xunaizhan.com/vodsearch/?wd={wd}&submit=.html",
 "搜索数组": "searchlist_item&&searchlist_titbox",
 "搜索图片": "data-original=\">&&",
-"搜索标题": "href=\"&&\"",
+"搜索标题": "title=\"&&\"",
 "搜索副标题": "",
 "搜索链接": "href=\"&&\"",
 "导演": "糖果",
