@@ -41,6 +41,7 @@
 { "key": "线路11", "name": "🐼天天", "type": 3, "api": "csp_AppRJGuard", "jar": "https://gitee.com/tianwikeji/jar/raw/master/m.jar", "ext": "sHR2rlsfjI4L3t4RXQMknxhunFUlA4159TKiKvIPpfcM1xianxebcSLajBbwFymqC+z9WoGzQYbh7FSvh8KdiC0BKF0CalaPaCEMOZm+ClGEeNzXAaR0FnrV04SiB2NK" },
 
 { "key": "线路12", "name": "🐼短剧", "type": 3, "api": "csp_AppXY" },
+{ "key": "玩偶", "name": "玩偶", "type": 3, "api": "csp_WoGGGuard", "jar": "https://gitee.com/tianwikeji/jar/raw/master/f.jar", "searchable": 1, "quickSearch": 1, "changeable": 0, "ext": { "Cloud-drive": "tvfan/Cloud-drive.txt", "from": "4k|auto", "siteUrl": "https://www.wogg.net/", "danMu": "弹" } },
 
 //{ "key": "线路1", "name": "🍬瓜子", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/瓜子.js"},
 //{ "key": "线路2", "name": "🍬ikan", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/ikan1.js" },
