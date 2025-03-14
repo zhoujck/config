@@ -8,7 +8,7 @@
 "logo": "./pic/app_icon.png",
 
 "lives": [
-{ "name": "🍬糖果🍬", "type": 0, "url": "./json/移动", "ua":"okhttp/3.15","playerType": 2,"epg":"http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}","logo":"https://live.fanmingming.com/tv/{name}.png"},
+{ "name": "🍬糖果🍬", "type": 0, "url": "./json/移动", "playerType": 2, "ua": "okhttp/5.0.0-alpha.14", "epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}", "logo": "https://epg.112114.xyz/logo/{name}.png"},
 { "name": "🍬鱼儿🍬", "type": 0, "url": "http://我不是.摸鱼儿.com/live.php", "playerType": 1},
 { "name": "🍬综合🍬", "type": 0, "url": "https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/iptvupdate/main/py/优质源/live.txt", "ua": "okhttp/3.15", "playerType": 1, "epg": "http://diyp2.112114.xyz/?ch={name}&date={date}", "logo": "http://diyp2.112114.xyz/logo/{name}.png" }
 ],
