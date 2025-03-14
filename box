@@ -1,5 +1,7 @@
 {
-"spider": "./jar/Feimao.txt",
+// {"url": "https://7337.kstore.space/twvip/自用测试.json","name": "天微"}, 3/14/25
+
+"spider": "./jar/tvkj.jar",
 
 //"spider":"https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1740082223598/f0221.txt;md5;2f204873d78bd47a56a4e42fba0d3ac3",
 
@@ -19,29 +21,36 @@
 { "key":"config","name":"🍬┃配置中心","type":3,"api":"csp_Config"},
 
 { "key": "bili影视", "name": "🅱哔站影视", "type": 3,"api":"./js/lib/drpy2.min.js","searchable":1,"ext":"./js/doc.js"},
-//{ "key": "bili视频", "name": "央视经典", "type": 3, "api": "csp_Bili", "ext": "./json/央视经典.json" },
 { "key": "310直播", "name": "🏀⚽球赛直播", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
-{ "key": "线路2", "name": "🍬ikan", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/ikan1.js" },
 { "key": "央视频", "name": "🍬央视频", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/央视频.js" },
-{ "key": "荐片", "name": "🍬荐片", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/jp.js" },
 
-
-{ "key": "线路1", "name": "🍬瓜子", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "https://gitee.com/XIYANkong123/536992286/raw/moyuer/guazi.js"},
-//{ "key": "线路3-1", "name": "🍬茶杯1","type":3,"api":"csp_XBPQ","ext":"./json/茶杯.json"},
+{ "key": "线路1", "name": "🍬瓜子", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/瓜子.js"},
+{ "key": "线路2", "name": "🍬ikan", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/ikan1.js" },
 { "key": "线路3", "name": "🍬茶杯","type":3,"api":"csp_XBPQ","ext":"./json/茶杯2025.json"},
 
 { "key": "线路5", "name": "🐼来看", "type": 3, "api": "csp_Lkdy"},
-//{ "key": "线路6", "name": "🍬农民", "type": 3, "api": "csp_Wwys", "ext": "https://wwgz.cn"},
+{ "key": "线路6", "name": "🐼苹果", "type": 3, "api": "csp_LiteApple"},
 { "key": "线路7", "name": "🐼云播", "type": 3, "api": "csp_Tvyb" },
-//{ "key": "线路8", "name": "🍬官源", "type": 3, "api": "csp_SP360" },
 { "key": "线路9", "name": "🐼蜡笔", "type": 3, "api": "csp_Duopan", "filterable": 1, "ext": { "site_urls": [ "https://duopan.fun", "http://labipan.com", "http://feimaoai.site", "https://mihdr.top" ], "url_key": "Duopan2" }},
 { "key": "线路10", "name": "🐼潮流", "type": 3, "api": "csp_AppRJ", "ext": "sHR2rlsfjI4L3t4RXQMkn9mmg6Ofmy66+wcs9waIyn4hKqT9jG9s4kO6qzcu2OSqWS1/T+wfkqe+UwoipekwvcM11PTDrQqKYI8lmMXUc1vBHxp/2uWIw5HUoscBNWEb" },
 { "key": "线路11", "name": "🐼星辉", "type": 3, "api": "csp_AppRJ", "ext": "sHR2rlsfjI4L3t4RXQMknxhunFUlA4159TKiKvIPpfcM1xianxebcSLajBbwFymqC+z9WoGzQYbh7FSvh8KdiC0BKF0CalaPaCEMOZm+ClGEeNzXAaR0FnrV04SiB2NK" },
 { "key": "线路12", "name": "🐼短剧", "type": 3, "api": "csp_AppXY" },
 
-{ "key": "线路13", "name": "🦋蝴蝶", "type": 3, "api": "csp_Hudie", "jar": "./jar/moyu.jar", "playerType": 2, "ext": "eaHR0cHM6Ly9kLmRjbW92aWUudG9w" },
-{ "key": "线路14", "name": "🦋文采", "type": 3, "api": "csp_Jpys" , "jar": "./jar/moyu.jar"},
-{ "key": "线路15", "name": "🦋快看", "type": 3, "api": "csp_Kuaikan", "jar": "./jar/moyu.jar", "searchable": 1, "quickSearch": 1, "filterable": 1 },
+{ "key": "热热", "name": "《米花🔹秒播》", "type": 3, "api": "csp_AppRJGuard", "jar": "https://gitee.com/tianwikeji/jar/raw/master/m.jar", "ext": "sHR2rlsfjI4L3t4RXQMkn9mmg6Ofmy66+wcs9waIyn4hKqT9jG9s4kO6qzcu2OSqWS1/T+wfkqe+UwoipekwvcM11PTDrQqKYI8lmMXUc1vBHxp/2uWIw5HUoscBNWEb" },
+{ "key": "天天", "name": "《天天🔹秒播》", "type": 3, "api": "csp_AppRJGuard", "jar": "https://gitee.com/tianwikeji/jar/raw/master/m.jar", "ext": "sHR2rlsfjI4L3t4RXQMknxhunFUlA4159TKiKvIPpfcM1xianxebcSLajBbwFymqC+z9WoGzQYbh7FSvh8KdiC0BKF0CalaPaCEMOZm+ClGEeNzXAaR0FnrV04SiB2NK" },
+{ "key": "浪酷弹幕", "name": "《浪酷🔹弹幕》", "type": 3, "api": "csp_TianTian", "searchable": 1, "quickSearch": 1, "filterable": 1, "ext": { "danmu": true, "site": "aHR0cDovL3YubGt1eXMuY24=" } },
+{ "key": "热播弹幕", "name": "《热播🔹弹幕》", "type": 3, "api": "csp_TianTian", "searchable": 1, "quickSearch": 1, "filterable": 1, "ext": { "danmu": true, "site": "aHR0cDovL3YucmJvdHYuY24=" } },
+
+{ "key": "追剧弹幕", "name": "《追剧🔹弹幕》", "type": 3, "api": "./JS/drpy2.min.js", "ext": "./js/追剧弹幕.js" },
+{ "key": "爱奇艺弹幕", "name": "《爱在🔹心意》", "type": 3, "api": "./JS/drpy2.min.js", "ext": "./js/爱在弹幕.js" },
+
+{ "key": "快看", "name": "《快看🔹秒播》", "type": 3, "api": "csp_Kuaikan", "searchable": 1, "quickSearch": 1, "filterable": 1 },
+{ "key": "巧技", "name": "《技巧🔹秒播》", "type": 3, "api": "csp_qiao2", "playerType": 2, "ext": "https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1740038979341/cksp.txt" },
+{ "key": "二三", "name": "《十三🔹秒播》", "type": 3, "api": "csp_Muou", "playerType": 2, "ext": "caHR0cHM6Ly8xMjN5c3cuY29tfDIz5b2x6KeGfDQuMS44" },
+{ "key": "小苹果弹幕", "name": "《苹果🔹弹幕》", "type": 3, "api": "csp_Xpg", "searchable": 1, "quickSearch": 1, "filterable": 1, "ext": { "danmu": true } },
+{ "key": "机器人弹幕", "name": "《人机🔹弹幕》", "type": 3, "api": "csp_Ikanbot", "searchable": 1, "quickSearch": 1, "filterable": 1, "ext": { "danmu": true } },
+{ "key": "瓜子影视", "name": "《瓜子🔹秒播》", "type": 3, "api": "csp_Gz360", "searchable": 1, "quickSearch": 1, "filterable": 1 },
+{ "key": "csp_vs", "name": "《卫士🔸秒播》", "type": 3, "api": "csp_XBPQ", "searchable": 1, "quickSearch": 1, "filterable": 1, "ext": "./json/vsys.json" },
 
 { "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar", "ext": "./json/market.json" }
 ],
