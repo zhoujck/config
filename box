@@ -1,11 +1,7 @@
 {
-// {"url": "https://7337.kstore.space/twvip/自用测试.json","name": "天微"}, 3/14/25
-
 "spider": "./jar/tvkj.jar",
-//"spider": "https://gitee.com/tianwikeji/jar/raw/master/g.jar",
 
 "warningText": "资源来自网络，无盈利纯技术分享！[所有内容仅供学习使用，请勿用于违法及商业用途，请勿付费购买]",
-
 
 "logo": "./pic/app_icon.png",
 
@@ -20,7 +16,7 @@
 { "key": "config", "name": "🍬┃配置中心","type":3,"api":"csp_Config"},
 
 { "key": "bili影视", "name": "🅱哔站影视", "type": 3,"api":"./js/lib/drpy2.min.js","searchable":1,"ext":"./js/doc.js"},
-{ "key": "310直播", "name": "球赛直播", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
+{ "key": "310直播", "name": "球赛", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
 { "key": "央视频", "name": "🍬央视频", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/央视频.js" },
 
 { "key": "追剧", "name": "🍬追剧", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/追剧.js" },
@@ -45,9 +41,6 @@
 { "key": "线路12", "name": "🐼短剧", "type": 3, "api": "csp_AppXY" },
 { "key": "玩偶", "name": "玩偶", "type": 3, "api": "csp_WoGGGuard", "jar": "https://gitee.com/tianwikeji/jar/raw/master/f.jar", "searchable": 1, "quickSearch": 1, "changeable": 0, "ext": { "Cloud-drive": "tvfan/Cloud-drive.txt", "from": "4k|auto", "siteUrl": "https://www.wogg.net/", "danMu": "弹" } },
 
-//{ "key": "线路1", "name": "🍬瓜子", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/瓜子.js"},
-//{ "key": "线路2", "name": "🍬ikan", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/ikan1.js" },
-//{ "key": "线路3", "name": "🍬茶杯","type":3,"api":"csp_XBPQ","ext":"./json/茶杯2025.json"},
 { "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar", "ext": "./json/market.json" }
 ],
 
