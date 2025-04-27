@@ -32,11 +32,11 @@
 { "key": "线路5", "name": "🐼苹果", "type": 3, "api": "csp_Xpg"},
 { "key": "线路6", "name": "🐼快看", "type": 3, "api": "csp_Kuaikan" },
 { "key": "线路7", "name": "🐼十三", "type": 3, "api": "csp_Muou", "playerType": 2, "ext": "caHR0cHM6Ly8xMjN5c3cuY29tfDIz5b2x6KeGfDQuMS44"},
-{ "key": "线路8", "name": "🐼浪酷", "type": 3, "api": "csp_AppRJ", "searchable": 1, "quickSearch": 1, "filterable": 1, "ext": {"url": "http://v.lkuys.cn"},
-{ "key": "线路9", "name": "🐼热播", "type": 3, "api": "csp_AppRJ", "searchable": 1, "quickSearch": 1, "filterable": 1, "ext": {"url": "http://v.rbotv.cn"},
+{ "key": "线路8", "name": "🐼浪酷", "type": 3, "api": "csp_AppRJ", "searchable": 1, "quickSearch": 1, "filterable": 1, "ext": {"url": "http://v.lkuys.cn"}},
+{ "key": "线路9", "name": "🐼热播", "type": 3, "api": "csp_AppRJ", "searchable": 1, "quickSearch": 1, "filterable": 1, "ext": {"url": "http://v.rbotv.cn"}},
 { "key": "线路10", "name": "🐼蝴蝶", "type": 3, "api": "csp_Hudie", "playerType": 2, "ext": "eaHR0cHM6Ly9kLmRjbW92aWUudG9w" },
 
-{ "key": "线路11", "name": "🐼天天", "type": 3, "api": "csp_AppRJ", "searchable": 1, "quickSearch": 1, "filterable": 1, "ext": {"url": "http://tt.ysdqjs.cn"},
+{ "key": "线路11", "name": "🐼天天", "type": 3, "api": "csp_AppRJ", "searchable": 1, "quickSearch": 1, "filterable": 1, "ext": {"url": "http://tt.ysdqjs.cn"}},
 
 { "key": "线路12", "name": "🐼短剧", "type": 3, "api": "csp_AppXY" },
 { "key": "玩偶", "name": "玩偶", "type": 3, "api": "csp_WoGGGuard", "jar": "https://gitee.com/tianwikeji/jar/raw/master/f.jar", "searchable": 1, "quickSearch": 1, "changeable": 0, "ext": { "Cloud-drive": "tvfan/Cloud-drive.txt", "from": "4k|auto", "siteUrl": "https://www.wogg.net/", "danMu": "弹" } },
