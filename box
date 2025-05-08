@@ -39,7 +39,7 @@
 { "key": "线路11", "name": "🐼天天", "type": 3, "api": "csp_AppRJ", "searchable": 1, "quickSearch": 1, "filterable": 1, "ext": {"url": "http://tt.ysdqjs.cn"}},
 
 { "key": "线路12", "name": "🐼短剧", "type": 3, "api": "csp_AppXY" },
-{ "key": "玩偶", "name": "玩偶", "type": 3, "api": "csp_WoGGGuard", "jar": "https://gitee.com/tianwikeji/jar/raw/master/f.jar", "searchable": 1, "quickSearch": 1, "changeable": 0, "ext": { "Cloud-drive": "tvfan/Cloud-drive.txt", "from": "4k|auto", "siteUrl": "https://www.wogg.net/", "danMu": "弹" } },
+{ "key": "玩偶", "name": "🍬玩偶", "type": 3, "api": "csp_WoGGGuard", "jar": "http://我不是.摸鱼儿.com/by/jar/moyu.php", "searchable": 1, "quickSearch": 1, "changeable": 0, "ext": { "Cloud-drive": "TVBox/Cloud-drive.txt", "from": "4k|auto", "siteUrl": "https://www.wogg.one/", "danMu": "弹" }},
 
 { "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar", "ext": "./json/market.json" }
 ],
