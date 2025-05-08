@@ -1,5 +1,5 @@
 {
-"spider": "https://7337.kstore.space/twvip/tvkj.jar",
+"spider": "./jar/tvkj.jar",
 
 "logo": "./pic/app_icon.png",
 
