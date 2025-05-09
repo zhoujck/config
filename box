@@ -15,7 +15,6 @@
 
 { "key": "bili影视", "name": "🅱哔站影视", "type": 3,"api":"./js/lib/drpy2.min.js","searchable":1,"ext":"./js/doc.js"},
 { "key": "310直播", "name": "球赛", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
-{ "key": "央视频", "name": "🍬央视频", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/央视频.js" },
 
 { "key": "追剧", "name": "🍬追剧", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/追剧.js" },
 { "key": "爱奇艺", "name": "🍬爱奇艺", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/爱奇艺.js" },
