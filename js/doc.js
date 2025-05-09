@@ -12,9 +12,7 @@ var rule = {
     headers:{
         'User-Agent':'PC_UA',
         "Referer": "https://www.bilibili.com",
-        "Cookie": "bili_jct=8d857e6102f03611ebc812dd1832c6ed; DedeUserID=701168335;SESSDATA=d8769a80%2C1743679969%2Cc62b6%2Aa2CjCp0N9_uJNqQ-dGBg8sCvfZqFP1a4mIz26RQPJb7gdhapxR98SpPBStK-G_QtbrSekSVkpvX2pJRU5HbVZFbF9fU2xiU0QzQWs4NnpFQVIwb2xJc3Roc0oyYm92UkhuX3ZfQjBMeEptc2dROGxQUzhsTjRjODY3cjhHc1J5TTFUUWVFM0M4dXRBIIEC"
-        
-        //"Cookie":"DedeUserID=3493271303096985;DedeUserID__ckMd5=7b86f3894ed7f8c0;SESSDATA=2d6f63c8%2C1684568607%2C19eb6%2Ab1;bili_jct=21d538b01566c26afc81ff68c2ac7dca;"
+        "Cookie": "bili_jct=8d857e6102f03611ebc812dd1832c6ed; DedeUserID=701168335;SESSDATA=b8548afd%2C1762234796%2C253a4%2A51CjDRk71IfgvJCRKysDuFzq_QtR0mJrDI6j0tgf_ySAIyTFtrTl7hTIz0m33AgPF1K-gSVmZkTU9nMFRacXVha1hRb3ROUFNFcVZhTmJEZ3VBU0RraDlQd3RuX2JSSnljdV95OHlYOWtrTjBuR0o0Zkx1WnJuRURNMnJtTkx2anE3XzdhYmVzUW1nIIEC"  
     },
     timeout:5000,
     class_name:'历史&人文&宇宙&自然&探险&动物&科技&美食',
