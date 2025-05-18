@@ -32,7 +32,7 @@
 { "key": "线路7", "name": "🐼欢视", "type": 3, "api": "csp_AppTTGuard", "playerType": 2, "ext": "uqGL1bNENExT9fFAy5mE5qU="},
 { "key": "线路8", "name": "🐼浪酷", "type": 3, "api": "csp_AppRJ", "searchable": 1, "quickSearch": 1, "filterable": 1,  "jar": "http://我不是.摸鱼儿.com/by/jar/moyuer.php;md5;306c98ac3375da1a7b4242a44a80a4ae","ext": {"url": "http://v.lkuys.cn"}},
 { "key": "线路9", "name": "🐼热播", "type": 3, "api": "csp_AppTTGuard", "searchable": 1, "quickSearch": 1, "filterable": 1, "ext": "uqGL1bNENExT7/hGxpSE5qU="},
-{ "key": "线路10", "name": "🐼雨滴", "type": 3, "quickSearch": 1, "api": "csp_AppGet", "jar": "http://我不是.摸鱼儿.com/by/jar/moyuer.php;md5;306c98ac3375da1a7b4242a44a80a4ae", "ext": { "url": "https://c8w2ov7u5wg2z1o8p21c.aliyuncs.click:27899", "dataKey": "k9o3p2c8b7m3z0o8", "dataIv": "k9o3p2c8b7m3z0o8", "deviceId": "", "version": "100" }
+{ "key": "线路10", "name": "🐼雨滴", "type": 3, "quickSearch": 1, "api": "csp_AppGet", "jar": "http://我不是.摸鱼儿.com/by/jar/moyuer.php;md5;306c98ac3375da1a7b4242a44a80a4ae", "ext": { "url": "https://c8w2ov7u5wg2z1o8p21c.aliyuncs.click:27899", "dataKey": "k9o3p2c8b7m3z0o8", "dataIv": "k9o3p2c8b7m3z0o8", "deviceId": "", "version": "100" },
 { "key": "线路11", "name": "🐼天天", "type": 3, "api": "csp_AppRJ", "searchable": 1, "quickSearch": 1, "filterable": 1, "jar": "http://我不是.摸鱼儿.com/by/jar/moyuer.php;md5;306c98ac3375da1a7b4242a44a80a4ae", "ext": {"url": "http://tt.ysdqjs.cn"}},
 
 { "key": "短剧", "name": "🌟短剧", "type": 3, "api": "csp_AppXY", "jar": "http://我不是.摸鱼儿.com/by/jar/moyuer.php;md5;306c98ac3375da1a7b4242a44a80a4ae", "searchable": 1, "quickSearch": 0, "filterable": 0 },
