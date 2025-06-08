@@ -25,7 +25,7 @@
 
 { "key": "线路1", "name": "🍬瓜子", "type": 3, "api": "csp_GuaziGuard"},
 { "key": "线路2", "name": "🍬文采", "type": 3, "api": "csp_JpysGuard"},
-{ "key": "线路3", "name": "🍬卫士", "type": 3, "api": "csp_XBPQ","ext": "./json/vsys.json"."jar":"./jar/xiaomi.jar"},
+{ "key": "线路3", "name": "🍬卫士", "type": 3, "api": "csp_XBPQ","ext": "./json/vsys.json","jar":"./jar/xiaomi.jar"},
 
 { "key": "线路4", "name": "👀萌米", "type": 3, "api": "csp_AppTTGuard", "playerType": 2, "searchable": 1, "quickSearch": 1, "changeable": 1, "ext": "uqGL1bNENEIVq+dC1p/Y9uWjuA=="},
 { "key": "线路5", "name": "🐼苹果", "type": 3, "api": "csp_XpgGuard"},
