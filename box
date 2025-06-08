@@ -1,5 +1,6 @@
 {
-"spider": "http://我不是.摸鱼儿.com/by/jar/moyu.php;md5;0a9c6b44a20445a9b3c2a39763ef7cf1",
+//ok接口
+"spider": "https://fs-im-kefu.7moor-fs2.com/im/2768a390-5474-11ea-afc9-7b323e3e16c0/H7jM3fzQ.png;md5;a25e9f3f898f2af417308d37277d9f66",
 
 "logo": "./pic/app_icon.png",
 
@@ -10,7 +11,7 @@
 ],
 
 "sites": [
-{ "key": "豆豆", "name": "🍬糖果影视🍬","type": 3, "api": "csp_DouDouGuard","searchable": 0,"quickSearch": 0,"filterable": 0},
+{ "key": "豆豆", "name": "🍬糖果影视🍬","type": 3, "api": "csp_DoubanGuard","searchable": 0,"quickSearch": 0,"filterable": 0},
 { "key": "config", "name": "配置中心","type":3,"api":"csp_Config"},
 
 { "key": "bili影视", "name": "🅱哔站影视", "type": 3,"api":"./js/lib/drpy2.min.js","searchable":1,"ext":"./js/doc.js"},
@@ -22,21 +23,21 @@
 { "key": "优酷", "name": "🍬优酷", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/优酷.js" },
 { "key": "芒果", "name": "🍬芒果", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/芒果.js" },
 
-{ "key": "线路1", "name": "🍬瓜子", "type": 3, "api": "csp_Gz360","jar": "http://我不是.摸鱼儿.com/by/jar/moyuer.php;md5;306c98ac3375da1a7b4242a44a80a4ae"},
+{ "key": "线路1", "name": "🍬瓜子", "type": 3, "api": "csp_GuaziGuard"},
 { "key": "线路2", "name": "🐼文采", "type": 3, "api": "csp_JpysGuard"},
 { "key": "线路3", "name": "🍬卫士", "type": 3, "api": "csp_XBPQ","ext": "./json/vsys.json"},
 
 { "key": "线路4", "name": "👀萌米", "type": 3, "api": "csp_AppTTGuard", "playerType": 2, "searchable": 1, "quickSearch": 1, "changeable": 1, "ext": "uqGL1bNENEIVq+dC1p/Y9uWjuA=="},
-{ "key": "线路5", "name": "🐼苹果", "type": 3, "api": "csp_LiteAppleGuard"},
-{ "key": "线路6", "name": "🐼糯米", "type": 3, "api": "csp_NmyswvGuard"},
-{ "key": "线路7", "name": "🐼欢视", "type": 3, "api": "csp_AppTTGuard", "playerType": 2, "ext": "uqGL1bNENExT9fFAy5mE5qU="},
-{ "key": "线路8", "name": "🐼浪酷", "type": 3, "api": "csp_AppRJ", "searchable": 1, "quickSearch": 1, "filterable": 1,  "jar": "http://我不是.摸鱼儿.com/by/jar/moyuer.php;md5;306c98ac3375da1a7b4242a44a80a4ae","ext": {"url": "http://v.lkuys.cn"}},
-{ "key": "线路9", "name": "🐼热播", "type": 3, "api": "csp_AppTTGuard", "searchable": 1, "quickSearch": 1, "filterable": 1, "ext": "uqGL1bNENExT7/hGxpSE5qU="},
-{ "key": "线路10", "name": "🐼雨滴", "type": 3, "quickSearch": 1, "api": "csp_AppGet", "jar": "http://我不是.摸鱼儿.com/by/jar/moyuer.php;md5;306c98ac3375da1a7b4242a44a80a4ae", "ext": { "url": "https://c8w2ov7u5wg2z1o8p21c.aliyuncs.click:27899", "dataKey": "k9o3p2c8b7m3z0o8", "dataIv": "k9o3p2c8b7m3z0o8", "deviceId": "", "version": "100" }},
-{ "key": "线路11", "name": "🐼天天", "type": 3, "api": "csp_AppRJ", "searchable": 1, "quickSearch": 1, "filterable": 1, "jar": "http://我不是.摸鱼儿.com/by/jar/moyuer.php;md5;306c98ac3375da1a7b4242a44a80a4ae", "ext": {"url": "http://tt.ysdqjs.cn"}},
+{ "key": "线路5", "name": "🐼苹果", "type": 3, "api": "csp_XpgGuard"},
+{ "key": "线路6", "name": "🐼糯米", "type": 3, "api": "csp_NmysGuard"},
+{ "key": "线路7", "name": "🐼白白", "type": 3, "api": "csp_SubaibaiGuard"},
+{ "key": "线路8", "name": "🐼天天", "type": 3, "api": "csp_TianTianGuard"},
+{ "key": "线路9", "name": "🐼玩偶", "type": 3, "api": "csp_WoggGuard"},
 
-{ "key": "短剧", "name": "🌟短剧", "type": 3, "api": "csp_AppXY", "jar": "http://我不是.摸鱼儿.com/by/jar/moyuer.php;md5;306c98ac3375da1a7b4242a44a80a4ae", "searchable": 1, "quickSearch": 0, "filterable": 0 },
-{ "key": "玩偶", "name": "♨️玩偶", "type": 3, "api": "csp_WoGGGuard", "searchable": 1, "quickSearch": 1, "changeable": 0, "ext": { "Cloud-drive": "TVBox/Cloud-drive.txt", "from": "4k|auto", "siteUrl": "https://www.wogg.one/", "danMu": "弹" } },
+{ "key": "线路10", "name": "👓欢视", "type": 3, "api": "csp_AppTTGuard", "timeout": 10, "playerType": 2, "searchable": 1, "quickSearch": 1, "changeable": 1, "ext": "uqGL1bNENExT9fFAy5mE5qU=" },
+
+{ "key": "短剧", "name": "🌟短剧", "type": 3, "api": "csp_AppXYGuard"},
+
 { "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar", "ext": "./json/market.json" }
 ],
 
