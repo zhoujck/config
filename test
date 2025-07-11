@@ -19,7 +19,193 @@
 {"key":"lbapi9.com","name":"十八26","type":1,"api":"https://lbapi9.com/api.php/provide/vod/","playUrl": "json:http://127.0.0.1:10079/parse/?thread=0&proxy=&url=","searchable":1,"recordable":0,"style":{"type":"rect","ratio":1.33},"header":{"Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7","User-Agent":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/117.0.0.0Safari/537.36"}},
 {"key": "❤黄AV资源 ", "name": "❤27资源", "type": 0, "api": "https://www.pgxdy.com/api/xml.php", "searchable": 1, "quickSearch": 1, "filterable": 1 },
 {"key": "♥️富二代     ", "name": "♥️28资源", "type": 0, "api": "http://f2dcj6.com/sapi?ac=list", "searchable": 1, "quickSearch": 1, "filterable": 1 },
-{"key":"push_agent","name":"推送","type":3,"api":"csp_Push","searchable":1,"changeable":0,"ext":"./lib/token.json"}
+{"key":"push_agent","name":"推送","type":3,"api":"csp_Push","searchable":1,"changeable":0,"ext":"./lib/token.json"},
+ {
+            "key": "色猫",
+            "name": "色猫2",
+            "type": 1,
+            "api": "https://api.maozyapi.com/inc/apijson_vod.php",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1
+        },
+    {
+      "key": "ms4nii",
+      "name": "美少女",
+      "type": 0,
+      "api": "https://www.msnii.com/api/xml.php",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+        {
+            "key": "淫水机",
+            "name": "淫水机",
+            "type": 0,
+            "api": "https://www.xrbsp.com/api/xml.php",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1
+        },
+        {
+            "key": "香奶儿",
+            "name": "香奶儿",
+            "type": 0,
+            "api": "https://www.gdlsp.com/api/xml.php",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1
+        },
+        {
+          "key": "*AIvin",
+          "name": "AIvin",
+          "type": 0,
+          "api": "http://lbapiby.com/api.php/provide/vod/at/xml"
+        },
+        {
+            "key": "白嫖",
+            "name": "白嫖",
+            "type": 0,
+            "api": "https://www.kxgav.com/api/xml.php",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1
+        },
+        {
+            "key": "黄AV",
+            "name": "黄AV",
+            "type": 0,
+            "api": "https://www.pgxdy.com/api/xml.php",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1
+        },
+        
+    {
+      "key": "*易看资源",
+      "name": "易看资源",
+      "type": 1,
+      "api": "https://api.yikanapi.com/api.php/provide/vod/",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0
+    },
+	{
+            "key": "dadiapi.com",
+            "name": "成人01",
+            "type": 0,
+            "api": "http://dadiapi.com/api.php",
+            "searchable": 1,
+            "recordable": 0,
+            "style": {
+                "type": "rect",
+                "ratio": 1.33
+            },
+            "header": {
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                "User-Agent": "Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/117.0.0.0Safari/537.36"
+            }
+        },
+        {
+            "key": "f2dcj6.com",
+            "name": "成人02",
+            "type": 0,
+            "api": "http://f2dcj6.com/sapi?ac=videolist",
+            "searchable": 1,
+            "recordable": 0,
+            "style": {
+                "type": "rect",
+                "ratio": 1.33
+            },
+            "header": {
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                "User-Agent": "Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/117.0.0.0Safari/537.36"
+            }
+        },
+        {
+            "key": "gdlsp.com",
+            "name": "成人03",
+            "type": 0,
+            "api": "https://www.gdlsp.com/api/xml.php",
+            "searchable": 1,
+            "recordable": 0,
+            "style": {
+                "type": "rect",
+                "ratio": 1.33
+            },
+            "header": {
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                "User-Agent": "Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/117.0.0.0Safari/537.36"
+            }
+        },
+        {
+            "key": "msnii.com",
+            "name": "成人04",
+            "type": 0,
+            "api": "https://www.msnii.com/api/xml.php",
+            "searchable": 1,
+            "recordable": 0,
+            "style": {
+                "type": "rect",
+                "ratio": 1.33
+            },
+            "header": {
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                "User-Agent": "Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/117.0.0.0Safari/537.36"
+            }
+        },
+        {
+            "key": "xrbsp.com",
+            "name": "成人05",
+            "type": 0,
+            "api": "https://www.xrbsp.com/api/xml.php",
+            "searchable": 1,
+            "recordable": 0,
+            "style": {
+                "type": "rect",
+                "ratio": 1.33
+            },
+            "header": {
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+                "User-Agent": "Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/117.0.0.0Safari/537.36"
+            }
+        },
+        {
+            "key": "xrbsp.com",
+            "name": "成人06",
+            "type": 0,
+            "api": "https://www.xrbsp.com/api/xml.php",
+            "quickSearch": 1,
+            "searchable": 1,
+            "filterable": 1
+        },
+        {
+            "key": "dadiapi.com",
+            "name": "成人07",
+            "type": 0,
+            "api": "http://dadiapi.com/api.php",
+            "quickSearch": 1,
+            "searchable": 1,
+            "filterable": 1
+        },
+        {
+            "key": "api.maozyapi.com",
+            "name": "成人08",
+            "type": 1,
+            "api": "https://api.maozyapi.com/inc/apijson_vod.php",
+            "quickSearch": 1,
+            "searchable": 1,
+            "filterable": 1
+        },
+        {
+            "key": "xrbsp.com",
+            "name": "成人09",
+            "type": 0,
+            "api": "https://www.xrbsp.com/api/xml.php",
+            "quickSearch": 1,
+            "searchable": 1,
+            "filterable": 1
+          }
 
 ],
     
