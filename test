@@ -92,7 +92,7 @@
     },
 	{
             "key": "dadiapi.com",
-            "name": "成人01",
+            "name": "成人101",
             "type": 0,
             "api": "http://dadiapi.com/api.php",
             "searchable": 1,
@@ -108,7 +108,7 @@
         },
         {
             "key": "f2dcj6.com",
-            "name": "成人02",
+            "name": "成人102",
             "type": 0,
             "api": "http://f2dcj6.com/sapi?ac=videolist",
             "searchable": 1,
@@ -124,7 +124,7 @@
         },
         {
             "key": "gdlsp.com",
-            "name": "成人03",
+            "name": "成人103",
             "type": 0,
             "api": "https://www.gdlsp.com/api/xml.php",
             "searchable": 1,
@@ -140,7 +140,7 @@
         },
         {
             "key": "msnii.com",
-            "name": "成人04",
+            "name": "成人104",
             "type": 0,
             "api": "https://www.msnii.com/api/xml.php",
             "searchable": 1,
@@ -156,7 +156,7 @@
         },
         {
             "key": "xrbsp.com",
-            "name": "成人05",
+            "name": "成人105",
             "type": 0,
             "api": "https://www.xrbsp.com/api/xml.php",
             "searchable": 1,
@@ -172,7 +172,7 @@
         },
         {
             "key": "xrbsp.com",
-            "name": "成人06",
+            "name": "成人106",
             "type": 0,
             "api": "https://www.xrbsp.com/api/xml.php",
             "quickSearch": 1,
@@ -181,7 +181,7 @@
         },
         {
             "key": "dadiapi.com",
-            "name": "成人07",
+            "name": "成人107",
             "type": 0,
             "api": "http://dadiapi.com/api.php",
             "quickSearch": 1,
@@ -190,7 +190,7 @@
         },
         {
             "key": "api.maozyapi.com",
-            "name": "成人08",
+            "name": "成人108",
             "type": 1,
             "api": "https://api.maozyapi.com/inc/apijson_vod.php",
             "quickSearch": 1,
@@ -199,7 +199,7 @@
         },
         {
             "key": "xrbsp.com",
-            "name": "成人09",
+            "name": "成人109",
             "type": 0,
             "api": "https://www.xrbsp.com/api/xml.php",
             "quickSearch": 1,
