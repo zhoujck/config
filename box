@@ -1,6 +1,6 @@
 {
 //ok接口
-"spider": "https://fs-im-kefu.7moor-fs2.com/im/2768a390-5474-11ea-afc9-7b323e3e16c0/YuuVIZ-P.png;md5;75bf38703b0cbd43a7c72bd86ceda9ae",
+"spider": "https://fs-im-kefu.7moor-fs2.com/im/2768a390-5474-11ea-afc9-7b323e3e16c0/EIsty1hL.png;md5;555ac22ba2d83525a2c09b8e5ebecfd4",
 
 "logo": "./pic/app_icon.png",
 
@@ -24,14 +24,13 @@
 { "key": "芒果", "name": "🍬芒果", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/芒果.js" },
 
 { "key": "线路1", "name": "🍬瓜子", "type": 3, "api": "csp_GuaziGuard"},
-{ "key": "线路2", "name": "🍬文采", "type": 3, "api": "csp_JpysGuard"},
+{ "key": "线路2", "name": "🍬浪酷", "type": 3, "api": "csp_TianTianGuard"},
 { "key": "线路3", "name": "🍬卫士", "type": 3, "api": "csp_XBPQ","ext": "./json/vsys.json","jar":"./jar/xiaomi.jar"},
 { "key": "线路11", "name": "🍬瓜子1", "type": 3, "api": "csp_XBPQ", "ext": "./json/瓜子.json" ,"jar":"./jar/xiaomi.jar"},
-
 { "key": "线路4", "name": "👀萌米", "type": 3, "api": "csp_AppTTGuard", "playerType": 2, "searchable": 1, "quickSearch": 1, "changeable": 1, "ext": "uqGL1bNENEIVq+dC1p/Y9uWjuA=="},
 { "key": "线路5", "name": "🐼苹果", "type": 3, "api": "csp_XpgGuard"},
 { "key": "线路6", "name": "🐼糯米", "type": 3, "api": "csp_NmysGuard"},
-{ "key": "线路7", "name": "🐼白白", "type": 3, "api": "csp_SubaibaiGuard"},
+{ "key": "线路7", "name": "🐼白白", "type": 3, "api": "csp_TianTianGuard"},
 
 { "key": "线路8", "name": "🐼热播", "type": 3, "api": "csp_TianTianGuard", "searchable": 1, "quickSearch": 1, "filterable": 1, "ext": { "site": 0 }, "timeout": 10 },
 { "key": "线路9", "name": "🐼天天", "type": 3, "api": "csp_TianTianGuard", "searchable": 1, "quickSearch": 1, "filterable": 1, "ext": { "site": 1 }, "timeout": 10 },
