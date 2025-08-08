@@ -12,7 +12,7 @@ var rule = {
     headers:{
         'User-Agent':'PC_UA',
         "Referer": "https://www.bilibili.com",
-        "Cookie": "bili_jct=8d857e6102f03611ebc812dd1832c6ed; DedeUserID=701168335;SESSDATA=b8548afd%2C1762234796%2C253a4%2A51CjDRk71IfgvJCRKysDuFzq_QtR0mJrDI6j0tgf_ySAIyTFtrTl7hTIz0m33AgPF1K-gSVmZkTU9nMFRacXVha1hRb3ROUFNFcVZhTmJEZ3VBU0RraDlQd3RuX2JSSnljdV95OHlYOWtrTjBuR0o0Zkx1WnJuRURNMnJtTkx2anE3XzdhYmVzUW1nIIEC"  
+        "Cookie": "bili_jct=8d857e6102f03611ebc812dd1832c6ed; DedeUserID=701168335;SESSDATA=f0d59c35%2C1770188969%2Cd19d6%2A81CjCR7VuWQpC5Aps2RKhzCed6afXrGsS7ArTXuWKduCIlnjKvs-NFL-AOOhDWA0q3lh4SVmNINmZmVWpjMGVNbFlmS1piODR4WkRyTFBTNUo5Y3E0VExkcFdESm1JSkEyVzJyZzRkQ1RzYzNrcGJ6M0NwNkVmZjJ5UnowZENLY2RFb2RzQ0k0a25BIIEC;"  
     },
     timeout:5000,
     class_name:'历史&人文&宇宙&自然&探险&动物&科技&美食',
