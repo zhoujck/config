@@ -1,5 +1,5 @@
 { 
-  "spider": "./zx.jar",
+  "spider": "./jar/zx.jar",
   "logo": "./a2.jpg",
 	"sites":[
     {
