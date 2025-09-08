@@ -1,7 +1,7 @@
 {
 //ok接口
-"spider": "https://fs-im-kefu.7moor-fs2.com/im/2768a390-5474-11ea-afc9-7b323e3e16c0/YT6QM5eC.png;md5;b3249d225e1e720653fc6dbf6fde21e6",
-
+//"spider": "https://fs-im-kefu.7moor-fs2.com/im/2768a390-5474-11ea-afc9-7b323e3e16c0/s9doPjDk.png;md5;e394344cf08073fb7e0d5d2338258cda",
+"spider": "https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/IPTV/main/okjar.txt",
 "logo": "./pic/app_icon.png",
 
 "lives": [
