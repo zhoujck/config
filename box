@@ -36,6 +36,10 @@
 
 { "key": "线路10", "name": "🐼玩偶", "type": 3, "api": "csp_WoggGuard"},
 
+{"key": "太极","name": "☯️太极搜索","type": 3,"api": "csp_TaiChiGuard","searchable": 1,"filterable": 1,"changeable": 0,"ext": {"taichi": 1},"timeout": 25},
+{"key": "糖果搜","name": "🍬糖果搜索","type": 3,"api": "csp_TaiChiGuard","searchable": 1,"filterable": 1,"changeable": 0,"ext": {"taichi": 2},"timeout": 25},
+ 
+
 { "key": "短剧", "name": "🌟短剧", "type": 3, "api": "csp_TianQuanGuard"},
 
 { "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar", "ext": "./json/market.json" }
