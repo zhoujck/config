@@ -5,8 +5,8 @@
 "logo": "./pic/app_icon.png",
 
 "lives": [
-{ "name": "🍬移动🍬", "type": 0, "url": "./json/移动", "playerType": 2, "ua": "okhttp/5.0.0-alpha.14", "epg": "https://live.fanmingming.cn/e.xml", "logo": "https://live.fanmingming.cn/tv/{name}.png"},
-{ "name": "🍬电信🍬", "type": 0, "url": "./json/电信", "playerType": 2, "ua": "okhttp/5.0.0-alpha.14", "epg": "https://live.fanmingming.cn/e.xml", "logo": "https://live.fanmingming.cn/tv/{name}.png"},
+{ "name": "🍬移动🍬", "type": 0, "url": "https://framagit.org/zhoujck/config/-/raw/main/json/移动", "playerType": 2, "ua": "okhttp/5.0.0-alpha.14", "epg": "https://live.fanmingming.cn/e.xml", "logo": "https://live.fanmingming.cn/tv/{name}.png"},
+{ "name": "🍬电信🍬", "type": 0, "url": "https://framagit.org/zhoujck/config/-/raw/main/json/电信", "playerType": 2, "ua": "okhttp/5.0.0-alpha.14", "epg": "https://live.fanmingming.cn/e.xml", "logo": "https://live.fanmingming.cn/tv/{name}.png"},
 { "name": "🍬综合🍬", "type": 0, "url": "https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/IPTV/main/output/ipv4/result.txt", "ua": "okhttp/3.15", "playerType": 1, "epg": "https://live.fanmingming.cn/e.xml", "logo": "https://live.fanmingming.cn/tv/{name}.png"}
 ],
 
@@ -14,9 +14,9 @@
 { "key": "豆豆", "name": "🍬糖果影视🍬","type": 3, "api": "csp_DoubanGuard","searchable": 0,"quickSearch": 0,"filterable": 0},
 { "key": "config", "name": "配置中心","type":3,"api":"csp_ConfigGuard"},
 
-{ "key": "bili影视", "name": "🅱哔站影视", "type": 3,"api":"./js/lib/drpy2.min.js","searchable":1,"ext":"./js/doc.js"},
-{ "key": "310直播", "name": "球赛", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
-{ "key": "追剧", "name": "🍬追剧", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/追剧.js" },
+{ "key": "bili影视", "name": "🅱哔站影视", "type": 3,"api":"https://framagit.org/zhoujck/config/-/raw/main/js/lib/drpy2.min.js","searchable":1,"ext":"https://framagit.org/zhoujck/config/-/raw/main/js/doc.js"},
+{ "key": "310直播", "name": "球赛", "type": 3, "api": "https://framagit.org/zhoujck/config/-/raw/main/js/lib/drpy2.min.js", "ext": "https://framagit.org/zhoujck/config/-/raw/main/js/310直播.js" },
+{ "key": "追剧", "name": "🍬追剧", "type": 3, "api": "https://framagit.org/zhoujck/config/-/raw/main/js/lib/drpy2.min.js", "ext": "https://framagit.org/zhoujck/config/-/raw/main/js/追剧.js" },
 
 //{ "key": "爱奇艺", "name": "🍬爱奇艺", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/爱奇艺.js" },
 //{ "key": "腾讯", "name": "🍬腾讯", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/腾讯.js" },
@@ -25,7 +25,7 @@
 
 { "key": "线路1", "name": "🍬瓜子", "type": 3, "api": "csp_GuaziGuard"},
 { "key": "线路2", "name": "🍬文才", "type": 3, "api": "csp_JpysGuard"},
-{ "key": "线路3", "name": "🍬卫士", "type": 3, "api": "csp_XBPQ","ext": "./json/vsys.json","jar":"./jar/xiaomi.jar"},
+{ "key": "线路3", "name": "🍬卫士", "type": 3, "api": "csp_XBPQ","ext": "https://framagit.org/zhoujck/config/-/raw/main/json/vsys.json","jar":"https://framagit.org/zhoujck/config/-/raw/main/jar/xiaomi.jar"},
 { "key": "线路4", "name": "👀萌米", "type": 3, "api": "csp_AppTTGuard", "ext": "uqGL1bNENEIVq+dC1p/Y9uWjuA=="},
 { "key": "线路5", "name": "🐼苹果", "type": 3, "api": "csp_XpgGuard"},
 { "key": "线路6", "name": "🐼糯米", "type": 3, "api": "csp_NmysGuard"},
@@ -42,7 +42,7 @@
 
 { "key": "短剧", "name": "🌟短剧", "type": 3, "api": "csp_TianQuanGuard"},
 
-{ "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar", "ext": "./json/market.json" }
+{ "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "https://framagit.org/zhoujck/config/-/raw/main/jar/FM.jar", "ext": "https://framagit.org/zhoujck/config/-/raw/main/json/market.json" }
 ],
 
 "parses": [
