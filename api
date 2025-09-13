@@ -1,8 +1,8 @@
 {
-    "urls": [
+"urls": [
 { "url": "https://framagit.org/zhoujck/config/-/raw/main/box", "name": "🍬糖果影视" },
 { "url": "https://gh-proxy.com/https://raw.githubusercontent.com/TTMan8899/tvbox2/refs/heads/master/xiaosa/api.json", "name": "潇洒" },
-{ "url": "https://gitee.com/zhoujckk/config/raw/main/box", "name": "🍬糖果影视(gitee)" },
+{ "url": "https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/config/main/box.json", "name": "🍬糖果影视(github)" },
 { "url": "http://肥猫.com", "name": "📱网络〔肥猫〕" },
 {"url": "http://www.饭太硬.com/tv/","name": "饭太硬"},
 {"url": "http://ok321.top/tv","name": "ok哥"},
