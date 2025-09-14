@@ -32,7 +32,7 @@
 { "key": "线路7", "name": "🐼浪酷", "type": 3, "api": "csp_TianTianGuard", "ext": { "site": 2 }, "timeout": 10 },
 { "key": "线路8", "name": "🐼热播", "type": 3, "api": "csp_TianTianGuard", "ext": { "site": 0 }, "timeout": 10 },
 { "key": "线路9", "name": "🐼天天", "type": 3, "api": "csp_TianTianGuard", "ext": { "site": 1 }, "timeout": 10 },
-{ "key": "线路10", "name": "🐼玩偶", "type": 3, "api": "csp_WoggGuard"},
+{ "key": "线路10", "name": "🐼至臻", "type": 3, "api": "csp_ZhiZhenGuard"},
 
  
 
