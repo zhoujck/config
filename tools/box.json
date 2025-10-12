@@ -1,9 +1,8 @@
 {
-"spider": "./feimao.jar",
-"logo": "./pic/app_icon.png",
+"spider": "./jar/Feimao.jar",
 
 "lives": [
-{ "name": "🍬移动🍬", "type": 0, "url": "./lib/live.txt", "playerType": 2, "ua": "okhttp/5.0.0-alpha.14", "epg": "https://live.fanmingming.cn/e.xml", "logo": "https://live.fanmingming.cn/tv/{name}.png"},
+{ "name": "🍬移动🍬", "type": 0, "url": "./ext/移动", "playerType": 2, "ua": "okhttp/5.0.0-alpha.14", "epg": "https://live.fanmingming.cn/e.xml", "logo": "https://live.fanmingming.cn/tv/{name}.png"},
 { "name": "🍬综合🍬", "type": 0, "url": "https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/IPTV/main/output/ipv4/result.txt", "ua": "okhttp/3.15", "playerType": 1, "epg": "https://live.fanmingming.cn/e.xml", "logo": "https://live.fanmingming.cn/tv/{name}.png"}
 ],
 
@@ -11,11 +10,11 @@
 { "key": "豆豆", "name": "🍬糖果影视🍬","type": 3, "api": "csp_Douban","searchable": 0,"quickSearch": 0,"filterable": 0},
 { "key": "config", "name": "配置中心","type":3,"api":"csp_ConfigGuard"},
 
-{ "key": "bili影视", "name": "🅱哔站影视", "type": 3,"api":"./lib/drpy2.min.js","searchable":1,"ext":"./doc.js"},
-{ "key": "310直播", "name": "球赛", "type": 3, "api": "./lib/drpy2.min.js", "ext": "./310直播.js" },
+{ "key": "bili影视", "name": "🅱哔站影视", "type": 3,"api":"./js/lib/drpy2.min.js","searchable":1,"ext":"./js/doc.js"},
+{ "key": "310直播", "name": "球赛", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
 
-{ "key": "线路1", "name": "🍬追剧", "type": 3, "api": "./lib/drpy2.min.js", "ext": "./js/追剧.js" },
-{ "key": "线路2", "name": "🍬卫士", "type": 3, "api": "csp_XBPQ","ext": "./lib/vsys.json","jar":"./lib/xiaomi.jar"},
+{ "key": "线路1", "name": "🍬追剧", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/追剧.js" },
+{ "key": "线路2", "name": "🍬卫士", "type": 3, "api": "csp_XBPQ","ext": "./ext/vsys.json","jar":"./jar/xiaomi.jar"},
 
 { "key": "线路7", "name": "🐼苹果", "type": 3, "api": "csp_LiteApple"},
 { "key": "线路3", "name": "🐼瓜子", "type": 3, "api": "csp_Gz360"},
@@ -30,7 +29,7 @@
 
 { "key": "河马短剧", "name": "🦛短剧", "type": 3, "api": "https://gitee.com/PizazzXS/another-d/raw/master/movie/py/HMDJ.py", "searchable": 1, "changeable": 1, "quickSearch": 1, "filterable": 1, "playerType": 2 },
 
-{ "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./lib/FM.jar", "ext": "./lib/market.json" }
+{ "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar", "ext": "./ext/market.json" }
 ],
 
 "parses": [
