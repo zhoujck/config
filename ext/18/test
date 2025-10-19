@@ -5,7 +5,7 @@
 
 "sites":[ 
 
-{"key": "豆豆","name": "糖果影视","type": 3,"api": "csp_Douban"},
+{"key": "豆豆","name": "🍬糖果影视🍬","type": 3,"api": "csp_Douban","searchable": 0,"quickSearch": 0,"filterable": 0},
 { "key": "筛选", "name": "筛选", "type": 3, "api": "csp_Market",  "jar": "./jar/FM.jar", "ext": "./ext/18/sort" },
 {"key":"lf_js_lf_live","name":"直播","type":3,"api":"./js/lib/lf_live_min.js","style":{ "type":"oval"},"searchable":1,"changeable":0,"quickSearch":1,"filterable":1,"ext":"./ext/18/18api"},
 
