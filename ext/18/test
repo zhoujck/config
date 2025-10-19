@@ -6,8 +6,8 @@
 "sites":[ 
 
 {"key": "豆豆","name": "糖果影视","type": 3,"api": "csp_Douban"},
-{ "key": "筛选", "name": "筛选", "type": 3, "api": "csp_Market",  "jar": "./jar/FM.jar", "ext": "./json/18+/18筛选" },
-{"key":"lf_js_lf_live","name":"直播","type":3,"api":"./js/lib/lf_live_min.js","style":{ "type":"oval"},"searchable":1,"changeable":0,"quickSearch":1,"filterable":1,"ext":"./json/18+/18api"},
+{ "key": "筛选", "name": "筛选", "type": 3, "api": "csp_Market",  "jar": "./jar/FM.jar", "ext": "./ext/18/sort" },
+{"key":"lf_js_lf_live","name":"直播","type":3,"api":"./js/lib/lf_live_min.js","style":{ "type":"oval"},"searchable":1,"changeable":0,"quickSearch":1,"filterable":1,"ext":"./ext/18/18api"},
 
 { "key": "py_BadNews", "name": "BadNews", "type": 4, "api": "https://py.doube.eu.org/spider?site=BadNews", "searchable": 1,  "style": {"type": "rect", "ratio": 1.5} },
 { "key": "py_AiDou", "name": "AiDou", "type": 4, "api": "https://py.doube.eu.org/spider?site=AiDou", "searchable": 1,  "style": { "type": "rect", "ratio": 1.5} },  
