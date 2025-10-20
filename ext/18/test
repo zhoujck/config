@@ -1,7 +1,5 @@
 {  
-"spider": "./jar/Feimao.txt",
-
-
+"spider": "./jar/Feimao.txt;md5;965c0ecb144c99c35f39e4a036712a3a",
 
 "sites":[ 
 
