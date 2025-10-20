@@ -1,5 +1,6 @@
 {
   "spider": "./jar/Feimao.txt;md5;965c0ecb144c99c35f39e4a036712a3a",
+  "logo" : "./ext/app_icon.png",
   "lives": [
     {"name": "🍬移动🍬","type": 0,"url": "./ext/移动","playerType": 2,"ua": "okhttp/5.0.0-alpha.14","epg": "https://live.fanmingming.cn/e.xml","logo": "https://live.fanmingming.cn/tv/{name}.png"},
     {"name": "🍬综合🍬","type": 0,"url": "https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/IPTV/main/output/ipv4/result.txt","ua": "okhttp/3.15","playerType": 1,"epg": "https://live.fanmingming.cn/e.xml","logo": "https://live.fanmingming.cn/tv/{name}.png"}
@@ -21,7 +22,7 @@
     {"key": "线路9","name": "🐼冷心","type": 3,"api": "csp_AppMuou","ext": "http://app.789dd.cn|火猫影视"},
     {"key": "线路10","name": "🐼玩偶","type": 3,"api": "csp_WoggGuard","ext": "https://www.wogg.one/"},
     {"key": "线路11","name": "🐼蜡笔","type": 3,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["https://feimao666.fun","http://feimao888.fun","https://feimo.fun","http://www.labi88.sbs","http://fmao.site","http://fmao.shop","http://xiaocge.fun"],"threadinfo": {"chunksize": 512,"threads": 16},"url_key": "Duopan2"}},
-    {"key": "河马短剧","name": "🦛短剧","type": 3,"api": "https://gitee.com/PizazzXS/another-d/raw/master/movie/py/HMDJ.py","searchable": 1,"changeable": 1,"quickSearch": 1,"filterable": 1,"playerType": 2},
+    {"key": "短剧","name": "🦛短剧","type": 3,"api": "https://gitee.com/PizazzXS/another-d/raw/master/movie/py/HMDJ.py","searchable": 1,"changeable": 1,"quickSearch": 1,"filterable": 1,"playerType": 2},
     {"key": "商店","name": "应用商店","type": 3,"api": "csp_Market","searchable": 0,"changeable": 0,"jar": "./jar/FM.jar","ext": "./ext/market.json"}
   ],
   "parses": [
