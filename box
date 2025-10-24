@@ -1,5 +1,6 @@
 {
   "spider": "./jar/Feimao.txt;md5;965c0ecb144c99c35f39e4a036712a3a",
+  "logo": "./ext/app_icon.png",
   "lives": [
     {"name": "🍬移动🍬","type": 0,"url": "./ext/移动","playerType": 2,"ua": "okhttp/5.0.0-alpha.14","epg": "https://live.fanmingming.cn/e.xml","logo": "https://live.fanmingming.cn/tv/{name}.png"},
     {"name": "🍬综合🍬","type": 0,"url": "https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/IPTV/main/output/ipv4/result.txt","ua": "okhttp/3.15","playerType": 1,"epg": "https://live.fanmingming.cn/e.xml","logo": "https://live.fanmingming.cn/tv/{name}.png"}
