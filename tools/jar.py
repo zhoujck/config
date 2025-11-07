@@ -72,8 +72,7 @@ if __name__ == "__main__":
     try:
         raw_text = fetch_raw_json()
         extract_and_save_spider(raw_text)
-         data = clean_data(raw_text)
+        data = clean_data(raw_text)
         save_json(data)
-
     except Exception as e:
         print(f"❌ 错误: {e}")
