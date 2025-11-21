@@ -23,7 +23,7 @@
 { "key": "线路5", "name": "🐼潮流", "type": 3, "api": "csp_AppRJ", "ext": "http://v.rbotv.cn"},
 { "key": "线路6", "name": "🐼一碗", "type": 3, "api": "csp_AppGet", "ext": "http://www.zjcvod.com|ab4e9a421675f14b"},
 { "key": "线路7", "name": "🐼肥猫", "type": 3, "api": "csp_AppGet", "ext": "https://bind.315999.xyz/89.txt|#getapp@TMD@2025|120"},
-{ "key": "线路8", "name": "🐼荐片", "type": 3, "api": "csp_Jianpian"", "ext": "https://ev2089.zxbwv.com"},
+{ "key": "线路8", "name": "🐼荐片", "type": 3, "api": "csp_Jianpian", "ext": "https://ev2089.zxbwv.com"},
 { "key": "线路9", "name": "🐼冷心", "type": 3, "api": "csp_AppMuou", "ext": "http://app.789dd.cn|火猫影视"},
  {"key": "线路10","name": "🐼农民", "type": 3, "api": "csp_Wwys", "ext": "https://www.wwgz.cn"},
 { "key": "线路110", "name": "🐼玩偶", "type": 3, "api": "csp_Wogg", "ext": "https://www.wogg.one/"},
