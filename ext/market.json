@@ -34,6 +34,25 @@
       }
     ]
   },
+
+        {
+    "name": "Pro版GH通道",
+    "list": [
+
+      {
+        "name": "電視-java",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/FongMi/Release/okjack/apk/pro/leanback-pro.apk",
+        "icon": "https://raw.githubusercontent.com/zhoujck/local_config/main/ext/app_icon.png",
+        "version": "电视5+最新版"
+      },   
+      {
+        "name": "手機-java",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/FongMi/Release/okjack/apk/pro/mobile-pro.apk",
+        "icon": "https://raw.githubusercontent.com/zhoujck/local_config/main/ext/app_icon.png",
+        "version": "手机最新版"
+      }
+    ]
+  },
       {
     "name": "备用",
     "list": [
