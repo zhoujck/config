@@ -13,7 +13,7 @@
 
 { "key": "bili影视", "name": "🅱哔站影视", "type": 3,"api":"./js/lib/drpy2.min.js","searchable":1,"ext":"./js/doc.js"},
 { "key": "310直播", "name": "球赛", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
-
+{ "key": "瓜子", "name": "瓜子备用", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/瓜子.js" },
 
 { "key": "线路1", "name": "🍬卫士🍬", "type": 3, "api": "csp_XBPQ","ext": "./ext/vsys.json","jar":"./jar/xiaomi.jar"},
 { "key": "线路2", "name": "🍬苹果🍬", "type": 3, "api": "csp_LiteApple"},
