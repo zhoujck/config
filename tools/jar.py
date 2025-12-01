@@ -8,7 +8,7 @@ import os
 
 # 下载伪JSON文本-feimao 
 def fetch_raw_json():
-    url = "https://ua.fongmi.eu.org/box.php?url=http://肥猫.com"
+    url = "https://ua.fongmi.eu.org/box.php?url=http://ok321.top/tv"
     resp = requests.get(url, timeout=10)
     resp.encoding = 'utf-8'
     return resp.text
@@ -60,7 +60,7 @@ class CompactJSONEncoder(json.JSONEncoder):
             return json.dumps(obj, ensure_ascii=False)
         return iter([_encode(o)])
 
-def save_json(data, filename="FM_cleaned.json"):
+def save_json(data, filename="ok_cleaned.json"):
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2, cls=CompactJSONEncoder)
     print(f"✅ 最终 JSON 保存为 {filename}")
