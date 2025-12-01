@@ -8,26 +8,24 @@
 ],
 
 "sites": [
-{ "key": "豆豆", "name": "🍬糖果影视🍬","type": 3, "api": "csp_Douban","searchable": 0,"quickSearch": 0,"filterable": 0},
-{ "key": "config", "name": "配置中心","type":3,"api":"csp_ConfigGuard"},
+ {"key": "豆瓣","name": "🍬糖果影视🍬","type": 3,"api": "csp_DoubanGuard","searchable": 0,"changeable": 1},
+ {"key": "配置中心","name": "👨‍🍳‍配置┃中心","type": 3,"api": "csp_ConfigGuard","searchable": 0,"changeable": 0,"indexs": 0,"style": {"type": "rect","ratio": 1.43}},
+   
 
 { "key": "bili影视", "name": "🅱哔站影视", "type": 3,"api":"./js/lib/drpy2.min.js","searchable":1,"ext":"./js/doc.js"},
 { "key": "310直播", "name": "球赛", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
-{ "key": "瓜子", "name": "瓜子备用", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/瓜子.js" },
+{ "key": "卫士", "name": "🍬卫士🍬", "type": 3, "api": "csp_XBPQ","ext": "./ext/vsys.json","jar":"./jar/xiaomi.jar","timeout": 25},
 
-{ "key": "线路1", "name": "🍬卫士🍬", "type": 3, "api": "csp_XBPQ","ext": "./ext/vsys.json","jar":"./jar/xiaomi.jar"},
-{ "key": "线路2", "name": "🍬苹果🍬", "type": 3, "api": "csp_LiteApple"},
-{ "key": "线路3", "name": "🍬瓜子🍬", "type": 3, "api": "csp_Gz360"},
- 
-{ "key": "线路4", "name": "🐼梦回", "type": 3, "api": "csp_AppRJ", "ext": "http://v.lkuys.cn"},
-{ "key": "线路5", "name": "🐼潮流", "type": 3, "api": "csp_AppRJ", "ext": "http://v.rbotv.cn"},
-{ "key": "线路6", "name": "🐼一碗", "type": 3, "api": "csp_AppGet", "ext": "http://www.zjcvod.com|ab4e9a421675f14b"},
-{ "key": "线路7", "name": "🐼肥猫", "type": 3, "api": "csp_AppGet", "ext": "https://bind.315999.xyz/89.txt|#getapp@TMD@2025|120"},
-{ "key": "线路8", "name": "🐼荐片", "type": 3, "api": "csp_Jianpian", "ext": "https://ev2089.zxbwv.com"},
-{ "key": "线路9", "name": "🐼冷心", "type": 3, "api": "csp_AppMuou", "ext": "http://app.789dd.cn|火猫影视"},
- {"key": "线路10","name": "🐼农民", "type": 3, "api": "csp_Wwys", "ext": "https://www.wwgz.cn"},
-{ "key": "线路110", "name": "🐼玩偶", "type": 3, "api": "csp_Wogg", "ext": "https://www.wogg.one/"},
-{ "key": "线路111", "name": "🐼蜡笔", "type": 3, "api": "csp_Duopan", "filterable": 1, "ext": { "site_urls": [ "https://feimao666.fun", "http://feimao888.fun", "https://feimo.fun", "http://www.labi88.sbs", "http://fmao.site", "http://fmao.shop", "http://xiaocge.fun" ], "threadinfo": { "chunksize": 512, "threads": 16 }, "url_key": "Duopan2" } },
+ { "key": "线路1", "name": "🍬苹果🍬", "type": 3, "api": "csp_XpgGuard","timeout": 25},
+{ "key": "线路2", "name": "🍬瓜子🍬", "type": 3, "api": "csp_GuaziGuard","timeout": 25},
+{ "key": "线路3", "name": "🐼荐片", "type": 3, "api": "csp_JianpianGuard","timeout": 25},
+{ "key": "线路4", "name": "🐼爱看", "type": 3, "api": "csp_IkanbotGuard","timeout": 25},
+{ "key": "线路5", "name": "🐼糯米", "type": 3, "api": "csp_NmysGuard","timeout": 25},
+{ "key": "线路6", "name": "🐼文才", "type": 3, "api": "csp_JpysGuard","timeout": 25},
+
+
+{ "key": "线路110", "name": "🐼玩偶", "type": 3, "api": "csp_WoggGuard","timeout": 25},
+{ "key": "线路111", "name": "🐼蜡笔", "type": 3, "api": "csp_LabiGuard","timeout": 25},
 { "key": "短剧", "name": "🦛短剧", "type": 3, "api": "https://gitee.com/PizazzXS/another-d/raw/master/movie/py/HMDJ.py", "searchable": 1, "changeable": 1, "quickSearch": 1, "filterable": 1, "playerType": 2 },
 { "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar", "ext": "./ext/market.json" }
 ],
