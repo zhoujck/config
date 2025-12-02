@@ -26,10 +26,10 @@ jobs:
           cd tools/
           pip install demjson3 requests==2.31.0
           python jar.py
-          \cp -pdr Feimao.txt ../jar/Feimao.txt
+          \cp -pdr ok.txt ../jar/ok.txt
           python combine.py
           \cp -pdr box_merged.json ../box
-          rm -rf box_merged.json Feimao.txt
+          rm -rf box_merged.json ok.txt
           cd ../
         shell: bash
         
