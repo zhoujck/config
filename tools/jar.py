@@ -22,7 +22,7 @@ def extract_and_save_spider(json_text):
     spider_url = full_spider.split(";")[0]
     print(f"📥 下载 spider 文件: {spider_url}")
     resp = requests.get(spider_url, timeout=10)
-    with open("Feimao.txt", "wb") as f:
+    with open("ok.txt", "wb") as f:
         f.write(resp.content)
     print("✅ 已保存为 Feimao.txt")
 
