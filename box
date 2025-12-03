@@ -1,5 +1,5 @@
 {
-  "spider": "./jar/ok.txt;md5;847ca9e1e8e2334dda2ab531cb037c24",
+  "spider": "./jar/ok.txt;md5;8071c068a90712a4f01fb7f447a2ef75",
   "logo": "./ext/app_icon.png",
   "lives": [
     {"name": "🍬移动🍬","type": 0,"url": "./ext/移动","playerType": 2,"ua": "okhttp/5.0.0-alpha.14","epg": "https://live.fanmingming.cn/e.xml","logo": "https://live.fanmingming.cn/tv/{name}.png"},
