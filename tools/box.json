@@ -3,7 +3,7 @@
 "logo": "./ext/app_icon.png",
  
 "lives": [
-{ "name": "🍬移动🍬", "type": 0, "url": "./ext/移动", "playerType": 2},
+{"name": "🍬移动🍬","type": 0,"url": "./ext/移动","playerType": 2, "ua":"okhttp/3.15", "epg":"http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}"},
 { "name": "🐼冰茶🐼", "type": 0, "url": "http://127.0.0.1:9978/proxy?do=live&url=https%3A%2F%2Fbc.188766.xyz%2F%3Fip%3D%26mishitong%3Dtrue%26mima%3Dmianfeibuhuaqian%26json%3Dtrue","playerType":2,"timeout":10,"ua":"bingcha/1.1 (mianfeifenxiang) "},
 { "name": "🍬综合🍬", "type": 0, "url": "https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/IPTV/main/output/ipv4/result.txt", "ua": "okhttp/3.15", "playerType": 1, "epg": "https://live.fanmingming.cn/e.xml", "logo": "https://live.fanmingming.cn/tv/{name}.png"}
 ],
