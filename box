@@ -47,11 +47,5 @@
     {"name": "夜市","hosts": ["yeslivetv.com"],"script": ["document.getElementsByClassName('vjs-big-play-button')[0].click()"]},
     {"name": "毛驢","hosts": ["www.maolvys.com"],"script": ["document.getElementsByClassName('swal-button swal-button--confirm')[0].click()"]},
     {"name": "磁力广告","hosts": ["magnet"],"regex": ["更多","社 區","x u u","最 新","直 播","更 新","社 区","有 趣","英皇体育","全中文AV在线","澳门皇冠赌场","哥哥快来","美女荷官","裸聊","新片首发","UUE29"]}
-  ],
-  "headers": [
-    {"host": "hlsztemgsplive.miguvideo.com","header": {"User-Agent": "bingcha/1.1 (mianfeifenxiang) "}}
-  ],
-  "proxy": ["raw.githubusercontent.com"],
-  "hosts": ["hlsztemgsplive.miguvideo.com=hlsztemgsplive.188766.xyz", "cache.ott.fifalive.itv.cmvideo.cn=fifalive.188766.xyz", "iptv.huuc.edu.cn=huucv6.188766.xyz"],
-  "ads": ["static-mozai.4gtv.tv"]
+  ]
 }
