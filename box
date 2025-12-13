@@ -2,9 +2,9 @@
   "spider": "./jar/ok.txt;md5;68060405b6dfe95cc44a905a76678b34",
   "logo": "./ext/app_icon.png",
   "lives": [
-    {"name": "🍬移动🍬","type": 0,"url": "./ext/移动","playerType": 2, "ua":"okhttp/3.15", "epg":"http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}"},
-    {"name": "🐼冰茶🐼","type": 0,"url": "http://127.0.0.1:9978/proxy?do=live&url=https%3A%2F%2Fbc.188766.xyz%2F%3Fip%3D%26mishitong%3Dtrue%26mima%3Dmianfeibuhuaqian%26json%3Dtrue","playerType": 2,"timeout": 10,"ua": "bingcha/1.1 (mianfeifenxiang) "},
-    {"name": "🍬综合🍬","type": 0,"url": "https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/IPTV/main/output/ipv4/result.txt","ua": "okhttp/3.15","playerType": 1,"epg": "https://live.fanmingming.cn/e.xml","logo": "https://live.fanmingming.cn/tv/{name}.png"}
+    {"name": "🍬移动🍬","type": 0,"url": "./ext/移动","playerType": 2,"ua": "okhttp/3.15","epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}"},
+    {"name": "🐼冰茶🐼","type": 0,"url": "https://bc.188766.xyz/?ip=&lunbo=false&mima=mianfeibuhuaqian&huikan=1&haiwai=true","playerType": 2,"timeout": 10,"ua": "bingcha/1.1 (mianfeifenxiang) "},
+    {"name": "🍬综合🍬","type": 0,"url": "https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/IPTV/main/output/ipv4/result.txt","ua": "okhttp/3.15","epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}"}
   ],
   "sites": [
     {"key": "豆瓣","name": "🍬糖果影视🍬","type": 3,"api": "csp_DoubanGuard","searchable": 0,"changeable": 1},
@@ -47,5 +47,11 @@
     {"name": "夜市","hosts": ["yeslivetv.com"],"script": ["document.getElementsByClassName('vjs-big-play-button')[0].click()"]},
     {"name": "毛驢","hosts": ["www.maolvys.com"],"script": ["document.getElementsByClassName('swal-button swal-button--confirm')[0].click()"]},
     {"name": "磁力广告","hosts": ["magnet"],"regex": ["更多","社 區","x u u","最 新","直 播","更 新","社 区","有 趣","英皇体育","全中文AV在线","澳门皇冠赌场","哥哥快来","美女荷官","裸聊","新片首发","UUE29"]}
-  ]
+  ],
+  "headers": [
+    {"host": "hlsztemgsplive.miguvideo.com","header": {"User-Agent": "bingcha/1.1 (mianfeifenxiang) "}}
+  ],
+  "proxy": ["raw.githubusercontent.com"],
+  "hosts": ["hlsztemgsplive.miguvideo.com=hlsztemgsplive.188766.xyz", "cache.ott.fifalive.itv.cmvideo.cn=fifalive.188766.xyz", "iptv.huuc.edu.cn=huucv6.188766.xyz"],
+  "ads": ["static-mozai.4gtv.tv"]
 }
