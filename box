@@ -1,5 +1,5 @@
 {
-  "spider": "./jar/ok.txt;md5;5bd52ccfa5af38c6049178b8ed82729f",
+  "spider": "./jar/ok.txt;md5;5023ec17f535853867ba160423a8d22a",
   "logo": "./ext/app_icon.png",
   "lives": [
     {"name": "🍬移动🍬","type": 0,"url": "./ext/移动","playerType": 2,"ua": "okhttp/3.15","epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}"},
