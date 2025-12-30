@@ -1,5 +1,5 @@
 {
-  "spider": "http://oss4liview.moji.com/thd_file/2025/12/29/6be15d00c6e7015736e9fbebc1693659.jpg;md5;de463ad75e3e688fde516c9c591f703a",
+  "spider": "http://oss4liview.moji.com/thd_file/2025/12/30/d6ba8dda9bf5c948bdba58819cda6e25.jpg;md5;acad1a9b1993c3aa82d753a7b8901ea9",
   "wallpaper": "http://127.0.0.1:9978/proxy?do=wall",
   "logo": "https://storage.7x24cc.com/storage-server/presigned/ss1/a6-online-fileupload/newMediaImage/ACB34B_773_photo_2022-09-14_00-00-57_20251204145106336newMediaImage.jpg",
   "sites": [
@@ -102,7 +102,7 @@
   "mozai.4gtv.tv"
 ],
   "lives": [
-    {"name": "MIGU","type": 0,"url": "http://127.0.0.1:9978/proxy?do=live&url=https%3A%2F%2Fbc.188766.xyz%2F%3Fip%3D%26mishitong%3Dtrue%26mima%3Dmianfeibuhuaqian%26json%3Dtrue","playerType": 2,"timeout": 10,"ua": "bingcha/1.1 (mianfeifenxiang) "},
+    {"name": "MIGU","type": 0,"url": "http://127.0.0.1:9978/proxy?do=live&url=https%3A%2F%2Fbc.188766.xyz%2F%3Fip%3D%26mishitong%3Dtrue%26mima%3Dbingcha1130%26json%3Dtrue","playerType": 2,"timeout": 10,"ua": "bingcha/1.1 (mianfeifenxiang) "},
     {"name": "AI直播","type": 0,"url": "http://127.0.0.1:9978/proxy?do=live&url=https://raw.githubusercontent.com/develop202/migu_video/refs/heads/main/interface.txt","playerType": 2,"timeout": 10},
     {"name": "电视Live","type": 0,"url": "http://127.0.0.1:9978/proxy?do=live&u=Gather","playerType": 2,"ua": "okhttp/3.15","timeout": 10},
     {"name": "江苏移动","type": 0,"url": "http://127.0.0.1:9978/proxy?do=live&url=https://storage.7x24cc.com/storage-server/presigned/ss1/a6-online-fileupload/newMediaFile/529EAA1_773_jsyd_20251205182514164newMediaFile.bmp","playerType": 2,"timeout": 10},
