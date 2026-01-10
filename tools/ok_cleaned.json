@@ -1,5 +1,5 @@
 {
-  "spider": "http://oss4liview.moji.com/thd_file/2026/01/09/7cf8e2c5b46fd4ae85daf1c0e8b2927c.jpg;md5;94ee00c5dad77ecc8b9bef4e79f497a4",
+  "spider": "http://oss4liview.moji.com/thd_file/2026/01/10/fefca850c7303a5084b0ce6203f5aace.jpg;md5;cf004a6cc004ce54d75382f023ab2b23",
   "wallpaper": "http://127.0.0.1:9978/proxy?do=wall",
   "logo": "https://storage.7x24cc.com/storage-server/presigned/ss1/a6-online-fileupload/newMediaImage/ACB34B_773_photo_2022-09-14_00-00-57_20251204145106336newMediaImage.jpg",
   "sites": [
@@ -48,6 +48,7 @@
     {"key": "锦鲤短剧","name": "🐟锦鲤┃短剧","type": 3,"api": "csp_JinliGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"timeout": 10},
     {"key": "盒马短剧","name": "🦓盒马┃短剧","type": 3,"api": "csp_HeMaGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"timeout": 10},
     {"key": "星芽短剧","name": "💖星芽┃短剧","type": 3,"api": "csp_AppXYGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"timeout": 10},
+    {"key": "甜圈短剧","name": "🌸甜圈┃短剧","type": 3,"api": "csp_TianQuanGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"timeout": 10},
     {"key": "yhdm","name": "🌸樱花┃动漫","type": 3,"api": "csp_YHDMGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"timeout": 15},
     {"key": "动漫巴士","name": "🚌巴士┃动漫","type": 3,"api": "csp_Dm84Guard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"timeout": 10},
     {"key": "新6V","name": "🧲新6V┃磁力","type": 3,"api": "csp_Xb6vGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"timeout": 20},
