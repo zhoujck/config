@@ -1,5 +1,5 @@
 {
-  "spider": "http://oss4liview.moji.com/thd_file/2026/01/11/56c4748d222231e2e31fc7a01be5d0ce.jpg;md5;381c0a31d94861d3bb4134cd76ba9619",
+  "spider": "http://oss4liview.moji.com/thd_file/2026/01/12/0ef1499001149d406363ea1d73738c2c.jpg;md5;6b03da6130535f72ecac1e60e93784a6",
   "wallpaper": "http://127.0.0.1:9978/proxy?do=wall",
   "logo": "https://storage.7x24cc.com/storage-server/presigned/ss1/a6-online-fileupload/newMediaImage/ACB34B_773_photo_2022-09-14_00-00-57_20251204145106336newMediaImage.jpg",
   "sites": [
@@ -27,6 +27,8 @@
     {"key": "瓜子","name": "🍉瓜子┃弹幕","type": 3,"api": "csp_GuaziGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"danmu": true},"timeout": 10},
     {"key": "文才","name": "🌺文才┃弹幕","type": 3,"api": "csp_JpysGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"danmu": true},"timeout": 10},
     {"key": "糯米","name": "🍓糯米┃弹幕","type": 3,"api": "csp_NmysGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"danmu": true},"timeout": 10},
+    {"key": "雪豹","name": "🐆雪豹┃弹幕","type": 3,"api": "csp_XueBaoGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"danmu": true},"timeout": 10},
+    {"key": "海狗","name": "🐶海狗┃弹幕","type": 3,"api": "csp_HaiGouGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"danmu": true},"timeout": 10},
     {"key": "热播弹幕版","name": "📺热播┃弹幕","type": 3,"api": "csp_TianTianGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"danmu": true,"site": 0},"timeout": 10},
     {"key": "小苹果弹幕版","name": "🍎苹果┃弹幕","type": 3,"api": "csp_XpgGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"danmu": true},"timeout": 10},
     {"key": "云云弹幕版","name": "☁️云云┃弹幕","type": 3,"api": "csp_YunYunGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"danmu": true},"timeout": 10},
@@ -35,9 +37,7 @@
     {"key": "小猪弹幕版","name": "🐖小猪┃弹幕","type": 3,"api": "csp_XiaoZhuGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"danmu": true},"timeout": 10},
     {"key": "一起弹幕版","name": "📺一起┃弹幕","type": 3,"api": "csp_YqsGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"danmu": true},"timeout": 10},
     {"key": "仓鼠弹幕版","name": "🐹仓鼠┃弹幕","type": 3,"api": "csp_CangShuGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"danmu": true},"timeout": 10},
-    {"key": "吉米弹幕版","name": "🍙吉米┃弹幕","type": 3,"api": "csp_AppFoxGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"danmu": true,"siteUrl": "http://45.207.215.137:8006"},"timeout": 10},
-    {"key": "恋鱼弹幕版","name": "🐟恋鱼┃弹幕","type": 3,"api": "csp_AppFoxGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"danmu": true,"siteFrom": "https://173220859-1333208043.cos.ap-shanghai.myqcloud.com/1.json"},"timeout": 10},
-    {"key": "麒麟弹幕版","name": "🐓麒麟┃弹幕","type": 3,"api": "csp_AppFoxGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"danmu": true,"siteUrl": "https://www.70yyw.cc"},"timeout": 10},
+    {"key": "奇奇弹幕版","name": "🐵奇奇┃弹幕","type": 3,"api": "csp_QiQiGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"danmu": true},"timeout": 10},
     {"key": "木瓜弹幕版","name": "🥑木瓜┃弹幕","type": 3,"api": "csp_AppFoxGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"danmu": true,"siteUrl": "http://www.yezitv.top"},"timeout": 10},
     {"key": "厂长弹幕版","name": "📔厂长┃弹幕","type": 3,"api": "csp_CzzyGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"danmu": true},"timeout": 10},
     {"key": "csp_Btt","name": "🌞比特┃弹幕","type": 3,"api": "csp_BttGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": {"danmu": true},"timeout": 10},
