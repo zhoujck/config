@@ -1,5 +1,5 @@
 {
-  "spider": "http://oss4liview.moji.com/thd_file/2026/01/13/2e5880360b32be6bcb5944170337b792.jpg;md5;a0c2a6c69e404960ea31371cadeda045",
+  "spider": "http://oss4liview.moji.com/thd_file/2026/01/13/f088fa25290c3512b8f887c5597dfc81.jpg;md5;285bb80d967e4fb3b3e6bcb4f674da17",
   "wallpaper": "http://127.0.0.1:9978/proxy?do=wall",
   "logo": "https://storage.7x24cc.com/storage-server/presigned/ss1/a6-online-fileupload/newMediaImage/ACB34B_773_photo_2022-09-14_00-00-57_20251204145106336newMediaImage.jpg",
   "sites": [
@@ -19,7 +19,6 @@
     {"key": "SeedHub弹幕","name": "🍀种子┃4K弹幕","type": 3,"api": "csp_SeedHubGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"danmu": true},"timeout": 25},
     {"key": "光影弹幕版","name": "🎥光影┃4K弹幕","type": 3,"api": "csp_GuanyingGuard","searchable": 1,"filterable": 1,"changeable": 0,"ext": {"danmu": true},"timeout": 30},
     {"key": "云集","name": "🍊云集┃4K弹幕","type": 3,"api": "csp_YunJiGuard","quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"danmu": true},"timeout": 25},
-    {"key": "极狐","name": "🦊极狐┃4K弹幕","type": 3,"api": "csp_Fox4kGuard","quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"danmu": true},"timeout": 25},
     {"key": "盘他","name": "🎸盘他┃4K","type": 3,"api": "csp_PantaGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"timeout": 25},
     {"key": "海绵","name": "🧽海绵┃4K","type": 3,"api": "csp_HaiMianGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"timeout": 25},
     {"key": "雷鲸","name": "🐳雷鲸┃4K","type": 3,"api": "csp_LeiJingGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"timeout": 25},
