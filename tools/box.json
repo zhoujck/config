@@ -10,13 +10,11 @@
 ],
 
 "sites": [
- {"key": "豆瓣","name": "🍬糖果影视🍬","type": 3,"api": "csp_DoubanGuard","searchable": 0,"changeable": 1},
- {"key": "配置中心","name": "👨‍🍳‍配置┃中心","type": 3,"api": "csp_ConfigGuard","searchable": 0,"changeable": 0,"indexs": 0,"style": {"type": "rect","ratio": 1.43}},
+{"key": "豆瓣","name": "🍬糖果影视🍬","type": 3,"api": "csp_DoubanGuard","searchable": 0,"changeable": 1},
+{"key": "配置中心","name": "👨‍🍳‍配置┃中心","type": 3,"api": "csp_ConfigGuard","searchable": 0,"changeable": 0,"indexs": 0,"style": {"type": "rect","ratio": 1.43}},
    
-
 { "key": "bili影视", "name": "🅱哔站影视", "type": 3,"api":"./js/lib/drpy2.min.js","searchable":1,"ext":"./js/doc.js"},
 { "key": "310直播", "name": "球赛", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
-
 
 { "key": "线路1", "name": "🍬苹果🍬", "type": 3, "api": "csp_XpgGuard","timeout": 25},
 { "key": "线路2", "name": "🍬瓜子🍬", "type": 3, "api": "csp_GuaziGuard","timeout": 25},
