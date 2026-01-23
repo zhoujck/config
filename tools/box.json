@@ -17,7 +17,7 @@
 { "key": "310直播", "name": "球赛", "type": 3, "api": "./js/lib/drpy2.min.js", "ext": "./js/310直播.js" },
 
 { "key": "线路1", "name": "🍬苹果🍬", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Xpg"}},
-{ "key": "线路2", "name": "🍬瓜子🍬", "type": 3, "api": "csp_AweSomeGuard","timeout": 25","ext": {"sp": "Guazi"}},
+{ "key": "线路2", "name": "🍬瓜子🍬", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Guazi"}},
 { "key": "线路3", "name": "🐼荐片", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Jianpian"}},
 { "key": "线路4", "name": "🐼爱看", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Yqs"}},
 { "key": "线路5", "name": "🐼糯米", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Nmys"}},
