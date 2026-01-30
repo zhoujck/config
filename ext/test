@@ -13,7 +13,7 @@
 { "key": "php_madou", "name": "麻豆", "type": 4, "api": "https://doubebly.doube.eu.org/madou.php", "searchable": 1, "style": {"type": "rect", "ratio": 1.5} }, 
          {
             "key": "乐播",
-            "name": "乐播|采集",
+            "name": "09",
             "type": 1,
             "style": {
                 "type": "rect",
@@ -23,7 +23,7 @@
         },      
 {
             "key": "大奶子资源",
-            "name": "大奶子资源",
+            "name": "08",
             "type": 1,
             "api": "https://apidanaizi.com/api.php/provide/vod",
             "searchable": 1,
