@@ -12,7 +12,7 @@
 
     
     {
-    "name": "稳定版GH通道",
+    "name": "OK通道",
     "list": [
       {
         "name": "電視-4.X",
@@ -36,43 +36,20 @@
   },
 
         {
-    "name": "Pro版GH通道",
+    "name": "FM通道",
     "list": [
 
       {
         "name": "電視-java",
-        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/FongMi/Release/okjack/apk/pro/leanback-pro.apk",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/FongMi/Release/fongmi/apk/leanback-armeabi_v7a.apk",
         "icon": "https://raw.githubusercontent.com/zhoujck/local_config/main/ext/app_icon.png",
         "version": "电视5+最新版"
       },   
       {
         "name": "手機-java",
-        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/FongMi/Release/okjack/apk/pro/mobile-pro.apk",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/FongMi/Release/fongmi/apk/mobile-arm64_v8a.apk",
         "icon": "https://raw.githubusercontent.com/zhoujck/local_config/main/ext/app_icon.png",
         "version": "手机最新版"
-      }
-    ]
-  },
-      {
-    "name": "备用",
-    "list": [
-      {
-        "name": "電視-5.0+",
-        "url": "https://framagit.org/zhoujck/config/-/raw/main/app/leanback-armeabi_v7a.apk",
-        "icon": "https://framagit.org/zhoujck/config/-/raw/main/pic/app_icon.png",
-        "version": "v7a"
-      },
-      {
-        "name": "電視-4.x",
-        "url": "https://framagit.org/zhoujck/config/-/raw/main/app/leanback_4.x.apk",
-        "icon": "https://framagit.org/zhoujck/config/-/raw/main/pic/app_icon.png",
-        "version": "4.0x"
-      },     
-      {
-        "name": "手機-64",
-        "url": "https://framagit.org/zhoujck/config/-/raw/main/app/mobile-arm64_v8a.apk",
-        "icon": "https://framagit.org/zhoujck/config/-/raw/main/pic/app_icon.png",
-        "version": "v8a"
       }
     ]
   }
