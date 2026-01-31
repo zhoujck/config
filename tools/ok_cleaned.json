@@ -48,7 +48,6 @@
     {"key": "盒马短剧","name": "🦓盒马┃短剧","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"sp": "HeMa"},"timeout": 10},
     {"key": "星芽短剧","name": "💖星芽┃短剧","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"sp": "AppXY"},"timeout": 10},
     {"key": "甜圈短剧","name": "🌸甜圈┃短剧","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"sp": "TianQuan"},"timeout": 10},
-    {"key": "yhdm","name": "🌸樱花┃动漫","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"sp": "YHDM"},"timeout": 15},
     {"key": "动漫巴士","name": "🚌巴士┃动漫","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"sp": "Dm84"},"timeout": 10},
     {"key": "新6V","name": "🧲新6V┃磁力","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"ext": {"sp": "Xb6v"},"timeout": 20},
     {"key": "聚合直播","name": "📽️聚合┃直播","type": 3,"api": "csp_AweSomeGuard","searchable": 0,"quickSearch": 0,"changeable": 0,"filterable": 1,"ext": {"sp": "Living"},"timeout": 10},
