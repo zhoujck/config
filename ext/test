@@ -2,11 +2,6 @@
 "spider": "https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/config/jar/ok.txt",
 "sites":[ 
 {"key": "豆瓣","name": "🍬糖果影视🍬","type": 3,"api": "csp_AweSomeGuard","searchable": 0,"changeable": 1,"ext": {"sp": "Douban"}},
-{ "key": "筛选", "name": "筛选", "type": 3, "api": "csp_Market",  "jar": "./jar/FM.jar", "ext": "./json/18+/18筛选" },
-{ "key": "py_BadNews", "name": "BadNews", "type": 4, "api": "https://py.doube.eu.org/spider?site=BadNews", "searchable": 1,  "style": {"type": "rect", "ratio": 1.5} },
-{ "key": "py_AiDou", "name": "AiDou", "type": 4, "api": "https://py.doube.eu.org/spider?site=AiDou", "searchable": 1,  "style": { "type": "rect", "ratio": 1.5} },  
-{ "key": "py_Miss", "name": "MissAV", "type": 4, "api": "https://py.doube.eu.org/spider?site=Miss", "searchable": 1},
-{ "key": "php_madou", "name": "麻豆", "type": 4, "api": "https://doubebly.doube.eu.org/madou.php", "searchable": 1, "style": {"type": "rect", "ratio": 1.5} }, 
 {"key":"dadiapi.com","name":"01","type":0,"api":"http://dadiapi.com/api.php","searchable":1,"recordable":0,"style":{"type":"rect","ratio":1.33},"header":{"Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7","User-Agent":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/117.0.0.0Safari/537.36"}},
 {"key":"gdlsp.com","name":"02","type":0,"api":"https://www.gdlsp.com/api/xml.php","searchable":1,"recordable":0,"style":{"type":"rect","ratio":1.33},"header":{"Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7","User-Agent":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/117.0.0.0Safari/537.36"}},
 {"key":"msnii.com","name":"03","type":0,"api":"https://www.msnii.com/api/xml.php","searchable":1,"recordable":0,"style":{"type":"rect","ratio":1.33},"header":{"Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7","User-Agent":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/117.0.0.0Safari/537.36"}},
