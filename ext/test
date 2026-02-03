@@ -1,8 +1,6 @@
 {  
-"spider": "https://raw.githubusercontent.com/zhoujck/config/main/jar/ok.txt",
-
+"spider": "https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/config/jar/ok.txt",
 "sites":[ 
-
 {"key": "豆瓣","name": "🍬糖果影视🍬","type": 3,"api": "csp_AweSomeGuard","searchable": 0,"changeable": 1,"ext": {"sp": "Douban"}},
 { "key": "筛选", "name": "筛选", "type": 3, "api": "csp_Market",  "jar": "./jar/FM.jar", "ext": "./json/18+/18筛选" },
 { "key": "py_BadNews", "name": "BadNews", "type": 4, "api": "https://py.doube.eu.org/spider?site=BadNews", "searchable": 1,  "style": {"type": "rect", "ratio": 1.5} },
