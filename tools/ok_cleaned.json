@@ -55,6 +55,7 @@
     {"key": "瓜子看球","name": "⚽瓜子┃看球","type": 3,"api": "csp_AweSomeGuard","searchable": 0,"quickSearch": 0,"changeable": 0,"style": {"type": "list"},"ext": {"sp": "GzSport"},"timeout": 10},
     {"key": "88看球","name": "⚽88┃看球","type": 3,"api": "csp_AweSomeGuard","searchable": 0,"quickSearch": 0,"changeable": 0,"style": {"type": "list"},"ext": {"sp": "Kanqiu"},"timeout": 10},
     {"key": "爱听音乐","name": "🎧爱听┃音乐","type": 3,"api": "csp_AweSomeGuard","searchable": 0,"quickSearch": 0,"changeable": 0,"ext": {"sp": "AiMusic"},"timeout": 10},
+    {"key": "易听音乐","name": "🎧易听┃音乐","type": 3,"api": "csp_AweSomeGuard","searchable": 0,"quickSearch": 0,"changeable": 0,"ext": {"sp": "ShiJiMusic"},"timeout": 10},
     {"key": "酷狗音乐","name": "🐕酷狗┃音乐","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 0,"changeable": 0,"ext": {"sp": "KuGou"},"timeout": 10},
     {"key": "世界听书","name": "🎸世界┃听书","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 0,"changeable": 0,"ext": {"sp": "BookTing"},"timeout": 10},
     {"key": "六月听书","name": "🎤六月┃听书","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 0,"changeable": 0,"ext": {"sp": "WeiTing"},"timeout": 10},
