@@ -41,7 +41,6 @@
     {"key": "韩圈","name": "🦄韩圈┃弹幕","type": 3,"api": "csp_AweSomeGuard","playerType": 2,"searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"sp": "HanXiaoQuan","danmu": true},"timeout": 10},
     {"key": "️爱看Bot弹幕版","name": "⛅️爱看┃弹幕","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"sp": "Ikanbot","danmu": true},"timeout": 10},
     {"key": "电影天堂","name": "🎞️天堂┃采集","type": 1,"api": "http://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/m3u8/","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"timeout": 10},
-    {"key": "锦鲤短剧","name": "🐟锦鲤┃短剧","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"sp": "Jinli"},"timeout": 10},
     {"key": "盒马短剧","name": "🦓盒马┃短剧","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"sp": "HeMa"},"timeout": 10},
     {"key": "星芽短剧","name": "💖星芽┃短剧","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"sp": "AppXY"},"timeout": 10},
     {"key": "甜圈短剧","name": "🌸甜圈┃短剧","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"sp": "TianQuan"},"timeout": 10},
