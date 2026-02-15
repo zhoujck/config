@@ -68,6 +68,7 @@
     {"key": "太极","name": "☯️太极┃搜索","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"filterable": 1,"changeable": 0,"ext": {"sp": "TaiChi","taichi": 1},"timeout": 25},
     {"key": "糖果搜","name": "🍬糖果┃搜索","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"filterable": 1,"changeable": 0,"ext": {"sp": "TaiChi","taichi": 2},"timeout": 25},
     {"key": "音海","name": "🎸音海┃搜索","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"filterable": 1,"changeable": 0,"ext": {"sp": "YinHai","danmu": true},"timeout": 25},
+    {"key": "影链","name": "🎞️影链┃搜索","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"filterable": 1,"changeable": 0,"ext": {"sp": "YingLian"},"timeout": 25},
     {"key": "爱盘","name": "❤️爱盘┃搜索","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"filterable": 1,"changeable": 0,"ext": {"sp": "AiPan","danmu": true},"timeout": 25},
     {"key": "云搜","name": "☁️云搜┃搜索","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"filterable": 1,"changeable": 0,"ext": {"sp": "YunPanPan","danmu": true},"timeout": 25},
     {"key": "度搜","name": "🦈度搜┃搜索","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"filterable": 1,"changeable": 0,"ext": {"sp": "Bdxd","danmu": true},"timeout": 25},
