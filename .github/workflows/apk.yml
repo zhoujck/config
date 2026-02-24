@@ -1,0 +1,46 @@
+name: OKapk
+
+on:
+  schedule:
+    - cron: '0 */12 * * *'
+  workflow_dispatch:    
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+     TZ: Asia/Shanghai
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+    
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: tools
+        run: |
+          pwd 
+          cd tools/
+          pip install demjson3 requests==2.31.0
+          python ok_apk.py
+          \cp -pdr leanback-armeabi_v7a.apk ../app/leanback-armeabi_v7a.apk
+          \cp -pdr mobile-arm64_v8a.apk ../app/mobile-arm64_v8a.apk
+          rm -rf leanback-armeabi_v7a.apk mobile-arm64_v8a.apk
+          cd ../
+        shell: bash
+        
+      - name: 提交更改
+        run: | 
+          git config user.email "zhoujck@live.com"
+          git config user.name "zhoujck" 
+          git add .
+          if ! git diff-index --quiet HEAD --; then
+          git commit -m "更新APK $(date +%Y%m%d%H%M)"
+          git push -f origin main
+          else
+          echo "没有文件更新，不执行 git push"
+          fi
+     
