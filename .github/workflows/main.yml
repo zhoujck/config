@@ -28,11 +28,11 @@ jobs:
           python jar.py
           python ok_apk.py
           \cp -pdr ok.txt ../jar/ok.txt
-          \cp -pdr lenback-armeabi_v7a.apk ../app/lenback-armeabi_v7a.apk
+          \cp -pdr leanback-armeabi_v7a.apk ../app/leanback-armeabi_v7a.apk
           \cp -pdr mobile-arm64_v8a.apk ../app/mobile-arm64_v8a.apk
           python combine.py
           \cp -pdr box_merged.json ../box
-          rm -rf box_merged.json ok.txt lenback-armeabi_v7a.apk mobile-arm64_v8a.apk
+          rm -rf box_merged.json ok.txt leanback-armeabi_v7a.apk mobile-arm64_v8a.apk
           cd ../
         shell: bash
         
