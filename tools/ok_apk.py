@@ -34,9 +34,9 @@ def parse_version_folders(html):
     soup = BeautifulSoup(html, "html.parser")
     
     # 第一步：修复警告 - 将text改为string
-    target_folder = soup.find("div", string=re.compile("OK分享-OK影视标准版"))
+    target_folder = soup.find("div", string=re.compile("OK影视标准版"))
     if not target_folder:
-        print("未找到'OK分享-OK影视标准版'文件夹")
+        print("未找到'OK影视标准版'文件夹")
         return None
     
     # 第二步：进入该文件夹后，提取所有版本号命名的子文件夹
