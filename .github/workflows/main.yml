@@ -25,7 +25,9 @@ jobs:
           pwd 
           cd tools/
           pip install demjson3 requests==2.31.0
+          pip install requests beautifulsoup4 packaging
           python jar.py
+          python ok_apk.py
           \cp -pdr ok.txt ../jar/ok.txt
           python combine.py
           \cp -pdr box_merged.json ../box
