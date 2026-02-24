@@ -26,13 +26,10 @@ jobs:
           cd tools/
           pip install demjson3 requests==2.31.0
           python jar.py
-          python ok_apk.py
           \cp -pdr ok.txt ../jar/ok.txt
-          \cp -pdr leanback-armeabi_v7a.apk ../app/leanback-armeabi_v7a.apk
-          \cp -pdr mobile-arm64_v8a.apk ../app/mobile-arm64_v8a.apk
           python combine.py
           \cp -pdr box_merged.json ../box
-          rm -rf box_merged.json ok.txt leanback-armeabi_v7a.apk mobile-arm64_v8a.apk
+          rm -rf box_merged.json ok.txt 
           cd ../
         shell: bash
         
@@ -42,7 +39,7 @@ jobs:
           git config user.name "zhoujck" 
           git add .
           if ! git diff-index --quiet HEAD --; then
-          git commit -m "更新 $(date +%Y%m%d%H%M)"
+          git commit -m "更新JAR $(date +%Y%m%d%H%M)"
           git push -f origin main
           else
           echo "没有文件更新，不执行 git push"
