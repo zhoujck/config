@@ -1,4 +1,4 @@
-name: Local box 接口
+name: config 接口
 
 on:
   schedule:
