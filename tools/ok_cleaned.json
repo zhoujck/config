@@ -42,6 +42,7 @@
     {"key": "星芽短剧","name": "💖星芽┃短剧","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"sp": "AppXY"},"timeout": 10},
     {"key": "碎片短剧","name": "🧸碎片┃短剧","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"sp": "SuiPian"},"timeout": 10},
     {"key": "甜圈短剧","name": "🌸甜圈┃短剧","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"sp": "TianQuan"},"timeout": 10},
+    {"key": "Omofun","name": "🏖️奥陌┃动漫","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"sp": "Omofuns","danmu": true},"timeout": 10},
     {"key": "动漫巴士","name": "🚌巴士┃动漫","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": {"sp": "Dm84"},"timeout": 10},
     {"key": "新6V","name": "🧲新6V┃磁力","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 0,"ext": {"sp": "Xb6v"},"timeout": 20},
     {"key": "快手直播","name": "😎快手┃直播","type": 3,"api": "csp_AweSomeGuard","searchable": 0,"quickSearch": 0,"changeable": 0,"filterable": 1,"style": {"type": "rect","ratio": 1.433},"ext": {"sp": "KsLive"},"timeout": 10},
