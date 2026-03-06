@@ -23,11 +23,12 @@
 { "key": "线路3", "name": "🐼荐片", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Jianpian"}},
 { "key": "线路4", "name": "🐼爱看", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Yqs"}},
 { "key": "线路5", "name": "🐼糯米", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Nmys"}},
-{ "key": "线路6", "name": "🐼文才", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Jpys"}},
+{ "key": "线路6", "name": "🐼热播", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "TianTian"}},
 { "key": "线路7", "name": "🍬厂长🍬", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Czzy"}},
 
 { "key": "线路110", "name": "🐼玩偶", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Wogg"}},
 { "key": "线路111", "name": "🐼蜡笔", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Labi"}},
+ 
 { "key": "短剧", "name": "🦛短剧", "type": 3, "api": "https://gitee.com/PizazzXS/another-d/raw/master/movie/py/HMDJ.py", "searchable": 1, "changeable": 1, "quickSearch": 1, "filterable": 1, "playerType": 2 },
 { "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar", "ext": "./ext/market.json" }
 ],
