@@ -23,7 +23,7 @@
 { "key": "线路3", "name": "🐼荐片", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Jianpian"}},
 { "key": "线路4", "name": "🐼爱看", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Yqs"}},
 { "key": "线路5", "name": "🐼糯米", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Nmys"}},
-{ "key": "线路6", "name": "🐼热播", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "TianTian"}},
+{ "key": "线路6", "name": "🐼热播", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "TianTian","site": 0}},
 { "key": "线路7", "name": "🍬厂长🍬", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Czzy"}},
 
 { "key": "线路110", "name": "🐼玩偶", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Wogg"}},
