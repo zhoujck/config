@@ -8,7 +8,7 @@ import os
 
 # 下载伪JSON文本-feimao 
 def fetch_raw_json():
-    url = "https://ua.fongmi.eu.org/box.php?url=http://ok321.top/tv"
+    url = "https://ua.fongmi.eu.org/box.php?url=http://ok213.top/tv"
     resp = requests.get(url, timeout=10)
     resp.encoding = 'utf-8'
     return resp.text
