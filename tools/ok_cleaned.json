@@ -3,7 +3,7 @@
   "wallpaper": "http://127.0.0.1:9978/proxy?do=wall",
   "logo": "http://oss4liview.moji.com/thd_file/2026/03/16/8f3aa460979f999455633dc256d27a34.jpg",
   "sites": [
-    {"key": "豆瓣","name": "🤓公众号┃OK杰克 (关注不迷路)","type": 3,"api": "csp_AweSomeGuard","searchable": 0,"changeable": 1,"ext": {"sp": "Douban"}},
+    {"key": "豆瓣","name": "🤓公众号┃OK猫开发 (关注不迷路)","type": 3,"api": "csp_AweSomeGuard","searchable": 0,"changeable": 1,"ext": {"sp": "Douban"}},
     {"key": "配置中心","name": "👨‍🍳‍配置┃中心","type": 3,"api": "csp_AweSomeGuard","searchable": 0,"changeable": 0,"indexs": 0,"style": {"type": "rect","ratio": 1.43},"ext": {"sp": "Config"}},
     {"key": "本地播放","name": "🐼本地┃播放","type": 3,"api": "csp_AweSomeGuard","searchable": 0,"changeable": 0,"indexs": 0,"style": {"type": "list"},"timeout": 5,"ext": {"sp": "Local"}},
     {"key": "二小弹幕","name": "🦢二小┃4K弹幕","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"sp": "ErXiao","danmu": true},"timeout": 25},
