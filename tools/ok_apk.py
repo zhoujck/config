@@ -5,8 +5,8 @@ from urllib.parse import unquote, urlparse
 
 # 配置项 - 替换为你的真实下载链接
 DOWNLOAD_LINKS = [
-    "https://github.com/PizazzGY/OK-APP/releases/download/OK影视/leanback-armeabi_v7a-3.7.2.apk",
-    "https://github.com/PizazzGY/OK-APP/releases/download/OK影视/mobile-arm64_v8a-3.7.2.apk"
+    "https://github.com/PizazzGY/OK-APP/releases/download/OK影视/leanback-armeabi_v7a-5.0.2.apk",
+    "https://github.com/PizazzGY/OK-APP/releases/download/OK影视/mobile-arm64_v8a-5.0.2.apk"
 ]
 # 保存到根目录（脚本运行的文件夹）
 SAVE_DIR = "./"
