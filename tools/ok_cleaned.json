@@ -19,10 +19,10 @@
     {"key": "SeedHub弹幕","name": "🍀种子┃4K弹幕","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"sp": "SeedHub","danmu": true},"timeout": 25},
     {"key": "光影弹幕版","name": "🎥光影┃4K弹幕","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"filterable": 1,"changeable": 0,"ext": {"sp": "Guanying","danmu": true},"timeout": 30},
     {"key": "云集","name": "🍊云集┃4K弹幕","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"sp": "YunJi","danmu": true},"timeout": 25},
-    {"key": "4K指南","name": "⭐指南┃4K原盘","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 0,"changeable": 0,"filterable": 0,"ext": {"sp": "Zn4k"},"timeout": 30},
+    {"key": "4K指南","name": "⭐指南┃4K原盘","type": 3,"api": "csp_AweSomeGuard","searchable": 0,"quickSearch": 0,"changeable": 0,"filterable": 0,"ext": {"sp": "Zn4k"},"timeout": 30},
     {"key": "盘他","name": "🎸盘他┃4K","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"sp": "Panta"},"timeout": 25},
     {"key": "海绵","name": "🧽海绵┃4K","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"sp": "HaiMian"},"timeout": 25},
-    {"key": "雷鲸","name": "🐳雷鲸┃4K","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"sp": "LeiJing"},"timeout": 25},
+    {"key": "雷鲸","name": "🐳雷鲸┃4K","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"style": {"type": "list"},"ext": {"sp": "LeiJing"},"timeout": 25},
     {"key": "123社区","name": "🌂123┃4K","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 0,"changeable": 0,"filterable": 1,"ext": {"sp": "Time123"},"timeout": 25},
     {"key": "瓜子","name": "🍉瓜子┃弹幕","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"sp": "Guazi","danmu": true},"timeout": 10},
     {"key": "文才","name": "🌺文才┃弹幕","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"sp": "Jpys","danmu": true},"timeout": 10},
@@ -68,7 +68,7 @@
     {"key": "太极","name": "☯️太极┃搜索","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"filterable": 1,"changeable": 0,"ext": {"sp": "TaiChi","taichi": 1},"timeout": 25},
     {"key": "糖果搜","name": "🍬糖果┃搜索","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"filterable": 1,"changeable": 0,"ext": {"sp": "TaiChi","taichi": 2},"timeout": 25},
     {"key": "音海","name": "🎸音海┃搜索","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"filterable": 1,"changeable": 0,"ext": {"sp": "YinHai","danmu": true},"timeout": 25},
-    {"key": "影链","name": "🎞️影链┃搜索","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"filterable": 1,"changeable": 0,"ext": {"sp": "YingLian"},"timeout": 25},
+    {"key": "聚盘","name": "🎞️聚盘┃搜索","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"filterable": 1,"changeable": 0,"ext": {"sp": "JuPan"},"timeout": 25},
     {"key": "爱盘","name": "❤️爱盘┃搜索","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"filterable": 1,"changeable": 0,"ext": {"sp": "AiPan","danmu": true},"timeout": 25},
     {"key": "云搜","name": "☁️云搜┃搜索","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"filterable": 1,"changeable": 0,"ext": {"sp": "YunPanPan","danmu": true},"timeout": 25},
     {"key": "度搜","name": "🦈度搜┃搜索","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"filterable": 1,"changeable": 0,"ext": {"sp": "Bdxd","danmu": true},"timeout": 25},
@@ -117,8 +117,8 @@
     {"group": "硬解码","options": [{"category": 4,"name": "opensles","value": "0"},{"category": 4,"name": "overlay-format","value": "842225234"},{"category": 4,"name": "framedrop","value": "1"},{"category": 4,"name": "soundtouch","value": "1"},{"category": 4,"name": "start-on-prepared","value": "1"},{"category": 1,"name": "http-detect-range-support","value": "0"},{"category": 1,"name": "fflags","value": "fastseek"},{"category": 2,"name": "skip_loop_filter","value": "48"},{"category": 4,"name": "reconnect","value": "1"},{"category": 4,"name": "enable-accurate-seek","value": "0"},{"category": 4,"name": "mediacodec","value": "1"},{"category": 4,"name": "mediacodec-auto-rotate","value": "1"},{"category": 4,"name": "mediacodec-handle-resolution-change","value": "1"},{"category": 4,"name": "mediacodec-hevc","value": "1"},{"category": 1,"name": "dns_cache_timeout","value": "600000000"}]}
   ],
   "proxy": [
-
-  ],
+  "file://TV/proxy.json"
+],
   "rules": [
     {"name": "cl","hosts": ["magnet"],"regex": ["最 新","直 播","更 新"]},
     {"name": "火山嗅探","hosts": ["huoshan.com"],"regex": ["item_id="]},
