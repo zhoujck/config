@@ -28,7 +28,7 @@ jobs:
           python jar.py
           \cp -pdr ok.txt ../jar/ok.txt
           python combine.py
-          \cp -pdr box_merged.json ../box
+          \cp -pdr box_merged.json ../box1
           rm -rf box_merged.json ok.txt 
           cd ../
         shell: bash
