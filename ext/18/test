@@ -1,7 +1,10 @@
 {  
-"spider": "https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/config/main/jar/ok.txt",
+"spider": "https://gh-proxy.org/https://raw.githubusercontent.com/zhoujck/config/main/jar/ok.txt",
 "sites":[ 
+
 {"key": "豆瓣","name": "🍬糖果影视🍬","type": 3,"api": "csp_AweSomeGuard","searchable": 0,"changeable": 1,"ext": {"sp": "Douban"}},
+{ "key": "筛选", "name": "筛选", "type": 3, "api": "csp_Market",  "jar": "https://gh-proxy.org/https://raw.githubusercontent.com/zhoujck/config/main/jar/FM.jar", "ext": "https://gh-proxy.org/https://raw.githubusercontent.com/zhoujck/config/main/ext/18/18sort" },
+{"key":"lf_js_lf_live","name":"直播","type":3,"api":"https://gh-proxy.org/https://raw.githubusercontent.com/zhoujck/config/main/js/lib/lf_live_min.js","style":{ "type":"oval"},"searchable":1,"changeable":0,"quickSearch":1,"filterable":1,"ext":"https://gh-proxy.org/https://raw.githubusercontent.com/zhoujck/config/main/ext/18/18liveapi"},
 {"key":"大地","name":"01","type":0,"api":"http://dadiapi.com/api.php","searchable":1,"recordable":0,"style":{"type":"rect","ratio":1.33},"header":{"Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7","User-Agent":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/117.0.0.0Safari/537.36"}},
 {"key":"香奈儿","name":"02","type":0,"api":"https://www.gdlsp.com/api/xml.php","searchable":1,"recordable":0,"style":{"type":"rect","ratio":1.33},"header":{"Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7","User-Agent":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/117.0.0.0Safari/537.36"}},
 {"key":"美少女","name":"03","type":0,"api":"https://www.msnii.com/api/xml.php","searchable":1,"recordable":0,"style":{"type":"rect","ratio":1.33},"header":{"Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7","User-Agent":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/117.0.0.0Safari/537.36"}},
