@@ -24,6 +24,7 @@
     {"key": "海绵","name": "🧽海绵┃4K","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"sp": "HaiMian"},"timeout": 25},
     {"key": "雷鲸","name": "🐳雷鲸┃4K","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"style": {"type": "list"},"ext": {"sp": "LeiJing"},"timeout": 25},
     {"key": "123社区","name": "🌂123┃4K","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 0,"changeable": 0,"filterable": 1,"ext": {"sp": "Time123"},"timeout": 25},
+    {"key": "七味","name": "🌈七味┃弹幕","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"sp": "QiWei","danmu": true},"timeout": 30},
     {"key": "瓜子","name": "🍉瓜子┃弹幕","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"sp": "Guazi","danmu": true},"timeout": 10},
     {"key": "文才","name": "🌺文才┃弹幕","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"sp": "Jpys","danmu": true},"timeout": 10},
     {"key": "糯米","name": "🍓糯米┃弹幕","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"sp": "Nmys","danmu": true},"timeout": 10},
