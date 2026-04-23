@@ -14,6 +14,7 @@
       "api": "csp_Douban",
       "searchable": 0
     },
+{ "key": "线路2", "name": "🍬卫士", "type": 3, "api": "csp_XBPQ","ext": "./ext/茶杯狐","jar":"./jar/xiaomi.jar"},
  
 
 
