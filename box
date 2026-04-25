@@ -4,6 +4,7 @@
   "lives": [
     {"name": "🍬移动🍬","type": 0,"url": "./ext/移动","playerType": 2,"ua": "okhttp/3.15","epg": "https://epg.cdn.loc.cc/?ch={name}&date={date}"},
     {"name": "🍬联通🍬","type": 0,"url": "./ext/联通","playerType": 2,"ua": "okhttp/3.15","epg": "https://epg.cdn.loc.cc/?ch={name}&date={date}"},
+    {"name": "🍬电信🍬","type": 0,"url": "./ext/电信","playerType": 2,"ua": "okhttp/3.15","epg": "https://epg.cdn.loc.cc/?ch={name}&date={date}"},
     {"name": "🐼综合","type": 0,"url": "https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/IPTV/main/output/ipv4/result.txt","ua": "okhttp/3.15","epg": "https://epg.cdn.loc.cc/?ch={name}&date={date}"}
   ],
   "sites": [
