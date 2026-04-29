@@ -24,7 +24,7 @@ def extract_and_save_spider(json_text):
     resp = requests.get(spider_url, timeout=10)
     with open("ok.txt", "wb") as f:
         f.write(resp.content)
-    print("✅ 已保存为 Feimao.txt")
+    print("✅ 已保存为 ok.txt")
 
 # 删除不需要的 sites 项 + 替换链接
 def clean_data(raw_text):
