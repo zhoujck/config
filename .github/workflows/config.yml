@@ -27,7 +27,7 @@ jobs:
           pip install demjson3 requests==2.31.0
           python feimao_jar.py
           #python ok_jar.py
-          \cp -pdr ok.txt ../jar/ok.txt
+          #\cp -pdr ok.txt ../jar/ok.txt
           \cp -pdr feimao.txt ../jar/feimao.txt
           python combine.py
           \cp -pdr box_merged.json ../box
