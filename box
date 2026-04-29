@@ -11,6 +11,8 @@
     {"key": "豆瓣","name": "🍬糖果影视🍬","type": 3,"api": "csp_AweSomeGuard","searchable": 0,"changeable": 1,"ext": {"sp": "Douban"}},
     {"key": "配置中心","name": "👨‍🍳‍配置┃中心","type": 3,"api": "csp_AweSomeGuard","searchable": 0,"changeable": 0,"indexs": 0,"style": {"type": "rect","ratio": 1.43},"ext": {"sp": "Config"}},
     {"key": "bili影视","name": "🅱哔站影视","type": 3,"api": "./js/lib/drpy2.min.js","searchable": 1,"ext": "./js/doc.js"},
+{ "key": "线路10", "name": "🍬瓜子🍬", "type": 3,"api":"./js/lib/drpy2.min.js","searchable":1,"ext":"./js/瓜子.js"},
+{ "key": "线路11", "name": "🍬茶杯🍬", "type": 3,"api":"./js/lib/drpy2.min.js","searchable":1,"ext":"./js/茶杯.js"},
     {"key": "88看球","name": "⚽88┃看球","type": 3,"api": "csp_AweSomeGuard","searchable": 0,"quickSearch": 0,"changeable": 0,"style": {"type": "list"},"ext": {"sp": "Kanqiu"},"timeout": 10},
     {"key": "线路1","name": "🍬苹果🍬","type": 3,"api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Xpg"}},
     {"key": "线路2","name": "🍬瓜子🍬","type": 3,"api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Guazi"}},
