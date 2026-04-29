@@ -14,7 +14,7 @@
    
 
  
-{ "key": "88看球","name": "⚽88┃看球","type": 3,"api": "csp_AweSomeGuard","searchable": 0,"quickSearch": 0,"changeable": 0,"style": {"type": "list"},"ext": {"sp": "Kanqiu"},"timeout": 10},
+{ "key": "88看球","name": "⚽88┃看球","type": 3,"api": "csp_AweSomeGuard","searchable": 0,"quickSearch": 0,"changeable": 0,"style": {"type": "list"},"ext": {"sp": "Kanqiu"},"timeout": 10, "jar": "./jar/ok.txt"},
 { "key": "bili影视", "name": "🅱哔站影视", "type": 3,"api":"./js/lib/drpy2.min.js","searchable":1,"ext":"./js/doc.js"},
   
 { "key": "线路10", "name": "🍬瓜子备用🍬", "type": 3,"api":"./js/lib/drpy2.min.js","searchable":1,"ext":"./js/瓜子.js"},
@@ -26,11 +26,11 @@
 { "key": "线路4", "name": "🐼蔬菜", "type": 3, "api": "csp_AppGet","timeout": 25,"ext": "https://gitee.com/wmmoliill/wimg/raw/master/img/bk/9.txt|88689667dce61725"},
 { "key": "线路111", "name": "🐼米搜", "type": 3, "api": "csp_MiSou","timeout": 25,"ext": "http://127.0.0.1:9978/file/fatcat/kk.txt"},
 
-{ "key": "线路5", "name": "🎞️糯米", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Nmys"}, "jar": "./jar/ok.jar"},
-{ "key": "线路6", "name": "🎞️热播", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "TianTian","site": 0}, "jar": "./jar/ok.jar"},
-{ "key": "线路7", "name": "🎞️荐片", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Jianpian"}, "jar": "./jar/ok.jar"}, 
-{ "key": "线路8","name": "🎞️天堂","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"sp": "Caiji","api": "http://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/m3u8/","danmu": true},"timeout": 10, "jar": "./jar/ok.jar"},
-{"key": "线路9","name": "🎞️文才","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"sp": "Jpys","danmu": true},"timeout": 10, "jar": "./jar/ok.jar"},
+{ "key": "线路5", "name": "🎞️糯米", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Nmys"}, "jar": "./jar/ok.txt"},
+{ "key": "线路6", "name": "🎞️热播", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "TianTian","site": 0}, "jar": "./jar/ok.txt"},
+{ "key": "线路7", "name": "🎞️荐片", "type": 3, "api": "csp_AweSomeGuard","timeout": 25,"ext": {"sp": "Jianpian"}, "jar": "./jar/ok.txt"}, 
+{ "key": "线路8","name": "🎞️天堂","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"sp": "Caiji","api": "http://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/m3u8/","danmu": true},"timeout": 10, "jar": "./jar/ok.txt"},
+{"key": "线路9","name": "🎞️文才","type": 3,"api": "csp_AweSomeGuard","searchable": 1,"quickSearch": 1,"changeable": 1,"filterable": 1,"ext": {"sp": "Jpys","danmu": true},"timeout": 10, "jar": "./jar/ok.txt"},
 
 { "key": "短剧", "name": "🦛短剧", "type": 3, "api": "https://gitee.com/PizazzXS/another-d/raw/master/movie/py/HMDJ.py", "searchable": 1, "changeable": 1, "quickSearch": 1, "filterable": 1, "playerType": 2 },
 { "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar", "ext": "./ext/market.json" }
