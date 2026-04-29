@@ -60,7 +60,7 @@ class CompactJSONEncoder(json.JSONEncoder):
             return json.dumps(obj, ensure_ascii=False)
         return iter([_encode(o)])
 
-def save_json(data, filename="ok_cleaned.json"):
+def save_json(data, filename="feimao_cleaned.json"):
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2, cls=CompactJSONEncoder)
     print(f"✅ 最终 JSON 保存为 {filename}")
