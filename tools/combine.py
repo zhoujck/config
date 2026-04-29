@@ -61,8 +61,8 @@ if __name__ == "__main__":
 
     try:
         # 获取 Feimao.txt 的 md5
-        md5_value = get_md5("ok.txt")
-        print(f"🔐 ok.jar 的 MD5: {md5_value}")
+        md5_value = get_md5("feimao.txt")
+        print(f"🔐 feimao.jar 的 MD5: {md5_value}")
 
         # 加载两个 JSON 文件
         jo = load_json(jo_path)
