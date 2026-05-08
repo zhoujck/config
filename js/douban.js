@@ -149,9 +149,8 @@ async function home(filter) {
             ],
             hot_tv: [
                 { key: "类型", name: "类型", value: [
-                    { n: "全部", v: "" }, { n: "国产剧", v: "国产剧" }, { n: "美剧", v: "美剧" }, { n: "日剧", v: "日剧" },
-                    { n: "韩剧", v: "韩剧" }, { n: "动画", v: "动画" }, { n: "古装", v: "古装" }, { n: "悬疑", v: "悬疑" },
-                    { n: "爱情", v: "爱情" }, { n: "喜剧", v: "喜剧" }, { n: "犯罪", v: "犯罪" }, { n: "科幻", v: "科幻" }
+                    { n: "全部", v: "tv" }, { n: "国产剧", v: "tv_domestic" }, { n: "美剧", v: "tv_american" }, { n: "日剧", v: "tv_japanese" },
+                    { n: "韩剧", v: "tv_korean" }, { n: "动漫", v: "tv_animation" }, { n: "纪录片", v: "tv_documentary" }
                 ]},
                 { key: "地区", name: "地区", value: [
                     { n: "全部", v: "" }, { n: "华语", v: "华语" }, { n: "欧美", v: "欧美" }, { n: "韩国", v: "韩国" },
@@ -181,6 +180,9 @@ async function home(filter) {
                 { key: "sort", name: "排序", value: [{ n: "近期热度", v: "recommend" }, { n: "首播时间", v: "time" }, { n: "高分优先", v: "rank" }] }
             ],
             show: [
+                { key: "类型", name: "类型", value: [
+                    { n: "全部", v: "show" }, { n: "国内", v: "show_domestic" }, { n: "国外", v: "show_foreign" }
+                ]},
                 { key: "地区", name: "地区", value: [
                     { n: "全部", v: "" }, { n: "中国大陆", v: "中国大陆" }, { n: "中国香港", v: "中国香港" },
                     { n: "中国台湾", v: "中国台湾" }, { n: "韩国", v: "韩国" }, { n: "日本", v: "日本" },
@@ -196,10 +198,12 @@ async function home(filter) {
 
 async function homeVod() {
     try {
-        // 推荐：热门电影按时间排序 + 热播剧集
-        let movie = getByTag("热门", "movie", "time", 0, 15);
-        let tv = getByTag("热门", "tv", "recommend", 0, 15);
-        return JSON.stringify({ list: parseItems([...movie, ...tv]) });
+        // 推荐：热门电影 + 热播剧集，都用 recent_hot 接口默认按热度
+        let movieData = rexGet("/subject/recent_hot/movie", { start: 0, limit: 15, category: "热门", type: "全部" });
+        let tvData = rexGet("/subject/recent_hot/tv", { start: 0, limit: 15, category: "tv", type: "tv" });
+        let movie = parseRexItems(movieData.items || []);
+        let tv = parseRexItems(tvData.items || []);
+        return JSON.stringify({ list: [...movie, ...tv] });
     } catch (e) { return JSON.stringify({ list: [] }); }
 }
 
@@ -213,17 +217,12 @@ async function category(tid, pg, filter, extend) {
             let region = ext["地区"] || "";
             let year = ext.year || "";
             sort = ext.sort || "U";
-            // 用 rexxar 接口支持多条件筛选
-            let selectedCategories = {};
-            if (genre) selectedCategories["类型"] = genre;
-            if (region) selectedCategories["地区"] = region;
-            let tags = [genre, region, year].filter(Boolean).join(",");
             try {
-                let data = rexGet("/movie/recommend", {
-                    refresh: 0, start: start, count: count,
-                    selected_categories: JSON.stringify(selectedCategories),
-                    uncollect: false, score_range: "0,10",
-                    tags: tags, sort: sort
+                let category = genre || "热门";
+                let type = region || "全部";
+                let data = rexGet("/subject/recent_hot/movie", {
+                    start: start, limit: count,
+                    category: category, type: type
                 });
                 items = parseRexItems(data.items || []);
                 let total = data.total || data.count || items.length;
@@ -233,7 +232,6 @@ async function category(tid, pg, filter, extend) {
                     total: total
                 });
             } catch (e) {
-                // fallback: 单标签
                 tag = genre || region || year || "热门";
                 let sortMap = { U: "recommend", R: "time", S: "rank" };
                 items = getByTag(tag, "movie", sortMap[sort] || "recommend", start, count);
@@ -244,16 +242,11 @@ async function category(tid, pg, filter, extend) {
             let year = ext.year || "";
             let platform = ext.platform || "";
             sort = ext.sort || "U";
-            let selectedCategories = { "形式": "电视剧" };
-            if (genre) selectedCategories["类型"] = genre;
-            if (region) selectedCategories["地区"] = region;
-            let tags = [genre, region, year, platform].filter(Boolean).join(",");
             try {
-                let data = rexGet("/tv/recommend", {
-                    refresh: 0, start: start, count: count,
-                    selected_categories: JSON.stringify(selectedCategories),
-                    uncollect: false, score_range: "0,10",
-                    tags: tags, sort: sort
+                let type = genre || region || "tv";
+                let data = rexGet("/subject/recent_hot/tv", {
+                    start: start, limit: count,
+                    category: "tv", type: type
                 });
                 items = parseRexItems(data.items || []);
                 let total = data.total || data.count || items.length;
@@ -268,17 +261,12 @@ async function category(tid, pg, filter, extend) {
                 items = getByTag(tag, "tv", sortMap[sort] || "recommend", start, count);
             }
         } else if (tid === "show") {
-            let region = ext["地区"] || "中国大陆";
-
+            let type = ext["类型"] || "show";
+            let region = ext["地区"] || "";
             try {
-                let selectedCategories = { "类型": "综艺" };
-                if (region) selectedCategories["地区"] = region;
-                let tags = region ? "综艺," + region : "综艺";
-                let data = rexGet("/tv/recommend", {
-                    refresh: 0, start: start, count: count,
-                    selected_categories: JSON.stringify(selectedCategories),
-                    uncollect: false, score_range: "0,10",
-                    tags: tags, sort: "U"
+                let data = rexGet("/subject/recent_hot/tv", {
+                    start: start, limit: count,
+                    category: "show", type: type
                 });
                 items = parseRexItems(data.items || []);
                 let total = data.total || data.count || items.length;
