@@ -69,7 +69,7 @@ if __name__ == "__main__":
    print("⚠️ jo_cleaned.json 中未找到 spider 字段")
 
   # 输出到 output 目录
-  output_path = "../"
+  output_path = "../box"
   os.makedirs("./output", exist_ok=True)
 
   # 保存最终合并文件
