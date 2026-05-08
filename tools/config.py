@@ -15,10 +15,6 @@ SOURCES = [
         "name": "feimao",
         "url": "https://ua.fongmi.eu.org/box.php?url=http://肥猫.com/",
     },
-    {
-        "name": "wang",
-        "url": "https://9280.kstore.vip/newex.json",
-    }
 ]
 
 KEYWORDS = ["1"]
