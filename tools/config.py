@@ -18,7 +18,7 @@ SOURCES = [
 ]
 
 KEYWORDS = [""]
-OUTPUT_DIR = "output"
+OUTPUT_DIR = "./"
 # ================================
 
 def fetch_raw_json(url):
