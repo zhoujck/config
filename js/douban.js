@@ -26,6 +26,40 @@ function getByTag(tag, type, sort, start, count) {
     return res.subjects || [];
 }
 
+// rexxar 接口 - 支持多条件筛选
+function rexGet(path, params) {
+    let query = [];
+    for (let key in params) {
+        if (params[key] != null && params[key] !== "") {
+            query.push(encodeURIComponent(key) + "=" + encodeURIComponent(params[key]));
+        }
+    }
+    let url = "https://m.douban.com/rexxar/api/v2" + path + (query.length ? "?" + query.join("&") : "");
+    let resp = req(url, {
+        headers: {
+            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1",
+            "Referer": "https://m.douban.com/",
+            "Accept": "application/json"
+        }
+    });
+    return JSON.parse(resp.content);
+}
+
+// rexxar 数据解析
+function parseRexItems(items) {
+    if (!Array.isArray(items)) return [];
+    return items.map(it => {
+        let pic = it.pic ? (it.pic.large || it.pic.normal || "") : "";
+        return {
+            vod_id: it.id || "",
+            vod_name: it.title || "",
+            vod_pic: fixPic(pic),
+            vod_remarks: it.episodes_info && it.episodes_info.trim() ? it.episodes_info.trim()
+                : (it.rating && it.rating.value ? it.rating.value + "分" : "暂无评分")
+        };
+    });
+}
+
 function suggest(q) {
     return webGet("/j/subject_suggest", { q }) || [];
 }
@@ -111,7 +145,7 @@ async function home(filter) {
                     { n: "2019", v: "2019" }, { n: "2010年代", v: "2010年代" }, { n: "2000年代", v: "2000年代" },
                     { n: "90年代", v: "90年代" }, { n: "80年代", v: "80年代" }, { n: "更早", v: "更早" }
                 ]},
-                { key: "sort", name: "排序", value: [{ n: "近期热度", v: "recommend" }, { n: "首映时间", v: "time" }, { n: "高分优先", v: "rank" }] }
+                { key: "sort", name: "排序", value: [{ n: "近期热度", v: "U" }, { n: "首映时间", v: "R" }, { n: "高分优先", v: "S" }] }
             ],
             hot_tv: [
                 { key: "类型", name: "类型", value: [
@@ -135,7 +169,7 @@ async function home(filter) {
                     { n: "优酷", v: "优酷" }, { n: "Netflix", v: "Netflix" }, { n: "HBO", v: "HBO" },
                     { n: "BBC", v: "BBC" }, { n: "NHK", v: "NHK" }, { n: "tvN", v: "tvN" }
                 ]},
-                { key: "sort", name: "排序", value: [{ n: "近期热度", v: "recommend" }, { n: "首播时间", v: "time" }, { n: "高分优先", v: "rank" }] }
+                { key: "sort", name: "排序", value: [{ n: "近期热度", v: "U" }, { n: "首播时间", v: "R" }, { n: "高分优先", v: "S" }] }
             ],
             documentary: [
                 { key: "genre", name: "类型", value: [
@@ -174,21 +208,61 @@ async function category(tid, pg, filter, extend) {
             let genre = ext["类型"] || "";
             let region = ext["地区"] || "";
             let year = ext.year || "";
-            sort = ext.sort || "recommend";
-            // API只支持单标签，按优先级取：类型 > 地区 > 年份 > 默认热门
-            tag = genre || region || year || "热门";
-            type = "movie";
-            items = getByTag(tag, type, sort, start, count);
+            sort = ext.sort || "U";
+            // 用 rexxar 接口支持多条件筛选
+            let selectedCategories = {};
+            if (genre) selectedCategories["类型"] = genre;
+            if (region) selectedCategories["地区"] = region;
+            let tags = [genre, region, year].filter(Boolean).join(",");
+            try {
+                let data = rexGet("/movie/recommend", {
+                    refresh: 0, start: start, count: count,
+                    selected_categories: JSON.stringify(selectedCategories),
+                    uncollect: false, score_range: "0,10",
+                    tags: tags, sort: sort
+                });
+                items = parseRexItems(data.items || []);
+                let total = data.total || data.count || items.length;
+                return JSON.stringify({
+                    list: items, page: p,
+                    pagecount: Math.ceil(total / count),
+                    total: total
+                });
+            } catch (e) {
+                // fallback: 单标签
+                tag = genre || region || year || "热门";
+                let sortMap = { U: "recommend", R: "time", S: "rank" };
+                items = getByTag(tag, "movie", sortMap[sort] || "recommend", start, count);
+            }
         } else if (tid === "hot_tv") {
             let genre = ext["类型"] || "";
             let region = ext["地区"] || "";
             let year = ext.year || "";
             let platform = ext.platform || "";
-            sort = ext.sort || "recommend";
-            // 按优先级取：平台 > 类型 > 地区 > 年份 > 默认热门
-            tag = platform || genre || region || year || "热门";
-            type = "tv";
-            items = getByTag(tag, type, sort, start, count);
+            sort = ext.sort || "U";
+            let selectedCategories = { "形式": "电视剧" };
+            if (genre) selectedCategories["类型"] = genre;
+            if (region) selectedCategories["地区"] = region;
+            let tags = [genre, region, year, platform].filter(Boolean).join(",");
+            try {
+                let data = rexGet("/tv/recommend", {
+                    refresh: 0, start: start, count: count,
+                    selected_categories: JSON.stringify(selectedCategories),
+                    uncollect: false, score_range: "0,10",
+                    tags: tags, sort: sort
+                });
+                items = parseRexItems(data.items || []);
+                let total = data.total || data.count || items.length;
+                return JSON.stringify({
+                    list: items, page: p,
+                    pagecount: Math.ceil(total / count),
+                    total: total
+                });
+            } catch (e) {
+                tag = platform || genre || region || year || "热门";
+                let sortMap = { U: "recommend", R: "time", S: "rank" };
+                items = getByTag(tag, "tv", sortMap[sort] || "recommend", start, count);
+            }
         } else if (tid === "show") {
             tag = ext.type || "综艺";
             type = "tv";
