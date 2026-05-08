@@ -85,35 +85,64 @@ function parseItems(items) {
 async function home(filter) {
     return JSON.stringify({
         class: [
+            { type_id: "recommend", type_name: "推荐" },
             { type_id: "hot_movie", type_name: "热门电影" },
-            { type_id: "new_movie", type_name: "最新电影" },
-            { type_id: "high_score", type_name: "豆瓣高分" },
-            { type_id: "classic", type_name: "冷门佳片" },
-            { type_id: "tv_hot", type_name: "热播剧集" },
-            { type_id: "tv_domestic", type_name: "国产剧" },
-            { type_id: "tv_american", type_name: "美剧" },
-            { type_id: "tv_japanese", type_name: "日剧" },
-            { type_id: "tv_korean", type_name: "韩剧" },
-            { type_id: "tv_animation", type_name: "动漫" },
-            { type_id: "show", type_name: "综艺" },
-            { type_id: "documentary", type_name: "纪录片" }
+            { type_id: "tv_hot", type_name: "热门剧集" },
+            { type_id: "show", type_name: "热门综艺" },
+            { type_id: "documentary", type_name: "纪录片" },
+            { type_id: "movie_filter", type_name: "电影筛选" },
+            { type_id: "tv_filter", type_name: "电视筛选" },
+            { type_id: "high_score", type_name: "豆瓣高分" }
         ],
         filters: {
             hot_movie: [
                 { key: "sort", name: "排序", value: [{ n: "热度", v: "recommend" }, { n: "最新", v: "time" }, { n: "评分", v: "rank" }] },
                 { key: "area", name: "地区", value: [{ n: "全部", v: "全部" }, { n: "华语", v: "华语" }, { n: "欧美", v: "欧美" }, { n: "韩国", v: "韩国" }, { n: "日本", v: "日本" }] }
             ],
-            new_movie: [
-                { key: "area", name: "地区", value: [{ n: "全部", v: "全部" }, { n: "华语", v: "华语" }, { n: "欧美", v: "欧美" }, { n: "韩国", v: "韩国" }, { n: "日本", v: "日本" }] }
+            movie_filter: [
+                { key: "类型", name: "类型", value: [
+                    { n: "全部类型", v: "" }, { n: "喜剧", v: "喜剧" }, { n: "爱情", v: "爱情" }, { n: "动作", v: "动作" },
+                    { n: "科幻", v: "科幻" }, { n: "动画", v: "动画" }, { n: "悬疑", v: "悬疑" }, { n: "犯罪", v: "犯罪" },
+                    { n: "惊悚", v: "惊悚" }, { n: "冒险", v: "冒险" }, { n: "恐怖", v: "恐怖" }, { n: "战争", v: "战争" },
+                    { n: "奇幻", v: "奇幻" }, { n: "历史", v: "历史" }, { n: "传记", v: "传记" }, { n: "纪录片", v: "纪录片" }
+                ]},
+                { key: "地区", name: "地区", value: [
+                    { n: "全部地区", v: "" }, { n: "华语", v: "华语" }, { n: "欧美", v: "欧美" }, { n: "韩国", v: "韩国" },
+                    { n: "日本", v: "日本" }, { n: "中国大陆", v: "中国大陆" }, { n: "美国", v: "美国" },
+                    { n: "中国香港", v: "中国香港" }, { n: "中国台湾", v: "中国台湾" }, { n: "英国", v: "英国" },
+                    { n: "法国", v: "法国" }, { n: "泰国", v: "泰国" }, { n: "印度", v: "印度" }
+                ]},
+                { key: "year", name: "年代", value: [
+                    { n: "全部", v: "" }, { n: "2026", v: "2026" }, { n: "2025", v: "2025" }, { n: "2024", v: "2024" },
+                    { n: "2023", v: "2023" }, { n: "2022", v: "2022" }, { n: "2021", v: "2021" }, { n: "2020", v: "2020" },
+                    { n: "2019", v: "2019" }, { n: "2010年代", v: "2010年代" }, { n: "2000年代", v: "2000年代" },
+                    { n: "90年代", v: "90年代" }, { n: "80年代", v: "80年代" }, { n: "更早", v: "更早" }
+                ]},
+                { key: "sort", name: "排序", value: [{ n: "近期热度", v: "recommend" }, { n: "首映时间", v: "time" }, { n: "高分优先", v: "rank" }] }
             ],
-            high_score: [
-                { key: "area", name: "地区", value: [{ n: "全部", v: "全部" }, { n: "华语", v: "华语" }, { n: "欧美", v: "欧美" }, { n: "韩国", v: "韩国" }, { n: "日本", v: "日本" }] }
-            ],
-            classic: [
-                { key: "area", name: "地区", value: [{ n: "全部", v: "全部" }, { n: "华语", v: "华语" }, { n: "欧美", v: "欧美" }, { n: "韩国", v: "韩国" }, { n: "日本", v: "日本" }] }
-            ],
-            tv_hot: [
-                { key: "type", name: "分类", value: [{ n: "综合", v: "热门" }, { n: "国产剧", v: "国产剧" }, { n: "欧美剧", v: "美剧" }, { n: "日剧", v: "日剧" }, { n: "韩剧", v: "韩剧" }, { n: "动画", v: "动画" }] }
+            tv_filter: [
+                { key: "类型", name: "类型", value: [
+                    { n: "全部", v: "" }, { n: "国产剧", v: "国产剧" }, { n: "美剧", v: "美剧" }, { n: "日剧", v: "日剧" },
+                    { n: "韩剧", v: "韩剧" }, { n: "动画", v: "动画" }, { n: "古装", v: "古装" }, { n: "悬疑", v: "悬疑" },
+                    { n: "爱情", v: "爱情" }, { n: "喜剧", v: "喜剧" }, { n: "犯罪", v: "犯罪" }, { n: "科幻", v: "科幻" }
+                ]},
+                { key: "地区", name: "地区", value: [
+                    { n: "全部", v: "" }, { n: "华语", v: "华语" }, { n: "欧美", v: "欧美" }, { n: "韩国", v: "韩国" },
+                    { n: "日本", v: "日本" }, { n: "中国大陆", v: "中国大陆" }, { n: "美国", v: "美国" },
+                    { n: "中国香港", v: "中国香港" }, { n: "中国台湾", v: "中国台湾" }, { n: "英国", v: "英国" }
+                ]},
+                { key: "year", name: "年代", value: [
+                    { n: "全部", v: "" }, { n: "2026", v: "2026" }, { n: "2025", v: "2025" }, { n: "2024", v: "2024" },
+                    { n: "2023", v: "2023" }, { n: "2022", v: "2022" }, { n: "2021", v: "2021" }, { n: "2020", v: "2020" },
+                    { n: "2019", v: "2019" }, { n: "2010年代", v: "2010年代" }, { n: "2000年代", v: "2000年代" },
+                    { n: "90年代", v: "90年代" }, { n: "80年代", v: "80年代" }, { n: "更早", v: "更早" }
+                ]},
+                { key: "platform", name: "平台", value: [
+                    { n: "全部", v: "" }, { n: "腾讯视频", v: "腾讯视频" }, { n: "爱奇艺", v: "爱奇艺" },
+                    { n: "优酷", v: "优酷" }, { n: "Netflix", v: "Netflix" }, { n: "HBO", v: "HBO" },
+                    { n: "BBC", v: "BBC" }, { n: "NHK", v: "NHK" }, { n: "tvN", v: "tvN" }
+                ]},
+                { key: "sort", name: "排序", value: [{ n: "近期热度", v: "recommend" }, { n: "首播时间", v: "time" }, { n: "高分优先", v: "rank" }] }
             ],
             documentary: [
                 { key: "genre", name: "类型", value: [
@@ -126,6 +155,12 @@ async function home(filter) {
             ],
             show: [
                 { key: "type", name: "分类", value: [{ n: "综合", v: "综艺" }, { n: "国内", v: "国产综艺" }, { n: "国外", v: "国外综艺" }] }
+            ],
+            high_score: [
+                { key: "area", name: "地区", value: [{ n: "全部", v: "全部" }, { n: "华语", v: "华语" }, { n: "欧美", v: "欧美" }, { n: "韩国", v: "韩国" }, { n: "日本", v: "日本" }] }
+            ],
+            tv_hot: [
+                { key: "type", name: "分类", value: [{ n: "综合", v: "热门" }, { n: "国产剧", v: "国产剧" }, { n: "欧美剧", v: "美剧" }, { n: "日剧", v: "日剧" }, { n: "韩剧", v: "韩剧" }, { n: "动画", v: "动画" }] }
             ]
         }
     });
@@ -133,8 +168,8 @@ async function home(filter) {
 
 async function homeVod() {
     try {
-        // 推荐页：混合取不同标签，和热门电影区分
-        let movie = getByTag("最新", "movie", "time", 0, 10);
+        // 推荐：混合取电影+剧集+综艺
+        let movie = getByTag("热门", "movie", "recommend", 0, 10);
         let tv = getByTag("热门", "tv", "recommend", 0, 10);
         let show = getByTag("综艺", "tv", "recommend", 0, 10);
         return JSON.stringify({ list: parseItems([...movie, ...tv, ...show]) });
@@ -146,47 +181,60 @@ async function category(tid, pg, filter, extend) {
         let p = pg || 1, count = 20, ext = extend || {}, start = (p - 1) * count;
         let items = [], tag = "", type = "movie", sort = "recommend";
 
-        if (tid === "hot_movie") {
+        if (tid === "recommend") {
+            // 推荐分页：混合
+            let movie = getByTag("热门", "movie", "recommend", start, 7);
+            let tv = getByTag("热门", "tv", "recommend", start, 7);
+            let show = getByTag("综艺", "tv", "recommend", start, 6);
+            items = [...movie, ...tv, ...show];
+        } else if (tid === "hot_movie") {
             tag = (ext.area || "全部") === "全部" ? "热门" : ext.area;
             sort = ext.sort || "recommend";
             type = "movie";
-        } else if (tid === "new_movie") {
-            tag = (ext.area || "全部") === "全部" ? "最新" : ext.area;
-            sort = "time";
-            type = "movie";
-        } else if (tid === "high_score") {
-            tag = (ext.area || "全部") === "全部" ? "豆瓣高分" : ext.area;
-            sort = "rank";
-            type = "movie";
-        } else if (tid === "classic") {
-            tag = (ext.area || "全部") === "全部" ? "冷门佳片" : ext.area;
-            sort = "rank";
-            type = "movie";
+            items = getByTag(tag, type, sort, start, count);
         } else if (tid === "tv_hot") {
             tag = ext.type || "热门";
             type = "tv";
-        } else if (tid === "tv_domestic") {
-            tag = "国产剧"; type = "tv";
-        } else if (tid === "tv_american") {
-            tag = "美剧"; type = "tv";
-        } else if (tid === "tv_japanese") {
-            tag = "日剧"; type = "tv";
-        } else if (tid === "tv_korean") {
-            tag = "韩剧"; type = "tv";
-        } else if (tid === "tv_animation") {
-            tag = "动画"; type = "tv";
+            items = getByTag(tag, type, "recommend", start, count);
         } else if (tid === "show") {
             tag = ext.type || "综艺";
             type = "tv";
+            items = getByTag(tag, type, "recommend", start, count);
         } else if (tid === "documentary") {
             tag = ext.genre || "纪录片";
             sort = ext.sort || "recommend";
             type = "movie";
+            items = getByTag(tag, type, sort, start, count);
+        } else if (tid === "movie_filter") {
+            let genre = ext["类型"] || "";
+            let region = ext["地区"] || "";
+            let year = ext.year || "";
+            sort = ext.sort || "recommend";
+            // 优先用类型和地区拼接标签，年份作为补充
+            tag = genre || region || year || "热门";
+            if (genre && region) tag = genre + region;
+            type = "movie";
+            items = getByTag(tag, type, sort, start, count);
+        } else if (tid === "tv_filter") {
+            let genre = ext["类型"] || "";
+            let region = ext["地区"] || "";
+            let year = ext.year || "";
+            let platform = ext.platform || "";
+            sort = ext.sort || "recommend";
+            // 平台优先（如有），否则类型+地区
+            tag = platform || genre || region || year || "热门";
+            if (genre && region && !platform) tag = genre + region;
+            type = "tv";
+            items = getByTag(tag, type, sort, start, count);
+        } else if (tid === "high_score") {
+            tag = (ext.area || "全部") === "全部" ? "豆瓣高分" : ext.area;
+            sort = "rank";
+            type = "movie";
+            items = getByTag(tag, type, sort, start, count);
         } else {
             return JSON.stringify({ list: [], page: p, pagecount: 0, total: 0 });
         }
 
-        items = getByTag(tag, type, sort, start, count);
         return JSON.stringify({
             list: parseItems(items), page: p,
             pagecount: items.length < count ? p : p + 1,
