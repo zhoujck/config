@@ -278,7 +278,7 @@ async function category(tid, pg, filter, extend) {
                     refresh: 0, start: start, count: count,
                     selected_categories: JSON.stringify(selectedCategories),
                     uncollect: false, score_range: "0,10",
-                    tags: tags, sort: "R"
+                    tags: tags, sort: "U"
                 });
                 items = parseRexItems(data.items || []);
                 let total = data.total || data.count || items.length;
