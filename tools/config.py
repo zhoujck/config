@@ -15,10 +15,14 @@ SOURCES = [
         "name": "feimao",
         "url": "https://ua.fongmi.eu.org/box.php?url=http://肥猫.com/",
     },
+    {
+        "name": "wang",
+        "url": "https://9280.kstore.vip/newex.json",
+    }
 ]
 
 KEYWORDS = ["1"]
-OUTPUT_DIR = "../"
+OUTPUT_DIR = "./output"
 # ================================
 
 def fetch_raw_json(url):
