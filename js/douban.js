@@ -167,10 +167,10 @@ async function home(filter) {
 
 async function homeVod() {
     try {
-        // 推荐：用不同标签，和热门电影区分
-        let highScore = getByTag("豆瓣高分", "movie", "rank", 0, 15);
-        let tv = getByTag("国产剧", "tv", "recommend", 0, 15);
-        return JSON.stringify({ list: parseItems([...highScore, ...tv]) });
+        // 推荐：取热门电影按时间排序（近期上映）+ 热播剧集
+        let movie = getByTag("热门", "movie", "time", 0, 15);
+        let tv = getByTag("热门", "tv", "recommend", 0, 15);
+        return JSON.stringify({ list: parseItems([...movie, ...tv]) });
     } catch (e) { return JSON.stringify({ list: [] }); }
 }
 
