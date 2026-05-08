@@ -25,13 +25,13 @@ jobs:
           pwd 
           cd tools/
           pip install demjson3 requests==2.31.0
-          python feimao_jar.py
+          python config.py
           #python ok_jar.py
           #\cp -pdr ok.txt ../jar/ok.txt
-          \cp -pdr feimao.txt ../jar/feimao.txt
-          python combine.py
-          \cp -pdr box_merged.json ../box
-          rm -rf box_merged.json ok.txt 
+          #\cp -pdr feimao.txt ../jar/feimao.txt
+          #python combine.py
+          #\cp -pdr box_merged.json ../box
+          #rm -rf box_merged.json ok.txt 
           cd ../
         shell: bash
         
