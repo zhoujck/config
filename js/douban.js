@@ -20,7 +20,7 @@ function webGet(path, params) {
 
 function getByTag(tag, type, sort, start, count) {
     let res = webGet("/j/search_subjects", {
-        type: type || "movie", tag: tag || "热门", sort: sort || "recommend",
+        type: type || "movie", tag: tag || "热门", sort: sort || "U",
         page_limit: count || 20, page_start: start || 0
     });
     return res.subjects || [];
