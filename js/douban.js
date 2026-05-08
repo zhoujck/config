@@ -159,8 +159,8 @@ async function home(filter) {
 async function homeVod() {
     try {
         // 推荐：热门电影按时间排序 + 热播剧集
-        let movie = getByTag("热门", "movie", "time", 0, 10);
-        let tv = getByTag("热门", "tv", "recommend", 0, 10);
+        let movie = getByTag("热门", "movie", "time", 0, 15);
+        let tv = getByTag("热门", "tv", "recommend", 0, 15);
         return JSON.stringify({ list: parseItems([...movie, ...tv]) });
     } catch (e) { return JSON.stringify({ list: [] }); }
 }
@@ -175,8 +175,8 @@ async function category(tid, pg, filter, extend) {
             let region = ext["地区"] || "";
             let year = ext.year || "";
             sort = ext.sort || "recommend";
+            // API只支持单标签，按优先级取：类型 > 地区 > 年份 > 默认热门
             tag = genre || region || year || "热门";
-            if (genre && region) tag = genre + region;
             type = "movie";
             items = getByTag(tag, type, sort, start, count);
         } else if (tid === "hot_tv") {
@@ -185,8 +185,8 @@ async function category(tid, pg, filter, extend) {
             let year = ext.year || "";
             let platform = ext.platform || "";
             sort = ext.sort || "recommend";
+            // 按优先级取：平台 > 类型 > 地区 > 年份 > 默认热门
             tag = platform || genre || region || year || "热门";
-            if (genre && region && !platform) tag = genre + region;
             type = "tv";
             items = getByTag(tag, type, sort, start, count);
         } else if (tid === "show") {
