@@ -85,7 +85,6 @@ function parseItems(items) {
 async function home(filter) {
     return JSON.stringify({
         class: [
-            { type_id: "recommend", type_name: "推荐" },
             { type_id: "hot_movie", type_name: "热门电影" },
             { type_id: "tv_hot", type_name: "热门剧集" },
             { type_id: "show", type_name: "热门综艺" },
@@ -168,11 +167,10 @@ async function home(filter) {
 
 async function homeVod() {
     try {
-        // 推荐：混合取电影+剧集+综艺
-        let movie = getByTag("热门", "movie", "recommend", 0, 10);
-        let tv = getByTag("热门", "tv", "recommend", 0, 10);
-        let show = getByTag("综艺", "tv", "recommend", 0, 10);
-        return JSON.stringify({ list: parseItems([...movie, ...tv, ...show]) });
+        // 推荐：用不同标签，和热门电影区分
+        let highScore = getByTag("豆瓣高分", "movie", "rank", 0, 15);
+        let tv = getByTag("国产剧", "tv", "recommend", 0, 15);
+        return JSON.stringify({ list: parseItems([...highScore, ...tv]) });
     } catch (e) { return JSON.stringify({ list: [] }); }
 }
 
@@ -181,13 +179,7 @@ async function category(tid, pg, filter, extend) {
         let p = pg || 1, count = 20, ext = extend || {}, start = (p - 1) * count;
         let items = [], tag = "", type = "movie", sort = "recommend";
 
-        if (tid === "recommend") {
-            // 推荐分页：混合
-            let movie = getByTag("热门", "movie", "recommend", start, 7);
-            let tv = getByTag("热门", "tv", "recommend", start, 7);
-            let show = getByTag("综艺", "tv", "recommend", start, 6);
-            items = [...movie, ...tv, ...show];
-        } else if (tid === "hot_movie") {
+        if (tid === "hot_movie") {
             tag = (ext.area || "全部") === "全部" ? "热门" : ext.area;
             sort = ext.sort || "recommend";
             type = "movie";
