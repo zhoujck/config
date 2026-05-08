@@ -181,7 +181,12 @@ async function home(filter) {
                 { key: "sort", name: "排序", value: [{ n: "近期热度", v: "recommend" }, { n: "首播时间", v: "time" }, { n: "高分优先", v: "rank" }] }
             ],
             show: [
-                { key: "type", name: "分类", value: [{ n: "综合", v: "综艺" }, { n: "国内", v: "国产综艺" }, { n: "国外", v: "国外综艺" }] }
+                { key: "地区", name: "地区", value: [
+                    { n: "全部", v: "" }, { n: "中国大陆", v: "中国大陆" }, { n: "中国港台", v: "中国港台" },
+                    { n: "韩国", v: "韩国" }, { n: "日本", v: "日本" }, { n: "欧美", v: "欧美" },
+                    { n: "美国", v: "美国" }, { n: "英国", v: "英国" }, { n: "泰国", v: "泰国" }
+                ]},
+                { key: "sort", name: "排序", value: [{ n: "近期热度", v: "U" }, { n: "首播时间", v: "R" }, { n: "高分优先", v: "S" }] }
             ],
             high_score: [
                 { key: "area", name: "地区", value: [{ n: "全部", v: "全部" }, { n: "华语", v: "华语" }, { n: "欧美", v: "欧美" }, { n: "韩国", v: "韩国" }, { n: "日本", v: "日本" }] }
@@ -264,53 +269,50 @@ async function category(tid, pg, filter, extend) {
                 items = getByTag(tag, "tv", sortMap[sort] || "recommend", start, count);
             }
         } else if (tid === "show") {
-            let categoryType = ext.type || "";
             let region = ext["地区"] || "";
+            sort = ext.sort || "U";
+            let sortMap = { U: "recommend", R: "time", S: "rank" };
+            let rexSort = sortMap[sort] || "recommend";
 
-            // 映射：国内/国外快捷分类 → 具体地区
-            let regionTags = [];
-            if (categoryType === "国产综艺") {
-                regionTags = ["中国大陆"];
-            } else if (categoryType === "国外综艺") {
-                regionTags = ["欧美", "韩国", "日本", "中国港台"];
-            } else if (region) {
-                regionTags = [region];
-            }
-
-            if (regionTags.length > 0) {
-                // 用 rexxar 接口按地区筛选综艺
-                let allItems = [];
-                let seenIds = new Set();
-                for (let rt of regionTags) {
-                    try {
-                        let data = rexGet("/tv/recommend", {
-                            refresh: 0, start: 0, count: count,
-                            selected_categories: JSON.stringify({ "类型": "综艺", "地区": rt }),
-                            uncollect: false, score_range: "0,10",
-                            tags: "综艺," + rt, sort: "recommend"
-                        });
-                        let parsed = parseRexItems(data.items || []);
-                        for (let it of parsed) {
-                            if (!seenIds.has(it.vod_id)) {
-                                allItems.push(it);
-                                seenIds.add(it.vod_id);
-                            }
-                        }
-                    } catch (e) { /* 单个地区失败不影响其他 */ }
+            if (region) {
+                // 有地区筛选 → rexxar 接口
+                try {
+                    let data = rexGet("/tv/recommend", {
+                        refresh: 0, start: start, count: count,
+                        selected_categories: JSON.stringify({ "类型": "综艺", "地区": region }),
+                        uncollect: false, score_range: "0,10",
+                        tags: "综艺," + region, sort: rexSort
+                    });
+                    items = parseRexItems(data.items || []);
+                    let total = data.total || data.count || items.length;
+                    return JSON.stringify({
+                        list: items, page: p,
+                        pagecount: Math.ceil(total / count),
+                        total: total
+                    });
+                } catch (e) {
+                    // fallback
+                    items = getByTag("综艺", "tv", rexSort, start, count);
                 }
-                // 分页截取
-                let total = allItems.length;
-                items = allItems.slice(start, start + count);
-                return JSON.stringify({
-                    list: items, page: p,
-                    pagecount: Math.ceil(total / count),
-                    total: total
-                });
             } else {
-                // 综合 - 直接用标签接口
-                tag = "综艺";
-                type = "tv";
-                items = getByTag(tag, type, "recommend", start, count);
+                // 全部 → rexxar 接口（支持排序）
+                try {
+                    let data = rexGet("/tv/recommend", {
+                        refresh: 0, start: start, count: count,
+                        selected_categories: JSON.stringify({ "类型": "综艺" }),
+                        uncollect: false, score_range: "0,10",
+                        tags: "综艺", sort: rexSort
+                    });
+                    items = parseRexItems(data.items || []);
+                    let total = data.total || data.count || items.length;
+                    return JSON.stringify({
+                        list: items, page: p,
+                        pagecount: Math.ceil(total / count),
+                        total: total
+                    });
+                } catch (e) {
+                    items = getByTag("综艺", "tv", rexSort, start, count);
+                }
             }
         } else if (tid === "documentary") {
             tag = ext.genre || "纪录片";
