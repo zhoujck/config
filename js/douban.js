@@ -185,8 +185,7 @@ async function home(filter) {
                     { n: "全部", v: "" }, { n: "中国大陆", v: "中国大陆" }, { n: "中国香港", v: "中国香港" },
                     { n: "中国台湾", v: "中国台湾" }, { n: "韩国", v: "韩国" }, { n: "日本", v: "日本" },
                     { n: "欧美", v: "欧美" }, { n: "美国", v: "美国" }, { n: "英国", v: "英国" }, { n: "泰国", v: "泰国" }
-                ]},
-                { key: "sort", name: "排序", value: [{ n: "近期热度", v: "U" }, { n: "首播时间", v: "R" }, { n: "高分优先", v: "S" }] }
+                ]}
             ],
             high_score: [
                 { key: "area", name: "地区", value: [{ n: "全部", v: "全部" }, { n: "华语", v: "华语" }, { n: "欧美", v: "欧美" }, { n: "韩国", v: "韩国" }, { n: "日本", v: "日本" }] }
@@ -269,50 +268,27 @@ async function category(tid, pg, filter, extend) {
                 items = getByTag(tag, "tv", sortMap[sort] || "recommend", start, count);
             }
         } else if (tid === "show") {
-            let region = ext["地区"] || "";
-            sort = ext.sort || "U";
-            let sortMap = { U: "recommend", R: "time", S: "rank" };
-            let rexSort = sortMap[sort] || "recommend";
+            let region = ext["地区"] || "中国大陆";
 
-            if (region) {
-                // 有地区筛选 → rexxar 接口
-                try {
-                    let data = rexGet("/tv/recommend", {
-                        refresh: 0, start: start, count: count,
-                        selected_categories: JSON.stringify({ "类型": "综艺", "地区": region }),
-                        uncollect: false, score_range: "0,10",
-                        tags: "综艺," + region, sort: rexSort
-                    });
-                    items = parseRexItems(data.items || []);
-                    let total = data.total || data.count || items.length;
-                    return JSON.stringify({
-                        list: items, page: p,
-                        pagecount: Math.ceil(total / count),
-                        total: total
-                    });
-                } catch (e) {
-                    // fallback
-                    items = getByTag("综艺", "tv", rexSort, start, count);
-                }
-            } else {
-                // 全部 → rexxar 接口（支持排序）
-                try {
-                    let data = rexGet("/tv/recommend", {
-                        refresh: 0, start: start, count: count,
-                        selected_categories: JSON.stringify({ "类型": "综艺" }),
-                        uncollect: false, score_range: "0,10",
-                        tags: "综艺", sort: rexSort
-                    });
-                    items = parseRexItems(data.items || []);
-                    let total = data.total || data.count || items.length;
-                    return JSON.stringify({
-                        list: items, page: p,
-                        pagecount: Math.ceil(total / count),
-                        total: total
-                    });
-                } catch (e) {
-                    items = getByTag("综艺", "tv", rexSort, start, count);
-                }
+            try {
+                let selectedCategories = { "类型": "综艺" };
+                if (region) selectedCategories["地区"] = region;
+                let tags = region ? "综艺," + region : "综艺";
+                let data = rexGet("/tv/recommend", {
+                    refresh: 0, start: start, count: count,
+                    selected_categories: JSON.stringify(selectedCategories),
+                    uncollect: false, score_range: "0,10",
+                    tags: tags
+                });
+                items = parseRexItems(data.items || []);
+                let total = data.total || data.count || items.length;
+                return JSON.stringify({
+                    list: items, page: p,
+                    pagecount: Math.ceil(total / count),
+                    total: total
+                });
+            } catch (e) {
+                items = getByTag("综艺", "tv", "recommend", start, count);
             }
         } else if (tid === "documentary") {
             tag = ext.genre || "纪录片";
