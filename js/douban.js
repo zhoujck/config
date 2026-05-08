@@ -182,9 +182,7 @@ async function home(filter) {
             ],
             show: [
                 { key: "type", name: "分类", value: [{ n: "综合", v: "综艺" }, { n: "国内", v: "国产综艺" }, { n: "国外", v: "国外综艺" }] },
-                { key: "地区", name: "地区", value: [
-                    { n: "全部", v: "" }, { n: "中国大陆", v: "中国大陆" }, { n: "中国港台", v: "中国港台" },
-                    { n: "韩国", v: "韩国" }, { n: "日本", v: "日本" }, { n: "欧美", v: "欧美" }
+                { key: "sort", name: "排序", value: [{ n: "近期热度", v: "recommend" }, { n: "首播时间", v: "time" }, { n: "高分优先", v: "rank" }] }
                 ]}
             ],
             high_score: [
