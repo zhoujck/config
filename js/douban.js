@@ -336,8 +336,8 @@ async function category(tid, pg, filter, extend) {
             sort = ext.sort || "U";
             if (genre) {
                 // 选了具体类型，用 recommend 接口按类型筛选
-                let selectedCategories = { "类型": genre };
-                let tags = genre;
+                let selectedCategories = { "形式": "纪录片", "类型": genre };
+                let tags = ["纪录片", genre].filter(Boolean).join(",");
                 try {
                     let data = rexGet("/tv/recommend", {
                         refresh: 0, start: start, count: count,
