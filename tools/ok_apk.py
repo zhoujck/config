@@ -9,7 +9,7 @@ DOWNLOAD_LINKS = [
     "https://github.com/wzxxcz/OK-APP/releases/download/OK影视/mobile-arm64_v8a-5.1.6.apk"
 ]
 # 保存到根目录（脚本运行的文件夹）
-SAVE_DIR = "./"
+SAVE_DIR = "../app"
 # 请求头（模拟浏览器，避免被拦截）
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
