@@ -5,8 +5,10 @@ let headers = {
 
 async function init(cfg) {}
 
-// 豆瓣网页接口请求
-function doubanWebGet(path, params) {
+// ========== 底层请求 ==========
+
+// 豆瓣网页接口
+function webGet(path, params) {
     let query = [];
     for (let key in params) {
         if (params[key] !== "" && params[key] !== undefined && params[key] !== null) {
@@ -19,125 +21,127 @@ function doubanWebGet(path, params) {
     return JSON.parse(resp.content);
 }
 
-// 从标签页获取列表
-function getSubjectByTag(tag, type, sort, page_start, page_limit) {
-    let params = {
+// 标签列表
+function getByTag(tag, type, sort, start, count) {
+    let res = webGet("/j/search_subjects", {
         type: type || "movie",
         tag: tag || "热门",
         sort: sort || "recommend",
-        page_limit: page_limit || 20,
-        page_start: page_start || 0
-    };
-    let res = doubanWebGet("/j/search_subjects", params);
+        page_limit: count || 20,
+        page_start: start || 0
+    });
     return res.subjects || [];
 }
 
-// 从网页获取详情（通过解析JSON-LD或页面数据）
-function getDetailFromWeb(id) {
+// 搜索建议
+function suggest(q) {
+    return webGet("/j/subject_suggest", { q: q }) || [];
+}
+
+// 详情页
+function getDetail(id) {
     try {
-        let url = "https://movie.douban.com/subject/" + id + "/";
-        let resp = req(url, { headers: headers });
+        let resp = req("https://movie.douban.com/subject/" + id + "/", { headers: headers });
         let html = resp.content || "";
+        let r = { id: id, title: "", pic: "", rating: "", year: "", area: "", director: "", actors: "", summary: "" };
 
-        let result = { id: id, title: "", pic: "", rating: "", year: "", area: "", director: "", actors: "", summary: "" };
+        let m = html.match(/<title[^>]*>([^<]+)<\/title>/);
+        if (m) r.title = m[1].replace(/\s*(豆瓣|douban).*$/i, "").trim();
+        m = html.match(/<meta\s+property="og:image"\s+content="([^"]+)"/i);
+        if (m) r.pic = m[1];
+        m = html.match(/property="v:average"[^>]*>([^<]+)</);
+        if (m) r.rating = m[1].trim();
+        m = html.match(/<span class="year">\((\d{4})\)/);
+        if (m) r.year = m[1];
 
-        // 提取标题
-        let titleMatch = html.match(/<title[^>]*>([^<]+)<\/title>/);
-        if (titleMatch) {
-            let t = titleMatch[1].replace(/\s*(豆瓣|douban).*$/i, "").trim();
-            result.title = t;
-        }
-
-        // 提取海报
-        let imgMatch = html.match(/<img[^>+src="([^"]*img[^"]*poster[^"]*)"/i);
-        if (!imgMatch) imgMatch = html.match(/<meta\s+property="og:image"\s+content="([^"]+)"/i);
-        if (imgMatch) result.pic = imgMatch[1];
-
-        // 提取评分
-        let ratingMatch = html.match(/property="v:average"[^>]*>([^<]+)</);
-        if (ratingMatch) result.rating = ratingMatch[1].trim();
-
-        // 提取年份
-        let yearMatch = html.match(/<span class="year">\((\d{4})\)/);
-        if (yearMatch) result.year = yearMatch[1];
-
-        // 提取信息区域
         let infoMatch = html.match(/<div id="info"[^>]*>([\s\S]*?)<\/div>/);
         if (infoMatch) {
             let info = infoMatch[1];
-            let dirMatch = info.match(/导演:\s*<a[^>]*>([^<]+)</);
-            if (dirMatch) result.director = dirMatch[1].trim();
-            let actorMatch = info.match(/主演:\s*([\s\S]*?)(?:<br|<\/div)/);
-            if (actorMatch) {
-                let actorHtml = actorMatch[1];
-                let actorNames = [];
-                let actorRe = /<a[^>]*>([^<]+)</g;
-                let am;
-                while ((am = actorRe.exec(actorHtml)) !== null) {
-                    actorNames.push(am[1].trim());
-                }
-                result.actors = actorNames.join(" / ");
+            let d = info.match(/导演:\s*<a[^>]*>([^<]+)</);
+            if (d) r.director = d[1].trim();
+            let a = info.match(/主演:\s*([\s\S]*?)(?:<br|<\/div)/);
+            if (a) {
+                let names = [], re = /<a[^>]*>([^<]+)</g, am;
+                while ((am = re.exec(a[1])) !== null) names.push(am[1].trim());
+                r.actors = names.join(" / ");
             }
-            let areaMatch = info.match(/制片国家\/地区:\s*([^<\n]+)/);
-            if (areaMatch) result.area = areaMatch[1].trim();
+            let ar = info.match(/制片国家\/地区:\s*([^<\n]+)/);
+            if (ar) r.area = ar[1].trim();
         }
 
-        // 提取简介
-        let summaryMatch = html.match(/<span property="v:summary"[^>]*>([\s\S]*?)<\/span>/);
-        if (summaryMatch) {
-            result.summary = summaryMatch[1].replace(/<br\s*\/?>/g, "\n").replace(/<[^>]+>/g, "").trim();
-        }
+        m = html.match(/<span property="v:summary"[^>]*>([\s\S]*?)<\/span>/);
+        if (m) r.summary = m[1].replace(/<br\s*\/?>/g, "\n").replace(/<[^>]+>/g, "").trim();
 
-        return result;
+        return r;
     } catch (e) {
         return null;
     }
 }
 
-function parseWebItems(items) {
+// ========== 数据转换 ==========
+
+function parseItems(items) {
     let list = [];
     if (!items || !Array.isArray(items)) return list;
     for (let i = 0; i < items.length; i++) {
-        let item = items[i];
-        let rating = item.rate || "暂无评分";
+        let it = items[i];
         list.push({
-            vod_id: item.id || "",
-            vod_name: item.title || "",
-            vod_pic: item.cover || "",
-            vod_remarks: rating
+            vod_id: it.id || "",
+            vod_name: it.title || "",
+            vod_pic: it.cover || "",
+            vod_remarks: it.rate || "暂无评分"
         });
     }
     return list;
 }
 
+// ========== TVBox 接口（保留原脚本 type_id 和 filter 结构） ==========
+
 async function home(filter) {
     let classes = [
-        { type_id: "热门电影", type_name: "热门电影" },
-        { type_id: "热门电视剧", type_name: "热门电视剧" },
-        { type_id: "热门综艺", type_name: "热门综艺" },
-        { type_id: "热门动漫", type_name: "热门动漫" },
-        { type_id: "纪录片", type_name: "纪录片" },
-        { type_id: "华语", type_name: "华语经典" },
-        { type_id: "欧美", type_name: "欧美佳片" },
-        { type_id: "韩国", type_name: "韩国精选" },
-        { type_id: "日本", type_name: "日本精选" }
+        { type_id: "hot_gaia", type_name: "热门电影" },
+        { type_id: "tv_hot", type_name: "热播剧集" },
+        { type_id: "show_hot", type_name: "热播综艺" },
+        { type_id: "documentary", type_name: "纪录片" },
+        { type_id: "movie", type_name: "电影筛选" },
+        { type_id: "tv", type_name: "电视筛选" },
+        { type_id: "rank_list_movie", type_name: "电影榜单" },
+        { type_id: "rank_list_tv", type_name: "电视榜单" }
     ];
 
     let filters = {
-        "热门电影": [
-            { key: "sort", name: "排序", value: [{ n: "综合排序", v: "recommend" }, { n: "最新", v: "time" }, { n: "评分", v: "rank" }] }
+        hot_gaia: [
+            { key: "sort", name: "排序", value: [{ n: "热度", v: "recommend" }, { n: "最新", v: "time" }, { n: "评分", v: "rank" }] },
+            { key: "area", name: "地区", value: [{ n: "全部", v: "全部" }, { n: "华语", v: "华语" }, { n: "欧美", v: "欧美" }, { n: "韩国", v: "韩国" }, { n: "日本", v: "日本" }] }
         ],
-        "热门电视剧": [
-            { key: "sort", name: "排序", value: [{ n: "综合排序", v: "recommend" }, { n: "最新", v: "time" }, { n: "评分", v: "rank" }] }
+        tv_hot: [
+            { key: "type", name: "分类", value: [{ n: "综合", v: "tv_hot" }, { n: "国产剧", v: "tv_domestic" }, { n: "欧美剧", v: "tv_american" }, { n: "日剧", v: "tv_japanese" }, { n: "韩剧", v: "tv_korean" }, { n: "动画", v: "tv_animation" }] }
         ],
-        "热门综艺": [
-            { key: "sort", name: "排序", value: [{ n: "综合排序", v: "recommend" }, { n: "最新", v: "time" }, { n: "评分", v: "rank" }] }
+        show_hot: [
+            { key: "type", name: "分类", value: [{ n: "综合", v: "show_hot" }, { n: "国内", v: "show_domestic" }, { n: "国外", v: "show_foreign" }] }
         ],
-        "热门动漫": [
-            { key: "sort", name: "排序", value: [{ n: "综合排序", v: "recommend" }, { n: "最新", v: "time" }, { n: "评分", v: "rank" }] }
+        documentary: [
+            { key: "genre", name: "类型", value: [{ n: "全部", v: "" }, { n: "自然", v: "自然" }, { n: "历史", v: "历史" }, { n: "人文", v: "人文" }, { n: "科技", v: "科技" }, { n: "美食", v: "美食" }, { n: "旅行", v: "旅行" }, { n: "社会", v: "社会" }, { n: "战争", v: "战争" }, { n: "宇宙", v: "宇宙" }, { n: "动物", v: "动物" }, { n: "音乐", v: "音乐" }, { n: "传记", v: "传记" }] },
+            { key: "region", name: "地区", value: [{ n: "全部", v: "" }, { n: "中国大陆", v: "中国大陆" }, { n: "美国", v: "美国" }, { n: "英国", v: "英国" }, { n: "日本", v: "日本" }, { n: "法国", v: "法国" }, { n: "德国", v: "德国" }] },
+            { key: "sort", name: "排序", value: [{ n: "近期热度", v: "T" }, { n: "首播时间", v: "R" }, { n: "高分优先", v: "S" }] }
         ],
-        "纪录片": [
-            { key: "sort", name: "排序", value: [{ n: "综合排序", v: "recommend" }, { n: "最新", v: "time" }, { n: "评分", v: "rank" }] }
+        movie: [
+            { key: "类型", name: "类型", value: [{ n: "全部类型", v: "" }, { n: "喜剧", v: "喜剧" }, { n: "爱情", v: "爱情" }, { n: "动作", v: "动作" }, { n: "科幻", v: "科幻" }, { n: "动画", v: "动画" }, { n: "悬疑", v: "悬疑" }, { n: "犯罪", v: "犯罪" }, { n: "惊悚", v: "惊悚" }, { n: "冒险", v: "冒险" }, { n: "音乐", v: "音乐" }, { n: "历史", v: "历史" }, { n: "奇幻", v: "奇幻" }, { n: "恐怖", v: "恐怖" }, { n: "战争", v: "战争" }, { n: "传记", v: "传记" }, { n: "歌舞", v: "歌舞" }, { n: "武侠", v: "武侠" }, { n: "纪录片", v: "纪录片" }, { n: "短片", v: "短片" }] },
+            { key: "地区", name: "地区", value: [{ n: "全部地区", v: "" }, { n: "华语", v: "华语" }, { n: "欧美", v: "欧美" }, { n: "韩国", v: "韩国" }, { n: "日本", v: "日本" }, { n: "中国大陆", v: "中国大陆" }, { n: "美国", v: "美国" }, { n: "中国香港", v: "中国香港" }, { n: "中国台湾", v: "中国台湾" }, { n: "英国", v: "英国" }, { n: "法国", v: "法国" }, { n: "德国", v: "德国" }, { n: "泰国", v: "泰国" }, { n: "印度", v: "印度" }] },
+            { key: "sort", name: "排序", value: [{ n: "近期热度", v: "T" }, { n: "首映时间", v: "R" }, { n: "高分优先", v: "S" }] }
+        ],
+        tv: [
+            { key: "类型", name: "类型", value: [{ n: "不限", v: "" }, { n: "电视剧", v: "电视剧" }, { n: "综艺", v: "综艺" }] },
+            { key: "电视剧形式", name: "形式", value: [{ n: "不限", v: "" }, { n: "喜剧", v: "喜剧" }, { n: "爱情", v: "爱情" }, { n: "悬疑", v: "悬疑" }, { n: "动画", v: "动画" }, { n: "武侠", v: "武侠" }, { n: "古装", v: "古装" }, { n: "家庭", v: "家庭" }, { n: "犯罪", v: "犯罪" }, { n: "科幻", v: "科幻" }, { n: "恐怖", v: "恐怖" }, { n: "历史", v: "历史" }, { n: "战争", v: "战争" }, { n: "动作", v: "动作" }, { n: "冒险", v: "冒险" }, { n: "传记", v: "传记" }, { n: "剧情", v: "剧情" }, { n: "奇幻", v: "奇幻" }, { n: "惊悚", v: "惊悚" }, { n: "灾难", v: "灾难" }, { n: "歌舞", v: "歌舞" }, { n: "音乐", v: "音乐" }] },
+            { key: "地区", name: "地区", value: [{ n: "全部地区", v: "" }, { n: "华语", v: "华语" }, { n: "欧美", v: "欧美" }, { n: "国外", v: "国外" }, { n: "韩国", v: "韩国" }, { n: "日本", v: "日本" }, { n: "中国大陆", v: "中国大陆" }, { n: "中国香港", v: "中国香港" }, { n: "美国", v: "美国" }, { n: "英国", v: "英国" }, { n: "泰国", v: "泰国" }, { n: "中国台湾", v: "中国台湾" }] },
+            { key: "sort", name: "排序", value: [{ n: "近期热度", v: "T" }, { n: "首播时间", v: "R" }, { n: "高分优先", v: "S" }] },
+            { key: "平台", name: "平台", value: [{ n: "全部", v: "" }, { n: "腾讯视频", v: "腾讯视频" }, { n: "爱奇艺", v: "爱奇艺" }, { n: "优酷", v: "优酷" }, { n: "Netflix", v: "Netflix" }, { n: "HBO", v: "HBO" }, { n: "BBC", v: "BBC" }] }
+        ],
+        rank_list_movie: [
+            { key: "榜单", name: "榜单", value: [{ n: "实时热门电影", v: "movie_real_time_hotest" }, { n: "一周口碑电影榜", v: "movie_weekly_best" }, { n: "豆瓣电影Top250", v: "movie_top250" }] }
+        ],
+        rank_list_tv: [
+            { key: "榜单", name: "榜单", value: [{ n: "实时热门电视", v: "tv_real_time_hotest" }, { n: "华语口碑剧集榜", v: "tv_chinese_best_weekly" }, { n: "全球口碑剧集榜", v: "tv_global_best_weekly" }, { n: "国内口碑综艺榜", v: "show_chinese_best_weekly" }, { n: "国外口碑综艺榜", v: "show_global_best_weekly" }] }
         ]
     };
 
@@ -146,8 +150,8 @@ async function home(filter) {
 
 async function homeVod() {
     try {
-        let items = getSubjectByTag("热门", "movie", "recommend", 0, 30);
-        return JSON.stringify({ list: parseWebItems(items) });
+        let items = getByTag("热门", "movie", "recommend", 0, 30);
+        return JSON.stringify({ list: parseItems(items) });
     } catch (e) {
         return JSON.stringify({ list: [] });
     }
@@ -158,29 +162,88 @@ async function category(tid, pg, filter, extend) {
         let p = pg || 1;
         let count = 20;
         let ext = extend || {};
-        let sort = ext.sort || "recommend";
-        let page_start = (p - 1) * count;
-
+        let start = (p - 1) * count;
+        let items = [];
         let type = "movie";
-        let tag = tid;
 
-        if (tid === "热门电影") { type = "movie"; tag = "热门"; }
-        else if (tid === "热门电视剧") { type = "tv"; tag = "热门"; }
-        else if (tid === "热门综艺") { type = "tv"; tag = "综艺"; }
-        else if (tid === "热门动漫") { type = "movie"; tag = "动画"; }
-        else if (tid === "纪录片") { type = "movie"; tag = "纪录片"; }
-        else if (tid === "华语") { type = "movie"; tag = "华语"; }
-        else if (tid === "欧美") { type = "movie"; tag = "欧美"; }
-        else if (tid === "韩国") { type = "movie"; tag = "韩国"; }
-        else if (tid === "日本") { type = "movie"; tag = "日本"; }
+        if (tid === "hot_gaia") {
+            let sort = ext.sort || "recommend";
+            let area = ext.area || "全部";
+            let tag = area === "全部" ? "热门" : area;
+            items = getByTag(tag, "movie", sort, start, count);
 
-        let items = getSubjectByTag(tag, type, sort, page_start, count);
+        } else if (tid === "tv_hot") {
+            let tagMap = {
+                "tv_hot": "热门", "tv_domestic": "国产剧", "tv_american": "美剧",
+                "tv_japanese": "日剧", "tv_korean": "韩剧", "tv_animation": "动画"
+            };
+            let tag = tagMap[ext.type] || "热门";
+            items = getByTag(tag, "tv", "recommend", start, count);
+
+        } else if (tid === "show_hot") {
+            let tagMap = { "show_hot": "综艺", "show_domestic": "国产综艺", "show_foreign": "国外综艺" };
+            let tag = tagMap[ext.type] || "综艺";
+            items = getByTag(tag, "tv", "recommend", start, count);
+
+        } else if (tid === "documentary") {
+            let genre = ext.genre || "纪录片";
+            let sortMap = { "T": "recommend", "R": "time", "S": "rank" };
+            let sort = sortMap[ext.sort] || "recommend";
+            items = getByTag(genre, "movie", sort, start, count);
+
+        } else if (tid === "movie") {
+            let genre = ext["类型"] || "";
+            let region = ext["地区"] || "";
+            let sortMap = { "T": "recommend", "R": "time", "S": "rank" };
+            let sort = sortMap[ext.sort] || "recommend";
+            let tag = genre || region || "热门";
+            items = getByTag(tag, "movie", sort, start, count);
+
+        } else if (tid === "tv") {
+            let genre = ext["类型"] || "";
+            let form = ext["电视剧形式"] || "";
+            let region = ext["地区"] || "";
+            let platform = ext["平台"] || "";
+            let sortMap = { "T": "recommend", "R": "time", "S": "rank" };
+            let sort = sortMap[ext.sort] || "recommend";
+            let tag = form || genre || region || "热门";
+            if (platform) tag = platform;
+            items = getByTag(tag, "tv", sort, start, count);
+
+        } else if (tid === "rank_list_movie") {
+            // 豆瓣榜单 - 网页API没有直接的榜单接口，用标签模拟
+            let rankTag = ext["榜单"] || "movie_real_time_hotest";
+            let tagMap = {
+                "movie_real_time_hotest": "热门",
+                "movie_weekly_best": "一周口碑",
+                "movie_top250": "top250"
+            };
+            let tag = tagMap[rankTag] || "热门";
+            items = getByTag(tag, "movie", "recommend", start, count);
+
+        } else if (tid === "rank_list_tv") {
+            let rankTag = ext["榜单"] || "tv_real_time_hotest";
+            let tagMap = {
+                "tv_real_time_hotest": "热门",
+                "tv_chinese_best_weekly": "国产剧",
+                "tv_global_best_weekly": "美剧",
+                "show_chinese_best_weekly": "国产综艺",
+                "show_global_best_weekly": "国外综艺"
+            };
+            let tag = tagMap[rankTag] || "热门";
+            let type = rankTag.startsWith("show_") ? "tv" : "tv";
+            items = getByTag(tag, "tv", "recommend", start, count);
+
+        } else {
+            // 通用回退
+            items = getByTag(tid, "movie", "recommend", start, count);
+        }
 
         return JSON.stringify({
-            list: parseWebItems(items),
+            list: parseItems(items),
             page: p,
             pagecount: items.length < count ? p : p + 1,
-            total: items.length < count ? page_start + items.length : page_start + items.length + 1
+            total: items.length < count ? start + items.length : start + items.length + 1
         });
     } catch (e) {
         return JSON.stringify({ list: [], page: pg || 1, pagecount: 0, total: 0 });
@@ -189,25 +252,21 @@ async function category(tid, pg, filter, extend) {
 
 async function detail(id) {
     try {
-        let res = getDetailFromWeb(id);
-        if (!res || !res.title) {
-            return JSON.stringify({ list: [] });
-        }
-
-        let score = res.rating ? "评分: " + res.rating : "";
+        let r = getDetail(id);
+        if (!r || !r.title) return JSON.stringify({ list: [] });
 
         return JSON.stringify({
             list: [{
                 vod_id: id,
-                vod_name: res.title,
-                vod_pic: res.pic,
-                type_name: res.area,
-                vod_year: res.year,
-                vod_area: res.area,
-                vod_remarks: score,
-                vod_actor: res.actors,
-                vod_director: res.director,
-                vod_content: res.summary,
+                vod_name: r.title,
+                vod_pic: r.pic,
+                type_name: r.area,
+                vod_year: r.year,
+                vod_area: r.area,
+                vod_remarks: r.rating ? "评分: " + r.rating : "",
+                vod_actor: r.actors,
+                vod_director: r.director,
+                vod_content: r.summary,
                 vod_play_from: "豆瓣",
                 vod_play_url: "暂无播放源$无"
             }]
@@ -220,37 +279,29 @@ async function detail(id) {
 async function search(wd, quick, pg) {
     try {
         let count = 20;
-
-        // 使用豆瓣搜索建议API
-        let url = "https://movie.douban.com/j/subject_suggest?q=" + encodeURIComponent(wd);
-        let resp = req(url, { headers: headers });
-        let items = JSON.parse(resp.content);
-
+        let items = suggest(wd);
         let list = [];
         if (items && Array.isArray(items)) {
             for (let i = 0; i < items.length; i++) {
-                let item = items[i];
-                if (item.type !== "movie" && item.type !== "tv") continue;
+                let it = items[i];
+                if (it.type !== "movie" && it.type !== "tv") continue;
                 list.push({
-                    vod_id: item.id || "",
-                    vod_name: item.title || "",
-                    vod_pic: item.img || "",
-                    vod_remarks: item.year || ""
+                    vod_id: it.id || "",
+                    vod_name: it.title || "",
+                    vod_pic: it.img || "",
+                    vod_remarks: it.year || ""
                 });
             }
         }
 
-        // 补充：用标签搜索
         if (list.length < 5) {
             try {
-                let tagItems = getSubjectByTag(wd, "movie", "recommend", 0, count);
-                let webList = parseWebItems(tagItems);
+                let tagItems = getByTag(wd, "movie", "recommend", 0, count);
+                let webList = parseItems(tagItems);
                 let existIds = {};
                 for (let i = 0; i < list.length; i++) existIds[list[i].vod_id] = true;
                 for (let i = 0; i < webList.length; i++) {
-                    if (!existIds[webList[i].vod_id]) {
-                        list.push(webList[i]);
-                    }
+                    if (!existIds[webList[i].vod_id]) list.push(webList[i]);
                 }
             } catch (e) { }
         }
