@@ -17,7 +17,7 @@ SOURCES = [
     },
 ]
 
-KEYWORDS = [""]
+KEYWORDS = ["1"]
 OUTPUT_DIR = "./"
 # ================================
 
@@ -42,8 +42,8 @@ def extract_and_save_spider(json_text, name):
 
 def clean_data(raw_text, name):
     raw_text = raw_text.replace(
-        "https://agit.ai/fongmi/FongMi/raw/gh/main/custom/hot.json",
-        "https://raw.githubusercontent.com/liu673cn/box/main/m.json"
+        "before",
+        "after"
     )
     data = demjson.decode(raw_text)
     original_count = len(data.get("sites", []))
