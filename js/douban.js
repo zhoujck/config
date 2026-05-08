@@ -121,20 +121,22 @@ async function home(filter) {
         class: [
             { type_id: "hot_movie", type_name: "热门电影" },
             { type_id: "hot_tv", type_name: "热门电视" },
-            { type_id: "show", type_name: "热门综艺" },
             { type_id: "documentary", type_name: "纪录片" },
+            { type_id: "show", type_name: "热门综艺" },
+            { type_id: "movie_filter", type_name: "电影筛选" },
+            { type_id: "tv_filter", type_name: "电视剧筛选" },         
             { type_id: "high_score", type_name: "豆瓣高分" }
         ],
         filters: {
-            hot_movie: [
-                { key: "类型", name: "类型", value: [
-                    { n: "全部类型", v: "" }, { n: "喜剧", v: "喜剧" }, { n: "爱情", v: "爱情" }, { n: "动作", v: "动作" },
+            movie_filter: [
+                { key: "genre", name: "类型", value: [
+                    { n: "全部", v: "" }, { n: "喜剧", v: "喜剧" }, { n: "爱情", v: "爱情" }, { n: "动作", v: "动作" },
                     { n: "科幻", v: "科幻" }, { n: "动画", v: "动画" }, { n: "悬疑", v: "悬疑" }, { n: "犯罪", v: "犯罪" },
                     { n: "惊悚", v: "惊悚" }, { n: "冒险", v: "冒险" }, { n: "恐怖", v: "恐怖" }, { n: "战争", v: "战争" },
                     { n: "奇幻", v: "奇幻" }, { n: "历史", v: "历史" }, { n: "传记", v: "传记" }, { n: "纪录片", v: "纪录片" }
                 ]},
-                { key: "地区", name: "地区", value: [
-                    { n: "全部地区", v: "" }, { n: "华语", v: "华语" }, { n: "欧美", v: "欧美" }, { n: "韩国", v: "韩国" },
+                { key: "region", name: "地区", value: [
+                    { n: "全部", v: "" }, { n: "华语", v: "华语" }, { n: "欧美", v: "欧美" }, { n: "韩国", v: "韩国" },
                     { n: "日本", v: "日本" }, { n: "中国大陆", v: "中国大陆" }, { n: "美国", v: "美国" },
                     { n: "中国香港", v: "中国香港" }, { n: "中国台湾", v: "中国台湾" }, { n: "英国", v: "英国" },
                     { n: "法国", v: "法国" }, { n: "泰国", v: "泰国" }, { n: "印度", v: "印度" }
@@ -147,12 +149,13 @@ async function home(filter) {
                 ]},
                 { key: "sort", name: "排序", value: [{ n: "近期热度", v: "U" }, { n: "首映时间", v: "R" }, { n: "高分优先", v: "S" }] }
             ],
-            hot_tv: [
-                { key: "类型", name: "类型", value: [
-                    { n: "全部", v: "tv" }, { n: "国产剧", v: "tv_domestic" }, { n: "美剧", v: "tv_american" }, { n: "日剧", v: "tv_japanese" },
-                    { n: "韩剧", v: "tv_korean" }, { n: "动漫", v: "tv_animation" }, { n: "纪录片", v: "tv_documentary" }
+            tv_filter: [
+                { key: "genre", name: "类型", value: [
+                    { n: "全部", v: "" }, { n: "国产剧", v: "国产剧" }, { n: "美剧", v: "美剧" }, { n: "日剧", v: "日剧" },
+                    { n: "韩剧", v: "韩剧" }, { n: "动画", v: "动画" }, { n: "古装", v: "古装" }, { n: "悬疑", v: "悬疑" },
+                    { n: "爱情", v: "爱情" }, { n: "喜剧", v: "喜剧" }, { n: "犯罪", v: "犯罪" }, { n: "科幻", v: "科幻" }
                 ]},
-                { key: "地区", name: "地区", value: [
+                { key: "region", name: "地区", value: [
                     { n: "全部", v: "" }, { n: "华语", v: "华语" }, { n: "欧美", v: "欧美" }, { n: "韩国", v: "韩国" },
                     { n: "日本", v: "日本" }, { n: "中国大陆", v: "中国大陆" }, { n: "美国", v: "美国" },
                     { n: "中国香港", v: "中国香港" }, { n: "中国台湾", v: "中国台湾" }, { n: "英国", v: "英国" }
@@ -177,16 +180,11 @@ async function home(filter) {
                     { n: "旅行", v: "旅行" }, { n: "社会", v: "社会" }, { n: "战争", v: "战争" },
                     { n: "宇宙", v: "宇宙" }, { n: "动物", v: "动物" }, { n: "音乐", v: "音乐" }, { n: "传记", v: "传记" }
                 ]},
-                { key: "sort", name: "排序", value: [{ n: "近期热度", v: "recommend" }, { n: "首播时间", v: "time" }, { n: "高分优先", v: "rank" }] }
+                { key: "sort", name: "排序", value: [{ n: "近期热度", v: "U" }, { n: "首播时间", v: "R" }, { n: "高分优先", v: "S" }] }
             ],
             show: [
-                { key: "类型", name: "类型", value: [
+                { key: "type", name: "类型", value: [
                     { n: "全部", v: "show" }, { n: "国内", v: "show_domestic" }, { n: "国外", v: "show_foreign" }
-                ]},
-                { key: "地区", name: "地区", value: [
-                    { n: "全部", v: "" }, { n: "中国大陆", v: "中国大陆" }, { n: "中国香港", v: "中国香港" },
-                    { n: "中国台湾", v: "中国台湾" }, { n: "韩国", v: "韩国" }, { n: "日本", v: "日本" },
-                    { n: "欧美", v: "欧美" }, { n: "美国", v: "美国" }, { n: "英国", v: "英国" }, { n: "泰国", v: "泰国" }
                 ]}
             ],
             high_score: [
@@ -213,76 +211,132 @@ async function category(tid, pg, filter, extend) {
         let items = [], tag = "", type = "movie", sort = "recommend";
 
         if (tid === "hot_movie") {
-            let genre = ext["类型"] || "";
-            let region = ext["地区"] || "";
-            let year = ext.year || "";
-            sort = ext.sort || "U";
+            // 热门电影 - recent_hot 接口，默认按热度，无筛选
             try {
-                let category = genre || "热门";
-                let type = region || "全部";
                 let data = rexGet("/subject/recent_hot/movie", {
-                    start: start, limit: count,
-                    category: category, type: type
+                    start: start, limit: count, category: "热门", type: "全部"
                 });
                 items = parseRexItems(data.items || []);
                 let total = data.total || data.count || items.length;
                 return JSON.stringify({
                     list: items, page: p,
-                    pagecount: Math.ceil(total / count),
-                    total: total
+                    pagecount: Math.ceil(total / count), total: total
+                });
+            } catch (e) {
+                items = getByTag("热门", "movie", "recommend", start, count);
+            }
+        } else if (tid === "hot_tv") {
+            // 热门电视 - recent_hot 接口，默认按热度，无筛选
+            try {
+                let data = rexGet("/subject/recent_hot/tv", {
+                    start: start, limit: count, category: "tv", type: "tv"
+                });
+                items = parseRexItems(data.items || []);
+                let total = data.total || data.count || items.length;
+                return JSON.stringify({
+                    list: items, page: p,
+                    pagecount: Math.ceil(total / count), total: total
+                });
+            } catch (e) {
+                items = getByTag("热门", "tv", "recommend", start, count);
+            }
+        } else if (tid === "show") {
+            // 热门综艺 - recent_hot 接口，支持国内/国外筛选
+            let showType = ext["类型"] || "show";
+            try {
+                let data = rexGet("/subject/recent_hot/tv", {
+                    start: start, limit: count, category: "show", type: showType
+                });
+                items = parseRexItems(data.items || []);
+                let total = data.total || data.count || items.length;
+                return JSON.stringify({
+                    list: items, page: p,
+                    pagecount: Math.ceil(total / count), total: total
+                });
+            } catch (e) {
+                items = getByTag("综艺", "tv", "recommend", start, count);
+            }
+        } else if (tid === "movie_filter") {
+            // 电影筛选 - recommend 接口，支持多条件筛选
+            let genre = ext["genre"] || "";
+            let region = ext["region"] || "";
+            let year = ext.year || "";
+            sort = ext.sort || "U";
+            let selectedCategories = {};
+            if (genre) selectedCategories["类型"] = genre;
+            if (region) selectedCategories["地区"] = region;
+            let tags = [genre, region, year].filter(Boolean).join(",");
+            try {
+                let data = rexGet("/movie/recommend", {
+                    refresh: 0, start: start, count: count,
+                    selected_categories: JSON.stringify(selectedCategories),
+                    uncollect: false, score_range: "0,10",
+                    tags: tags, sort: sort
+                });
+                items = parseRexItems(data.items || []);
+                let total = data.total || data.count || items.length;
+                return JSON.stringify({
+                    list: items, page: p,
+                    pagecount: Math.ceil(total / count), total: total
                 });
             } catch (e) {
                 tag = genre || region || year || "热门";
                 let sortMap = { U: "recommend", R: "time", S: "rank" };
                 items = getByTag(tag, "movie", sortMap[sort] || "recommend", start, count);
             }
-        } else if (tid === "hot_tv") {
-            let genre = ext["类型"] || "";
-            let region = ext["地区"] || "";
+        } else if (tid === "tv_filter") {
+            // 电视剧筛选 - recommend 接口，支持多条件筛选
+            let genre = ext["genre"] || "";
+            let region = ext["region"] || "";
             let year = ext.year || "";
             let platform = ext.platform || "";
             sort = ext.sort || "U";
+            let selectedCategories = { "形式": "电视剧" };
+            if (genre) selectedCategories["类型"] = genre;
+            if (region) selectedCategories["地区"] = region;
+            let tags = [genre, region, year, platform].filter(Boolean).join(",");
             try {
-                let type = genre || region || "tv";
-                let data = rexGet("/subject/recent_hot/tv", {
-                    start: start, limit: count,
-                    category: "tv", type: type
+                let data = rexGet("/tv/recommend", {
+                    refresh: 0, start: start, count: count,
+                    selected_categories: JSON.stringify(selectedCategories),
+                    uncollect: false, score_range: "0,10",
+                    tags: tags, sort: sort
                 });
                 items = parseRexItems(data.items || []);
                 let total = data.total || data.count || items.length;
                 return JSON.stringify({
                     list: items, page: p,
-                    pagecount: Math.ceil(total / count),
-                    total: total
+                    pagecount: Math.ceil(total / count), total: total
                 });
             } catch (e) {
                 tag = platform || genre || region || year || "热门";
                 let sortMap = { U: "recommend", R: "time", S: "rank" };
                 items = getByTag(tag, "tv", sortMap[sort] || "recommend", start, count);
             }
-        } else if (tid === "show") {
-            let type = ext["类型"] || "show";
-            let region = ext["地区"] || "";
+        } else if (tid === "documentary") {
+            // 纪录片 - recommend 接口，支持类型和排序
+            let genre = ext.genre || "纪录片";
+            sort = ext.sort || "U";
+            let selectedCategories = {};
+            if (genre && genre !== "纪录片") selectedCategories["类型"] = genre;
+            let tags = genre;
             try {
-                let data = rexGet("/subject/recent_hot/tv", {
-                    start: start, limit: count,
-                    category: "show", type: type
+                let data = rexGet("/movie/recommend", {
+                    refresh: 0, start: start, count: count,
+                    selected_categories: JSON.stringify(selectedCategories),
+                    uncollect: false, score_range: "0,10",
+                    tags: tags, sort: sort
                 });
                 items = parseRexItems(data.items || []);
                 let total = data.total || data.count || items.length;
                 return JSON.stringify({
                     list: items, page: p,
-                    pagecount: Math.ceil(total / count),
-                    total: total
+                    pagecount: Math.ceil(total / count), total: total
                 });
             } catch (e) {
-                items = getByTag("综艺", "tv", "recommend", start, count);
+                let sortMap = { U: "recommend", R: "time", S: "rank" };
+                items = getByTag(genre, "movie", sortMap[sort] || "recommend", start, count);
             }
-        } else if (tid === "documentary") {
-            tag = ext.genre || "纪录片";
-            sort = ext.sort || "recommend";
-            type = "movie";
-            items = getByTag(tag, type, sort, start, count);
         } else if (tid === "high_score") {
             tag = (ext.area || "全部") === "全部" ? "豆瓣高分" : ext.area;
             sort = "rank";
