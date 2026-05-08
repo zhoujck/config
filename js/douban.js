@@ -124,7 +124,8 @@ async function home(filter) {
             { type_id: "documentary", type_name: "纪录片" },
             { type_id: "show", type_name: "热门综艺" },
             { type_id: "movie_filter", type_name: "电影筛选" },
-            { type_id: "tv_filter", type_name: "电视剧筛选" },         
+            { type_id: "tv_filter", type_name: "电视剧筛选" },
+            { type_id: "show_filter", type_name: "综艺筛选" },
             { type_id: "high_score", type_name: "豆瓣高分" }
         ],
         filters: {
@@ -133,19 +134,25 @@ async function home(filter) {
                     { n: "全部", v: "" }, { n: "喜剧", v: "喜剧" }, { n: "爱情", v: "爱情" }, { n: "动作", v: "动作" },
                     { n: "科幻", v: "科幻" }, { n: "动画", v: "动画" }, { n: "悬疑", v: "悬疑" }, { n: "犯罪", v: "犯罪" },
                     { n: "惊悚", v: "惊悚" }, { n: "冒险", v: "冒险" }, { n: "恐怖", v: "恐怖" }, { n: "战争", v: "战争" },
-                    { n: "奇幻", v: "奇幻" }, { n: "历史", v: "历史" }, { n: "传记", v: "传记" }, { n: "纪录片", v: "纪录片" }
+                    { n: "奇幻", v: "奇幻" }, { n: "历史", v: "历史" }, { n: "传记", v: "传记" }, { n: "纪录片", v: "纪录片" },
+                    { n: "音乐", v: "音乐" }, { n: "歌舞", v: "歌舞" }, { n: "武侠", v: "武侠" }, { n: "情色", v: "情色" },
+                    { n: "灾难", v: "灾难" }, { n: "西部", v: "西部" }, { n: "短片", v: "短片" }
                 ]},
                 { key: "region", name: "地区", value: [
                     { n: "全部", v: "" }, { n: "华语", v: "华语" }, { n: "欧美", v: "欧美" }, { n: "韩国", v: "韩国" },
                     { n: "日本", v: "日本" }, { n: "中国大陆", v: "中国大陆" }, { n: "美国", v: "美国" },
                     { n: "中国香港", v: "中国香港" }, { n: "中国台湾", v: "中国台湾" }, { n: "英国", v: "英国" },
-                    { n: "法国", v: "法国" }, { n: "泰国", v: "泰国" }, { n: "印度", v: "印度" }
+                    { n: "法国", v: "法国" }, { n: "德国", v: "德国" }, { n: "意大利", v: "意大利" },
+                    { n: "西班牙", v: "西班牙" }, { n: "印度", v: "印度" }, { n: "泰国", v: "泰国" },
+                    { n: "俄罗斯", v: "俄罗斯" }, { n: "加拿大", v: "加拿大" }, { n: "澳大利亚", v: "澳大利亚" },
+                    { n: "爱尔兰", v: "爱尔兰" }, { n: "瑞典", v: "瑞典" }, { n: "巴西", v: "巴西" }, { n: "丹麦", v: "丹麦" }
                 ]},
                 { key: "year", name: "年代", value: [
                     { n: "全部", v: "" }, { n: "2026", v: "2026" }, { n: "2025", v: "2025" }, { n: "2024", v: "2024" },
                     { n: "2023", v: "2023" }, { n: "2022", v: "2022" }, { n: "2021", v: "2021" }, { n: "2020", v: "2020" },
-                    { n: "2019", v: "2019" }, { n: "2010年代", v: "2010年代" }, { n: "2000年代", v: "2000年代" },
-                    { n: "90年代", v: "90年代" }, { n: "80年代", v: "80年代" }, { n: "更早", v: "更早" }
+                    { n: "2019", v: "2019" }, { n: "2020年代", v: "2020年代" }, { n: "2010年代", v: "2010年代" },
+                    { n: "2000年代", v: "2000年代" }, { n: "90年代", v: "90年代" }, { n: "80年代", v: "80年代" },
+                    { n: "70年代", v: "70年代" }, { n: "60年代", v: "60年代" }, { n: "更早", v: "更早" }
                 ]},
                 { key: "sort", name: "排序", value: [{ n: "近期热度", v: "U" }, { n: "首映时间", v: "R" }, { n: "高分优先", v: "S" }] }
             ],
@@ -153,23 +160,64 @@ async function home(filter) {
                 { key: "genre", name: "类型", value: [
                     { n: "全部", v: "" }, { n: "国产剧", v: "国产剧" }, { n: "美剧", v: "美剧" }, { n: "日剧", v: "日剧" },
                     { n: "韩剧", v: "韩剧" }, { n: "动画", v: "动画" }, { n: "古装", v: "古装" }, { n: "悬疑", v: "悬疑" },
-                    { n: "爱情", v: "爱情" }, { n: "喜剧", v: "喜剧" }, { n: "犯罪", v: "犯罪" }, { n: "科幻", v: "科幻" }
+                    { n: "爱情", v: "爱情" }, { n: "喜剧", v: "喜剧" }, { n: "犯罪", v: "犯罪" }, { n: "科幻", v: "科幻" },
+                    { n: "武侠", v: "武侠" }, { n: "家庭", v: "家庭" }, { n: "历史", v: "历史" }, { n: "战争", v: "战争" },
+                    { n: "动作", v: "动作" }, { n: "冒险", v: "冒险" }, { n: "传记", v: "传记" }, { n: "剧情", v: "剧情" },
+                    { n: "奇幻", v: "奇幻" }, { n: "惊悚", v: "惊悚" }, { n: "灾难", v: "灾难" }, { n: "恐怖", v: "恐怖" },
+                    { n: "歌舞", v: "歌舞" }, { n: "音乐", v: "音乐" }
                 ]},
                 { key: "region", name: "地区", value: [
-                    { n: "全部", v: "" }, { n: "华语", v: "华语" }, { n: "欧美", v: "欧美" }, { n: "韩国", v: "韩国" },
-                    { n: "日本", v: "日本" }, { n: "中国大陆", v: "中国大陆" }, { n: "美国", v: "美国" },
-                    { n: "中国香港", v: "中国香港" }, { n: "中国台湾", v: "中国台湾" }, { n: "英国", v: "英国" }
+                    { n: "全部", v: "" }, { n: "华语", v: "华语" }, { n: "欧美", v: "欧美" }, { n: "国外", v: "国外" },
+                    { n: "韩国", v: "韩国" }, { n: "日本", v: "日本" }, { n: "中国大陆", v: "中国大陆" },
+                    { n: "中国香港", v: "中国香港" }, { n: "中国台湾", v: "中国台湾" }, { n: "美国", v: "美国" },
+                    { n: "英国", v: "英国" }, { n: "法国", v: "法国" }, { n: "德国", v: "德国" },
+                    { n: "意大利", v: "意大利" }, { n: "西班牙", v: "西班牙" }, { n: "泰国", v: "泰国" },
+                    { n: "俄罗斯", v: "俄罗斯" }, { n: "瑞典", v: "瑞典" }, { n: "巴西", v: "巴西" },
+                    { n: "丹麦", v: "丹麦" }, { n: "印度", v: "印度" }, { n: "加拿大", v: "加拿大" },
+                    { n: "爱尔兰", v: "爱尔兰" }, { n: "澳大利亚", v: "澳大利亚" }
                 ]},
                 { key: "year", name: "年代", value: [
                     { n: "全部", v: "" }, { n: "2026", v: "2026" }, { n: "2025", v: "2025" }, { n: "2024", v: "2024" },
                     { n: "2023", v: "2023" }, { n: "2022", v: "2022" }, { n: "2021", v: "2021" }, { n: "2020", v: "2020" },
-                    { n: "2019", v: "2019" }, { n: "2010年代", v: "2010年代" }, { n: "2000年代", v: "2000年代" },
-                    { n: "90年代", v: "90年代" }, { n: "80年代", v: "80年代" }, { n: "更早", v: "更早" }
+                    { n: "2019", v: "2019" }, { n: "2020年代", v: "2020年代" }, { n: "2010年代", v: "2010年代" },
+                    { n: "2000年代", v: "2000年代" }, { n: "90年代", v: "90年代" }, { n: "80年代", v: "80年代" },
+                    { n: "70年代", v: "70年代" }, { n: "60年代", v: "60年代" }, { n: "更早", v: "更早" }
                 ]},
                 { key: "platform", name: "平台", value: [
                     { n: "全部", v: "" }, { n: "腾讯视频", v: "腾讯视频" }, { n: "爱奇艺", v: "爱奇艺" },
-                    { n: "优酷", v: "优酷" }, { n: "Netflix", v: "Netflix" }, { n: "HBO", v: "HBO" },
-                    { n: "BBC", v: "BBC" }, { n: "NHK", v: "NHK" }, { n: "tvN", v: "tvN" }
+                    { n: "优酷", v: "优酷" }, { n: "湖南卫视", v: "湖南卫视" }, { n: "Netflix", v: "Netflix" },
+                    { n: "HBO", v: "HBO" }, { n: "BBC", v: "BBC" }, { n: "NHK", v: "NHK" },
+                    { n: "CBS", v: "CBS" }, { n: "NBC", v: "NBC" }, { n: "tvN", v: "tvN" }
+                ]},
+                { key: "sort", name: "排序", value: [{ n: "近期热度", v: "U" }, { n: "首播时间", v: "R" }, { n: "高分优先", v: "S" }] }
+            ],
+            show_filter: [
+                { key: "genre", name: "类型", value: [
+                    { n: "全部", v: "" }, { n: "真人秀", v: "真人秀" }, { n: "脱口秀", v: "脱口秀" },
+                    { n: "音乐", v: "音乐" }, { n: "歌舞", v: "歌舞" }
+                ]},
+                { key: "region", name: "地区", value: [
+                    { n: "全部", v: "" }, { n: "华语", v: "华语" }, { n: "欧美", v: "欧美" }, { n: "国外", v: "国外" },
+                    { n: "韩国", v: "韩国" }, { n: "日本", v: "日本" }, { n: "中国大陆", v: "中国大陆" },
+                    { n: "中国香港", v: "中国香港" }, { n: "中国台湾", v: "中国台湾" }, { n: "美国", v: "美国" },
+                    { n: "英国", v: "英国" }, { n: "法国", v: "法国" }, { n: "德国", v: "德国" },
+                    { n: "意大利", v: "意大利" }, { n: "西班牙", v: "西班牙" }, { n: "泰国", v: "泰国" },
+                    { n: "俄罗斯", v: "俄罗斯" }, { n: "瑞典", v: "瑞典" }, { n: "巴西", v: "巴西" },
+                    { n: "丹麦", v: "丹麦" }, { n: "印度", v: "印度" }, { n: "加拿大", v: "加拿大" },
+                    { n: "爱尔兰", v: "爱尔兰" }, { n: "澳大利亚", v: "澳大利亚" }
+                ]},
+                { key: "year", name: "年代", value: [
+                    { n: "全部", v: "" }, { n: "2026", v: "2026" }, { n: "2025", v: "2025" }, { n: "2024", v: "2024" },
+                    { n: "2023", v: "2023" }, { n: "2022", v: "2022" }, { n: "2021", v: "2021" }, { n: "2020", v: "2020" },
+                    { n: "2019", v: "2019" }, { n: "2020年代", v: "2020年代" }, { n: "2010年代", v: "2010年代" },
+                    { n: "2000年代", v: "2000年代" }, { n: "90年代", v: "90年代" }, { n: "80年代", v: "80年代" },
+                    { n: "70年代", v: "70年代" }, { n: "60年代", v: "60年代" }, { n: "更早", v: "更早" }
+                ]},
+                { key: "platform", name: "平台", value: [
+                    { n: "全部", v: "" }, { n: "腾讯视频", v: "腾讯视频" }, { n: "爱奇艺", v: "爱奇艺" },
+                    { n: "优酷", v: "优酷" }, { n: "湖南卫视", v: "湖南卫视" }, { n: "Netflix", v: "Netflix" },
+                    { n: "HBO", v: "HBO" }, { n: "BBC", v: "BBC" }, { n: "NHK", v: "NHK" },
+                    { n: "CBS", v: "CBS" }, { n: "NBC", v: "NBC" }, { n: "tvN", v: "tvN" }
                 ]},
                 { key: "sort", name: "排序", value: [{ n: "近期热度", v: "U" }, { n: "首播时间", v: "R" }, { n: "高分优先", v: "S" }] }
             ],
@@ -313,15 +361,19 @@ async function category(tid, pg, filter, extend) {
                 let sortMap = { U: "recommend", R: "time", S: "rank" };
                 items = getByTag(tag, "tv", sortMap[sort] || "recommend", start, count);
             }
-        } else if (tid === "documentary") {
-            // 纪录片 - recommend 接口，支持类型和排序
-            let genre = ext.genre || "纪录片";
+        } else if (tid === "show_filter") {
+            // 综艺筛选 - recommend 接口，支持多条件筛选
+            let genre = ext["genre"] || "";
+            let region = ext["region"] || "";
+            let year = ext.year || "";
+            let platform = ext.platform || "";
             sort = ext.sort || "U";
-            let selectedCategories = {};
-            if (genre && genre !== "纪录片") selectedCategories["类型"] = genre;
-            let tags = genre;
+            let selectedCategories = { "形式": "综艺" };
+            if (genre) selectedCategories["类型"] = genre;
+            if (region) selectedCategories["地区"] = region;
+            let tags = [genre, region, year, platform].filter(Boolean).join(",");
             try {
-                let data = rexGet("/movie/recommend", {
+                let data = rexGet("/tv/recommend", {
                     refresh: 0, start: start, count: count,
                     selected_categories: JSON.stringify(selectedCategories),
                     uncollect: false, score_range: "0,10",
@@ -334,8 +386,27 @@ async function category(tid, pg, filter, extend) {
                     pagecount: Math.ceil(total / count), total: total
                 });
             } catch (e) {
+                tag = platform || genre || region || year || "综艺";
                 let sortMap = { U: "recommend", R: "time", S: "rank" };
-                items = getByTag(genre, "movie", sortMap[sort] || "recommend", start, count);
+                items = getByTag(tag, "tv", sortMap[sort] || "recommend", start, count);
+            }
+        } else if (tid === "documentary") {
+            // 纪录片 - recent_hot 接口，默认按热度（参考热门剧集）
+            let genre = ext.genre || "";
+            sort = ext.sort || "U";
+            try {
+                let data = rexGet("/subject/recent_hot/tv", {
+                    start: start, limit: count, category: "tv", type: "tv_documentary"
+                });
+                items = parseRexItems(data.items || []);
+                let total = data.total || data.count || items.length;
+                return JSON.stringify({
+                    list: items, page: p,
+                    pagecount: Math.ceil(total / count), total: total
+                });
+            } catch (e) {
+                let sortMap = { U: "recommend", R: "time", S: "rank" };
+                items = getByTag(genre || "纪录片", "tv", sortMap[sort] || "recommend", start, count);
             }
         } else if (tid === "high_score") {
             tag = (ext.area || "全部") === "全部" ? "豆瓣高分" : ext.area;
