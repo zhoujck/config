@@ -38,6 +38,12 @@ function suggest(q) {
     return webGet("/j/subject_suggest", { q: q }) || [];
 }
 
+// 图片URL处理 - 添加Referer解决防盗链
+function fixPicUrl(url) {
+    if (!url) return "";
+    return url + "@Referer=https://movie.douban.com/";
+}
+
 // 详情页
 function getDetail(id) {
     try {
@@ -88,7 +94,7 @@ function parseItems(items) {
         list.push({
             vod_id: it.id || "",
             vod_name: it.title || "",
-            vod_pic: it.cover || "",
+            vod_pic: fixPicUrl(it.cover),
             vod_remarks: it.rate || "暂无评分"
         });
     }
@@ -259,7 +265,7 @@ async function detail(id) {
             list: [{
                 vod_id: id,
                 vod_name: r.title,
-                vod_pic: r.pic,
+                vod_pic: fixPicUrl(r.pic),
                 type_name: r.area,
                 vod_year: r.year,
                 vod_area: r.area,
@@ -288,7 +294,7 @@ async function search(wd, quick, pg) {
                 list.push({
                     vod_id: it.id || "",
                     vod_name: it.title || "",
-                    vod_pic: it.img || "",
+                    vod_pic: fixPicUrl(it.img),
                     vod_remarks: it.year || ""
                 });
             }
