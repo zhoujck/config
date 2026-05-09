@@ -10,6 +10,8 @@ var KParams = {
     timeout: 8000,
 };
 
+const cheerio = createCheerio();
+
 var filterList = {
     '1': [
         {
@@ -251,38 +253,37 @@ async function detail(id) {
         const html = await request(detailUrl);
         const $ = cheerio.load(html);
 
-        // 取第一集的链接来获取播放源信息
-        const href = $('.numList').first().find('li').first().find('a').attr('href') || '';
-        const firstEpUrl = href.startsWith('http') ? href : HOST + href;
+        // 从详情页提取基本信息
+        const vodName = $('h1 a').first().text().trim() || $('h1').first().text().trim() || '';
+        const vodPic = $('section.page-hd img').first().attr('src') || '';
+        const vodRemarks = '';
+        const vodYear = '';
+        const vodArea = '';
 
-        const epHtml = await request(firstEpUrl);
-        const macFromMatch = epHtml.match(/mac_from\s*=\s*'([^']*)'/);
-        const macUrlMatch = epHtml.match(/mac_url\s*=\s*'([^']+)'/);
-
+        // 取所有播放线路和集数（从详情页的 numList 中获取）
         const ktabs = [];
         const kurls = [];
 
-        if (macFromMatch && macUrlMatch) {
-            const from = macFromMatch[1].split('$$$');
-            const urls = macUrlMatch[1].split('$$$');
-            for (let i = 0; i < from.length; i++) {
-                const tab = from[i] || `线路${i + 1}`;
-                const eps = urls[i].split('#');
-                const kurl = eps
-                    .map((ep) => {
-                        const parts = ep.split('$');
-                        return `${parts[0]}$${parts[1] || ''}`;
-                    })
-                    .join('#');
-                ktabs.push(tab);
-                kurls.push(kurl);
-            }
-        }
+        const tabEls = $('#leftTabBox .hd ul li');
+        const listEls = $('#leftTabBox .bd .numList');
 
-        // 从详情页提取基本信息
-        const vodName = $('h1').text().trim() || '';
-        const vodPic = $('.globalPicList img, .vodImg img').first().attr('src') || '';
-        const vodRemarks = $('.sDes, .vodRemarks').first().text().trim() || '';
+        tabEls.each((i, tabEl) => {
+            const tabName = $(tabEl).find('a').text().trim() || `线路${i + 1}`;
+            const listUl = listEls.eq(i);
+            const eps = [];
+            listUl.find('li a').each((_, aEl) => {
+                const epName = $(aEl).text().trim();
+                const epHref = $(aEl).attr('href') || '';
+                const epUrl = epHref.startsWith('http') ? epHref : HOST + epHref;
+                if (epName && epUrl) {
+                    eps.push(`${epName}$${epUrl}`);
+                }
+            });
+            if (eps.length > 0) {
+                ktabs.push(tabName);
+                kurls.push(eps.join('#'));
+            }
+        });
 
         const vod = {
             vod_id: id,
@@ -290,8 +291,8 @@ async function detail(id) {
             vod_pic: vodPic,
             type_name: '',
             vod_remarks: vodRemarks,
-            vod_year: '',
-            vod_area: '',
+            vod_year: vodYear,
+            vod_area: vodArea,
             vod_lang: '',
             vod_director: '',
             vod_actor: '',
@@ -309,14 +310,34 @@ async function detail(id) {
 
 async function play(flag, id, flags) {
     try {
+        // id 是播放页 URL，如 /vod-play-id-xxx-src-x-num-x.html
+        const playPageUrl = id.startsWith('http') ? id : HOST + id;
+
         // 如果已经是直链格式，直接返回
         if (/\.(m3u8|mp4|mkv)/.test(id)) {
             return JSON.stringify({ jx: 0, parse: 0, url: id, header: DefHeader });
         }
 
+        // 访问播放页获取 mac_url
+        const html = await request(playPageUrl);
+        const macUrlMatch = html.match(/mac_url\s*=\s*'([^']+)'/);
+        if (!macUrlMatch) {
+            return JSON.stringify({ jx: 0, parse: 0, url: '', header: {} });
+        }
+
+        // mac_url 格式: "第01集$encodedUrl#第02集$encodedUrl2..."
+        // 取第一个播放地址的编码 URL
+        const macUrlStr = macUrlMatch[1];
+        const firstEp = macUrlStr.split('$$$')[0].split('#')[0];
+        const encodedUrl = firstEp.split('$')[1] || '';
+
+        if (!encodedUrl) {
+            return JSON.stringify({ jx: 0, parse: 0, url: '', header: {} });
+        }
+
         // 通过第三方解析接口获取真实播放地址
-        const parseUrl = `https://api.nmvod.me:520/player/?url=${id}`;
-        const html = await request(parseUrl, {
+        const parseUrl = `https://api.nmvod.me:520/player/?url=${encodedUrl}`;
+        const playerHtml = await request(parseUrl, {
             headers: {
                 ...KParams.headers,
                 Referer: HOST + '/',
@@ -326,7 +347,7 @@ async function play(flag, id, flags) {
             },
         });
 
-        const match = html.match(/var\s+config\s*=\s*(\{[\s\S]*?\})/);
+        const match = playerHtml.match(/var\s+config\s*=\s*(\{[\s\S]*?\})/);
         if (match) {
             const configStr = match[1];
             const urlMatch = configStr.match(/url":\s*"(.+)"/);
@@ -335,8 +356,7 @@ async function play(flag, id, flags) {
             }
         }
 
-        // 解析失败则返回原始 URL
-        return JSON.stringify({ jx: 0, parse: 1, url: id, header: DefHeader });
+        return JSON.stringify({ jx: 0, parse: 0, url: '', header: {} });
     } catch (e) {
         console.error('播放失败：', e.message);
         return JSON.stringify({ jx: 0, parse: 0, url: '', header: {} });
