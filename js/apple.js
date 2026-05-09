@@ -11,9 +11,9 @@ var KParams = {
 
 async function init(cfg) {
     try {
-        let host = cfg.ext?.host?.trim() || 'http://c.xpgtv.net';
+        let host = cfg.ext?.host?.trim() || 'http://23.237.228.133';
         HOST = host.replace(/\/$/, '');
-        KParams.headers['Referer'] = HOST;
+        KParams.headers['Referer'] = 'http://c.xpgtv.net';
         let parseTimeout = parseInt(cfg.ext?.timeout?.trim(), 10);
         KParams.timeout = parseTimeout > 0 ? parseTimeout : 8000;
     } catch(e) {
