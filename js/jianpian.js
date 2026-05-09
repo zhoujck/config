@@ -25,7 +25,7 @@ async function init(cfg) {
             })
         );
         let resObj = KParams.resObjList[0];
-        let imgHost = resObj?.data?.imgDomain?.trim() || '';
+        let imgHost = resObj?.data?.imgDomain?.trim() || 'img.jgsfnl.com';
         if (imgHost && !/^http/.test(imgHost)) {imgHost = `http://${imgHost}`;}
         KParams.imgHost = imgHost.replace(/\/$/, '');
         KParams.catesSet = cfg.ext?.catesSet?.trim() || '';
