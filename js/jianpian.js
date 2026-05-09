@@ -25,8 +25,10 @@ async function init(cfg) {
             })
         );
         let resObj = KParams.resObjList[0];
-        let imgHost = resObj?.data?.imgDomain?.trim() || 'img.jgsfnl.com';
-        if (imgHost && !/^http/.test(imgHost)) {imgHost = `http://${imgHost}`;}
+        // API返回的imgDomain(static.ztcuc.com)不可达，强制使用可用域名
+        // let imgHost = resObj?.data?.imgDomain?.trim() || 'img.jgsfnl.com';
+        let imgHost = 'img.jgsfnl.com';
+        if (!/^http/.test(imgHost)) {imgHost = `http://${imgHost}`;}
         KParams.imgHost = imgHost.replace(/\/$/, '');
         KParams.catesSet = cfg.ext?.catesSet?.trim() || '';
         KParams.tabsSet = cfg.ext?.tabsSet?.trim() || '';
