@@ -11,7 +11,7 @@ var KParams = {
 
 async function init(cfg) {
     try {
-        let host = cfg.ext?.host?.trim() || 'https://ev2089.zxbwv.com';
+        let host = cfg.ext?.host?.trim() || 'https://api.ztcgi.com';
         HOST = host.replace(/\/$/, '');
         KParams.headers['Referer'] = HOST;
         let parseTimeout = parseInt(cfg.ext?.timeout?.trim(), 10);
