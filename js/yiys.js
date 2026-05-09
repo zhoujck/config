@@ -297,7 +297,7 @@ async function detail(id) {
         const kurls = [];
         for (const src of sources) {
             const urls = (src.vodPlayList && src.vodPlayList.urls) || [];
-            const kurl = urls.map((u) => `${u.name}$${u.url}`).join('#');
+            const kurl = urls.map((u) => `${src.sourceCode}$${u.url}`).join('#');
             if (kurl) {
                 ktabs.push(src.sourceName || `线路${ktabs.length + 1}`);
                 kurls.push(kurl);
@@ -306,10 +306,10 @@ async function detail(id) {
 
         const vod = {
             vod_id: id.toString(),
-            vod_name: data.name || '',
+            vod_name: data.vodName || '',
             vod_pic: data.vodPic || '',
             type_name: data.typeName || '',
-            vod_remarks: data.vodRemarks || '',
+            vod_remarks: data.vodRemark || '',
             vod_year: data.vodYear || '',
             vod_area: data.vodArea || '',
             vod_lang: data.vodLang || '',
