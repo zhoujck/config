@@ -1,13 +1,13 @@
 {
  "spider": "https://img2.gelonghui.com/library/9c8e4-b797010b-366e-48f9-86b6-16be897c90c2.png;md5;9c8e45f60d3d413d8b140ec21811deb0",
  "wallpaper": "https://深色壁纸.xxooo.cf/",
- "logo": "http://hello.xn--z7x900a.com/fm.gif",
+ "logo": "http://feimao.pro/fm.gif",
  "sites": [
   {"key": "豆瓣","name": "🐼┃公众号：肥猫宝贝┃","type": 3,"api": "csp_Douban","searchable": 0},
   {"key": "豆瓣预告","name": "🐼┃豆瓣┃预告","type": 3,"api": "csp_YGP","playerType": 2,"searchable": 0},
   {"key": "config","name": "🐼┃配置┃中心","type": 3,"api": "csp_Config","playerType": 2},
   {"key": "living","name": "🐼┃游戏┃直播","type": 3,"api": "csp_Living","playerType": 2,"ext": "https://lemonlive-api-1.deno.dev"},
-  {"key": "csp_FeiMaoUC","name": "⚡┃闪电┃优汐","type": 3,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["https://shandian.blog/","https://sd.sduc.site"],"url_key": "FeiMaoUC"}},
+  {"key": "csp_FeiMaoUC","name": "⚡┃闪电┃优汐","type": 3,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["http://shandian.blog/","http://sd.sduc.site/"],"threadinfo": {"chunksize": 512,"threads": 16},"url_key": "FeiMaoUC"}},
   {"key": "csp_Duopan","name": "🖍︎┃蜡笔┃影视","type": 3,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["http://xiaocge.fun","http://feimo.fun","http://www.labi88.sbs","http://fmao.site","http://fmao.shop","http://xiaocgege.shop","http://www.xiaocgege.shop"],"threadinfo": {"chunksize": 512,"threads": 16},"url_key": "Duopan2"}},
   {"key": "csp_Netfixtv","name": "💌┃️至臻┃影视","type": 3,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["https://pan.mihdr.top","https://www.zhizhen1.top","https://www.mihdr.top","https://www.miqk.cc","https://www.zhizhenpan.com","https://www.zhizhen8.click"],"url_key": "Netfixtv2","threadinfo": {"chunksize": 512,"threads": 16}}},
   {"key": "潮流","name": "🏜┃潮流┃APP","type": 3,"api": "csp_AppRJ","ext": "http://v.rbotv.cn"},
