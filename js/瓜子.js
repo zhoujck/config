@@ -25,7 +25,7 @@ var KParams = {
 };
 
 const CLASSES = [
-    { type_id: "1", type_name: "电影" },
+    { type_id: "1", type_name: "电影1" },
     { type_id: "2", type_name: "电视剧" },
     { type_id: "4", type_name: "动漫" },
     { type_id: "3", type_name: "综艺" },
