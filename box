@@ -15,7 +15,7 @@
   {"key": "线路11","name": "🍬永乐","type": 3,"api": "./js/永乐.js","searchable": 1,"ext": ""},
   {"key": "线路12","name": "🍬荐片","type": 3,"api": "./js/jianpian.js","searchable": 1,"ext": ""},
   {"key": "线路13","name": "🍬异影","type": 3,"api": "./js/yiys.js","searchable": 1,"ext": ""},
-  {"key": "线路14","name": "🍬弄明","type": 3,"api": "./js/wwgz.js","searchable": 1,"ext": ""},
+  {"key": "线路14","name": "🍬弄明","type": 3,"api": "./js/瓜子.js","searchable": 1,"ext": ""},
   {"key": "线路1","name": "🐼潮流","type": 3,"api": "csp_AppRJ","timeout": 25,"ext": "http://v.rbotv.cn"},
   {"key": "线路2","name": "🐼瓜子","type": 3,"api": "csp_Gz360","timeout": 25},
   {"key": "线路3","name": "🐼金牌","type": 3,"api": "csp_Jpys","timeout": 25},
