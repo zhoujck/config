@@ -56,9 +56,7 @@ function getbody2(key, t) {
 async function gethtml(u, body) {
     var hd = await req(u, {
         headers: headers,
-        body: body,
-        method: 'POST',
-        rejectCoding: true
+        body: body
     });
     var banner = JSON.parse(hd.content).data;
     var response_key = banner.response_key;
@@ -230,9 +228,15 @@ async function play(flag, id, flags) {
         "vurl_id": vurl_id
     });
     var request_key2 = Encrypt(request_key);
-    var body = getbody2(request_key2, t);
-    var html = await gethtml(host + "/App/Resource/VurlDetail/showOne", body);
-    var data = JSON.parse(html).data;
+    var signature = 'token_id=,token=1be86e8e18a9fa18b2b8d5432699dad0.ac008ed650fd087bfbecf2fda9d82e9835253ef24843e6b18fcd128b10763497bcf9d53e959f5377cde038c20ccf9d17f604c9b8bb6e61041def86729b2fc7408bd241e23c213ac57f0226ee656e2bb0a583ae0e4f3bf6c6ab6c490c9a6f0d8cdfd366aacf5d83193671a8f77cd1af1ff2e9145de92ec43ec87cf4bdc563f6e919fe32861b0e93b118ec37d8035fbb3c.59dd05c5d9a8ae726528783128218f15fe6f2c0c8145eddab112b374fcfe3d79,phone_type=1,request_key=' + request_key2 + ',app_id=1,time=' + t + ',keys=Qmxi5ciWXbQzkr7o+SUNiUuQxQEf8/AVyUWY4T/BGhcXBIUz4nOyHBGf9A4KbM0iKF3yp9M7WAY0rrs5PzdTAOB45plcS2zZ0wUibcXuGJ29VVGRWKGwE9zu2vLwhfgjTaaDpXo4rby+7GxXTktzJmxvneOUdYeHi+PZsThlvPI=*&zvdvdvddbfikkkumtmdwqppp?|4Y!s!2br';
+    var signature2 = md5(signature);
+    var body = 'token=1be86e8e18a9fa18b2b8d5432699dad0.ac008ed650fd087bfbecf2fda9d82e9835253ef24843e6b18fcd128b10763497bcf9d53e959f5377cde038c20ccf9d17f604c9b8bb6e61041def86729b2fc7408bd241e23c213ac57f0226ee656e2bb0a583ae0e4f3bf6c6ab6c490c9a6f0d8cdfd366aacf5d83193671a8f77cd1af1ff2e9145de92ec43ec87cf4bdc563f6e919fe32861b0e93b118ec37d8035fbb3c.59dd05c5d9a8ae726528783128218f15fe6f2c0c8145eddab112b374fcfe3d79&token_id=&phone_type=1&time=' + t + '&phone_model=xiaomi-22021211rc&keys=Qmxi5ciWXbQzkr7o%2BSUNiUuQxQEf8%2FAVyUWY4T%2FBGhcXBIUz4nOyHBGf9A4KbM0iKF3yp9M7WAY0rrs5PzdTAOB45plcS2zZ0wUibcXuGJ29VVGRWKGwE9zu2vLwhfgjTaaDpXo4rby%2B7GxXTktzJmxvneOUdYeHi%2BPZsThlvPI%3D&request_key=' + request_key2 + '&signature=' + signature2 + '&app_id=1&ad_version=1';
+
+    var hd = await req(host + "/App/Resource/VurlDetail/showOne", {
+        headers: headers,
+        body: body
+    });
+    var data = JSON.parse(hd.content).data;
     var response_key = data.response_key;
     var keys = data.keys;
     var bodykeyiv = JSON.parse(RSA.decode(keys, bodykey));
