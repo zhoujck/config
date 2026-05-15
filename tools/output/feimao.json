@@ -1,9 +1,9 @@
 {
- "spider": "https://img2.gelonghui.com/library/9c8e4-b797010b-366e-48f9-86b6-16be897c90c2.png;md5;9c8e45f60d3d413d8b140ec21811deb0",
+ "spider": "http://hello.xn--z7x900a.net/PandaQ260515.png;md5;b81a5747f91e7169bdc7e3f68bd995e0",
  "wallpaper": "https://深色壁纸.xxooo.cf/",
  "logo": "http://feimao.pro/fm.gif",
  "sites": [
-  {"key": "豆瓣","name": "🐼┃公众号：肥猫宝贝┃","type": 3,"api": "csp_Douban","searchable": 0},
+  {"key": "豆瓣","name": "🐼┃公众号：我不是肥猫┃","type": 3,"api": "csp_Douban","searchable": 0},
   {"key": "豆瓣预告","name": "🐼┃豆瓣┃预告","type": 3,"api": "csp_YGP","playerType": 2,"searchable": 0},
   {"key": "config","name": "🐼┃配置┃中心","type": 3,"api": "csp_Config","playerType": 2},
   {"key": "living","name": "🐼┃游戏┃直播","type": 3,"api": "csp_Living","playerType": 2,"ext": "https://lemonlive-api-1.deno.dev"},
