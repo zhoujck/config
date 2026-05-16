@@ -81,7 +81,7 @@ function md5cycle(x, k) {
     a=md5gg(a,b,c,d,k[13],S21,-1444681467);d=md5gg(d,a,b,c,k[2],S22,-51403784);c=md5gg(c,d,a,b,k[7],S23,1735328473);b=md5gg(b,c,d,a,k[12],S24,-1926607734);
     a=md5hh(a,b,c,d,k[5],S31,-378558);d=md5hh(d,a,b,c,k[8],S32,-2022574463);c=md5hh(c,d,a,b,k[11],S33,1839030562);b=md5hh(b,c,d,a,k[14],S34,-35309556);
     a=md5hh(a,b,c,d,k[1],S31,-1530992060);d=md5hh(d,a,b,c,k[4],S32,1272893353);c=md5hh(c,d,a,b,k[7],S33,-155497632);b=md5hh(b,c,d,a,k[10],S34,-1094730640);
-    a=md5hh(a,b,c,d,k[13],S31,681279174);d=md5hh(d,a,b,c,k[0],S22,-358537222);c=md5hh(c,d,a,b,k[3],S33,-722521979);b=md5hh(b,c,d,a,k[6],S34,76029189);
+    a=md5hh(a,b,c,d,k[13],S31,681279174);d=md5hh(d,a,b,c,k[0],S32,-358537222);c=md5hh(c,d,a,b,k[3],S33,-722521979);b=md5hh(b,c,d,a,k[6],S34,76029189);
     a=md5hh(a,b,c,d,k[9],S31,-640364487);d=md5hh(d,a,b,c,k[12],S32,-421815835);c=md5hh(c,d,a,b,k[15],S33,530742520);b=md5hh(b,c,d,a,k[2],S34,-995338651);
     a=md5ii(a,b,c,d,k[0],S41,-198630844);d=md5ii(d,a,b,c,k[7],S42,1126891415);c=md5ii(c,d,a,b,k[14],S43,-1416354905);b=md5ii(b,c,d,a,k[5],S44,-57434055);
     a=md5ii(a,b,c,d,k[12],S41,1700485571);d=md5ii(d,a,b,c,k[3],S42,-1894986606);c=md5ii(c,d,a,b,k[10],S43,-1051523);b=md5ii(b,c,d,a,k[1],S44,-2054922799);
