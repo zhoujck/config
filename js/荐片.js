@@ -27,7 +27,7 @@ async function init(cfg) {
         let resObj = KParams.resObjList[0];
         // API返回的imgDomain(static.ztcuc.com)不可达，强制使用可用域名
         // let imgHost = resObj?.data?.imgDomain?.trim() || 'img.jgsfnl.com';
-        let imgHost = 'img.jgsfnl.com';
+        let imgHost = 'img.ztfgh.com';
         if (!/^http/.test(imgHost)) {imgHost = `http://${imgHost}`;}
         KParams.imgHost = imgHost.replace(/\/$/, '');
         KParams.catesSet = cfg.ext?.catesSet?.trim() || '';
