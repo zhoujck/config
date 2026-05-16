@@ -1,5 +1,8 @@
 /*
 title: '金牌app', author: '梦/v1.1.3'
+修复: MD5对中文关键词签名失败导致搜索不能用
+      原因: 自定义MD5用charCodeAt取UTF-16值，中文字符超出单字节范围导致计算错误
+      修复: md5()中先将字符串转为UTF-8字节数组再计算
 */
 var HOST;
 const MOBILE_UA = "Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.91 Mobile Safari/537.36";
@@ -28,6 +31,24 @@ const SORT_VALUES = [
 
 // ========== Crypto helpers (MD5 + SHA1, no external deps) ==========
 
+// ★ 新增: 字符串→UTF-8字节数组 (修复中文签名问题)
+function strToUtf8Bytes(s) {
+    var bytes = [];
+    for (var i = 0; i < s.length; i++) {
+        var c = s.charCodeAt(i);
+        if (c < 0x80) {
+            bytes.push(c);
+        } else if (c < 0x800) {
+            bytes.push(0xC0 | (c >> 6), 0x80 | (c & 0x3F));
+        } else if (c < 0x10000) {
+            bytes.push(0xE0 | (c >> 12), 0x80 | ((c >> 6) & 0x3F), 0x80 | (c & 0x3F));
+        } else {
+            bytes.push(0xF0 | (c >> 18), 0x80 | ((c >> 12) & 0x3F), 0x80 | ((c >> 6) & 0x3F), 0x80 | (c & 0x3F));
+        }
+    }
+    return bytes;
+}
+
 function safeAdd(x, y) {
     var lsw = (x & 0xffff) + (y & 0xffff);
     var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
@@ -44,14 +65,15 @@ function md5gg(a, b, c, d, x, s, t) { return md5cmn((b & d) | (c & ~d), a, b, x,
 function md5hh(a, b, c, d, x, s, t) { return md5cmn(b ^ c ^ d, a, b, x, s, t); }
 function md5ii(a, b, c, d, x, s, t) { return md5cmn(c ^ (b | ~d), a, b, x, s, t); }
 
-function md51(s) {
-    var n = s.length, state = [1732584193, -271733879, -1732584194, 271733878], i;
+// ★ 修改: md51 接收字节数组而非字符串
+function md51(bytes) {
+    var n = bytes.length, state = [1732584193, -271733879, -1732584194, 271733878], i;
     for (i = 64; i <= n; i += 64) {
-        md5cycle(state, md5blk(s.substring(i - 64, i)));
+        md5cycle(state, md5blk_from_bytes(bytes.slice(i - 64, i)));
     }
-    s = s.substring(i - 64);
+    var tail_bytes = bytes.slice(i - 64);
     var tail = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-    for (i = 0; i < s.length; i++) tail[i >> 2] |= s.charCodeAt(i) << ((i % 4) << 3);
+    for (i = 0; i < tail_bytes.length; i++) tail[i >> 2] |= tail_bytes[i] << ((i % 4) << 3);
     tail[i >> 2] |= 0x80 << ((i % 4) << 3);
     if (i > 55) { md5cycle(state, tail); tail = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; }
     tail[14] = n * 8;
@@ -59,10 +81,11 @@ function md51(s) {
     return state;
 }
 
-function md5blk(s) {
+// ★ 新增: 从字节数组构建MD5块 (替代原md5blk)
+function md5blk_from_bytes(bytes) {
     var md5blks = [], i;
     for (i = 0; i < 64; i += 4) {
-        md5blks[i >> 2] = s.charCodeAt(i) + (s.charCodeAt(i+1) << 8) + (s.charCodeAt(i+2) << 16) + (s.charCodeAt(i+3) << 24);
+        md5blks[i >> 2] = bytes[i] + (bytes[i+1] << 8) + (bytes[i+2] << 16) + (bytes[i+3] << 24);
     }
     return md5blks;
 }
@@ -90,8 +113,10 @@ function md5cycle(x, k) {
     x[0]=safeAdd(a,x[0]);x[1]=safeAdd(b,x[1]);x[2]=safeAdd(c,x[2]);x[3]=safeAdd(d,x[3]);
 }
 
+// ★ 修改: md5() 先转UTF-8字节再计算
 function md5(s) {
-    var h = md51(s);
+    var bytes = strToUtf8Bytes(s);
+    var h = md51(bytes);
     var hex = '0123456789abcdef', r = '';
     for (var i = 0; i < 16; i++) {
         var v = h[i >> 2] >>> ((i % 4) * 8);
