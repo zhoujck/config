@@ -183,21 +183,20 @@ function buildFormBody(bodyObj) {
 }
 
 async function apiPost(path, bodyObj) {
-    // 影视TV(FongMi)的req() POST时，OkHttp FormBody不编码+号
-    // 服务端把+当空格 → 签名验证失败 → 空响应
-    // 解决：预编码所有值，特别是 keys 里的 + / = * 等特殊字符
-    var encodedBody = {};
+    // 影视TV req() POST: data 传对象，postType:'form'
+    // OkHttp FormBody 不编码 + 号，服务端把 + 当空格
+    // 修复：只把值里的 + 替换为 %2B（FormBody 会保持 %2B 不变）
+    var fixedBody = {};
     for (var k in bodyObj) {
         if (bodyObj.hasOwnProperty(k)) {
-            // encodeURIComponent 把 + → %2B，/ → %2F，= → %3D，* → %2A
-            encodedBody[k] = encodeURIComponent(bodyObj[k]);
+            fixedBody[k] = String(bodyObj[k]).replace(/\+/g, '%2B');
         }
     }
 
     var respStr = await request(HOST + path, {
         method: 'post',
         headers: API_HEADERS,
-        data: encodedBody,
+        data: fixedBody,
         postType: 'form'
     });
 
