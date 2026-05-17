@@ -326,37 +326,26 @@ async function category(tid, pg, filter, extend) {
             }
 
         } else if (tid === "documentary") {
-            // 纪录片 - 默认 recent_hot 按热度，选了具体类型走 recommend 筛选
+            // 纪录片 - 统一走 recommend 接口，数据量远大于 recent_hot
             let genre = ext.genre || "";
             sort = ext.sort || "U";
 
-            if (genre) {
-                let selectedCategories = { "形式": "纪录片", "类型": genre };
-                let tags = ["纪录片", genre].filter(Boolean).join(",");
-                try {
-                    let data = rexGet("/tv/recommend", {
-                        refresh: 0, start: start, count: count,
-                        selected_categories: JSON.stringify(selectedCategories),
-                        uncollect: false, score_range: "0,10",
-                        tags: tags, sort: sort
-                    });
-                    items = parseRexItems(data.items || []);
-                    let total = data.total || data.count || items.length;
-                    return JSON.stringify({ list: items, page: p, pagecount: Math.ceil(total / count), total: total });
-                } catch (e) {
-                    items = getByTag(genre, "tv", sortMap[sort] || "recommend", start, count);
-                }
-            } else {
-                try {
-                    let data = rexGet("/subject/recent_hot/tv", {
-                        start: start, limit: count, category: "tv", type: "tv_documentary"
-                    });
-                    items = parseRexItems(data.items || []);
-                    let total = data.total || data.count || items.length;
-                    return JSON.stringify({ list: items, page: p, pagecount: Math.ceil(total / count), total: total });
-                } catch (e) {
-                    items = getByTag("纪录片", "tv", sortMap[sort] || "recommend", start, count);
-                }
+            let selectedCategories = { "形式": "纪录片" };
+            if (genre) selectedCategories["类型"] = genre;
+            let tags = ["纪录片", genre].filter(Boolean).join(",");
+
+            try {
+                let data = rexGet("/tv/recommend", {
+                    refresh: 0, start: start, count: count,
+                    selected_categories: JSON.stringify(selectedCategories),
+                    uncollect: false, score_range: "0,10",
+                    tags: tags, sort: sort
+                });
+                items = parseRexItems(data.items || []);
+                let total = data.total || data.count || items.length;
+                return JSON.stringify({ list: items, page: p, pagecount: Math.ceil(total / count), total: total });
+            } catch (e) {
+                items = getByTag("纪录片", "tv", sortMap[sort] || "recommend", start, count);
             }
 
         } else if (tid === "high_score") {
