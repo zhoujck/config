@@ -3,6 +3,11 @@ title: '热播app', author: '梦/v1.0.4'
 基于热播APP接口，参考金牌.js结构重写
 接口：home / category / search / detail / play
 签名算法：MD5(固定前缀 + timestamp)
+
+修复：影视TV(OK影视/FongMi)的req函数POST时，data需传JSON对象而非form字符串
+     原因：Connect.java的getFormBody()调用Json.toMap(req.getData())解析data，
+     如果data是字符串"sign=xxx&timestamp=xxx"会解析失败导致空body。
+     修复：data改为直接传对象 {sign: "xxx", timestamp: "xxx"}
 */
 var HOST;
 const MOBILE_UA = "okhttp-okgo/jeasonlzy";
@@ -113,11 +118,6 @@ function md5(s) {
 
 // ========== API helpers ==========
 
-function objToForm(obj) {
-    return Object.keys(obj).filter(function(k) { return obj[k] !== undefined && obj[k] !== null && obj[k] !== ''; })
-        .map(function(k) { return k + '=' + obj[k]; }).join('&');
-}
-
 function buildSignedBody(params) {
     var timestamp = Math.floor(Date.now() / 1000).toString();
     var signStr = SIGN_KEY + timestamp;
@@ -223,7 +223,7 @@ function buildClassesAndFilters(typeList) {
 async function init(cfg) {
     try {
         var host = cfg.ext?.host?.trim() || 'http://v.rbotv.cn';
-        HOST = host.replace(/\/$/, '');
+        HOST = host.replace(/\/+$/, '');
         KParams.headers['Referer'] = HOST + '/';
         var parseTimeout = parseInt(cfg.ext?.timeout?.trim(), 10);
         KParams.timeout = parseTimeout > 0 ? parseTimeout : 20000;
@@ -240,14 +240,14 @@ async function home(filter) {
         var typeRes = safeParseJSON(await request(HOST + '/v3/type/top_type', {
             method: 'post',
             headers: signedHeaders,
-            data: objToForm(body),
+            data: body,
             postType: 'form'
         }));
 
         var homeRes = safeParseJSON(await request(HOST + '/v3/type/tj_vod', {
             method: 'post',
             headers: signedHeaders,
-            data: objToForm(body),
+            data: body,
             postType: 'form'
         }));
 
@@ -279,7 +279,7 @@ async function homeVod() {
         var homeRes = safeParseJSON(await request(HOST + '/v3/type/tj_vod', {
             method: 'post',
             headers: signedHeaders,
-            data: objToForm(body),
+            data: body,
             postType: 'form'
         }));
         var caiArr = (homeRes && homeRes.data && homeRes.data.cai) ? homeRes.data.cai : [];
@@ -320,7 +320,7 @@ async function category(tid, pg, filter, extend) {
         var resObj = safeParseJSON(await request(cateUrl, {
             method: 'post',
             headers: signedHeaders,
-            data: objToForm(body),
+            data: body,
             postType: 'form'
         }));
         var cateArr = ((((resObj || {}).data || {}).list)) || [];
@@ -354,7 +354,7 @@ async function search(wd, quick, pg) {
         var resObj = safeParseJSON(await request(searchUrl, {
             method: 'post',
             headers: signedHeaders,
-            data: objToForm(body),
+            data: body,
             postType: 'form'
         }));
         var searchArr = ((((resObj || {}).data || {}).list)) || [];
@@ -382,7 +382,7 @@ async function detail(id) {
         var resObj = safeParseJSON(await request(detailUrl, {
             method: 'post',
             headers: signedHeaders,
-            data: objToForm(body),
+            data: body,
             postType: 'form'
         }));
         var v = (resObj || {}).data || {};
