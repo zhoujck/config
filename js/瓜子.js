@@ -260,7 +260,7 @@ function getSubForTid(tid) {
 async function home(filter) {
     try {
         var t = String(Math.floor(Date.now() / 1000));
-        var body = buildBody(aesEncryptHex(JSON.stringify({"area":"0","sub":"","year":"0","pageSize":"30","sort":"d_id","page":"1","tid":"2"})), t, KEYS_LIST);
+        var body = buildBody(aesEncryptHex(JSON.stringify({"area":"0","year":"0","pageSize":"30","sort":"d_id","page":"1","tid":"2"})), t, KEYS_LIST);
         var data = await apiPost("/App/IndexList/indexList", body);
         var d = [];
         if (data && data.list) {
