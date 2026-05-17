@@ -1,3 +1,9 @@
+/*
+title: '瓜子', author: '修复版/v1.1'
+修复: 适配影视TV新版JS API (async/__jsEvalReturn)
+     补充md5实现，修复fetch→req兼容
+*/
+
 var h_ost = 'https://api.w32z7vtd.com';
 
 var RSA_N = BigInt('0x7ba84aad62e2d734268d34f5a336c4e1074578918dc6e6f195de86ac51b18a6c5f32c301e81a49869713a2e02acb0005a6988a7ad50105b5f062c614d7036beb8f175663e608c0b2e2b63cbdd9621676cc523d3ce8353a67efe85c1756537fdbd46d0337713dc142d14b070a653df08ff702235bec0a6de08f64794aa900f58d');
@@ -25,130 +31,84 @@ var API_HEADERS = {
 
 // ========== MD5 实现 ==========
 
-function md5(string) {
-    function md5cycle(x, k) {
-        var a = x[0], b = x[1], c = x[2], d = x[3];
-        a = ff(a, b, c, d, k[0], 7, -680876936);
-        d = ff(d, a, b, c, k[1], 12, -389564586);
-        c = ff(c, d, a, b, k[2], 17, 606105819);
-        b = ff(b, c, d, a, k[3], 22, -1044525330);
-        a = ff(a, b, c, d, k[4], 7, -176418897);
-        d = ff(d, a, b, c, k[5], 12, 1200080426);
-        c = ff(c, d, a, b, k[6], 17, -1473231341);
-        b = ff(b, c, d, a, k[7], 22, -45705983);
-        a = ff(a, b, c, d, k[8], 7, 1770035416);
-        d = ff(d, a, b, c, k[9], 12, -1958414417);
-        c = ff(c, d, a, b, k[10], 17, -42063);
-        b = ff(b, c, d, a, k[11], 22, -1990404162);
-        a = ff(a, b, c, d, k[12], 7, 1804603682);
-        d = ff(d, a, b, c, k[13], 12, -40341101);
-        c = ff(c, d, a, b, k[14], 17, -1502002290);
-        b = ff(b, c, d, a, k[15], 22, 1236535329);
-        a = gg(a, b, c, d, k[1], 5, -165796510);
-        d = gg(d, a, b, c, k[6], 9, -1069501632);
-        c = gg(c, d, a, b, k[11], 14, 643717713);
-        b = gg(b, c, d, a, k[0], 20, -373897302);
-        a = gg(a, b, c, d, k[5], 5, -701558691);
-        d = gg(d, a, b, c, k[10], 9, 38016083);
-        c = gg(c, d, a, b, k[15], 14, -660478335);
-        b = gg(b, c, d, a, k[4], 20, -405537848);
-        a = gg(a, b, c, d, k[9], 5, 568446438);
-        d = gg(d, a, b, c, k[14], 9, -1019803690);
-        c = gg(c, d, a, b, k[3], 14, -187363961);
-        b = gg(b, c, d, a, k[8], 20, 1163531501);
-        a = gg(a, b, c, d, k[13], 5, -1444681467);
-        d = gg(d, a, b, c, k[2], 9, -51403784);
-        c = gg(c, d, a, b, k[7], 14, 1735328473);
-        b = gg(b, c, d, a, k[12], 20, -1926607734);
-        a = hh(a, b, c, d, k[5], 4, -378558);
-        d = hh(d, a, b, c, k[8], 11, -2022574463);
-        c = hh(c, d, a, b, k[11], 16, 1839030562);
-        b = hh(b, c, d, a, k[14], 23, -35309556);
-        a = hh(a, b, c, d, k[1], 4, -1530992060);
-        d = hh(d, a, b, c, k[4], 11, 1272893353);
-        c = hh(c, d, a, b, k[7], 16, -155497632);
-        b = hh(b, c, d, a, k[10], 23, -1094730640);
-        a = hh(a, b, c, d, k[13], 4, 681279174);
-        d = hh(d, a, b, c, k[0], 11, -358537222);
-        c = hh(c, d, a, b, k[3], 16, -722521979);
-        b = hh(b, c, d, a, k[6], 23, 76029189);
-        a = hh(a, b, c, d, k[9], 4, -640364487);
-        d = hh(d, a, b, c, k[12], 11, -421815835);
-        c = hh(c, d, a, b, k[15], 16, 530742520);
-        b = hh(b, c, d, a, k[2], 23, -995338651);
-        a = ii(a, b, c, d, k[0], 6, -198630844);
-        d = ii(d, a, b, c, k[7], 10, 1126891415);
-        c = ii(c, d, a, b, k[14], 15, -1416354905);
-        b = ii(b, c, d, a, k[5], 21, -57434055);
-        a = ii(a, b, c, d, k[12], 6, 1700485571);
-        d = ii(d, a, b, c, k[3], 10, -1894986606);
-        c = ii(c, d, a, b, k[10], 15, -1051523);
-        b = ii(b, c, d, a, k[1], 21, -2054922799);
-        a = ii(a, b, c, d, k[8], 6, 1873313359);
-        d = ii(d, a, b, c, k[15], 10, -30611744);
-        c = ii(c, d, a, b, k[6], 15, -1560198380);
-        b = ii(b, c, d, a, k[13], 21, 1309151649);
-        a = ii(a, b, c, d, k[4], 6, -145523070);
-        d = ii(d, a, b, c, k[11], 10, -1120210379);
-        c = ii(c, d, a, b, k[2], 15, 718787259);
-        b = ii(b, c, d, a, k[9], 21, -343485551);
-        x[0] = add32(a, x[0]);
-        x[1] = add32(b, x[1]);
-        x[2] = add32(c, x[2]);
-        x[3] = add32(d, x[3]);
+function strToUtf8Bytes(s) {
+    var bytes = [];
+    for (var i = 0; i < s.length; i++) {
+        var c = s.charCodeAt(i);
+        if (c < 0x80) { bytes.push(c); }
+        else if (c < 0x800) { bytes.push(0xC0 | (c >> 6), 0x80 | (c & 0x3F)); }
+        else { bytes.push(0xE0 | (c >> 12), 0x80 | ((c >> 6) & 0x3F), 0x80 | (c & 0x3F)); }
     }
-    function cmn(q, a, b, x, s, t) {
-        a = add32(add32(a, q), add32(x, t));
-        return add32((a << s) | (a >>> (32 - s)), b);
-    }
-    function ff(a, b, c, d, x, s, t) { return cmn((b & c) | ((~b) & d), a, b, x, s, t); }
-    function gg(a, b, c, d, x, s, t) { return cmn((b & d) | (c & (~d)), a, b, x, s, t); }
-    function hh(a, b, c, d, x, s, t) { return cmn(b ^ c ^ d, a, b, x, s, t); }
-    function ii(a, b, c, d, x, s, t) { return cmn(c ^ (b | (~d)), a, b, x, s, t); }
-    function md5blk(s) {
-        var md5blks = [], i;
-        for (i = 0; i < 64; i += 4) {
-            md5blks[i >> 2] = s.charCodeAt(i) + (s.charCodeAt(i + 1) << 8) + (s.charCodeAt(i + 2) << 16) + (s.charCodeAt(i + 3) << 24);
-        }
-        return md5blks;
-    }
-    function md5blk_array(a) {
-        var md5blks = [], i;
-        for (i = 0; i < 64; i += 4) {
-            md5blks[i >> 2] = a[i] + (a[i + 1] << 8) + (a[i + 2] << 16) + (a[i + 3] << 24);
-        }
-        return md5blks;
-    }
-    function add32(a, b) { return (a + b) & 0xFFFFFFFF; }
-    function rhex(n) {
-        var s = '', j = 0;
-        for (; j < 4; j++)
-            s += '0123456789abcdef'.charAt((n >> (j * 8 + 4)) & 0x0F) + '0123456789abcdef'.charAt((n >> (j * 8)) & 0x0F);
-        return s;
-    }
-    function hex(x) {
-        for (var i = 0; i < x.length; i++) x[i] = rhex(x[i]);
-        return x.join('');
-    }
-    var n = string.length, state = [1732584193, -271733879, -1732584194, 271733878], i;
-    for (i = 64; i <= n; i += 64) {
-        md5cycle(state, md5blk(string.substring(i - 64, i)));
-    }
-    string = string.substring(i - 64);
-    var tail = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-    for (i = 0; i < string.length; i++)
-        tail[i >> 2] |= string.charCodeAt(i) << ((i % 4) << 3);
-    tail[i >> 2] |= 0x80 << ((i % 4) << 3);
-    if (i > 55) {
-        md5cycle(state, tail);
-        for (i = 0; i < 16; i++) tail[i] = 0;
-    }
-    tail[14] = n * 8;
-    md5cycle(state, tail);
-    return hex(state);
+    return bytes;
 }
 
-// ========== AES-128-CBC 纯 JS 实现 ==========
+function safeAdd(x, y) {
+    var lsw = (x & 0xffff) + (y & 0xffff);
+    var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
+    return (msw << 16) | (lsw & 0xffff);
+}
+
+function bitRotateLeft(num, cnt) {
+    return (num << cnt) | (num >>> (32 - cnt));
+}
+
+function md5cmn(q, a, b, x, s, t) { return safeAdd(bitRotateLeft(safeAdd(safeAdd(a, q), safeAdd(x, t)), s), b); }
+function md5ff(a, b, c, d, x, s, t) { return md5cmn((b & c) | (~b & d), a, b, x, s, t); }
+function md5gg(a, b, c, d, x, s, t) { return md5cmn((b & d) | (c & ~d), a, b, x, s, t); }
+function md5hh(a, b, c, d, x, s, t) { return md5cmn(b ^ c ^ d, a, b, x, s, t); }
+function md5ii(a, b, c, d, x, s, t) { return md5cmn(c ^ (b | ~d), a, b, x, s, t); }
+
+function md5cycle(x, k) {
+    var a=x[0],b=x[1],c=x[2],d=x[3];
+    a=md5ff(a,b,c,d,k[0],7,-680876936);d=md5ff(d,a,b,c,k[1],12,-389564586);c=md5ff(c,d,a,b,k[2],17,606105819);b=md5ff(b,c,d,a,k[3],22,-1044525330);
+    a=md5ff(a,b,c,d,k[4],7,-176418897);d=md5ff(d,a,b,c,k[5],12,1200080426);c=md5ff(c,d,a,b,k[6],17,-1473231341);b=md5ff(b,c,d,a,k[7],22,-45705983);
+    a=md5ff(a,b,c,d,k[8],7,1770035416);d=md5ff(d,a,b,c,k[9],12,-1958414417);c=md5ff(c,d,a,b,k[10],17,-42063);b=md5ff(b,c,d,a,k[11],22,-1990404162);
+    a=md5ff(a,b,c,d,k[12],7,1804603682);d=md5ff(d,a,b,c,k[13],12,-40341101);c=md5ff(c,d,a,b,k[14],17,-1502002290);b=md5ff(b,c,d,a,k[15],22,1236535329);
+    a=md5gg(a,b,c,d,k[1],5,-165796510);d=md5gg(d,a,b,c,k[6],9,-1069501632);c=md5gg(c,d,a,b,k[11],14,643717713);b=md5gg(b,c,d,a,k[0],20,-373897302);
+    a=md5gg(a,b,c,d,k[5],5,-701558691);d=md5gg(d,a,b,c,k[10],9,38016083);c=md5gg(c,d,a,b,k[15],14,-660478335);b=md5gg(b,c,d,a,k[4],20,-405537848);
+    a=md5gg(a,b,c,d,k[9],5,568446438);d=md5gg(d,a,b,c,k[14],9,-1019803690);c=md5gg(c,d,a,b,k[3],14,-187363961);b=md5gg(b,c,d,a,k[8],20,1163531501);
+    a=md5gg(a,b,c,d,k[13],5,-1444681467);d=md5gg(d,a,b,c,k[2],9,-51403784);c=md5gg(c,d,a,b,k[7],14,1735328473);b=md5gg(b,c,d,a,k[12],20,-1926607734);
+    a=md5hh(a,b,c,d,k[5],4,-378558);d=md5hh(d,a,b,c,k[8],11,-2022574463);c=md5hh(c,d,a,b,k[11],16,1839030562);b=md5hh(b,c,d,a,k[14],23,-35309556);
+    a=md5hh(a,b,c,d,k[1],4,-1530992060);d=md5hh(d,a,b,c,k[4],11,1272893353);c=md5hh(c,d,a,b,k[7],16,-155497632);b=md5hh(b,c,d,a,k[10],23,-1094730640);
+    a=md5hh(a,b,c,d,k[13],4,681279174);d=md5hh(d,a,b,c,k[0],11,-358537222);c=md5hh(c,d,a,b,k[3],16,-722521979);b=md5hh(b,c,d,a,k[6],23,76029189);
+    a=md5hh(a,b,c,d,k[9],4,-640364487);d=md5hh(d,a,b,c,k[12],11,-421815835);c=md5hh(c,d,a,b,k[15],16,530742520);b=md5hh(b,c,d,a,k[2],23,-995338651);
+    a=md5ii(a,b,c,d,k[0],6,-198630844);d=md5ii(d,a,b,c,k[7],10,1126891415);c=md5ii(c,d,a,b,k[14],15,-1416354905);b=md5ii(b,c,d,a,k[5],21,-57434055);
+    a=md5ii(a,b,c,d,k[12],6,1700485571);d=md5ii(d,a,b,c,k[3],10,-1894986606);c=md5ii(c,d,a,b,k[10],15,-1051523);b=md5ii(b,c,d,a,k[1],21,-2054922799);
+    a=md5ii(a,b,c,d,k[8],6,1873313359);d=md5ii(d,a,b,c,k[15],10,-30611744);c=md5ii(c,d,a,b,k[6],15,-1560198380);b=md5ii(b,c,d,a,k[13],21,1309151649);
+    a=md5ii(a,b,c,d,k[4],6,-145523070);d=md5ii(d,a,b,c,k[11],10,-1120210379);c=md5ii(c,d,a,b,k[2],15,718787259);b=md5ii(b,c,d,a,k[9],21,-343485551);
+    x[0]=safeAdd(a,x[0]);x[1]=safeAdd(b,x[1]);x[2]=safeAdd(c,x[2]);x[3]=safeAdd(d,x[3]);
+}
+
+function md5blk_from_bytes(bytes) {
+    var md5blks = [], i;
+    for (i = 0; i < 64; i += 4) {
+        md5blks[i >> 2] = bytes[i] + (bytes[i+1] << 8) + (bytes[i+2] << 16) + (bytes[i+3] << 24);
+    }
+    return md5blks;
+}
+
+function md5(s) {
+    var bytes = strToUtf8Bytes(s);
+    var n = bytes.length, state = [1732584193, -271733879, -1732584194, 271733878], i;
+    for (i = 64; i <= n; i += 64) {
+        md5cycle(state, md5blk_from_bytes(bytes.slice(i - 64, i)));
+    }
+    var tail_bytes = bytes.slice(i - 64);
+    var tail = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    for (i = 0; i < tail_bytes.length; i++) tail[i >> 2] |= tail_bytes[i] << ((i % 4) << 3);
+    tail[i >> 2] |= 0x80 << ((i % 4) << 3);
+    if (i > 55) { md5cycle(state, tail); tail = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; }
+    tail[14] = n * 8;
+    md5cycle(state, tail);
+    var hex = '0123456789abcdef', r = '';
+    for (i = 0; i < 16; i++) {
+        var v = state[i >> 2] >>> ((i % 4) * 8);
+        r += hex.charAt((v >>> 4) & 0x0f) + hex.charAt(v & 0x0f);
+    }
+    return r;
+}
+
+// ========== AES-128-CBC ==========
 
 var AES_SBOX = [
     0x63,0x7c,0x77,0x7b,0xf2,0x6b,0x6f,0xc5,0x30,0x01,0x67,0x2b,0xfe,0xd7,0xab,0x76,
@@ -427,13 +387,30 @@ function rsaDecrypt(encBytes) {
     var mHex = m.toString(16);
     if (mHex.length % 2) mHex = '0' + mHex;
     var mBytes = hexToBytes(mHex);
-    // PKCS1v1.5: skip 0x00, 0x02, padding bytes, 0x00
     var i = 0;
     if (mBytes[i] === 0) i++;
     if (mBytes[i] === 2) i++;
     while (i < mBytes.length && mBytes[i] !== 0) i++;
     if (i < mBytes.length) i++;
     return mBytes.slice(i);
+}
+
+// ========== 网络请求 ==========
+
+async function request(reqUrl, options) {
+    if (!options) options = {};
+    var optObj = {
+        headers: options.headers || API_HEADERS,
+        method: (options.method || 'POST').toLowerCase(),
+        data: options.body || '',
+        postType: 'form'
+    };
+    var res = await req(reqUrl, optObj);
+    return res?.content || '';
+}
+
+function safeParseJSON(jStr) {
+    try { return JSON.parse(jStr); } catch(e) { return null; }
 }
 
 // ========== API 请求 ==========
@@ -451,20 +428,16 @@ function buildBody(requestKeyEnc, t, keysStr) {
         + '&app_id=1&ad_version=1';
 }
 
-function apiPost(path, body) {
-    var resp = req(h_ost + path, {
-        headers: API_HEADERS,
-        body: body,
-        method: 'POST',
-        redirect: true
-    });
-    var j = JSON.parse(resp.content || resp).data;
-    var encKeys = b64ToBytes(j.keys);
+async function apiPost(path, body) {
+    var respStr = await request(h_ost + path, { method: 'POST', body: body });
+    var j = safeParseJSON(respStr);
+    if (!j || !j.data) return null;
+    var encKeys = b64ToBytes(j.data.keys);
     var decKeys = rsaDecrypt(encKeys);
     var keyiv = JSON.parse(bytesToStr(decKeys));
     var aesKey = strToBytes(keyiv.key);
     var aesIv = strToBytes(keyiv.iv);
-    var plain = aesDecryptHex(j.response_key, aesKey, aesIv);
+    var plain = aesDecryptHex(j.data.response_key, aesKey, aesIv);
     return JSON.parse(plain);
 }
 
@@ -475,121 +448,189 @@ function getSubForTid(tid) {
     return idx !== -1 ? subs[idx] : "";
 }
 
-// ========== TVBox 接口 ==========
+// ========== TVBox 接口 (新版 async API) ==========
 
-var rule = {
-    title: '瓜子',
-    host: h_ost,
-    url: '/App/IndexList/indexList',
-    searchable: 2,
-    quickSearch: 1,
-    filterable: 1,
-    class_name: '电视剧&电影&动漫&综艺&短剧',
-    class_url: '2&1&4&3&64',
-    play_parse: true,
-    lazy: $js.toString(() => {
-        var t = String(Math.floor(Date.now() / 1000));
-        var vodId = input.split("/")[0];
-        var vurlId = input.split("/")[1];
-        var resolution = input.split("?")[1];
-        var requestKey = JSON.stringify({
-            "domain_type": "8", "vod_id": vodId, "type": "play",
-            "resolution": resolution, "vurl_id": vurlId
-        });
-        var requestKeyEnc = aesEncryptHex(requestKey);
-        var body = buildBody(requestKeyEnc, t, KEYS_PLAY);
-        var data = apiPost("/App/Resource/VurlDetail/showOne", body);
-        input = { url: data.url, parse: 0, header: API_HEADERS };
-        setResult(input);
-    }),
-    一级: $js.toString(() => {
+async function home(filter) {
+    try {
         var d = [];
         var t = String(Math.floor(Date.now() / 1000));
-        var sub = MY_FL.sub || getSubForTid(MY_CATE);
         var requestKey = JSON.stringify({
-            "area": (MY_FL.area || "0").toString(),
-            "sub": sub.toString(),
-            "year": (MY_FL.year || "0").toString(),
-            "pageSize": "30",
-            "sort": (MY_FL.sort || "d_id").toString(),
-            "page": String(MY_PAGE),
-            "tid": MY_CATE
+            "area": "0", "sub": "", "year": "0",
+            "pageSize": "30", "sort": "d_id", "page": "1", "tid": "2"
         });
         var requestKeyEnc = aesEncryptHex(requestKey);
         var body = buildBody(requestKeyEnc, t, KEYS_LIST);
-        var data = apiPost("/App/IndexList/indexList", body);
-        (data.list || []).forEach(function(item) {
-            d.push({
-                title: item.vod_name,
-                desc: item.vod_continu == 0 ? '电影' : '更新至' + item.vod_continu + '集',
-                year: item.vod_scroe,
-                img: item.vod_pic,
-                url: item.vod_id + '/' + item.vod_continu
+        var data = await apiPost("/App/IndexList/indexList", body);
+        if (data && data.list) {
+            data.list.forEach(function(item) {
+                d.push({
+                    vod_id: String(item.vod_id),
+                    vod_name: item.vod_name,
+                    vod_pic: item.vod_pic,
+                    vod_remarks: item.vod_continu == 0 ? '电影' : '更新至' + item.vod_continu + '集'
+                });
             });
-        });
-        setResult(d);
-    }),
-    二级: $js.toString(() => {
+        }
+        var classes = [
+            {type_id: "2", type_name: "电视剧"},
+            {type_id: "1", type_name: "电影"},
+            {type_id: "4", type_name: "动漫"},
+            {type_id: "3", type_name: "综艺"},
+            {type_id: "64", type_name: "短剧"}
+        ];
+        return JSON.stringify({ class: classes, list: d });
+    } catch(e) {
+        return JSON.stringify({ class: [], list: [] });
+    }
+}
+
+async function homeVod() {
+    return await home(true);
+}
+
+async function category(tid, pg, filter, extend) {
+    try {
+        var d = [];
         var t = String(Math.floor(Date.now() / 1000));
-        var vodId = input.split("/")[0];
+        pg = parseInt(pg, 10) || 1;
+        var sub = (extend && extend.sub) || getSubForTid(tid);
+        var requestKey = JSON.stringify({
+            "area": (extend && extend.area || "0").toString(),
+            "sub": sub.toString(),
+            "year": (extend && extend.year || "0").toString(),
+            "pageSize": "30",
+            "sort": (extend && extend.sort || "d_id").toString(),
+            "page": String(pg),
+            "tid": tid
+        });
+        var requestKeyEnc = aesEncryptHex(requestKey);
+        var body = buildBody(requestKeyEnc, t, KEYS_LIST);
+        var data = await apiPost("/App/IndexList/indexList", body);
+        if (data && data.list) {
+            data.list.forEach(function(item) {
+                d.push({
+                    vod_id: String(item.vod_id),
+                    vod_name: item.vod_name,
+                    vod_pic: item.vod_pic,
+                    vod_remarks: item.vod_continu == 0 ? '电影' : '更新至' + item.vod_continu + '集'
+                });
+            });
+        }
+        return JSON.stringify({ list: d, page: pg, pagecount: 999, limit: 30, total: 9999 });
+    } catch(e) {
+        return JSON.stringify({ list: [], page: 1, pagecount: 0, limit: 30, total: 0 });
+    }
+}
+
+async function detail(id) {
+    try {
+        var t = String(Math.floor(Date.now() / 1000));
+        var vodId = id.split("/")[0];
         var requestKey = JSON.stringify({
             "token_id": "393668", "vod_id": vodId,
             "mobile_time": t, "token": TOKEN
         });
         var requestKeyEnc = aesEncryptHex(requestKey);
         var body = buildBody(requestKeyEnc, t, KEYS_DETAIL);
-        var data = apiPost("/App/IndexPlay/playInfo", body);
+        var data = await apiPost("/App/IndexPlay/playInfo", body);
+        if (!data || !data.vodInfo) return JSON.stringify({ list: [] });
         var vodInfo = data.vodInfo;
 
         var requestKey2 = JSON.stringify({"vurl_cloud_id": "2", "vod_d_id": vodId});
         var requestKeyEnc2 = aesEncryptHex(requestKey2);
         var body2 = buildBody(requestKeyEnc2, t, KEYS_DETAIL);
-        var data2 = apiPost("/App/Resource/Vurl/show", body2);
+        var data2 = await apiPost("/App/Resource/Vurl/show", body2);
 
         var episodes = [];
-        (data2.list || []).forEach(function(item) {
-            var playParams = Object.values(item.play);
-            var lastParam = null;
-            for (var i = playParams.length - 1; i >= 0; i--) {
-                if (playParams[i].param) { lastParam = playParams[i].param; break; }
-            }
-            if (lastParam) {
-                var vm = lastParam.match(/vurl_id=(\d+)/);
-                var rm = lastParam.match(/resolution=(\d+)/);
-                if (vm) episodes.push(item.title + '$' + vodId + '/' + vm[1] + '?' + rm[1]);
-            }
-        });
+        if (data2 && data2.list) {
+            data2.list.forEach(function(item) {
+                var playParams = Object.values(item.play);
+                var lastParam = null;
+                for (var i = playParams.length - 1; i >= 0; i--) {
+                    if (playParams[i].param) { lastParam = playParams[i].param; break; }
+                }
+                if (lastParam) {
+                    var vm = lastParam.match(/vurl_id=(\d+)/);
+                    var rm = lastParam.match(/resolution=(\d+)/);
+                    if (vm) episodes.push(item.title + '$' + vodId + '/' + vm[1] + '?' + (rm ? rm[1] : '1080'));
+                }
+            });
+        }
 
-        VOD = {
-            title: vodInfo.vod_name,
-            type: (vodInfo.videoTag || []).join(''),
-            desc: vodInfo.vod_use_content,
-            vod_actor: vodInfo.vod_actor,
-            vod_area: vodInfo.vod_area,
-            vod_director: vodInfo.vod_director,
-            img: vodInfo.vod_pic,
+        var VOD = {
+            vod_id: String(vodInfo.vod_id || vodId),
+            vod_name: vodInfo.vod_name || '',
+            vod_pic: vodInfo.vod_pic || '',
+            type_name: (vodInfo.videoTag || []).join(''),
+            vod_content: vodInfo.vod_use_content || '',
+            vod_actor: vodInfo.vod_actor || '',
+            vod_area: vodInfo.vod_area || '',
+            vod_director: vodInfo.vod_director || '',
             vod_play_from: '瓜子HD',
             vod_play_url: episodes.join('#')
         };
-    }),
-    搜索: $js.toString(() => {
+        return JSON.stringify({ list: [VOD] });
+    } catch(e) {
+        return JSON.stringify({ list: [] });
+    }
+}
+
+async function play(flag, id, flags) {
+    try {
+        var t = String(Math.floor(Date.now() / 1000));
+        var vodId = id.split("/")[0];
+        var vurlId = id.split("/")[1];
+        var resolution = id.split("?")[1] || '1080';
+        var requestKey = JSON.stringify({
+            "domain_type": "8", "vod_id": vodId, "type": "play",
+            "resolution": resolution, "vurl_id": vurlId
+        });
+        var requestKeyEnc = aesEncryptHex(requestKey);
+        var body = buildBody(requestKeyEnc, t, KEYS_PLAY);
+        var data = await apiPost("/App/Resource/VurlDetail/showOne", body);
+        if (data && data.url) {
+            return JSON.stringify({ url: data.url, parse: 0, header: API_HEADERS });
+        }
+        return JSON.stringify({ url: '', parse: 0 });
+    } catch(e) {
+        return JSON.stringify({ url: '', parse: 0 });
+    }
+}
+
+async function search(wd, quick, pg) {
+    try {
         var d = [];
         var t = String(Math.floor(Date.now() / 1000));
-        var url = input.split("#")[0];
-        var keywords = input.split("#")[1];
-        var requestKey = JSON.stringify({"keywords": keywords, "order_val": "1"});
+        var requestKey = JSON.stringify({"keywords": wd, "order_val": "1"});
         var requestKeyEnc = aesEncryptHex(requestKey);
         var body = buildBody(requestKeyEnc, t, KEYS_LIST);
-        var data = apiPost(url, body);
-        (data.list || []).forEach(function(item) {
-            d.push({
-                title: item.vod_name,
-                desc: item.vod_continu == 0 ? '电影' : '更新至' + item.vod_continu + '集',
-                content: item.vod_addtime,
-                img: item.vod_pic,
-                url: item.vod_id + '/' + item.vod_continu
+        var data = await apiPost("/App/IndexSearch/search", body);
+        if (data && data.list) {
+            data.list.forEach(function(item) {
+                d.push({
+                    vod_id: String(item.vod_id),
+                    vod_name: item.vod_name,
+                    vod_pic: item.vod_pic,
+                    vod_remarks: item.vod_continu == 0 ? '电影' : '更新至' + item.vod_continu + '集'
+                });
             });
-        });
-        setResult(d);
-    })
-};
+        }
+        return JSON.stringify({ list: d, page: 1, pagecount: 1, limit: 30, total: d.length });
+    } catch(e) {
+        return JSON.stringify({ list: [], page: 1, pagecount: 0, limit: 30, total: 0 });
+    }
+}
+
+// ========== 导出 ==========
+
+export function __jsEvalReturn() {
+    return {
+        home: home,
+        homeVod: homeVod,
+        category: category,
+        detail: detail,
+        play: play,
+        search: search,
+        proxy: null
+    };
+}
