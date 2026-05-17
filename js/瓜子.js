@@ -183,33 +183,23 @@ function buildFormBody(bodyObj) {
 }
 
 async function apiPost(path, bodyObj) {
-    // 方式1：用 req() 的 postType:'form'（对象传递）
+    // 影视TV(FongMi)的req() POST时，OkHttp FormBody不编码+号
+    // 服务端把+当空格 → 签名验证失败 → 空响应
+    // 解决：预编码所有值，特别是 keys 里的 + / = * 等特殊字符
+    var encodedBody = {};
+    for (var k in bodyObj) {
+        if (bodyObj.hasOwnProperty(k)) {
+            // encodeURIComponent 把 + → %2B，/ → %2F，= → %3D，* → %2A
+            encodedBody[k] = encodeURIComponent(bodyObj[k]);
+        }
+    }
+
     var respStr = await request(HOST + path, {
         method: 'post',
         headers: API_HEADERS,
-        data: bodyObj,
+        data: encodedBody,
         postType: 'form'
     });
-
-    // 如果方式1失败（空响应），降级为手动编码body
-    if (!respStr || respStr.length < 10) {
-        console.log('postType:form 无响应，降级为手动编码');
-        respStr = await request(HOST + path, {
-            method: 'post',
-            headers: API_HEADERS,
-            data: buildFormBody(bodyObj),
-            postType: 'form'
-        });
-    }
-
-    // 如果还是失败，尝试GET
-    if (!respStr || respStr.length < 10) {
-        console.log('POST全部失败，尝试GET');
-        respStr = await request(HOST + path + '?' + buildFormBody(bodyObj), {
-            method: 'get',
-            headers: API_HEADERS
-        });
-    }
 
     var j = safeParseJSON(respStr);
     if (!j || !j.data) return null;
@@ -260,10 +250,17 @@ var FILTERS = {
     ]
 };
 
+// sub 参数映射（瓜子分类API必须带sub）
+var SUB_MAP = {"1":"5","2":"12","4":"30","3":"22","64":""};
+
+function getSubForTid(tid) {
+    return SUB_MAP[tid] || "";
+}
+
 async function home(filter) {
     try {
         var t = String(Math.floor(Date.now() / 1000));
-        var body = buildBody(aesEncryptHex(JSON.stringify({"area":"0","year":"0","pageSize":"30","sort":"d_id","page":"1","tid":"2"})), t, KEYS_LIST);
+        var body = buildBody(aesEncryptHex(JSON.stringify({"area":"0","sub":"","year":"0","pageSize":"30","sort":"d_id","page":"1","tid":"2"})), t, KEYS_LIST);
         var data = await apiPost("/App/IndexList/indexList", body);
         var d = [];
         if (data && data.list) {
@@ -291,8 +288,10 @@ async function category(tid, pg, filter, extend) {
 
         var d = [], t = String(Math.floor(Date.now() / 1000));
         pg = parseInt(pg, 10) || 1;
+        var sub = ext.sub || getSubForTid(tid);
         var body = buildBody(aesEncryptHex(JSON.stringify({
             "area": (ext.area || "0").toString(),
+            "sub": sub.toString(),
             "year": (ext.year || "0").toString(),
             "pageSize": "30",
             "sort": (ext.sort || "d_id").toString(),
