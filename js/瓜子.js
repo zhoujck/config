@@ -399,14 +399,21 @@ function rsaDecrypt(encBytes) {
 
 async function request(reqUrl, options) {
     if (!options) options = {};
-    var optObj = {
-        headers: options.headers || API_HEADERS,
-        method: (options.method || 'POST').toLowerCase(),
-        data: options.body || '',
-        postType: 'form'
-    };
-    var res = await req(reqUrl, optObj);
-    return res?.content || '';
+    try {
+        var optObj = {
+            headers: options.headers || API_HEADERS,
+            timeout: 20000,
+            charset: 'utf-8',
+            buffer: 0
+        };
+        if (options.method) optObj.method = options.method;
+        if (options.data !== undefined) optObj.data = options.data;
+        if (options.postType) optObj.postType = options.postType;
+        var res = await req(reqUrl, optObj);
+        return (typeof res === 'string') ? res : (res?.content || '');
+    } catch(e) {
+        return '{"code":-1,"msg":"请求失败:' + e.message + '"}';
+    }
 }
 
 function safeParseJSON(jStr) {
@@ -415,21 +422,12 @@ function safeParseJSON(jStr) {
 
 // ========== API 请求 ==========
 
-function buildBody(requestKeyEnc, t, keysStr) {
-    var signature = 'token_id=,token=' + TOKEN + ',phone_type=1,request_key=' + requestKeyEnc
-        + ',app_id=1,time=' + t + ',keys=' + keysStr
-        + '*&zvdvdvddbfikkkumtmdwqppp?|4Y!s!2br';
-    var signature2 = md5(signature);
-    return 'token=' + TOKEN + '&token_id=&phone_type=1&time=' + t
-        + '&phone_model=xiaomi-22021211rc'
-        + '&keys=' + encodeURIComponent(keysStr)
-        + '&request_key=' + requestKeyEnc
-        + '&signature=' + signature2
-        + '&app_id=1&ad_version=1';
-}
-
-async function apiPost(path, body) {
-    var respStr = await request(h_ost + path, { method: 'POST', body: body });
+async function apiPost(path, bodyObj) {
+    var respStr = await request(h_ost + path, {
+        method: 'post',
+        data: bodyObj,
+        postType: 'form'
+    });
     var j = safeParseJSON(respStr);
     if (!j || !j.data) return null;
     var encKeys = b64ToBytes(j.data.keys);
@@ -439,6 +437,27 @@ async function apiPost(path, body) {
     var aesIv = strToBytes(keyiv.iv);
     var plain = aesDecryptHex(j.data.response_key, aesKey, aesIv);
     return JSON.parse(plain);
+}
+
+// ========== API 请求 ==========
+
+function buildBodyObj(requestKeyEnc, t, keysStr) {
+    var signature = 'token_id=,token=' + TOKEN + ',phone_type=1,request_key=' + requestKeyEnc
+        + ',app_id=1,time=' + t + ',keys=' + keysStr
+        + '*&zvdvdvddbfikkkumtmdwqppp?|4Y!s!2br';
+    var signature2 = md5(signature);
+    return {
+        token: TOKEN,
+        token_id: '',
+        phone_type: '1',
+        time: t,
+        phone_model: 'xiaomi-22021211rc',
+        keys: keysStr,
+        request_key: requestKeyEnc,
+        signature: signature2,
+        app_id: '1',
+        ad_version: '1'
+    };
 }
 
 function getSubForTid(tid) {
@@ -459,7 +478,7 @@ async function home(filter) {
             "pageSize": "30", "sort": "d_id", "page": "1", "tid": "2"
         });
         var requestKeyEnc = aesEncryptHex(requestKey);
-        var body = buildBody(requestKeyEnc, t, KEYS_LIST);
+        var body = buildBodyObj(requestKeyEnc, t, KEYS_LIST);
         var data = await apiPost("/App/IndexList/indexList", body);
         if (data && data.list) {
             data.list.forEach(function(item) {
@@ -492,10 +511,11 @@ async function category(tid, pg, filter, extend) {
     try {
         // 兼容 extend 为字符串或对象
         var ext = extend;
+        if (ext === null || ext === undefined) ext = {};
         if (typeof ext === 'string') {
             try { ext = JSON.parse(ext); } catch(e) { ext = {}; }
         }
-        if (!ext || typeof ext !== 'object') ext = {};
+        if (typeof ext !== 'object') ext = {};
 
         var d = [];
         var t = String(Math.floor(Date.now() / 1000));
@@ -508,10 +528,10 @@ async function category(tid, pg, filter, extend) {
             "pageSize": "30",
             "sort": (ext.sort || "d_id").toString(),
             "page": String(pg),
-            "tid": tid
+            "tid": String(tid)
         });
         var requestKeyEnc = aesEncryptHex(requestKey);
-        var body = buildBody(requestKeyEnc, t, KEYS_LIST);
+        var body = buildBodyObj(requestKeyEnc, t, KEYS_LIST);
         var data = await apiPost("/App/IndexList/indexList", body);
         if (data && data.list) {
             data.list.forEach(function(item) {
@@ -539,14 +559,14 @@ async function detail(id) {
             "mobile_time": t, "token": TOKEN
         });
         var requestKeyEnc = aesEncryptHex(requestKey);
-        var body = buildBody(requestKeyEnc, t, KEYS_DETAIL);
+        var body = buildBodyObj(requestKeyEnc, t, KEYS_DETAIL);
         var data = await apiPost("/App/IndexPlay/playInfo", body);
         if (!data || !data.vodInfo) return JSON.stringify({ list: [] });
         var vodInfo = data.vodInfo;
 
         var requestKey2 = JSON.stringify({"vurl_cloud_id": "2", "vod_d_id": vodId});
         var requestKeyEnc2 = aesEncryptHex(requestKey2);
-        var body2 = buildBody(requestKeyEnc2, t, KEYS_DETAIL);
+        var body2 = buildBodyObj(requestKeyEnc2, t, KEYS_DETAIL);
         var data2 = await apiPost("/App/Resource/Vurl/show", body2);
 
         var episodes = [];
@@ -594,7 +614,7 @@ async function play(flag, id, flags) {
             "resolution": resolution, "vurl_id": vurlId
         });
         var requestKeyEnc = aesEncryptHex(requestKey);
-        var body = buildBody(requestKeyEnc, t, KEYS_PLAY);
+        var body = buildBodyObj(requestKeyEnc, t, KEYS_PLAY);
         var data = await apiPost("/App/Resource/VurlDetail/showOne", body);
         if (data && data.url) {
             return JSON.stringify({ url: data.url, parse: 0, header: API_HEADERS });
@@ -611,7 +631,7 @@ async function search(wd, quick, pg) {
         var t = String(Math.floor(Date.now() / 1000));
         var requestKey = JSON.stringify({"keywords": wd, "order_val": "1"});
         var requestKeyEnc = aesEncryptHex(requestKey);
-        var body = buildBody(requestKeyEnc, t, KEYS_LIST);
+        var body = buildBodyObj(requestKeyEnc, t, KEYS_LIST);
         var data = await apiPost("/App/IndexSearch/search", body);
         if (data && data.list) {
             data.list.forEach(function(item) {
