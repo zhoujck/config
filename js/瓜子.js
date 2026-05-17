@@ -478,9 +478,9 @@ async function home(filter) {
             {type_id: "3", type_name: "综艺"},
             {type_id: "64", type_name: "短剧"}
         ];
-        return JSON.stringify({ class: classes, list: d });
+        return JSON.stringify({ class: classes, filters: {}, list: d });
     } catch(e) {
-        return JSON.stringify({ class: [], list: [] });
+        return JSON.stringify({ class: [], filters: {}, list: [] });
     }
 }
 
@@ -490,16 +490,23 @@ async function homeVod() {
 
 async function category(tid, pg, filter, extend) {
     try {
+        // 兼容 extend 为字符串或对象
+        var ext = extend;
+        if (typeof ext === 'string') {
+            try { ext = JSON.parse(ext); } catch(e) { ext = {}; }
+        }
+        if (!ext || typeof ext !== 'object') ext = {};
+
         var d = [];
         var t = String(Math.floor(Date.now() / 1000));
         pg = parseInt(pg, 10) || 1;
-        var sub = (extend && extend.sub) || getSubForTid(tid);
+        var sub = ext.sub || getSubForTid(tid);
         var requestKey = JSON.stringify({
-            "area": (extend && extend.area || "0").toString(),
+            "area": (ext.area || "0").toString(),
             "sub": sub.toString(),
-            "year": (extend && extend.year || "0").toString(),
+            "year": (ext.year || "0").toString(),
             "pageSize": "30",
-            "sort": (extend && extend.sort || "d_id").toString(),
+            "sort": (ext.sort || "d_id").toString(),
             "page": String(pg),
             "tid": tid
         });
@@ -516,7 +523,8 @@ async function category(tid, pg, filter, extend) {
                 });
             });
         }
-        return JSON.stringify({ list: d, page: pg, pagecount: 999, limit: 30, total: 9999 });
+        var pagecount = d.length >= 30 ? pg + 1 : pg;
+        return JSON.stringify({ list: d, page: pg, pagecount: pagecount, limit: 30, total: pagecount * 30 });
     } catch(e) {
         return JSON.stringify({ list: [], page: 1, pagecount: 0, limit: 30, total: 0 });
     }
