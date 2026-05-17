@@ -20,8 +20,8 @@ var API_HEADERS = {
     'PackageName': 'com.uf076bf0c246.qe439f0d5e.m8aaf56b725a.ifeb647346f',
     'Ver': '1.9.2',
     'Referer': HOST,
-    'Content-Type': 'application/x-www-form-urlencoded',
     'User-Agent': 'okhttp/3.12.0'
+    // 注意：不设 Content-Type，由 req() 的 postType:'form' 自动处理
 };
 
 // ==================== 纯JS加密实现 ====================
@@ -127,7 +127,8 @@ function rsaDecrypt(encBytes){var hex='';for(var i=0;i<encBytes.length;i++){var 
 function safeParseJSON(jStr){try{return JSON.parse(jStr);}catch(e){return null;}}
 
 async function request(reqUrl, options) {
-    if (!options) options = {};
+    if (typeof reqUrl !== 'string' || !reqUrl.trim()) { throw new Error('reqUrl需为字符串且非空'); }
+    if (!options || typeof options !== 'object' || Array.isArray(options)) { options = {}; }
     try {
         options.method = (options.method || 'get').toLowerCase();
         if (['get','head'].indexOf(options.method) >= 0) {
@@ -137,9 +138,15 @@ async function request(reqUrl, options) {
             options.data = options.data || '';
             options.postType = (options.postType || 'form').toLowerCase();
         }
-        var headers = (typeof options.headers === 'object' && options.headers) ? options.headers : API_HEADERS;
+        var headers = (typeof options.headers === 'object' && !Array.isArray(options.headers) && options.headers) ? options.headers : API_HEADERS;
         var timeout = parseInt(options.timeout, 10) > 0 ? parseInt(options.timeout, 10) : 20000;
-        var optObj = { headers: headers, timeout: timeout, charset: 'utf-8', buffer: 0 };
+        var charset = (options.charset || 'utf-8').toLowerCase();
+        var optObj = {
+            headers: headers,
+            timeout: timeout,
+            charset: charset,
+            buffer: 0
+        };
         if (options.method) optObj.method = options.method;
         if (options.data !== undefined) optObj.data = options.data;
         if (options.postType) optObj.postType = options.postType;
@@ -164,13 +171,46 @@ function buildBody(requestKeyEnc, t, keysStr) {
     };
 }
 
+// 构建 form body 字符串（手动URL编码，防止特殊字符丢失）
+function buildFormBody(bodyObj) {
+    var parts = [];
+    for (var k in bodyObj) {
+        if (bodyObj.hasOwnProperty(k) && bodyObj[k] !== undefined && bodyObj[k] !== null) {
+            parts.push(encodeURIComponent(k) + '=' + encodeURIComponent(bodyObj[k]));
+        }
+    }
+    return parts.join('&');
+}
+
 async function apiPost(path, bodyObj) {
+    // 方式1：用 req() 的 postType:'form'（对象传递）
     var respStr = await request(HOST + path, {
         method: 'post',
         headers: API_HEADERS,
         data: bodyObj,
         postType: 'form'
     });
+
+    // 如果方式1失败（空响应），降级为手动编码body
+    if (!respStr || respStr.length < 10) {
+        console.log('postType:form 无响应，降级为手动编码');
+        respStr = await request(HOST + path, {
+            method: 'post',
+            headers: API_HEADERS,
+            data: buildFormBody(bodyObj),
+            postType: 'form'
+        });
+    }
+
+    // 如果还是失败，尝试GET
+    if (!respStr || respStr.length < 10) {
+        console.log('POST全部失败，尝试GET');
+        respStr = await request(HOST + path + '?' + buildFormBody(bodyObj), {
+            method: 'get',
+            headers: API_HEADERS
+        });
+    }
+
     var j = safeParseJSON(respStr);
     if (!j || !j.data) return null;
     try {
