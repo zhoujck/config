@@ -290,7 +290,8 @@ class Spider(Spider):
                         "playUrl": "",
                         "url": data['url'],
                         "header": {
-                            'User-Agent': 'com.android.chrome/131.0.6778.200 (Linux;Android 15) AndroidXMedia3/1.6.1'
+                            'User-Agent': 'Lavf/57.83.100',
+                            'Referer': 'http://WJiZxLXA2.com/'
                         }
                     }
             
@@ -364,7 +365,12 @@ class Spider(Spider):
                 return None
             
             t = str(int(time.time()))
-            keys = "Qmxi5ciWXbQzkr7o+SUNiUuQxQEf8/AVyUWY4T/BGhcXBIUz4nOyHBGf9A4KbM0iKF3yp9M7WAY0rrs5PzdTAOB45plcS2zZ0wUibcXuGJ29VVGRWKGwE9zu2vLwhfgjTaaDpXo4rby+7GxXTktzJmxvneOUdYeHi+PZsThlvPI="
+            # 修复：不同端点使用不同 keys（与JS版一致）
+            keys_map = {
+                '/App/IndexList/indexList': 'qDpotE2bedimK3QGqlyV5ieXXC3EhaPLQ+IOJyHnHflCj5w/7ESK7FgywMvrgjxbx0GklEFLI4+JshgySe633OIRstuktwdiCy3CT+fLSpuxBJDIlfXQDaeH3ig1wiB0JsZ601XHiFweGMu4tZfnSpHg3OnoL6nz/uurUif2OK4=',
+                '/App/Index/findMoreVod': 'qDpotE2bedimK3QGqlyV5ieXXC3EhaPLQ+IOJyHnHflCj5w/7ESK7FgywMvrgjxbx0GklEFLI4+JshgySe633OIRstuktwdiCy3CT+fLSpuxBJDIlfXQDaeH3ig1wiB0JsZ601XHiFweGMu4tZfnSpHg3OnoL6nz/uurUif2OK4=',
+            }
+            keys = keys_map.get(path, 'Qmxi5ciWXbQzkr7o+SUNiUuQxQEf8/AVyUWY4T/BGhcXBIUz4nOyHBGf9A4KbM0iKF3yp9M7WAY0rrs5PzdTAOB45plcS2zZ0wUibcXuGJ29VVGRWKGwE9zu2vLwhfgjTaaDpXo4rby+7GxXTktzJmxvneOUdYeHi+PZsThlvPI=')
             sign_str = f"token_id=,token={self.token},phone_type=1,request_key={request_key},app_id=1,time={t},keys={keys}*&zvdvdvddbfikkkumtmdwqppp?|4Y!s!2br"
             # 修复：签名改为大写
             signature = hashlib.md5(sign_str.encode()).hexdigest().upper()
