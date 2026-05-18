@@ -634,17 +634,13 @@ function buildRequestBody(data) {
 
 async function getData(data, path) {
     try {
+        console.log('[瓜子] getData start, path=' + path);
         var body = buildRequestBody(data);
-        if (!body) return null;
+        if (!body) { console.log('[瓜子] ERR: buildRequestBody failed'); return null; }
+        console.log('[瓜子] body built, request_key len=' + (body.request_key || '').length);
 
         var url = HOST + path;
-        var formStr = '';
-        for (var k in body) {
-            if (body.hasOwnProperty(k)) {
-                if (formStr) formStr += '&';
-                formStr += k + '=' + encodeURIComponent(body[k]);
-            }
-        }
+        console.log('[瓜子] url=' + url);
 
         var headers = {};
         for (var k in DefHeader) { if (DefHeader.hasOwnProperty(k)) headers[k] = DefHeader[k]; }
@@ -653,20 +649,42 @@ async function getData(data, path) {
         var res = await req(url, {
             method: 'post',
             headers: headers,
-            data: formStr,
+            data: body,
             postType: 'form',
-            timeout: 10000
+            timeout: 15000
         });
 
-        var content = res && res.content ? res.content : '';
-        if (!content) return null;
+        // 兼容不同返回格式
+        var content = '';
+        if (res) {
+            if (typeof res === 'string') {
+                content = res;
+            } else if (res.content) {
+                content = res.content;
+            } else if (res.body) {
+                content = res.body;
+            }
+        }
+        console.log('[瓜子] req done, content_len=' + content.length + ' type=' + typeof res);
+        if (!content) { console.log('[瓜子] ERR: req returned empty'); return null; }
+
+        // 打印响应前200字符帮助调试
+        console.log('[瓜子] response preview: ' + content.substring(0, 200));
 
         var responseData;
-        try { responseData = JSON.parse(content); } catch(e) { return null; }
+        try { responseData = JSON.parse(content); } catch(e) {
+            console.log('[瓜子] ERR: JSON parse failed: ' + e.message);
+            return null;
+        }
 
-        if (!responseData || !responseData.data) return null;
+        if (!responseData || !responseData.data) {
+            console.log('[瓜子] ERR: no data field in response, keys=' + JSON.stringify(Object.keys(responseData || {})));
+            return null;
+        }
 
         var dataResp = responseData.data;
+        console.log('[瓜子] dataResp keys: ' + JSON.stringify(Object.keys(dataResp)));
+        console.log('[瓜子] has keys: ' + !!dataResp.keys + ' has response_key: ' + !!dataResp.response_key);
 
         // RSA decrypt the AES key
         var privateKeyPem = '-----BEGIN PRIVATE KEY-----\n' +
@@ -686,18 +704,29 @@ async function getData(data, path) {
             't5lYKfpe8k83ZA==\n' +
             '-----END PRIVATE KEY-----';
 
+        console.log('[瓜子] starting RSA decrypt...');
         var bodykiJson = rsaDecrypt(dataResp.keys, privateKeyPem);
-        if (!bodykiJson) return null;
+        if (!bodykiJson) { console.log('[瓜子] ERR: RSA decrypt failed'); return null; }
+        console.log('[瓜子] RSA ok, bodykiJson=' + bodykiJson.substring(0, 100));
 
         var bodyki;
-        try { bodyki = JSON.parse(bodykiJson); } catch(e) { return null; }
+        try { bodyki = JSON.parse(bodykiJson); } catch(e) {
+            console.log('[瓜子] ERR: bodyki JSON parse failed: ' + e.message);
+            return null;
+        }
 
         // AES decrypt the response data
+        console.log('[瓜子] starting AES decrypt, key=' + (bodyki.key || '').substring(0,8) + '... iv=' + (bodyki.iv || '').substring(0,8) + '...');
         var decryptedData = aesDecrypt(dataResp.response_key, bodyki.key, bodyki.iv);
-        if (!decryptedData) return null;
+        if (!decryptedData) { console.log('[瓜子] ERR: AES decrypt failed'); return null; }
+        console.log('[瓜子] AES ok, decrypted len=' + decryptedData.length);
+        console.log('[瓜子] decrypted preview: ' + decryptedData.substring(0, 200));
 
         var result;
-        try { result = JSON.parse(decryptedData); } catch(e) { return null; }
+        try { result = JSON.parse(decryptedData); } catch(e) {
+            console.log('[瓜子] ERR: result JSON parse failed: ' + e.message);
+            return null;
+        }
         return result;
 
     } catch (e) { return null; }
