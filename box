@@ -18,7 +18,7 @@
   {"key": "JS5","name": "🍬热播","type": 3,"api": "./js/热播.js","searchable": 1,"ext": ""},
   {"key": "JS11","name": "🍬糯米","type": 3,"api": "./js/lib/drpy2.min.js","searchable": 1,"ext": "./js/农民影视.js"},
   {"key": "JS12","name": "🍬瓜子","type": 3,"api": "./js/瓜子.js","searchable": 1,"ext": ""},
-  {"key": "JS13","name": "🍬瓜子","type": 3,"api": "./js/瓜子.py","searchable": 1,"ext": ""},
+  {"key": "JS13","name": "🍬瓜子","type": 3,"api": "./js/瓜子.py","searchable": 1,"ext":{"sites":"","filters":"https://jihulab.com/yoursmile3/TVBox/-/raw/main/guazi.json"}},
   {"key": "线路1","name": "🐼潮流","type": 3,"api": "csp_AppRJ","timeout": 25,"ext": "http://v.rbotv.cn"},
   //{"key": "线路2","name": "🐼瓜子","type": 3,"api": "csp_Gz360","timeout": 25},
   {"key": "线路4","name": "🐼蔬菜","type": 3,"api": "csp_AppGet","timeout": 25,"ext": "https://gitee.com/wmmoliill/wimg/raw/master/img/bk/9.txt|88689667dce61725"},
