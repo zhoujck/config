@@ -1,918 +1,540 @@
-/*
- * 玩偶 - TVBox/FongMi 格式
- * 基于 OmniBox 版本转换，保留核心爬取逻辑
- * 格式：__jsEvalReturn() 导出，返回 JSON 字符串
- */
+const crypto = require('crypto');
+const CryptoJS = require('crypto-js');
+const NodeRSA = require('node-rsa');
+const axios = require('axios');
 
-var HOST = '';
-var MOBILE_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
-var TIMEOUT = 15000;
-
-// 多域名容灾列表（可通过 ext.host 覆盖第一个）
-var WEB_SITES = [
-    'https://wogg.xxooo.cf',
-    'https://wogg.333232.xyz',
-    'https://www.wogg.net'
-];
-
-// 网盘排序顺序
-var DRIVE_ORDER = ['baidu', 'tianyi', 'quark', 'uc', '115', 'xunlei', 'ali', '123pan'];
-
-var DEF_HEADERS = {
-    'User-Agent': MOBILE_UA,
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-    'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8'
-};
-
-// ========== 初始化 ==========
-
-async function init(cfg) {
-    try {
-        var host = cfg.ext ? (cfg.ext.host || '').trim() : '';
-        if (host) {
-            WEB_SITES[0] = host.replace(/\/+$/, '');
-        }
-        HOST = WEB_SITES[0];
-
-        var timeoutStr = cfg.ext ? (cfg.ext.timeout || '').trim() : '';
-        var parsedTimeout = parseInt(timeoutStr, 10);
-        TIMEOUT = parsedTimeout > 0 ? parsedTimeout : 15000;
-
-        log('初始化完成, HOST=' + HOST + ', TIMEOUT=' + TIMEOUT);
-    } catch (e) {
-        log('初始化失败: ' + e.message);
+class Spider {
+    constructor() {
+        this.name = "瓜子";
+        this.host = 'https://api.w32z7vtd.com';
+        this.token = '1be86e8e18a9fa18b2b8d5432699dad0.ac008ed650fd087bfbecf2fda9d82e9835253ef24843e6b18fcd128b10763497bcf9d53e959f5377cde038c20ccf9d17f604c9b8bb6e61041def86729b2fc7408bd241e23c213ac57f0226ee656e2bb0a583ae0e4f3bf6c6ab6c490c9a6f0d8cdfd366aacf5d83193671a8f77cd1af1ff2e9145de92ec43ec87cf4bdc563f6e919fe32861b0e93b118ec37d8035fbb3c.59dd05c5d9a8ae726528783128218f15fe6f2c0c8145eddab112b374fcfe3d79';
+        this.header = {
+            'Cache-Control': 'no-cache',
+            'Version': '2406025',
+            'PackageName': 'com.uf076bf0c246.qe439f0d5e.m8aaf56b725a.ifeb647346f',
+            'Ver': '1.9.2',
+            'Referer': this.host,
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'User-Agent': 'okhttp/3.12.0'
+        };
+        // 缓存机制
+        this.cache = {};
+        this.cacheTimeout = 300; // 5分钟缓存
     }
-}
 
-// ========== HTTP 请求（带多域名容灾） ==========
+    getName() {
+        return this.name;
+    }
 
-async function requestWithFailover(path, options) {
-    options = options || {};
-    var lastError = null;
-    var perDomainTimeout = Math.max(5000, Math.floor(TIMEOUT / WEB_SITES.length));
+    init(extend = '') {
+        // 初始化方法
+    }
 
-    for (var i = 0; i < WEB_SITES.length; i++) {
-        var baseUrl = removeTrailingSlash(WEB_SITES[i]);
-        var fullUrl = path.indexOf('http') === 0 ? path : baseUrl + path;
+    homeContent(filter) {
+        const result = {};
+        const classes = [
+            {"type_name": "电影", "type_id": "1"},
+            {"type_name": "电视剧", "type_id": "2"},
+            {"type_name": "动漫", "type_id": "4"},
+            {"type_name": "综艺", "type_id": "3"},
+            {"type_name": "短剧", "type_id": "64"}
+        ];
+        
+        result.class = classes;
+        
+        // 设置筛选条件
+        const filters = {};
+        for (const cate of classes) {
+            const tid = cate.type_id;
+            filters[tid] = [
+                {"key": "area", "name": "地区", "value": [
+                    {"n": "全部", "v": "0"},
+                    {"n": "大陆", "v": "大陆"},
+                    {"n": "香港", "v": "香港"},
+                    {"n": "台湾", "v": "台湾"},
+                    {"n": "美国", "v": "美国"},
+                    {"n": "韩国", "v": "韩国"},
+                    {"n": "日本", "v": "日本"},
+                    {"n": "英国", "v": "英国"},
+                    {"n": "法国", "v": "法国"},
+                    {"n": "泰国", "v": "泰国"},
+                    {"n": "印度", "v": "印度"},
+                    {"n": "其他", "v": "其他"}
+                ]},
+                {"key": "year", "name": "年份", "value": [
+                    {"n": "全部", "v": "0"},
+                    {"n": "2025", "v": "2025"},
+                    {"n": "2024", "v": "2024"},
+                    {"n": "2023", "v": "2023"},
+                    {"n": "2022", "v": "2022"},
+                    {"n": "2021", "v": "2021"},
+                    {"n": "2020", "v": "2020"},
+                    {"n": "2019", "v": "2019"},
+                    {"n": "2018", "v": "2018"},
+                    {"n": "2017", "v": "2017"},
+                    {"n": "2016", "v": "2016"},
+                    {"n": "2015", "v": "2015"},
+                    {"n": "2014", "v": "2014"},
+                    {"n": "2013", "v": "2013"},
+                    {"n": "2012", "v": "2012"},
+                    {"n": "2011", "v": "2011"},
+                    {"n": "2010", "v": "2010"},
+                    {"n": "2009", "v": "2009"},
+                    {"n": "2008", "v": "2008"},
+                    {"n": "2007", "v": "2007"},
+                    {"n": "2006", "v": "2006"},
+                    {"n": "2005", "v": "2005"},
+                    {"n": "更早", "v": "2004"}
+                ]},
+                {"key": "sort", "name": "排序", "value": [
+                    {"n": "最新", "v": "d_id"},
+                    {"n": "最热", "v": "d_hits"},
+                    {"n": "推荐", "v": "d_score"}
+                ]}
+            ];
+        }
+        
+        result.filters = filters;
+        return result;
+    }
 
+    homeVideoContent() {
+        // 首页推荐返回空列表
+        return { 'list': [] };
+    }
+
+    async categoryContent(tid, pg, filter, extend) {
+        const videos = [];
         try {
-            var headers = {};
-            for (var k in DEF_HEADERS) { headers[k] = DEF_HEADERS[k]; }
-            if (options.headers) {
-                for (var h in options.headers) { headers[h] = options.headers[h]; }
-            }
-            headers['Referer'] = baseUrl + '/';
-
-            var reqOptions = {
-                headers: headers,
-                timeout: options.timeout || perDomainTimeout
+            const body = {
+                "area": extend?.area || '0',
+                "year": extend?.year || '0',
+                "pageSize": "30",
+                "sort": extend?.sort || 'd_id',
+                "page": pg.toString(),
+                "tid": tid
             };
-            if (options.method) {
-                reqOptions.method = options.method;
-            }
-            if (options.data !== undefined) {
-                reqOptions.data = options.data;
-                reqOptions.postType = options.postType || 'form';
-            }
-
-            var res = await req(fullUrl, reqOptions);
-            var body = res && res.content ? res.content : '';
-
-            if (body && body.length > 0) {
-                // 检测 CF 盾拦截页
-                if (isBlockedHtml(body)) {
-                    log('域名 ' + baseUrl + ' 命中风控页, 跳过');
-                    lastError = new Error('命中风控页面');
-                    continue;
+            
+            const cacheKey = `category_${tid}_${pg}_${this.hashCode(JSON.stringify(body))}`;
+            const data = await this.getCachedData(cacheKey, body, '/App/IndexList/indexList');
+            
+            if (data && data.list) {
+                for (const item of data.list) {
+                    const vodContinu = item.vod_continu || 0;
+                    const remarks = vodContinu === 0 ? '电影' : `更新至${vodContinu}集`;
+                    
+                    const video = {
+                        "vod_id": `${item.vod_id || ''}/${vodContinu}`,
+                        "vod_name": item.vod_name || '',
+                        "vod_pic": item.vod_pic || '',
+                        "vod_remarks": remarks
+                    };
+                    videos.push(video);
                 }
-                log('域名 ' + baseUrl + ' 请求成功, body长度=' + body.length);
-                return { body: body, baseUrl: baseUrl };
-            } else {
-                log('域名 ' + baseUrl + ' 返回空内容');
-                lastError = new Error('空响应');
             }
         } catch (e) {
-            log('域名 ' + baseUrl + ' 请求失败: ' + e.message);
-            lastError = e;
+            console.error(`获取分类内容失败: ${e}`);
         }
-    }
-
-    throw lastError || new Error('所有域名请求均失败');
-}
-
-function isBlockedHtml(body) {
-    if (!body) return false;
-    var lower = body.toLowerCase();
-    return lower.indexOf('just a moment') >= 0 ||
-           lower.indexOf('cf-browser-verification') >= 0 ||
-           lower.indexOf('captcha') >= 0 ||
-           lower.indexOf('访问验证') >= 0;
-}
-
-function removeTrailingSlash(url) {
-    return url ? url.replace(/\/+$/, '') : '';
-}
-
-// ========== 工具函数 ==========
-
-function stripHtml(value) {
-    return String(value == null ? '' : value).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
-}
-
-function safeParseJSON(str) {
-    try { return JSON.parse(str); } catch (e) { return null; }
-}
-
-function resolveUrl(baseUrl, url) {
-    if (!url) return '';
-    if (url.indexOf('http://') === 0 || url.indexOf('https://') === 0) return url;
-    if (url.indexOf('//') === 0) return 'https:' + url;
-    return baseUrl + (url.indexOf('/') === 0 ? url : '/' + url);
-}
-
-function getAttr(html, attr) {
-    var re = new RegExp(attr + '="([^"]*)"');
-    var m = html.match(re);
-    return m ? m[1] : '';
-}
-
-function getAttrSingle(html, attr) {
-    var re = new RegExp(attr + "=\'([^\']*)\'");
-    var m = html.match(re);
-    return m ? m[1] : '';
-}
-
-function extractBetween(html, startTag, endTag) {
-    var si = html.indexOf(startTag);
-    if (si < 0) return '';
-    si += startTag.length;
-    var ei = html.indexOf(endTag, si);
-    if (ei < 0) return html.substring(si);
-    return html.substring(si, ei);
-}
-
-function inferDriveType(name) {
-    if (!name) return '';
-    var lower = name.toLowerCase();
-    if (lower.indexOf('百度') >= 0) return 'baidu';
-    if (lower.indexOf('天翼') >= 0) return 'tianyi';
-    if (lower.indexOf('夸克') >= 0) return 'quark';
-    if (lower === 'uc' || lower.indexOf('uc') >= 0) return 'uc';
-    if (lower.indexOf('115') >= 0) return '115';
-    if (lower.indexOf('迅雷') >= 0) return 'xunlei';
-    if (lower.indexOf('阿里') >= 0) return 'ali';
-    if (lower.indexOf('123') >= 0) return '123pan';
-    return lower;
-}
-
-function sortByDriveOrder(sources) {
-    if (!sources || sources.length <= 1) return sources;
-    var orderMap = {};
-    for (var i = 0; i < DRIVE_ORDER.length; i++) {
-        orderMap[DRIVE_ORDER[i]] = i;
-    }
-    return sources.slice().sort(function(a, b) {
-        var aType = inferDriveType(a.name || '');
-        var bType = inferDriveType(b.name || '');
-        var aOrder = orderMap.hasOwnProperty(aType) ? orderMap[aType] : 9999;
-        var bOrder = orderMap.hasOwnProperty(bType) ? orderMap[bType] : 9999;
-        return aOrder - bOrder;
-    });
-}
-
-// ========== 核心接口 ==========
-
-async function home(filter) {
-    try {
-        var result = await requestWithFailover('/');
-        var body = result.body;
-        var baseUrl = result.baseUrl;
-
-        var classes = [];
-        var list = [];
-
-        // 从导航菜单提取分类（tab-items）
-        var tabRe = /<div[^>]*class="[^"]*module-tab-item[^"]*"[^>]*data-id="(\d+)"[^>]*data-name="([^"]*)"[^>]*>/gi;
-        var tabMatch;
-        while ((tabMatch = tabRe.exec(body)) !== null) {
-            var typeId = tabMatch[1];
-            var typeName = tabMatch[2];
-            if (typeId && typeId !== '0' && typeName) {
-                classes.push({
-                    type_id: typeId,
-                    type_name: typeName.trim()
-                });
-            }
-        }
-
-        // 也尝试不带 data-id 前缀的格式
-        if (classes.length === 0) {
-            var tabRe2 = /data-id="(\d+)"[^>]*data-name="([^"]*)"/gi;
-            while ((tabMatch = tabRe2.exec(body)) !== null) {
-                var typeId2 = tabMatch[1];
-                var typeName2 = tabMatch[2];
-                if (typeId2 && typeId2 !== '0' && typeName2) {
-                    classes.push({
-                        type_id: typeId2,
-                        type_name: typeName2.trim()
-                    });
-                }
-            }
-        }
-
-        // 提取首页影片列表
-        var moduleRe = /<div[^>]*class="[^"]*module\b[^"]*"[^>]*>([\s\S]*?)(?=<div[^>]*class="[^"]*module\b[^"]*"|$)/gi;
-        var firstModule = moduleRe.exec(body);
-        var moduleHtml = firstModule ? firstModule[1] : body;
-
-        // 提取 module-item
-        var itemRe = /<div[^>]*class="[^"]*module-item\b[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?=<div[^>]*class="[^"]*module-item|<\/div>)/gi;
-        var itemMatch;
-        var count = 0;
-
-        while ((itemMatch = itemRe.exec(moduleHtml)) !== null && count < 30) {
-            var itemHtml = itemMatch[1];
-            var href = '';
-            var vodName = '';
-            var vodPic = '';
-            var vodRemarks = '';
-
-            // 提取链接
-            var linkMatch = itemHtml.match(/<a[^>]*href="([^"]*)"[^>]*>/);
-            if (linkMatch) href = linkMatch[1];
-
-            // 提取图片和名称
-            var imgMatch = itemHtml.match(/<img[^>]*(?:data-src|src)="([^"]*)"[^>]*alt="([^"]*)"/);
-            if (!imgMatch) {
-                imgMatch = itemHtml.match(/<img[^>]*alt="([^"]*)"[^>]*(?:data-src|src)="([^"]*)"/);
-                if (imgMatch) {
-                    vodPic = imgMatch[2];
-                    vodName = imgMatch[1];
-                    imgMatch = [null, vodPic, vodName]; // normalize
-                }
-            }
-            if (imgMatch) {
-                vodPic = imgMatch[1];
-                vodName = imgMatch[2];
-            }
-
-            // 提取备注
-            var remarkMatch = itemHtml.match(/<div[^>]*class="[^"]*module-item-text[^"]*"[^>]*>([\s\S]*?)<\/div>/);
-            if (remarkMatch) vodRemarks = stripHtml(remarkMatch[1]);
-
-            if (href && vodName) {
-                list.push({
-                    vod_id: href,
-                    vod_name: vodName.trim(),
-                    vod_pic: resolveUrl(baseUrl, vodPic),
-                    type_id: '',
-                    type_name: '',
-                    vod_remarks: vodRemarks,
-                    vod_year: ''
-                });
-                count++;
-            }
-        }
-
-        // 获取动态筛选条件
-        var filters = {};
-        try {
-            filters = await getDynamicFilters(body, baseUrl);
-        } catch (fe) {
-            log('获取筛选条件失败: ' + fe.message);
-        }
-
-        log('首页: 分类=' + classes.length + ', 影片=' + list.length);
-        return JSON.stringify({
-            'class': classes,
-            filters: filters,
-            list: list
-        });
-    } catch (e) {
-        log('首页获取失败: ' + e.message);
-        return JSON.stringify({ 'class': [], filters: {}, list: [] });
-    }
-}
-
-async function homeVod() {
-    try {
-        var result = await requestWithFailover('/');
-        var body = result.body;
-        var baseUrl = result.baseUrl;
-        var list = [];
-
-        var moduleRe = /<div[^>]*class="[^"]*module\b[^"]*"[^>]*>([\s\S]*?)(?=<div[^>]*class="[^"]*module\b[^"]*"|$)/i;
-        var firstModule = moduleRe.exec(body);
-        var moduleHtml = firstModule ? firstModule[1] : body;
-
-        var itemRe = /<div[^>]*class="[^"]*module-item\b[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?=<div[^>]*class="[^"]*module-item|<\/div>)/gi;
-        var itemMatch;
-        var count = 0;
-
-        while ((itemMatch = itemRe.exec(moduleHtml)) !== null && count < 20) {
-            var itemHtml = itemMatch[1];
-            var href = '';
-            var vodName = '';
-            var vodPic = '';
-            var vodRemarks = '';
-
-            var linkMatch = itemHtml.match(/<a[^>]*href="([^"]*)"[^>]*>/);
-            if (linkMatch) href = linkMatch[1];
-
-            var imgMatch = itemHtml.match(/<img[^>]*(?:data-src|src)="([^"]*)"[^>]*alt="([^"]*)"/);
-            if (!imgMatch) {
-                imgMatch = itemHtml.match(/<img[^>]*alt="([^"]*)"[^>]*(?:data-src|src)="([^"]*)"/);
-                if (imgMatch) imgMatch = [null, imgMatch[2], imgMatch[1]];
-            }
-            if (imgMatch) {
-                vodPic = imgMatch[1];
-                vodName = imgMatch[2];
-            }
-
-            var remarkMatch = itemHtml.match(/<div[^>]*class="[^"]*module-item-text[^"]*"[^>]*>([\s\S]*?)<\/div>/);
-            if (remarkMatch) vodRemarks = stripHtml(remarkMatch[1]);
-
-            if (href && vodName) {
-                list.push({
-                    vod_id: href,
-                    vod_name: vodName.trim(),
-                    vod_pic: resolveUrl(baseUrl, vodPic),
-                    vod_remarks: vodRemarks
-                });
-                count++;
-            }
-        }
-
-        return JSON.stringify({ list: list });
-    } catch (e) {
-        log('推荐页获取失败: ' + e.message);
-        return JSON.stringify({ list: [] });
-    }
-}
-
-async function category(tid, pg, filter, extend) {
-    try {
-        pg = parseInt(pg, 10);
-        pg = pg > 0 ? pg : 1;
-
-        var area = (extend && extend.area) || '';
-        var sort = (extend && extend.sort) || '';
-        var cls = (extend && extend['class']) || '';
-        var letter = (extend && extend.letter) || '';
-        var year = (extend && extend.year) || '';
-
-        var url = '/vodshow/' + tid + '-' + area + '-' + sort + '-' + cls + '--' + letter + '---' + pg + '---' + year + '.html';
-
-        var result = await requestWithFailover(url);
-        var body = result.body;
-        var baseUrl = result.baseUrl;
-
-        var videos = [];
-
-        // 解析视频列表项
-        var itemRe = /<div[^>]*class="[^"]*module-item\b[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?=<div[^>]*class="[^"]*module-item|<\/div>)/gi;
-        var itemMatch;
-
-        while ((itemMatch = itemRe.exec(body)) !== null) {
-            var itemHtml = itemMatch[1];
-            var href = '';
-            var vodName = '';
-            var vodPic = '';
-            var vodRemarks = '';
-            var vodYear = '';
-
-            var linkMatch = itemHtml.match(/<a[^>]*href="([^"]*)"[^>]*>/);
-            if (linkMatch) href = linkMatch[1];
-
-            var imgMatch = itemHtml.match(/<img[^>]*(?:data-src|src)="([^"]*)"[^>]*alt="([^"]*)"/);
-            if (!imgMatch) {
-                imgMatch = itemHtml.match(/<img[^>]*alt="([^"]*)"[^>]*(?:data-src|src)="([^"]*)"/);
-                if (imgMatch) imgMatch = [null, imgMatch[2], imgMatch[1]];
-            }
-            if (imgMatch) {
-                vodPic = imgMatch[1];
-                vodName = imgMatch[2];
-            }
-
-            var remarkMatch = itemHtml.match(/<div[^>]*class="[^"]*module-item-text[^"]*"[^>]*>([\s\S]*?)<\/div>/);
-            if (remarkMatch) vodRemarks = stripHtml(remarkMatch[1]);
-
-            var yearMatch = itemHtml.match(/<div[^>]*class="[^"]*module-item-caption[^"]*"[^>]*>[\s\S]*?<span[^>]*>([\s\S]*?)<\/span>/);
-            if (yearMatch) vodYear = stripHtml(yearMatch[1]);
-
-            if (href && vodName) {
-                videos.push({
-                    vod_id: href,
-                    vod_name: vodName.trim(),
-                    vod_pic: resolveUrl(baseUrl, vodPic),
-                    type_id: tid,
-                    type_name: '',
-                    vod_remarks: vodRemarks,
-                    vod_year: vodYear
-                });
-            }
-        }
-
-        log('分类页: tid=' + tid + ', pg=' + pg + ', 结果=' + videos.length);
-        return JSON.stringify({
-            list: videos,
-            page: pg,
-            pagecount: pg + (videos.length >= 20 ? 1 : 0),
-            limit: 20,
-            total: pg * 20 + (videos.length >= 20 ? 1 : 0)
-        });
-    } catch (e) {
-        log('分类页获取失败: ' + e.message);
-        return JSON.stringify({ list: [], page: 1, pagecount: 0, limit: 20, total: 0 });
-    }
-}
-
-async function search(wd, quick, pg) {
-    try {
-        pg = parseInt(pg, 10);
-        pg = pg > 0 ? pg : 1;
-
-        var searchPath = '/vodsearch/-------------.html?wd=' + encodeURIComponent(wd);
-        var result = await requestWithFailover(searchPath);
-        var body = result.body;
-        var baseUrl = result.baseUrl;
-
-        var videos = [];
-
-        // 解析搜索结果
-        var searchItemRe = /<div[^>]*class="[^"]*module-search-item[^"]*"[^>]*>([\s\S]*?)(?=<div[^>]*class="[^"]*module-search-item|<div[^>]*class="[^"]*page|<\/body)/gi;
-        var searchMatch;
-
-        while ((searchMatch = searchItemRe.exec(body)) !== null) {
-            var itemHtml = searchMatch[1];
-            var href = '';
-            var vodName = '';
-            var vodPic = '';
-            var vodRemarks = '';
-
-            // 提取 video-serial 链接（主要的详情链接）
-            var serialMatch = itemHtml.match(/<a[^>]*class="[^"]*video-serial[^"]*"[^>]*href="([^"]*)"[^>]*title="([^"]*)"[^>]*>/);
-            if (!serialMatch) {
-                serialMatch = itemHtml.match(/<a[^>]*href="([^"]*)"[^>]*class="[^"]*video-serial[^"]*"[^>]*title="([^"]*)"[^>]*>/);
-            }
-            if (serialMatch) {
-                href = serialMatch[1];
-                vodName = serialMatch[2];
-            }
-
-            // 提取图片
-            var imgMatch = itemHtml.match(/<img[^>]*(?:data-src|src)="([^"]*)"[^>]*(?:alt|title)="([^"]*)"/);
-            if (imgMatch) {
-                if (!vodName) vodName = imgMatch[2];
-                vodPic = imgMatch[1];
-            }
-
-            // 提取备注文本
-            var serialTextMatch = itemHtml.match(/<a[^>]*class="[^"]*video-serial[^"]*"[^>]*>([\s\S]*?)<\/a>/);
-            if (serialTextMatch) vodRemarks = stripHtml(serialTextMatch[1]);
-
-            if (href && vodName) {
-                videos.push({
-                    vod_id: href,
-                    vod_name: vodName.trim(),
-                    vod_pic: resolveUrl(baseUrl, vodPic),
-                    type_id: '',
-                    type_name: '',
-                    vod_remarks: vodRemarks
-                });
-            }
-        }
-
-        // 备用解析：如果没有搜到，尝试更宽泛的匹配
-        if (videos.length === 0) {
-            var altRe = /<a[^>]*href="(\/voddetail\/[^"]*)"[^>]*title="([^"]*)"[^>]*>/gi;
-            var altMatch;
-            while ((altMatch = altRe.exec(body)) !== null) {
-                videos.push({
-                    vod_id: altMatch[1],
-                    vod_name: altMatch[2].trim(),
-                    vod_pic: '',
-                    type_id: '',
-                    type_name: '',
-                    vod_remarks: ''
-                });
-            }
-        }
-
-        log('搜索: wd=' + wd + ', pg=' + pg + ', 结果=' + videos.length);
-        return JSON.stringify({
-            list: videos,
-            page: pg,
-            pagecount: pg + (videos.length >= 20 ? 1 : 0),
-            limit: 20,
-            total: pg * 20 + (videos.length >= 20 ? 1 : 0)
-        });
-    } catch (e) {
-        log('搜索失败: ' + e.message);
-        return JSON.stringify({ list: [], page: 1, pagecount: 0, limit: 20, total: 0 });
-    }
-}
-
-async function detail(id) {
-    try {
-        var result = await requestWithFailover(id);
-        var body = result.body;
-        var baseUrl = result.baseUrl;
-
-        // 提取标题
-        var titleMatch = body.match(/<h1[^>]*class="[^"]*page-title[^"]*"[^>]*>([\s\S]*?)<\/h1>/);
-        var vodName = titleMatch ? stripHtml(titleMatch[1]) : '';
-
-        // 提取海报
-        var posterRe = /<div[^>]*class="[^"]*mobile-play[^"]*"[\s\S]*?<img[^>]*(?:data-src|src)="([^"]*)"/i;
-        var posterMatch = body.match(posterRe);
-        var vodPic = posterMatch ? resolveUrl(baseUrl, posterMatch[1]) : '';
-
-        // 也尝试 lazyload 格式
-        if (!vodPic) {
-            var lazyMatch = body.match(/<img[^>]*class="[^"]*lazyload[^"]*"[^>]*(?:data-src|src)="([^"]*)"/);
-            if (lazyMatch) vodPic = resolveUrl(baseUrl, lazyMatch[1]);
-        }
-
-        var vodYear = '';
-        var vodDirector = '';
-        var vodActor = '';
-        var vodContent = '';
-
-        // 提取视频信息（导演、主演、年份、简介等）
-        var infoItemRe = /<div[^>]*class="[^"]*video-info-itemtitle[^"]*"[^>]*>([\s\S]*?)<\/div>([\s\S]*?)(?=<div[^>]*class="[^"]*video-info-itemtitle|<\/div>\s*<\/div>\s*<div[^>]*class="[^"]*(?!video-info))/gi;
-        var infoMatch;
-
-        while ((infoMatch = infoItemRe.exec(body)) !== null) {
-            var key = stripHtml(infoMatch[1]);
-            var valueHtml = infoMatch[2];
-            var valueText = stripHtml(valueHtml);
-            // 提取链接文本
-            var linkTexts = [];
-            var linkRe = /<a[^>]*>([\s\S]*?)<\/a>/gi;
-            var lm;
-            while ((lm = linkRe.exec(valueHtml)) !== null) {
-                var lt = stripHtml(lm[1]);
-                if (lt) linkTexts.push(lt);
-            }
-            var linkValue = linkTexts.join(', ');
-
-            if (key.indexOf('导演') >= 0) {
-                vodDirector = linkValue || valueText;
-            } else if (key.indexOf('主演') >= 0) {
-                vodActor = linkValue || valueText;
-            } else if (key.indexOf('年份') >= 0 || key.indexOf('年代') >= 0) {
-                vodYear = linkValue || valueText;
-            } else if (key.indexOf('剧情') >= 0 || key.indexOf('简介') >= 0) {
-                var pMatch = valueHtml.match(/<p[^>]*>([\s\S]*?)<\/p>/);
-                vodContent = pMatch ? stripHtml(pMatch[1]) : valueText;
-            } else if (key.indexOf('年份') < 0 && !vodYear) {
-                // 尝试从其他字段提取年份
-                var yearCandidate = linkValue || valueText;
-                if (/^\d{4}$/.test(yearCandidate)) vodYear = yearCandidate;
-            }
-        }
-
-        // 提取网盘链接
-        var panUrls = [];
-        var panRe = /<div[^>]*class="[^"]*module-row-info[^"]*"[\s\S]*?<p[^>]*>([\s\S]*?)<\/p>/gi;
-        var panMatch;
-
-        while ((panMatch = panRe.exec(body)) !== null) {
-            var linkText = panMatch[1].trim();
-            // 提取纯 URL
-            var urlMatch = linkText.match(/(https?:\/\/[^\s<"]+)/);
-            if (urlMatch) {
-                panUrls.push(urlMatch[1].trim());
-            } else if (linkText.indexOf('http') === 0 || linkText.indexOf('/') === 0) {
-                panUrls.push(linkText);
-            }
-        }
-
-        // 备用：从整个页面提取网盘链接
-        if (panUrls.length === 0) {
-            var panPatterns = [
-                /(https?:\/\/pan\.baidu\.com\/s\/[^\s<"']+)/gi,
-                /(https?:\/\/www\.alipan\.com\/s\/[^\s<"']+)/gi,
-                /(https?:\/\/www\.aliyundrive\.com\/s\/[^\s<"']+)/gi,
-                /(https?:\/\/pan\.quark\.cn\/s\/[^\s<"']+)/gi,
-                /(https?:\/\/drive\.uc\.cn\/s\/[^\s<"']+)/gi,
-                /(https?:\/\/115\.com\/s\/[^\s<"']+)/gi,
-                /(https?:\/\/123pan\.com\/s\/[^\s<"']+)/gi
-            ];
-            for (var pi = 0; pi < panPatterns.length; pi++) {
-                var pm;
-                while ((pm = panPatterns[pi].exec(body)) !== null) {
-                    panUrls.push(pm[1]);
-                }
-            }
-        }
-
-        // 去重
-        var uniqueUrls = [];
-        var urlSet = {};
-        for (var ui = 0; ui < panUrls.length; ui++) {
-            if (!urlSet[panUrls[ui]]) {
-                urlSet[panUrls[ui]] = true;
-                uniqueUrls.push(panUrls[ui]);
-            }
-        }
-        panUrls = uniqueUrls;
-
-        if (panUrls.length === 0) {
-            log('详情页未找到网盘链接: ' + id);
-            return JSON.stringify({ list: [] });
-        }
-
-        // 统计网盘类型数量（用于去重命名）
-        var driveTypeCount = {};
-        for (var ci = 0; ci < panUrls.length; ci++) {
-            var dName = inferDriveTypeFromUrl(panUrls[ci]);
-            driveTypeCount[dName] = (driveTypeCount[dName] || 0) + 1;
-        }
-
-        // 构建播放源列表
-        var playSources = [];
-        var driveTypeIndex = {};
-
-        for (var si = 0; si < panUrls.length; si++) {
-            var shareURL = panUrls[si];
-            var displayName = inferDriveTypeFromUrl(shareURL);
-
-            var totalCount = driveTypeCount[displayName] || 0;
-            if (totalCount > 1) {
-                driveTypeIndex[displayName] = (driveTypeIndex[displayName] || 0) + 1;
-                displayName = displayName + driveTypeIndex[displayName];
-            }
-
-            playSources.push({
-                name: displayName,
-                episodes: [{
-                    name: '播放',
-                    playId: shareURL
-                }]
-            });
-        }
-
-        // 按网盘类型排序
-        playSources = sortByDriveOrder(playSources);
-
-        // 构建播放线路和URL
-        var froms = [];
-        var urls = [];
-        for (var fi = 0; fi < playSources.length; fi++) {
-            froms.push(playSources[fi].name);
-            var epParts = [];
-            for (var ei = 0; ei < playSources[fi].episodes.length; ei++) {
-                var ep = playSources[fi].episodes[ei];
-                epParts.push(ep.name + '$' + ep.playId);
-            }
-            urls.push(epParts.join('#'));
-        }
-
-        var vod = {
-            vod_id: id,
-            vod_name: vodName,
-            vod_pic: vodPic,
-            type_name: '',
-            vod_remarks: '网盘资源，共' + panUrls.length + '个链接',
-            vod_year: vodYear,
-            vod_area: '',
-            vod_lang: '',
-            vod_director: vodDirector,
-            vod_actor: vodActor,
-            vod_content: vodContent || '网盘资源，共' + panUrls.length + '个网盘链接',
-            vod_play_from: froms.join('$$$'),
-            vod_play_url: urls.join('$$$')
+        
+        return {
+            'list': videos,
+            'page': parseInt(pg, 10),
+            'pagecount': 9999,
+            'limit': 30,
+            'total': 999999
         };
-
-        log('详情页: name=' + vodName + ', 网盘数=' + panUrls.length);
-        return JSON.stringify({ list: [vod] });
-    } catch (e) {
-        log('详情页获取失败: ' + e.message);
-        return JSON.stringify({ list: [] });
     }
-}
 
-async function play(flag, id, flags) {
-    try {
-        // id 即为网盘分享链接
-        // TVBox 格式：返回 jx=1 表示需要外部解析
-        if (!id) {
-            return JSON.stringify({ jx: 0, parse: 0, url: '', header: {} });
-        }
-
-        // 如果是网盘分享链接，交给 TVBox 内置解析
-        if (id.indexOf('http') === 0) {
-            return JSON.stringify({
-                jx: 1,
-                parse: 1,
-                url: id,
-                header: {
-                    'User-Agent': MOBILE_UA,
-                    'Referer': HOST + '/'
+    async detailContent(ids) {
+        try {
+            const vodId = ids[0].split('/')[0];
+            
+            // 获取视频详情
+            const t = Math.floor(Date.now() / 1000).toString();
+            const body1 = {
+                "token_id": "1649412",
+                "vod_id": vodId,
+                "mobile_time": t,
+                "token": this.token
+            };
+            const qdata = await this.getData(body1, '/App/IndexPlay/playInfo');
+            
+            // 获取播放列表
+            const body2 = {
+                "vurl_cloud_id": "2",
+                "vod_d_id": vodId
+            };
+            const jdata = await this.getData(body2, '/App/Resource/Vurl/show');
+            
+            if (!qdata || !qdata.vodInfo) {
+                return { 'list': [] };
+            }
+            
+            const vod = qdata.vodInfo;
+            
+            // 构建视频信息
+            const videoDetail = {
+                "vod_id": vodId,
+                "vod_name": vod.vod_name || '',
+                "vod_pic": vod.vod_pic || '',
+                "vod_year": vod.vod_year || '',
+                "vod_area": vod.vod_area || '',
+                "vod_actor": vod.vod_actor || '',
+                "vod_director": vod.vod_director || '',
+                "vod_content": (vod.vod_use_content || '').trim(),
+                "vod_play_from": "嗷呜要吃瓜"
+            };
+            
+            // 构建播放列表
+            const playList = [];
+            if (jdata && jdata.list) {
+                for (let index = 0; index < jdata.list.length; index++) {
+                    const item = jdata.list[index];
+                    if (item.play) {
+                        const n = []; // 播放源名称
+                        const p = []; // 播放参数
+                        
+                        for (const key in item.play) {
+                            if (item.play.hasOwnProperty(key)) {
+                                const value = item.play[key];
+                                if (value.param) {
+                                    n.push(key);
+                                    p.push(value.param);
+                                }
+                            }
+                        }
+                        
+                        if (p.length > 0) {
+                            let playName = (index + 1).toString();
+                            if (jdata.list.length === 1) {
+                                playName = vod.vod_name || '';
+                            }
+                            
+                            const playUrl = `${p[p.length - 1]}||${n.join('@')}`;
+                            playList.push(`${playName}$${playUrl}`);
+                        }
+                    }
                 }
+            }
+            
+            videoDetail.vod_play_url = playList.join('#');
+            
+            return { 'list': [videoDetail] };
+            
+        } catch (e) {
+            console.error(`获取详情失败: ${e}`);
+            return { 'list': [] };
+        }
+    }
+
+    async searchContent(key, quick, pg = 1) {
+        const videos = [];
+        try {
+            const body = {
+                "keywords": key,
+                "order_val": "1",
+                "page": pg.toString()
+            };
+            
+            // 搜索不使用缓存，确保实时性
+            const startTime = Date.now();
+            const data = await this.getData(body, '/App/Index/findMoreVod', false);
+            const endTime = Date.now();
+            
+            console.log(`搜索请求耗时: ${(endTime - startTime) / 1000}秒`);
+            
+            if (data && data.list) {
+                for (const item of data.list) {
+                    const vodContinu = item.vod_continu || 0;
+                    const remarks = vodContinu === 0 ? '电影' : `更新至${vodContinu}集`;
+                    
+                    const video = {
+                        "vod_id": `${item.vod_id || ''}/${vodContinu}`,
+                        "vod_name": item.vod_name || '',
+                        "vod_pic": item.vod_pic || '',
+                        "vod_remarks": remarks
+                    };
+                    videos.push(video);
+                }
+            }
+        } catch (e) {
+            console.error(`搜索失败: ${e}`);
+        }
+        
+        return {
+            'list': videos,
+            'page': parseInt(pg, 10),
+            'pagecount': 9999,
+            'limit': 30,
+            'total': 999999
+        };
+    }
+
+    async playerContent(flag, id, vipFlags) {
+        try {
+            // 解析播放信息
+            const parts = id.split('||');
+            if (parts.length < 2) {
+                return { "parse": 0, "playUrl": "", "url": "" };
+            }
+            
+            const paramStr = parts[0];
+            const resolutions = parts.length > 1 ? parts[1].split('@') : [];
+            
+            // 解析参数
+            const params = {};
+            for (const pair of paramStr.split('&')) {
+                if (pair.includes('=')) {
+                    const [key, value] = pair.split('=', 2);
+                    params[key] = value;
+                }
+            }
+            
+            // 获取播放链接
+            if (resolutions.length > 0) {
+                // 分辨率从大到小排序
+                resolutions.sort((a, b) => {
+                    const numA = parseInt(a, 10) || 0;
+                    const numB = parseInt(b, 10) || 0;
+                    return numB - numA;
+                });
+                
+                // 使用最大分辨率
+                params.resolution = resolutions[0];
+                const body = params;
+                
+                const startTime = Date.now();
+                const data = await this.getData(body, '/App/Resource/VurlDetail/showOne', false);
+                const endTime = Date.now();
+                console.log(`播放链接获取耗时: ${(endTime - startTime) / 1000}秒`);
+                
+                if (data && data.url) {
+                    return {
+                        "parse": 0,
+                        "playUrl": "",
+                        "url": data.url,
+                        "header": JSON.stringify(this.header)
+                    };
+                }
+            }
+            
+            return { "parse": 0, "playUrl": "", "url": "" };
+            
+        } catch (e) {
+            console.error(`播放解析失败: ${e}`);
+            return { "parse": 0, "playUrl": "", "url": "" };
+        }
+    }
+
+    isVideoFormat(url) {
+        const videoFormats = ['.m3u8', '.mp4', '.avi', '.mkv', '.flv', '.ts'];
+        return videoFormats.some(fmt => url.toLowerCase().endsWith(fmt));
+    }
+
+    manualVideoCheck() {
+        // 空实现
+    }
+
+    localProxy(params) {
+        return null;
+    }
+
+    aesEncrypt(text, key, iv) {
+        try {
+            const keyBytes = CryptoJS.enc.Utf8.parse(key);
+            const ivBytes = CryptoJS.enc.Utf8.parse(iv);
+            const encrypted = CryptoJS.AES.encrypt(
+                CryptoJS.enc.Utf8.parse(text),
+                keyBytes,
+                {
+                    iv: ivBytes,
+                    mode: CryptoJS.mode.CBC,
+                    padding: CryptoJS.pad.Pkcs7
+                }
+            );
+            return encrypted.ciphertext.toString().toUpperCase();
+        } catch (e) {
+            console.error(`AES加密失败: ${e}`);
+            return "";
+        }
+    }
+
+    aesDecrypt(text, key, iv) {
+        try {
+            const keyBytes = CryptoJS.enc.Utf8.parse(key);
+            const ivBytes = CryptoJS.enc.Utf8.parse(iv);
+            const encryptedHex = CryptoJS.enc.Hex.parse(text);
+            const encryptedBase64 = CryptoJS.enc.Base64.stringify(encryptedHex);
+            
+            const decrypted = CryptoJS.AES.decrypt(
+                encryptedBase64,
+                keyBytes,
+                {
+                    iv: ivBytes,
+                    mode: CryptoJS.mode.CBC,
+                    padding: CryptoJS.pad.Pkcs7
+                }
+            );
+            
+            return decrypted.toString(CryptoJS.enc.Utf8);
+        } catch (e) {
+            console.error(`AES解密失败: ${e}`);
+            return "";
+        }
+    }
+
+    rsaDecrypt(encryptedData, privateKey) {
+        try {
+            const key = new NodeRSA(privateKey);
+            key.setOptions({ encryptionScheme: 'pkcs1' });
+            return key.decrypt(Buffer.from(encryptedData, 'base64'), 'utf8');
+        } catch (e) {
+            console.error(`RSA解密失败: ${e}`);
+            return "";
+        }
+    }
+
+    async getCachedData(cacheKey, data, path) {
+        const currentTime = Date.now() / 1000;
+        if (this.cache[cacheKey]) {
+            const [cachedData, timestamp] = this.cache[cacheKey];
+            if (currentTime - timestamp < this.cacheTimeout) {
+                return cachedData;
+            }
+        }
+        
+        // 缓存不存在或已过期，重新获取
+        const result = await this.getData(data, path);
+        if (result) {
+            this.cache[cacheKey] = [result, currentTime];
+        }
+        return result;
+    }
+
+    async getData(data, path, useCache = true) {
+        try {
+            // 构建缓存键
+            let cacheKey = useCache ? `${path}_${this.hashCode(JSON.stringify(data))}` : null;
+            
+            if (useCache && cacheKey && this.cache[cacheKey]) {
+                const [cachedData, timestamp] = this.cache[cacheKey];
+                if (Date.now() / 1000 - timestamp < this.cacheTimeout) {
+                    return cachedData;
+                }
+            }
+
+            const startTime = Date.now();
+            
+            // AES加密请求数据
+            const requestKey = this.aesEncrypt(JSON.stringify(data), 'mvXBSW7ekreItNsT', '2U3IrJL8szAKp0Fj');
+            if (!requestKey) {
+                return null;
+            }
+            
+            // 生成签名
+            const t = Math.floor(Date.now() / 1000).toString();
+            const keys = "Qmxi5ciWXbQzkr7o+SUNiUuQxQEf8/AVyUWY4T/BGhcXBIUz4nOyHBGf9A4KbM0iKF3yp9M7WAY0rrs5PzdTAOB45plcS2zZ0wUibcXuGJ29VVGRWKGwE9zu2vLwhfgjTaaDpXo4rby+7GxXTktzJmxvneOUdYeHi+PZsThlvPI=";
+            const signStr = `token_id=,token=${this.token},phone_type=1,request_key=${requestKey},app_id=1,time=${t},keys=${keys}*&zvdvdvddbfikkkumtmdwqppp?|4Y!s!2br`;
+            const signature = this.getMd5(signStr);
+            
+            // 构建请求体
+            const body = new URLSearchParams();
+            body.append('token', this.token);
+            body.append('token_id', '');
+            body.append('phone_type', '1');
+            body.append('time', t);
+            body.append('phone_model', 'xiaomi-22021211rc');
+            body.append('keys', keys);
+            body.append('request_key', requestKey);
+            body.append('signature', signature);
+            body.append('app_id', '1');
+            body.append('ad_version', '1');
+            
+            // 发送请求
+            const url = `${this.host}${path}`;
+            const response = await axios.post(url, body.toString(), {
+                headers: this.header,
+                timeout: 10000
             });
-        }
-
-        // 如果是直链，直接返回
-        return JSON.stringify({
-            jx: 0,
-            parse: 0,
-            url: id,
-            header: {
-                'User-Agent': MOBILE_UA
+            
+            if (response.status !== 200) {
+                console.error(`API请求失败: ${response.status}, 路径: ${path}`);
+                return null;
             }
-        });
-    } catch (e) {
-        log('播放失败: ' + e.message);
-        return JSON.stringify({ jx: 0, parse: 0, url: '', header: {} });
+            
+            const responseData = response.data;
+            if (!responseData.data) {
+                console.error(`API返回数据格式错误, 路径: ${path}`);
+                return null;
+            }
+            
+            const dataResponse = responseData.data;
+            
+            // RSA解密响应密钥
+            const privateKey = `-----BEGIN PRIVATE KEY-----
+MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGAe6hKrWLi1zQmjTT1
+ozbE4QdFeJGNxubxld6GrFGximxfMsMB6BpJhpcTouAqywAFppiKetUBBbXwYsYU
+1wNr648XVmPmCMCy4rY8vdliFnbMUj086DU6Z+/oXBdWU3/b1G0DN3E9wULRSwcK
+ZT3wj/cCI1vsCm3gj2R5SqkA9Y0CAwEAAQKBgAJH+4CxV0/zBVcLiBCHvSANm0l7
+HetybTh/j2p0Y1sTXro4ALwAaCTUeqdBjWiLSo9lNwDHFyq8zX90+gNxa7c5EqcW
+V9FmlVXr8VhfBzcZo1nXeNdXFT7tQ2yah/odtdcx+vRMSGJd1t/5k5bDd9wAvYdI
+DblMAg+wiKKZ5KcdAkEA1cCakEN4NexkF5tHPRrR6XOY/XHfkqXxEhMqmNbB9U34
+saTJnLWIHC8IXys6Qmzz30TtzCjuOqKRRy+FMM4TdwJBAJQZFPjsGC+RqcG5UvVM
+iMPhnwe/bXEehShK86yJK/g/UiKrO87h3aEu5gcJqBygTq3BBBoH2md3pr/W+hUM
+WBsCQQChfhTIrdDinKi6lRxrdBnn0Ohjg2cwuqK5zzU9p/N+S9x7Ck8wUI53DKm8
+jUJE8WAG7WLj/oCOWEh+ic6NIwTdAkEAj0X8nhx6AXsgCYRql1klbqtVmL8+95KZ
+K7PnLWG/IfjQUy3pPGoSaZ7fdquG8bq8oyf5+dzjE/oTXcByS+6XRQJAP/5ciy1b
+L3NhUhsaOVy55MHXnPjdcTX0FaLi+ybXZIfIQ2P4rb19mVq1feMbCXhz+L1rG8oa
+t5lYKfpe8k83ZA==
+-----END PRIVATE KEY-----`;
+            
+            const bodykiJson = this.rsaDecrypt(dataResponse.keys, privateKey);
+            if (!bodykiJson) {
+                console.error("RSA解密失败");
+                return null;
+            }
+            
+            const bodyki = JSON.parse(bodykiJson);
+            
+            // AES解密响应数据
+            const decryptedData = this.aesDecrypt(dataResponse.response_key, bodyki.key, bodyki.iv);
+            if (!decryptedData) {
+                console.error("AES解密失败");
+                return null;
+            }
+            
+            const result = JSON.parse(decryptedData);
+            
+            const endTime = Date.now();
+            console.log(`数据获取耗时: ${(endTime - startTime) / 1000}秒, 路径: ${path}`);
+            
+            // 缓存结果
+            if (useCache && cacheKey) {
+                this.cache[cacheKey] = [result, Date.now() / 1000];
+            }
+            
+            return result;
+            
+        } catch (e) {
+            console.error(`获取数据失败: ${e}, 路径: ${path}`);
+            return null;
+        }
+    }
+
+    getMd5(text) {
+        return crypto.createHash('md5').update(text).digest('hex');
+    }
+
+    // 简单的哈希函数，用于生成缓存键
+    hashCode(str) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            const char = str.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash = hash & hash; // 转换为32位整数
+        }
+        return Math.abs(hash);
     }
 }
 
-// ========== 辅助函数 ==========
-
-function inferDriveTypeFromUrl(url) {
-    if (!url) return '未知网盘';
-    var lower = url.toLowerCase();
-    if (lower.indexOf('pan.baidu.com') >= 0) return '百度网盘';
-    if (lower.indexOf('alipan.com') >= 0 || lower.indexOf('aliyundrive.com') >= 0) return '阿里云盘';
-    if (lower.indexOf('pan.quark.cn') >= 0) return '夸克网盘';
-    if (lower.indexOf('drive.uc.cn') >= 0) return 'UC网盘';
-    if (lower.indexOf('115.com') >= 0) return '115网盘';
-    if (lower.indexOf('123pan.com') >= 0) return '123网盘';
-    if (lower.indexOf('xunlei.com') >= 0) return '迅雷网盘';
-    if (lower.indexOf('tianyi') >= 0) return '天翼网盘';
-    return '网盘';
-}
-
-async function getDynamicFilters(body, baseUrl) {
-    var filters = {};
-
-    try {
-        // 如果没有传入 body，主动请求首页
-        if (!body) {
-            var result = await requestWithFailover('/');
-            body = result.body;
-            baseUrl = result.baseUrl;
-        }
-
-        // 提取分类 ID（从导航）
-        var catIds = [];
-        var catRe = /data-id="(\d+)"[^>]*data-name="([^"]*)"/gi;
-        var catMatch;
-        while ((catMatch = catRe.exec(body)) !== null) {
-            if (catMatch[1] !== '0') {
-                catIds.push(catMatch[1]);
-            }
-        }
-
-        // 为每个分类构建筛选项
-        for (var i = 0; i < catIds.length; i++) {
-            var tid = catIds[i];
-
-            // 尝试从页面中提取该分类的筛选项（如果有 AJAX 加载或内联数据）
-            // 由于 OmniBox 版本是通过 JS 动态加载的，TVBox 版本使用通用筛选
-            filters[tid] = [
-                {
-                    key: 'class',
-                    name: '剧情',
-                    init: '',
-                    value: [
-                        { name: '全部', value: '' },
-                        { name: '喜剧', value: '喜剧' },
-                        { name: '爱情', value: '爱情' },
-                        { name: '恐怖', value: '恐怖' },
-                        { name: '动作', value: '动作' },
-                        { name: '科幻', value: '科幻' },
-                        { name: '剧情', value: '剧情' },
-                        { name: '战争', value: '战争' },
-                        { name: '警匪', value: '警匪' },
-                        { name: '犯罪', value: '犯罪' },
-                        { name: '古装', value: '古装' },
-                        { name: '奇幻', value: '奇幻' },
-                        { name: '武侠', value: '武侠' },
-                        { name: '冒险', value: '冒险' },
-                        { name: '枪战', value: '枪战' },
-                        { name: '悬疑', value: '悬疑' },
-                        { name: '惊悚', value: '惊悚' },
-                        { name: '经典', value: '经典' },
-                        { name: '青春', value: '青春' },
-                        { name: '文艺', value: '文艺' },
-                        { name: '历史', value: '历史' }
-                    ]
-                },
-                {
-                    key: 'area',
-                    name: '地区',
-                    init: '',
-                    value: [
-                        { name: '全部', value: '' },
-                        { name: '中国大陆', value: '中国大陆' },
-                        { name: '中国香港', value: '中国香港' },
-                        { name: '中国台湾', value: '中国台湾' },
-                        { name: '美国', value: '美国' },
-                        { name: '日本', value: '日本' },
-                        { name: '韩国', value: '韩国' },
-                        { name: '英国', value: '英国' },
-                        { name: '法国', value: '法国' },
-                        { name: '西班牙', value: '西班牙' },
-                        { name: '泰国', value: '泰国' },
-                        { name: '印度', value: '印度' },
-                        { name: '意大利', value: '意大利' },
-                        { name: '德国', value: '德国' },
-                        { name: '澳大利亚', value: '澳大利亚' },
-                        { name: '其他', value: '其他' }
-                    ]
-                },
-                {
-                    key: 'year',
-                    name: '年份',
-                    init: '',
-                    value: [
-                        { name: '全部', value: '' },
-                        { name: '2026', value: '2026' },
-                        { name: '2025', value: '2025' },
-                        { name: '2024', value: '2024' },
-                        { name: '2023', value: '2023' },
-                        { name: '2022', value: '2022' },
-                        { name: '2021', value: '2021' },
-                        { name: '2020', value: '2020' },
-                        { name: '2019', value: '2019' },
-                        { name: '2018', value: '2018' },
-                        { name: '更早', value: '更早' }
-                    ]
-                },
-                {
-                    key: 'sort',
-                    name: '排序',
-                    init: '',
-                    value: [
-                        { name: '默认', value: '' },
-                        { name: '人气', value: 'hits' },
-                        { name: '评分', value: 'score' }
-                    ]
-                },
-                {
-                    key: 'letter',
-                    name: '字母',
-                    init: '',
-                    value: [
-                        { name: '全部', value: '' },
-                        { name: 'A', value: 'A' },
-                        { name: 'B', value: 'B' },
-                        { name: 'C', value: 'C' },
-                        { name: 'D', value: 'D' },
-                        { name: 'E', value: 'E' },
-                        { name: 'F', value: 'F' },
-                        { name: 'G', value: 'G' },
-                        { name: 'H', value: 'H' },
-                        { name: 'I', value: 'I' },
-                        { name: 'J', value: 'J' },
-                        { name: 'K', value: 'K' },
-                        { name: 'L', value: 'L' },
-                        { name: 'M', value: 'M' },
-                        { name: 'N', value: 'N' },
-                        { name: 'O', value: 'O' },
-                        { name: 'P', value: 'P' },
-                        { name: 'Q', value: 'Q' },
-                        { name: 'R', value: 'R' },
-                        { name: 'S', value: 'S' },
-                        { name: 'T', value: 'T' },
-                        { name: 'U', value: 'U' },
-                        { name: 'V', value: 'V' },
-                        { name: 'W', value: 'W' },
-                        { name: 'X', value: 'X' },
-                        { name: 'Y', value: 'Y' },
-                        { name: 'Z', value: 'Z' },
-                        { name: '0-9', value: '0-9' }
-                    ]
-                }
-            ];
-        }
-
-        // 如果没有提取到分类 ID，至少给一个默认的筛选
-        if (catIds.length === 0) {
-            filters['default'] = filters[Object.keys(filters)[0]] || [];
-        }
-    } catch (e) {
-        log('构建筛选条件失败: ' + e.message);
-    }
-
-    return filters;
-}
-
-// ========== 导出 ==========
-
-function __jsEvalReturn() {
-    return {
-        init: init,
-        home: home,
-        homeVod: homeVod,
-        category: category,
-        search: search,
-        detail: detail,
-        play: play,
-        proxy: null
-    };
-}
+module.exports = Spider;
