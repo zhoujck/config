@@ -13,7 +13,7 @@ SOURCES = [
     },
     {
         "name": "feimao",
-        "url": "https://ua.fongmi.eu.org/box.php?url=http://feimao.pro/",
+        "url": "https://ua.fongmi.eu.org/box.php?url=http://肥猫.net/",
     },
 ]
 
