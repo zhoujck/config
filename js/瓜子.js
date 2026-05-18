@@ -7,7 +7,7 @@ title: '瓜子app', author: '重写/v1.0.0'
 - MD5: 纯JS实现
 - AES-CBC: 纯JS实现(CryptoJS兼容)
 - RSA解密: 纯JS实现(用于解密API响应的AES密钥)
-- HTTP请求: 使用TV盒子内置req()函数
+- HTTP请求: 使用TV盒子内置request()函数(兼容req())
 */
 var HOST;
 const MOBILE_UA = "okhttp/3.12.0";
@@ -636,19 +636,19 @@ function buildRequestBody(data) {
 
 async function getData(data, path) {
     try {
-        console.log('[瓜子] getData start, path=' + path);
         var body = buildRequestBody(data);
-        if (!body) { console.log('[瓜子] ERR: buildRequestBody failed'); return null; }
-        console.log('[瓜子] body built, request_key len=' + (body.request_key || '').length);
+        if (!body) return null;
 
         var url = HOST + path;
-        console.log('[瓜子] url=' + url);
-
         var headers = {};
         for (var k in DefHeader) { if (DefHeader.hasOwnProperty(k)) headers[k] = DefHeader[k]; }
         headers['Referer'] = HOST;
 
-        var res = await req(url, {
+        // OK影视/FongMi 使用 request() 而非 req()
+        var httpFunc = typeof request === 'function' ? request : (typeof req === 'function' ? req : null);
+        if (!httpFunc) return null;
+
+        var res = await httpFunc(url, {
             method: 'post',
             headers: headers,
             data: body,
@@ -667,26 +667,14 @@ async function getData(data, path) {
                 content = res.body;
             }
         }
-        console.log('[瓜子] req done, content_len=' + content.length + ' type=' + typeof res);
-        if (!content) { console.log('[瓜子] ERR: req returned empty'); return null; }
-
-        // 打印响应前200字符帮助调试
-        console.log('[瓜子] response preview: ' + content.substring(0, 200));
+        if (!content) return null;
 
         var responseData;
-        try { responseData = JSON.parse(content); } catch(e) {
-            console.log('[瓜子] ERR: JSON parse failed: ' + e.message);
-            return null;
-        }
-
-        if (!responseData || !responseData.data) {
-            console.log('[瓜子] ERR: no data field in response, keys=' + JSON.stringify(Object.keys(responseData || {})));
-            return null;
-        }
+        try { responseData = JSON.parse(content); } catch(e) { return null; }
+        if (!responseData || !responseData.data) return null;
 
         var dataResp = responseData.data;
-        console.log('[瓜子] dataResp keys: ' + JSON.stringify(Object.keys(dataResp)));
-        console.log('[瓜子] has keys: ' + !!dataResp.keys + ' has response_key: ' + !!dataResp.response_key);
+        if (!dataResp.keys || !dataResp.response_key) return null;
 
         // RSA decrypt the AES key
         var privateKeyPem = '-----BEGIN PRIVATE KEY-----\n' +
@@ -706,29 +694,18 @@ async function getData(data, path) {
             't5lYKfpe8k83ZA==\n' +
             '-----END PRIVATE KEY-----';
 
-        console.log('[瓜子] starting RSA decrypt...');
         var bodykiJson = rsaDecrypt(dataResp.keys, privateKeyPem);
-        if (!bodykiJson) { console.log('[瓜子] ERR: RSA decrypt failed'); return null; }
-        console.log('[瓜子] RSA ok, bodykiJson=' + bodykiJson.substring(0, 100));
+        if (!bodykiJson) return null;
 
         var bodyki;
-        try { bodyki = JSON.parse(bodykiJson); } catch(e) {
-            console.log('[瓜子] ERR: bodyki JSON parse failed: ' + e.message);
-            return null;
-        }
+        try { bodyki = JSON.parse(bodykiJson); } catch(e) { return null; }
 
         // AES decrypt the response data
-        console.log('[瓜子] starting AES decrypt, key=' + (bodyki.key || '').substring(0,8) + '... iv=' + (bodyki.iv || '').substring(0,8) + '...');
         var decryptedData = aesDecrypt(dataResp.response_key, bodyki.key, bodyki.iv);
-        if (!decryptedData) { console.log('[瓜子] ERR: AES decrypt failed'); return null; }
-        console.log('[瓜子] AES ok, decrypted len=' + decryptedData.length);
-        console.log('[瓜子] decrypted preview: ' + decryptedData.substring(0, 200));
+        if (!decryptedData) return null;
 
         var result;
-        try { result = JSON.parse(decryptedData); } catch(e) {
-            console.log('[瓜子] ERR: result JSON parse failed: ' + e.message);
-            return null;
-        }
+        try { result = JSON.parse(decryptedData); } catch(e) { return null; }
         return result;
 
     } catch (e) { return null; }
