@@ -131,13 +131,12 @@ function getSignedHeaders() {
 }
 
 async function apiPost(url, bodyObj) {
-    var resp = await req(url, {
+    // 必须用 request() 而非 req()，request() 内部处理 body→data 转换并返回 content 字符串
+    var text = await request(url, {
         method: 'post',
         headers: getSignedHeaders(),
-        data: bodyObj,
-        postType: 'form'
+        body: bodyObj
     });
-    var text = (typeof resp === 'string') ? resp : (resp && resp.content ? resp.content : '');
     var json = JSON.parse(text);
     if (json.code && json.code !== 200) {
         throw new Error('API错误: code=' + json.code + ', msg=' + (json.msg || ''));
@@ -221,10 +220,9 @@ async function detail(id) {
             request_key: detailKey, signature: signature, app_id: '1', ad_version: '1'
         };
 
-        var resp1 = await req(HOST + "/App/IndexPlay/playInfo", {
-            method: 'post', headers: getSignedHeaders(), data: body1, postType: 'form'
+        var text1 = await request(HOST + "/App/IndexPlay/playInfo", {
+            method: 'post', headers: getSignedHeaders(), body: body1
         });
-        var text1 = (typeof resp1 === 'string') ? resp1 : (resp1 && resp1.content ? resp1.content : '');
         var json1 = JSON.parse(text1);
         if (json1.code && json1.code !== 200) throw new Error('playInfo: code=' + json1.code);
         var data2 = json1.vodInfo;
@@ -241,10 +239,9 @@ async function detail(id) {
             request_key: playKey, signature: playSig, app_id: '1', ad_version: '1'
         };
 
-        var resp2 = await req(HOST + "/App/Resource/Vurl/show", {
-            method: 'post', headers: getSignedHeaders(), data: body2, postType: 'form'
+        var text2 = await request(HOST + "/App/Resource/Vurl/show", {
+            method: 'post', headers: getSignedHeaders(), body: body2
         });
-        var text2 = (typeof resp2 === 'string') ? resp2 : (resp2 && resp2.content ? resp2.content : '');
         var json2 = JSON.parse(text2);
         if (json2.code && json2.code !== 200) throw new Error('Vurl/show: code=' + json2.code);
         var playList = (json2 && json2.list) ? json2.list : [];
@@ -302,10 +299,9 @@ async function play(flag, id, flags) {
             request_key: request_key, signature: signature, app_id: '1', ad_version: '1'
         };
 
-        var resp = await req(HOST + '/App/Resource/VurlDetail/showOne', {
-            method: 'post', headers: getSignedHeaders(), data: body, postType: 'form'
+        var text = await request(HOST + '/App/Resource/VurlDetail/showOne', {
+            method: 'post', headers: getSignedHeaders(), body: body
         });
-        var text = (typeof resp === 'string') ? resp : (resp && resp.content ? resp.content : '');
         var json = JSON.parse(text);
         if (json.code && json.code !== 200) throw new Error('showOne: code=' + json.code);
 
