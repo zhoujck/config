@@ -16,6 +16,7 @@
   {"key": "JS3","name": "🍬荐片","type": 3,"api": "./js/荐片.js","searchable": 1,"ext": ""},
   {"key": "JS4","name": "🍬金牌","type": 3,"api": "./js/金牌.js","searchable": 1,"ext": ""},
   {"key": "JS5","name": "🍬热播","type": 3,"api": "./js/热播.js","searchable": 1,"ext": ""},
+{"key": "JS6","name": "🍬热播","type": 3,"api": "./js/瓜子2.js","searchable": 1,"ext": ""},
   {"key": "JS11","name": "🍬糯米","type": 3,"api": "./js/lib/drpy2.min.js","searchable": 1,"ext": "./js/农民影视.js"},
   {"key": "JS12","name": "🍬瓜子","type": 3,"api": "./js/lib/drpy2.min.js","searchable": 1,"ext": "./js/瓜子.js"},
   {"key": "线路1","name": "🐼潮流","type": 3,"api": "csp_AppRJ","timeout": 25,"ext": "http://v.rbotv.cn"},
