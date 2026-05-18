@@ -646,7 +646,8 @@ async function getData(data, path) {
 
         // OK影视/FongMi 使用 request() 而非 req()
         var httpFunc = typeof request === 'function' ? request : (typeof req === 'function' ? req : null);
-        if (!httpFunc) return null;
+        if (!httpFunc) { console.log('[瓜子] ERR: request/req 都不存在'); return null; }
+        console.log('[瓜子] httpFunc=' + (httpFunc === request ? 'request' : 'req'));
 
         var res = await httpFunc(url, {
             method: 'post',
@@ -665,13 +666,17 @@ async function getData(data, path) {
                 content = res.content;
             } else if (res.body) {
                 content = res.body;
+            } else if (res.text && typeof res.text === 'function') {
+                content = res.text();
             }
         }
-        if (!content) return null;
+        console.log('[瓜子] res类型=' + typeof res + ' content长度=' + content.length);
+        if (!content) { console.log('[瓜子] ERR: 响应为空, res=' + JSON.stringify(res).substring(0,200)); return null; }
+        console.log('[瓜子] 响应前100字: ' + content.substring(0, 100));
 
         var responseData;
-        try { responseData = JSON.parse(content); } catch(e) { return null; }
-        if (!responseData || !responseData.data) return null;
+        try { responseData = JSON.parse(content); } catch(e) { console.log('[瓜子] ERR: JSON解析失败'); return null; }
+        if (!responseData || !responseData.data) { console.log('[瓜子] ERR: 无data字段, code=' + (responseData&&responseData.code) + ' msg=' + (responseData&&responseData.msg)); return null; }
 
         var dataResp = responseData.data;
         if (!dataResp.keys || !dataResp.response_key) return null;
@@ -708,7 +713,7 @@ async function getData(data, path) {
         try { result = JSON.parse(decryptedData); } catch(e) { return null; }
         return result;
 
-    } catch (e) { return null; }
+    } catch (e) { console.log('[瓜子] getData异常: ' + (e.message || e)); return null; }
 }
 
 // ========== Core functions (drpy interface) ==========
