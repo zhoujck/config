@@ -497,7 +497,7 @@ function bigIntToBytes(a) {
     for (var i = 0; i < hex.length; i += 2) {
         bytes.push(parseInt(hex.substr(i, 2), 16));
     }
-    return bytes.reverse(); // little-endian to big-endian
+    return bytes;
 }
 
 function bytesToHex(bytes) {
@@ -574,6 +574,8 @@ function rsaDecrypt(base64Data, privateKeyPem) {
         var cipher = bytesToBigInt(cipherBytes);
         var decrypted = bigIntModPow(cipher, d, n);
         var decryptedBytes = bigIntToBytes(decrypted);
+        // 补齐前导零到 128 字节（1024-bit RSA 密钥）
+        while (decryptedBytes.length < 128) { decryptedBytes.unshift(0); }
 
         // Remove PKCS1 padding: 0x00, 0x02, padding..., 0x00, data
         if (decryptedBytes.length < 2 || decryptedBytes[0] !== 0x00 || decryptedBytes[1] !== 0x02) {
