@@ -1,5 +1,12 @@
 # coding = utf-8
 #!/usr/bin/python
+# 瓜子影视 v2 - 修复版
+# 修复内容：
+# 1. 添加 sub 参数（子分类映射），与JS版保持一致
+# 2. 签名改为大写（与JS版一致）
+# 3. 增加 API code 错误检查
+# 4. detailContent 补全 vod 字段
+
 import re
 import sys
 import os
@@ -13,18 +20,14 @@ from Crypto.Util.Padding import pad, unpad
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_v1_5
 
-# 设置目标目录
 target_dir = os.path.dirname(__file__)
-
-# 如果当前不在目标目录，则切换
 if os.getcwd() != os.path.abspath(target_dir):
     try:
         os.chdir(target_dir)
-        print(f"切换到: {os.getcwd()}")
     except Exception as e:
         print(f"切换失败: {e}")
 
-sys.path.append('..') 
+sys.path.append('..')
 from base.spider import Spider
 
 class Spider(Spider):
@@ -41,9 +44,16 @@ class Spider(Spider):
             'Content-Type': 'application/x-www-form-urlencoded',
             'User-Agent': 'okhttp/3.12.0'
         }
-        # 添加缓存机制
+        # 子分类映射 (与JS版保持一致)
+        self.sub_map = {
+            '1': '5',    # 电影
+            '2': '12',   # 电视剧
+            '4': '30',   # 动漫
+            '3': '22',   # 综艺
+            '64': ''     # 短剧
+        }
         self.cache = {}
-        self.cache_timeout = 300  # 5分钟缓存
+        self.cache_timeout = 300
         
     def getName(self):
         return self.name
@@ -60,10 +70,8 @@ class Spider(Spider):
             {"type_name": "综艺", "type_id": "3"},
             {"type_name": "短剧", "type_id": "64"}
         ]
-        
         result['class'] = classes
         
-        # 设置筛选条件 - 为所有分类添加筛选
         filters = {}
         for cate in classes:
             tid = cate['type_id']
@@ -100,12 +108,7 @@ class Spider(Spider):
                     {"n": "2012", "v": "2012"},
                     {"n": "2011", "v": "2011"},
                     {"n": "2010", "v": "2010"},
-                    {"n": "2009", "v": "2009"},
-                    {"n": "2008", "v": "2008"},
-                    {"n": "2007", "v": "2007"},
-                    {"n": "2006", "v": "2006"},
-                    {"n": "2005", "v": "2005"},
-                    {"n": "更早", "v": "2004"}
+                    {"n": "更早", "v": "2009"}
                 ]},
                 {"key": "sort", "name": "排序", "value": [
                     {"n": "最新", "v": "d_id"},
@@ -113,19 +116,19 @@ class Spider(Spider):
                     {"n": "推荐", "v": "d_score"}
                 ]}
             ]
-        
         result['filters'] = filters
         return result
 
     def homeVideoContent(self):
-        # 首页推荐直接返回空列表，避免加载问题
         return {'list': []}
 
     def categoryContent(self, tid, pg, filter, extend):
         videos = []
         try:
+            sub = self.sub_map.get(tid, '')
             body = {
                 "area": extend.get('area', '0'),
+                "sub": extend.get('sub', sub),
                 "year": extend.get('year', '0'),
                 "pageSize": "30",
                 "sort": extend.get('sort', 'd_id'),
@@ -138,9 +141,6 @@ class Spider(Spider):
             
             if data and 'list' in data:
                 for item in data['list']:
-                    vod_continu = item.get('vod_continu', 0)
-                    # remarks = '电影' if vod_continu == 0 else f'更新至{vod_continu}集'
-                    
                     video = {
                         "vod_id": f"{item.get('vod_id', '')}",
                         "vod_name": item.get('vod_name', ''),
@@ -162,9 +162,8 @@ class Spider(Spider):
     def detailContent(self, ids):
         try:
             vod_id = ids[0]
-            
-            # 获取视频详情
             t = str(int(time.time()))
+            
             body1 = {
                 "token_id": "1649412",
                 "vod_id": vod_id,
@@ -173,7 +172,6 @@ class Spider(Spider):
             }
             qdata = self.get_data(body1, '/App/IndexPlay/playInfo')
             
-            # 获取播放列表
             body2 = {
                 "vurl_cloud_id": "2",
                 "vod_d_id": vod_id
@@ -184,29 +182,26 @@ class Spider(Spider):
                 return {'list': []}
                 
             vod = qdata['vodInfo']
-
-            t_id = vod['t_id']
+            t_id = vod.get('t_id', '')
             
-            # 构建视频信息
             video_detail = {
                 "vod_id": vod_id,
-                "vod_name": '',
-                "vod_pic": '',
-                "vod_year": '',
-                "vod_area": '',
-                "vod_actor":'',
-                "vod_director": '',
+                "vod_name": vod.get('vod_name', ''),
+                "vod_pic": vod.get('vod_pic', ''),
+                "vod_year": vod.get('vod_year', ''),
+                "vod_area": vod.get('vod_area', ''),
+                "vod_actor": vod.get('vod_actor', ''),
+                "vod_director": vod.get('vod_director', ''),
                 "vod_content": vod.get('vod_use_content', '').strip(),
                 "vod_play_from": "guazi"
             }
             
-            # 构建播放列表
             play_list = []
             if jdata and 'list' in jdata:
                 for index, item in enumerate(jdata['list']):
                     if 'play' in item:
-                        n = []  # 播放源名称
-                        p = []  # 播放参数
+                        n = []
+                        p = []
                         for key, value in item['play'].items():
                             if 'param' in value and value['param']:
                                 n.append(key)
@@ -218,12 +213,9 @@ class Spider(Spider):
                             else:
                                 play_name = item['title']
                             play_url = f"{p[-1]}||{'@'.join(n)}"
-
-                            print(t_id, play_name, play_url)
                             play_list.append(f"{play_name}${play_url}")
             
             video_detail["vod_play_url"] = "#".join(play_list)
-            
             return {'list': [video_detail]}
             
         except Exception as e:
@@ -239,37 +231,25 @@ class Spider(Spider):
                 "page": str(pg)
             }
             
-            # 搜索不使用缓存，确保实时性
-            start_time = time.time()
             data = self.get_data(body, '/App/Index/findMoreVod', use_cache=False)
-            end_time = time.time()
-            
-            print(f"搜索请求耗时: {end_time - start_time:.2f}秒")
             
             if data and 'list' in data:
-                # 定义映射关系
                 rename_map = {
                     '乡村爱情第18季': '乡村爱情18',
                     '大侦探第十一季十年侦心新春演唱会': '大侦探第十一季',
                     '乡村爱情Ⅱ': '乡村爱情2'
                 }
+                skip_ids = {'87675', '1414', '64737', '108219', '107448'}
                 for item in data['list'][:3]:
-                    vod_continu = item.get('vod_continu', 0)
-                    # remarks = '电影' if vod_continu == 0 else f'更新至{vod_continu}集'
-                    # 配置跳过的ids
-                    skip_ids = {'87675', '1414', '64737', '108219', '107448'}
                     if item.get('vod_id', '') in skip_ids:
                         continue
-                    # 名称
                     vod_name = item.get('vod_name', '')
                     video = {
                         "vod_id": f"{item.get('vod_id', '')}",
-                        "vod_name": rename_map.get(vod_name, vod_name), # 特殊值替换
+                        "vod_name": rename_map.get(vod_name, vod_name),
                         "vod_pic": item.get('vod_pic', ''),
                         "vod_remarks": item.get('vod_scroe', '')
                     }
-                    json_output = json.dumps(video, ensure_ascii=False, indent=2)
-                    print(f'{json_output},')
                     videos.append(video)
         except Exception as e:
             print(f"搜索失败: {e}")
@@ -284,7 +264,6 @@ class Spider(Spider):
 
     def playerContent(self, flag, id, vipFlags):
         try:
-            # 解析播放信息
             parts = id.split('||')
             if len(parts) < 2:
                 return {"parse": 0, "playUrl": "", "url": ""}
@@ -292,26 +271,18 @@ class Spider(Spider):
             param_str = parts[0]
             resolutions = parts[1].split('@') if len(parts) > 1 else []
             
-            # 解析参数
             params = {}
             for pair in param_str.split('&'):
                 if '=' in pair:
                     key, value = pair.split('=', 1)
                     params[key] = value
             
-            # 获取播放链接
             if resolutions:
-                # 分辨率从大到小排序
                 resolutions.sort(key=lambda x: int(x) if x.isdigit() else 0, reverse=True)
-                
-                # 使用最大分辨率
                 params['resolution'] = resolutions[0]
                 body = params
                 
-                start_time = time.time()
                 data = self.get_data(body, '/App/Resource/VurlDetail/showOne', use_cache=False)
-                end_time = time.time()
-                print(f"播放链接获取耗时: {end_time - start_time:.2f}秒")
                 
                 if data and 'url' in data:
                     return {
@@ -340,41 +311,26 @@ class Spider(Spider):
         return None
 
     def aes_encrypt(self, text, key, iv):
-        """AES加密"""
         try:
-            key_bytes = key.encode('utf-8')
-            iv_bytes = iv.encode('utf-8')
-            cipher = AES.new(key_bytes, AES.MODE_CBC, iv_bytes)
-            encrypted = cipher.encrypt(pad(text.encode('utf-8'), AES.block_size))
-            return encrypted.hex().upper()
+            cipher = AES.new(key.encode('utf-8'), AES.MODE_CBC, iv.encode('utf-8'))
+            return cipher.encrypt(pad(text.encode('utf-8'), AES.block_size)).hex().upper()
         except Exception as e:
             print(f"AES加密失败: {e}")
             return ""
 
     def aes_decrypt(self, text, key, iv):
-        """AES解密"""
         try:
-            key_bytes = key.encode('utf-8')
-            iv_bytes = iv.encode('utf-8')
-            cipher = AES.new(key_bytes, AES.MODE_CBC, iv_bytes)
-            encrypted_bytes = bytes.fromhex(text)
-            decrypted = unpad(cipher.decrypt(encrypted_bytes), AES.block_size)
-            return decrypted.decode('utf-8')
+            cipher = AES.new(key.encode('utf-8'), AES.MODE_CBC, iv.encode('utf-8'))
+            return unpad(cipher.decrypt(bytes.fromhex(text)), AES.block_size).decode('utf-8')
         except Exception as e:
             print(f"AES解密失败: {e}")
             return ""
 
     def rsa_decrypt(self, encrypted_data, private_key):
-        """RSA解密"""
         try:
-            # 解码base64数据
             encrypted_bytes = base64.b64decode(encrypted_data)
-            
-            # 导入私钥
             rsa_key = RSA.import_key(private_key)
             cipher = PKCS1_v1_5.new(rsa_key)
-            
-            # 解密
             decrypted = cipher.decrypt(encrypted_bytes, None)
             return decrypted.decode('utf-8') if decrypted else ""
         except Exception as e:
@@ -382,23 +338,18 @@ class Spider(Spider):
             return ""
 
     def get_cached_data(self, cache_key, data, path):
-        """带缓存的数据获取"""
         current_time = time.time()
         if cache_key in self.cache:
             cached_data, timestamp = self.cache[cache_key]
             if current_time - timestamp < self.cache_timeout:
                 return cached_data
-        
-        # 缓存不存在或已过期，重新获取
         result = self.get_data(data, path)
         if result:
             self.cache[cache_key] = (result, current_time)
         return result
 
     def get_data(self, data, path, use_cache=True):
-        """获取数据的主要方法"""
         try:
-            # 构建缓存键
             cache_key = f"{path}_{hash(str(data))}" if use_cache else None
             
             if use_cache and cache_key in self.cache:
@@ -408,18 +359,16 @@ class Spider(Spider):
 
             start_time = time.time()
             
-            # AES加密请求数据
             request_key = self.aes_encrypt(json.dumps(data), 'mvXBSW7ekreItNsT', '2U3IrJL8szAKp0Fj')
             if not request_key:
                 return None
             
-            # 生成签名
             t = str(int(time.time()))
             keys = "Qmxi5ciWXbQzkr7o+SUNiUuQxQEf8/AVyUWY4T/BGhcXBIUz4nOyHBGf9A4KbM0iKF3yp9M7WAY0rrs5PzdTAOB45plcS2zZ0wUibcXuGJ29VVGRWKGwE9zu2vLwhfgjTaaDpXo4rby+7GxXTktzJmxvneOUdYeHi+PZsThlvPI="
             sign_str = f"token_id=,token={self.token},phone_type=1,request_key={request_key},app_id=1,time={t},keys={keys}*&zvdvdvddbfikkkumtmdwqppp?|4Y!s!2br"
-            signature = hashlib.md5(sign_str.encode()).hexdigest()
+            # 修复：签名改为大写
+            signature = hashlib.md5(sign_str.encode()).hexdigest().upper()
             
-            # 构建请求体
             body = {
                 'token': self.token,
                 'token_id': '',
@@ -433,7 +382,6 @@ class Spider(Spider):
                 'ad_version': '1'
             }
             
-            # 发送请求 - 设置超时时间
             url = f"{self.host}{path}"
             response = self.post(url, headers=self.header, data=body, timeout=10)
             
@@ -442,13 +390,18 @@ class Spider(Spider):
                 return None
                 
             response_data = response.json()
+            
+            # 修复：检查API返回的code
+            if response_data.get('code') and response_data['code'] != 200:
+                print(f"API错误: code={response_data['code']}, msg={response_data.get('msg', '')}, 路径: {path}")
+                return None
+            
             if 'data' not in response_data:
-                print(f"API返回数据格式错误, 路径: {path}")
+                print(f"无data字段, 路径: {path}")
                 return None
                 
             data_response = response_data['data']
             
-            # RSA解密响应密钥
             private_key = """-----BEGIN PRIVATE KEY-----
 MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGAe6hKrWLi1zQmjTT1
 ozbE4QdFeJGNxubxld6GrFGximxfMsMB6BpJhpcTouAqywAFppiKetUBBbXwYsYU
@@ -468,43 +421,18 @@ t5lYKfpe8k83ZA==
             
             bodyki_json = self.rsa_decrypt(data_response['keys'], private_key)
             if not bodyki_json:
-                print("RSA解密失败")
                 return None
-                
             bodyki = json.loads(bodyki_json)
             
-            # AES解密响应数据
             decrypted_data = self.aes_decrypt(data_response['response_key'], bodyki['key'], bodyki['iv'])
             if not decrypted_data:
-                print("AES解密失败")
                 return None
-                
             result = json.loads(decrypted_data)
             
-            end_time = time.time()
-            print(f"数据获取耗时: {end_time - start_time:.2f}秒, 路径: {path}")
-            
-            # 缓存结果
             if use_cache and cache_key:
                 self.cache[cache_key] = (result, time.time())
-                
             return result
             
         except Exception as e:
             print(f"获取数据失败: {e}, 路径: {path}")
             return None
-
-    def get_md5(self, text):
-        """计算MD5"""
-        return hashlib.md5(text.encode()).hexdigest()
-
-if __name__ == '__main__':
-    spider = Spider()
-    # formatJo = spider.init([]) # 初始化
-    # formatJo = spider.homeContent(False)
-    # formatJo = spider.categoryContent('2', 1, False, {})
-    # formatJo = spider.detailContent(['82307'])
-    # formatJo = spider.playerContent('', 'vod_d_id=82307&vurl_id=1403769&domain_type=8&resolution=1080&type=play||720@108', False)
-    formatJo = spider.searchContent('飞驰人生3', False)
-        
-    # print(formatJo)
