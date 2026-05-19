@@ -1,13 +1,5 @@
 /*
 title: '瓜子app', author: '重写/v1.0.0'
-基于瓜子APP接口，参考金牌.js/热播.js结构重写
-原版使用Node.js模块(require)，改为纯JS实现兼容TV盒子JS引擎
-
-加密说明:
-- MD5: 纯JS实现
-- AES-CBC: 纯JS实现(CryptoJS兼容)
-- RSA解密: 纯JS实现(用于解密API响应的AES密钥)
-- HTTP请求: 使用TV盒子内置request()函数(兼容req())
 */
 var HOST;
 const MOBILE_UA = "okhttp/3.12.0";
