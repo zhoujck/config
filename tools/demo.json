@@ -10,8 +10,8 @@
 
 "sites": [
 
-{ "key": "豆瓣js","name": "🍬糖果影视🍬","type": 3,"api": "./js/豆瓣.js","searchable": 0,"changeable": 1},
-{ "key": "豆瓣","name": "🍬糖果影视（备用）🍬","type": 3,"api": "csp_Douban","searchable": 0,"changeable": 1},
+{ "key": "豆瓣","name": "🍬糖果影视🍬","type": 3,"api": "./js/豆瓣.js","searchable": 0,"changeable": 1},
+{ "key": "豆瓣jar","name": "🍬糖果影视🍬","type": 3,"api": "csp_Douban","searchable": 0,"changeable": 1},
 { "key": "配置中心","name": "👨‍🍳‍配置┃中心","type": 3,"api": "csp_Config","searchable": 0,"changeable": 0,"indexs": 0,"style": {"type": "rect","ratio": 1.43}},
 { "key": "看球","name": "⚾看球","type": 3,"api": "csp_Kanqiu","searchable": 1,"quickSearch": 1,"changeable": 0,"gridview": 3,"style": {"type": "list"}},
 
@@ -21,7 +21,7 @@
 { "key": "JS4", "name": "🍬金牌", "type": 3,"api":"./js/金牌.js","searchable":1,"ext":""},
 { "key": "JS5", "name": "🍬热播", "type": 3,"api":"./js/热播.js","searchable":1,"ext":""},
 { "key": "JS11", "name": "🍬糯米", "type": 3,"api":"./js/lib/drpy2.min.js","searchable":1,"ext":"./js/农民影视.js"},
-{ "key": "JS12", "name": "🍬瓜子", "type": 3,"api":"./js/瓜子.js","searchable":1,"ext":""},
+{ "key": "JS12", "name": "🍬瓜子", "type": 3,"api":"./js/lib/drpy2.min.js","searchable":1,"ext":"./js/瓜子t.js"},
 
 
   
