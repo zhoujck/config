@@ -27,9 +27,10 @@ class Spider(Spider):
             'Ver': '1.9.2',
             'Referer': 'https://api.w32z7vtd.com',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'User-Agent': 'okhttp/3.12.0'
+            'User-Agent': 'okhttp/3.12.0',
+            'Connection': 'close'
         }
-        
+
         self.private_key_pem = """-----BEGIN PRIVATE KEY-----
 MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGAe6hKrWLi1zQmjTT1
 ozbE4QdFeJGNxubxld6GrFGximxfMsMB6BpJhpcTouAqywAFppiKetUBBbXwYsYU
@@ -109,11 +110,11 @@ t5lYKfpe8k83ZA==
             chunk_int = int.from_bytes(chunk, 'big')
             dec_int = pow(chunk_int, rsa_key.d, rsa_key.n)
             dec_bytes = dec_int.to_bytes(block_size, 'big')
-            
+
             start = 0
             while start < len(dec_bytes) and dec_bytes[start] == 0:
                 start += 1
-            
+
             try:
                 real_start = dec_bytes.index(0, 2)
                 decrypted_parts.append(dec_bytes[real_start + 1:])
@@ -122,47 +123,63 @@ t5lYKfpe8k83ZA==
 
         return b''.join(decrypted_parts).decode('utf-8').strip()
 
-    def api_request(self, data_dict, path):
-        try:
-            timestamp = str(int(time.time()))
-            json_str = json.dumps(data_dict, separators=(',', ':'), ensure_ascii=False)
-            request_key = self.aes_encrypt(json_str)
-            signature = self.generate_signature(request_key, timestamp)
+    def api_request(self, data_dict, path, retries=3):
+        last_err = None
+        for attempt in range(retries):
+            try:
+                timestamp = str(int(time.time()))
+                json_str = json.dumps(data_dict, separators=(',', ':'), ensure_ascii=False)
+                request_key = self.aes_encrypt(json_str)
+                signature = self.generate_signature(request_key, timestamp)
 
-            payload = {
-                'token': self.token,
-                'token_id': '',
-                'phone_type': '1',
-                'time': timestamp,
-                'phone_model': 'xiaomi-22021211rc',
-                'keys': self.static_keys,
-                'request_key': request_key,
-                'signature': signature,
-                'app_id': '1',
-                'ad_version': '1'
-            }
+                payload = {
+                    'token': self.token,
+                    'token_id': '',
+                    'phone_type': '1',
+                    'time': timestamp,
+                    'phone_model': 'xiaomi-22021211rc',
+                    'keys': self.static_keys,
+                    'request_key': request_key,
+                    'signature': signature,
+                    'app_id': '1',
+                    'ad_version': '1'
+                }
 
-            url = f"{self.host}{path}"
-            res = requests.post(url, data=payload, headers=self.headers, verify=False, timeout=10)
+                url = f"{self.host}{path}"
+                session = requests.Session()
+                session.headers.update(self.headers)
+                adapter = requests.adapters.HTTPAdapter(max_retries=0)
+                session.mount('https://', adapter)
+                res = session.post(url, data=payload, verify=False, timeout=10)
+                session.close()
 
-            if res.status_code != 200:
-                return {"_error": f"网络异常: HTTP {res.status_code}"}
-                
-            res_json = res.json()
-            if not res_json or 'data' not in res_json:
-                return {"_error": f"API拦截: {res.text[:30]}"}
+                if res.status_code != 200:
+                    last_err = f"网络异常: HTTP {res.status_code}"
+                    continue
 
-            keys_data_str = self.rsa_decrypt_no_padding(res_json['data']['keys'])
-            keys_obj = json.loads(keys_data_str)
+                res_json = res.json()
+                if not res_json or 'data' not in res_json:
+                    last_err = f"API拦截: {res.text[:50]}"
+                    continue
 
-            decrypted_data = self.aes_decrypt(res_json['data']['response_key'], keys_obj['key'], keys_obj['iv'])
-            return json.loads(decrypted_data)
-            
-        except Exception as e:
-            err_msg = str(e)
-            if "index" in err_msg or "decode" in err_msg:
-                err_msg = "RSA/AES解密算法异常: " + err_msg
-            return {"_error": err_msg}
+                keys_data_str = self.rsa_decrypt_no_padding(res_json['data']['keys'])
+                keys_obj = json.loads(keys_data_str)
+
+                decrypted_data = self.aes_decrypt(res_json['data']['response_key'], keys_obj['key'], keys_obj['iv'])
+                return json.loads(decrypted_data)
+
+            except requests.exceptions.ConnectionError as e:
+                last_err = f"连接被重置(104)，重试 {attempt + 1}/{retries}"
+                time.sleep(0.5)
+                continue
+            except Exception as e:
+                err_msg = str(e)
+                if "index" in err_msg or "decode" in err_msg:
+                    err_msg = "RSA/AES解密算法异常: " + err_msg
+                last_err = err_msg
+                break
+
+        return {"_error": last_err or "未知错误"}
 
     def get_resolution_score(self, res):
         r = res.lower().replace('p', '')
@@ -194,7 +211,7 @@ t5lYKfpe8k83ZA==
                     "vod_pic": item.get('vod_pic', ''),
                     "vod_remarks": "电影" if continu == 0 else f"更新至{continu}集"
                 })
-        
+
         result['list'] = list_data
         return result
 
@@ -263,20 +280,20 @@ t5lYKfpe8k83ZA==
             for index, item in enumerate(play_data['list']):
                 if 'play' not in item:
                     continue
-                
+
                 resolutions = []
                 params = []
                 for k, v in item['play'].items():
                     if isinstance(v, dict) and 'param' in v:
                         resolutions.append(k)
                         params.append(v['param'])
-                
+
                 if params:
                     resolutions.sort(key=self.get_resolution_score, reverse=True)
                     play_name = vod_info.get('vod_name', '正片') if len(play_data['list']) == 1 else item.get('name', str(index + 1))
                     play_url = f"{params[0]}||{'@'.join(resolutions)}"
                     episodes.append(f"{play_name}${play_url}")
-            
+
             if episodes:
                 play_list.append("#".join(episodes))
 
@@ -343,7 +360,7 @@ t5lYKfpe8k83ZA==
             request_params['resolution'] = resolutions[0]
 
         data = self.api_request(request_params, "/App/Resource/VurlDetail/showOne")
-        
+
         play_url = data.get('url', '') if isinstance(data, dict) else ''
 
         return {
