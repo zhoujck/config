@@ -1,572 +1,353 @@
-import os
-import re
-import sys
-import time
+# coding=utf-8
+# @name 瓜子APP
+# @description 瓜子APP FongMi TVBox Python源 (修正容错增强版)
 import json
-import hashlib
+import time
 import base64
-import binascii
-import urllib.parse
-from datetime import datetime, timedelta
-from html.parser import HTMLParser
-from Crypto.Cipher import AES
+import hashlib
 import requests
-from bs4 import BeautifulSoup
+from urllib.parse import urlencode
 
-SCRIPT_VERSION = "2.6.1"
-SCRIPT_NAME = "瓜子J网"
-HOST = "瓜子源"
+# Fongmi 运行环境默认支持 pycryptodome 库
+from Crypto.Cipher import AES
+from Crypto.PublicKey import RSA
 
-base_path = os.path.dirname(os.path.abspath(__file__))
-config_path = os.path.join(base_path, 'config')
-user_path = os.path.join(config_path, 'user.json')
+from base.spider import Spider
 
-base64_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
+class Spider(Spider):
+    def getName(self):
+        return "瓜子APP"
 
-
-class MyHTMLParser(HTMLParser):
-    def __init__(self):
-        super().__init__()
-        self.in_script = False
-        self.script_content = ""
-        self.title = ""
-        self.in_title = False
-
-    def handle_starttag(self, tag, attrs):
-        if tag == "script":
-            self.in_script = True
-        if tag == "title":
-            self.in_title = True
-
-    def handle_endtag(self, tag):
-        if tag == "script":
-            self.in_script = False
-        if tag == "title":
-            self.in_title = False
-
-    def handle_data(self, data):
-        if self.in_script:
-            self.script_content += data
-        if self.in_title:
-            self.title += data
-
-
-class VideoEncryptor:
-    _instance = None
-
-    def __new__(cls):
-        if cls._instance is None:
-            cls._instance = super().__new__(cls)
-            cls._instance._initialized = False
-        return cls._instance
-
-    def __init__(self):
-        if self._initialized:
-            return
-        self._initialized = True
-        self.token = '1be86e8e18a9fa18b2b8d5432699dad0.ac008ed650fd4f97b54ff5ed45a9d160'
+    def init(self, extend=""):
         self.host = 'https://api.w32z7vtd.com'
-        self.keys = ['YmM0MDhhMjQ1MTc4', 'Y2I3MTQxNGRjZDMy', 'MDgxMmFiMGRiYjU4', 'YzljNDk4MzE0MjFi']
-        self.app = {'Package': 'com.iclient.xigua1', 'Version': '12.3.0'}
+        self.headers = {
+            'Cache-Control': 'no-cache',
+            'Version': '2406025',
+            'PackageName': 'com.uf076bf0c246.qe439f0d5e.m8aaf56b725a.ifeb647346f',
+            'Ver': '1.9.2',
+            'Referer': 'https://api.w32z7vtd.com',
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'User-Agent': 'okhttp/3.12.0'
+        }
+        
+        self.private_key_pem = """-----BEGIN PRIVATE KEY-----
+MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGAe6hKrWLi1zQmjTT1
+ozbE4QdFeJGNxubxld6GrFGximxfMsMB6BpJhpcTouAqywAFppiKetUBBbXwYsYU
+1wNr648XVmPmCMCy4rY8vdliFnbMUj086DU6Z+/oXBdWU3/b1G0DN3E9wULRSwcK
+ZT3wj/cCI1vsCm3gj2R5SqkA9Y0CAwEAAQKBgAJH+4CxV0/zBVcLiBCHvSANm0l7
+HetybTh/j2p0Y1sTXro4ALwAaCTUeqdBjWiLSo9lNwDHFyq8zX90+gNxa7c5EqcW
+V9FmlVXr8VhfBzcZo1nXeNdXFT7tQ2yah/odtdcx+vRMSGJd1t/5k5bDd9wAvYdI
+DblMAg+wiKKZ5KcdAkEA1cCakEN4NexkF5tHPRrR6XOY/XHfkqXxEhMqmNbB9U34
+saTJnLWIHC8IXys6Qmzz30TtzCjuOqKRRy+FMM4TdwJBAJQZFPjsGC+RqcG5UvVM
+iMPhnwe/bXEehShK86yJK/g/UiKrO87h3aEu5gcJqBygTq3BBBoH2md3pr/W+hUM
+WBsCQQChfhTIrdDinKi6lRxrdBnn0Ohjg2cwuqK5zzU9p/N+S9x7Ck8wUI53DKm8
+jUJE8WAG7WLj/oCOWEh+ic6NIwTdAkEAj0X8nhx6AXsgCYRql1klbqtVmL8+95KZ
+K7PnLWG/IfjQUy3pPGoSaZ7fdquG8bq8oyf5+dzjE/oTXcByS+6XRQJAP/5ciy1b
+L3NhUhsaOVy55MHXnPjdcTX0FaLi+ybXZIfIQ2P4rb19mVq1feMbCXhz+L1rG8oa
+t5lYKfpe8k83ZA==
+-----END PRIVATE KEY-----"""
+
+        self.static_keys = "Qmxi5ciWXbQzkr7o+SUNiUuQxQEf8/AVyUWY4T/BGhcXBIUz4nOyHBGf9A4KbM0iKF3yp9M7WAY0rrs5PzdTAOB45plcS2zZ0wUibcXuGJ29VVGRWKGwE9zu2vLwhfgjTaaDpXo4rby+7GxXTktzJmxvneOUdYeHi+PZsThlvPI="
+        self.token = '1be86e8e18a9fa18b2b8d5432699dad0.ac008ed650fd087bfbecf2fda9d82e9835253ef24843e6b18fcd128b10763497bcf9d53e959f5377cde038c20ccf9d17f604c9b8bb6e61041def86729b2fc7408bd241e23c213ac57f0226ee656e2bb0a583ae0e4f3bf6c6ab6c490c9a6f0d8cdfd366aacf5d83193671a8f77cd1af1ff2e9145de92ec43ec87cf4bdc563f6e919fe32861b0e93b118ec37d8035fbb3c.59dd05c5d9a8ae726528783128218f15fe6f2c0c8145eddab112b374fcfe3d79'
+
+        self.classes = [
+            {"type_id": "1", "type_name": "电影"},
+            {"type_id": "2", "type_name": "电视剧"},
+            {"type_id": "4", "type_name": "动漫"},
+            {"type_id": "3", "type_name": "综艺"},
+            {"type_id": "64", "type_name": "短剧"}
+        ]
+
+        # 增加 init 初始值声明，确保壳子正确绑定默认参数
+        years = [{"n": "全部", "v": "0"}] + [{"n": str(y), "v": str(y)} for y in range(2026, 2004, -1)] + [{"n": "更早", "v": "2004"}]
+        areas_common = [{"n": n, "v": v} for n, v in zip(["全部", "大陆", "香港", "台湾", "美国", "韩国", "日本", "英国", "法国", "泰国", "印度", "其他"], ["0", "大陆", "香港", "台湾", "美国", "韩国", "日本", "英国", "法国", "泰国", "印度", "其他"])]
+        sorts = [{"n": "最新", "v": "d_id"}, {"n": "最热", "v": "d_hits"}, {"n": "推荐", "v": "d_score"}]
+
+        self.filters = {
+            "1": [{"key": "year", "name": "年份", "init": "0", "value": years}, {"key": "area", "name": "地区", "init": "0", "value": areas_common}, {"key": "sort", "name": "排序", "init": "d_id", "value": sorts}],
+            "2": [{"key": "year", "name": "年份", "init": "0", "value": years}, {"key": "area", "name": "地区", "init": "0", "value": areas_common}, {"key": "sort", "name": "排序", "init": "d_id", "value": sorts}],
+            "4": [{"key": "year", "name": "年份", "init": "0", "value": years[:13]}, {"key": "area", "name": "地区", "init": "0", "value": [{"n": n, "v": v} for n, v in zip(["全部", "大陆", "日本", "美国", "其他"], ["0", "大陆", "日本", "美国", "其他"])]}, {"key": "sort", "name": "排序", "init": "d_id", "value": sorts}],
+            "3": [{"key": "year", "name": "年份", "init": "0", "value": years[:6]}, {"key": "area", "name": "地区", "init": "0", "value": [{"n": n, "v": v} for n, v in zip(["全部", "大陆", "台湾", "韩国"], ["0", "大陆", "台湾", "韩国"])]}, {"key": "sort", "name": "排序", "init": "d_id", "value": sorts}],
+            "64": [{"key": "year", "name": "年份", "init": "0", "value": years[:5]}, {"key": "sort", "name": "排序", "init": "d_id", "value": sorts}]
+        }
+
+    # ========================== 加密与解密工具 ==========================
+
+    def pkcs7_pad(self, text):
+        block_size = 16
+        text_bytes = text.encode('utf-8')
+        pad_len = block_size - (len(text_bytes) % block_size)
+        return text_bytes + bytes([pad_len]) * pad_len
+
+    def aes_encrypt(self, text):
+        key = b'mvXBSW7ekreItNsT'
+        iv = b'2U3IrJL8szAKp0Fj'
+        cipher = AES.new(key, AES.MODE_CBC, iv)
+        padded_text = self.pkcs7_pad(text)
+        return cipher.encrypt(padded_text).hex().upper()
+
+    def aes_decrypt(self, hex_text, key_str, iv_str):
+        key = key_str.encode('utf-8')
+        iv = iv_str.encode('utf-8')
+        cipher = AES.new(key, AES.MODE_CBC, iv)
+        decrypted = cipher.decrypt(bytes.fromhex(hex_text))
+        pad_len = decrypted[-1]
+        return decrypted[:-pad_len].decode('utf-8', errors='ignore')
 
     def generate_signature(self, request_key, timestamp):
-        sign_str = f"token_id=,token={self.token},phone_type=1,package_name={self.app['Package']},version={self.app['Version']},timestamp={timestamp},key={request_key}"
+        sign_str = f"token_id=,token={self.token},phone_type=1,request_key={request_key},app_id=1,time={timestamp},keys={self.static_keys}*&zvdvdvddbfikkkumtmdwqppp?|4Y!s!2br"
         return hashlib.md5(sign_str.encode('utf-8')).hexdigest()
 
-    def xor_decrypt(self, data):
-        key = "iguomi123456&^%$"
-        key_bytes = key.encode('utf-8')
-        try:
-            if len(data) % 2 != 0:
-                data = data[:-1]
-            data_bytes = bytes.fromhex(data)
-            decrypted = bytearray()
-            for i, byte in enumerate(data_bytes):
-                decrypted.append(byte ^ key_bytes[i % len(key_bytes)])
-            return decrypted.decode('utf-8', errors='ignore')
-        except Exception:
-            return ""
+    def rsa_decrypt_no_padding(self, data_b64):
+        rsa_key = RSA.import_key(self.private_key_pem)
+        buffer = base64.b64decode(data_b64)
+        block_size = 256
+        decrypted_parts = []
 
-    def pkcs5_unpad(self, data):
-        pad_len = data[-1]
-        if pad_len < 1 or pad_len > AES.block_size:
-            return data
-        for i in range(1, pad_len + 1):
-            if data[-i] != pad_len:
-                return data
-        return data[:-pad_len]
-
-    def aes_decrypt(self, data, key):
-        key_bytes = key.encode('utf-8')
-        iv = key_bytes[:16]
-        cipher = AES.new(key_bytes, AES.MODE_CBC, iv)
-        decrypted = cipher.decrypt(data)
-        return self.pkcs5_unpad(decrypted)
-
-    def decrypt_response(self, response_str, key):
-        try:
-            if response_str.startswith('"') and response_str.endswith('"'):
-                response_str = response_str[1:-1]
-            json_match = re.search(r'[{\[]', response_str)
-            if json_match:
-                json_str = response_str[json_match.start():]
-                try:
-                    return json.loads(json_str)
-                except json.JSONDecodeError:
-                    pass
-            key_bytes = key.encode('utf-8')
-            iv = key_bytes[:16]
-            cipher = AES.new(key_bytes, AES.MODE_CBC, iv)
-            decoded = base64.b64decode(response_str)
-            decrypted = cipher.decrypt(decoded)
-            unpadded = self.pkcs5_unpad(decrypted)
-            result = unpadded.decode('utf-8')
+        for i in range(0, len(buffer), block_size):
+            chunk = buffer[i:i + block_size]
+            chunk_int = int.from_bytes(chunk, 'big')
+            dec_int = pow(chunk_int, rsa_key.d, rsa_key.n)
+            dec_bytes = dec_int.to_bytes(block_size, 'big')
+            
+            start = 0
+            while start < len(dec_bytes) and dec_bytes[start] == 0:
+                start += 1
+            
             try:
-                return json.loads(result)
-            except json.JSONDecodeError:
-                return result
-        except Exception as e:
-            return {"_error": f"解密失败: {str(e)[:50]}"}
+                real_start = dec_bytes.index(0, 2)
+                decrypted_parts.append(dec_bytes[real_start + 1:])
+            except ValueError:
+                decrypted_parts.append(dec_bytes[start:])
 
-    def prepare_request(self, request_type, extra_params=None):
-        current_time = int(time.time() * 1000)
-        static_keys = [
-            'N2NiMjk4MTJiMDE3', 'ZDU5NWU3MzAyMTdl', 'MjcxNWIxYzI2Mjcw', 'YTY3NWY0NzEwMjlh',
-            'NGQ2NzI1ZTgzMTQ0', 'NTg0YjU2MjlhMjA1', 'MTgyNjkxM2JjYzNk', 'YzEyNjRiODZjNjg3',
-            'MDgwOWZiNDE4ZTQ1', 'MmFhMjA2OThjZWM5', 'ZGIzNjA3ZjFkZGI4', 'MjNlNDIyNjVjNjlj'
-        ]
-        params = {
-            "token_id": "",
-            "token": self.token,
-            "phone_type": "1",
-            "package_name": self.app['Package'],
-            "version": self.app['Version'],
-            "re_version": "1",
-            "mdpi": "1",
-            "lb": "1080,2330",
-            "request_type": request_type,
-            "timestamp": str(current_time),
-        }
-        if extra_params:
-            params.update(extra_params)
-        param_values = list(params.values())
-        key_param = ""
-        if len(param_values) > 0:
-            key_param = str(param_values[0])
-        request_key = ""
-        for k in static_keys:
-            if k and key_param:
-                request_key += k[len(key_param) - 1] if len(k) >= len(key_param) else k[-1]
-            else:
-                request_key += "0"
-        request_key = request_key[:16]
-        signature = self.generate_signature(request_key, current_time)
-        params["sign"] = signature
-        enc_key = "3e1a6f9daeadc2bb".encode('utf-8')
-        enc_iv = enc_key[:16]
-        cipher = AES.new(enc_key, AES.MODE_CBC, enc_iv)
-        json_str = json.dumps(params)
-        pad_len = AES.block_size - (len(json_str.encode('utf-8')) % AES.block_size)
-        padded_data = json_str.encode('utf-8') + bytes([pad_len] * pad_len)
-        encrypted = cipher.encrypt(padded_data)
-        enc_data = base64.b64encode(encrypted).decode('utf-8')
-        url = f"{self.host}/Qd4WiH97MHx59qNz/app/index"
-        headers = {
-            'User-Agent': "okhttp/4.9.1",
-            'Connection': "Keep-Alive",
-            'Accept-Encoding': "gzip",
-            'Content-Type': "application/x-www-form-urlencoded",
-            'PackageName': self.app['Package'],
-            'Version': self.app['Version'],
-        }
-        data = {'data': enc_data}
-        return url, headers, data
+        return b''.join(decrypted_parts).decode('utf-8').strip()
 
-    def api_request(self, request_type, extra_params=None):
-        url, headers, data = self.prepare_request(request_type, extra_params)
-        max_retries = 3
-        for attempt in range(max_retries):
-            try:
-                res = requests.post(url, headers=headers, data=data, timeout=15, verify=True)
-                res_json = res.json()
-                if not res_json or 'data' not in res_json:
-                    return {"_error": f"API拦截: {res.text[:30]}"}
-                return res_json
-            except (ConnectionResetError, ConnectionError, ConnectionAbortedError) as e:
-                if attempt < max_retries - 1:
-                    time.sleep(2 * (attempt + 1))
-                    continue
-                return {"_error": f"连接被重置(已重试{max_retries}次): {str(e)[:40]}"}
-            except Exception as e:
-                return {"_error": f"网络异常: {str(e)[:30]}"}
-        return {"_error": "请求失败"}
-
-    def get_api_data(self, request_type, decrypt_key, extra_params=None):
-        response = self.api_request(request_type, extra_params)
-        if '_error' in response:
-            return response
-        decrypted = self.decrypt_response(response['data'], decrypt_key)
-        return decrypted
-
-    def get_key_data(self, api_content):
-        results = []
-        if not api_content:
-            return results
-        if isinstance(api_content, dict):
-            if 'data' in api_content:
-                api_content = api_content['data']
-        data_key = ['id', 'type', 'title', 'img', 'desc']
+    def api_request(self, data_dict, path):
         try:
-            if isinstance(api_content, list):
-                for i, item in enumerate(api_content):
-                    try:
-                        if len(item) >= 5:
-                            result = {}
-                            for j, key in enumerate(data_key):
-                                if key == 'id':
-                                    result[key] = str(item[0])
-                                else:
-                                    result[key] = item[j]
-                            results.append(result)
-                    except Exception:
-                        pass
-        except Exception as e:
-            return results
-        return results
+            timestamp = str(int(time.time()))
+            json_str = json.dumps(data_dict, separators=(',', ':'), ensure_ascii=False)
+            request_key = self.aes_encrypt(json_str)
+            signature = self.generate_signature(request_key, timestamp)
 
-    def get_movie_url(self, url):
-        try:
-            url = url.encode('utf-8', errors='ignore').decode('utf-8')
-            if not url:
-                return ''
-            has_ext = bool(re.search(r'\.\w+$', url.split('?')[0]))
-            if has_ext:
-                return url
-            res = requests.get(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}, timeout=30, verify=False)
-            res.encoding = 'utf-8'
-            parser = MyHTMLParser()
-            parser.script_content = ""
-            parser.title = ""
-            parser.feed(res.text)
-            title = parser.title
-            script_content = parser.script_content
-            vkey = ""
-            url_matches = re.findall(r'https?://[^\s<>"]+|www\.[^\s<>"]+', res.text)
-            for match in url_matches:
-                if any(ext in match for ext in ['.m3u8', '.mp4', '.flv']):
-                    return match
-            if script_content:
-                vkey_match = re.search(r"var\s+vkey\s*=\s*'([^']+)'", script_content)
-                if vkey_match:
-                    vkey = vkey_match.group(1)
-            if not vkey:
-                vkey_match = re.search(r"var\s+vkey\s*=\s*'([^']+)'", res.text)
-                if vkey_match:
-                    vkey = vkey_match.group(1)
-            if vkey:
-                return self.decode_url(vkey, self.keys)
-            return ''
-        except Exception:
-            return ''
-
-    def decode_url(self, encoded_str, keys):
-        try:
-            if not encoded_str:
-                return ''
-            v1 = encoded_str
-            for i in range(len(keys) - 1, -1, -1):
-                try:
-                    k = base64.b64decode(keys[i]).decode('utf-8')
-                    try:
-                        v1 = self.aes_decrypt(base64.b64decode(v1), k).decode('utf-8')
-                    except Exception:
-                        v1 = self.xor_decrypt(v1)
-                except Exception:
-                    pass
-            return v1
-        except Exception:
-            return ''
-
-    def get_urls(self, url):
-        try:
-            url = url.encode('utf-8', errors='ignore').decode('utf-8')
-            if not url:
-                return []
-            if re.search(r'[/\.](mp4|m3u8|flv)', url):
-                return [{'name': '默认', 'url': url}]
-            result = []
-            res = requests.get(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}, timeout=15, verify=False)
-            res.encoding = 'utf-8'
-            parser = MyHTMLParser()
-            parser.script_content = ""
-            parser.title = ""
-            parser.feed(res.text)
-            title = parser.title
-            script_content = parser.script_content
-            url_match = re.search(r'https?://[^\s\'"]+|www\.[^\s\'"]+', res.text)
-            if url_match:
-                url_1 = url_match.group(0)
-                if re.search(r'[/\.](mp4|m3u8|flv|com|cn)', url_1):
-                    url_2 = self.get_movie_url(url_1)
-                    if url_2:
-                        result.append({'name': title, 'url': url_2, 'from': '1'})
-                    else:
-                        result.append({'name': title, 'url': url_1, 'from': '1'})
-            vkey = ""
-            vkey_match = re.search(r"var\s+vkey\s*=\s*'([^']+)'", script_content)
-            if vkey_match:
-                vkey = vkey_match.group(1)
-            vkey_2 = re.search(r"var\s+vkey\s*=\s*'([^']+)'", res.text)
-            if not vkey and vkey_2:
-                vkey = vkey_2.group(1)
-            vkey_2 = re.search(r"var\s+_b\s*=\s*'([^']+)'", res.text)
-            if vkey_2:
-                url_content = self.decode_url(vkey_2.group(1), self.keys)
-                if url_content:
-                    result.append({'name': title, 'url': url_content, 'from': '2'})
-            result = [item for item in result if self.is_valid_url(item.get('url', ''))]
-            return result
-        except Exception:
-            return []
-
-    def is_valid_url(self, url):
-        if not url:
-            return False
-        return bool(re.match(r'^(https?://|www\.)', url))
-
-
-class API:
-    def __init__(self):
-        self.instance = VideoEncryptor()
-
-    def searchContent(self, key, quick):
-        print(f"[搜索] 关键词: {key}")
-        result = {
-            'list': [],
-            'header': {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
-                'Referer': 'https://d1ad626df5af434886f47e5b10e5dd37.v36045.shop/',
-                'Origin': 'https://d1ad626df5af434886f47e5b10e5dd37.v36045.shop/'
-            },
-            'filterValue': {}
-        }
-        if quick:
-            return result
-        try:
-            params = {
-                'keyword': key,
-                'page': '1',
+            payload = {
+                'token': self.token,
+                'token_id': '',
+                'phone_type': '1',
+                'time': timestamp,
+                'phone_model': 'xiaomi-22021211rc',
+                'keys': self.static_keys,
+                'request_key': request_key,
+                'signature': signature,
+                'app_id': '1',
+                'ad_version': '1'
             }
-            api_content = self.instance.get_api_data('5', '4c39a08cb714f2dc', extra_params=params)
-            if '_error' in api_content:
-                print(f"[搜索] 错误: {api_content['_error']}")
-                return result
-            search_result = self.instance.get_key_data(api_content)
-            if not search_result:
-                return result
-            for item in search_result:
-                item['name'] = item.get('title', '')
-                if item.get('id') and 'gif' in str(item.get('id', '')):
-                    item['type'] = 'movie'
-                else:
-                    item['type'] = 'movie'
-            result['list'] = search_result
-        except Exception as e:
-            print(f"[搜索] 异常: {e}")
-        return result
 
-    def homeContent(self, filters):
+            url = f"{self.host}{path}"
+            res = requests.post(url, data=payload, headers=self.headers, verify=False, timeout=10)
+
+            if res.status_code != 200:
+                return {"_error": f"网络异常: HTTP {res.status_code}"}
+                
+            res_json = res.json()
+            if not res_json or 'data' not in res_json:
+                return {"_error": f"API拦截: {res.text[:30]}"}
+
+            keys_data_str = self.rsa_decrypt_no_padding(res_json['data']['keys'])
+            keys_obj = json.loads(keys_data_str)
+
+            decrypted_data = self.aes_decrypt(res_json['data']['response_key'], keys_obj['key'], keys_obj['iv'])
+            return json.loads(decrypted_data)
+            
+        except Exception as e:
+            err_msg = str(e)
+            if "index" in err_msg or "decode" in err_msg:
+                err_msg = "RSA/AES解密算法异常: " + err_msg
+            return {"_error": err_msg}
+
+    def get_resolution_score(self, res):
+        r = res.lower().replace('p', '')
+        scores = {'8k': 100, '4k': 90, '2160': 90, '1440': 80, '1080': 70, '720': 60, '超清': 50, '高清': 40, '标清': 30}
+        return scores.get(r, 10)
+
+    # ========================== 核心业务接口 ==========================
+
+    def homeContent(self, filter):
         result = {}
-        try:
-            if filters:
-                filter_values = []
-                for i in range(4, 13):
-                    try:
-                        api_content = self.instance.get_api_data('1', '60983e0185ee0e54', extra_params={'type': str(i)})
-                        filter_data = self.instance.get_key_data(api_content)
-                        filter_values.append(filter_data)
-                    except Exception:
-                        filter_values.append([])
-                result['filterValue'] = {
-                    '1': filter_values[0] if len(filter_values) > 0 else [],
-                    '2': filter_values[1] if len(filter_values) > 1 else [],
-                    '3': filter_values[2] if len(filter_values) > 2 else [],
-                    '4': filter_values[3] if len(filter_values) > 3 else [],
-                    '5': filter_values[4] if len(filter_values) > 4 else [],
-                    '6': filter_values[5] if len(filter_values) > 5 else [],
-                    '7': filter_values[6] if len(filter_values) > 6 else [],
-                    '8': filter_values[7] if len(filter_values) > 7 else [],
-                    '9': filter_values[8] if len(filter_values) > 8 else [],
-                }
-            api_content = self.instance.get_api_data('2', '23948b7e185fe249')
-            if '_error' in api_content:
-                print(f"[首页] 错误: {api_content['_error']}")
-                result['list'] = []
-                return result
-            home_result = self.instance.get_key_data(api_content)
-            if not home_result:
-                result['list'] = []
-                return result
-            for item in home_result:
-                item['name'] = item.get('title', '')
-                item['type'] = 'movie'
-            result['list'] = home_result
-        except Exception as e:
-            print(f"[首页] 异常: {e}")
-            result['list'] = []
+        result['class'] = self.classes
+        result['filters'] = self.filters
+
+        data = self.api_request({
+            "area": "0",
+            "year": "0",
+            "pageSize": "100",
+            "sort": "d_id",
+            "page": "1"
+        }, "/App/IndexList/indexList")
+
+        list_data = []
+        if isinstance(data, dict) and 'list' in data:
+            for item in data.get('list', []):
+                continu = item.get('vod_continu', 0)
+                list_data.append({
+                    "vod_id": f"{item.get('vod_id')}/{continu}",
+                    "vod_name": item.get('vod_name', ''),
+                    "vod_pic": item.get('vod_pic', ''),
+                    "vod_remarks": "电影" if continu == 0 else f"更新至{continu}集"
+                })
+        
+        result['list'] = list_data
         return result
 
-    def homeVideoContent(self):
-        result = {'list': []}
-        try:
-            page_params = {
-                'page': '1',
-                'size': '10',
-                'category': 'recommend'
-            }
-            api_content = self.instance.get_api_data('2', '23948b7e185fe249', extra_params=page_params)
-            if '_error' in api_content:
-                print(f"[首页视频] 错误: {api_content['_error']}")
-                return result
-            home_result = self.instance.get_key_data(api_content)
-            if not home_result:
-                return result
-            for item in home_result:
-                item['name'] = item.get('title', '')
-                item['type'] = 'movie'
-            result['list'] = home_result
-        except Exception as e:
-            print(f"[首页视频] 异常: {e}")
-        return result
+    def categoryContent(self, tid, pg, filter, extend):
+        if extend is None or not isinstance(extend, dict):
+            extend = {}
 
-    def categoryContent(self, tid, pg, filterValue, extend):
-        result = {'list': [], 'page': pg, 'pagecount': 9999, 'limit': 20, 'total': 99999}
-        try:
-            params = {
-                'page': str(pg),
-                'type': tid,
-            }
-            if isinstance(filterValue, dict) and len(filterValue) > 0:
-                params.update(filterValue)
-            api_content = self.instance.get_api_data('2', '23948b7e185fe249', extra_params=params)
-            if '_error' in api_content:
-                print(f"[分类] 错误: {api_content['_error']}")
-                return result
-            category_result = self.instance.get_key_data(api_content)
-            if not category_result:
-                return result
-            for item in category_result:
-                item['name'] = item.get('title', '')
-                item['type'] = 'movie'
-            result['list'] = category_result
-        except Exception as e:
-            print(f"[分类] 异常: {e}")
-        return result
+        area = extend.get("area", "0")
+        year = extend.get("year", "0")
+        sort = extend.get("sort", "d_id")
 
-    def detailContent(self, ids):
-        result = {'list': []}
-        try:
-            if not ids:
-                return result
-            video_id = ids[0]
-            params = {
-                'id': video_id,
-                'ids': video_id,
+        data = self.api_request({
+            "area": area,
+            "year": year,
+            "pageSize": "20",
+            "sort": sort,
+            "page": str(pg),
+            "tid": str(tid)
+        }, "/App/IndexList/indexList")
+
+        # 核心跟踪调试：一旦接口失败或解析崩溃，呈现具体错误信息
+        if isinstance(data, dict) and "_error" in data:
+            return {
+                "list": [{"vod_id": "error", "vod_name": data["_error"], "vod_pic": "", "vod_remarks": "请截图错误"}],
+                "page": int(pg),
+                "pagecount": 1
             }
-            api_content = self.instance.get_api_data('3', 'feab95d08f496a90', extra_params=params)
-            if '_error' in api_content:
-                print(f"[详情] 错误: {api_content['_error']}")
-                return result
-            detail_data = api_content
-            if isinstance(detail_data, dict):
-                movie = {
-                    'vod_id': str(detail_data.get('id', video_id)),
-                    'vod_name': detail_data.get('title', ''),
-                    'vod_pic': detail_data.get('img', ''),
-                    'type_name': detail_data.get('type', ''),
-                    'vod_year': detail_data.get('year', ''),
-                    'vod_area': detail_data.get('area', ''),
-                    'vod_remarks': detail_data.get('state', ''),
-                    'vod_content': detail_data.get('info', ''),
-                    'vod_play_from': '',
-                    'vod_play_url': '',
-                }
-                source_names = []
-                source_urls = []
-                if 'bfzy_play' in detail_data:
-                    source_names.append("bfzy播放源")
-                    play_data = detail_data.get('bfzy_play', {})
-                    if isinstance(play_data, list):
-                        play_items = []
-                        for i, item in enumerate(play_data):
-                            if len(item) >= 2:
-                                play_items.append(f"{item[0]}${item[1]}")
-                        source_urls.append('#'.join(play_items))
-                if 'ckzy_play' in detail_data:
-                    source_names.append("ck播放源")
-                    play_data = detail_data.get('ckzy_play', {})
-                    if isinstance(play_data, list):
-                        play_items = []
-                        for i, item in enumerate(play_data):
-                            if len(item) >= 2:
-                                play_items.append(f"{item[0]}${item[1]}")
-                        source_urls.append('#'.join(play_items))
-                if source_names:
-                    movie['vod_play_from'] = '$$'.join(source_names)
-                    movie['vod_play_url'] = '$$$$$$'.join(source_urls)
-                result['list'].append(movie)
-            elif isinstance(detail_data, list) and len(detail_data) > 0:
-                movie = {
-                    'vod_id': str(video_id),
-                    'vod_name': detail_data[0].get('title', '') if len(detail_data) > 0 else '',
-                    'vod_pic': detail_data[0].get('img', '') if len(detail_data) > 0 else '',
-                    'type_name': detail_data[0].get('type', '') if len(detail_data) > 0 else '',
-                    'vod_year': detail_data[0].get('year', '') if len(detail_data) > 0 else '',
-                    'vod_area': detail_data[0].get('area', '') if len(detail_data) > 0 else '',
-                    'vod_remarks': detail_data[0].get('state', '') if len(detail_data) > 0 else '',
-                    'vod_content': detail_data[0].get('info', '') if len(detail_data) > 0 else '',
-                    'vod_play_from': '',
-                    'vod_play_url': '',
-                }
-                result['list'].append(movie)
-        except Exception as e:
-            print(f"[详情] 异常: {e}")
-        return result
+
+        list_data = []
+        for item in data.get('list', []):
+            continu = item.get('vod_continu', 0)
+            list_data.append({
+                "vod_id": f"{item.get('vod_id')}/{continu}",
+                "vod_name": item.get('vod_name', ''),
+                "vod_pic": item.get('vod_pic', ''),
+                "vod_remarks": "电影" if continu == 0 else f"更新至{continu}集"
+            })
+
+        total_page = int(data.get('totalPage', 0))
+        return {
+            "list": list_data,
+            "page": int(pg),
+            "pagecount": 999 if total_page == 0 else total_page
+        }
+
+    def detailContent(self, array):
+        vod_id = array[0].split("/")[0] if "/" in array[0] else array[0]
+
+        detail_data = self.api_request({
+            "token_id": "1649412",
+            "vod_id": vod_id,
+            "mobile_time": str(int(time.time())),
+            "tokename": self.token
+        }, "/App/IndexPlay/playInfo")
+
+        play_data = self.api_request({
+            "vurl_cloud_id": "2",
+            "vod_d_id": vod_id
+        }, "/App/Resource/Vurl/show")
+
+        vod_info = detail_data.get('vodInfo', {}) if isinstance(detail_data, dict) else {}
+
+        play_list = []
+        if isinstance(play_data, dict) and 'list' in play_data:
+            episodes = []
+            for index, item in enumerate(play_data['list']):
+                if 'play' not in item:
+                    continue
+                
+                resolutions = []
+                params = []
+                for k, v in item['play'].items():
+                    if isinstance(v, dict) and 'param' in v:
+                        resolutions.append(k)
+                        params.append(v['param'])
+                
+                if params:
+                    resolutions.sort(key=self.get_resolution_score, reverse=True)
+                    play_name = vod_info.get('vod_name', '正片') if len(play_data['list']) == 1 else item.get('name', str(index + 1))
+                    play_url = f"{params[0]}||{'@'.join(resolutions)}"
+                    episodes.append(f"{play_name}${play_url}")
+            
+            if episodes:
+                play_list.append("#".join(episodes))
+
+        video = {
+            "vod_id": array[0],
+            "vod_name": vod_info.get("vod_name", ""),
+            "vod_pic": vod_info.get("vod_pic", ""),
+            "vod_year": vod_info.get("vod_year", ""),
+            "vod_area": vod_info.get("vod_area", ""),
+            "vod_actor": vod_info.get("vod_actor", ""),
+            "vod_content": str(vod_info.get("vod_use_content", "")).strip(),
+            "vod_play_from": "瓜子专线" if play_list else "",
+            "vod_play_url": "$$$".join(play_list) if play_list else ""
+        }
+
+        return {"list": [video]}
+
+    def searchContent(self, key, quick, pg="1"):
+        data = self.api_request({
+            "keywords": key,
+            "order_val": "1",
+            "page": str(pg)
+        }, "/App/Index/findMoreVod")
+
+        if isinstance(data, dict) and "_error" in data:
+             return {"list": [], "page": int(pg), "pagecount": 0}
+
+        list_data = []
+        for item in data.get('list', []):
+            name = item.get('vod_name', '')
+            if key.lower() in name.lower():
+                continu = item.get('vod_continu', 0)
+                list_data.append({
+                    "vod_id": f"{item.get('vod_id')}/{continu}",
+                    "vod_name": name,
+                    "vod_pic": item.get('vod_pic', ''),
+                    "vod_remarks": "电影" if continu == 0 else f"更新至{continu}集"
+                })
+
+        total_page = int(data.get('totalPage', 0))
+        return {
+            "list": list_data,
+            "page": int(pg),
+            "pagecount": 1 if total_page == 0 else total_page
+        }
 
     def playerContent(self, flag, id, vipFlags):
-        result = {'url': '', 'parse': '0', 'header': {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
-            'Referer': 'https://d1ad626df5af434886f47e5b10e5dd37.v36045.shop/',
-            'Origin': 'https://d1ad626df5af434886f47e5b10e5dd37.v36045.shop/'
-        }}
-        try:
-            play_url = id
-            if play_url and not re.search(r'[/\.](mp4|m3u8|flv)', play_url) and not play_url.startswith('http'):
-                try:
-                    api_content = self.instance.get_api_data('4', '8edc8f5edf167a9d', extra_params={'url': play_url})
-                    if '_error' not in api_content and isinstance(api_content, dict):
-                        play_url = api_content.get('url', play_url)
-                        if api_content.get('isNbn', 0) == 1:
-                            result['parse'] = '1'
-                except Exception:
-                    pass
-            play_url = play_url.encode('utf-8', errors='ignore').decode('utf-8')
-            result['url'] = play_url
-        except Exception as e:
-            print(f"[播放] 异常: {e}")
-            result['url'] = id
-        return result
+        parts = id.split('||')
+        if len(parts) < 2:
+            return {"parse": 0, "url": id, "header": {"User-Agent": "okhttp/3.12.0"}}
 
-    def isVideoCheck(self):
-        return '1'
+        param_str = parts[0]
+        resolutions = parts[1].split('@')
 
-    def getName(self):
-        return SCRIPT_NAME
+        request_params = {}
+        for pair in param_str.split('&'):
+            if '=' in pair:
+                k, v = pair.split('=', 1)
+                if k:
+                    request_params[k] = v
 
-    def destroy(self):
-        pass
+        if resolutions:
+            resolutions.sort(key=self.get_resolution_score, reverse=True)
+            request_params['resolution'] = resolutions[0]
 
+        data = self.api_request(request_params, "/App/Resource/VurlDetail/showOne")
+        
+        play_url = data.get('url', '') if isinstance(data, dict) else ''
 
-if __name__ == '__main__':
-    api = API()
-    print(f"当前版本: {SCRIPT_VERSION}")
+        return {
+            "parse": 0,
+            "url": play_url,
+            "header": {"User-Agent": "okhttp/3.12.0"}
+        }
