@@ -58,7 +58,6 @@ t5lYKfpe8k83ZA==
             {"type_id": "64", "type_name": "短剧"}
         ]
 
-        # 增加 init 初始值声明，确保壳子正确绑定默认参数
         years = [{"n": "全部", "v": "0"}] + [{"n": str(y), "v": str(y)} for y in range(2026, 2004, -1)] + [{"n": "更早", "v": "2004"}]
         areas_common = [{"n": n, "v": v} for n, v in zip(["全部", "大陆", "香港", "台湾", "美国", "韩国", "日本", "英国", "法国", "泰国", "印度", "其他"], ["0", "大陆", "香港", "台湾", "美国", "韩国", "日本", "英国", "法国", "泰国", "印度", "其他"])]
         sorts = [{"n": "最新", "v": "d_id"}, {"n": "最热", "v": "d_hits"}, {"n": "推荐", "v": "d_score"}]
@@ -101,7 +100,7 @@ t5lYKfpe8k83ZA==
     def rsa_decrypt_no_padding(self, data_b64):
         rsa_key = RSA.import_key(self.private_key_pem)
         buffer = base64.b64decode(data_b64)
-        # 修复: 使用实际 RSA key 大小而非硬编码 256
+        # RSA key 1024-bit = 128 字节，必须用实际 key 大小
         block_size = (rsa_key.size_in_bits() + 7) // 8
         if block_size < len(buffer):
             block_size = len(buffer)
@@ -112,27 +111,18 @@ t5lYKfpe8k83ZA==
             chunk_int = int.from_bytes(chunk, 'big')
             dec_int = pow(chunk_int, rsa_key.d, rsa_key.n)
             dec_bytes = dec_int.to_bytes(block_size, 'big')
-            
+
             # PKCS#1 v1.5: 0x00 0x02 <padding> 0x00 <data>
-            if dec_bytes[0] == 0 and len(dec_bytes) > 2:
-                stripped = dec_bytes.lstrip(b'\x00')
+            # 先去掉前导零，再找 0x00 0x02 开头
+            stripped = dec_bytes.lstrip(b'\x00')
+            try:
                 if len(stripped) > 0 and stripped[0] == 2:
                     sep_pos = stripped.index(0, 1)
                     decrypted_parts.append(stripped[sep_pos + 1:])
                 else:
-                    try:
-                        real_start = dec_bytes.index(0, 2)
-                        decrypted_parts.append(dec_bytes[real_start + 1:])
-                    except ValueError:
-                        start = 0
-                        while start < len(dec_bytes) and dec_bytes[start] == 0:
-                            start += 1
-                        decrypted_parts.append(dec_bytes[start:])
-            else:
-                start = 0
-                while start < len(dec_bytes) and dec_bytes[start] == 0:
-                    start += 1
-                decrypted_parts.append(dec_bytes[start:])
+                    decrypted_parts.append(stripped)
+            except ValueError:
+                decrypted_parts.append(stripped)
 
         return b''.join(decrypted_parts).decode('utf-8').strip()
 
@@ -229,7 +219,6 @@ t5lYKfpe8k83ZA==
             "tid": str(tid)
         }, "/App/IndexList/indexList")
 
-        # 核心跟踪调试：一旦接口失败或解析崩溃，呈现具体错误信息
         if isinstance(data, dict) and "_error" in data:
             return {
                 "list": [{"vod_id": "error", "vod_name": data["_error"], "vod_pic": "", "vod_remarks": "请截图错误"}],
