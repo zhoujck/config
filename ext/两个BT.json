@@ -5,6 +5,6 @@
 "数组": "transition-opacity&&lazy",
 "标题": "alt=\"&&\"",
 "图片": "img data-src=\"&&\"",
-"分类url": "https://www.bttwoo.com/{cateId}.html",
-"分类": "电影$movie#电视剧$tv#"
+"分类url": "https://www.bttwoo.com/filter?classify={cateId}/page/{catePg}",
+"分类": "电影$1#电视剧$2#"
 }
