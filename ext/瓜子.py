@@ -11,11 +11,9 @@ from datetime import datetime, timedelta
 from html.parser import HTMLParser
 from Crypto.Cipher import AES
 import requests
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
 from bs4 import BeautifulSoup
 
-SCRIPT_VERSION = "2.8"
+SCRIPT_VERSION = "2.6.1"
 SCRIPT_NAME = "瓜子J网"
 HOST = "瓜子源"
 
@@ -53,34 +51,6 @@ class MyHTMLParser(HTMLParser):
             self.title += data
 
 
-def create_session():
-    """创建带重试策略的 Session"""
-    session = requests.Session()
-    retry_strategy = Retry(
-        total=3,
-        backoff_factor=1,
-        status_forcelist=[500, 502, 503, 504],
-        allowed_methods=["POST", "GET"],
-        raise_on_status=False,
-    )
-    adapter = HTTPAdapter(
-        max_retries=retry_strategy,
-        pool_connections=1,
-        pool_maxsize=1,
-    )
-    session.mount("https://", adapter)
-    session.mount("http://", adapter)
-    # 模拟真实安卓 APP 的请求头
-    session.headers.update({
-        'User-Agent': 'okhttp/4.9.1',
-        'Connection': 'Keep-Alive',
-        'Accept-Encoding': 'gzip',
-        'Accept-Language': 'zh-CN,zh;q=0.9',
-        'Accept': '*/*',
-    })
-    return session
-
-
 class VideoEncryptor:
     _instance = None
 
@@ -98,31 +68,6 @@ class VideoEncryptor:
         self.host = 'https://api.w32z7vtd.com'
         self.keys = ['YmM0MDhhMjQ1MTc4', 'Y2I3MTQxNGRjZDMy', 'MDgxMmFiMGRiYjU4', 'YzljNDk4MzE0MjFi']
         self.app = {'Package': 'com.iclient.xigua1', 'Version': '12.3.0'}
-        self.session = create_session()
-        self._check_connection()
-
-    def _check_connection(self):
-        """启动时诊断连接"""
-        try:
-            from urllib.parse import urlparse
-            import socket
-            parsed = urlparse(self.host)
-            ip = socket.gethostbyname(parsed.hostname)
-            print(f"[诊断] {parsed.hostname} -> {ip}")
-        except Exception as e:
-            print(f"[诊断] DNS失败: {e}")
-        try:
-            resp = self.session.get(self.host, timeout=10)
-            print(f"[诊断] 连接正常: HTTP {resp.status_code}")
-        except requests.exceptions.ConnectionError as e:
-            err_str = str(e)[:80]
-            if 'Connection reset' in err_str or '104' in err_str:
-                print(f"[诊断] 连接被重置: 服务端拒绝或IP被风控")
-                print(f"[诊断] 可能需要: 更新API域名 或 更换网络环境")
-            else:
-                print(f"[诊断] 连接失败: {err_str}")
-        except Exception as e:
-            print(f"[诊断] 连接异常: {str(e)[:60]}")
 
     def generate_signature(self, request_key, timestamp):
         sign_str = f"token_id=,token={self.token},phone_type=1,package_name={self.app['Package']},version={self.app['Version']},timestamp={timestamp},key={request_key}"
@@ -205,7 +150,9 @@ class VideoEncryptor:
         if extra_params:
             params.update(extra_params)
         param_values = list(params.values())
-        key_param = str(param_values[0]) if param_values else ""
+        key_param = ""
+        if len(param_values) > 0:
+            key_param = str(param_values[0])
         request_key = ""
         for k in static_keys:
             if k and key_param:
@@ -225,6 +172,9 @@ class VideoEncryptor:
         enc_data = base64.b64encode(encrypted).decode('utf-8')
         url = f"{self.host}/Qd4WiH97MHx59qNz/app/index"
         headers = {
+            'User-Agent': "okhttp/4.9.1",
+            'Connection': "Keep-Alive",
+            'Accept-Encoding': "gzip",
             'Content-Type': "application/x-www-form-urlencoded",
             'PackageName': self.app['Package'],
             'Version': self.app['Version'],
@@ -234,32 +184,22 @@ class VideoEncryptor:
 
     def api_request(self, request_type, extra_params=None):
         url, headers, data = self.prepare_request(request_type, extra_params)
-        try:
-            res = self.session.post(
-                url, headers=headers, data=data, timeout=15
-            )
-            res_json = res.json()
-            if not res_json or 'data' not in res_json:
-                return {"_error": f"API拦截: {res.text[:30]}"}
-            return res_json
-        except requests.exceptions.ConnectionError as e:
-            err = str(e)
-            if 'reset' in err.lower() or '104' in err:
-                # 尝试重建 Session 重试一次
-                try:
-                    self.session.close()
-                    self.session = create_session()
-                    time.sleep(2)
-                    res = self.session.post(url, headers=headers, data=data, timeout=15)
-                    res_json = res.json()
-                    if not res_json or 'data' not in res_json:
-                        return {"_error": f"API拦截: {res.text[:30]}"}
-                    return res_json
-                except Exception as e2:
-                    return {"_error": f"连接被重置: 服务端拒绝，可能需更新域名或token"}
-            return {"_error": f"连接失败: {err[:50]}"}
-        except Exception as e:
-            return {"_error": f"网络异常: {str(e)[:30]}"}
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                res = requests.post(url, headers=headers, data=data, timeout=15, verify=True)
+                res_json = res.json()
+                if not res_json or 'data' not in res_json:
+                    return {"_error": f"API拦截: {res.text[:30]}"}
+                return res_json
+            except (ConnectionResetError, ConnectionError, ConnectionAbortedError) as e:
+                if attempt < max_retries - 1:
+                    time.sleep(2 * (attempt + 1))
+                    continue
+                return {"_error": f"连接被重置(已重试{max_retries}次): {str(e)[:40]}"}
+            except Exception as e:
+                return {"_error": f"网络异常: {str(e)[:30]}"}
+        return {"_error": "请求失败"}
 
     def get_api_data(self, request_type, decrypt_key, extra_params=None):
         response = self.api_request(request_type, extra_params)
@@ -290,8 +230,8 @@ class VideoEncryptor:
                             results.append(result)
                     except Exception:
                         pass
-        except Exception:
-            pass
+        except Exception as e:
+            return results
         return results
 
     def get_movie_url(self, url):
@@ -302,9 +242,7 @@ class VideoEncryptor:
             has_ext = bool(re.search(r'\.\w+$', url.split('?')[0]))
             if has_ext:
                 return url
-            res = self.session.get(url, headers={
-                'User-Agent': 'Mozilla/5.0 (Linux; Android 12) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Mobile Safari/537.36'
-            }, timeout=30, verify=False)
+            res = requests.get(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}, timeout=30, verify=False)
             res.encoding = 'utf-8'
             parser = MyHTMLParser()
             parser.script_content = ""
@@ -312,11 +250,11 @@ class VideoEncryptor:
             parser.feed(res.text)
             title = parser.title
             script_content = parser.script_content
+            vkey = ""
             url_matches = re.findall(r'https?://[^\s<>"]+|www\.[^\s<>"]+', res.text)
             for match in url_matches:
                 if any(ext in match for ext in ['.m3u8', '.mp4', '.flv']):
                     return match
-            vkey = ""
             if script_content:
                 vkey_match = re.search(r"var\s+vkey\s*=\s*'([^']+)'", script_content)
                 if vkey_match:
@@ -357,9 +295,7 @@ class VideoEncryptor:
             if re.search(r'[/\.](mp4|m3u8|flv)', url):
                 return [{'name': '默认', 'url': url}]
             result = []
-            res = self.session.get(url, headers={
-                'User-Agent': 'Mozilla/5.0 (Linux; Android 12) AppleWebKit/537.36'
-            }, timeout=15, verify=False)
+            res = requests.get(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}, timeout=15, verify=False)
             res.encoding = 'utf-8'
             parser = MyHTMLParser()
             parser.script_content = ""
@@ -408,7 +344,7 @@ class API:
         result = {
             'list': [],
             'header': {
-                'User-Agent': 'Mozilla/5.0 (Linux; Android 12) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Mobile Safari/537.36',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
                 'Referer': 'https://d1ad626df5af434886f47e5b10e5dd37.v36045.shop/',
                 'Origin': 'https://d1ad626df5af434886f47e5b10e5dd37.v36045.shop/'
             },
@@ -430,7 +366,10 @@ class API:
                 return result
             for item in search_result:
                 item['name'] = item.get('title', '')
-                item['type'] = 'movie'
+                if item.get('id') and 'gif' in str(item.get('id', '')):
+                    item['type'] = 'movie'
+                else:
+                    item['type'] = 'movie'
             result['list'] = search_result
         except Exception as e:
             print(f"[搜索] 异常: {e}")
@@ -448,9 +387,17 @@ class API:
                         filter_values.append(filter_data)
                     except Exception:
                         filter_values.append([])
-                result['filterValue'] = {}
-                for idx in range(9):
-                    result['filterValue'][str(idx + 1)] = filter_values[idx] if idx < len(filter_values) else []
+                result['filterValue'] = {
+                    '1': filter_values[0] if len(filter_values) > 0 else [],
+                    '2': filter_values[1] if len(filter_values) > 1 else [],
+                    '3': filter_values[2] if len(filter_values) > 2 else [],
+                    '4': filter_values[3] if len(filter_values) > 3 else [],
+                    '5': filter_values[4] if len(filter_values) > 4 else [],
+                    '6': filter_values[5] if len(filter_values) > 5 else [],
+                    '7': filter_values[6] if len(filter_values) > 6 else [],
+                    '8': filter_values[7] if len(filter_values) > 7 else [],
+                    '9': filter_values[8] if len(filter_values) > 8 else [],
+                }
             api_content = self.instance.get_api_data('2', '23948b7e185fe249')
             if '_error' in api_content:
                 print(f"[首页] 错误: {api_content['_error']}")
@@ -551,7 +498,7 @@ class API:
                     play_data = detail_data.get('bfzy_play', {})
                     if isinstance(play_data, list):
                         play_items = []
-                        for item in play_data:
+                        for i, item in enumerate(play_data):
                             if len(item) >= 2:
                                 play_items.append(f"{item[0]}${item[1]}")
                         source_urls.append('#'.join(play_items))
@@ -560,7 +507,7 @@ class API:
                     play_data = detail_data.get('ckzy_play', {})
                     if isinstance(play_data, list):
                         play_items = []
-                        for item in play_data:
+                        for i, item in enumerate(play_data):
                             if len(item) >= 2:
                                 play_items.append(f"{item[0]}${item[1]}")
                         source_urls.append('#'.join(play_items))
@@ -571,13 +518,13 @@ class API:
             elif isinstance(detail_data, list) and len(detail_data) > 0:
                 movie = {
                     'vod_id': str(video_id),
-                    'vod_name': '',
-                    'vod_pic': '',
-                    'type_name': '',
-                    'vod_year': '',
-                    'vod_area': '',
-                    'vod_remarks': '',
-                    'vod_content': '',
+                    'vod_name': detail_data[0].get('title', '') if len(detail_data) > 0 else '',
+                    'vod_pic': detail_data[0].get('img', '') if len(detail_data) > 0 else '',
+                    'type_name': detail_data[0].get('type', '') if len(detail_data) > 0 else '',
+                    'vod_year': detail_data[0].get('year', '') if len(detail_data) > 0 else '',
+                    'vod_area': detail_data[0].get('area', '') if len(detail_data) > 0 else '',
+                    'vod_remarks': detail_data[0].get('state', '') if len(detail_data) > 0 else '',
+                    'vod_content': detail_data[0].get('info', '') if len(detail_data) > 0 else '',
                     'vod_play_from': '',
                     'vod_play_url': '',
                 }
@@ -588,7 +535,7 @@ class API:
 
     def playerContent(self, flag, id, vipFlags):
         result = {'url': '', 'parse': '0', 'header': {
-            'User-Agent': 'Mozilla/5.0 (Linux; Android 12) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Mobile Safari/537.36',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
             'Referer': 'https://d1ad626df5af434886f47e5b10e5dd37.v36045.shop/',
             'Origin': 'https://d1ad626df5af434886f47e5b10e5dd37.v36045.shop/'
         }}
@@ -617,10 +564,9 @@ class API:
         return SCRIPT_NAME
 
     def destroy(self):
-        if hasattr(self, 'instance') and hasattr(self.instance, 'session'):
-            self.instance.session.close()
+        pass
 
 
 if __name__ == '__main__':
     api = API()
-    print(f"版本: {SCRIPT_VERSION}")
+    print(f"当前版本: {SCRIPT_VERSION}")
