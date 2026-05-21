@@ -19,7 +19,9 @@
   {"key": "JS6","name": "🍬茶杯狐","type": 3,"api": "./js/茶杯狐.js","searchable": 1,"ext": ""},
   {"key": "JS11","name": "🍬糯米","type": 3,"api": "./js/lib/drpy2.min.js","searchable": 1,"ext": "./js/农民影视.js"},
   {"key": "JS12","name": "🍬瓜子","type": 3,"api": "./js/lib/drpy2.min.js","searchable": 1,"ext": "./js/瓜子t.js"},
- 
+
+  {"key":"茶杯狐","name":"🍵茶杯狐","type":3,"api":"csp_XBPQ","ext":{"简介":"【广告勿信】+&&","请求头":"User-Agent$MOBILE_UA","编码":"UTF-8","数组":"lazyload&&</a>","标题":"+title=\"&&\"","图片":"data-original=\"&&\"","分类url":"https://www.xmhxdq.com/vodshow/{cateId}--------{catePg}---.html","分类":"电影$1#电视剧$2#综艺$3#动漫$4#短剧$36#"}},
+
   {"key": "线路1","name": "🐼潮流","type": 3,"api": "csp_AppRJ","timeout": 25,"ext": "http://v.rbotv.cn"},
   {"key": "线路2","name": "🐼瓜子","type": 3,"api": "csp_Gz360","timeout": 25},
   {"key": "线路4","name": "🐼蔬菜","type": 3,"api": "csp_AppGet","timeout": 25,"ext": "https://gitee.com/wmmoliill/wimg/raw/master/img/bk/9.txt|88689667dce61725"},
