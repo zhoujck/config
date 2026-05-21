@@ -20,7 +20,7 @@
   {"key": "JS12","name": "🍬瓜子3","type": 3,"api": "./ext/瓜子.py","searchable": 1,"ext": ""},
   {"key": "JS7","name": "🍬茶杯狐","type": 3,"api": "csp_XBPQ","searchable": 1,"ext": "./ext/茶杯狐.json"},
   {"key": "线路1","name": "🐼潮流","type": 3,"api": "csp_AppRJ","timeout": 25,"ext": "http://v.rbotv.cn"},
-  {"key": "线路2","name": "🐼瓜子","type": 3,"api": "csp_Gz360","timeout": 25},
+  {"key": "线路2","name": "🐼瓜子","type": 3,"api": "csp_Guazi","timeout": 25,"jar": "./jar/https://raw.githubusercontent.com/zhoujck/CatVodSpider/refs/heads/main/jar/custom_spider.jar"},
   {"key": "线路4","name": "🐼蔬菜","type": 3,"api": "csp_AppGet","timeout": 25,"ext": "https://gitee.com/wmmoliill/wimg/raw/master/img/bk/9.txt|88689667dce61725"},
   {"key": "线路111","name": "🐼米搜","type": 3,"api": "csp_MiSou","timeout": 25,"ext": "http://127.0.0.1:9978/file/fatcat/kk.txt"},
   {"key": "短剧","name": "🦛短剧","type": 3,"api": "https://gitee.com/PizazzXS/another-d/raw/master/movie/py/HMDJ.py","searchable": 1,"changeable": 1,"quickSearch": 1,"filterable": 1,"playerType": 2},
