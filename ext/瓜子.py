@@ -1,14 +1,16 @@
 # coding=utf-8
 # @name 瓜子APP
-# @description 瓜子APP FongMi TVBox Python源 (修正容错增强版)
+# @description 瓜子APP FongMi TVBox Python源 (TLS指纹兼容版)
+# @note 使用 curl_cffi 模拟浏览器 TLS 指纹，绕过服务端 WAF 检测
+# @note 修复 RSA 解密 block_size 与原脚本不匹配的问题
 import json
 import time
 import base64
 import hashlib
-import requests
-from urllib.parse import urlencode
+import urllib3
+urllib3.disable_warnings()
 
-# Fongmi 运行环境默认支持 pycryptodome 库
+from curl_cffi import requests as cffi_requests
 from Crypto.Cipher import AES
 from Crypto.PublicKey import RSA
 
@@ -58,7 +60,6 @@ t5lYKfpe8k83ZA==
             {"type_id": "64", "type_name": "短剧"}
         ]
 
-        # 增加 init 初始值声明，确保壳子正确绑定默认参数
         years = [{"n": "全部", "v": "0"}] + [{"n": str(y), "v": str(y)} for y in range(2026, 2004, -1)] + [{"n": "更早", "v": "2004"}]
         areas_common = [{"n": n, "v": v} for n, v in zip(["全部", "大陆", "香港", "台湾", "美国", "韩国", "日本", "英国", "法国", "泰国", "印度", "其他"], ["0", "大陆", "香港", "台湾", "美国", "韩国", "日本", "英国", "法国", "泰国", "印度", "其他"])]
         sorts = [{"n": "最新", "v": "d_id"}, {"n": "最热", "v": "d_hits"}, {"n": "推荐", "v": "d_score"}]
@@ -70,6 +71,14 @@ t5lYKfpe8k83ZA==
             "3": [{"key": "year", "name": "年份", "init": "0", "value": years[:6]}, {"key": "area", "name": "地区", "init": "0", "value": [{"n": n, "v": v} for n, v in zip(["全部", "大陆", "台湾", "韩国"], ["0", "大陆", "台湾", "韩国"])]}, {"key": "sort", "name": "排序", "init": "d_id", "value": sorts}],
             "64": [{"key": "year", "name": "年份", "init": "0", "value": years[:5]}, {"key": "sort", "name": "排序", "init": "d_id", "value": sorts}]
         }
+
+        # curl_cffi session，模拟 Chrome TLS 指纹绕过 WAF
+        self._session = None
+
+    def _get_session(self):
+        if self._session is None:
+            self._session = cffi_requests.Session(impersonate="chrome120", verify=False)
+        return self._session
 
     # ========================== 加密与解密工具 ==========================
 
@@ -101,7 +110,10 @@ t5lYKfpe8k83ZA==
     def rsa_decrypt_no_padding(self, data_b64):
         rsa_key = RSA.import_key(self.private_key_pem)
         buffer = base64.b64decode(data_b64)
-        block_size = 256
+        # RSA block size = key size in bytes
+        block_size = (rsa_key.size_in_bits() + 7) // 8
+        if block_size < len(buffer):
+            block_size = len(buffer)
         decrypted_parts = []
 
         for i in range(0, len(buffer), block_size):
@@ -109,15 +121,26 @@ t5lYKfpe8k83ZA==
             chunk_int = int.from_bytes(chunk, 'big')
             dec_int = pow(chunk_int, rsa_key.d, rsa_key.n)
             dec_bytes = dec_int.to_bytes(block_size, 'big')
-            
-            start = 0
-            while start < len(dec_bytes) and dec_bytes[start] == 0:
-                start += 1
-            
-            try:
-                real_start = dec_bytes.index(0, 2)
-                decrypted_parts.append(dec_bytes[real_start + 1:])
-            except ValueError:
+
+            # PKCS#1 v1.5: 0x00 0x02 <padding> 0x00 <data>
+            if dec_bytes[0] == 0 and len(dec_bytes) > 2:
+                stripped = dec_bytes.lstrip(b'\x00')
+                if len(stripped) > 0 and stripped[0] == 2:
+                    sep_pos = stripped.index(0, 1)
+                    decrypted_parts.append(stripped[sep_pos + 1:])
+                else:
+                    try:
+                        real_start = dec_bytes.index(0, 2)
+                        decrypted_parts.append(dec_bytes[real_start + 1:])
+                    except ValueError:
+                        start = 0
+                        while start < len(dec_bytes) and dec_bytes[start] == 0:
+                            start += 1
+                        decrypted_parts.append(dec_bytes[start:])
+            else:
+                start = 0
+                while start < len(dec_bytes) and dec_bytes[start] == 0:
+                    start += 1
                 decrypted_parts.append(dec_bytes[start:])
 
         return b''.join(decrypted_parts).decode('utf-8').strip()
@@ -143,7 +166,8 @@ t5lYKfpe8k83ZA==
             }
 
             url = f"{self.host}{path}"
-            res = requests.post(url, data=payload, headers=self.headers, verify=False, timeout=10)
+            session = self._get_session()
+            res = session.post(url, data=payload, headers=self.headers, timeout=10)
 
             if res.status_code != 200:
                 return {"_error": f"网络异常: HTTP {res.status_code}"}
@@ -215,7 +239,6 @@ t5lYKfpe8k83ZA==
             "tid": str(tid)
         }, "/App/IndexList/indexList")
 
-        # 核心跟踪调试：一旦接口失败或解析崩溃，呈现具体错误信息
         if isinstance(data, dict) and "_error" in data:
             return {
                 "list": [{"vod_id": "error", "vod_name": data["_error"], "vod_pic": "", "vod_remarks": "请截图错误"}],
