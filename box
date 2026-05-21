@@ -16,12 +16,10 @@
   {"key": "JS3","name": "🍬荐片","type": 3,"api": "./js/荐片.js","searchable": 1,"ext": ""},
   {"key": "JS4","name": "🍬金牌","type": 3,"api": "./js/金牌.js","searchable": 1,"ext": ""},
   {"key": "JS5","name": "🍬热播","type": 3,"api": "./js/热播.js","searchable": 1,"ext": ""},
- 
   {"key": "JS11","name": "🍬糯米","type": 3,"api": "./js/lib/drpy2.min.js","searchable": 1,"ext": "./js/农民影视.js"},
-  {"key": "JS6","name": "🍬BTpy","type": 3,"api": "./ext/两个BT.py","searchable": 1,"ext": ""},
   {"key": "JS7","name": "🍬茶杯狐","type": 3,"api": "csp_XBPQ","searchable": 1,"ext": "./ext/茶杯狐.json"},
   {"key": "线路1","name": "🐼潮流","type": 3,"api": "csp_AppRJ","timeout": 25,"ext": "http://v.rbotv.cn"},
-  {"key": "线路2","name": "🐼瓜子1","type": 3,"api": "csp_Guazi","timeout": 25,"jar": "https://raw.githubusercontent.com/zhoujck/CatVodSpider/refs/heads/main/jar/custom_spider.jar"},
+  {"key": "线路2","name": "🐼瓜子","type": 3,"api": "csp_GuaziAmns","timeout": 25,"jar": "./jar/YS.jar"},
   {"key": "线路4","name": "🐼蔬菜","type": 3,"api": "csp_AppGet","timeout": 25,"ext": "https://gitee.com/wmmoliill/wimg/raw/master/img/bk/9.txt|88689667dce61725"},
   {"key": "线路111","name": "🐼米搜","type": 3,"api": "csp_MiSou","timeout": 25,"ext": "http://127.0.0.1:9978/file/fatcat/kk.txt"},
   {"key": "短剧","name": "🦛短剧","type": 3,"api": "https://gitee.com/PizazzXS/another-d/raw/master/movie/py/HMDJ.py","searchable": 1,"changeable": 1,"quickSearch": 1,"filterable": 1,"playerType": 2},
