@@ -26,16 +26,25 @@ class Spider(Spider):
         self.log(f"两个BT爬虫初始化完成，主站: {self.host}")
 
     def isVideoFormat(self, url):
-        pass
+        """判断是否为视频格式"""
+        if not url:
+            return False
+        video_exts = ['.m3u8', '.mp4', '.flv', '.ts', '.mkv', '.avi', '.rmvb', '.wmv']
+        url_lower = url.lower().split('?')[0]
+        for ext in video_exts:
+            if url_lower.endswith(ext):
+                return True
+        return False
 
     def manualVideoCheck(self):
-        pass
+        """手动视频检查"""
+        return False
 
     def homeContent(self, filter):
         """首页内容 - TVBox标准实现"""
         result = {}
         
-        # 1. 定义分类 - 基于实际网站结构
+        # 1. 定义分类
         classes = [
             {'type_id': 'movie_bt_tags/xiju', 'type_name': '喜剧'},
             {'type_id': 'movie_bt_tags/aiqing', 'type_name': '爱情'},
@@ -68,24 +77,15 @@ class Spider(Spider):
         return result
 
     def homeVideoContent(self):
-        """兼容性方法 - 提供分类定义"""
-        return {
-            'class': [
-                {'type_id': 'movie_bt_tags/xiju', 'type_name': '喜剧'},
-                {'type_id': 'movie_bt_tags/aiqing', 'type_name': '爱情'},
-                {'type_id': 'movie_bt_tags/adt', 'type_name': '冒险'},
-                {'type_id': 'movie_bt_tags/at', 'type_name': '动作'},
-                {'type_id': 'movie_bt_tags/donghua', 'type_name': '动画'},
-                {'type_id': 'movie_bt_tags/qihuan', 'type_name': '奇幻'},
-                {'type_id': 'movie_bt_tags/xuanni', 'type_name': '悬疑'},
-                {'type_id': 'movie_bt_tags/kehuan', 'type_name': '科幻'},
-                {'type_id': 'movie_bt_tags/juqing', 'type_name': '剧情'},
-                {'type_id': 'movie_bt_tags/kongbu', 'type_name': '恐怖'},
-                {'type_id': 'meiju', 'type_name': '美剧'},
-                {'type_id': 'gf', 'type_name': '高分电影'}
-            ],
-            'filters': self._get_filters()
-        }
+        """首页推荐视频 - FongMi需要返回list"""
+        result = {'list': []}
+        try:
+            rsp = self.fetch(self.host, headers=self.headers)
+            doc = self.html(rsp.text)
+            result['list'] = self._get_videos(doc, limit=50)
+        except Exception as e:
+            self.log(f"首页视频获取出错: {str(e)}")
+        return result
 
     def categoryContent(self, tid, pg, filter, extend):
         """分类内容 - 支持筛选功能"""
@@ -106,9 +106,11 @@ class Spider(Spider):
             doc = self.html(rsp.text)
             videos = self._get_videos(doc, limit=20)
             
+            pg_int = int(pg) if pg else 1
+            
             return {
                 'list': videos,
-                'page': int(pg),
+                'page': pg_int,
                 'pagecount': 999,
                 'limit': 20,
                 'total': 19980
@@ -121,7 +123,7 @@ class Spider(Spider):
         """搜索功能 - 智能过滤"""
         try:
             search_url = f"{self.host}/xssssearch?q={urllib.parse.quote(key)}"
-            if pg and pg != "1":
+            if pg and str(pg) != "1":
                 search_url += f"&p={pg}"
             
             self.log(f"搜索URL: {search_url}")
@@ -138,7 +140,6 @@ class Spider(Spider):
             for elem in elements:
                 video = self._extract_video_info(elem, is_search=True)
                 if video and video['vod_id'] not in seen_ids:
-                    # 添加相关性检查
                     if self._is_relevant_search_result(video['vod_name'], key):
                         videos.append(video)
                         seen_ids.add(video['vod_id'])
@@ -171,14 +172,17 @@ class Spider(Spider):
         try:
             self.log(f"获取播放链接: flag={flag}, id={id}")
             
-            # 解码Base64播放ID
+            # 尝试解码Base64播放ID，判断实际URL用哪个
             try:
                 decoded_id = base64.b64decode(id).decode('utf-8')
                 self.log(f"解码播放ID: {decoded_id}")
-            except:
-                decoded_id = id
+                # 如果解码成功，用解码后的ID构建URL
+                play_url = f"{self.host}/v_play/{decoded_id}.html"
+            except Exception:
+                # 解码失败，直接用原始ID
+                play_url = f"{self.host}/v_play/{id}.html"
             
-            play_url = f"{self.host}/v_play/{id}.html"
+            self.log(f"播放URL: {play_url}")
             
             # 返回播放页面URL，让播放器处理
             return {'parse': 1, 'playUrl': '', 'url': play_url}
@@ -189,7 +193,7 @@ class Spider(Spider):
     # ========== 辅助方法 ==========
     
     def _get_filters(self):
-        """获取筛选配置 - TVBox兼容版"""
+        """获取筛选配置"""
         base_filters = [
             {
                 'key': 'area',
@@ -223,7 +227,6 @@ class Spider(Spider):
             }
         ]
         
-        # 为每个分类提供筛选配置
         filters = {}
         category_ids = [
             'movie_bt_tags/xiju', 'movie_bt_tags/aiqing', 'movie_bt_tags/adt',
@@ -240,7 +243,6 @@ class Spider(Spider):
     def _build_url(self, tid, pg, extend):
         """构建URL - 支持筛选"""
         try:
-            # 基础分类URL映射
             if tid.startswith('movie_bt_tags/'):
                 url = f"{self.host}/{tid}"
             elif tid == 'meiju':
@@ -250,12 +252,22 @@ class Spider(Spider):
             else:
                 url = f"{self.host}/{tid}"
 
+            # 添加筛选参数
+            if extend and isinstance(extend, dict):
+                params = []
+                for k, v in extend.items():
+                    if v and k not in ('type_id',):
+                        params.append(f"{k}={urllib.parse.quote(str(v))}")
+                if params:
+                    url += '?' + '&'.join(params) if '?' not in url else '&' + '&'.join(params)
+
             # 添加分页
-            if pg and pg != '1':
+            pg_int = int(pg) if pg else 1
+            if pg_int > 1:
                 if '?' in url:
-                    url += f"&paged={pg}"
+                    url += f"&paged={pg_int}"
                 else:
-                    url += f"?paged={pg}"
+                    url += f"?paged={pg_int}"
 
             return url
         except Exception as e:
@@ -268,7 +280,6 @@ class Spider(Spider):
             videos = []
             seen_ids = set()
 
-            # 尝试多种选择器
             selectors = [
                 '//li[.//a[contains(@href,"/movie/")]]',
                 '//div[contains(@class,"item")]//li[.//a[contains(@href,"/movie/")]]'
@@ -292,7 +303,6 @@ class Spider(Spider):
     def _extract_video_info(self, element, is_search=False):
         """提取视频信息"""
         try:
-            # 提取链接
             links = element.xpath('.//a[contains(@href,"/movie/")]/@href')
             if not links:
                 return None
@@ -305,7 +315,6 @@ class Spider(Spider):
             if not vod_id:
                 return None
 
-            # 提取标题
             title_selectors = [
                 './/h3/a/text()',
                 './/h3/text()',
@@ -325,10 +334,7 @@ class Spider(Spider):
             if not title:
                 return None
 
-            # 提取图片
             pic = self._extract_image(element, is_search, vod_id)
-
-            # 提取备注
             remarks = self._extract_remarks(element)
 
             return {
@@ -347,13 +353,13 @@ class Spider(Spider):
         pic_selectors = [
             './/img/@data-original',
             './/img/@data-src',
+            './/img/@data-lazy',
             './/img/@src'
         ]
 
         for selector in pic_selectors:
             pics = element.xpath(selector)
             for p in pics:
-                # 跳过懒加载占位符
                 if (p and not p.endswith('blank.gif') and
                     not p.startswith('data:image/') and 'base64' not in p):
                     if p.startswith('//'):
@@ -363,7 +369,6 @@ class Spider(Spider):
                     elif p.startswith('http'):
                         return p
 
-        # 搜索页面特殊处理：从详情页面获取
         if is_search and vod_id:
             return self._get_image_from_detail(vod_id)
 
@@ -396,7 +401,6 @@ class Spider(Spider):
             rsp = self.fetch(detail_url, headers=self.headers)
             doc = self.html(rsp.text)
 
-            # 详情页图片选择器
             pic_selectors = [
                 '//img[contains(@class,"poster")]/@src',
                 '//div[contains(@class,"poster")]//img/@src',
@@ -426,11 +430,9 @@ class Spider(Spider):
         title_lower = title.lower()
         search_key_lower = search_key.lower()
 
-        # 直接包含搜索关键词的肯定相关
         if search_key_lower in title_lower:
             return True
 
-        # 字符匹配
         search_chars = set(search_key_lower.replace(' ', ''))
         title_chars = set(title_lower.replace(' ', ''))
 
@@ -439,7 +441,6 @@ class Spider(Spider):
             if match_ratio >= 0.6:
                 return True
 
-        # 短搜索词要求严格匹配
         if len(search_key_lower) <= 2:
             return search_key_lower in title_lower
 
@@ -448,7 +449,6 @@ class Spider(Spider):
     def _get_detail(self, doc, vod_id):
         """获取详情信息"""
         try:
-            # 提取标题
             title_selectors = [
                 '//h1/text()',
                 '//h2/text()',
@@ -464,7 +464,6 @@ class Spider(Spider):
                 if title:
                     break
 
-            # 提取图片
             pic_selectors = [
                 '//img[contains(@class,"poster")]/@src',
                 '//div[contains(@class,"poster")]//img/@src',
@@ -485,7 +484,6 @@ class Spider(Spider):
                 if pic:
                     break
 
-            # 提取描述
             desc_selectors = [
                 '//div[contains(@class,"intro")]//text()',
                 '//div[contains(@class,"description")]//text()',
@@ -502,7 +500,6 @@ class Spider(Spider):
                     desc = ' '.join(desc_parts)
                     break
 
-            # 提取演员
             actor_selectors = [
                 '//li[contains(text(),"主演")]/text()',
                 '//span[contains(text(),"主演")]/following-sibling::text()',
@@ -518,7 +515,6 @@ class Spider(Spider):
                 if actor:
                     break
 
-            # 提取导演
             director_selectors = [
                 '//li[contains(text(),"导演")]/text()',
                 '//span[contains(text(),"导演")]/following-sibling::text()',
@@ -534,7 +530,6 @@ class Spider(Spider):
                 if director:
                     break
 
-            # 提取播放源
             play_sources = self._parse_play_sources(doc, vod_id)
 
             return {
@@ -560,7 +555,6 @@ class Spider(Spider):
         try:
             play_sources = []
 
-            # 查找播放链接
             episode_selectors = [
                 '//a[contains(@href,"/v_play/")]',
                 '//div[contains(@class,"play")]//a'
@@ -575,7 +569,6 @@ class Spider(Spider):
                         ep_url = ep.xpath('./@href')[0] if ep.xpath('./@href') else ''
 
                         if ep_title and ep_url:
-                            # 提取播放ID
                             play_id = self.regStr(r'/v_play/([^.]+)\.html', ep_url)
                             if play_id:
                                 episodes.append(f"{ep_title.strip()}${play_id}")
@@ -587,7 +580,6 @@ class Spider(Spider):
                     'episodes': '#'.join(episodes)
                 })
             else:
-                # 默认播放源
                 play_sources.append({
                     'name': '默认播放',
                     'episodes': f'第1集$bXZfMTM0NTY4LW5tXzE='
