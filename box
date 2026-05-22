@@ -17,7 +17,7 @@
   {"key": "JS4","name": "🍬金牌","type": 3,"api": "./js/金牌.js","searchable": 1,"ext": ""},
   {"key": "JS5","name": "🍬热播","type": 3,"api": "./js/热播.js","searchable": 1,"ext": ""},
   {"key": "JST1","name": "🍬TT","type": 3,"api": "./ext/两个BT.py","searchable": 1,"ext": ""},
-  {"key": "JST2","name": "🐼瓜子tt","type": 3,"api": "csp_Guazi","timeout": 25,"jar": "./jar/custom_spider.jar"},
+  {"key": "JST2","name": "🐼TT2","type": 3,"api": "./js/两个BT.js","searchable": 1,"ext": ""},
 
   {"key": "JS11","name": "🍬糯米","type": 3,"api": "./js/lib/drpy2.min.js","searchable": 1,"ext": "./js/农民影视.js"},
   {"key": "JS7","name": "🍬茶杯狐","type": 3,"api": "csp_XBPQ","searchable": 1,"ext": "./ext/茶杯狐.json"},
