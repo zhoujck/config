@@ -20,7 +20,6 @@
   {"key": "JS11","name": "🍬糯米","type": 3,"api": "./js/lib/drpy2.min.js","searchable": 1,"ext": "./js/农民影视.js"},
   {"key": "JS7","name": "🍬茶杯狐","type": 3,"api": "csp_XBPQ","searchable": 1,"ext": "./ext/茶杯狐.json"},
   {"key": "线路1","name": "🐼潮流","type": 3,"api": "csp_AppRJ","timeout": 25,"ext": "http://v.rbotv.cn"},
-  {"key": "线路2","name": "🐼瓜子","type": 3,"api": "csp_GuaziAmns","timeout": 25,"jar": "./jar/YS.jar"},
   {"key": "线路4","name": "🐼蔬菜","type": 3,"api": "csp_AppGet","timeout": 25,"ext": "https://gitee.com/wmmoliill/wimg/raw/master/img/bk/9.txt|88689667dce61725"},
   {"key": "pan1","name": "🐼米搜","type": 3,"api": "csp_MiSou","timeout": 25,"ext": "http://127.0.0.1:9978/file/fatcat/kk.txt"},
   {"key": "pan2","name": "🖍︎┃蜡笔┃影视","type": 3,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["http://xiaocge.fun","http://feimo.fun","http://www.labi88.sbs","http://fmao.site","http://fmao.shop","http://xiaocgege.shop","http://www.xiaocgege.shop"],"threadinfo": {"chunksize": 512,"threads": 16},"url_key": "Duopan2"}},
