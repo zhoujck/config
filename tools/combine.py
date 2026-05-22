@@ -84,13 +84,27 @@ def save_json(data, path):
         json.dump(data, f, indent=2, ensure_ascii=False, cls=CompactJSONEncoder)
         print(f"✅ 已保存：{path}")
 
-def remove_ys_lines(obj):
-    """递归删除 JSON 中数组里包含 'ys.jar'（不区分大小写）的字符串元素"""
+def remove_ys_lines(obj, counter=None):
+    """递归删除 JSON 中包含 'ys.jar' 的元素（字符串或字典）"""
+    if counter is None:
+        counter = [0]
     if isinstance(obj, dict):
-        return {k: remove_ys_lines(v) for k, v in obj.items()}
+        return {k: remove_ys_lines(v, counter) for k, v in obj.items()}
     elif isinstance(obj, list):
-        processed = [remove_ys_lines(item) for item in obj]
-        return [item for item in processed if not (isinstance(item, str) and 'ys.jar' in item.lower())]
+        processed = [remove_ys_lines(item, counter) for item in obj]
+        def should_remove(item):
+            if isinstance(item, str) and 'ys.jar' in item.lower():
+                return True
+            if isinstance(item, dict):
+                return any('ys.jar' in str(v).lower() for v in item.values())
+            return False
+        result = []
+        for item in processed:
+            if should_remove(item):
+                counter[0] += 1
+            else:
+                result.append(item)
+        return result
     return obj
 
 if __name__ == "__main__":
@@ -126,8 +140,10 @@ if __name__ == "__main__":
         save_json(jo, output_path)
 
         # 保存 box1（删除含 YS.jar 的行）
-        jo_filtered = remove_ys_lines(jo)
+        counter = [0]
+        jo_filtered = remove_ys_lines(jo, counter)
         save_json(jo_filtered, "../box1")
+        print(f"🗑️ 共删除了 {counter[0]} 条含 ys.jar 的记录")
 
     except Exception as e:
         print(f"❌ 出错: {e}")
