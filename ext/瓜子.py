@@ -1,300 +1,471 @@
-# coding=utf-8
+# coding = utf-8
+#!/usr/bin/python
 import re
+import sys
 import json
-import requests
-from urllib.parse import quote, urljoin
-
-from requests.adapters import HTTPAdapter
-from requests.packages.urllib3.util.retry import Retry
-requests.packages.urllib3.disable_warnings()
-
+import time
+import base64
+import hashlib
+import urllib.parse
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import pad, unpad
+from Crypto.PublicKey import RSA
+from Crypto.Cipher import PKCS1_v1_5
 from base.spider import Spider
 
+sys.path.append('..')
 
 class Spider(Spider):
-    def getName(self):
-        return "瓜子影视"
-
-    def init(self, extend=""):
-        super().init(extend)
-        self.site_url = "https://www.tvguazi.com"
-        self.headers = {
-            "User-Agent": "Mozilla/5.0 (Linux; Android 10; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
-            "Referer": self.site_url + "/",
-            "Accept-Language": "zh-CN,zh;q=0.9",
+    def __init__(self):
+        self.name = "瓜子"
+        self.host = 'https://api.w32z7vtd.com'
+        self.token = '1be86e8e18a9fa18b2b8d5432699dad0.ac008ed650fd087bfbecf2fda9d82e9835253ef24843e6b18fcd128b10763497bcf9d53e959f5377cde038c20ccf9d17f604c9b8bb6e61041def86729b2fc7408bd241e23c213ac57f0226ee656e2bb0a583ae0e4f3bf6c6ab6c490c9a6f0d8cdfd366aacf5d83193671a8f77cd1af1ff2e9145de92ec43ec87cf4bdc563f6e919fe32861b0e93b118ec37d8035fbb3c.59dd05c5d9a8ae726528783128218f15fe6f2c0c8145eddab112b374fcfe3d79'
+        self.header = {
+            'Cache-Control': 'no-cache',
+            'Version': '2406025',
+            'PackageName': 'com.uf076bf0c246.qe439f0d5e.m8aaf56b725a.ifeb647346f',
+            'Ver': '1.9.2',
+            'Referer': self.host,
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'User-Agent': 'okhttp/3.12.0'
         }
-        self.page_size = 20
-        self.total = 9999
+        # 添加缓存机制
+        self.cache = {}
+        self.cache_timeout = 300  # 5分钟缓存
+        
+    def getName(self):
+        return self.name
 
-        self.sess = requests.Session()
-        retry = Retry(total=3, backoff_factor=0.8, status_forcelist=[500, 502, 503, 504])
-        self.sess.mount("https://", HTTPAdapter(max_retries=retry))
-        self.sess.mount("http://", HTTPAdapter(max_retries=retry))
-
-    def fetch(self, url, timeout=12):
-        try:
-            res = self.sess.get(url, headers=self.headers, timeout=timeout, verify=False)
-            res.encoding = res.apparent_encoding or "utf-8"
-            return res
-        except Exception:
-            return None
-
-    def _full_url(self, u):
-        if not u:
-            return ""
-        if u.startswith("//"):
-            return "https:" + u
-        if u.startswith("http://") or u.startswith("https://"):
-            return u
-        return urljoin(self.site_url, u)
-
-    def _clean(self, s):
-        if not s:
-            return ""
-        s = re.sub(r"<[^>]+>", "", s)
-        return re.sub(r"\s+", " ", s).strip()
+    def init(self, extend=''):
+        pass
 
     def homeContent(self, filter):
-        cate_list = [
-            {"type_name": "电影", "type_id": "229"},
-            {"type_name": "电视剧", "type_id": "230"},
-            {"type_name": "综艺", "type_id": "231"},
-            {"type_name": "动漫", "type_id": "232"},
+        result = {}
+        classes = [
+            {"type_name": "电影", "type_id": "1"},
+            {"type_name": "电视剧", "type_id": "2"},
+            {"type_name": "动漫", "type_id": "4"},
+            {"type_name": "综艺", "type_id": "3"},
+            {"type_name": "短剧", "type_id": "64"}
         ]
-        return {"class": cate_list}
+        
+        result['class'] = classes
+        
+        # 设置筛选条件 - 为所有分类添加筛选
+        filters = {}
+        for cate in classes:
+            tid = cate['type_id']
+            filters[tid] = [
+                {"key": "area", "name": "地区", "value": [
+                    {"n": "全部", "v": "0"},
+                    {"n": "大陆", "v": "大陆"},
+                    {"n": "香港", "v": "香港"},
+                    {"n": "台湾", "v": "台湾"},
+                    {"n": "美国", "v": "美国"},
+                    {"n": "韩国", "v": "韩国"},
+                    {"n": "日本", "v": "日本"},
+                    {"n": "英国", "v": "英国"},
+                    {"n": "法国", "v": "法国"},
+                    {"n": "泰国", "v": "泰国"},
+                    {"n": "印度", "v": "印度"},
+                    {"n": "其他", "v": "其他"}
+                ]},
+                {"key": "year", "name": "年份", "value": [
+                    {"n": "全部", "v": "0"},
+                    {"n": "2025", "v": "2025"},
+                    {"n": "2024", "v": "2024"},
+                    {"n": "2023", "v": "2023"},
+                    {"n": "2022", "v": "2022"},
+                    {"n": "2021", "v": "2021"},
+                    {"n": "2020", "v": "2020"},
+                    {"n": "2019", "v": "2019"},
+                    {"n": "2018", "v": "2018"},
+                    {"n": "2017", "v": "2017"},
+                    {"n": "2016", "v": "2016"},
+                    {"n": "2015", "v": "2015"},
+                    {"n": "2014", "v": "2014"},
+                    {"n": "2013", "v": "2013"},
+                    {"n": "2012", "v": "2012"},
+                    {"n": "2011", "v": "2011"},
+                    {"n": "2010", "v": "2010"},
+                    {"n": "2009", "v": "2009"},
+                    {"n": "2008", "v": "2008"},
+                    {"n": "2007", "v": "2007"},
+                    {"n": "2006", "v": "2006"},
+                    {"n": "2005", "v": "2005"},
+                    {"n": "更早", "v": "2004"}
+                ]},
+                {"key": "sort", "name": "排序", "value": [
+                    {"n": "最新", "v": "d_id"},
+                    {"n": "最热", "v": "d_hits"},
+                    {"n": "推荐", "v": "d_score"}
+                ]}
+            ]
+        
+        result['filters'] = filters
+        return result
 
-    def _parse_vod_list(self, html):
-        video_list = []
-        seen = set()
-
-        # 先抓详情链接（主键）
-        for m in re.finditer(r'href=["\']([^"\']*/vod/detail\.html\?[^"\']*id=\d+[^"\']*)["\']', html, re.I):
-            href = self._full_url(m.group(1))
-            if href in seen:
-                continue
-            seen.add(href)
-
-            # 截取附近HTML块，提取标题/图片/备注
-            st = max(0, m.start() - 500)
-            ed = min(len(html), m.end() + 1200)
-            block = html[st:ed]
-
-            # 标题：优先title，其次alt，其次锚文本
-            title = ""
-            t1 = re.search(r'title=["\']([^"\']+)["\']', block, re.I)
-            if t1:
-                title = self._clean(t1.group(1))
-            if not title:
-                t2 = re.search(r'alt=["\']([^"\']+)["\']', block, re.I)
-                if t2:
-                    title = self._clean(t2.group(1))
-            if not title:
-                t3 = re.search(r'>([^<>]{1,80})</a>', block, re.I)
-                if t3:
-                    title = self._clean(t3.group(1))
-
-            # 图片：data-src / data-original / src
-            pic = ""
-            p = re.search(r'(?:data-src|data-original|src)=["\']([^"\']+)["\']', block, re.I)
-            if p:
-                pic = self._full_url(p.group(1))
-
-            # 备注：分数/更新/年份等
-            remarks = ""
-            r1 = re.search(r'(\d\.\d)\s*分', block)
-            if r1:
-                remarks = r1.group(1) + "分"
-            else:
-                r2 = re.search(r'更新至[^<\s]{1,20}', block)
-                if r2:
-                    remarks = self._clean(r2.group(0))
-
-            if title:
-                video_list.append({
-                    "vod_id": href,
-                    "vod_name": title,
-                    "vod_pic": pic,
-                    "vod_remarks": remarks,
-                    "style": {"type": "rect", "ratio": 1.33}
-                })
-
-        return video_list
+    def homeVideoContent(self):
+        # 首页推荐直接返回空列表，避免加载问题
+        return {'list': []}
 
     def categoryContent(self, tid, pg, filter, extend):
-        pg = int(pg) if str(pg).isdigit() else 1
-
-        # 支持扩展子分类 cate_id
-        cate_id = ""
-        if isinstance(extend, dict):
-            cate_id = str(extend.get("cate_id", "")).strip()
-
-        if cate_id and cate_id.isdigit():
-            list_url = f"{self.site_url}/vod/index.html?cate_id={cate_id}&type_id={tid}&page={pg}"
-        else:
-            list_url = f"{self.site_url}/vod/index.html?type_id={tid}&page={pg}"
-
-        res = self.fetch(list_url)
-        video_list = []
-        if res and res.ok:
-            video_list = self._parse_vod_list(res.text)
-
-        pagecount = pg + 1 if len(video_list) else pg
+        videos = []
+        try:
+            body = {
+                "area": extend.get('area', '0'),
+                "year": extend.get('year', '0'),
+                "pageSize": "30",
+                "sort": extend.get('sort', 'd_id'),
+                "page": str(pg),
+                "tid": tid
+            }
+            
+            cache_key = f"category_{tid}_{pg}_{hash(str(body))}"
+            data = self.get_cached_data(cache_key, body, '/App/IndexList/indexList')
+            
+            if data and 'list' in data:
+                for item in data['list']:
+                    vod_continu = item.get('vod_continu', 0)
+                    remarks = '电影' if vod_continu == 0 else f'更新至{vod_continu}集'
+                    
+                    video = {
+                        "vod_id": f"{item.get('vod_id', '')}/{vod_continu}",
+                        "vod_name": item.get('vod_name', ''),
+                        "vod_pic": item.get('vod_pic', ''),
+                        "vod_remarks": remarks
+                    }
+                    videos.append(video)
+        except Exception as e:
+            print(f"获取分类内容失败: {e}")
+        
         return {
-            "list": video_list,
-            "page": pg,
-            "pagecount": pagecount,
-            "limit": self.page_size,
-            "total": self.total
+            'list': videos,
+            'page': int(pg),
+            'pagecount': 9999,
+            'limit': 30,
+            'total': 999999
         }
 
     def detailContent(self, ids):
-        vod_id = ids[0] if ids else ""
-        if not vod_id:
-            return {"list": [{"vod_name": "视频ID为空"}]}
-
-        res = self.fetch(vod_id)
-        if not (res and res.ok):
-            return {"list": [{"vod_id": vod_id, "vod_name": "视频详情解析失败"}]}
-
-        html = res.text
-
-        vod_name = ""
-        for p in [
-            r'<h1[^>]*>(.*?)</h1>',
-            r'<meta\s+property=["\']og:title["\']\s+content=["\']([^"\']+)["\']',
-            r'<title>([^<]+)</title>'
-        ]:
-            m = re.search(p, html, re.I | re.S)
-            if m:
-                vod_name = self._clean(m.group(1)).replace("瓜子影视-", "").strip()
-                if vod_name:
-                    break
-        if not vod_name:
-            vod_name = "未知名称"
-
-        vod_pic = ""
-        for p in [
-            r'<meta\s+property=["\']og:image["\']\s+content=["\']([^"\']+)["\']',
-            r'<img[^>]+(?:data-src|data-original|src)=["\']([^"\']+)["\'][^>]*>'
-        ]:
-            m = re.search(p, html, re.I | re.S)
-            if m:
-                vod_pic = self._full_url(m.group(1))
-                if vod_pic:
-                    break
-
-        vod_content = ""
-        m_desc = re.search(r'简介[：:]\s*(.*?)</', html, re.I | re.S)
-        if m_desc:
-            vod_content = self._clean(m_desc.group(1))
-        if not vod_content:
-            m_desc2 = re.search(r'<meta\s+name=["\']description["\']\s+content=["\']([^"\']+)["\']', html, re.I)
-            if m_desc2:
-                vod_content = self._clean(m_desc2.group(1))
-
-        # 提取播放链接：优先带 line_id 的 player.html
-        play_urls = []
-        for m in re.finditer(r'href=["\']([^"\']*/vod/player\.html\?[^"\']*)["\'][^>]*>(.*?)</a>', html, re.I | re.S):
-            u = self._full_url(m.group(1))
-            name = self._clean(m.group(2))
-            if not name:
-                name = "播放"
-            if u and u not in [x[1] for x in play_urls]:
-                play_urls.append((name, u))
-
-        # 兜底：详情页里有时只给“立即播放”
-        if not play_urls:
-            for m in re.finditer(r'href=["\']([^"\']*/vod/player\.html\?[^"\']*)["\']', html, re.I):
-                u = self._full_url(m.group(1))
-                if u and u not in [x[1] for x in play_urls]:
-                    play_urls.append(("播放", u))
-
-        vod_play_url = "#".join([f"{n}${u}" for n, u in play_urls]) if play_urls else ""
-
-        detail_info = {
-            "vod_id": vod_id,
-            "vod_name": vod_name,
-            "vod_pic": vod_pic,
-            "type_name": "",
-            "vod_remarks": "",
-            "vod_content": vod_content,
-            "vod_play_from": "瓜子线路",
-            "vod_play_url": vod_play_url
-        }
-        return {"list": [detail_info]}
+        try:
+            vod_id = ids[0].split('/')[0]
+            
+            # 获取视频详情
+            t = str(int(time.time()))
+            body1 = {
+                "token_id": "1649412",
+                "vod_id": vod_id,
+                "mobile_time": t,
+                "token": self.token
+            }
+            qdata = self.get_data(body1, '/App/IndexPlay/playInfo')
+            
+            # 获取播放列表
+            body2 = {
+                "vurl_cloud_id": "2",
+                "vod_d_id": vod_id
+            }
+            jdata = self.get_data(body2, '/App/Resource/Vurl/show')
+            
+            if not qdata or 'vodInfo' not in qdata:
+                return {'list': []}
+                
+            vod = qdata['vodInfo']
+            
+            # 构建视频信息
+            video_detail = {
+                "vod_id": vod_id,
+                "vod_name": vod.get('vod_name', ''),
+                "vod_pic": vod.get('vod_pic', ''),
+                "vod_year": vod.get('vod_year', ''),
+                "vod_area": vod.get('vod_area', ''),
+                "vod_actor": vod.get('vod_actor', ''),
+                "vod_director": vod.get('vod_director', ''),
+                "vod_content": vod.get('vod_use_content', '').strip(),
+                "vod_play_from": "恒轩"
+            }
+            
+            # 构建播放列表
+            play_list = []
+            if jdata and 'list' in jdata:
+                for index, item in enumerate(jdata['list']):
+                    if 'play' in item:
+                        n = []  # 播放源名称
+                        p = []  # 播放参数
+                        for key, value in item['play'].items():
+                            if 'param' in value and value['param']:
+                                n.append(key)
+                                p.append(value['param'])
+                        
+                        if p:
+                            play_name = str(index + 1)
+                            if len(jdata['list']) == 1:
+                                play_name = vod.get('vod_name', '')
+                            
+                            play_url = f"{p[-1]}||{'@'.join(n)}"
+                            play_list.append(f"{play_name}${play_url}")
+            
+            video_detail["vod_play_url"] = "#".join(play_list)
+            
+            return {'list': [video_detail]}
+            
+        except Exception as e:
+            print(f"获取详情失败: {e}")
+            return {'list': []}
 
     def searchContent(self, key, quick, pg=1):
-        pg = int(pg) if str(pg).isdigit() else 1
-        wd = quote(key)
-        # 站点搜索入口：/search/index.html?keyword=xxx
-        search_url = f"{self.site_url}/search/index.html?keyword={wd}&page={pg}"
-
-        res = self.fetch(search_url)
-        video_list = []
-        if res and res.ok:
-            video_list = self._parse_vod_list(res.text)
-
-        pagecount = pg + 1 if len(video_list) else pg
+        videos = []
+        try:
+            body = {
+                "keywords": key,
+                "order_val": "1",
+                "page": str(pg)
+            }
+            
+            # 搜索不使用缓存，确保实时性
+            start_time = time.time()
+            data = self.get_data(body, '/App/Index/findMoreVod', use_cache=False)
+            end_time = time.time()
+            
+            print(f"搜索请求耗时: {end_time - start_time:.2f}秒")
+            
+            if data and 'list' in data:
+                for item in data['list']:
+                    vod_continu = item.get('vod_continu', 0)
+                    remarks = '电影' if vod_continu == 0 else f'更新至{vod_continu}集'
+                    
+                    video = {
+                        "vod_id": f"{item.get('vod_id', '')}/{vod_continu}",
+                        "vod_name": item.get('vod_name', ''),
+                        "vod_pic": item.get('vod_pic', ''),
+                        "vod_remarks": remarks
+                    }
+                    videos.append(video)
+        except Exception as e:
+            print(f"搜索失败: {e}")
+        
         return {
-            "list": video_list,
-            "page": pg,
-            "pagecount": pagecount,
-            "limit": self.page_size,
-            "total": self.total if len(video_list) else 0
+            'list': videos,
+            'page': int(pg),
+            'pagecount': 9999,
+            'limit': 30,
+            'total': 999999
         }
 
     def playerContent(self, flag, id, vipFlags):
-        # id 可能是 “节点$URL” 或直接URL
-        play_page = id.split("$", 1)[1] if "$" in id else id
-        play_page = self._full_url(play_page)
+        try:
+            # 解析播放信息
+            parts = id.split('||')
+            if len(parts) < 2:
+                return {"parse": 0, "playUrl": "", "url": ""}
+            
+            param_str = parts[0]
+            resolutions = parts[1].split('@') if len(parts) > 1 else []
+            
+            # 解析参数
+            params = {}
+            for pair in param_str.split('&'):
+                if '=' in pair:
+                    key, value = pair.split('=', 1)
+                    params[key] = value
+            
+            # 获取播放链接
+            if resolutions:
+                # 分辨率从大到小排序
+                resolutions.sort(key=lambda x: int(x) if x.isdigit() else 0, reverse=True)
+                
+                # 使用最大分辨率
+                params['resolution'] = resolutions[0]
+                body = params
+                
+                start_time = time.time()
+                data = self.get_data(body, '/App/Resource/VurlDetail/showOne', use_cache=False)
+                end_time = time.time()
+                print(f"播放链接获取耗时: {end_time - start_time:.2f}秒")
+                
+                if data and 'url' in data:
+                    return {
+                        "parse": 0,
+                        "playUrl": "",
+                        "url": data['url'],
+                        "header": json.dumps(self.header)
+                    }
+            
+            return {"parse": 0, "playUrl": "", "url": ""}
+            
+        except Exception as e:
+            print(f"播放解析失败: {e}")
+            return {"parse": 0, "playUrl": "", "url": ""}
 
-        if not play_page:
-            return {"parse": 0, "url": "", "header": self.headers}
+    def isVideoFormat(self, url):
+        video_formats = ['.m3u8', '.mp4', '.avi', '.mkv', '.flv', '.ts']
+        return any(url.lower().endswith(fmt) for fmt in video_formats)
 
-        # 若已是直链
-        if re.search(r'\.(m3u8|mp4|flv)(\?|$)', play_page, re.I):
-            return {"parse": 0, "url": play_page, "header": self.headers}
+    def manualVideoCheck(self):
+        pass
 
-        res = self.fetch(play_page)
-        if not (res and res.ok):
-            return {"parse": 1, "url": play_page, "header": self.headers}
+    def localProxy(self, params):
+        return None
 
-        html = res.text
-        final_url = ""
+    def aes_encrypt(self, text, key, iv):
+        """AES加密"""
+        try:
+            key_bytes = key.encode('utf-8')
+            iv_bytes = iv.encode('utf-8')
+            cipher = AES.new(key_bytes, AES.MODE_CBC, iv_bytes)
+            encrypted = cipher.encrypt(pad(text.encode('utf-8'), AES.block_size))
+            return encrypted.hex().upper()
+        except Exception as e:
+            print(f"AES加密失败: {e}")
+            return ""
 
-        # 常见直链提取
-        patterns = [
-            r'["\'](https?://[^"\']+\.m3u8[^"\']*)["\']',
-            r'["\'](https?://[^"\']+\.mp4[^"\']*)["\']',
-            r'"url"\s*:\s*"([^"]+)"',
-            r"var\s+url\s*=\s*'([^']+)'",
-            r'var\s+url\s*=\s*"([^"]+)"',
-            r'<source[^>]+src=["\']([^"\']+)["\']'
-        ]
-        for p in patterns:
-            m = re.search(p, html, re.I | re.S)
-            if m:
-                u = m.group(1).replace("\\/", "/")
-                final_url = self._full_url(u)
-                if final_url:
-                    break
+    def aes_decrypt(self, text, key, iv):
+        """AES解密"""
+        try:
+            key_bytes = key.encode('utf-8')
+            iv_bytes = iv.encode('utf-8')
+            cipher = AES.new(key_bytes, AES.MODE_CBC, iv_bytes)
+            encrypted_bytes = bytes.fromhex(text)
+            decrypted = unpad(cipher.decrypt(encrypted_bytes), AES.block_size)
+            return decrypted.decode('utf-8')
+        except Exception as e:
+            print(f"AES解密失败: {e}")
+            return ""
 
-        # 解析 MacCMS 风格 player_xxx JSON
-        if not final_url:
-            j = re.search(r'var\s+player_[a-zA-Z0-9_]+\s*=\s*(\{.*?\});', html, re.S)
-            if j:
-                try:
-                    obj = json.loads(j.group(1))
-                    u = obj.get("url", "")
-                    if u:
-                        final_url = self._full_url(u.replace("\\/", "/"))
-                except Exception:
-                    pass
+    def rsa_decrypt(self, encrypted_data, private_key):
+        """RSA解密"""
+        try:
+            # 解码base64数据
+            encrypted_bytes = base64.b64decode(encrypted_data)
+            
+            # 导入私钥
+            rsa_key = RSA.import_key(private_key)
+            cipher = PKCS1_v1_5.new(rsa_key)
+            
+            # 解密
+            decrypted = cipher.decrypt(encrypted_bytes, None)
+            return decrypted.decode('utf-8') if decrypted else ""
+        except Exception as e:
+            print(f"RSA解密失败: {e}")
+            return ""
 
-        # 拿到直链则 parse=0；否则交给外部解析
-        if final_url and re.search(r'^(https?:)?//', final_url):
-            if final_url.startswith("//"):
-                final_url = "https:" + final_url
-            return {"parse": 0, "url": final_url, "header": self.headers}
+    def get_cached_data(self, cache_key, data, path):
+        """带缓存的数据获取"""
+        current_time = time.time()
+        if cache_key in self.cache:
+            cached_data, timestamp = self.cache[cache_key]
+            if current_time - timestamp < self.cache_timeout:
+                return cached_data
+        
+        # 缓存不存在或已过期，重新获取
+        result = self.get_data(data, path)
+        if result:
+            self.cache[cache_key] = (result, current_time)
+        return result
 
-        return {"parse": 1, "url": play_page, "header": self.headers}
+    def get_data(self, data, path, use_cache=True):
+        """获取数据的主要方法"""
+        try:
+            # 构建缓存键
+            cache_key = f"{path}_{hash(str(data))}" if use_cache else None
+            
+            if use_cache and cache_key in self.cache:
+                cached_data, timestamp = self.cache[cache_key]
+                if time.time() - timestamp < self.cache_timeout:
+                    return cached_data
+
+            start_time = time.time()
+            
+            # AES加密请求数据
+            request_key = self.aes_encrypt(json.dumps(data), 'mvXBSW7ekreItNsT', '2U3IrJL8szAKp0Fj')
+            if not request_key:
+                return None
+            
+            # 生成签名
+            t = str(int(time.time()))
+            keys = "Qmxi5ciWXbQzkr7o+SUNiUuQxQEf8/AVyUWY4T/BGhcXBIUz4nOyHBGf9A4KbM0iKF3yp9M7WAY0rrs5PzdTAOB45plcS2zZ0wUibcXuGJ29VVGRWKGwE9zu2vLwhfgjTaaDpXo4rby+7GxXTktzJmxvneOUdYeHi+PZsThlvPI="
+            sign_str = f"token_id=,token={self.token},phone_type=1,request_key={request_key},app_id=1,time={t},keys={keys}*&zvdvdvddbfikkkumtmdwqppp?|4Y!s!2br"
+            signature = hashlib.md5(sign_str.encode()).hexdigest()
+            
+            # 构建请求体
+            body = {
+                'token': self.token,
+                'token_id': '',
+                'phone_type': '1',
+                'time': t,
+                'phone_model': 'xiaomi-22021211rc',
+                'keys': keys,
+                'request_key': request_key,
+                'signature': signature,
+                'app_id': '1',
+                'ad_version': '1'
+            }
+            
+            # 发送请求 - 设置超时时间
+            url = f"{self.host}{path}"
+            response = self.post(url, headers=self.header, data=body, timeout=10)
+            
+            if response.status_code != 200:
+                print(f"API请求失败: {response.status_code}, 路径: {path}")
+                return None
+                
+            response_data = response.json()
+            if 'data' not in response_data:
+                print(f"API返回数据格式错误, 路径: {path}")
+                return None
+                
+            data_response = response_data['data']
+            
+            # RSA解密响应密钥
+            private_key = """-----BEGIN PRIVATE KEY-----
+MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGAe6hKrWLi1zQmjTT1
+ozbE4QdFeJGNxubxld6GrFGximxfMsMB6BpJhpcTouAqywAFppiKetUBBbXwYsYU
+1wNr648XVmPmCMCy4rY8vdliFnbMUj086DU6Z+/oXBdWU3/b1G0DN3E9wULRSwcK
+ZT3wj/cCI1vsCm3gj2R5SqkA9Y0CAwEAAQKBgAJH+4CxV0/zBVcLiBCHvSANm0l7
+HetybTh/j2p0Y1sTXro4ALwAaCTUeqdBjWiLSo9lNwDHFyq8zX90+gNxa7c5EqcW
+V9FmlVXr8VhfBzcZo1nXeNdXFT7tQ2yah/odtdcx+vRMSGJd1t/5k5bDd9wAvYdI
+DblMAg+wiKKZ5KcdAkEA1cCakEN4NexkF5tHPRrR6XOY/XHfkqXxEhMqmNbB9U34
+saTJnLWIHC8IXys6Qmzz30TtzCjuOqKRRy+FMM4TdwJBAJQZFPjsGC+RqcG5UvVM
+iMPhnwe/bXEehShK86yJK/g/UiKrO87h3aEu5gcJqBygTq3BBBoH2md3pr/W+hUM
+WBsCQQChfhTIrdDinKi6lRxrdBnn0Ohjg2cwuqK5zzU9p/N+S9x7Ck8wUI53DKm8
+jUJE8WAG7WLj/oCOWEh+ic6NIwTdAkEAj0X8nhx6AXsgCYRql1klbqtVmL8+95KZ
+K7PnLWG/IfjQUy3pPGoSaZ7fdquG8bq8oyf5+dzjE/oTXcByS+6XRQJAP/5ciy1b
+L3NhUhsaOVy55MHXnPjdcTX0FaLi+ybXZIfIQ2P4rb19mVq1feMbCXhz+L1rG8oa
+t5lYKfpe8k83ZA==
+-----END PRIVATE KEY-----"""
+            
+            bodyki_json = self.rsa_decrypt(data_response['keys'], private_key)
+            if not bodyki_json:
+                print("RSA解密失败")
+                return None
+                
+            bodyki = json.loads(bodyki_json)
+            
+            # AES解密响应数据
+            decrypted_data = self.aes_decrypt(data_response['response_key'], bodyki['key'], bodyki['iv'])
+            if not decrypted_data:
+                print("AES解密失败")
+                return None
+                
+            result = json.loads(decrypted_data)
+            
+            end_time = time.time()
+            print(f"数据获取耗时: {end_time - start_time:.2f}秒, 路径: {path}")
+            
+            # 缓存结果
+            if use_cache and cache_key:
+                self.cache[cache_key] = (result, time.time())
+                
+            return result
+            
+        except Exception as e:
+            print(f"获取数据失败: {e}, 路径: {path}")
+            return None
+
+    def get_md5(self, text):
+        """计算MD5"""
+        return hashlib.md5(text.encode()).hexdigest()
+
+if __name__ == '__main__':
+    pass
