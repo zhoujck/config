@@ -85,13 +85,12 @@ def save_json(data, path):
         print(f"✅ 已保存：{path}")
 
 def remove_ys_lines(obj):
-    """递归删除 JSON 中数组里包含 'YS.jar' 的字符串元素"""
+    """递归删除 JSON 中数组里包含 'ys.jar'（不区分大小写）的字符串元素"""
     if isinstance(obj, dict):
         return {k: remove_ys_lines(v) for k, v in obj.items()}
     elif isinstance(obj, list):
-        # 先递归处理每个元素，再过滤掉含 YS.jar 的字符串
         processed = [remove_ys_lines(item) for item in obj]
-        return [item for item in processed if not (isinstance(item, str) and 'YS.jar' in item)]
+        return [item for item in processed if not (isinstance(item, str) and 'ys.jar' in item.lower())]
     return obj
 
 if __name__ == "__main__":
