@@ -8,8 +8,8 @@ import os
 # ============ 配置区 ============
 SOURCES = [
     {
-        "name": "yoursmail",
-        "url": "https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
+        "name": "aowu",
+        "url": "https://raw.githubusercontent.com/zhoujck/YSTVBox/refs/heads/main/XC.json",
     },
     {
         "name": "feimao",
