@@ -1,7 +1,7 @@
 {"urls":
 [
 {"url":"https://gh-proxy.org/https://raw.githubusercontent.com/zhoujck/config/main/box","name":"糖果影视(优选)"},
-{"url":"https://gh-proxy.org/https://raw.githubusercontent.com/zhoujck/config/refs/heads/main/tools/output/feimao.json","name":"网络（肥猫）"},
+{"url":"https://gh-proxy.org/https://raw.githubusercontent.com/cygoy/tvbox/refs/heads/main/api2.json","name":"网络"},
 {"url":"https://gh-proxy.org/https://raw.githubusercontent.com/zhoujck/YSTVBox/refs/heads/main/XC.json","name":"网络YS"}
 ]
 }
