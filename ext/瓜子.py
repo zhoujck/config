@@ -1,11 +1,13 @@
 # coding=utf-8
 # @name 瓜子APP
-# @description 瓜子APP FongMi TVBox Python源 (修正容错增强版)
+# @description 瓜子APP FongMi TVBox Python源 (网络优化版 - 修复104错误)
 import json
 import time
 import base64
 import hashlib
-import requests
+import ssl
+import urllib.request
+import urllib.parse
 from urllib.parse import urlencode
 
 # Fongmi 运行环境默认支持 pycryptodome 库
@@ -13,6 +15,7 @@ from Crypto.Cipher import AES
 from Crypto.PublicKey import RSA
 
 from base.spider import Spider
+
 
 class Spider(Spider):
     def getName(self):
@@ -29,7 +32,12 @@ class Spider(Spider):
             'Content-Type': 'application/x-www-form-urlencoded',
             'User-Agent': 'okhttp/3.12.0'
         }
-        
+
+        # 创建跳过SSL验证的context，解决部分设备SSL握手失败
+        self.ssl_ctx = ssl.create_default_context()
+        self.ssl_ctx.check_hostname = False
+        self.ssl_ctx.verify_mode = ssl.CERT_NONE
+
         self.private_key_pem = """-----BEGIN PRIVATE KEY-----
 MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGAe6hKrWLi1zQmjTT1
 ozbE4QdFeJGNxubxld6GrFGximxfMsMB6BpJhpcTouAqywAFppiKetUBBbXwYsYU
@@ -58,7 +66,6 @@ t5lYKfpe8k83ZA==
             {"type_id": "64", "type_name": "短剧"}
         ]
 
-        # 增加 init 初始值声明，确保壳子正确绑定默认参数
         years = [{"n": "全部", "v": "0"}] + [{"n": str(y), "v": str(y)} for y in range(2026, 2004, -1)] + [{"n": "更早", "v": "2004"}]
         areas_common = [{"n": n, "v": v} for n, v in zip(["全部", "大陆", "香港", "台湾", "美国", "韩国", "日本", "英国", "法国", "泰国", "印度", "其他"], ["0", "大陆", "香港", "台湾", "美国", "韩国", "日本", "英国", "法国", "泰国", "印度", "其他"])]
         sorts = [{"n": "最新", "v": "d_id"}, {"n": "最热", "v": "d_hits"}, {"n": "推荐", "v": "d_score"}]
@@ -109,11 +116,11 @@ t5lYKfpe8k83ZA==
             chunk_int = int.from_bytes(chunk, 'big')
             dec_int = pow(chunk_int, rsa_key.d, rsa_key.n)
             dec_bytes = dec_int.to_bytes(block_size, 'big')
-            
+
             start = 0
             while start < len(dec_bytes) and dec_bytes[start] == 0:
                 start += 1
-            
+
             try:
                 real_start = dec_bytes.index(0, 2)
                 decrypted_parts.append(dec_bytes[real_start + 1:])
@@ -122,47 +129,59 @@ t5lYKfpe8k83ZA==
 
         return b''.join(decrypted_parts).decode('utf-8').strip()
 
+    # ========================== 网络请求（urllib替代requests，修复104错误）==========================
+
     def api_request(self, data_dict, path):
-        try:
-            timestamp = str(int(time.time()))
-            json_str = json.dumps(data_dict, separators=(',', ':'), ensure_ascii=False)
-            request_key = self.aes_encrypt(json_str)
-            signature = self.generate_signature(request_key, timestamp)
+        last_err = None
+        for attempt in range(3):
+            try:
+                timestamp = str(int(time.time()))
+                json_str = json.dumps(data_dict, separators=(',', ':'), ensure_ascii=False)
+                request_key = self.aes_encrypt(json_str)
+                signature = self.generate_signature(request_key, timestamp)
 
-            payload = {
-                'token': self.token,
-                'token_id': '',
-                'phone_type': '1',
-                'time': timestamp,
-                'phone_model': 'xiaomi-22021211rc',
-                'keys': self.static_keys,
-                'request_key': request_key,
-                'signature': signature,
-                'app_id': '1',
-                'ad_version': '1'
-            }
+                payload = urlencode({
+                    'token': self.token,
+                    'token_id': '',
+                    'phone_type': '1',
+                    'time': timestamp,
+                    'phone_model': 'xiaomi-22021211rc',
+                    'keys': self.static_keys,
+                    'request_key': request_key,
+                    'signature': signature,
+                    'app_id': '1',
+                    'ad_version': '1'
+                }).encode('utf-8')
 
-            url = f"{self.host}{path}"
-            res = requests.post(url, data=payload, headers=self.headers, verify=False, timeout=10)
+                url = f"{self.host}{path}"
+                req = urllib.request.Request(url, data=payload, headers=self.headers)
 
-            if res.status_code != 200:
-                return {"_error": f"网络异常: HTTP {res.status_code}"}
-                
-            res_json = res.json()
-            if not res_json or 'data' not in res_json:
-                return {"_error": f"API拦截: {res.text[:30]}"}
+                with urllib.request.urlopen(req, context=self.ssl_ctx, timeout=15) as res:
+                    raw = res.read().decode('utf-8')
 
-            keys_data_str = self.rsa_decrypt_no_padding(res_json['data']['keys'])
-            keys_obj = json.loads(keys_data_str)
+                res_json = json.loads(raw)
+                if not res_json or 'data' not in res_json:
+                    return {"_error": f"API拦截: {raw[:30]}"}
 
-            decrypted_data = self.aes_decrypt(res_json['data']['response_key'], keys_obj['key'], keys_obj['iv'])
-            return json.loads(decrypted_data)
-            
-        except Exception as e:
-            err_msg = str(e)
-            if "index" in err_msg or "decode" in err_msg:
-                err_msg = "RSA/AES解密算法异常: " + err_msg
-            return {"_error": err_msg}
+                keys_data_str = self.rsa_decrypt_no_padding(res_json['data']['keys'])
+                keys_obj = json.loads(keys_data_str)
+                decrypted_data = self.aes_decrypt(res_json['data']['response_key'], keys_obj['key'], keys_obj['iv'])
+                return json.loads(decrypted_data)
+
+            except Exception as e:
+                last_err = e
+                err_msg = str(e)
+                # 连接重置/超时等网络错误则重试
+                if any(k in err_msg for k in ['104', 'reset', 'timed out', 'timeout', 'Connection', 'URLError']):
+                    if attempt < 2:
+                        time.sleep(1 + attempt)
+                        continue
+                # 解密类错误不重试
+                if "index" in err_msg or "decode" in err_msg:
+                    return {"_error": "RSA/AES解密算法异常: " + err_msg}
+                return {"_error": err_msg}
+
+        return {"_error": f"网络异常(重试3次): {str(last_err)}"}
 
     def get_resolution_score(self, res):
         r = res.lower().replace('p', '')
@@ -194,7 +213,7 @@ t5lYKfpe8k83ZA==
                     "vod_pic": item.get('vod_pic', ''),
                     "vod_remarks": "电影" if continu == 0 else f"更新至{continu}集"
                 })
-        
+
         result['list'] = list_data
         return result
 
@@ -215,7 +234,6 @@ t5lYKfpe8k83ZA==
             "tid": str(tid)
         }, "/App/IndexList/indexList")
 
-        # 核心跟踪调试：一旦接口失败或解析崩溃，呈现具体错误信息
         if isinstance(data, dict) and "_error" in data:
             return {
                 "list": [{"vod_id": "error", "vod_name": data["_error"], "vod_pic": "", "vod_remarks": "请截图错误"}],
@@ -263,20 +281,20 @@ t5lYKfpe8k83ZA==
             for index, item in enumerate(play_data['list']):
                 if 'play' not in item:
                     continue
-                
+
                 resolutions = []
                 params = []
                 for k, v in item['play'].items():
                     if isinstance(v, dict) and 'param' in v:
                         resolutions.append(k)
                         params.append(v['param'])
-                
+
                 if params:
                     resolutions.sort(key=self.get_resolution_score, reverse=True)
                     play_name = vod_info.get('vod_name', '正片') if len(play_data['list']) == 1 else item.get('name', str(index + 1))
                     play_url = f"{params[0]}||{'@'.join(resolutions)}"
                     episodes.append(f"{play_name}${play_url}")
-            
+
             if episodes:
                 play_list.append("#".join(episodes))
 
@@ -302,7 +320,7 @@ t5lYKfpe8k83ZA==
         }, "/App/Index/findMoreVod")
 
         if isinstance(data, dict) and "_error" in data:
-             return {"list": [], "page": int(pg), "pagecount": 0}
+            return {"list": [], "page": int(pg), "pagecount": 0}
 
         list_data = []
         for item in data.get('list', []):
@@ -343,7 +361,7 @@ t5lYKfpe8k83ZA==
             request_params['resolution'] = resolutions[0]
 
         data = self.api_request(request_params, "/App/Resource/VurlDetail/showOne")
-        
+
         play_url = data.get('url', '') if isinstance(data, dict) else ''
 
         return {
