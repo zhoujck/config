@@ -117,7 +117,7 @@ if __name__ == "__main__":
 
     try:
         # 获取 目标jar 的 md5
-        md5_value = get_md5("../jar/xiaomi.jar")
+        md5_value = get_md5("../jar/xiaomi.txt")
         print(f"🔐 feimao.jar 的 MD5: {md5_value}")
 
         # 加载 JSON 文件
@@ -126,7 +126,7 @@ if __name__ == "__main__":
         # 替换 spider md5
         if "spider" in jo:
             old_spider = jo["spider"]
-            new_spider = re.sub(r'jar', f'jar;md5;{md5_value}', old_spider)
+            new_spider = re.sub(r'txt', f'txt;md5;{md5_value}', old_spider)
             jo["spider"] = new_spider
             print(f"🔄 替换 spider 字段为: {new_spider}")
         else:
