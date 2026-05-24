@@ -8,8 +8,8 @@ import os
 # ============ 配置区 ============
 SOURCES = [
     {
-        "name": "WUAO",
-        "url": "https://raw.githubusercontent.com/zhoujck/YSTVBox/refs/heads/main/XC.json",
+        "name": "xiaomi",
+        "url": "https://raw.githubusercontent.com/zhoujck/config/refs/heads/main/qz",
     },
     {
         "name": "feimao",
