@@ -19,7 +19,7 @@ SOURCES = [
 
 KEYWORDS = ["1"]
 OUTPUT_DIR = "./output"
-# ================================
+# =================================
 
 def fetch_raw_json(url):
     resp = requests.get(url, timeout=15)
@@ -29,16 +29,18 @@ def fetch_raw_json(url):
 def extract_and_save_spider(json_text, name):
     match = re.search(r'"spider"\s*:\s*"([^"]+)"', json_text)
     if not match:
-        print(f"⚠️ [{name}] 未找到 spider 字段，跳过")
+        print(f"⚠️ [{name}] 没找到 spider 字段，跳过")
         return None
     full_spider = match.group(1)
     spider_url = full_spider.split(";")[0]
     print(f"📥 [{name}] 下载 spider: {spider_url}")
-    resp = requests.get(spider_url, timeout=15)
+    # 某些 PHP 接口需要 okhttp UA 才返回 jar 内容
+    headers = {"User-Agent": "okhttp/3.15"}
+    resp = requests.get(spider_url, timeout=15, headers=headers)
     filepath = os.path.join(OUTPUT_DIR, f"{name}.txt")
     with open(filepath, "wb") as f:
         f.write(resp.content)
-    print(f"✅ [{name}] spider 保存为 {filepath}")
+    print(f"✅ [{name}] spider 保存为 {filepath}（{len(resp.content)} 字节）")
 
 def clean_data(raw_text, name):
     raw_text = raw_text.replace(
@@ -61,7 +63,7 @@ class CompactJSONEncoder(json.JSONEncoder):
             pad = ' ' * indent_level
             if all(isinstance(i, dict) for i in lst):
                 return '[\n' + ',\n'.join(
-                    [pad + ' ' + json.dumps(i, ensure_ascii=False, separators=(',', ': ')) for i in lst]
+                     [pad + ' ' + json.dumps(i, ensure_ascii=False, separators=(',', ': ')) for i in lst]
                 ) + '\n' + pad + ']'
             return json.dumps(lst, ensure_ascii=False, indent=2)
 
@@ -86,7 +88,7 @@ def process_source(source):
     name = source["name"]
     url = source["url"]
     print(f"\n{'='*40}")
-    print(f"🔄 处理源: {name}")
+    print(f"▶️ 处理源: {name}")
     print(f"{'='*40}")
 
     raw_text = fetch_raw_json(url)
@@ -103,5 +105,5 @@ if __name__ == "__main__":
             process_source(source)
             success += 1
         except Exception as e:
-            print(f"❌ [{source['name']}] 错误: {e}")
-    print(f"\n📊 完成: {success}/{len(SOURCES)} 个源成功")
+            print(f"❌ [{source['name']}] 出错: {e}")
+    print(f"\n🎉 完成: {success}/{len(SOURCES)} 个源处理成功")
