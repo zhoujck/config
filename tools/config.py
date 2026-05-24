@@ -8,8 +8,8 @@ import os
 # ============ 配置区 ============
 SOURCES = [
     {
-        "name": "xiaomi",
-        "url": "https://raw.githubusercontent.com/zhoujck/config/refs/heads/main/qz",
+        "name": "ouge",
+        "url": "https://700sjro44343.vicp.fun/eggp/qzku/tv.json",
     },
     {
         "name": "feimao",
