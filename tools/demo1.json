@@ -32,7 +32,7 @@
   {"key": "JS9","name": "🔥小米","type": 3,"timeout": 15,"api": "csp_App3Q"},
  //{"key": "csp_Wwys","name": "🔥农民","type": 3,"api": "csp_Wwys","ext": "https://vip.wwgz.cn:5200"},
   {"key": "JS10","name": "🔥瓜子","type": 3,"timeout": 12,"searchable": 1,"quickSearch": 0,"api": "csp_Gz360"},
-  {"key": "JS11,"name": "🔥麦田","type": 3,"api": "csp_AppV6","ext": "http://172.247.227.203:25321/mtys.php"},
+  {"key": "JS11","name": "🔥麦田","type": 3,"api": "csp_AppV6","ext": "http://172.247.227.203:25321/mtys.php"},
   {"key": "JS12","name": "🔥标清","type": 3,"api": "csp_AppGet","ext": "https://yun-1316442804.cos.ap-guangzhou.myqcloud.com/600.txt|FTgP4Gq8zPiqbt7M|V122|okhttp/3.10.0"},
   {"key": "JS13","name": "🔥荐片┃磁力","api": "csp_Jianpian","type": 3,"ext": "https://api.ztcgi.com"}, 
   {"key": "pan1","name": "💌蜡笔","type": 3,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["http://xiaocge.fun","http://feimo.fun","http://www.labi88.sbs","http://fmao.site","http://fmao.shop","http://xiaocgege.shop","http://www.xiaocgege.shop"],"threadinfo": {"chunksize": 512,"threads": 16},"url_key": "Duopan2"}},
