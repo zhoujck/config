@@ -117,7 +117,7 @@ if __name__ == "__main__":
 
     try:
         # 获取 目标jar 的 md5
-        md5_value = get_md5("./jar/xiaomi.jar")
+        md5_value = get_md5("../jar/xiaomi.jar")
         print(f"🔐 feimao.jar 的 MD5: {md5_value}")
 
         # 加载 JSON 文件
