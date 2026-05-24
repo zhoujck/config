@@ -1,5 +1,5 @@
 {
-"spider": "./jar/xiaomi.jar",
+"spider": "./jar/xiaomi.txt",
 "logo": "./ext/app_icon.png",
  
 "lives": [
