@@ -1,5 +1,5 @@
 {
- "spider": "./jar/xiaomi.txt",
+ "spider": "./jar/xiaomi.txt;md5;5dc14f5cfa13170d6d0f7d815d0c2559",
  "logo": "./ext/app_icon.png",
  "lives": [
   {"name": "🍬移动🍬","type": 0,"url": "./ext/移动","playerType": 2,"ua": "okhttp/3.15","epg": "https://epg.cdn.loc.cc/?ch={name}&date={date}"},
@@ -21,7 +21,7 @@
   {"key": "JS8","name": "🍬茶杯狐","type": 3,"api": "csp_XBPQ","searchable": 1,"ext": "./ext/茶杯狐.json","jar": "./jar/xiaomi.txt"},
   {"key": "JS14","name": "🍬皮虾","type": 3,"api": "./ext/ppx.py","ext": "http://154.94.224.98:8762"},
   {"key": "JS9","name": "🔥小米","type": 3,"timeout": 15,"api": "csp_App3Q"},
-  {"key": "JS10","name": "🔥瓜子","type": 3,"timeout": 12,"searchable": 1,"quickSearch": 0,"api": "csp_Gz360"},
+  {"key": "JS10","name": "🔥瓜子","type": 3,"timeout": 12,"searchable": 1,"api": "csp_Gz360"},
   {"key": "JS11","name": "🔥麦田","type": 3,"api": "csp_AppV6","ext": "http://172.247.227.203:25321/mtys.php"},
   {"key": "JS12","name": "🔥标清","type": 3,"api": "csp_AppGet","ext": "https://yun-1316442804.cos.ap-guangzhou.myqcloud.com/600.txt|FTgP4Gq8zPiqbt7M|V122|okhttp/3.10.0"},
   {"key": "JS13","name": "🔥荐片┃磁力","api": "csp_Jianpian","type": 3,"ext": "https://api.ztcgi.com"},
