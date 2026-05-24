@@ -26,7 +26,7 @@
 { "key": "JS7", "name": "🍬茶杯狐", "type": 3,"api":"csp_XBPQ","searchable":1,"ext":"./ext/茶杯狐.json", "jar": "./jar/xiaomi.jar"},
   
 { "key": "线路1", "name": "🐼潮流", "type": 3, "api": "csp_AppRJ","timeout": 25,"ext": "http://v.rbotv.cn"},
-//{ "key": "线路2", "name": "🐼瓜子", "type": 3, "api": "csp_GuaziAmns","timeout": 25,"jar": "./jar/YS.jar"},
+{ "key": "线路2", "name": "🐼瓜子", "type": 3, "api": "csp_GuaziAmns","timeout": 25,"jar": "./jar/Wuao.jar"},
 //{ "key": "线路3", "name": "🐼金牌", "type": 3, "api": "csp_Jpys","timeout": 25},
 { "key": "线路4", "name": "🐼蔬菜", "type": 3, "api": "csp_AppGet","timeout": 25,"ext": "https://gitee.com/wmmoliill/wimg/raw/master/img/bk/9.txt|88689667dce61725"},
 //{ "key": "线路10","name": "🐼火火","type": 3,"api": "csp_SaoHuo","playerType": 2,"ext": "https://shdy5.us"},
