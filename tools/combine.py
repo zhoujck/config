@@ -109,7 +109,7 @@ def save_json(data, path):
 
 if __name__ == "__main__":
     # 默认路径
-    jo_path = "demo.json"
+    jo_path = "demo1.json"
 
     # 覆盖默认路径（如果传了参数）
     if len(sys.argv) > 1:
