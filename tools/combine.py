@@ -85,7 +85,7 @@ def save_json(data, path):
         print(f"✅ 已保存：{path}")
 
 def remove_ys_lines(obj, counter=None):
-    """递归删除 JSON 中包含 'ys.jar' 的元素（字符串或字典）"""
+    """递归删除 JSON 中包含 'Wuao.jar' 的元素（字符串或字典）"""
     if counter is None:
         counter = [0]
     if isinstance(obj, dict):
@@ -96,7 +96,7 @@ def remove_ys_lines(obj, counter=None):
             if isinstance(item, str) and 'ys.jar' in item.lower():
                 return True
             if isinstance(item, dict):
-                return any('ys.jar' in str(v).lower() for v in item.values())
+                return any('Wuao.jar' in str(v).lower() for v in item.values())
             return False
         result = []
         for item in processed:
@@ -133,17 +133,17 @@ if __name__ == "__main__":
             print("⚠️ jo_cleaned.json 中未找到 spider 字段")
 
         # 输出到 output 目录
-        output_path = "../box"
+        output_path = "../box1"
         os.makedirs("./output", exist_ok=True)
 
         # 保存 box（原始版本）
         save_json(jo, output_path)
 
-        # 保存 box1（删除含 YS.jar 的行）
+        # 保存 box1（删除含 Wuao.jar 的行）
         counter = [0]
         jo_filtered = remove_ys_lines(jo, counter)
-        save_json(jo_filtered, "../box1")
-        print(f"🗑️ 共删除了 {counter[0]} 条含 ys.jar 的记录")
+        save_json(jo_filtered, "../box")
+        print(f"🗑️ 共删除了 {counter[0]} 条含 Wuao.jar 的记录")
 
     except Exception as e:
         print(f"❌ 出错: {e}")
