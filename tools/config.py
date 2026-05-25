@@ -8,12 +8,12 @@ import os
 # ============ 配置区 ============
 SOURCES = [
     {
-        "name": "ouge",
-        "url": "https://700sjro44343.vicp.fun/eggp/qzku/tv.json",
+        "name": "feimao",
+        "url": "http://肥猫.net",
     },
     {
         "name": "xiaomi",
-        "url": "http://www.mpanso.com/小米/DEMO.json",
+        "url": "https://raw.githubusercontent.com/ggrrttyyiii/CatVodSpider/refs/heads/main/json/demo.json",
     },
 ]
 
