@@ -17,7 +17,7 @@ SOURCES = [
     },
 ]
 
-KEYWORDS = ["1"]
+KEYWORDS = [""]
 OUTPUT_DIR = "./output"
 # =================================
 
