@@ -226,32 +226,12 @@ async function home(filter) {
 
 async function homeVod() {
     try {
-        const url = 'https://m.douban.com/subject_collection/subject_real_time_hotest';
-        const ua = 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) ' +
-            'AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1';
-
-        const html = await request(url, { headers: { 'User-Agent': ua } });
-
-        // 网页中嵌有 SSR 数据，在 <script> 标签里的 JSON
-        const match = html.match(/window\.__INITIAL_STATE__\s*=\s*(\{[\s\S]*?\});/);
-        if (!match) return { list: [] };
-
-        const state = JSON.parse(match[1]);
-        const items = state.subjectCollection
-            ? state.subjectCollection.items || []
-            : [];
-
-        const list = items.map(item => ({
-            vod_id: item.id || '',
-            vod_name: item.title || '',
-            vod_pic: item.cover ? item.cover.url : '',
-            vod_remarks: item.rating ? item.rating.value.toFixed(1) : ''
-        }));
-
-        return JSON.stringify({ list });
-    } catch (e) {
-        return { list: [] };
-    }
+        let data = rexGet("/subject_collection/subject_real_time_hotest/items", {
+            start: 0, count: 30, items_only: 1
+        });
+        let items = data.items || data.subject_collection_items || [];
+        return JSON.stringify({ list: parseRexItems(items) });
+    } catch (e) { return JSON.stringify({ list: [] }); }
 }
 
 async function category(tid, pg, filter, extend) {
