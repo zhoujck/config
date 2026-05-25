@@ -31,8 +31,18 @@
         "url": "http://v.rbotv.cn"
       }
     },
-  
-  {"key": "JS1","name": "🍬🅱哔站影视","type": 3,"api": "./js/哔哩纪录片.js","searchable": 1,"ext": ""},
+  {
+      "key": "天天",
+      "name": "🚀秒播┃1080P",
+      "type": 3,
+      "quickSearch": 1,
+      "searchable": 1,
+      "api": "csp_AppRJ",
+      "timeout": 12,
+      "ext": "vxw35/hHSj07Q+maxQzOVMq1rjRCOTXpUCx8iKu5jIg="
+    },
+
+   {"key": "JS1","name": "🍬🅱哔站影视","type": 3,"api": "./js/哔哩纪录片.js","searchable": 1,"ext": ""},
   {"key": "JS2","name": "🍬永乐","type": 3,"api": "./js/永乐.js","searchable": 1,"ext": ""},
   //{"key": "JS3","name": "🍬荐片","type": 3,"api": "./js/荐片.js","searchable": 1,"ext": ""},
   {"key": "JS4","name": "🍬金牌","type": 3,"api": "./js/金牌.js","searchable": 1,"ext": ""},
