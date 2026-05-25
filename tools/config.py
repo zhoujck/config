@@ -12,8 +12,8 @@ SOURCES = [
         "url": "https://700sjro44343.vicp.fun/eggp/qzku/tv.json",
     },
     {
-        "name": "feimao",
-        "url": "https://ua.fongmi.eu.org/box.php?url=http://肥猫.net/",
+        "name": "xiaomi",
+        "url": "http://www.mpanso.com/小米/DEMO.json",
     },
 ]
 
