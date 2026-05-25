@@ -17,7 +17,7 @@ SOURCES = [
     },
 ]
 
-KEYWORDS = [""]
+KEYWORDS = []  # 空列表=不过滤；需要过滤时填入关键词，如 ["广告"]
 OUTPUT_DIR = "./output"
 # =================================
 
@@ -34,7 +34,6 @@ def extract_and_save_spider(json_text, name):
     full_spider = match.group(1)
     spider_url = full_spider.split(";")[0]
     print(f"📥 [{name}] 下载 spider: {spider_url}")
-    # 某些 PHP 接口需要 okhttp UA 才返回 jar 内容
     headers = {"User-Agent": "okhttp/3.15"}
     resp = requests.get(spider_url, timeout=15, headers=headers)
     filepath = os.path.join(OUTPUT_DIR, f"{name}.txt")
@@ -49,11 +48,16 @@ def clean_data(raw_text, name):
     )
     data = demjson.decode(raw_text)
     original_count = len(data.get("sites", []))
-    data["sites"] = [
-        s for s in data["sites"]
-        if not any(kw in s.get("key", "") or kw in s.get("name", "") for kw in KEYWORDS)
-    ]
-    removed = original_count - len(data["sites"])
+
+    if KEYWORDS:
+        data["sites"] = [
+            s for s in data["sites"]
+            if not any(kw in s.get("key", "") or kw in s.get("name", "") for kw in KEYWORDS)
+        ]
+        removed = original_count - len(data["sites"])
+    else:
+        removed = 0
+
     print(f"🧹 [{name}] 清理 {removed} 条 sites（剩余 {len(data['sites'])} 条）")
     return data
 
