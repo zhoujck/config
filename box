@@ -14,7 +14,7 @@
   {"key": "看球","name": "⚾看球","type": 3,"api": "csp_Kanqiu","searchable": 1,"quickSearch": 1,"changeable": 0,"gridview": 3,"style": {"type": "list"}},
   {"key": "线路1","name": "🔥瓜子","type": 3,"timeout": 12,"api": "csp_Gz360"},
   {"key": "线路2","name": "🔥天天","type": 3,"api": "csp_AppRJ","timeout": 10,"ext": "vxw35/hHSj07Q+maxQzOVMq1rjRCOTXpUCx8iKu5jIg="},
-  {"key": "线路3","name": "🔥小米","type": 3,"api": "csp_App3Q","timeout": 10},
+  {"key": "线路3","name": "🔥小米","type": 3,"api": "csp_App3Q","timeout": 10,"ext": "https://asd123sx23xdacsx.top"},
   {"key": "线路4","name": "🔥农民","type": 3,"api": "csp_Wwys","ext": "https://vip.wwgz.cn:5200"},
   {"key": "线路5","name": "🔥首发","type": 3,"api": "csp_AppGet","ext": "https://yun-1316442804.cos.ap-guangzhou.myqcloud.com/600.txt|FTgP4Gq8zPiqbt7M|V122|okhttp/3.10.0"},
   {"key": "线路6","name": "🔥荐片","api": "csp_Jianpian","type": 3,"ext": "https://api.ztcgi.com"},
