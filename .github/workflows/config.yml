@@ -39,7 +39,7 @@ jobs:
           cp -pdr ./output/xiaomi.txt ../jar/xiaomi.txt
           cp -pdr ./output/feimao.txt ../jar/feimao.txt
           python combine.py
-          python combinef.py
+          python combineF.py
           cd ../
         shell: bash
         
