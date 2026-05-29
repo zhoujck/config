@@ -5,7 +5,7 @@ import sys
 import os
 
 # ============ 配置区 ============
-DEMO_PATH = "demoF.json"       # demo JSON 输入文件路径
+DEMO_PATH = "demof.json"       # demo JSON 输入文件路径
 JAR_PATH  = "../jar/feimao.txt" # 需要计算 MD5 的 jar 文件路径
 BOX_PATH  = "../boxf"            # 最终输出的 box 文件路径
 # =================================
