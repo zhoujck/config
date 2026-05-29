@@ -24,13 +24,10 @@
 { "key": "JS11", "name": "🍬糯米", "type": 3,"api":"./js/lib/drpy2.min.js","searchable":1,"ext":"./js/农民影视.js"},
 {"key": "线路8","name": "🍬虾皮","type": 3,"api": "./ext/皮皮虾.py","ext": "http://154.94.224.98:8762"},
 {"key": "线路7","name": "🔥热播","type": 3,"api": "csp_AppRJ","searchable": 1,"quickSearch": 1,"filterable": 0,"ext": {"url": "http://v.rbotv.cn"}},
-
-
- 
 { "key": "JS7", "name": "🍬茶杯狐", "type": 3,"api":"csp_XBPQ","searchable":1,"ext":"./ext/茶杯狐.json", "jar": "./jar/xiaomi.jar"},
   
 { "key": "线路1", "name": "🐼潮流", "type": 3, "api": "csp_AppRJ","timeout": 25,"ext": "http://v.rbotv.cn"},
-{ "key": "线路2", "name": "🐼瓜子", "type": 3, "api": "csp_GuaziAmns","timeout": 25,"jar": "./jar/Wuao.jar"},
+//{ "key": "线路2", "name": "🐼瓜子", "type": 3, "api": "csp_GuaziAmns","timeout": 25,"jar": "./jar/Wuao.jar"},
 //{ "key": "线路3", "name": "🐼金牌", "type": 3, "api": "csp_Jpys","timeout": 25},
 { "key": "线路4", "name": "🐼蔬菜", "type": 3, "api": "csp_AppGet","timeout": 25,"ext": "https://gitee.com/wmmoliill/wimg/raw/master/img/bk/9.txt|88689667dce61725"},
 //{ "key": "线路10","name": "🐼火火","type": 3,"api": "csp_SaoHuo","playerType": 2,"ext": "https://shdy5.us"},
