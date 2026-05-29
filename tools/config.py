@@ -9,7 +9,7 @@ import os
 SOURCES = [
     {
         "name": "feimao",
-        "url": "http://肥猫.net/",
+        "url": "http://肥猫.net/tv",
     },
     {
         "name": "xiaomi",
