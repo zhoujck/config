@@ -22,6 +22,10 @@
 { "key": "JS5", "name": "🍬热播", "type": 3,"api":"./js/热播.js","searchable":1,"ext":""},
 { "key": "JS6", "name": "🍬BBTT", "type": 3,"api":"./js/两个BT.js","searchable":1,"ext":""}, 
 { "key": "JS11", "name": "🍬糯米", "type": 3,"api":"./js/lib/drpy2.min.js","searchable":1,"ext":"./js/农民影视.js"},
+{"key": "线路8","name": "🍬虾皮","type": 3,"api": "./ext/皮皮虾.py","ext": "http://154.94.224.98:8762"},
+{"key": "线路7","name": "🔥热播","type": 3,"api": "csp_AppRJ","searchable": 1,"quickSearch": 1,"filterable": 0,"ext": {"url": "http://v.rbotv.cn"}},
+
+
  
 { "key": "JS7", "name": "🍬茶杯狐", "type": 3,"api":"csp_XBPQ","searchable":1,"ext":"./ext/茶杯狐.json", "jar": "./jar/xiaomi.jar"},
   
