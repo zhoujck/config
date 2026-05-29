@@ -37,7 +37,9 @@ jobs:
           pip install demjson3 requests==2.31.0
           python config.py
           cp -pdr ./output/xiaomi.txt ../jar/xiaomi.txt
+          cp -pdr ./output/feimao.txt ../jar/feimao.txt
           python combine.py
+          python combinef.py
           cd ../
         shell: bash
         
