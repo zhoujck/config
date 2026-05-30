@@ -30,16 +30,60 @@ function getVideos(json) {
 async function home(filter) {
     return JSON.stringify({
         "class": [
-            {"type_id": "all", "type_name": "全部象棋"},
-            {"type_id": "0", "type_name": "板鸭象棋"},
-            {"type_id": "1", "type_name": "四郎讲棋"},
-            {"type_id": "2", "type_name": "小植象棋"}
+            //{"type_name": "全部象棋", "type_id": "象棋"},
+            {"type_name": "板鸭象棋", "type_id": "板鸭象棋"},
+            {"type_name": "四郎讲棋", "type_id": "四郎讲棋"},
+            {"type_name": "小植象棋", "type_id": "小植象棋"}
         ],
         "filters": {
-            "all": [{"key": "order", "name": "排序", "value": [{"n": "最多播放", "v": "click"}, {"n": "最新发布", "v": "pubdate"}, {"n": "最多弹幕", "v": "dm"}, {"n": "最多收藏", "v": "stow"}]}],
-            "0": [{"key": "order", "name": "排序", "value": [{"n": "最多播放", "v": "click"}, {"n": "最新发布", "v": "pubdate"}, {"n": "最多弹幕", "v": "dm"}, {"n": "最多收藏", "v": "stow"}]}],
-            "1": [{"key": "order", "name": "排序", "value": [{"n": "最多播放", "v": "click"}, {"n": "最新发布", "v": "pubdate"}, {"n": "最多弹幕", "v": "dm"}, {"n": "最多收藏", "v": "stow"}]}],
-            "2": [{"key": "order", "name": "排序", "value": [{"n": "最多播放", "v": "click"}, {"n": "最新发布", "v": "pubdate"}, {"n": "最多弹幕", "v": "dm"}, {"n": "最多收藏", "v": "stow"}]}]
+            "板鸭象棋": [
+                {"key": "order", "name": "排序", "value": [
+                    {"n": "综合排序", "v": "0"},
+                    {"n": "最多点击", "v": "click"},
+                    {"n": "最新发布", "v": "pubdate"},
+                    {"n": "最多弹幕", "v": "dm"},
+                    {"n": "最多收藏", "v": "stow"}
+                ]},
+                {"key": "duration", "name": "时长", "value": [
+                    {"n": "全部", "v": "0"},
+                    {"n": "60分钟以上", "v": "4"},
+                    {"n": "30~60分钟", "v": "3"},
+                    {"n": "10~30分钟", "v": "2"},
+                    {"n": "10分钟以下", "v": "1"}
+                ]}
+            ],
+            "四郎讲棋": [
+                {"key": "order", "name": "排序", "value": [
+                    {"n": "综合排序", "v": "0"},
+                    {"n": "最多点击", "v": "click"},
+                    {"n": "最新发布", "v": "pubdate"},
+                    {"n": "最多弹幕", "v": "dm"},
+                    {"n": "最多收藏", "v": "stow"}
+                ]},
+                {"key": "duration", "name": "时长", "value": [
+                    {"n": "全部", "v": "0"},
+                    {"n": "60分钟以上", "v": "4"},
+                    {"n": "30~60分钟", "v": "3"},
+                    {"n": "10~30分钟", "v": "2"},
+                    {"n": "10分钟以下", "v": "1"}
+                ]}
+            ],
+            "小植象棋": [
+                {"key": "order", "name": "排序", "value": [
+                    {"n": "综合排序", "v": "0"},
+                    {"n": "最多点击", "v": "click"},
+                    {"n": "最新发布", "v": "pubdate"},
+                    {"n": "最多弹幕", "v": "dm"},
+                    {"n": "最多收藏", "v": "stow"}
+                ]},
+                {"key": "duration", "name": "时长", "value": [
+                    {"n": "全部", "v": "0"},
+                    {"n": "60分钟以上", "v": "4"},
+                    {"n": "30~60分钟", "v": "3"},
+                    {"n": "10~30分钟", "v": "2"},
+                    {"n": "10分钟以下", "v": "1"}
+                ]}
+            ]
         }
     });
 }
@@ -53,20 +97,9 @@ async function homeVod() {
 
 async function category(tid, pg, filter, extend) {
     let p = pg || 1;
-    let order = (extend && extend.order) ? extend.order : "click";
-    let keyword = "";
-    if (tid === "all") {
-        keyword = "象棋";
-    } else if (tid === "0") {
-        keyword = "板鸭象棋";
-    } else if (tid === "1") {
-        keyword = "四郎讲棋";
-    } else if (tid === "2") {
-        keyword = "小植象棋";
-    } else {
-        keyword = "象棋";
-    }
-    let url = host + "/x/web-interface/search/type?keyword=" + encodeURIComponent(keyword) + "&search_type=video&page=" + p + "&order=" + order;
+    let order = (extend && extend.order) ? extend.order : "0";
+    let duration = (extend && extend.duration) ? extend.duration : "0";
+    let url = host + "/x/web-interface/search/type?keyword=" + encodeURIComponent(tid) + "&search_type=video&page=" + p + "&order=" + order + "&duration=" + duration;
     let resp = await req(url, {headers: headers});
     let jo = JSON.parse(resp.content);
     return JSON.stringify({
