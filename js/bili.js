@@ -356,10 +356,47 @@ async function detail(id) {
         if (!video) return JSON.stringify({ list: [] });
 
         let pages = video.pages || [];
-        let playParts = [];
-        pages.forEach((p, i) => {
-            let part = p.part || ("第" + (i + 1) + "集");
-            playParts.push(part + "$" + id + "_" + p.cid);
+
+        // 探测可用画质：用第一个分P请求，获取支持的画质列表
+        let availableQualities = [];
+        if (pages.length > 0) {
+            try {
+                let testCid = pages[0].cid;
+                let testUrl = host + "/x/player/playurl?avid=" + id + "&cid=" + testCid + "&qn=127&fnval=1&fourk=1";
+                let testResp = await req(testUrl, { headers: headers });
+                let testJo = JSON.parse(testResp.content);
+                if (testJo.code === 0 && testJo.data) {
+                    if (testJo.data.accept_quality && testJo.data.accept_quality.length > 0) {
+                        // durl 模式：用 accept_quality
+                        availableQualities = testJo.data.accept_quality.sort((a, b) => b - a);
+                    } else if (testJo.data.dash && testJo.data.dash.video) {
+                        // DASH 模式兜底
+                        let qualityIds = new Set();
+                        testJo.data.dash.video.forEach(v => { if (v.id) qualityIds.add(v.id); });
+                        availableQualities = Array.from(qualityIds).sort((a, b) => b - a);
+                    }
+                }
+            } catch (e) {}
+        }
+
+        // 如果没探测到，用默认画质
+        if (availableQualities.length === 0) {
+            availableQualities = [80, 64, 32];
+        }
+
+        // 生成多个播放源（每个画质一个源）
+        let playFroms = [];
+        let playUrls = [];
+        availableQualities.forEach(qn => {
+            let name = QUALITY_MAP[qn] || ("画质" + qn);
+            playFroms.push(name);
+
+            let parts = [];
+            pages.forEach((p, i) => {
+                let part = p.part || ("第" + (i + 1) + "集");
+                parts.push(part + "$" + id + "_" + p.cid + "_" + qn);
+            });
+            playUrls.push(parts.join("#"));
         });
 
         return JSON.stringify({
@@ -368,8 +405,12 @@ async function detail(id) {
                 vod_name: (video.title || "").replace(/<[^>]*>/g, ""),
                 vod_pic: fixCover(video.pic),
                 vod_content: video.desc || "",
-                vod_play_from: "B站视频",
-                vod_play_url: playParts.join("#")
+                vod_play_from: playFroms.join("$$$"),
+                vod_play_url: playUrls.join("$$$"),
+                vod_actor: "弹幕: " + (video.stat ? video.stat.danmaku : 0)
+                    + "　点赞: " + (video.stat ? video.stat.like : 0)
+                    + "　收藏: " + (video.stat ? video.stat.favorite : 0),
+                vod_director: video.owner ? video.owner.name : ""
             }]
         });
     } catch (e) {
@@ -380,6 +421,12 @@ async function detail(id) {
 async function search(wd, quick, pg) {
     return await category(wd, pg);
 }
+
+// 画质映射
+const QUALITY_MAP = {
+    127: "8K", 126: "杜比视界", 125: "HDR", 120: "4K", 116: "1080P60",
+    112: "1080P+", 80: "1080P", 74: "720P60", 64: "720P", 32: "480P", 16: "360P"
+};
 
 async function play(flag, id, flags) {
     if (!id) return JSON.stringify({ parse: 0, url: "" });
@@ -393,11 +440,29 @@ async function play(flag, id, flags) {
         });
     }
 
-    let avid = idParts[0];
-    let cid = idParts[1];
+    let avid, cid, qn;
+    if (idParts.length >= 3) {
+        // 格式: avid_cid_qn
+        avid = idParts[0];
+        cid = idParts[1];
+        qn = parseInt(idParts[2]) || 80;
+    } else {
+        // 格式: avid_cid（兼容旧格式）
+        avid = idParts[0];
+        cid = idParts[1];
+        // 从 flag 中提取画质
+        qn = 80;
+        if (flag && flag.indexOf("_") > -1) {
+            let fparts = flag.split("_");
+            let parsed = parseInt(fparts[fparts.length - 1]);
+            if (!isNaN(parsed)) qn = parsed;
+        }
+    }
 
     try {
-        let url = host + "/x/player/playurl?avid=" + avid + "&cid=" + cid + "&qn=127&fnval=4048&fourk=1";
+        // fnval=1 请求 durl 格式（单文件，音视频一体，兼容性最好）
+        let url = host + "/x/player/playurl?avid=" + avid + "&cid=" + cid
+            + "&qn=" + qn + "&fnval=1&fourk=1";
         let resp = await req(url, { headers: headers });
         let jo = JSON.parse(resp.content);
 
@@ -405,31 +470,6 @@ async function play(flag, id, flags) {
             return JSON.stringify({ parse: 0, url: "" });
         }
 
-        // 优先尝试 DASH（高画质）
-        if (jo.data.dash && jo.data.dash.video && jo.data.dash.video.length > 0) {
-            let videos = jo.data.dash.video.sort((a, b) => (b.id || 0) - (a.id || 0));
-            let bestVideo = videos[0];
-            let bestAudio = jo.data.dash.audio && jo.data.dash.audio.length > 0
-                ? jo.data.dash.audio.sort((a, b) => (b.bandwidth || 0) - (a.bandwidth || 0))[0]
-                : null;
-
-            let result = {
-                parse: 0,
-                url: bestVideo.base_url || bestVideo.baseUrl,
-                contentType: "video/mp4",
-                header: {
-                    "Referer": "https://www.bilibili.com",
-                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-                },
-                danmaku: "https://api.bilibili.com/x/v1/dm/list.so?oid=" + cid
-            };
-            if (bestAudio) {
-                result.extra = { audio: bestAudio.base_url || bestAudio.baseUrl };
-            }
-            return JSON.stringify(result);
-        }
-
-        // 回退到 durl
         let durl = jo.data.durl;
         if (durl && durl.length > 0) {
             // 取最大文件
@@ -442,18 +482,15 @@ async function play(flag, id, flags) {
                 }
             });
 
-            let playUrl = durl[position].url;
-            let dan = "https://api.bilibili.com/x/v1/dm/list.so?oid=" + cid;
-
             return JSON.stringify({
                 parse: 0,
-                url: playUrl,
+                url: durl[position].url,
                 contentType: "video/x-flv",
                 header: {
                     "Referer": "https://www.bilibili.com",
                     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
                 },
-                danmaku: dan
+                danmaku: "https://api.bilibili.com/x/v1/dm/list.so?oid=" + cid
             });
         }
     } catch (e) {}
