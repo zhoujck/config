@@ -1,6 +1,6 @@
 var host = 'https://api.bilibili.com';
 var headers = {
-     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     "Referer": "https://www.bilibili.com",
     "Cookie": "bili_jct=8d857e6102f03611ebc812dd1832c6ed; DedeUserID=701168335; SESSDATA=f0d59c35%2C1770188969%2Cd19d6%2A81CjCR7VuWQpC5Aps2RKhzCed6afXrGsS7ArTXuWKduCIlnjKvs-NFL-AOOhDWA0q3lh4SVmNINmZmVWpjMGVNbFlmS1piODR4WkRyTFBTNUo5Y3E0VExkcFdESm1JSkEyVzJyZzRkQ1RzYzNrcGJ6M0NwNkVmZjJ5UnowZENLY2RFb2RzQ0k0a25BIIEC;"
 };
@@ -209,10 +209,12 @@ function homeVod() {
 
 function category(tid, pg, filter, extend) {
     var p = pg || 1;
+    var keyword = tid + " 课程";
     var url = signUrl(host + "/x/web-interface/search/type", {
         search_type: "video",
-        keyword: tid,
-        page: p
+        keyword: keyword,
+        page: p,
+        page_size: 20
     });
     var resp = req(url, { headers: headers });
     var jo = JSON.parse(resp.content);
