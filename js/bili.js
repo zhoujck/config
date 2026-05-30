@@ -5,89 +5,58 @@ var headers = {
     "Cookie": "bili_jct=8d857e6102f03611ebc812dd1832c6ed; DedeUserID=701168335; SESSDATA=f0d59c35%2C1770188969%2Cd19d6%2A81CjCR7VuWQpC5Aps2RKhzCed6afXrGsS7ArTXuWKduCIlnjKvs-NFL-AOOhDWA0q3lh4SVmNINmZmVWpjMGVNbFlmS1piODR4WkRyTFBTNUo5Y3E0VExkcFdESm1JSkEyVzJyZzRkQ1RzYzNrcGJ6M0NwNkVmZjJ5UnowZENLY2RFb2RzQ0k0a25BIIEC;"
 };
 
-// ==================== 纯 JS MD5 ====================
-function md5(str) {
-    function md5cycle(x, k) {
-        var a=x[0],b=x[1],c=x[2],d=x[3];
-        a=ff(a,b,c,d,k[0],7,-680876936);d=ff(d,a,b,c,k[1],12,-389564586);c=ff(c,d,a,b,k[2],17,606105819);b=ff(b,c,d,a,k[3],22,-1044525330);
-        a=ff(a,b,c,d,k[4],7,-176418897);d=ff(d,a,b,c,k[5],12,1200080426);c=ff(c,d,a,b,k[6],17,-1473231341);b=ff(b,c,d,a,k[7],22,-45705983);
-        a=ff(a,b,c,d,k[8],7,1770035416);d=ff(d,a,b,c,k[9],12,-1958414417);c=ff(c,d,a,b,k[10],17,-42063);b=ff(b,c,d,a,k[11],22,-1990404162);
-        a=ff(a,b,c,d,k[12],7,1804603682);d=ff(d,a,b,c,k[13],12,-40341101);c=ff(c,d,a,b,k[14],17,-1502002290);b=ff(b,c,d,a,k[15],22,1236535329);
-        a=gg(a,b,c,d,k[1],5,-165796510);d=gg(d,a,b,c,k[6],9,-1069501632);c=gg(c,d,a,b,k[11],14,643717713);b=gg(b,c,d,a,k[0],20,-373897302);
-        a=gg(a,b,c,d,k[5],5,-701558691);d=gg(d,a,b,c,k[10],9,38016083);c=gg(c,d,a,b,k[15],14,-660478335);b=gg(b,c,d,a,k[4],20,-405537848);
-        a=gg(a,b,c,d,k[9],5,568446438);d=gg(d,a,b,c,k[14],9,-1019803690);c=gg(c,d,a,b,k[3],14,-187363961);b=gg(b,c,d,a,k[8],20,1163531501);
-        a=gg(a,b,c,d,k[13],5,-1444681467);d=gg(d,a,b,c,k[2],9,-51403784);c=gg(c,d,a,b,k[7],14,1735328473);b=gg(b,c,d,a,k[12],20,-1926607734);
-        a=hh(a,b,c,d,k[5],4,-378558);d=hh(d,a,b,c,k[8],11,-2022574463);c=hh(c,d,a,b,k[11],16,1839030562);b=hh(b,c,d,a,k[14],23,-35309556);
-        a=hh(a,b,c,d,k[1],4,-1530992060);d=hh(d,a,b,c,k[4],11,1272893353);c=hh(c,d,a,b,k[7],16,-155497632);b=hh(b,c,d,a,k[10],23,-1094730640);
-        a=hh(a,b,c,d,k[13],4,681279174);d=hh(d,a,b,c,k[0],11,-358537222);c=hh(c,d,a,b,k[3],16,-722521979);b=hh(b,c,d,a,k[6],23,76029189);
-        a=hh(a,b,c,d,k[9],4,-640364487);d=hh(d,a,b,c,k[12],11,-421815835);c=hh(c,d,a,b,k[15],16,530742520);b=hh(b,c,d,a,k[2],23,-995338651);
-        a=ii(a,b,c,d,k[0],6,-198630844);d=ii(d,a,b,c,k[7],10,1126891415);c=ii(c,d,a,b,k[14],15,-1416354905);b=ii(b,c,d,a,k[5],21,-57434055);
-        a=ii(a,b,c,d,k[12],6,1700485571);d=ii(d,a,b,c,k[3],10,-1894986606);c=ii(c,d,a,b,k[10],15,-1051523);b=ii(b,c,d,a,k[1],21,-2054922799);
-        a=ii(a,b,c,d,k[8],6,1873313359);d=ii(d,a,b,c,k[15],10,-30611744);c=ii(c,d,a,b,k[6],15,-1560198380);b=ii(b,c,d,a,k[13],21,1309151649);
-        a=ii(a,b,c,d,k[4],6,-145523070);d=ii(d,a,b,c,k[11],10,-1120210379);c=ii(c,d,a,b,k[2],15,718787259);b=ii(b,c,d,a,k[9],21,-343485551);
-        x[0]=add32(a,x[0]);x[1]=add32(b,x[1]);x[2]=add32(c,x[2]);x[3]=add32(d,x[3]);
+// ==================== 工具函数 ====================
+function fixCover(url) {
+    if (!url) return "";
+    if (url.indexOf("//") === 0) return "https:" + url;
+    return url;
+}
+
+function stripHtmlTag(src) {
+    return src.replace(/<\/?[^>]+(>|$)/g, "").replace(/&.{1,5};/g, "").replace(/\s{2,}/g, " ");
+}
+
+function formatDuration(duration) {
+    if (!duration) return "";
+    // "12:34" 格式
+    if (typeof duration === "string" && duration.indexOf(":") > -1) {
+        var parts = duration.split(":");
+        var min = parseInt(parts[0]);
+        if (min < 60) return min + "分";
+        var h = Math.floor(min / 60);
+        var m = min % 60;
+        return m > 0 ? h + "小时" + m + "分" : h + "小时";
     }
-    function cmn(q,a,b,x,s,t){a=add32(add32(a,q),add32(x,t));return add32((a<<s)|(a>>>(32-s)),b);}
-    function ff(a,b,c,d,x,s,t){return cmn((b&c)|((~b)&d),a,b,x,s,t);}
-    function gg(a,b,c,d,x,s,t){return cmn((b&d)|(c&(~d)),a,b,x,s,t);}
-    function hh(a,b,c,d,x,s,t){return cmn(b^c^d,a,b,x,s,t);}
-    function ii(a,b,c,d,x,s,t){return cmn(c^(b|(~d)),a,b,x,s,t);}
-    function md51(s){var n=s.length,state=[1732584193,-271733879,-1732584194,271733878],i;
-        for(i=64;i<=s.length;i+=64)md5cycle(state,md5blk(s.substring(i-64,i)));
-        s=s.substring(i-64);var tail=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-        for(i=0;i<s.length;i++)tail[i>>2]|=s.charCodeAt(i)<<((i%4)<<3);
-        tail[i>>2]|=0x80<<((i%4)<<3);if(i>55){md5cycle(state,tail);for(i=0;i<16;i++)tail[i]=0;}
-        tail[14]=n*8;md5cycle(state,tail);return state;}
-    function md5blk(s){var md5blks=[],i;for(i=0;i<64;i+=4)md5blks[i>>2]=s.charCodeAt(i)+(s.charCodeAt(i+1)<<8)+(s.charCodeAt(i+2)<<16)+(s.charCodeAt(i+3)<<24);return md5blks;}
-    var hex_chr='0123456789abcdef'.split('');
-    function rhex(n){var s='',j=0;for(;j<4;j++)s+=hex_chr[(n>>(j*8+4))&0x0F]+hex_chr[(n>>(j*8))&0x0F];return s;}
-    function hex(x){for(var i=0;i<x.length;i++)x[i]=rhex(x[i]);return x.join('');}
-    function add32(a,b){return(a+b)&0xFFFFFFFF;}
-    return hex(md51(str));
+    // 秒数格式
+    var totalMin = Math.floor(parseInt(duration) / 60);
+    if (totalMin < 60) return totalMin + "分";
+    var hours = Math.floor(totalMin / 60);
+    var mins = totalMin % 60;
+    return mins > 0 ? hours + "小时" + mins + "分" : hours + "小时";
 }
 
-// ==================== wbi 签名 ====================
-var MIXIN_KEY_ENC_TAB = [46,47,18,2,53,8,23,32,15,50,10,31,58,3,45,35,27,43,5,49,33,9,42,19,29,28,14,39,12,17,6,28];
-var _wbiKeys = null;
-
-function getWbiKeys() {
-    if (_wbiKeys) return _wbiKeys;
-    var resp = req(host + "/x/web-interface/nav", { headers: headers });
-    var jo = JSON.parse(resp.content);
-    var wbi = jo.data && jo.data.wbi_img ? jo.data.wbi_img : {};
-    var imgKey = (wbi.img_url || "").split("/").pop().split(".")[0] || "";
-    var subKey = (wbi.sub_url || "").split("/").pop().split(".")[0] || "";
-    _wbiKeys = { imgKey: imgKey, subKey: subKey };
-    return _wbiKeys;
-}
-
-function getMixinKey(raw) {
-    return MIXIN_KEY_ENC_TAB.map(function(n) { return raw[n]; }).join("").substring(0, 32);
-}
-
-function signUrl(baseUrl, params) {
-    var keys = getWbiKeys();
-    var mixinKey = getMixinKey(keys.imgKey + keys.subKey);
-    var wts = Math.floor(Date.now() / 1000);
-    var sorted = {};
-    Object.keys(params).sort().forEach(function(k) {
-        if (params[k] !== undefined && params[k] !== null && params[k] !== "") {
-            sorted[k] = params[k];
-        }
+function parseVodList(vodList) {
+    var videos = [];
+    if (!vodList) return videos;
+    vodList.forEach(function(vod) {
+        var aid = (vod.bvid || vod.aid || "").toString();
+        var title = stripHtmlTag(vod.title || "");
+        var img = fixCover(vod.pic);
+        var remark = formatDuration(vod.duration);
+        if (aid) videos.push({ vod_id: aid, vod_name: title, vod_pic: img, vod_remarks: remark });
     });
-    sorted.wts = wts;
-    var query = Object.keys(sorted).map(function(k) {
-        return encodeURIComponent(k) + "=" + encodeURIComponent(sorted[k]);
-    }).join("&");
-    sorted.w_rid = md5(query + mixinKey);
-    var qs = Object.keys(sorted).map(function(k) {
-        return encodeURIComponent(k) + "=" + encodeURIComponent(sorted[k]);
-    }).join("&");
-    return baseUrl + "?" + qs;
+    return videos;
+}
+
+function parseSearchResult(json) {
+    var videos = [];
+    if (!json || json.code !== 0) return videos;
+    return parseVodList(json.data && json.data.result ? json.data.result : []);
 }
 
 // ==================== 分类 ====================
 var CLASSES = [
+    {"type_id": "推荐", "type_name": "推荐"},
     {"type_id": "1年级语文", "type_name": "1年级语文"},
     {"type_id": "1年级数学", "type_name": "1年级数学"},
     {"type_id": "1年级英语", "type_name": "1年级英语"},
@@ -163,27 +132,6 @@ var CLASSES = [
     {"type_id": "高中信息技术", "type_name": "高中信息技术"}
 ];
 
-function fixCover(url) {
-    if (!url) return "";
-    if (url.indexOf("//") === 0) return "https:" + url;
-    return url;
-}
-
-function parseSearchResult(json) {
-    var videos = [];
-    if (!json || json.code !== 0) return videos;
-    var list = json.data && json.data.result ? json.data.result : [];
-    list.forEach(function(item) {
-        if (item.type && item.type !== "video") return;
-        var aid = (item.bvid || item.aid || "").toString();
-        var title = (item.title || "").replace(/<[^>]*>/g, "");
-        var img = fixCover(item.pic);
-        var dur = item.duration || "";
-        if (aid) videos.push({ vod_id: aid, vod_name: title, vod_pic: img, vod_remarks: dur });
-    });
-    return videos;
-}
-
 // ==================== TVBox 接口 ====================
 function init(cfg) {}
 
@@ -194,48 +142,45 @@ function home(filter) {
 function homeVod() {
     var resp = req(host + "/x/web-interface/popular?ps=20&pn=1", { headers: headers });
     var jo = JSON.parse(resp.content);
-    var videos = [];
-    if (jo.code === 0 && jo.data && jo.data.list) {
-        jo.data.list.forEach(function(item) {
-            var aid = (item.bvid || "").toString();
-            var title = (item.title || "");
-            var img = fixCover(item.pic);
-            var owner = item.owner ? item.owner.name : "";
-            if (aid) videos.push({ vod_id: aid, vod_name: title, vod_pic: img, vod_remarks: owner });
-        });
-    }
-    return JSON.stringify({ "list": videos });
+    return JSON.stringify({ "list": parseVodList(jo.data ? jo.data.list : []) });
 }
 
 function category(tid, pg, filter, extend) {
     var p = pg || 1;
-    var keyword = tid + " 课程";
-    var url = signUrl(host + "/x/web-interface/search/type", {
-        search_type: "video",
-        keyword: keyword,
-        page: p,
-        page_size: 20
-    });
-    var resp = req(url, { headers: headers });
-    var jo = JSON.parse(resp.content);
-    return JSON.stringify({ "list": parseSearchResult(jo), "page": p });
+    var videos = [];
+
+    if (tid === "推荐") {
+        var resp = req(host + "/x/web-interface/index/top/rcmd?ps=20&fresh_idx=" + p + "&fresh_idx_1h=" + p, { headers: headers });
+        var jo = JSON.parse(resp.content);
+        if (jo.code === 0 && jo.data && jo.data.item) {
+            videos = parseVodList(jo.data.item);
+        }
+    } else {
+        // 搜索分类 —— 用 keyword 直接搜索，参考 gao 脚本的方式
+        var url = host + "/x/web-interface/search/type?search_type=video&keyword=" + encodeURIComponent(tid) + "&page=" + p;
+        var resp = req(url, { headers: headers });
+        var jo = JSON.parse(resp.content);
+        videos = parseSearchResult(jo);
+    }
+
+    return JSON.stringify({ "list": videos, "page": p });
 }
 
 function detail(id) {
     var url;
     if (id.indexOf("BV") === 0) {
-        url = host + "/x/web-interface/view?bvid=" + id;
+        url = host + "/x/web-interface/view/detail?bvid=" + id;
     } else {
-        url = host + "/x/web-interface/view?aid=" + id;
+        url = host + "/x/web-interface/view/detail?aid=" + id;
     }
     var resp = req(url, { headers: headers });
     var jo = JSON.parse(resp.content);
     if (jo.code !== 0) return JSON.stringify({ list: [] });
-    var data = jo.data;
+    var data = jo.data.View || jo.data;
     var pages = data.pages || [];
     var playurls = [];
     pages.forEach(function(pg, i) {
-        var part = pg.part || ("P" + (i + 1));
+        var part = (pg.part || ("P" + (i + 1))).replace(/#/g, "﹟").replace(/\$/g, "﹩");
         playurls.push(part + "$" + (data.bvid || data.aid) + "_" + pg.cid);
     });
     return JSON.stringify({
