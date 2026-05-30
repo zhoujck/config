@@ -11,7 +11,7 @@
   {"key": "豆瓣jar","name": "🍬糖果影视🍬","type": 3,"api": "csp_Douban","searchable": 0,"changeable": 1},
   {"key": "配置中心","name": "👨‍🍳‍配置┃中心","type": 3,"api": "csp_Config","searchable": 0,"changeable": 0,"indexs": 0,"style": {"type": "rect","ratio": 1.43}},
   {"key": "哔站记录片","name": "🍬🅱哔站影视","type": 3,"api": "./js/哔哩纪录片.js","searchable": 1,"ext": ""},
-  {"key": "哔站象棋","name": "🍬🅱哔站教育","type": 3,"api": "./js/哔哩教育.js","searchable": 1,"ext": ""},
+  {"key": "哔站象棋","name": "🍬🅱哔站教育","type": 3,"api": "./js/bili.js","searchable": 1,"ext": ""},
   {"key": "csp_Bili","name": "📺哔站象棋","type": 3,"api": "csp_Bili","quickSearch": 0,"timeout": 12,"searchable": 0,"ext": {"json": "./ext/哔哩教育.json","cookie": ""},"style": {"type": "rect","ratio": 1.333}},
   {"key": "看球","name": "🏀看球","type": 3,"api": "csp_Kanqiu","searchable": 1,"quickSearch": 1,"changeable": 0,"gridview": 3,"style": {"type": "list"}},
   {"key": "线路1","name": "🔥🔥瓜子","type": 3,"timeout": 12,"api": "csp_Gz360"},
