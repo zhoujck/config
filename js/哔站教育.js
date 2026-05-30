@@ -132,81 +132,55 @@ async function signWbiParams(params) {
     return sortedParams;
 }
 
-// ==================== 教育分类 ====================
+// ==================== 教育分类（学科 + 年级筛选）====================
 var CLASSES = [
-    { "type_id": "1年级语文", "type_name": "1年级语文" },
-    { "type_id": "1年级数学", "type_name": "1年级数学" },
-    { "type_id": "1年级英语", "type_name": "1年级英语" },
-    { "type_id": "2年级语文", "type_name": "2年级语文" },
-    { "type_id": "2年级数学", "type_name": "2年级数学" },
-    { "type_id": "2年级英语", "type_name": "2年级英语" },
-    { "type_id": "3年级语文", "type_name": "3年级语文" },
-    { "type_id": "3年级数学", "type_name": "3年级数学" },
-    { "type_id": "3年级英语", "type_name": "3年级英语" },
-    { "type_id": "4年级语文", "type_name": "4年级语文" },
-    { "type_id": "4年级数学", "type_name": "4年级数学" },
-    { "type_id": "4年级英语", "type_name": "4年级英语" },
-    { "type_id": "5年级语文", "type_name": "5年级语文" },
-    { "type_id": "5年级数学", "type_name": "5年级数学" },
-    { "type_id": "5年级英语", "type_name": "5年级英语" },
-    { "type_id": "6年级语文", "type_name": "6年级语文" },
-    { "type_id": "6年级数学", "type_name": "6年级数学" },
-    { "type_id": "6年级英语", "type_name": "6年级英语" },
-    { "type_id": "7年级语文", "type_name": "7年级语文" },
-    { "type_id": "7年级数学", "type_name": "7年级数学" },
-    { "type_id": "7年级英语", "type_name": "7年级英语" },
-    { "type_id": "7年级历史", "type_name": "7年级历史" },
-    { "type_id": "7年级地理", "type_name": "7年级地理" },
-    { "type_id": "7年级生物", "type_name": "7年级生物" },
-    { "type_id": "7年级物理", "type_name": "7年级物理" },
-    { "type_id": "7年级化学", "type_name": "7年级化学" },
-    { "type_id": "8年级语文", "type_name": "8年级语文" },
-    { "type_id": "8年级数学", "type_name": "8年级数学" },
-    { "type_id": "8年级英语", "type_name": "8年级英语" },
-    { "type_id": "8年级历史", "type_name": "8年级历史" },
-    { "type_id": "8年级地理", "type_name": "8年级地理" },
-    { "type_id": "8年级生物", "type_name": "8年级生物" },
-    { "type_id": "8年级物理", "type_name": "8年级物理" },
-    { "type_id": "8年级化学", "type_name": "8年级化学" },
-    { "type_id": "9年级语文", "type_name": "9年级语文" },
-    { "type_id": "9年级数学", "type_name": "9年级数学" },
-    { "type_id": "9年级英语", "type_name": "9年级英语" },
-    { "type_id": "9年级历史", "type_name": "9年级历史" },
-    { "type_id": "9年级地理", "type_name": "9年级地理" },
-    { "type_id": "9年级生物", "type_name": "9年级生物" },
-    { "type_id": "9年级物理", "type_name": "9年级物理" },
-    { "type_id": "9年级化学", "type_name": "9年级化学" },
-    { "type_id": "高一语文", "type_name": "高一语文" },
-    { "type_id": "高一数学", "type_name": "高一数学" },
-    { "type_id": "高一英语", "type_name": "高一英语" },
-    { "type_id": "高一历史", "type_name": "高一历史" },
-    { "type_id": "高一地理", "type_name": "高一地理" },
-    { "type_id": "高一生物", "type_name": "高一生物" },
-    { "type_id": "高一思想政治", "type_name": "高一思想政治" },
-    { "type_id": "高一物理", "type_name": "高一物理" },
-    { "type_id": "高一化学", "type_name": "高一化学" },
-    { "type_id": "高二语文", "type_name": "高二语文" },
-    { "type_id": "高二数学", "type_name": "高二数学" },
-    { "type_id": "高二英语", "type_name": "高二英语" },
-    { "type_id": "高二历史", "type_name": "高二历史" },
-    { "type_id": "高二地理", "type_name": "高二地理" },
-    { "type_id": "高二生物", "type_name": "高二生物" },
-    { "type_id": "高二思想政治", "type_name": "高二思想政治" },
-    { "type_id": "高二物理", "type_name": "高二物理" },
-    { "type_id": "高二化学", "type_name": "高二化学" },
-    { "type_id": "高三语文", "type_name": "高三语文" },
-    { "type_id": "高三数学", "type_name": "高三数学" },
-    { "type_id": "高三英语", "type_name": "高三英语" },
-    { "type_id": "高三历史", "type_name": "高三历史" },
-    { "type_id": "高三地理", "type_name": "高三地理" },
-    { "type_id": "高三生物", "type_name": "高三生物" },
-    { "type_id": "高三思想政治", "type_name": "高三思想政治" },
-    { "type_id": "高三物理", "type_name": "高三物理" },
-    { "type_id": "高三化学", "type_name": "高三化学" },
+    { "type_id": "语文", "type_name": "语文" },
+    { "type_id": "数学", "type_name": "数学" },
+    { "type_id": "英语", "type_name": "英语" },
+    { "type_id": "物理", "type_name": "物理" },
+    { "type_id": "化学", "type_name": "化学" },
+    { "type_id": "生物", "type_name": "生物" },
+    { "type_id": "历史", "type_name": "历史" },
+    { "type_id": "地理", "type_name": "地理" },
+    { "type_id": "思想政治", "type_name": "政治" },
+    { "type_id": "信息技术", "type_name": "信息技术" },
     { "type_id": "奥数", "type_name": "奥数" },
-    { "type_id": "奥林匹克物理", "type_name": "奥物" },
-    { "type_id": "奥林匹克化学", "type_name": "奥化" },
-    { "type_id": "高中信息技术", "type_name": "高中信息技术" }
+    { "type_id": "奥物", "type_name": "奥物" },
+    { "type_id": "奥化", "type_name": "奥化" },
+    { "type_id": "象棋", "type_name": "象棋" }
+];
+
+var GRADE_VALUES = [
+    { "n": "全部", "v": "" },
+    { "n": "1年级", "v": "1年级" },
+    { "n": "2年级", "v": "2年级" },
+    { "n": "3年级", "v": "3年级" },
+    { "n": "4年级", "v": "4年级" },
+    { "n": "5年级", "v": "5年级" },
+    { "n": "6年级", "v": "6年级" },
+    { "n": "初一", "v": "7年级" },
+    { "n": "初二", "v": "8年级" },
+    { "n": "初三", "v": "9年级" },
+    { "n": "高一", "v": "高一" },
+    { "n": "高二", "v": "高二" },
+    { "n": "高三", "v": "高三" }
+];
+
+var FILTERS = {};
+var NO_GRADE = { "象棋": true };
+for (var ci = 0; ci < CLASSES.length; ci++) {
+    if (!NO_GRADE[CLASSES[ci].type_id]) {
+        FILTERS[CLASSES[ci].type_id] = [
+            { "key": "grade", "name": "年级", "value": GRADE_VALUES }
+        ];
+    }
+}
+FILTERS["象棋"] = [
+    { "key": "grade", "name": "UP主", "value": [
+        { "n": "全部", "v": "" },
+        { "n": "板牙象棋", "v": "板牙象棋" },
+        { "n": "四郎讲棋", "v": "四郎讲棋" }
+    ]}
 ];
 
 // ==================== 工具函数 ====================
@@ -264,9 +238,10 @@ async function searchVideos(keyword, pg) {
 
 // ==================== 接口实现 ====================
 async function home(filter) {
-    var result = await searchVideos("启蒙", 1);
+    var result = await searchVideos("教育 精品课程", 1);
     return JSON.stringify({
         "class": CLASSES,
+        "filters": FILTERS,
         "list": result.list
     });
 }
@@ -277,7 +252,14 @@ async function homeVod() {
 }
 
 async function category(tid, pg, filter, extend) {
-    var result = await searchVideos(tid, pg);
+    var grade = (extend && extend.grade) ? extend.grade : "";
+    var keyword;
+    if (NO_GRADE[tid]) {
+        keyword = grade || tid;
+    } else {
+        keyword = grade ? (grade + tid) : tid;
+    }
+    var result = await searchVideos(keyword, pg);
     return JSON.stringify({
         "list": result.list,
         "page": result.page,
