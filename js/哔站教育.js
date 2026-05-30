@@ -279,24 +279,24 @@ async function searchCollections(mid, pg) {
     var seasonsList = (jo.data.items_lists && jo.data.items_lists.seasons_list) || [];
     var seriesList = (jo.data.items_lists && jo.data.items_lists.series_list) || [];
 
-    // 合集（seasons）— 优先展示
+    // 合集（seasons）— 优先展示，vod_id 格式: season_mid_seasonId
     for (var s = 0; s < seasonsList.length; s++) {
         var season = seasonsList[s];
         var meta = season.meta || {};
         items.push({
-            vod_id: "season_" + (meta.season_id || ""),
+            vod_id: "season_" + mid + "_" + (meta.season_id || ""),
             vod_name: String(meta.name || "").replace(/<[^>]*>/g, ""),
             vod_pic: fixCover(meta.cover),
             vod_remarks: (meta.total || 0) + "集"
         });
     }
 
-    // 系列（series）
+    // 系列（series），vod_id 格式: series_mid_seriesId
     for (var sr = 0; sr < seriesList.length; sr++) {
         var series = seriesList[sr];
         var seriesMeta = series.meta || {};
         items.push({
-            vod_id: "series_" + (seriesMeta.series_id || ""),
+            vod_id: "series_" + mid + "_" + (seriesMeta.series_id || ""),
             vod_name: String(seriesMeta.name || "").replace(/<[^>]*>/g, ""),
             vod_pic: fixCover(seriesMeta.cover),
             vod_remarks: (seriesMeta.total || 0) + "集"
@@ -365,12 +365,16 @@ async function category(tid, pg, filter, extend) {
 async function detail(id) {
     var searchHeaders = initSearchHeaders();
 
-    // ---- 处理 season 合集 ----
+    // ---- 处理 season 合集，id 格式: season_mid_seasonId ----
     if (id.indexOf("season_") === 0) {
-        var seasonId = id.replace("season_", "");
+        var parts = id.split("_");
+        // parts[0]="season", parts[1]=mid, parts[2]=seasonId
+        var mid = parts[1] || "";
+        var seasonId = parts[2] || "";
 
-        // 需要WBI签名
+        // 需要WBI签名，mid 必传
         var rawParams = {
+            mid: mid,
             season_id: seasonId,
             sort_reverse: "false",
             page_num: "1",
@@ -392,10 +396,27 @@ async function detail(id) {
 
         var archives = jo.data.archives || [];
         var playurls = [];
+
+        // 批量获取每个视频的 cid（pagelist 接口不需要签名，速度快）
         for (var j = 0; j < archives.length; j++) {
             var a = archives[j];
             var part = a.title || ("第" + (j + 1) + "集");
-            playurls.push(part + "$" + a.aid + "_" + (a.cid || a.aid));
+            var cid = a.cid || "";
+            // 如果合集接口没返回 cid，通过 pagelist 获取
+            if (!cid) {
+                try {
+                    var plUrl = host + "/x/player/pagelist?aid=" + a.aid;
+                    var plResp = await req(plUrl, { headers: searchHeaders });
+                    var plJo = JSON.parse(plResp.content);
+                    if (plJo.code === 0 && plJo.data && plJo.data.length > 0) {
+                        cid = plJo.data[0].cid;
+                    }
+                } catch (e) {
+                    cid = "";
+                }
+            }
+            if (!cid) cid = a.aid; // 兜底
+            playurls.push(part + "$" + a.aid + "_" + cid);
         }
 
         var meta = jo.data.meta || {};
@@ -417,10 +438,14 @@ async function detail(id) {
         });
     }
 
-    // ---- 处理 series 系列 ----
+    // ---- 处理 series 系列，id 格式: series_mid_seriesId ----
     if (id.indexOf("series_") === 0) {
-        var seriesId = id.replace("series_", "");
+        var sParts = id.split("_");
+        var sMid = sParts[1] || "";
+        var seriesId = sParts[2] || "";
+
         var sRawParams = {
+            mid: sMid,
             series_id: seriesId,
             sort: "asc",
             page_num: "1",
@@ -445,7 +470,21 @@ async function detail(id) {
         for (var sk = 0; sk < sArchives.length; sk++) {
             var sa = sArchives[sk];
             var sPart = sa.title || ("第" + (sk + 1) + "集");
-            sPlayurls.push(sPart + "$" + sa.aid + "_" + (sa.cid || sa.aid));
+            var sCid = sa.cid || "";
+            if (!sCid) {
+                try {
+                    var sPlUrl = host + "/x/player/pagelist?aid=" + sa.aid;
+                    var sPlResp = await req(sPlUrl, { headers: searchHeaders });
+                    var sPlJo = JSON.parse(sPlResp.content);
+                    if (sPlJo.code === 0 && sPlJo.data && sPlJo.data.length > 0) {
+                        sCid = sPlJo.data[0].cid;
+                    }
+                } catch (e) {
+                    sCid = "";
+                }
+            }
+            if (!sCid) sCid = sa.aid;
+            sPlayurls.push(sPart + "$" + sa.aid + "_" + sCid);
         }
 
         return JSON.stringify({
