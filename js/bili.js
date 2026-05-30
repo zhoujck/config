@@ -7,7 +7,7 @@ let host = 'https://api.bilibili.com';
 // ==================== 配置区域 ====================
 // 在这里填入你的B站 Cookie（包含 SESSDATA），不填也能用，但画质上限 1080P
 // 获取方式：浏览器登录 bilibili.com → F12 → Application → Cookies → 复制 SESSDATA 和 bili_jct
-let BILI_COOKIE = "";  // 例: "SESSDATA=xxx; bili_jct=xxx"
+let BILI_COOKIE = "SESSDATA=86c3fc83%2C1795696570%2Ca6d88%2A52CjAJMwAGyfu3lsQVCfvhNLbXvizfA7NyX-JKiBkTV8ZTHBPtUQ63FCn_a5jXrpITpScSVnFFZDVpeEdDSzJOdGJoVV9qcF9XaEs3c195bHA0UmFTVlZwNldhaFh6eUw1TnpNel91NHktLVc4NkZOdjFCc1dFZjl4aEdKY21FRnl1X1g4TVR2N3NRIIEC; bili_jct=279ec1a90956adda881fc7e7d4ac6406;";  // 例: "SESSDATA=xxx; bili_jct=xxx"
 
 // 生成随机 buvid
 function genBuvid3() {
