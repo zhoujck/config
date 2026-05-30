@@ -1,3 +1,23 @@
+/*
+ * ============================================================
+ *  哔站教育.js — 合集版改动说明
+ * ============================================================
+ *
+ *  改动目标：象棋分类下选"板牙象棋"等UP主时，以合集形式展示
+ *  而不是散的单个视频。
+ *
+ *  改动点：
+ *    1. FILTERS["象棋"] 的 value 从关键词改为 mid（UP主ID）
+ *    2. 新增 searchCollections(mid, pg) 函数
+ *    3. category() 检测到 mid 时走合集逻辑
+ *    4. detail() 支持 season_xxx 前缀的合集ID
+ *
+ *  已验证可用的 API：
+ *    - seasons_series_list（不需要WBI签名）
+ *    - seasons_archives_list（需要WBI签名，脚本已有此能力）
+ * ============================================================
+ */
+
 let host = 'https://api.bilibili.com';
 let headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
@@ -178,11 +198,14 @@ for (var ci = 0; ci < CLASSES.length; ci++) {
         ];
     }
 }
+
+// ★ 改动点1：象棋的筛选项改为 mid（UP主ID）
+// 用 "mid_xxx" 格式标识这是合集模式，category 函数会识别
 FILTERS["象棋"] = [
     { "key": "grade", "name": "UP主", "value": [
         { "n": "全部", "v": "" },
-        { "n": "板牙象棋", "v": "板牙象棋合集" },
-        { "n": "四郎讲棋", "v": "四郎讲棋合集" }
+        { "n": "板牙象棋", "v": "mid_3493124475193909" },
+        { "n": "四郎讲棋", "v": "mid_291377718" }
     ]}
 ];
 
@@ -239,6 +262,59 @@ async function searchVideos(keyword, pg) {
     };
 }
 
+// ★ 改动点2：新增 searchCollections 函数
+// 获取指定UP主的所有合集（seasons + series）
+async function searchCollections(mid, pg) {
+    var p = pg || 1;
+    var searchHeaders = initSearchHeaders();
+
+    // seasons_series_list 不需要WBI签名，直接请求
+    var url = host + "/x/polymer/web-space/seasons_series_list?mid=" + mid + "&page_num=" + p + "&page_size=20";
+    var resp = await req(url, { headers: searchHeaders });
+    var jo = JSON.parse(resp.content);
+
+    if (jo.code !== 0 || !jo.data) return { list: [], page: p, pagecount: 0, total: 0 };
+
+    var items = [];
+    var seasonsList = (jo.data.items_lists && jo.data.items_lists.seasons_list) || [];
+    var seriesList = (jo.data.items_lists && jo.data.items_lists.series_list) || [];
+
+    // 合集（seasons）— 优先展示
+    for (var s = 0; s < seasonsList.length; s++) {
+        var season = seasonsList[s];
+        var meta = season.meta || {};
+        items.push({
+            vod_id: "season_" + (meta.season_id || ""),
+            vod_name: String(meta.name || "").replace(/<[^>]*>/g, ""),
+            vod_pic: fixCover(meta.cover),
+            vod_remarks: (meta.total || 0) + "集"
+        });
+    }
+
+    // 系列（series）
+    for (var sr = 0; sr < seriesList.length; sr++) {
+        var series = seriesList[sr];
+        var seriesMeta = series.meta || {};
+        items.push({
+            vod_id: "series_" + (seriesMeta.series_id || ""),
+            vod_name: String(seriesMeta.name || "").replace(/<[^>]*>/g, ""),
+            vod_pic: fixCover(seriesMeta.cover),
+            vod_remarks: (seriesMeta.total || 0) + "集"
+        });
+    }
+
+    var totalSeasons = (jo.data.items_lists && jo.data.items_lists.seasons_lists_total) || 0;
+    var totalSeries = (jo.data.items_lists && jo.data.items_lists.series_list_total) || 0;
+    var total = totalSeasons + totalSeries;
+
+    return {
+        list: items,
+        page: p,
+        pagecount: Math.ceil(total / 20) || 1,
+        total: total
+    };
+}
+
 // ==================== 接口实现 ====================
 async function home(filter) {
     var result = await searchVideos("教育 精品课程", 1);
@@ -254,14 +330,28 @@ async function homeVod() {
     return JSON.stringify({ list: result.list });
 }
 
+// ★ 改动点3：category 函数识别 mid 前缀，走合集逻辑
 async function category(tid, pg, filter, extend) {
     var grade = (extend && extend.grade) ? extend.grade : "";
     var keyword;
+
     if (NO_GRADE[tid]) {
+        // 象棋分类：检查是否是 mid 格式（合集模式）
+        if (grade && grade.indexOf("mid_") === 0) {
+            var mid = grade.replace("mid_", "");
+            var result = await searchCollections(mid, pg);
+            return JSON.stringify({
+                "list": result.list,
+                "page": result.page,
+                "pagecount": result.pagecount,
+                "total": result.total
+            });
+        }
         keyword = grade || tid;
     } else {
         keyword = (grade && grade !== DEFAULT_GRADE) ? (grade + tid) : (DEFAULT_GRADE + tid);
     }
+
     var result = await searchVideos(keyword, pg);
     return JSON.stringify({
         "list": result.list,
@@ -271,20 +361,120 @@ async function category(tid, pg, filter, extend) {
     });
 }
 
+// ★ 改动点4：detail 函数支持合集ID（season_xxx / series_xxx）
 async function detail(id) {
-    var url = host + "/x/web-interface/view?aid=" + id;
-    var resp = await req(url, { headers: headers });
-    var jo = JSON.parse(resp.content);
+    var searchHeaders = initSearchHeaders();
 
-    if (jo.code !== 0 || !jo.data) return JSON.stringify({ list: [] });
+    // ---- 处理 season 合集 ----
+    if (id.indexOf("season_") === 0) {
+        var seasonId = id.replace("season_", "");
 
-    var video = jo.data;
+        // 需要WBI签名
+        var rawParams = {
+            season_id: seasonId,
+            sort_reverse: "false",
+            page_num: "1",
+            page_size: "300"
+        };
+        var signedParams = await signWbiParams(rawParams);
+        var url = host + "/x/polymer/web-space/seasons_archives_list?";
+        var queryParts = [];
+        var keys = Object.keys(signedParams);
+        for (var i = 0; i < keys.length; i++) {
+            queryParts.push(encodeURIComponent(keys[i]) + "=" + encodeURIComponent(signedParams[keys[i]]));
+        }
+        url += queryParts.join("&");
+
+        var resp = await req(url, { headers: searchHeaders });
+        var jo = JSON.parse(resp.content);
+
+        if (jo.code !== 0 || !jo.data) return JSON.stringify({ list: [] });
+
+        var archives = jo.data.archives || [];
+        var playurls = [];
+        for (var j = 0; j < archives.length; j++) {
+            var a = archives[j];
+            var part = a.title || ("第" + (j + 1) + "集");
+            playurls.push(part + "$" + a.aid + "_" + (a.cid || a.aid));
+        }
+
+        var meta = jo.data.meta || {};
+        return JSON.stringify({
+            list: [{
+                vod_id: id,
+                vod_name: meta.name || "合集",
+                vod_pic: fixCover(meta.cover),
+                type_name: "教育",
+                vod_year: "",
+                vod_area: "",
+                vod_remarks: archives.length + "集",
+                vod_actor: "UP主: " + (meta.mid || ""),
+                vod_director: "",
+                vod_content: meta.description || "",
+                vod_play_from: "B站",
+                vod_play_url: playurls.join("#")
+            }]
+        });
+    }
+
+    // ---- 处理 series 系列 ----
+    if (id.indexOf("series_") === 0) {
+        var seriesId = id.replace("series_", "");
+        var sRawParams = {
+            series_id: seriesId,
+            sort: "asc",
+            page_num: "1",
+            page_size: "300"
+        };
+        var sSignedParams = await signWbiParams(sRawParams);
+        var sUrl = host + "/x/series/archives?";
+        var sQueryParts = [];
+        var sKeys = Object.keys(sSignedParams);
+        for (var si = 0; si < sKeys.length; si++) {
+            sQueryParts.push(encodeURIComponent(sKeys[si]) + "=" + encodeURIComponent(sSignedParams[sKeys[si]]));
+        }
+        sUrl += sQueryParts.join("&");
+
+        var sResp = await req(sUrl, { headers: searchHeaders });
+        var sJo = JSON.parse(sResp.content);
+
+        if (sJo.code !== 0 || !sJo.data) return JSON.stringify({ list: [] });
+
+        var sArchives = sJo.data.archives || [];
+        var sPlayurls = [];
+        for (var sk = 0; sk < sArchives.length; sk++) {
+            var sa = sArchives[sk];
+            var sPart = sa.title || ("第" + (sk + 1) + "集");
+            sPlayurls.push(sPart + "$" + sa.aid + "_" + (sa.cid || sa.aid));
+        }
+
+        return JSON.stringify({
+            list: [{
+                vod_id: id,
+                vod_name: "系列合集",
+                vod_pic: sArchives.length > 0 ? fixCover(sArchives[0].pic) : "",
+                type_name: "教育",
+                vod_remarks: sArchives.length + "集",
+                vod_play_from: "B站",
+                vod_play_url: sPlayurls.join("#")
+            }]
+        });
+    }
+
+    // ---- 原有的单视频逻辑 ----
+    var vUrl = host + "/x/web-interface/view?aid=" + id;
+    var vResp = await req(vUrl, { headers: headers });
+    var vJo = JSON.parse(vResp.content);
+
+    if (vJo.code !== 0 || !vJo.data) return JSON.stringify({ list: [] });
+
+    var video = vJo.data;
     var pages = video.pages || [];
-    var playurls = [];
-    for (var i = 0; i < pages.length; i++) {
-        var p = pages[i];
-        var part = p.part || ("第" + (i + 1) + "集");
-        playurls.push(part + "$" + id + "_" + p.cid);
+    var vPlayurls = [];
+    for (var p = 0; p < pages.length; p++) {
+        var pg = pages[p];
+        var vPart = pg.part || ("第" + (p + 1) + "集");
+        vPlayurls.push(vPart + "$" + id + "_" + pg.cid);
     }
 
     return JSON.stringify({
@@ -300,7 +490,7 @@ async function detail(id) {
             vod_director: "点赞: " + (video.stat ? video.stat.like : 0) + "　投币: " + (video.stat ? video.stat.coin : 0) + "　收藏: " + (video.stat ? video.stat.favorite : 0),
             vod_content: String(video.desc || ""),
             vod_play_from: "B站",
-            vod_play_url: playurls.join("#")
+            vod_play_url: vPlayurls.join("#")
         }]
     });
 }
