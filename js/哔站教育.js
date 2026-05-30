@@ -132,6 +132,9 @@ async function signWbiParams(params) {
     return sortedParams;
 }
 
+// ==================== 配置 ====================
+var DEFAULT_GRADE = "4年级";
+
 // ==================== 教育分类（学科 + 年级筛选）====================
 var CLASSES = [
     { "type_id": "语文", "type_name": "语文" },
@@ -151,7 +154,7 @@ var CLASSES = [
 ];
 
 var GRADE_VALUES = [
-    { "n": "默认", "v": "4年级" },
+    { "n": "全部", "v": "" },
     { "n": "1年级", "v": "1年级" },
     { "n": "2年级", "v": "2年级" },
     { "n": "3年级", "v": "3年级" },
@@ -257,7 +260,7 @@ async function category(tid, pg, filter, extend) {
     if (NO_GRADE[tid]) {
         keyword = grade || tid;
     } else {
-        keyword = grade ? (grade + tid) : tid;
+        keyword = (grade && grade !== DEFAULT_GRADE) ? (grade + tid) : (DEFAULT_GRADE + tid);
     }
     var result = await searchVideos(keyword, pg);
     return JSON.stringify({
