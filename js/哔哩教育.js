@@ -60,7 +60,7 @@ function fixImg(u){return!u?"":(u.indexOf("//")===0?"https:"+u:u);}
 function stripH(s){return(s||"").replace(/<[^>]*>/g,"");}
 
 // ==================== UP主列表 ====================
-var UPS=[
+var UPS_XQ=[
     {v:"",         n:"全部"},
     {v:"板牙象棋",  n:"板牙象棋"},
     {v:"板鸭象棋",  n:"板鸭象棋"},
@@ -69,16 +69,36 @@ var UPS=[
     {v:"象棋大师孙浩宇",n:"象棋大师孙浩宇"},
     {v:"小植象棋",  n:"小植象棋"}
 ];
+var UPS_PPQ=[
+    {v:"",              n:"全部"},
+    {v:"pp乒乓酱",      n:"pp乒乓酱"},
+    {v:"乒乓网pingpangwang",n:"乒乓网"},
+    {v:"黄晨乒乓球",     n:"黄晨乒乓球"},
+    {v:"何教练说乒乓",   n:"何教练说乒乓"},
+    {v:"乒乓视觉传播者", n:"乒乓视觉传播者"}
+];
 
 async function init(cfg){if(cfg&&cfg.cookie)headers.Cookie=cfg.cookie;}
 
 async function home(filter){
-    var list=await doSearch("象棋",1,"click",20);
+    var list=await doSearch("象棋 乒乓球",1,"click",20);
     return JSON.stringify({
-        "class":[{"type_id":"xiangqi","type_name":"象棋"}],
+        "class":[
+            {"type_id":"xiangqi","type_name":"象棋"},
+            {"type_id":"pingpong","type_name":"乒乓球"}
+        ],
         "filters":{
             "xiangqi":[
-                {"key":"up","name":"UP主","value":UPS},
+                {"key":"up","name":"UP主","value":UPS_XQ},
+                {"key":"order","name":"排序","value":[
+                    {"n":"播放最多","v":"click"},
+                    {"n":"最新发布","v":"pubdate"},
+                    {"n":"弹幕最多","v":"dm"},
+                    {"n":"收藏最多","v":"stow"}
+                ]}
+            ],
+            "pingpong":[
+                {"key":"up","name":"UP主","value":UPS_PPQ},
                 {"key":"order","name":"排序","value":[
                     {"n":"播放最多","v":"click"},
                     {"n":"最新发布","v":"pubdate"},
@@ -91,11 +111,12 @@ async function home(filter){
     });
 }
 
-async function homeVod(){return JSON.stringify({list:await doSearch("象棋",1,"click",20)});}
+async function homeVod(){return JSON.stringify({list:await doSearch("象棋 乒乓球",1,"click",20)});}
 
 async function category(tid,pg,filter,extend){
     var p=pg||1,order=(extend&&extend.order)?extend.order:"click",up=(extend&&extend.up)?extend.up:"";
-    var kw=up?(up+" 象棋"):"象棋";
+    var base=tid==="pingpong"?"乒乓球":"象棋";
+    var kw=up?(up+" "+base):base;
     return JSON.stringify({list:await doSearch(kw,p,order,20),page:parseInt(p)});
 }
 
