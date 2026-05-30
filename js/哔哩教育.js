@@ -97,7 +97,7 @@ async function home(filter){
     return JSON.stringify({
         "class":[
             {"type_id":"xiangqi","type_name":"象棋"},
-            {"type_id":"pingpong","type_name":"乒乓球"}
+            //{"type_id":"pingpong","type_name":"乒乓球"}
         ],
         "filters":{
             "xiangqi":[
@@ -125,7 +125,7 @@ async function home(filter){
 // ==================== 首页推荐 ====================
 async function homeVod(){
     try{
-        var url=await signUrl(host+'/x/web-interface/search/type',{search_type:"video",keyword:"象棋",page:"1",pagesize:"20",order:"click"});
+        var url=await signUrl(host+'/x/web-interface/search/type',{search_type:"video",keyword:"板牙象棋",page:"1",pagesize:"20",order:"click"});
         var resp=await req(url,{headers:{"User-Agent":headers["User-Agent"],"Referer":"https://search.bilibili.com","Origin":"https://search.bilibili.com","Cookie":headers["Cookie"]}});
         var jo=JSON.parse(resp.content);
         if(jo.code!==0)return JSON.stringify({list:[]});
