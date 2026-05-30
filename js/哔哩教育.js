@@ -1,6 +1,6 @@
 let host = 'https://api.bilibili.com';
 let headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
     "Referer": "https://www.bilibili.com",
     "Cookie": ""
 };
@@ -37,20 +37,31 @@ function md5(string) {
 // ==================== WBI 签名 ====================
 var MIXIN_KEY_ENC_TAB=[46,47,18,2,53,8,23,32,15,50,10,31,58,3,45,35,27,43,5,49,33,9,42,19,29,28,14,39,12,17,6,28];
 var _wbiCache=null;
+
 function getMixinKey(raw){var r='';for(var i=0;i<MIXIN_KEY_ENC_TAB.length;i++)r+=raw[MIXIN_KEY_ENC_TAB[i]];return r.substring(0,32);}
-function getWbiKeys(cb){
-    if(_wbiCache){cb(_wbiCache);return;}
-    req(host+'/x/web-interface/nav',{headers:headers},function(resp){
-        try{var j=JSON.parse(resp.content);var u=j.data&&j.data.wbi_img?j.data.wbi_img.img_url:'';var s=j.data&&j.data.wbi_img?j.data.wbi_img.sub_url:'';_wbiCache={ik:u.split('/').pop().split('.')[0]||'',sk:s.split('/').pop().split('.')[0]||''};cb(_wbiCache);}catch(e){cb({ik:'',sk:''});}
-    });
+
+async function getWbiKeys(){
+    if(_wbiCache)return _wbiCache;
+    try{
+        var resp=await req(host+'/x/web-interface/nav',{headers:headers});
+        var jo=JSON.parse(resp.content);
+        var u=jo.data&&jo.data.wbi_img?jo.data.wbi_img.img_url:'';
+        var s=jo.data&&jo.data.wbi_img?jo.data.wbi_img.sub_url:'';
+        _wbiCache={ik:u.split('/').pop().split('.')[0]||'',sk:s.split('/').pop().split('.')[0]||''};
+        return _wbiCache;
+    }catch(e){return{ik:'',sk:''};}
 }
-function signUrl(base,params,keys){
-    var mk=getMixinKey(keys.ik+keys.sk),wts=Math.floor(Date.now()/1000),signed={},sk=Object.keys(params).sort();
+
+async function signUrl(base,params){
+    var keys=await getWbiKeys();
+    var mk=getMixinKey(keys.ik+keys.sk),wts=Math.floor(Date.now()/1000),signed={};
+    var sk=Object.keys(params).sort();
     for(var i=0;i<sk.length;i++){var k=sk[i];if(params[k]!==undefined&&params[k]!==null&&params[k]!=='')signed[k]=params[k];}
     signed.wts=wts;sk=Object.keys(signed).sort();var qp=[];
     for(var j=0;j<sk.length;j++)qp.push(encodeURIComponent(sk[j])+'='+encodeURIComponent(signed[sk[j]]));
     signed.w_rid=md5(qp.join('&')+mk);
-    var parts=[];var allk=Object.keys(signed);for(var t=0;t<allk.length;t++)parts.push(encodeURIComponent(allk[t])+'='+encodeURIComponent(signed[allk[t]]));
+    var parts=[];var allk=Object.keys(signed);
+    for(var t=0;t<allk.length;t++)parts.push(encodeURIComponent(allk[t])+'='+encodeURIComponent(signed[allk[t]]));
     return base+'?'+parts.join('&');
 }
 
@@ -61,27 +72,28 @@ function stripH(s){return(s||"").replace(/<[^>]*>/g,"");}
 
 // ==================== UP主列表 ====================
 var UPS_XQ=[
-    {v:"",         n:"全部"},
-    {v:"板牙象棋",  n:"板牙象棋"},
-    {v:"板鸭象棋",  n:"板鸭象棋"},
-    {v:"四郎讲棋",  n:"四郎讲棋"},
-    {v:"象棋研究者", n:"象棋研究者"},
+    {v:"",n:"全部"},
+    {v:"板牙象棋",n:"板牙象棋"},
+    {v:"板鸭象棋",n:"板鸭象棋"},
+    {v:"四郎讲棋",n:"四郎讲棋"},
+    {v:"象棋研究者",n:"象棋研究者"},
     {v:"象棋大师孙浩宇",n:"象棋大师孙浩宇"},
-    {v:"小植象棋",  n:"小植象棋"}
+    {v:"小植象棋",n:"小植象棋"}
 ];
 var UPS_PPQ=[
-    {v:"",              n:"全部"},
-    {v:"pp乒乓酱",      n:"pp乒乓酱"},
+    {v:"",n:"全部"},
+    {v:"pp乒乓酱",n:"pp乒乓酱"},
     {v:"乒乓网pingpangwang",n:"乒乓网"},
-    {v:"黄晨乒乓球",     n:"黄晨乒乓球"},
-    {v:"何教练说乒乓",   n:"何教练说乒乓"},
-    {v:"乒乓视觉传播者", n:"乒乓视觉传播者"}
+    {v:"黄晨乒乓球",n:"黄晨乒乓球"},
+    {v:"何教练说乒乓",n:"何教练说乒乓"},
+    {v:"乒乓视觉传播者",n:"乒乓视觉传播者"}
 ];
 
-async function init(cfg){if(cfg&&cfg.cookie)headers.Cookie=cfg.cookie;}
+// ==================== 初始化 ====================
+async function init(cfg){}
 
+// ==================== 首页（静态，不调API）====================
 async function home(filter){
-    var list=await doSearch("象棋 乒乓球",1,"click",20);
     return JSON.stringify({
         "class":[
             {"type_id":"xiangqi","type_name":"象棋"},
@@ -106,80 +118,98 @@ async function home(filter){
                     {"n":"收藏最多","v":"stow"}
                 ]}
             ]
-        },
-        "list":list
+        }
     });
 }
 
-async function homeVod(){return JSON.stringify({list:await doSearch("象棋 乒乓球",1,"click",20)});}
+// ==================== 首页推荐 ====================
+async function homeVod(){
+    try{
+        var url=await signUrl(host+'/x/web-interface/search/type',{search_type:"video",keyword:"象棋",page:"1",pagesize:"20",order:"click"});
+        var resp=await req(url,{headers:{"User-Agent":headers["User-Agent"],"Referer":"https://search.bilibili.com","Origin":"https://search.bilibili.com","Cookie":headers["Cookie"]}});
+        var jo=JSON.parse(resp.content);
+        if(jo.code!==0)return JSON.stringify({list:[]});
+        var list=(jo.data&&jo.data.result)?jo.data.result:[],vids=[];
+        for(var i=0;i<list.length;i++){var v=list[i];if(v.type!=="video")continue;vids.push({vod_id:String(v.aid||""),vod_name:stripH(v.title||""),vod_pic:fixImg(v.pic||""),vod_remarks:(v.duration||"")+(v.author?" · "+v.author:"")});}
+        return JSON.stringify({list:vids});
+    }catch(e){return JSON.stringify({list:[]});}
+}
 
+// ==================== 分类 ====================
 async function category(tid,pg,filter,extend){
-    var p=pg||1,order=(extend&&extend.order)?extend.order:"click",up=(extend&&extend.up)?extend.up:"";
+    var p=pg||1;
+    var order=(extend&&extend.order)?extend.order:"click";
+    var up=(extend&&extend.up)?extend.up:"";
     var base=tid==="pingpong"?"乒乓球":"象棋";
-    var kw=up?(up+" "+base):base;
-    return JSON.stringify({list:await doSearch(kw,p,order,20),page:parseInt(p)});
+    var keyword=up?(up+" "+base):base;
+    try{
+        var params={search_type:"video",keyword:keyword,page:String(p),pagesize:"20",order:order};
+        var url=await signUrl(host+'/x/web-interface/search/type',params);
+        var resp=await req(url,{headers:{"User-Agent":headers["User-Agent"],"Referer":"https://search.bilibili.com","Origin":"https://search.bilibili.com","Cookie":headers["Cookie"]}});
+        var jo=JSON.parse(resp.content);
+        if(jo.code!==0)return JSON.stringify({list:[],page:parseInt(p)});
+        var list=(jo.data&&jo.data.result)?jo.data.result:[],vids=[];
+        for(var i=0;i<list.length;i++){var v=list[i];if(v.type!=="video")continue;vids.push({vod_id:String(v.aid||""),vod_name:stripH(v.title||""),vod_pic:fixImg(v.pic||""),vod_remarks:(v.duration||"")+(v.author?" · "+v.author:"")});}
+        return JSON.stringify({list:vids,page:parseInt(p)});
+    }catch(e){return JSON.stringify({list:[],page:parseInt(p)});}
 }
 
-function doSearch(keyword,page,order,pagesize){
-    return new Promise(function(resolve){
-        getWbiKeys(function(keys){
-            var params={search_type:"video",keyword:keyword,page:page||1,pagesize:pagesize||20};
-            if(order)params.order=order;
-            var url=signUrl(host+'/x/web-interface/search/type',params,keys);
-            var h={"User-Agent":headers["User-Agent"],"Referer":"https://search.bilibili.com/all?keyword="+encodeURIComponent(keyword),"Origin":"https://search.bilibili.com","Cookie":headers["Cookie"]};
-            req(url,{headers:h},function(resp){
-                try{
-                    var jo=JSON.parse(resp.content);
-                    if(jo.code!==0){resolve([]);return;}
-                    var list=(jo.data&&jo.data.result)?jo.data.result:[],vids=[];
-                    for(var i=0;i<list.length;i++){var v=list[i];if(v.type!=="video")continue;vids.push({vod_id:String(v.aid||""),vod_name:stripH(v.title||""),vod_pic:fixImg(v.pic||""),vod_remarks:(v.duration||"")+(v.author?" · "+v.author:"")});}
-                    resolve(vids);
-                }catch(e){resolve([]);}
-            });
-        });
-    });
+// ==================== 搜索 ====================
+async function search(wd,quick,pg){
+    var p=pg||1;
+    try{
+        var url=await signUrl(host+'/x/web-interface/search/type',{search_type:"video",keyword:wd,page:String(p),pagesize:"20"});
+        var resp=await req(url,{headers:{"User-Agent":headers["User-Agent"],"Referer":"https://search.bilibili.com","Origin":"https://search.bilibili.com","Cookie":headers["Cookie"]}});
+        var jo=JSON.parse(resp.content);
+        if(jo.code!==0)return JSON.stringify({list:[]});
+        var list=(jo.data&&jo.data.result)?jo.data.result:[],vids=[];
+        for(var i=0;i<list.length;i++){var v=list[i];if(v.type!=="video")continue;vids.push({vod_id:String(v.aid||""),vod_name:stripH(v.title||""),vod_pic:fixImg(v.pic||""),vod_remarks:(v.duration||"")+(v.author?" · "+v.author:"")});}
+        return JSON.stringify({list:vids});
+    }catch(e){return JSON.stringify({list:[]});}
 }
 
-async function search(wd,quick,pg){return JSON.stringify({list:await doSearch(wd,pg||1,"",20)});}
-
+// ==================== 详情 ====================
 async function detail(id){
-    return new Promise(function(resolve){
-        req(host+"/x/web-interface/view?aid="+id,{headers:headers},function(resp){
-            try{
-                var jo=JSON.parse(resp.content);if(jo.code!==0){resolve(JSON.stringify({list:[]}));return;}
-                var d=jo.data,st=d.stat||{};
-                var status="播放:"+fmtNum(st.view)+"　弹幕:"+fmtNum(st.danmaku)+"　点赞:"+fmtNum(st.like)+"　投币:"+fmtNum(st.coin)+"　收藏:"+fmtNum(st.favorite);
-                var pages=d.pages||[],urls=[];
-                if(pages.length>1){for(var i=0;i<pages.length;i++){var p=pages[i];urls.push((p.part||("P"+p.page))+"$"+id+"_"+p.cid);}}
-                else urls.push("播放$"+id+"_"+d.cid);
-                resolve(JSON.stringify({list:[{vod_id:id,vod_name:d.title,vod_pic:d.pic,type_name:d.tname||"象棋",vod_year:d.pubdate?new Date(d.pubdate*1000).getFullYear()+"":"",vod_area:"",vod_remarks:fmtNum(st.view)+"播放",vod_actor:status,vod_director:"UP主:"+(d.owner?d.owner.name:""),vod_content:d.desc||"",vod_play_from:"B站",vod_play_url:urls.join("#")}]}));
-            }catch(e){resolve(JSON.stringify({list:[]}));}
-        });
-    });
+    try{
+        var resp=await req(host+"/x/web-interface/view?aid="+id,{headers:headers});
+        var jo=JSON.parse(resp.content);
+        if(jo.code!==0)return JSON.stringify({list:[]});
+        var d=jo.data,st=d.stat||{};
+        var status="播放:"+fmtNum(st.view)+"　弹幕:"+fmtNum(st.danmaku)+"　点赞:"+fmtNum(st.like)+"　投币:"+fmtNum(st.coin)+"　收藏:"+fmtNum(st.favorite);
+        var pages=d.pages||[],urls=[];
+        if(pages.length>1){for(var i=0;i<pages.length;i++){var p=pages[i];urls.push((p.part||("P"+p.page))+"$"+id+"_"+p.cid);}}
+        else urls.push("播放$"+id+"_"+d.cid);
+        return JSON.stringify({list:[{
+            vod_id:id,vod_name:d.title,vod_pic:d.pic,type_name:d.tname||"",
+            vod_year:d.pubdate?new Date(d.pubdate*1000).getFullYear()+"":"",
+            vod_area:"",vod_remarks:fmtNum(st.view)+"播放",
+            vod_actor:status,vod_director:"UP主:"+(d.owner?d.owner.name:""),
+            vod_content:d.desc||"",vod_play_from:"B站",vod_play_url:urls.join("#")
+        }]});
+    }catch(e){return JSON.stringify({list:[]});}
 }
 
+// ==================== 播放 ====================
 async function play(flag,id,flags){
-    return new Promise(function(resolve){
-        var pts=id.split("_"),avid=pts[0],cid=pts.length>1?pts[1]:"";
-        if(!cid){req(host+"/x/web-interface/view?aid="+avid,{headers:headers},function(r){try{var j=JSON.parse(r.content);if(j.code===0&&j.data)cid=j.data.cid+"";}catch(e){}cid?playUrl(avid,cid,resolve):fb(avid,resolve);});}
-        else playUrl(avid,cid,resolve);
-    });
-}
-function fb(a,r){r(JSON.stringify({parse:1,url:"https://www.bilibili.com/video/av"+a+"/",header:{"User-Agent":headers["User-Agent"],"Referer":"https://www.bilibili.com"}}));}
-function playUrl(avid,cid,resolve){
+    var pts=id.split("_"),avid=pts[0],cid=pts.length>1?pts[1]:"";
+    if(!cid){
+        try{var r=await req(host+"/x/web-interface/view?aid="+avid,{headers:headers});var j=JSON.parse(r.content);if(j.code===0&&j.data)cid=j.data.cid+"";}catch(e){}
+    }
+    if(!cid)return JSON.stringify({parse:1,url:"https://www.bilibili.com/video/av"+avid+"/",header:{"User-Agent":headers["User-Agent"],"Referer":"https://www.bilibili.com"}});
+    // 尝试多画质
     var qs=[80,64,32,16],qn={80:"1080P",64:"720P",32:"480P",16:"360P"},ph={"Referer":"https://www.bilibili.com/video/av"+avid,"User-Agent":headers["User-Agent"],"Origin":"https://www.bilibili.com","Cookie":headers["Cookie"]};
-    var res=[],pend=qs.length;
-    for(var qi=0;qi<qs.length;qi++){(function(q){
-        req(host+"/x/player/playurl?avid="+avid+"&cid="+cid+"&qn="+q+"&fnval=0&try_look=1",{headers:ph},function(r){
-            try{var j=JSON.parse(r.content);if(j.code===0&&j.data&&j.data.durl&&j.data.durl.length>0)res.push({name:qn[q]||("画质"+q),url:j.data.durl[0].url,qn:q});}catch(e){}
-            if(--pend===0){
-                if(res.length===0){fb(avid,resolve);return;}
-                res.sort(function(a,b){return b.qn-a.qn;});
-                var u=[];for(var i=0;i<res.length;i++)u.push(res[i].name+"$"+res[i].url);
-                resolve(JSON.stringify({parse:0,url:u.join("#"),header:{"Referer":"https://www.bilibili.com","User-Agent":headers["User-Agent"]},danmaku:"https://api.bilibili.com/x/v1/dm/list.so?oid="+cid}));
-            }
-        });
-    })(qs[qi]);}
+    var results=[];
+    for(var qi=0;qi<qs.length;qi++){
+        try{
+            var resp=await req(host+"/x/player/playurl?avid="+avid+"&cid="+cid+"&qn="+qs[qi]+"&fnval=0&try_look=1",{headers:ph});
+            var jo=JSON.parse(resp.content);
+            if(jo.code===0&&jo.data&&jo.data.durl&&jo.data.durl.length>0)results.push({name:qn[qs[qi]]||("画质"+qs[qi]),url:jo.data.durl[0].url,qn:qs[qi]});
+        }catch(e){}
+    }
+    if(results.length===0)return JSON.stringify({parse:1,url:"https://www.bilibili.com/video/av"+avid+"/",header:ph});
+    results.sort(function(a,b){return b.qn-a.qn;});
+    var urls=[];for(var i=0;i<results.length;i++)urls.push(results[i].name+"$"+results[i].url);
+    return JSON.stringify({parse:0,url:urls.join("#"),header:{"Referer":"https://www.bilibili.com","User-Agent":headers["User-Agent"]},danmaku:"https://api.bilibili.com/x/v1/dm/list.so?oid="+cid});
 }
 
 export default{init,home,homeVod,category,detail,search,play};
