@@ -1,225 +1,9 @@
-let host = 'https://api.bilibili.com';
-let headers = {
+var host = 'https://api.bilibili.com';
+var headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-    "Referer": "https://www.bilibili.com",
-    "Cookie": ""
+    "Referer": "https://www.bilibili.com"
 };
 
-// ==================== MD5 实现 ====================
-function md5(string) {
-    function md5cycle(x, k) {
-        var a = x[0], b = x[1], c = x[2], d = x[3];
-        a = ff(a, b, c, d, k[0], 7, -680876936);
-        d = ff(d, a, b, c, k[1], 12, -389564586);
-        c = ff(c, d, a, b, k[2], 17, 606105819);
-        b = ff(b, c, d, a, k[3], 22, -1044525330);
-        a = ff(a, b, c, d, k[4], 7, -176418897);
-        d = ff(d, a, b, c, k[5], 12, 1200080426);
-        c = ff(c, d, a, b, k[6], 17, -1473231341);
-        b = ff(b, c, d, a, k[7], 22, -45705983);
-        a = ff(a, b, c, d, k[8], 7, 1770035416);
-        d = ff(d, a, b, c, k[9], 12, -1958414417);
-        c = ff(c, d, a, b, k[10], 17, -42063);
-        b = ff(b, c, d, a, k[11], 22, -1990404162);
-        a = ff(a, b, c, d, k[12], 7, 1804603682);
-        d = ff(d, a, b, c, k[13], 12, -40341101);
-        c = ff(c, d, a, b, k[14], 17, -1502002290);
-        b = ff(b, c, d, a, k[15], 22, 1236535329);
-        a = gg(a, b, c, d, k[1], 5, -165796510);
-        d = gg(d, a, b, c, k[6], 9, -1069501632);
-        c = gg(c, d, a, b, k[11], 14, 643717713);
-        b = gg(b, c, d, a, k[0], 20, -373897302);
-        a = gg(a, b, c, d, k[5], 5, -701558691);
-        d = gg(d, a, b, c, k[10], 9, 38016083);
-        c = gg(c, d, a, b, k[15], 14, -660478335);
-        b = gg(b, c, d, a, k[4], 20, -405537848);
-        a = gg(a, b, c, d, k[9], 5, 568446438);
-        d = gg(d, a, b, c, k[14], 9, -1019803690);
-        c = gg(c, d, a, b, k[3], 14, -187363961);
-        b = gg(b, c, d, a, k[8], 20, 1163531501);
-        a = gg(a, b, c, d, k[13], 5, -1444681467);
-        d = gg(d, a, b, c, k[2], 9, -51403784);
-        c = gg(c, d, a, b, k[7], 14, 1735328473);
-        b = gg(b, c, d, a, k[12], 20, -1926607734);
-        a = hh(a, b, c, d, k[5], 4, -378558);
-        d = hh(d, a, b, c, k[8], 11, -2022574463);
-        c = hh(c, d, a, b, k[11], 16, 1839030562);
-        b = hh(b, c, d, a, k[14], 23, -35309556);
-        a = hh(a, b, c, d, k[1], 4, -1530992060);
-        d = hh(d, a, b, c, k[4], 11, 1272893353);
-        c = hh(c, d, a, b, k[7], 16, -155497632);
-        b = hh(b, c, d, a, k[10], 23, -1094730640);
-        a = hh(a, b, c, d, k[13], 4, 681279174);
-        d = hh(d, a, b, c, k[0], 11, -358537222);
-        c = hh(c, d, a, b, k[3], 16, -722521979);
-        b = hh(b, c, d, a, k[6], 23, 76029189);
-        a = hh(a, b, c, d, k[9], 4, -640364487);
-        d = hh(d, a, b, c, k[12], 11, -421815835);
-        c = hh(c, d, a, b, k[15], 16, 530742520);
-        b = hh(b, c, d, a, k[2], 23, -995338651);
-        a = ii(a, b, c, d, k[0], 6, -198630844);
-        d = ii(d, a, b, c, k[7], 10, 1126891415);
-        c = ii(c, d, a, b, k[14], 15, -1416354905);
-        b = ii(b, c, d, a, k[5], 21, -57434055);
-        a = ii(a, b, c, d, k[12], 6, 1700485571);
-        d = ii(d, a, b, c, k[3], 10, -1894986606);
-        c = ii(c, d, a, b, k[10], 15, -1051523);
-        b = ii(b, c, d, a, k[1], 21, -2054922799);
-        a = ii(a, b, c, d, k[8], 6, 1873313359);
-        d = ii(d, a, b, c, k[15], 10, -30611744);
-        c = ii(c, d, a, b, k[6], 15, -1560198380);
-        b = ii(b, c, d, a, k[13], 21, 1309151649);
-        a = ii(a, b, c, d, k[4], 6, -145523070);
-        d = ii(d, a, b, c, k[11], 10, -1120210379);
-        c = ii(c, d, a, b, k[2], 15, 718787259);
-        b = ii(b, c, d, a, k[9], 21, -343485551);
-        x[0] = add32(a, x[0]);
-        x[1] = add32(b, x[1]);
-        x[2] = add32(c, x[2]);
-        x[3] = add32(d, x[3]);
-    }
-    function cmn(q, a, b, x, s, t) {
-        a = add32(add32(a, q), add32(x, t));
-        return add32((a << s) | (a >>> (32 - s)), b);
-    }
-    function ff(a, b, c, d, x, s, t) { return cmn((b & c) | ((~b) & d), a, b, x, s, t); }
-    function gg(a, b, c, d, x, s, t) { return cmn((b & d) | (c & (~d)), a, b, x, s, t); }
-    function hh(a, b, c, d, x, s, t) { return cmn(b ^ c ^ d, a, b, x, s, t); }
-    function ii(a, b, c, d, x, s, t) { return cmn(c ^ (b | (~d)), a, b, x, s, t); }
-    function md51(s) {
-        var n = s.length, state = [1732584193, -271733879, -1732584194, 271733878], i;
-        for (i = 64; i <= s.length; i += 64) {
-            md5cycle(state, md5blk(s.substring(i - 64, i)));
-        }
-        s = s.substring(i - 64);
-        var tail = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-        for (i = 0; i < s.length; i++)
-            tail[i >> 2] |= s.charCodeAt(i) << ((i % 4) << 3);
-        tail[i >> 2] |= 0x80 << ((i % 4) << 3);
-        if (i > 55) {
-            md5cycle(state, tail);
-            for (i = 0; i < 16; i++) tail[i] = 0;
-        }
-        tail[14] = n * 8;
-        md5cycle(state, tail);
-        return state;
-    }
-    function md5blk(s) {
-        var md5blks = [], i;
-        for (i = 0; i < 64; i += 4) {
-            md5blks[i >> 2] = s.charCodeAt(i) + (s.charCodeAt(i+1) << 8) + (s.charCodeAt(i+2) << 16) + (s.charCodeAt(i+3) << 24);
-        }
-        return md5blks;
-    }
-    var hex_chr = '0123456789abcdef'.split('');
-    function rhex(n) {
-        var s = '', j = 0;
-        for (; j < 4; j++)
-            s += hex_chr[(n >> (j * 8 + 4)) & 0x0F] + hex_chr[(n >> (j * 8)) & 0x0F];
-        return s;
-    }
-    function hex(x) {
-        for (var i = 0; i < x.length; i++) x[i] = rhex(x[i]);
-        return x.join('');
-    }
-    function add32(a, b) {
-        return (a + b) & 0xFFFFFFFF;
-    }
-    return hex(md51(string));
-}
-
-// ==================== wbi 签名 ====================
-var MIXIN_KEY_ENC_TAB = [
-    46, 47, 18, 2, 53, 8, 23, 32, 15, 50, 10, 31, 58, 3, 45, 35,
-    27, 43, 5, 49, 33, 9, 42, 19, 29, 28, 14, 39, 12, 17, 6, 28
-];
-
-function getMixinKey(raw) {
-    return MIXIN_KEY_ENC_TAB.map(function(n) { return raw[n]; }).join("").substring(0, 32);
-}
-
-var _wbiKeysCache = null;
-
-async function getWbiKeys() {
-    if (_wbiKeysCache) return _wbiKeysCache;
-    try {
-        var resp = await req(host + "/x/web-interface/nav", { headers: headers });
-        var jo = JSON.parse(resp.content);
-        var wbi_img = jo.data && jo.data.wbi_img ? jo.data.wbi_img : {};
-        var imgKey = (wbi_img.img_url || "").split("/").pop().split(".")[0] || "";
-        var subKey = (wbi_img.sub_url || "").split("/").pop().split(".")[0] || "";
-        _wbiKeysCache = { imgKey: imgKey, subKey: subKey };
-        return _wbiKeysCache;
-    } catch (e) {
-        return { imgKey: "", subKey: "" };
-    }
-}
-
-async function signWbiParams(params) {
-    var keys = await getWbiKeys();
-    var mixinKey = getMixinKey(keys.imgKey + keys.subKey);
-    var wts = Math.floor(Date.now() / 1000);
-    var sorted = {};
-    Object.keys(params).sort().forEach(function(k) {
-        if (params[k] !== undefined && params[k] !== null) {
-            sorted[k] = params[k];
-        }
-    });
-    sorted.wts = wts;
-    var query = Object.keys(sorted).map(function(k) {
-        return encodeURIComponent(k) + "=" + encodeURIComponent(sorted[k]);
-    }).join("&");
-    var w_rid = md5(query + mixinKey);
-    sorted.w_rid = w_rid;
-    return sorted;
-}
-
-function buildSignedUrl(baseUrl, params) {
-    var signed = signWbiParams(params);
-    return signed.then(function(sp) {
-        var qs = Object.keys(sp).map(function(k) {
-            return encodeURIComponent(k) + "=" + encodeURIComponent(sp[k]);
-        }).join("&");
-        return baseUrl + "?" + qs;
-    });
-}
-
-// ==================== 工具函数 ====================
-function fixCover(url) {
-    if (!url) return "";
-    if (url.indexOf("//") === 0) return "https:" + url;
-    return url;
-}
-
-function formatDuration(seconds) {
-    var sec = parseInt(seconds, 10) || 0;
-    if (sec <= 0) return "00:00";
-    var m = Math.floor(sec / 60);
-    var s = sec % 60;
-    return (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
-}
-
-function getVideos(json) {
-    var videos = [];
-    if (!json || json.code !== 0) return videos;
-    var list = json.data && json.data.result ? json.data.result : [];
-    list.forEach(function(item) {
-        if (item.type && item.type !== "video") return;
-        var aid = (item.aid || item.bvid || "").toString().trim();
-        var title = (item.title || "").replace(/<[^>]*>/g, "").trim();
-        var img = fixCover(item.pic);
-        var remark = formatDuration(item.duration);
-        videos.push({
-            vod_id: aid,
-            vod_name: title,
-            vod_pic: img,
-            vod_remarks: remark
-        });
-    });
-    return videos;
-}
-
-// ==================== 分类 ====================
 var CLASSES = [
     {"type_id": "1年级语文", "type_name": "1年级语文"},
     {"type_id": "1年级数学", "type_name": "1年级数学"},
@@ -296,147 +80,96 @@ var CLASSES = [
     {"type_id": "高中信息技术", "type_name": "高中信息技术"}
 ];
 
-// ==================== TVBox 接口 ====================
-async function init(cfg) {}
-
-async function home(filter) {
-    // 首页推荐：搜索"启蒙"获取默认列表
-    var url = await buildSignedUrl(host + "/x/web-interface/search/type", {
-        search_type: "video",
-        keyword: "启蒙",
-        page: 1
-    });
-    var resp = await req(url, { headers: headers });
-    var jo = JSON.parse(resp.content);
-    return JSON.stringify({
-        "class": CLASSES,
-        "list": getVideos(jo)
-    });
+function fixCover(url) {
+    if (!url) return "";
+    if (url.indexOf("//") === 0) return "https:" + url;
+    return url;
 }
 
-async function homeVod() {
-    var url = await buildSignedUrl(host + "/x/web-interface/search/type", {
-        search_type: "video",
-        keyword: "小学课程",
-        page: 1
-    });
-    var resp = await req(url, { headers: headers });
-    var jo = JSON.parse(resp.content);
-    return JSON.stringify({ list: getVideos(jo) });
+function init(cfg) {}
+
+function home(filter) {
+    return JSON.stringify({ "class": CLASSES, "list": [] });
 }
 
-async function category(tid, pg, filter, extend) {
+function homeVod() {
+    return JSON.stringify({ "list": [] });
+}
+
+function category(tid, pg, filter, extend) {
     var p = pg || 1;
-    if (!tid) return JSON.stringify({ page: 1, list: [] });
-
-    var url = await buildSignedUrl(host + "/x/web-interface/search/type", {
-        search_type: "video",
-        keyword: tid,
-        page: p
-    });
-    var resp = await req(url, { headers: headers });
+    var url = host + "/x/web-interface/search/type?keyword=" + encodeURIComponent(tid) + "&search_type=video&page=" + p;
+    var resp = req(url, { headers: headers });
     var jo = JSON.parse(resp.content);
-    return JSON.stringify({
-        "list": getVideos(jo),
-        "page": parseInt(p)
-    });
+    var videos = [];
+    if (jo.code === 0 && jo.data && jo.data.result) {
+        jo.data.result.forEach(function(item) {
+            var aid = (item.bvid || item.aid || "").toString();
+            var title = (item.title || "").replace(/<[^>]*>/g, "");
+            var img = fixCover(item.pic);
+            if (aid) videos.push({ vod_id: aid, vod_name: title, vod_pic: img, vod_remarks: "" });
+        });
+    }
+    return JSON.stringify({ "list": videos, "page": p });
 }
 
-async function detail(id) {
-    var url = host + "/x/web-interface/view?aid=" + id;
-    var resp = await req(url, { headers: headers });
+function detail(id) {
+    var url;
+    if (id.indexOf("BV") === 0) {
+        url = host + "/x/web-interface/view?bvid=" + id;
+    } else {
+        url = host + "/x/web-interface/view?aid=" + id;
+    }
+    var resp = req(url, { headers: headers });
     var jo = JSON.parse(resp.content);
     if (jo.code !== 0) return JSON.stringify({ list: [] });
-
     var data = jo.data;
     var pages = data.pages || [];
     var playurls = [];
     pages.forEach(function(pg, i) {
         var part = pg.part || ("P" + (i + 1));
-        playurls.push(part + "$" + id + "_" + pg.cid);
+        playurls.push(part + "$" + (data.bvid || data.aid) + "_" + pg.cid);
     });
-
     return JSON.stringify({
         list: [{
-            vod_id: id,
+            vod_id: data.bvid || data.aid || id,
             vod_name: data.title || "",
             vod_pic: data.pic || "",
-            type_name: "教育",
-            vod_year: "",
-            vod_area: "大陆",
-            vod_remarks: data.owner ? data.owner.name : "",
-            vod_actor: "",
-            vod_director: "",
-            vod_content: data.desc || "",
             vod_play_from: "B站",
             vod_play_url: playurls.join("#")
         }]
     });
 }
 
-async function search(wd, quick, pg) {
-    var p = pg || 1;
-    var url = await buildSignedUrl(host + "/x/web-interface/search/type", {
-        search_type: "video",
-        keyword: wd,
-        page: p
-    });
-    var resp = await req(url, { headers: headers });
-    var jo = JSON.parse(resp.content);
-    return JSON.stringify({ list: getVideos(jo) });
+function search(wd, quick, pg) {
+    return category(wd, pg, null, null);
 }
 
-async function play(flag, id, flags) {
-    // id 格式: "avid_cid"
+function play(flag, id, flags) {
     var ids = id.split("_");
-    if (ids.length < 2) {
-        return JSON.stringify({ parse: 1, url: "https://www.bilibili.com/video/av" + id, header: { "User-Agent": "Mozilla/5.0" } });
-    }
-    var avid = ids[0];
+    if (ids.length < 2) return JSON.stringify({ parse: 1, url: "", header: {} });
+    var bvid = ids[0];
     var cid = ids[1];
-
-    var url = host + "/x/player/playurl?avid=" + avid + "&cid=" + cid + "&qn=80&fnval=16&fourk=1";
-    var resp = await req(url, { headers: headers });
+    var url = host + "/x/player/playurl?bvid=" + bvid + "&cid=" + cid + "&qn=80&fnval=16";
+    var resp = req(url, { headers: headers });
     var jo = JSON.parse(resp.content);
-
     if (jo.code === 0 && jo.data) {
-        if (jo.data.dash) {
-            var videoList = jo.data.dash.video || [];
-            var audioList = jo.data.dash.audio || [];
-            // 选最高画质
-            var bestVideo = videoList.sort(function(a, b) { return (b.id || 0) - (a.id || 0); })[0];
-            var bestAudio = audioList.sort(function(a, b) { return (b.bandwidth || 0) - (a.bandwidth || 0); })[0];
-            if (bestVideo) {
-                var result = {
-                    parse: 0,
-                    url: bestVideo.base_url || bestVideo.baseUrl,
-                    header: {
-                        "Referer": "https://www.bilibili.com",
-                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-                    }
-                };
-                if (bestAudio) {
-                    result.extra = { audio: bestAudio.base_url || bestAudio.baseUrl };
-                }
-                return JSON.stringify(result);
-            }
+        if (jo.data.dash && jo.data.dash.video && jo.data.dash.video.length > 0) {
+            return JSON.stringify({
+                parse: 0,
+                url: jo.data.dash.video[0].base_url || jo.data.dash.video[0].baseUrl,
+                header: { "Referer": "https://www.bilibili.com", "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" }
+            });
         }
         if (jo.data.durl && jo.data.durl.length > 0) {
             return JSON.stringify({
                 parse: 0,
                 url: jo.data.durl[0].url,
-                header: {
-                    "Referer": "https://www.bilibili.com",
-                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-                }
+                header: { "Referer": "https://www.bilibili.com", "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" }
             });
         }
     }
-    return JSON.stringify({
-        parse: 1,
-        url: "https://www.bilibili.com/video/av" + avid,
-        header: { "User-Agent": "Mozilla/5.0" }
-    });
+    return JSON.stringify({ parse: 1, url: "https://www.bilibili.com/video/" + bvid, header: {} });
 }
 
 export default { init, home, homeVod, category, detail, search, play };
