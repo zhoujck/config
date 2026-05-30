@@ -341,8 +341,10 @@ async function category(tid, pg, filter, extend) {
     var keyword;
 
     if (NO_GRADE[tid]) {
-        // 象棋分类：检查是否是 mid 格式（合集模式）
-        if (grade && grade.indexOf("mid_") === 0) {
+        // 象棋分类：未选UP主时默认展示板牙象棋的合集
+        if (!grade) grade = "mid_3493124475193909";
+        // 检查是否是 mid 格式（合集模式）
+        if (grade.indexOf("mid_") === 0) {
             var mid = grade.replace("mid_", "");
             var result = await searchCollections(mid, pg);
             return JSON.stringify({
