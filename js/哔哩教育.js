@@ -191,27 +191,46 @@ async function detail(id){
 
 // ==================== 播放 ====================
 async function play(flag,id,flags){
-    try{
-        var pts=id.split("_"),avid=pts[0],cid=pts.length>1?pts[1]:"";
-        if(!cid){
-            try{var r=await req(host+"/x/web-interface/view?aid="+avid,{headers:headers});var j=JSON.parse(r.content);if(j.code===0&&j.data)cid=j.data.cid+"";}catch(e){}
-        }
-        var ph={"Referer":"https://www.bilibili.com/video/av"+avid,"User-Agent":headers["User-Agent"]};
-        if(!cid)return JSON.stringify({parse:1,url:"https://www.bilibili.com/video/av"+avid+"/",header:ph});
-        // 请求视频地址
-        var resp=await req(host+"/x/player/playurl?avid="+avid+"&cid="+cid+"&qn=80&fnval=0&try_look=1",{headers:ph});
-        var jo=JSON.parse(resp.content);
-        if(jo.code===0&&jo.data&&jo.data.durl&&jo.data.durl.length>0){
-            var maxSize=-1,pos=0;
-            for(var i=0;i<jo.data.durl.length;i++){if(maxSize<Number(jo.data.durl[i].size)){maxSize=Number(jo.data.durl[i].size);pos=i;}}
-            return JSON.stringify({parse:0,url:jo.data.durl[pos].url,contentType:"video/x-flv",header:{"Referer":"https://www.bilibili.com","User-Agent":headers["User-Agent"]},danmaku:"https://api.bilibili.com/x/v1/dm/list.so?oid="+cid});
-        }
-        // 接口失败，返回播放页面
-        return JSON.stringify({parse:1,url:"https://www.bilibili.com/video/av"+avid+"/",header:ph});
-    }catch(e){
-        var avid2=(id||"").split("_")[0];
-        return JSON.stringify({parse:1,url:"https://www.bilibili.com/video/av"+avid2+"/",header:{"User-Agent":"Mozilla/5.0","Referer":"https://www.bilibili.com"}});
+    // id 格式: "avid_cid" 或纯 avid
+    if(/^http/.test(id)){
+        return JSON.stringify({parse:1,url:id,header:{"User-Agent":"Mozilla/5.0"}});
     }
+    var pts=id.split("_");
+    var avid=pts[0];
+    var cid=pts.length>1?pts[1]:"";
+    // 没有cid就先查详情拿cid
+    if(!cid){
+        var r1=await req(host+"/x/web-interface/view?aid="+avid,{headers:headers});
+        var j1=JSON.parse(r1.content);
+        if(j1.code===0&&j1.data)cid=j1.data.cid+"";
+    }
+    if(!cid){
+        return JSON.stringify({parse:1,url:"https://www.bilibili.com/video/av"+avid+"/",header:{"User-Agent":"Mozilla/5.0"}});
+    }
+    // 获取播放地址
+    var url=host+"/x/player/playurl?avid="+avid+"&cid="+cid+"&qn=80&fnval=0&try_look=1";
+    var resp=await req(url,{headers:{"Referer":"https://www.bilibili.com/video/av"+avid,"User-Agent":headers["User-Agent"]}});
+    var jRoot=JSON.parse(resp.content);
+    if(jRoot.code!==0||!jRoot.data){
+        return JSON.stringify({parse:1,url:"https://www.bilibili.com/video/av"+avid+"/",header:{"User-Agent":"Mozilla/5.0"}});
+    }
+    var ja=jRoot.data.durl||[];
+    var maxSize=-1,position=0;
+    for(var i=0;i<ja.length;i++){
+        if(maxSize<Number(ja[i].size)){maxSize=Number(ja[i].size);position=i;}
+    }
+    var playUrl=ja.length>0?ja[position].url:"";
+    var dan="https://api.bilibili.com/x/v1/dm/list.so?oid="+cid;
+    return JSON.stringify({
+        parse:0,
+        url:playUrl,
+        contentType:"video/x-flv",
+        header:{
+            "Referer":"https://www.bilibili.com",
+            "User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36"
+        },
+        danmaku:dan
+    });
 }
 
 export default{init,home,homeVod,category,detail,search,play};
