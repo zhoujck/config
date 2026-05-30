@@ -7,7 +7,7 @@ let host = 'https://api.bilibili.com';
 // ==================== 配置区域 ====================
 // 在这里填入你的B站 Cookie（包含 SESSDATA），不填也能用，但画质上限 1080P
 // 获取方式：浏览器登录 bilibili.com → F12 → Application → Cookies → 复制 SESSDATA 和 bili_jct
-let BILI_COOKIE = "SESSDATA=86c3fc83%2C1795696570%2Ca6d88%2A52CjAJMwAGyfu3lsQVCfvhNLbXvizfA7NyX-JKiBkTV8ZTHBPtUQ63FCn_a5jXrpITpScSVnFFZDVpeEdDSzJOdGJoVV9qcF9XaEs3c195bHA0UmFTVlZwNldhaFh6eUw1TnpNel91NHktLVc4NkZOdjFCc1dFZjl4aEdKY21FRnl1X1g4TVR2N3NRIIEC; bili_jct=279ec1a90956adda881fc7e7d4ac6406;";  // 例: "SESSDATA=xxx; bili_jct=xxx"
+let BILI_COOKIE = "";  // 例: "SESSDATA=xxx; bili_jct=xxx"
 
 // 生成随机 buvid
 function genBuvid3() {
@@ -369,11 +369,7 @@ async function detail(id) {
                 vod_pic: fixCover(video.pic),
                 vod_content: video.desc || "",
                 vod_play_from: "B站视频",
-                vod_play_url: playParts.join("#"),
-                vod_actor: "弹幕: " + (video.stat ? video.stat.danmaku : 0)
-                    + "　点赞: " + (video.stat ? video.stat.like : 0)
-                    + "　收藏: " + (video.stat ? video.stat.favorite : 0),
-                vod_director: video.owner ? video.owner.name : ""
+                vod_play_url: playParts.join("#")
             }]
         });
     } catch (e) {
@@ -390,39 +386,76 @@ async function play(flag, id, flags) {
 
     let idParts = id.split("_");
     if (idParts.length < 2) {
-        return JSON.stringify({ parse: 1, url: id, header: { "User-Agent": "Mozilla/5.0" } });
+        return JSON.stringify({
+            parse: 1,
+            url: id,
+            header: { "User-Agent": "Mozilla/5.0" }
+        });
     }
 
     let avid = idParts[0];
     let cid = idParts[1];
 
     try {
-        // qn=127 请求最高画质，B站会自动返回账号可用的最高清晰度
-        let url = host + "/x/player/playurl?avid=" + avid + "&cid=" + cid + "&qn=127&fnval=1&fourk=1";
+        let url = host + "/x/player/playurl?avid=" + avid + "&cid=" + cid + "&qn=127&fnval=4048&fourk=1";
         let resp = await req(url, { headers: headers });
         let jo = JSON.parse(resp.content);
 
-        if (jo.code !== 0 || !jo.data || !jo.data.durl || jo.data.durl.length === 0) {
+        if (jo.code !== 0 || !jo.data) {
             return JSON.stringify({ parse: 0, url: "" });
         }
 
-        // 取最大文件
-        let durl = jo.data.durl;
-        let maxSize = -1, pos = 0;
-        durl.forEach((item, i) => {
-            if (maxSize < Number(item.size)) { maxSize = Number(item.size); pos = i; }
-        });
+        // 优先尝试 DASH（高画质）
+        if (jo.data.dash && jo.data.dash.video && jo.data.dash.video.length > 0) {
+            let videos = jo.data.dash.video.sort((a, b) => (b.id || 0) - (a.id || 0));
+            let bestVideo = videos[0];
+            let bestAudio = jo.data.dash.audio && jo.data.dash.audio.length > 0
+                ? jo.data.dash.audio.sort((a, b) => (b.bandwidth || 0) - (a.bandwidth || 0))[0]
+                : null;
 
-        return JSON.stringify({
-            parse: 0,
-            url: durl[pos].url,
-            contentType: "video/x-flv",
-            header: {
-                "Referer": "https://www.bilibili.com",
-                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-            },
-            danmaku: "https://api.bilibili.com/x/v1/dm/list.so?oid=" + cid
-        });
+            let result = {
+                parse: 0,
+                url: bestVideo.base_url || bestVideo.baseUrl,
+                contentType: "video/mp4",
+                header: {
+                    "Referer": "https://www.bilibili.com",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+                },
+                danmaku: "https://api.bilibili.com/x/v1/dm/list.so?oid=" + cid
+            };
+            if (bestAudio) {
+                result.extra = { audio: bestAudio.base_url || bestAudio.baseUrl };
+            }
+            return JSON.stringify(result);
+        }
+
+        // 回退到 durl
+        let durl = jo.data.durl;
+        if (durl && durl.length > 0) {
+            // 取最大文件
+            let maxSize = -1;
+            let position = 0;
+            durl.forEach((item, i) => {
+                if (maxSize < Number(item.size)) {
+                    maxSize = Number(item.size);
+                    position = i;
+                }
+            });
+
+            let playUrl = durl[position].url;
+            let dan = "https://api.bilibili.com/x/v1/dm/list.so?oid=" + cid;
+
+            return JSON.stringify({
+                parse: 0,
+                url: playUrl,
+                contentType: "video/x-flv",
+                header: {
+                    "Referer": "https://www.bilibili.com",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+                },
+                danmaku: dan
+            });
+        }
     } catch (e) {}
 
     return JSON.stringify({ parse: 0, url: "" });
