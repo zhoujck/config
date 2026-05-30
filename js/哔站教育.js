@@ -7,14 +7,13 @@
  *  而不是散的单个视频。
  *
  *  改动点：
- *    1. FILTERS["象棋"] 的 value 从关键词改为 mid（UP主ID）
+ *    1. FILTERS["象棋"] 的 value 改为 mid（UP主ID）
  *    2. 新增 searchCollections(mid, pg) 函数
  *    3. category() 检测到 mid 时走合集逻辑
- *    4. detail() 支持 season_xxx 前缀的合集ID
+ *    4. detail() 通过 ugc_season 自动检测合集并返回完整播放列表
  *
- *  已验证可用的 API：
- *    - seasons_series_list（不需要WBI签名）
- *    - seasons_archives_list（需要WBI签名，脚本已有此能力）
+ *  核心发现：view?aid= 返回的 ugc_season 字段包含合集内所有视频的 aid 和 cid
+ *  不需要额外的合集详情 API，一个 view 请求搞定一切
  * ============================================================
  */
 
@@ -262,10 +261,8 @@ async function searchVideos(keyword, pg) {
     };
 }
 
-// ★ 改动点2：新增 searchCollections 函数 + 全局合集映射
-// 合集映射表：aid -> { mid, seasonId, name }（用于 detail 判断）
-var _collectionMap = {};
-
+// ★ 改动点2：新增 searchCollections 函数
+// 获取指定UP主的所有合集（seasons + series）
 async function searchCollections(mid, pg) {
     var p = pg || 1;
     var searchHeaders = initSearchHeaders();
@@ -283,24 +280,12 @@ async function searchCollections(mid, pg) {
 
     // 合集（seasons）— 优先展示
     // vod_id 用第一个视频的 aid（纯数字，框架兼容）
-    // 同时记录映射关系，detail 时用于判断是否是合集
+    // detail() 会通过 ugc_season 自动获取完整合集
     for (var s = 0; s < seasonsList.length; s++) {
         var season = seasonsList[s];
         var meta = season.meta || {};
         var recentAids = season.recent_aids || [];
         var firstAid = recentAids.length > 0 ? String(recentAids[0]) : "";
-        if (firstAid) {
-            // 记录映射：这个 aid 属于哪个合集
-            _collectionMap[firstAid] = {
-                mid: mid,
-                seasonId: String(meta.season_id || ""),
-                name: meta.name || "合集",
-                cover: meta.cover || "",
-                total: meta.total || 0,
-                desc: meta.description || "",
-                type: "season"
-            };
-        }
         items.push({
             vod_id: firstAid,
             vod_name: String(meta.name || "").replace(/<[^>]*>/g, ""),
@@ -315,17 +300,6 @@ async function searchCollections(mid, pg) {
         var seriesMeta = series.meta || {};
         var seriesRecentAids = series.recent_aids || [];
         var seriesFirstAid = seriesRecentAids.length > 0 ? String(seriesRecentAids[0]) : "";
-        if (seriesFirstAid) {
-            _collectionMap[seriesFirstAid] = {
-                mid: mid,
-                seriesId: String(seriesMeta.series_id || ""),
-                name: seriesMeta.name || "系列",
-                cover: seriesMeta.cover || "",
-                total: seriesMeta.total || 0,
-                desc: "",
-                type: "series"
-            };
-        }
         items.push({
             vod_id: seriesFirstAid,
             vod_name: String(seriesMeta.name || "").replace(/<[^>]*>/g, ""),
@@ -394,69 +368,6 @@ async function category(tid, pg, filter, extend) {
 
 // ★ 改动点4：detail 函数
 async function detail(id) {
-    var searchHeaders = initSearchHeaders();
-
-    // ---- 检查是否是合集（aid 在 _collectionMap 中）----
-    var colInfo = _collectionMap[id];
-    if (colInfo) {
-        try {
-            var seasonId = colInfo.seasonId || "";
-            var seriesId = colInfo.seriesId || "";
-
-            // 获取合集内所有视频
-            var arcUrl;
-            if (colInfo.type === "season" && seasonId) {
-                arcUrl = host + "/x/polymer/web-space/seasons_archives_list?season_id=" + seasonId + "&sort_reverse=false&page_num=1&page_size=300";
-            } else if (colInfo.type === "series" && seriesId) {
-                arcUrl = host + "/x/series/archives?series_id=" + seriesId + "&sort=asc&page_num=1&page_size=300";
-            }
-
-            if (arcUrl) {
-                var arcResp = await req(arcUrl, { headers: searchHeaders });
-                var arcJo = JSON.parse(arcResp.content);
-
-                if (arcJo.code === 0 && arcJo.data) {
-                    var archives = arcJo.data.archives || [];
-                    var playurls = [];
-
-                    for (var j = 0; j < archives.length; j++) {
-                        var a = archives[j];
-                        var part = a.title || ("第" + (j + 1) + "集");
-                        var cid = a.cid || "";
-                        if (!cid) {
-                            try {
-                                var plUrl = host + "/x/player/pagelist?aid=" + a.aid;
-                                var plResp = await req(plUrl, { headers: searchHeaders });
-                                var plJo = JSON.parse(plResp.content);
-                                if (plJo.code === 0 && plJo.data && plJo.data.length > 0) {
-                                    cid = plJo.data[0].cid;
-                                }
-                            } catch (e) {}
-                        }
-                        if (!cid) cid = a.aid;
-                        playurls.push(part + "$" + a.aid + "_" + cid);
-                    }
-
-                    if (playurls.length > 0) {
-                        return JSON.stringify({
-                            list: [{
-                                vod_id: id,
-                                vod_name: colInfo.name || "合集",
-                                vod_pic: fixCover(colInfo.cover),
-                                type_name: "教育",
-                                vod_remarks: archives.length + "集",
-                                vod_play_from: "B站",
-                                vod_play_url: playurls.join("#")
-                            }]
-                        });
-                    }
-                }
-            }
-        } catch (e) {
-            // 合集获取失败，回退到单视频
-        }
-    }
-
     // ---- 原有的单视频逻辑（同时也是合集回退）----
     var vUrl = host + "/x/web-interface/view?aid=" + id;
     var vResp = await req(vUrl, { headers: headers });
@@ -465,6 +376,44 @@ async function detail(id) {
     if (vJo.code !== 0 || !vJo.data) return JSON.stringify({ list: [] });
 
     var video = vJo.data;
+
+    // ★ 检查是否属于合集（ugc_season 包含合集内所有视频）
+    var ugcSeason = video.ugc_season;
+    if (ugcSeason && ugcSeason.sections && ugcSeason.sections.length > 0) {
+        var episodes = ugcSeason.sections[0].episodes || [];
+        if (episodes.length > 1) {
+            var colPlayurls = [];
+            for (var ci = 0; ci < episodes.length; ci++) {
+                var ep = episodes[ci];
+                var epTitle = ep.title || ("第" + (ci + 1) + "集");
+                var epAid = ep.aid || ep.arc?.aid || "";
+                var epCid = ep.cid || ep.arc?.cid || ep.page?.cid || epAid;
+                if (epAid && epCid) {
+                    colPlayurls.push(epTitle + "$" + epAid + "_" + epCid);
+                }
+            }
+            if (colPlayurls.length > 0) {
+                return JSON.stringify({
+                    list: [{
+                        vod_id: id,
+                        vod_name: ugcSeason.title || video.title,
+                        vod_pic: fixCover(ugcSeason.cover || video.pic),
+                        type_name: "教育",
+                        vod_year: "",
+                        vod_area: "",
+                        vod_remarks: colPlayurls.length + "集",
+                        vod_actor: "播放: " + (video.stat ? video.stat.view : 0) + "　弹幕: " + (video.stat ? video.stat.danmaku : 0),
+                        vod_director: "点赞: " + (video.stat ? video.stat.like : 0),
+                        vod_content: String(video.desc || ""),
+                        vod_play_from: "B站",
+                        vod_play_url: colPlayurls.join("#")
+                    }]
+                });
+            }
+        }
+    }
+
+    // 普通单视频
     var pages = video.pages || [];
     var vPlayurls = [];
     for (var p = 0; p < pages.length; p++) {
