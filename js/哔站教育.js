@@ -343,7 +343,8 @@ async function getSeriesEpisodes(seriesId, mid) {
         for (var i = 0; i < archives.length; i++) {
             allAids.push({
                 aid: String(archives[i].aid || ""),
-                title: String(archives[i].title || "")
+                title: String(archives[i].title || ""),
+                pic: fixCover(archives[i].pic)
             });
         }
 
@@ -352,18 +353,19 @@ async function getSeriesEpisodes(seriesId, mid) {
         if (pageNum > 50) break;
     }
 
-    // 第二步：通过 view 接口获取每个视频的 cid（保证可靠）
+    // 第二步：通过 pagelist 接口获取 cid（比 view 接口更快更轻量）
     var allEpisodes = [];
     for (var j = 0; j < allAids.length; j++) {
         try {
-            var vUrl = host + "/x/web-interface/view?aid=" + allAids[j].aid;
-            var vResp = await req(vUrl, { headers: headers });
-            var vJo = JSON.parse(vResp.content);
-            if (vJo.code === 0 && vJo.data) {
+            var pUrl = host + "/x/player/pagelist?aid=" + allAids[j].aid;
+            var pResp = await req(pUrl, { headers: headers });
+            var pJo = JSON.parse(pResp.content);
+            if (pJo.code === 0 && pJo.data && pJo.data.length > 0) {
                 allEpisodes.push({
                     aid: allAids[j].aid,
-                    cid: String(vJo.data.cid || allAids[j].aid),
-                    title: allAids[j].title || vJo.data.title || ""
+                    cid: String(pJo.data[0].cid || allAids[j].aid),
+                    title: allAids[j].title || pJo.data[0].part || "",
+                    pic: allAids[j].pic || ""
                 });
             }
         } catch (e) {
@@ -441,20 +443,9 @@ async function detail(id) {
                     seriesPlayurls.push(sepTitle + "$" + sep.aid + "_" + sep.cid);
                 }
 
-                // 系列详情：直接用第一个视频的信息，不走 ugc_season 逻辑
-                var firstUrl = host + "/x/web-interface/view?aid=" + episodes[0].aid;
-                var firstResp = await req(firstUrl, { headers: headers });
-                var firstJo = JSON.parse(firstResp.content);
-                var firstName = "";
-                var firstPic = "";
-                var firstDesc = "";
-                var firstStat = null;
-                if (firstJo.code === 0 && firstJo.data) {
-                    firstName = firstJo.data.title || "";
-                    firstPic = firstJo.data.pic || "";
-                    firstDesc = firstJo.data.desc || "";
-                    firstStat = firstJo.data.stat;
-                }
+                // 系列详情：直接用已有信息，无需额外 API 调用
+                var firstName = episodes[0].title || "";
+                var firstPic = episodes[0].pic || "";
 
                 return JSON.stringify({
                     list: [{
@@ -465,9 +456,9 @@ async function detail(id) {
                         vod_year: "",
                         vod_area: "",
                         vod_remarks: seriesPlayurls.length + "集",
-                        vod_actor: "播放: " + (firstStat ? firstStat.view : 0) + "　弹幕: " + (firstStat ? firstStat.danmaku : 0),
-                        vod_director: "点赞: " + (firstStat ? firstStat.like : 0),
-                        vod_content: String(firstDesc || ""),
+                        vod_actor: "",
+                        vod_director: "",
+                        vod_content: "",
                         vod_play_from: "B站",
                         vod_play_url: seriesPlayurls.join("#")
                     }]
