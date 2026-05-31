@@ -353,24 +353,15 @@ async function getSeriesEpisodes(seriesId, mid) {
         if (pageNum > 50) break;
     }
 
-    // 第二步：通过 pagelist 接口获取 cid（比 view 接口更快更轻量）
+    // 第二步：直接返回，不提前获取 cid（播放时按需获取，列表加载更快）
     var allEpisodes = [];
     for (var j = 0; j < allAids.length; j++) {
-        try {
-            var pUrl = host + "/x/player/pagelist?aid=" + allAids[j].aid;
-            var pResp = await req(pUrl, { headers: headers });
-            var pJo = JSON.parse(pResp.content);
-            if (pJo.code === 0 && pJo.data && pJo.data.length > 0) {
-                allEpisodes.push({
-                    aid: allAids[j].aid,
-                    cid: String(pJo.data[0].cid || allAids[j].aid),
-                    title: allAids[j].title || pJo.data[0].part || "",
-                    pic: allAids[j].pic || ""
-                });
-            }
-        } catch (e) {
-            // 跳过获取失败的视频
-        }
+        allEpisodes.push({
+            aid: allAids[j].aid,
+            cid: "",
+            title: allAids[j].title || "",
+            pic: allAids[j].pic || ""
+        });
     }
 
     return allEpisodes;
@@ -440,7 +431,7 @@ async function detail(id) {
                 for (var si = 0; si < episodes.length; si++) {
                     var sep = episodes[si];
                     var sepTitle = sep.title || ("第" + (si + 1) + "集");
-                    seriesPlayurls.push(sepTitle + "$" + sep.aid + "_" + sep.cid);
+                    seriesPlayurls.push(sepTitle + "$" + sep.aid);
                 }
 
                 // 系列详情：直接用已有信息，无需额外 API 调用
@@ -548,12 +539,28 @@ async function search(wd, quick, pg) {
 
 async function play(flag, id, flags) {
     var ids = id.split("_");
-    if (ids.length < 2) {
-        return JSON.stringify({ parse: 0, url: id, header: {} });
-    }
+    var avid, cid;
 
-    var avid = ids[0];
-    var cid = ids[1];
+    if (ids.length >= 2) {
+        // 格式: aid_cid
+        avid = ids[0];
+        cid = ids[1];
+    } else {
+        // 格式: 只有 aid（系列视频按需获取 cid）
+        avid = id;
+        try {
+            var pUrl = host + "/x/player/pagelist?aid=" + avid;
+            var pResp = await req(pUrl, { headers: headers });
+            var pJo = JSON.parse(pResp.content);
+            if (pJo.code === 0 && pJo.data && pJo.data.length > 0) {
+                cid = String(pJo.data[0].cid);
+            } else {
+                return JSON.stringify({ parse: 0, url: "", header: {} });
+            }
+        } catch (e) {
+            return JSON.stringify({ parse: 0, url: "", header: {} });
+        }
+    }
     var playHeaders = {
         "Referer": "https://www.bilibili.com/video/av" + avid,
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
