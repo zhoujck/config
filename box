@@ -10,7 +10,7 @@
   {"key": "豆瓣","name": "🍬糖果影视🍬","type": 3,"api": "./js/豆瓣.js","searchable": 0,"changeable": 1},
   {"key": "配置中心","name": "👨‍🍳‍配置┃中心","type": 3,"api": "csp_Config","searchable": 0,"changeable": 0,"indexs": 0,"style": {"type": "rect","ratio": 1.43}},
   {"key": "哔站记录片","name": "🍬🅱哔站影视","type": 3,"api": "./js/哔哩纪录片.js","searchable": 1,"ext": ""},
-  {"key": "哔站教育","name": "🍬🅱哔站教育","type": 3,"api": "./js/哔站教育.js","searchable": 0,"changeable": 0,"ext": ""},
+  {"key": "哔站教育","name": "🍬🅱哔站教育","type": 3,"api": "./js/哔站教育.js","searchable": 0,"changeable": 0,"ext": "","style": {"type": "rect","ratio": 1.43}},
   {"key": "看球","name": "🏀看球","type": 3,"api": "csp_Kanqiu","searchable": 1,"quickSearch": 1,"changeable": 0,"gridview": 3,"style": {"type": "list"}},
   {"key": "线路1","name": "🔥🔥瓜子","type": 3,"timeout": 12,"api": "csp_Gz360"},
   {"key": "线路2","name": "🔥天天","type": 3,"api": "csp_AppRJ","timeout": 10,"ext": "vxw35/hHSj07Q+maxQzOVMq1rjRCOTXpUCx8iKu5jIg="},
