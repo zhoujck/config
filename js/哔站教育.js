@@ -11,9 +11,11 @@
  *    2. 新增 searchCollections(mid, pg) 函数
  *    3. category() 检测到 mid 时走合集逻辑
  *    4. detail() 通过 ugc_season 自动检测合集并返回完整播放列表
+ *    5. 系列(series)使用独立API获取完整视频列表
  *
  *  核心发现：view?aid= 返回的 ugc_season 字段包含合集内所有视频的 aid 和 cid
  *  不需要额外的合集详情 API，一个 view 请求搞定一切
+ *  但系列(series)没有 ugc_season，需要用 seasons_series_list + series_id 获取
  * ============================================================
  */
 
@@ -262,7 +264,7 @@ async function searchVideos(keyword, pg) {
 }
 
 // ★ 改动点2：新增 searchCollections 函数
-// 获取指定UP主的所有合集（seasons + series）
+// 获取指定UP主的所有合集（seasons）和系列（series）
 async function searchCollections(mid, pg) {
     var p = pg || 1;
     var searchHeaders = initSearchHeaders();
@@ -294,14 +296,16 @@ async function searchCollections(mid, pg) {
         });
     }
 
-    // 系列（series）
+    // ★ 系列（series）— 使用前缀标记，detail() 会识别并调用系列API
     for (var sr = 0; sr < seriesList.length; sr++) {
         var series = seriesList[sr];
         var seriesMeta = series.meta || {};
         var seriesRecentAids = series.recent_aids || [];
         var seriesFirstAid = seriesRecentAids.length > 0 ? String(seriesRecentAids[0]) : "";
+        // 用 "series_{series_id}_{mid}" 格式标记系列
+        // 这样 detail() 能识别并用 series API 获取完整视频列表
         items.push({
-            vod_id: seriesFirstAid,
+            vod_id: "series_" + seriesMeta.series_id + "_" + mid,
             vod_name: String(seriesMeta.name || "").replace(/<[^>]*>/g, ""),
             vod_pic: fixCover(seriesMeta.cover),
             vod_remarks: (seriesMeta.total || 0) + "集"
@@ -318,6 +322,40 @@ async function searchCollections(mid, pg) {
         pagecount: Math.ceil(total / 20) || 1,
         total: total
     };
+}
+
+// ★ 新增：获取系列的完整视频列表
+async function getSeriesEpisodes(seriesId, mid) {
+    var searchHeaders = initSearchHeaders();
+    var allEpisodes = [];
+    var pageNum = 1;
+    var pageSize = 20;
+
+    while (true) {
+        var url = host + "/x/series/archives?mid=" + mid + "&series_id=" + seriesId + "&only_normal=true&sort=asc&pn=" + pageNum + "&ps=" + pageSize;
+        var resp = await req(url, { headers: searchHeaders });
+        var jo = JSON.parse(resp.content);
+
+        if (jo.code !== 0 || !jo.data || !jo.data.archives) break;
+
+        var archives = jo.data.archives;
+        for (var i = 0; i < archives.length; i++) {
+            var arc = archives[i];
+            allEpisodes.push({
+                aid: String(arc.aid || ""),
+                cid: String(arc.cid || ""),
+                title: String(arc.title || "")
+            });
+        }
+
+        // 如果返回的数量少于 pageSize，说明已经是最后一页
+        if (archives.length < pageSize) break;
+        pageNum++;
+        // 安全限制，防止无限循环
+        if (pageNum > 50) break;
+    }
+
+    return allEpisodes;
 }
 
 // ==================== 接口实现 ====================
@@ -368,8 +406,60 @@ async function category(tid, pg, filter, extend) {
     });
 }
 
-// ★ 改动点4：detail 函数
+// ★ 改动点4：detail 函数 — 支持合集(season)和系列(series)
 async function detail(id) {
+    // ★ 检查是否是系列(series)的标记格式
+    if (id.indexOf("series_") === 0) {
+        var parts = id.split("_");
+        // parts[0] = "series", parts[1] = series_id, parts[2] = mid
+        if (parts.length >= 3) {
+            var seriesId = parts[1];
+            var mid = parts[2];
+            var episodes = await getSeriesEpisodes(seriesId, mid);
+
+            if (episodes.length > 0) {
+                var seriesPlayurls = [];
+                for (var si = 0; si < episodes.length; si++) {
+                    var sep = episodes[si];
+                    var sepTitle = sep.title || ("第" + (si + 1) + "集");
+                    seriesPlayurls.push(sepTitle + "$" + sep.aid + "_" + sep.cid);
+                }
+
+                // 获取系列名（用第一个视频的信息）
+                var firstUrl = host + "/x/web-interface/view?aid=" + episodes[0].aid;
+                var firstResp = await req(firstUrl, { headers: headers });
+                var firstJo = JSON.parse(firstResp.content);
+                var firstName = "";
+                var firstPic = "";
+                var firstDesc = "";
+                var firstStat = null;
+                if (firstJo.code === 0 && firstJo.data) {
+                    firstName = firstJo.data.title || "";
+                    firstPic = firstJo.data.pic || "";
+                    firstDesc = firstJo.data.desc || "";
+                    firstStat = firstJo.data.stat;
+                }
+
+                return JSON.stringify({
+                    list: [{
+                        vod_id: id,
+                        vod_name: firstName,
+                        vod_pic: fixCover(firstPic),
+                        type_name: "教育",
+                        vod_year: "",
+                        vod_area: "",
+                        vod_remarks: seriesPlayurls.length + "集",
+                        vod_actor: "播放: " + (firstStat ? firstStat.view : 0) + "　弹幕: " + (firstStat ? firstStat.danmaku : 0),
+                        vod_director: "点赞: " + (firstStat ? firstStat.like : 0),
+                        vod_content: String(firstDesc || ""),
+                        vod_play_from: "B站",
+                        vod_play_url: seriesPlayurls.join("#")
+                    }]
+                });
+            }
+        }
+    }
+
     // ---- 原有的单视频逻辑（同时也是合集回退）----
     var vUrl = host + "/x/web-interface/view?aid=" + id;
     var vResp = await req(vUrl, { headers: headers });
