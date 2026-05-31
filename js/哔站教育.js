@@ -327,10 +327,11 @@ async function searchCollections(mid, pg) {
 // ★ 新增：获取系列的完整视频列表
 async function getSeriesEpisodes(seriesId, mid) {
     var searchHeaders = initSearchHeaders();
-    var allEpisodes = [];
+    var allAids = [];
     var pageNum = 1;
     var pageSize = 20;
 
+    // 第一步：从 series/archives 获取所有 aid
     while (true) {
         var url = host + "/x/series/archives?mid=" + mid + "&series_id=" + seriesId + "&only_normal=true&sort=asc&pn=" + pageNum + "&ps=" + pageSize;
         var resp = await req(url, { headers: searchHeaders });
@@ -340,19 +341,34 @@ async function getSeriesEpisodes(seriesId, mid) {
 
         var archives = jo.data.archives;
         for (var i = 0; i < archives.length; i++) {
-            var arc = archives[i];
-            allEpisodes.push({
-                aid: String(arc.aid || ""),
-                cid: String(arc.cid || ""),
-                title: String(arc.title || "")
+            allAids.push({
+                aid: String(archives[i].aid || ""),
+                title: String(archives[i].title || "")
             });
         }
 
-        // 如果返回的数量少于 pageSize，说明已经是最后一页
         if (archives.length < pageSize) break;
         pageNum++;
-        // 安全限制，防止无限循环
         if (pageNum > 50) break;
+    }
+
+    // 第二步：通过 view 接口获取每个视频的 cid（保证可靠）
+    var allEpisodes = [];
+    for (var j = 0; j < allAids.length; j++) {
+        try {
+            var vUrl = host + "/x/web-interface/view?aid=" + allAids[j].aid;
+            var vResp = await req(vUrl, { headers: headers });
+            var vJo = JSON.parse(vResp.content);
+            if (vJo.code === 0 && vJo.data) {
+                allEpisodes.push({
+                    aid: allAids[j].aid,
+                    cid: String(vJo.data.cid || allAids[j].aid),
+                    title: allAids[j].title || vJo.data.title || ""
+                });
+            }
+        } catch (e) {
+            // 跳过获取失败的视频
+        }
     }
 
     return allEpisodes;
