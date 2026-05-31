@@ -441,7 +441,7 @@ async function detail(id) {
                     seriesPlayurls.push(sepTitle + "$" + sep.aid + "_" + sep.cid);
                 }
 
-                // 获取系列名（用第一个视频的信息）
+                // 系列详情：直接用第一个视频的信息，不走 ugc_season 逻辑
                 var firstUrl = host + "/x/web-interface/view?aid=" + episodes[0].aid;
                 var firstResp = await req(firstUrl, { headers: headers });
                 var firstJo = JSON.parse(firstResp.content);
