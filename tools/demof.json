@@ -5,7 +5,7 @@
 "lives": [
 {"name": "🍬移动🍬","type": 0,"url": "./ext/移动","playerType": 2, "ua":"okhttp/3.15", "epg":"https://epg.cdn.loc.cc/?ch={name}&date={date}"},
 {"name": "🍬联通🍬","type": 0,"url": "./ext/联通","playerType": 2, "ua":"okhttp/3.15", "epg":"https://epg.cdn.loc.cc/?ch={name}&date={date}"},
-{"name": "🍬电信🍬","type": 0,"url": "https://gh.llkk.cc/https://raw.githubusercontent.com/Kimentanm/aptv/master/m3u/iptv.m3u","playerType": 2, "ua":"okhttp/3.15", "epg":"https://epg.cdn.loc.cc/?ch={name}&date={date}"}
+{"name": "🍬电信🍬","type": 0,"url": "https://raw.githubusercontent.com/Kimentanm/aptv/master/m3u/iptv.m3u","playerType": 2, "ua":"okhttp/3.15", "epg":"https://epg.cdn.loc.cc/?ch={name}&date={date}"}
 ],
 
 "sites": [
