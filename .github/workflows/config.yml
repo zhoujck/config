@@ -47,6 +47,7 @@ jobs:
           cd ../
           mkdir -p ext
           cp -p iptv/live.txt ext/live.txt
+          rm -rf iptv
         shell: bash
 
       - name: 提交更改
