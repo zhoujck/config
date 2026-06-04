@@ -13,10 +13,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Checkout iptv
-        uses: actions/checkout@v2
+        uses: actions/checkout@v5
         with:
           repository: zhoujck/iptv
           path: iptv
@@ -35,16 +35,15 @@ jobs:
           python-version: 3.x
 
       - name: tools
+        working-directory: tools
         run: |
           pwd
-          cd tools/
           pip install demjson3 requests==2.31.0
           python config.py
           cp -pdr ./output/xiaomi.txt ../jar/xiaomi.txt
           cp -pdr ./output/feimao.txt ../jar/feimao.txt
           python combine.py
           python combineF.py
-          cd ../
           mkdir -p ext
           cp -p iptv/live.txt ext/live.txt
           rm -rf iptv
