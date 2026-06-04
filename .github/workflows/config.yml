@@ -45,7 +45,7 @@ jobs:
           python combine.py
           python combineF.py
           mkdir -p ext
-          cp -p iptv/live.txt ext/live.txt
+          cp -p ../iptv/live.txt ext/live.txt
           rm -rf iptv
         shell: bash
 
