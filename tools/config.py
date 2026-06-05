@@ -4,6 +4,7 @@ import demjson3 as demjson
 import json
 import sys
 import os
+import base64
 
 # ============ 配置区 ============
 SOURCES = [
@@ -25,7 +26,35 @@ OUTPUT_DIR = "./output"
 def fetch_raw_json(url):
     resp = requests.get(url, timeout=15)
     resp.encoding = 'utf-8'
-    return resp.text
+    text = resp.text
+
+    # 如果返回的不是 JSON（被重定向到图片等），尝试提取内嵌的 base64 JSON
+    if not text.strip().startswith('{'):
+        # 在二进制数据中找 JSON 的 base64 开头 (ewoJ 或 eyJ)
+        data = resp.content
+        for marker in [b'ewoJ', b'eyJ']:
+            idx = data.find(marker)
+            if idx != -1:
+                # 提取 base64 字符串
+                import string
+                valid = set(string.ascii_letters + string.digits + '+/=')
+                b64_str = ''
+                for b in data[idx:]:
+                    c = chr(b)
+                    if c in valid:
+                        b64_str += c
+                    elif b64_str:
+                        break
+                # 解码
+                for pad in ['', '=', '==', '===']:
+                    try:
+                        decoded = base64.b64decode(b64_str + pad).decode('utf-8')
+                        if decoded.strip().startswith('{'):
+                            return decoded
+                    except:
+                        continue
+    return text
+
 
 def extract_and_save_spider(json_text, name):
     match = re.search(r'"spider"\s*:\s*"([^"]+)"', json_text)
