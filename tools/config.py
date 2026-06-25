@@ -10,7 +10,7 @@ import base64
 SOURCES = [
     {
         "name": "feimao",
-        "url": "http://肥猫.net/tv",
+        "url": "http://肥猫.net/",
     },
     {
         "name": "xiaomi",
