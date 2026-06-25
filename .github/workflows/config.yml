@@ -38,7 +38,7 @@ jobs:
         run: |
           pwd
           cd tools/
-          pip install demjson3 requests==2.31.0
+          pip install demjson3 requests==2.31.0 pycryptodome
           python config.py
           cp -pdr ./output/xiaomi.txt ../jar/xiaomi.txt
           cp -pdr ./output/feimao.txt ../jar/feimao.txt
