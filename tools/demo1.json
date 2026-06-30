@@ -26,18 +26,19 @@
   {"key": "线路5","name": "🔥🔥首发","type": 3,"api": "csp_AppGet","ext": "https://yun-1316442804.cos.ap-guangzhou.myqcloud.com/601.txt|FTgP4Gq8zPiqbt7M|V122|okhttp/3.10.0"},
   {"key": "线路6","name": "🔥荐片","api": "csp_Jianpian","type": 3,"ext": "https://api.ztcgi.com"},
   {"key": "线路7","name": "🔥热播","type": 3,"api": "csp_AppRJ","searchable": 1,"quickSearch": 1,"filterable": 0,"ext": {"url": "http://v.rbotv.cn"}},
-  //{"key": "线路8","name": "🍬虾皮","type": 3,"api": "./js/皮皮虾.py","ext": "http://154.94.224.98:8762"},
+  {"key": "线路8","name": "🍬虾皮","type": 3,"api": "./js/皮皮虾.py","ext": "http://154.94.224.98:8762"},
   {"key": "线路9","name": "🔥金牌","type": 3,"api": "csp_Jpys","searchable": 1,"quickSearch": 1,"filterable": 0,"ext": "https://y2s52n7.com"},
+  {"key": "线路10","name": "🏭厂长","type": 3,"api": "csp_Czsapp","ext": "https://www.4kcz.com"},
 
 
    
-  {"key": "JS1","name": "🍬永乐","type": 3,"api": "./js/永乐.js","searchable": 1,"ext": ""},
+  //{"key": "JS1","name": "🍬永乐","type": 3,"api": "./js/永乐.js","searchable": 1,"ext": ""},
   //{"key": "JS2","name": "🍬荐片","type": 3,"api": "./js/荐片.js","searchable": 1,"ext": ""},
-  {"key": "JS3","name": "🍬金牌","type": 3,"api": "./js/金牌.js","searchable": 1,"ext": ""},
+  //{"key": "JS3","name": "🍬金牌","type": 3,"api": "./js/金牌.js","searchable": 1,"ext": ""},
   //{"key": "JS4","name": "🍬热播","type": 3,"api": "./js/热播.js","searchable": 1,"ext": ""},
-  {"key": "JS5","name": "🍬BBTT","type": 3,"api": "./js/两个BT.js","searchable": 1,"ext": ""},
+  //{"key": "JS5","name": "🍬BBTT","type": 3,"api": "./js/两个BT.js","searchable": 1,"ext": ""},
   //{"key": "JS6","name": "🍬糯米","type": 3,"api": "./js/lib/drpy2.min.js","searchable": 1,"ext": "./js/农民影视.js"},  
-  {"key": "JS7","name": "🍬茶杯狐","type": 3,"api": "csp_XBPQ","searchable": 1,"ext": "./ext/茶杯狐.json","jar": "./jar/xpqb.txt"}, 
+  //{"key": "JS7","name": "🍬茶杯狐","type": 3,"api": "csp_XBPQ","searchable": 1,"ext": "./ext/茶杯狐.json","jar": "./jar/xpqb.txt"}, 
 
   {"key": "pan1","name": "💌蜡笔","type": 3,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["http://xiaocge.fun","http://feimo.fun","http://www.labi88.sbs","http://fmao.site","http://fmao.shop","http://xiaocgege.shop","http://www.xiaocgege.shop"],"threadinfo": {"chunksize": 512,"threads": 16},"url_key": "Duopan2"}},
   {"key": "pan2","name": "💌至臻","type": 3,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["https://pan.mihdr.top","https://www.zhizhen1.top","https://www.mihdr.top","https://www.miqk.cc","https://www.zhizhenpan.com","https://www.zhizhen8.click"],"url_key": "Netfixtv2","threadinfo": {"chunksize": 512,"threads": 16}}},
