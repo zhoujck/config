@@ -20,7 +20,7 @@
   {"key": "csp_Bili","name": "📺哔哩┃哔哩","type": 3,"api": "csp_Bili","quickSearch": 0,"timeout": 12,"searchable": 1,"ext": {"json": "https://cik07-cos.7moor-fs2.com/im/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/db3b02559ec04736/bili.json","cookie": ""},"style": {"type": "rect","ratio": 1.333}},
   {"key": "葫芦","name": "🪽葫芦┃1080P","type": 3,"api": "csp_AppGet","ext": "https://mobile-1251126973.cos.ap-guangzhou.myqcloud.com/maccos_config.txt|8R33VQSxzmCaHpEX|V122|okhttp/3.10.0"},
   {"key": "新首发","name": "👻标清┃1080P","type": 3,"api": "csp_AppGet","ext": "https://yun-1316442804.cos.ap-guangzhou.myqcloud.com/601.txt|FTgP4Gq8zPiqbt7M|V122|okhttp/3.10.0"},
-  {"key": "四叶草","name": "🍀幸运┃1080P","type": 3,"api": "csp_AppGet","ext": "https://yzysap.oss-cn-hangzhou.aliyuncs.com/sss.txt|wNCwbXzr0Bm6cS2C|V122|okhttp/3.10.0"},
+  {"key": "四叶草","name": "🍀幸运┃1080P","type": 3,"api": "csp_AppGet","ext": "https://yzysap.oss-cn-hangzhou.aliyuncs.com/kkk.txt|8eeObuwrmS3lRDEs|V122|okhttp/3.10.0"},
   {"key": "爱营","name": "💥爱影┃1080P","type": 3,"searchable": 1,"changeable": 1,"api": "csp_AppGet","ext": "https://aysappto.oss-cn-chengdu.aliyuncs.com/q23.txt|nzEqOgYk3QzHuEP8|V122|okhttp/3.10.0"},
   {"key": "3QQQ","name": "🍅大鹅┃1080P","type": 3,"timeout": 15,"api": "csp_App3Q","ext": "https://asd123sx23xdacsx.top"},
   {"key": "山楂","name": "🔴山楂┃1080P","type": 3,"timeout": 15,"api": "https://v4.gh-proxy.org/https://github.com/ggrrttyyiii/CatVodSpider/blob/main/json/shanzha.py","ext": ""},
