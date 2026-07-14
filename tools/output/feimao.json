@@ -1,7 +1,7 @@
 {
  "spider": "https://img2.gelonghui.com/library/e2693-9aa941a0-f96a-40c2-ac23-e6af358d19a7.png;md5;e2693c58ebc58abecc7282b721db79ca",
  "wallpaper": "https://深色壁纸.xxooo.cf/",
- "logo": "./fm.gif",
+ "logo": "http://xn--z7x900a.net/fm.gif",
  "sites": [
   {"key": "豆瓣","name": "🐼┃公众号：我不是肥猫┃","type": 3,"api": "csp_Douban","searchable": 0},
   {"key": "豆瓣预告","name": "🐼┃豆瓣┃预告","type": 3,"api": "csp_YGP","playerType": 2,"searchable": 0},
@@ -16,7 +16,7 @@
   {"key": "行动","name": "😌┃行动┃APP","type": 3,"api": "csp_AppQi","ext": "https://qj4.catbb.xyz|eecbio48dsq13kkk"},
   {"key": "再来","name": "✌️┃再来┃APP","type": 3,"api": "csp_AppGet","ext": "https://vv.229d.cn|8888888888888888"},
   {"key": "一碗","name": "🥣┃一碗┃APP","type": 3,"api": "csp_AppGet","ext": "https://app.95112475.xyz|5a9w6x58dsq6z3a6"},
-  {"key": "蔬菜","name": "🫛┃蔬菜┃APP","type": 3,"api": "csp_AppGet","ext": "https://gitee.com/wmmoliill/wimg/raw/master/img/bk/9.txt|88689667dce61725"},
+  {"key": "蔬菜","name": "🫛┃蔬菜┃APP","type": 3,"api": "csp_AppGet","ext": "https://allinadmin.oss-cn-hangzhou.aliyuncs.com/bk/9.txt|88689667dce61725"},
   {"key": "永永","name": "♾️┃永永┃APP","type": 3,"api": "csp_AppGet","ext": "https://444421.xyz|#getapp@TMD@2025|120"},
   {"key": "csp_Jpys","name": "🥇️┃金牌┃影视","type": 3,"api": "csp_Jpys"},
   {"key": "csp_Wwys","name": "🌾️┃农民┃影视","type": 3,"api": "csp_Wwys","ext": "https://vip.wwgz.cn:5200"},
