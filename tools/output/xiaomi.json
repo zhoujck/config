@@ -34,11 +34,11 @@
   {"key": "csp_duanju","name": "🔥短剧1┃1080P","type": 3,"timeout": 12,"api": "csp_HemaDJ"},
   {"key": "csp_XY","name": "🔥短剧2┃1080P","type": 3,"timeout": 12,"api": "csp_AppXY","ext": ""},
   {"key": "csp_APPTe","name": "🍉天鹅┃1080P","type": 3,"timeout": 12,"searchable": 1,"quickSearch": 0,"api": "csp_AppTe"},
-  {"key": "csp_Gz360","name": "🍉瓜子┃1080P","type": 3,"timeout": 12,"searchable": 1,"quickSearch": 0,"api": "csp_Gz360"},
+  {"key": "csp_Gz360","name": "🍉瓜子┃明天修","type": 3,"timeout": 12,"searchable": 1,"quickSearch": 0,"api": "https://wget.la/https://raw.githubusercontent.com/PizazzGY/NewTVBox/main/movie/py/GZYS.py"},
   {"key": "csp_Jpys","name": "🥇金牌┃1080P","type": 3,"timeout": 12,"searchable": 1,"quickSearch": 0,"api": "csp_Jpys","ext": "https://y2s52n7.com"},
   {"key": "csp_MiSou","name": "🔍米搜┃盘搜","type": 3,"timeout": 12,"searchable": 1,"quickSearch": 0,"api": "csp_MiSou"},
   {"key": "csp_TingBook","name": "📖听书┃娱乐","type": 3,"api": "csp_TingBook"},
-  {"key": "Live","name": "🚑 LIVE","type": 3,"api": "./Live.py","searchable": 0,"quickSearch": 0,"style": {"type": "rect","ratio": 3.8}},
+  {"key": "Live","name": "🚑 LIVE|直播","type": 3,"api": "./Live.py","searchable": 0,"quickSearch": 0,"style": {"type": "rect","ratio": 3.8}},
   {"key": "Aid","name": "🚑 急救┃知识","type": 3,"api": "csp_FirstAid","searchable": 0,"quickSearch": 0,"style": {"type": "rect","ratio": 3.8}},
   {"key": "push_agent","name": "📤 推送┃播放","type": 3,"filterable": 0,"changeable": 0,"api": "csp_Push","searchable": 1,"quickSearch": 1,"ext": ""}
  ],
