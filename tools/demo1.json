@@ -23,14 +23,14 @@
   {"key": "线路2","name": "🔥天天","type": 3,"api": "csp_AppRJ","timeout": 10,"ext": "vxw35/hHSj07Q+maxQzOVMq1rjRCOTXpUCx8iKu5jIg="},
   {"key": "线路3","name": "🔥小米","type": 3,"api": "csp_App3Q","timeout": 10,"ext": "https://asd123sx23xdacsx.top"},
   {"key": "线路4","name": "🔥农民","type": 3,"api": "csp_Wwys","ext": "https://vip.wwgz.cn:5200"},
-  {"key": "线路5","name": "🔥🔥首发","type": 3,"api": "csp_AppGet","ext": "https://yun-1316442804.cos.ap-guangzhou.myqcloud.com/601.txt|FTgP4Gq8zPiqbt7M|V122|okhttp/3.10.0"},
+  {"key": "线路5","name": "🔥🔥首发","type": 3,"api": "csp_AppGet","ext": "https://yun-1316442804.cos.ap-guangzhou.myqcloud.com/602.txt|FTgP4Gq8zPiqbt7M|V122|okhttp/3.10.0"},
   {"key": "线路6","name": "🔥荐片","api": "csp_Jianpian","type": 3,"ext": "https://api.ztcgi.com"},
   {"key": "线路7","name": "🔥热播","type": 3,"api": "csp_AppRJ","searchable": 1,"quickSearch": 1,"filterable": 0,"ext": {"url": "http://v.rbotv.cn"}},
-  {"key": "线路8","name": "🍬虾皮","type": 3,"api": "./js/皮皮虾.py","ext": "http://154.94.224.98:8762"},
+  {"key": "线路8","name": "🔥天鹅","type": 3,"timeout": 12,"searchable": 1,"quickSearch": 0,"api": "csp_AppTe"},
   {"key": "线路9","name": "🔥金牌","type": 3,"api": "csp_Jpys","searchable": 1,"quickSearch": 1,"filterable": 0,"ext": "https://y2s52n7.com"},
   {"key": "线路10","name": "🏭厂长","type": 3,"api": "csp_Czsapp","ext": "https://www.4kcz.com"},
 
-
+  
    
   //{"key": "JS1","name": "🍬永乐","type": 3,"api": "./js/永乐.js","searchable": 1,"ext": ""},
   //{"key": "JS2","name": "🍬荐片","type": 3,"api": "./js/荐片.js","searchable": 1,"ext": ""},
@@ -40,8 +40,10 @@
   //{"key": "JS6","name": "🍬糯米","type": 3,"api": "./js/lib/drpy2.min.js","searchable": 1,"ext": "./js/农民影视.js"},  
   //{"key": "JS7","name": "🍬茶杯狐","type": 3,"api": "csp_XBPQ","searchable": 1,"ext": "./ext/茶杯狐.json","jar": "./jar/xpqb.txt"}, 
 
-  {"key": "pan1","name": "💌蜡笔","type": 3,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["http://xiaocge.fun","http://feimo.fun","http://www.labi88.sbs","http://fmao.site","http://fmao.shop","http://xiaocgege.shop","http://www.xiaocgege.shop"],"threadinfo": {"chunksize": 512,"threads": 16},"url_key": "Duopan2"}},
-  {"key": "pan2","name": "💌至臻","type": 3,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["https://pan.mihdr.top","https://www.zhizhen1.top","https://www.mihdr.top","https://www.miqk.cc","https://www.zhizhenpan.com","https://www.zhizhen8.click"],"url_key": "Netfixtv2","threadinfo": {"chunksize": 512,"threads": 16}}},
+  {"key": "csp_Netfixtv","name": "🚀🚀臻臻┃网盘4K","type": 3,"changeable": "0","quickSearch": 1,"timeout": 15,"api": "csp_Duopan","filterable": 1,"ext": "ewogICJzaXRlX3VybHMiOiBbCiAgICAiaHR0cHM6Ly93d3cuemhpemhlbjguY2xpY2siLAogICAgImh0dHBzOi8vcGFuLm1paGRyLnRvcCIsCiAgICAiaHR0cHM6Ly93d3cuemhpemhlbjEudG9wIiwKICAgICJodHRwczovL3d3dy5taWhkci50b3AiLAogICAgImh0dHBzOi8vd3d3Lm1pcWsuY2MiCiAgXSwKICAidXJsX2tleSI6ICJOZXRmaXh0diIsCiAgInRva2VuIjogIiIsCiAgInVjQ29va2llIjogIiIsCiAgInF1YXJrQ29va2llIjogIiIKfQ=="},
+  {"key": "csp_Wogg","name": "🧸玩偶┃网盘4K","type": 3,"api": "csp_Gege","timeout": 15,"changeable": "0","quickSearch": 1,"filterable": 1,"ext": "ewogICJzaXRlX3VybHMiOiBbCiAgICAiaHR0cHM6Ly93d3cud29nZy5saXZlIiwKICAgICJodHRwOi8vd29nZ3Bhbi54eG9vby5jZiIsCiAgICAiaHR0cHM6Ly93d3cud29nZy5uZXQiCiAgXSwKICAidG9rZW4iOiAiIiwKICAidWNDb29raWUiOiAiIiwKICAicXVhcmtDb29raWUiOiAiIgp9"},
+  {"key": "csp_Duopan","name": "☁️蜡笔┃网盘4K","type": 3,"quickSearch": 1,"changeable": "0","timeout": 15,"api": "csp_Duopan","filterable": 1,"ext": "ewogICJzaXRlX3VybHMiOiBbCiAgICAiaHR0cDovL3R2cGFucGFuLnNpdGUiLAogICAgImh0dHA6Ly9mZWltby5mdW4iLAogICAgImh0dHA6Ly94aWFvY2dlZ2Uuc2hvcCIsCiAgICAiaHR0cDovL3d3dy54aWFvY2dlZ2Uuc2hvcCIsCiAgICAiaHR0cHM6Ly93d3cueGlhb2NnZS5mdW4iCiAgXSwKICAidXJsX2tleSI6ICJEdW9wYW40Igp9"},
+
   {"key": "短剧","name": "🦛短剧","type": 3,"api": "https://gitee.com/PizazzXS/another-d/raw/master/movie/py/HMDJ.py","searchable": 1,"changeable": 1,"quickSearch": 1,"filterable": 1,"playerType": 2},
   {"key": "商店","name": "应用商店","type": 3,"api": "csp_Market","searchable": 0,"changeable": 0,"jar": "./jar/FM.jar","ext": "./ext/market.json"}
  ],
