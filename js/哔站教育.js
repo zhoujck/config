@@ -1,21 +1,6 @@
 /*
  * ============================================================
- *  哔站教育.js — 合集版改动说明
- * ============================================================
- *
- *  改动目标：象棋分类下选"板牙象棋"等UP主时，以合集形式展示
- *  而不是散的单个视频。
- *
- *  改动点：
- *    1. FILTERS["象棋"] 的 value 改为 mid（UP主ID）
- *    2. 新增 searchCollections(mid, pg) 函数
- *    3. category() 检测到 mid 时走合集逻辑
- *    4. detail() 通过 ugc_season 自动检测合集并返回完整播放列表
- *    5. 系列(series)使用独立API获取完整视频列表
- *
- *  核心发现：view?aid= 返回的 ugc_season 字段包含合集内所有视频的 aid 和 cid
- *  不需要额外的合集详情 API，一个 view 请求搞定一切
- *  但系列(series)没有 ugc_season，需要用 seasons_series_list + series_id 获取
+ *  哔站教育.js — by Xiaomi MiMo
  * ============================================================
  */
 
@@ -24,6 +9,16 @@ let headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
     "Referer": "https://www.bilibili.com",
     "Cookie": "SESSDATA=86c3fc83%2C1795696570%2Ca6d88%2A52CjAJMwAGyfu3lsQVCfvhNLbXvizfA7NyX-JKiBkTV8ZTHBPtUQ63FCn_a5jXrpITpScSVnFFZDVpeEdDSzJOdGJoVV9qcF9XaEs3c195bHA0UmFTVlZwNldhaFh6eUw1TnpNel91NHktLVc4NkZOdjFCc1dFZjl4aEdKY21FRnl1X1g4TVR2N3NRIIEC; bili_jct=279ec1a90956adda881fc7e7d4ac6406;"
+};
+
+// ==================== 配置 ====================
+var DEFAULT_GRADE = "5年级";
+// 学科默认版本（未手动选择版本时使用，设为 "" 则不带版本搜索）
+var DEFAULT_VERSIONS = {
+    "语文": "人教版",
+    "数学": "苏教版",
+    "英语": "译林版",
+    "物理": ""
 };
 
 function ensureBuvid() {
@@ -152,16 +147,6 @@ async function signWbiParams(params) {
     sortedParams.w_rid = w_rid;
     return sortedParams;
 }
-
-// ==================== 配置 ====================
-var DEFAULT_GRADE = "5年级";
-// 学科默认版本（未手动选择版本时使用，设为 "" 则不带版本搜索）
-var DEFAULT_VERSIONS = {
-    "语文": "人教版",
-    "数学": "苏教版",
-    "英语": "译林版",
-    "物理": ""
-};
 
 // ==================== 教育分类（学科 + 年级筛选）====================
 var CLASSES = [
