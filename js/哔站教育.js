@@ -154,7 +154,7 @@ async function signWbiParams(params) {
 }
 
 // ==================== 配置 ====================
-var DEFAULT_GRADE = "4年级";
+var DEFAULT_GRADE = "5年级";
 
 // ==================== 教育分类（学科 + 年级筛选）====================
 var CLASSES = [
