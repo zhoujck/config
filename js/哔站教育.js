@@ -1,29 +1,23 @@
 /*
  * ============================================================
- *  哔站教育.js — 合集版改动说明
+ *  哔站教育.js — by xiaomi MiMo 
  * ============================================================
- *
- *  改动目标：象棋分类下选"板牙象棋"等UP主时，以合集形式展示
- *  而不是散的单个视频。
- *
- *  改动点：
- *    1. FILTERS["象棋"] 的 value 改为 mid（UP主ID）
- *    2. 新增 searchCollections(mid, pg) 函数
- *    3. category() 检测到 mid 时走合集逻辑
- *    4. detail() 通过 ugc_season 自动检测合集并返回完整播放列表
- *    5. 系列(series)使用独立API获取完整视频列表
- *
- *  核心发现：view?aid= 返回的 ugc_season 字段包含合集内所有视频的 aid 和 cid
- *  不需要额外的合集详情 API，一个 view 请求搞定一切
- *  但系列(series)没有 ugc_season，需要用 seasons_series_list + series_id 获取
- * ============================================================
- */
 
 let host = 'https://api.bilibili.com';
 let headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
     "Referer": "https://www.bilibili.com",
     "Cookie": "SESSDATA=86c3fc83%2C1795696570%2Ca6d88%2A52CjAJMwAGyfu3lsQVCfvhNLbXvizfA7NyX-JKiBkTV8ZTHBPtUQ63FCn_a5jXrpITpScSVnFFZDVpeEdDSzJOdGJoVV9qcF9XaEs3c195bHA0UmFTVlZwNldhaFh6eUw1TnpNel91NHktLVc4NkZOdjFCc1dFZjl4aEdKY21FRnl1X1g4TVR2N3NRIIEC; bili_jct=279ec1a90956adda881fc7e7d4ac6406;"
+};
+
+// ==================== 配置 ====================
+var DEFAULT_GRADE = "5年级";
+// 学科默认版本（未手动选择版本时使用，设为 "" 则不带版本搜索）
+var DEFAULT_VERSIONS = {
+    "语文": "人教版",
+    "数学": "苏教版",
+    "英语": "译林版",
+    "物理": ""
 };
 
 function ensureBuvid() {
@@ -153,8 +147,6 @@ async function signWbiParams(params) {
     return sortedParams;
 }
 
-// ==================== 配置 ====================
-var DEFAULT_GRADE = "5年级";
 
 // ==================== 教育分类（学科 + 年级筛选）====================
 var CLASSES = [
@@ -190,13 +182,42 @@ var GRADE_VALUES = [
     { "n": "高三", "v": "高三" }
 ];
 
+// ==================== 学科版本配置 ====================
+var SUBJECT_VERSIONS = {
+    "语文": [
+        { "n": "全部", "v": "" },
+        { "n": "人教版", "v": "人教版" },
+        { "n": "苏教版", "v": "苏教版" },
+        { "n": "北师大版", "v": "北师大版" },
+        { "n": "部编版", "v": "部编版" }
+    ],
+    "数学": [
+        { "n": "全部", "v": "" },
+        { "n": "人教版", "v": "人教版" },
+        { "n": "苏教版", "v": "苏教版" },
+        { "n": "北师大版", "v": "北师大版" }
+    ],
+    "英语": [
+        { "n": "全部", "v": "" },
+        { "n": "译林版", "v": "译林版" },
+        { "n": "人教版", "v": "人教版" },
+        { "n": "外研版", "v": "外研版" }
+    ]
+};
+
 var FILTERS = {};
 var NO_GRADE = { "象棋": true };
 for (var ci = 0; ci < CLASSES.length; ci++) {
-    if (!NO_GRADE[CLASSES[ci].type_id]) {
-        FILTERS[CLASSES[ci].type_id] = [
+    var subjectId = CLASSES[ci].type_id;
+    if (!NO_GRADE[subjectId]) {
+        var filterItems = [
             { "key": "grade", "name": "年级", "value": GRADE_VALUES }
         ];
+        // 为配置了版本的学科添加版本筛选项
+        if (SUBJECT_VERSIONS[subjectId]) {
+            filterItems.push({ "key": "version", "name": "版本", "value": SUBJECT_VERSIONS[subjectId] });
+        }
+        FILTERS[subjectId] = filterItems;
     }
 }
 
@@ -385,6 +406,7 @@ async function homeVod() {
 // ★ 改动点3：category 函数识别 mid 前缀，走合集逻辑
 async function category(tid, pg, filter, extend) {
     var grade = (extend && extend.grade) ? extend.grade : "";
+    var version = (extend && extend.version) ? extend.version : "";
     var keyword;
 
     if (NO_GRADE[tid]) {
@@ -403,7 +425,20 @@ async function category(tid, pg, filter, extend) {
         }
         keyword = grade || tid;
     } else {
-        keyword = (grade && grade !== DEFAULT_GRADE) ? (grade + tid) : (DEFAULT_GRADE + tid);
+        // 拼接搜索关键词：年级 + 版本 + 学科
+        var parts = [];
+        if (grade && grade !== DEFAULT_GRADE) {
+            parts.push(grade);
+        } else {
+            parts.push(DEFAULT_GRADE);
+        }
+        // 优先用手动选择的版本，否则用该学科的默认版本
+        var ver = version || (DEFAULT_VERSIONS[tid] || "");
+        if (ver) {
+            parts.push(ver);
+        }
+        parts.push(tid);
+        keyword = parts.join("");
     }
 
     var result = await searchVideos(keyword, pg);
