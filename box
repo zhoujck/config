@@ -14,7 +14,6 @@
   {"key": "哔站教育","name": "🍬🅱哔站教育","type": 3,"api": "./js/哔站教育.js","searchable": 0,"changeable": 0,"ext": "","style": {"type": "rect","ratio": 1.43}},
   {"key": "瓜子体育","name": "🏀瓜子体育","type": 3,"api": "csp_GuaziTY","style": {"type": "rect","ratio": 1.333},"searchable": 0,"quickSearch": 0,"filterable": 1,"timeout": 12,"order_num": 0,"changeable": 0},
   {"key": "线路1","name": "🔥🔥瓜子","type": 3,"timeout": 12,"api": "https://wget.la/https://raw.githubusercontent.com/PizazzGY/NewTVBox/main/movie/py/GZYS.py"},
-  {"key": "线路T1","name": "🔥🔥瓜子T","type": 3,"api": "./js/瓜子.py"},
   {"key": "线路2","name": "🔥天天","type": 3,"api": "csp_AppRJ","timeout": 10,"ext": "vxw35/hHSj07Q+maxQzOVMq1rjRCOTXpUCx8iKu5jIg="},
   {"key": "线路3","name": "🔥小米","type": 3,"api": "csp_App3Q","timeout": 10,"ext": "https://asd123sx23xdacsx.top"},
   {"key": "线路4","name": "🔥农民","type": 3,"api": "csp_Wwys","ext": "https://vip.wwgz.cn:5200"},
