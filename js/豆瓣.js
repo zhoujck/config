@@ -126,7 +126,7 @@ async function home(filter) {
     return JSON.stringify({
         class: [
             { type_id: "tv", type_name: "电视剧" },
-            { type_id: "movie, type_name: "电影" },
+            { type_id: "movie", type_name: "电影" },
             { type_id: "documentary", type_name: "纪录片" },
             { type_id: "show", type_name: "综艺" },
             { type_id: "high_score", type_name: "豆瓣高分" }
