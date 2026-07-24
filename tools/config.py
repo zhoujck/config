@@ -5,6 +5,7 @@ import json
 import sys
 import os
 import base64
+import string
 from Crypto.Cipher import AES
 
 # ============ 配置区 ============
@@ -16,7 +17,7 @@ SOURCES = [
     {
         "name": "xiaomi",
         "url": "https://www.tangsan.fun/tv/",
-       # "url": "https://raw.githubusercontent.com/ggrrttyyiii/CatVodSpider/refs/heads/main/json/demo.json",
+        # "url": "https://raw.githubusercontent.com/ggrrttyyiii/CatVodSpider/refs/heads/main/json/demo.json",
     },
 ]
 
@@ -55,12 +56,55 @@ def decrypt_aes_cbc(hex_data):
     return plaintext.decode('utf-8')
 
 
+def try_extract_base64_json(data: bytes) -> str | None:
+    """
+    通用 base64 JSON 探测：
+    扫描原始字节，找最长的 base64 片段，尝试解码为 JSON。
+    支持所有 JSON 开头变体：{, {\n, {\t, {\r\n, {" 等。
+    """
+    valid = set(string.ascii_letters + string.digits + '+/=')
+    text = data.decode('utf-8', errors='replace')
+
+    # 找所有连续 base64 片段（长度 >= 100 才有意义）
+    segments = []
+    seg_start = None
+    for i, c in enumerate(text):
+        if c in valid:
+            if seg_start is None:
+                seg_start = i
+        else:
+            if seg_start is not None:
+                seg_len = i - seg_start
+                if seg_len >= 100:
+                    segments.append((seg_start, seg_len))
+                seg_start = None
+    if seg_start is not None and len(text) - seg_start >= 100:
+        segments.append((seg_start, len(text) - seg_start))
+
+    # 按长度降序，优先尝试最长的片段
+    segments.sort(key=lambda x: x[1], reverse=True)
+
+    for start, length in segments:
+        b64_str = text[start:start + length]
+        # 尝试不同补位
+        for pad in ['', '=', '==', '===']:
+            try:
+                decoded = base64.b64decode(b64_str + pad).decode('utf-8')
+                stripped = decoded.lstrip()  # 去掉前导空白
+                if stripped.startswith('{'):
+                    print(f"🔍 在偏移 {start} 处找到 base64 JSON（{length} 字符）")
+                    return decoded
+            except Exception:
+                continue
+    return None
+
+
 def fetch_raw_json(url):
     resp = requests.get(url, timeout=15)
     resp.encoding = 'utf-8'
     text = resp.text.strip()
 
-    # 检测 AES-CBC 加密格式: hex编码，解码后以 $# 开头
+    # ---- 1) 检测 AES-CBC 加密格式 ----
     clean = re.sub(r'\s+', '', text)
     try:
         test = bytes.fromhex(clean[:20]).decode('utf-8', errors='replace')
@@ -70,28 +114,44 @@ def fetch_raw_json(url):
     except Exception:
         pass
 
-    # 如果返回的不是 JSON（被重定向到图片等），尝试提取内嵌的 base64 JSON
-    if not text.startswith('{'):
-        data = resp.content
-        for marker in [b'ewoJ', b'eyJ']:
-            idx = data.find(marker)
-            if idx != -1:
-                import string
-                valid = set(string.ascii_letters + string.digits + '+/=')
-                b64_str = ''
-                for b in data[idx:]:
-                    c = chr(b)
-                    if c in valid:
-                        b64_str += c
-                    elif b64_str:
-                        break
-                for pad in ['', '=', '==', '===']:
-                    try:
-                        decoded = base64.b64decode(b64_str + pad).decode('utf-8')
-                        if decoded.strip().startswith('{'):
-                            return decoded
-                    except Exception:
-                        continue
+    # ---- 2) 检测 BMP 伪装文件头 ----
+    if resp.content[:2] == b'BM':
+        print("🖼️  检测到 BMP 伪装文件头，尝试提取 base64 JSON...")
+        result = try_extract_base64_json(resp.content)
+        if result:
+            return result
+        print("⚠️  BMP 文件中未找到有效 JSON")
+
+    # ---- 3) 普通文本：先看是不是直接 JSON ----
+    if text.startswith('{'):
+        return text
+
+    # ---- 4) 非 JSON 文本：尝试从任意位置提取 base64 JSON ----
+    print("🔍 非 JSON 响应，扫描 base64 片段...")
+    result = try_extract_base64_json(resp.content)
+    if result:
+        return result
+
+    # ---- 5) 兜底：尝试旧的 ewoJ/eyJ 快速匹配 ----
+    for marker in [b'ewoJ', b'eyJ', b'ew0K', b'ewo=', b'ew==']:
+        idx = resp.content.find(marker)
+        if idx != -1:
+            valid_chars = set(string.ascii_letters + string.digits + '+/=')
+            b64_str = ''
+            for b in resp.content[idx:]:
+                c = chr(b)
+                if c in valid_chars:
+                    b64_str += c
+                elif b64_str:
+                    break
+            for pad in ['', '=', '==', '===']:
+                try:
+                    decoded = base64.b64decode(b64_str + pad).decode('utf-8')
+                    if decoded.strip().startswith('{'):
+                        return decoded
+                except Exception:
+                    continue
+
     return text
 
 
@@ -111,12 +171,44 @@ def extract_and_save_spider(json_text, name):
     print(f"✅ [{name}] spider 保存为 {filepath}（{len(resp.content)} 字节）")
 
 
+def decode_nested_base64(data):
+    """递归解码 sites[].ext 中嵌套的 base64 字符串"""
+    if isinstance(data, dict):
+        result = {}
+        for k, v in data.items():
+            if k == 'ext' and isinstance(v, str) and len(v) > 50:
+                # 尝试 base64 解码
+                try:
+                    decoded = base64.b64decode(v).decode('utf-8')
+                    stripped = decoded.lstrip()
+                    if stripped.startswith('{') or stripped.startswith('['):
+                        try:
+                            result[k] = json.loads(decoded)
+                            print(f"  📦 解码 ext 字段 -> JSON 对象")
+                        except json.JSONDecodeError:
+                            result[k] = decoded
+                    else:
+                        result[k] = v
+                except Exception:
+                    result[k] = v
+            else:
+                result[k] = decode_nested_base64(v)
+        return result
+    elif isinstance(data, list):
+        return [decode_nested_base64(item) for item in data]
+    return data
+
+
 def clean_data(raw_text, name):
     raw_text = raw_text.replace(
         "before",
         "after"
     )
     data = demjson.decode(raw_text)
+
+    # 递归解码嵌套的 base64 字段
+    data = decode_nested_base64(data)
+
     original_count = len(data.get("sites", []))
 
     if KEYWORDS:
