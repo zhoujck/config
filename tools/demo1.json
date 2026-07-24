@@ -19,17 +19,17 @@
   //{"key": "看球","name": "🏀看球","type": 3,"api": "csp_Kanqiu","searchable": 1,"quickSearch": 1,"changeable": 0,"gridview": 3,"style": {"type": "list"}},
   {"key": "瓜子体育","name": "🏀瓜子体育","type": 3,"api": "csp_GuaziTY","style": {"type": "rect","ratio": 1.333},"searchable": 0,"quickSearch": 0,"filterable": 1,"timeout": 12,"order_num": 0,"changeable": 0},
  
-  {"key": "线路1","name": "🔥🔥瓜子","type": 3,"timeout": 12,"api": "https://wget.la/https://raw.githubusercontent.com/PizazzGY/NewTVBox/main/movie/py/GZYS.py"},
-  //{"key": "线路T1","name": "🔥🔥瓜子T","type": 3, "api": "./js/瓜子.py"},
-  {"key": "线路2","name": "🔥天天","type": 3,"api": "csp_AppRJ","timeout": 10,"ext": "vxw35/hHSj07Q+maxQzOVMq1rjRCOTXpUCx8iKu5jIg="},
+  {"key": "线路1","name": "🔥🔥瓜子","type": 3,"timeout": 12,"api": "csp_Gz360"},
+  {"key": "线路2","name": "🔥天天","type": 3,"api": "csp_AppRJ","timeout": 10,"ext": "http://v.rbotv.cn"},
   {"key": "线路3","name": "🔥小米","type": 3,"api": "csp_App3Q","timeout": 10,"ext": "https://asd123sx23xdacsx.top"},
   {"key": "线路4","name": "🔥农民","type": 3,"api": "csp_Wwys","ext": "https://vip.wwgz.cn:5200"},
-  {"key": "线路5","name": "🔥🔥首发","type": 3,"api": "csp_AppGet","ext": "https://yun-1316442804.cos.ap-guangzhou.myqcloud.com/602.txt|FTgP4Gq8zPiqbt7M|V122|okhttp/3.10.0"},
+  {"key": "线路5","name": "🔥🔥首发","type": 3,"api": "csp_AppGet","ext": "https://yun-1316442804.cos.ap-guangzhou.myqcloud.com/603.txt|FTgP4Gq8zPiqbt7M|V122|okhttp/3.10.0"},
   {"key": "线路6","name": "🔥荐片","api": "csp_Jianpian","type": 3,"ext": "https://api.ztcgi.com"},
-  {"key": "线路7","name": "🔥热播","type": 3,"api": "csp_AppRJ","searchable": 1,"quickSearch": 1,"filterable": 0,"ext": {"url": "http://v.rbotv.cn"}},
+  {"key": "线路7","name": "🚀秒播","type": 3,"api": "csp_YunZhenXiang","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"index_url": "https://ss.trgfd.cn/cache/index/com.baiyunvideo.app.json","key_api": "https://www.tangsan.fun/zx.php"}},
   {"key": "线路8","name": "🔥天鹅","type": 3,"timeout": 12,"searchable": 1,"quickSearch": 0,"api": "csp_AppTe"},
   {"key": "线路9","name": "🔥金牌","type": 3,"api": "csp_Jpys","searchable": 1,"quickSearch": 1,"filterable": 0,"ext": "https://y2s52n7.com"},
   {"key": "线路10","name": "🏭厂长","type": 3,"api": "csp_Czsapp","ext": "https://www.4kcz.com"},
+  {"key": "线路11","name": "👀橘汁","type": 3,"api": "csp_AppDrama","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"appName": "橘汁","publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCr8SzZhjYy+rsya1K09t8d2K50pWFoBkgUqMpKOiW+3IEVKd4eTdvg9RSOjQ82kypL6R9BnsmrS1V8s4PVDwjQbUtYhTPPC9Hz16qY7rpD6m0d2vr09/UpWQ5uOy9PR0QTrsioveZ+DIe9jc3C+zBCu/kZSY/R8stwJoiitki3gwIDAQAB","dataKey": "DGVQRUX5R1LWWDLHTGJSUKG1DJRVPQ==","dataIv": "OC1A06E197EF10CF3F6058CA7A803B5E","commonKey": "ed5fdsgucxumegqa","pkg": "com.lxf.snzlcgtzxyx","host": "","site": "https://123-1349250429.cos.ap-shanghai.myqcloud.com/app.txt","version": "3.0.2.1","decrypt": "1"}},
 
   
    
