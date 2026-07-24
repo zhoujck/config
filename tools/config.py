@@ -15,7 +15,7 @@ SOURCES = [
     },
     {
         "name": "xiaomi",
-        "url": "https://zzzy.shop/tv/",
+        "url": "https://www.tangsan.fun/tv/",
        # "url": "https://raw.githubusercontent.com/ggrrttyyiii/CatVodSpider/refs/heads/main/json/demo.json",
     },
 ]
