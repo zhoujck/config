@@ -1,5 +1,5 @@
 {
- "spider": "https://oss-chat-bucket.oss-cn-beijing.aliyuncs.com/picture/console/chatres/7fd101e440d84afa8608480893e72180aFnuu1Uq.jpg;md5;739eb01b9d30692d10d0afa5c6668e24",
+ "spider": "https://nos.netease.com/ysf/f26f89c9230d39276e715f7283e1fa67.jpg;md5;739eb01b9d30692d10d0afa5c6668e24",
  "wallpaper": "https://www.wexwp.cc/bizhi.php",
  "logo": "https://wkphoto.bj.bcebos.com/bba1cd11728b47106798119ad3cec3fdfc032335.jpg",
  "lives": [
@@ -14,7 +14,9 @@
   {"key": "csp_Duopan","name": "☁️蜡笔┃高峰不卡*网盘4K","type": 3,"quickSearch": 1,"changeable": "0","timeout": 15,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["http://tvpanpan.site","http://feimo.fun","http://xiaocgege.shop","https://www.mmpanpan.site","http://www.xiaocgege.shop"],"url_key": "Duopan4"}},
   {"key": "csp_guangya","name": "🦆光鸭┃高峰不卡*网盘4K","type": 3,"quickSearch": 1,"changeable": "0","timeout": 15,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["http://www.guangyashe.top"],"url_key": "Duopan5"}},
   {"key": "天天","name": "🚀秒播┃高清影视","type": 3,"quickSearch": 1,"searchable": 1,"api": "csp_AppRJ","timeout": 12,"ext": "http://v.rbotv.cn"},
-  {"key": "YunZhenXiang","name": "🚀秒播┃极速帧享","type": 3,"api": "csp_YunZhenXiang","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"index_url": "https://ss.trgfd.cn/cache/index/com.baiyunvideo.app.json","key_api": "https://www.tangsan.fun/zx.php"}},
+  {"key": "YunZhenXiang","name": "🚀秒播┃极速帧享","type": 3,"api": "csp_YunZhenXiang","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"index_url": "https://ss.trgfd.cn/cache/index/com.huohuavideo.app.json","key_api": "https://www.tangsan.fun/zx.php"}},
+  {"key": "AiKan_Spider","name": "🚀秒播┃爱看剧场","type": 3,"api": "csp_AiKan","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": "http://43.248.117.123:4680"},
+  {"key": "HkybSpider","name": "🚀秒播┃世界影视","type": 3,"api": "csp_HkybSpider","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": ""},
   {"key": "csp_Wwys","name": "🌾农民┃高清影视","type": 3,"api": "csp_Wwys","timeout": 12,"ext": "https://vip.wwgz.cn:5200"},
   {"key": "Osstexll","name": "🐷八戒┃高清影视","type": 3,"api": "csp_Tounimabi","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": ""},
   {"key": "csp_Gz360","name": "🍉瓜子┃高清影视","type": 3,"timeout": 12,"searchable": 1,"quickSearch": 0,"api": "csp_Gz360"},
@@ -25,7 +27,8 @@
   {"key": "枫叶影视","name": "🍁枫叶┃热门4K","type": 3,"api": "csp_FengYe","searchable": 1,"quickSearch": 1,"filterable": 0,"ext": "https://www.vip1949.com/"},
   {"key": "双星99","name": "🥪双星┃热门动漫","type": 3,"api": "csp_App99","ext": {"host": "http://175.178.65.250:19987/app/bn","LoginPath": "/app/log","appkey": "f66f65db127e48449f073c2c6eb0f993","versionName": "6.4.5","name": "双子星动漫","package": "com.yingfu.mobile.android.pgsp","buildNumber": "2003","buildSignature": "054FA8DDA4319C6B6A9B954CA5777541C993F00B1B0BD4394F7EDE48184C4594"}},
   {"key": "稀饭动漫[APP]","name": "🍚稀饭┃热门动漫","type": 3,"api": "csp_CycSpider","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": "https://www.tangsan.fun/config.php?source=xifan"},
-  {"key": "次元城动漫[APP]","name": "🍠次元┃热门动漫","type": 3,"api": "csp_CycSpider","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": "https://www.tangsan.fun/config.php?source=cyc"},
+  {"key": "方舟动漫","name": "🌸方舟┃热门动漫","type": 3,"searchable": 1,"api": "csp_AppGet","ext": "https://www.cyfz.top|e72cdfd629e8895d|V119|okhttp/3.10"},
+  {"key": "cycani_java","name": "🌸次元┃热门动","type": 3,"api": "csp_Ciyuancheng","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": ""},
   {"key": "咕咕动漫","name": "🥖咕咕┃热门动漫","type": 3,"searchable": 1,"api": "csp_AppGet","ext": "https://www.gugu3.com|nKfZ8KX6JTNWRzTD|V119|okhttp/3.10"},
   {"key": "csp_duanju","name": "🔥盒马┃精选短剧","type": 3,"timeout": 12,"api": "csp_HeMa"},
   {"key": "csp_XY","name": "🌟星丫┃精选短剧","type": 3,"searchable": 1,"timeout": 12,"api": "csp_AppXY","ext": ""},
@@ -42,6 +45,7 @@
   {"key": "六月有声","name": "📻六月┃有声听书","type": 3,"api": "csp_TingBook","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": "https://app.365ting.com","style": {"type": "list"}},
   {"key": "酷酷","name": "🎵酷酷┃在线音乐","type": 3,"api": "csp_KuKuMusic","searchable": 1,"quickSearch": 1,"filterable": 0,"changeable": 0,"style": {"type": "oval","ratio": 1}},
   {"key": "Live","name": "📡游戏┃在线直播","type": 3,"api": "csp_YXZB","searchable": 0,"quickSearch": 0,"style": {"type": "rect","ratio": 3.8}},
+  {"key": "TangDou_Spider","name": "💃 糖豆┃广场舞","type": 3,"api": "csp_TangDou","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": ""},
   {"key": "Aid","name": "🚑急救┃医疗知识","type": 3,"api": "csp_FirstAid","searchable": 0,"quickSearch": 0,"style": {"type": "rect","ratio": 3.8}},
   {"key": "push_agent","name": "📤推送┃设备播放","type": 3,"filterable": 0,"changeable": 0,"api": "csp_Push","searchable": 1,"quickSearch": 1,"ext": ""}
  ],
