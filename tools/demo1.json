@@ -25,7 +25,7 @@
   {"key": "线路4","name": "🔥农民","type": 3,"api": "csp_Wwys","ext": "https://vip.wwgz.cn:5200"},
   {"key": "线路5","name": "🔥🔥首发","type": 3,"api": "csp_AppGet","ext": "https://yun-1316442804.cos.ap-guangzhou.myqcloud.com/603.txt|FTgP4Gq8zPiqbt7M|V122|okhttp/3.10.0"},
   {"key": "线路6","name": "🔥荐片","api": "csp_Jianpian","type": 3,"ext": "https://api.ztcgi.com"},
-  {"key": "线路7","name": "🚀秒播","type": 3,"api": "csp_YunZhenXiang","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"index_url": "https://ss.trgfd.cn/cache/index/com.baiyunvideo.app.json","key_api": "https://www.tangsan.fun/zx.php"}},
+  {"key": "线路7","name": "🚀秒播┃极速帧享","type": 3,"api": "csp_YunZhenXiang","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"index_url": "https://ss.trgfd.cn/cache/index/com.huohuavideo.app.json","key_api": "https://www.tangsan.fun/zx.php"}},
   {"key": "线路8","name": "🔥天鹅","type": 3,"timeout": 12,"searchable": 1,"quickSearch": 0,"api": "csp_AppTe"},
   {"key": "线路9","name": "🔥金牌","type": 3,"api": "csp_Jpys","searchable": 1,"quickSearch": 1,"filterable": 0,"ext": "https://y2s52n7.com"},
   {"key": "线路10","name": "🏭厂长","type": 3,"api": "csp_Czsapp","ext": "https://www.4kcz.com"},
@@ -33,6 +33,8 @@
 
   {"key": "布布影视APP","name": "🌺大鹅┃高清影视","type": 3,"api": "csp_AppYd","ext": {"host": "https://bubutv.top","finger": "SF-C3B2B41F6EFFFF9869176CF68F6790E8F07506FC88632C94B4F5F0430D5498CA","updateId": "38b0ddfd-9aa3-8e42-5c92-a7fddd3d36e7","deviceBrand": "vivo","deviceModel": "V2309A","pkg": "com.sunshine.tv","sk": "SK-thanks","ver": "6"}},
   {"key": "云朵影视APP","name": "🌺云朵┃热门4K","type": 3,"api": "csp_AppYd","ext": {"host": "https://ds3xy2yunsa.xyz","finger": "SF-F5F11CB15897115AE6BCFE063C288F730CA865588F572C780A3E8477D0DD3776","updateId": "175070c3-075c-468b-950a-bf575769f4f1","deviceBrand": "vivo","deviceModel": "V2309A","pkg": "com.tvcloud.io","sk": "SK-sk_13oXDZ7u9j2Tk1c0cawWVFfO","ver": "1"}},
+  {"key": "AiKan_Spider","name": "🚀秒播┃爱看剧场","type": 3,"api": "csp_AiKan","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": "http://43.248.117.123:4680"},
+  {"key": "HkybSpider","name": "🚀秒播┃世界影视","type": 3,"api": "csp_HkybSpider","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": ""},
 
   
    
