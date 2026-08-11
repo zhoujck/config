@@ -1,5 +1,5 @@
 {
- "spider": "https://wxkb-res-1258476243.cos.ap-shanghai.myqcloud.com/web/img/8848100788856671/mPbH32yrcujod8XE5oJQSN_20260810094351#.png;md5;55277b00fefe6adfc3288a84f3197c24",
+ "spider": "https://s3plus.meituan.net/opapisdk/op_ticket_1_885190757_1786441652042_3gdAtt9a.zip;md5;72f76facb402366ab5f43d5dc6a45bf7",
  "wallpaper": "https://www.wexwp.cc/bizhi.php",
  "logo": "https://wkphoto.bj.bcebos.com/bba1cd11728b47106798119ad3cec3fdfc032335.jpg",
  "lives": [
@@ -8,6 +8,7 @@
  "sites": [
   {"key": "豆豆","name": "🎬豆瓣┃精选推荐 仅供测试 备用：https://www.tangsan.fun/tv/","type": 3,"quickSearch": 0,"filterable": 1,"changeable": 0,"api": "csp_Douban","searchable": 0},
   {"key": "config","name": "⚙️配置┃核心设置 接口免费公益 闲鱼购买都是傻子","type": 3,"api": "csp_Config","searchable": 0},
+  {"key": "zhizhen1","name": "🚀臻彩┃高峰不卡*网盘4K","type": 3,"api": "csp_ZhiZhen","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"site": "https://www.xn--6krz30d.de5.net","secret": "ZhiZhen@2026_!#"}},
   {"key": "csp_Netfixtv","name": "🚀臻臻┃高峰不卡*网盘4K","type": 3,"changeable": "0","quickSearch": 1,"timeout": 15,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["https://www.zhizhen8.click","https://pan.mihdr.top","https://www.zhizhen1.top","https://www.mihdr.top","https://www.miqk.cc"],"url_key": "Netfixtv","token": "","ucCookie": "","quarkCookie": ""}},
   {"key": "csp_Netfixtv2","name": "🛸指南┃高峰不卡*网盘4K","type": 3,"changeable": "0","quickSearch": 1,"timeout": 15,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["https://www.2xiaopan.top","http://www.wexwp.cc","https://www.2xiaopan.one","https://www.wexwp.cc"],"url_key": "UC","token": "","ucCookie": "","quarkCookie": ""}},
   {"key": "csp_Wogg","name": "🧸玩偶┃高峰不卡*网盘4K","type": 3,"api": "csp_Gege","timeout": 15,"changeable": "0","quickSearch": 1,"filterable": 1,"ext": {"site_urls": ["https://www.wogg.live","http://woggpan.xxooo.cf","https://www.wogg.net"],"token": "","ucCookie": "","quarkCookie": ""}},
@@ -25,8 +26,8 @@
   {"key": "爱营","name": "💥爱影┃热门4K","type": 3,"searchable": 1,"changeable": 1,"api": "csp_AppGet","ext": "https://aysappto.oss-cn-chengdu.aliyuncs.com/q26.txt|0UKM8jkasM8tdzgW|V122|okhttp/3.10.0"},
   {"key": "枫叶影视","name": "🍁枫叶┃热门4K","type": 3,"api": "csp_FengYe","searchable": 1,"quickSearch": 1,"filterable": 0,"ext": "https://www.vip1949.com/"},
   {"key": "双星99","name": "🥪双星┃热门动漫","type": 3,"api": "csp_App99","ext": {"host": "http://175.178.65.250:19987/app/bn","LoginPath": "/app/log","appkey": "f66f65db127e48449f073c2c6eb0f993","versionName": "6.4.5","name": "双子星动漫","package": "com.yingfu.mobile.android.pgsp","buildNumber": "2003","buildSignature": "054FA8DDA4319C6B6A9B954CA5777541C993F00B1B0BD4394F7EDE48184C4594"}},
+  {"key": "ciyuancheng","name": "🍚次元┃热门动漫","type": 3,"api": "csp_Ciyuancheng","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": "{\"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNDU3ODYzLCJ1c2VybmFtZSI6Im5pbWFzaWxlIiwidG9rZW5faWQiOiIwMUtaUVIxVEJTUFJZMUhIOEU4V04xWThaSyIsInRva2VuX3ZlcnNpb24iOjEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA5MCIsImF1ZCI6WyIiXSwiZXhwIjoxNzg3MDM0NDMwLCJuYmYiOjE3ODY0Mjk2MzAsImlhdCI6MTc4NjQyOTYzMH0.epvHnPb8cO-yFfGvA1BnyGzYMDDJrB2YOvbnB9Efb4c\"}"},
   {"key": "稀饭动漫[APP]","name": "🍚稀饭┃热门动漫","type": 3,"api": "csp_CycSpider","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": "https://www.tangsan.fun/config.php?source=xifan"},
-  {"key": "cycani_java","name": "🌸次元┃热门动漫","type": 3,"api": "csp_Ciyuancheng","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": ""},
   {"key": "csp_duanju","name": "🔥盒马┃精选短剧","type": 3,"timeout": 12,"genre": "shortdrama","api": "csp_HeMa"},
   {"key": "csp_QM","name": "🌟七猫┃精选短剧","type": 3,"searchable": 1,"timeout": 12,"genre": "shortdrama","api": "csp_DuanJuAiQiMiao","ext": ""},
   {"key": "csp_XY","name": "🌟星丫┃精选短剧","type": 3,"searchable": 1,"timeout": 12,"genre": "shortdrama","api": "csp_AppXY","ext": ""},
@@ -41,7 +42,7 @@
   {"key": "csp_Jpys","name": "🥇金牌┃高清影视","type": 3,"timeout": 12,"searchable": 1,"quickSearch": 0,"api": "csp_Jpys","ext": "https://y2s52n7.com"},
   {"key": "csp_MiSou","name": "🔍米搜┃网盘搜索","type": 3,"timeout": 12,"searchable": 1,"quickSearch": 0,"api": "csp_MiSou"},
   {"key": "六月有声","name": "📻六月┃有声听书","type": 3,"api": "csp_TingBook","searchable": 1,"quickSearch": 1,"changeable": 0,"filterable": 1,"ext": "https://app.365ting.com","style": {"type": "list"}},
-  {"key": "酷酷","name": "🎵酷酷┃在线音乐","type": 3,"api": "csp_KuKuMusic","searchable": 1,"quickSearch": 1,"filterable": 0,"changeable": 0,"style": {"type": "oval","ratio": 1}},
+  {"key": "酷酷","name": "🎵酷酷┃在线音乐","type": 3,"api": "csp_KuKuMusic","searchable": 0,"quickSearch": 0,"filterable": 0,"changeable": 0,"style": {"type": "oval","ratio": 1}},
   {"key": "Live","name": "📡游戏┃在线直播","type": 3,"api": "csp_YXZB","searchable": 0,"quickSearch": 0,"style": {"type": "rect","ratio": 3.8}},
   {"key": "TangDou_Spider","name": "💃 糖豆┃广场舞","type": 3,"api": "csp_TangDou","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": ""},
   {"key": "Aid","name": "🚑急救┃医疗知识","type": 3,"api": "csp_FirstAid","searchable": 0,"quickSearch": 0,"style": {"type": "rect","ratio": 3.8}},
