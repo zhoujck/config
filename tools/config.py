@@ -173,16 +173,11 @@ def extract_and_save_spider(json_text, name):
 
 
 def decode_nested_base64(data):
-    """递归解码嵌套的 base64 字符串，但跳过 sites 保持原样"""
+    """只解码 spider 字段，其他内容保持原样"""
     if isinstance(data, dict):
         result = {}
         for k, v in data.items():
-            # sites 内容保持原样，不做任何解码
-            if k == 'sites':
-                result[k] = v
-                continue
-            if k == 'ext' and isinstance(v, str) and len(v) > 50:
-                # 尝试 base64 解码
+            if k == 'spider' and isinstance(v, str) and len(v) > 50:
                 try:
                     decoded = base64.b64decode(v).decode('utf-8')
                     stripped = decoded.lstrip()
@@ -196,7 +191,7 @@ def decode_nested_base64(data):
                 except Exception:
                     result[k] = v
             else:
-                result[k] = decode_nested_base64(v)
+                result[k] = v
         return result
     elif isinstance(data, list):
         return [decode_nested_base64(item) for item in data]
@@ -210,7 +205,7 @@ def clean_data(raw_text, name):
     )
     data = demjson.decode(raw_text)
 
-    # 递归解码嵌套的 base64 字段
+    # 递归解码嵌套的 base64 字段（sites 保持原样）
     data = decode_nested_base64(data)
 
     original_count = len(data.get("sites", []))
