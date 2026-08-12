@@ -25,7 +25,7 @@
   {"key": "线路4","name": "🔥农民","type": 3,"api": "csp_Wwys","ext": "https://vip.wwgz.cn:5200"},
   {"key": "线路5","name": "🔥🔥首发","type": 3,"api": "csp_AppGet","ext": "https://yun-1316442804.cos.ap-guangzhou.myqcloud.com/603.txt|FTgP4Gq8zPiqbt7M|V122|okhttp/3.10.0"},
   {"key": "线路6","name": "🔥荐片","api": "csp_Jianpian","type": 3,"ext": "https://api.ztcgi.com"},
-  {"key": "线路7","name": "🚀秒播┃极速帧享","type": 3,"api": "csp_YunZhenXiang","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"index_url": "https://ss.trgfd.cn/cache/index/com.huohuavideo.app.json","key_api": "https://www.tangsan.fun/zx.php"}},
+  {"key": "线路7","name": "🚀帧享","type": 3,"api": "csp_YunZhenXiang","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"index_url": "https://ss.trgfd.cn/cache/index/com.huohuavideo.app.json","key_api": "https://www.tangsan.fun/zx.php"}},
   {"key": "线路8","name": "🔥天鹅","type": 3,"timeout": 12,"searchable": 1,"quickSearch": 0,"api": "csp_AppTe"},
   {"key": "线路9","name": "🔥金牌","type": 3,"api": "csp_Jpys","searchable": 1,"quickSearch": 1,"filterable": 0,"ext": "https://y2s52n7.com"},
   {"key": "线路10","name": "🏭厂长","type": 3,"api": "csp_Czsapp","ext": "https://www.4kcz.com"},
@@ -47,11 +47,11 @@
   //{"key": "JS6","name": "🍬糯米","type": 3,"api": "./js/lib/drpy2.min.js","searchable": 1,"ext": "./js/农民影视.js"},  
   //{"key": "JS7","name": "🍬茶杯狐","type": 3,"api": "csp_XBPQ","searchable": 1,"ext": "./ext/茶杯狐.json","jar": "./jar/xpqb.txt"}, 
 
-  {"key": "zhizhen1","name": "🚀臻彩┃高峰不卡*网盘4K","type": 3,"api": "csp_ZhiZhen","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"site": "https://www.xn--6krz30d.de5.net","secret": "ZhiZhen@2026_!#"}},
-  {"key": "csp_Netfixtv","name": "🚀臻臻┃高峰不卡*网盘4K","type": 3,"changeable": "0","quickSearch": 1,"timeout": 15,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["https://www.zhizhen8.click","https://pan.mihdr.top","https://www.zhizhen1.top","https://www.mihdr.top","https://www.miqk.cc"],"url_key": "Netfixtv","token": "","ucCookie": "","quarkCookie": ""}},
-  {"key": "csp_Netfixtv2","name": "🛸指南┃高峰不卡*网盘4K","type": 3,"changeable": "0","quickSearch": 1,"timeout": 15,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["https://www.2xiaopan.top","http://www.wexwp.cc","https://www.2xiaopan.one","https://www.wexwp.cc"],"url_key": "UC","token": "","ucCookie": "","quarkCookie": ""}},
-  {"key": "csp_Wogg","name": "🧸玩偶┃高峰不卡*网盘4K","type": 3,"api": "csp_Gege","timeout": 15,"changeable": "0","quickSearch": 1,"filterable": 1,"ext": {"site_urls": ["https://www.wogg.live","http://woggpan.xxooo.cf","https://www.wogg.net"],"token": "","ucCookie": "","quarkCookie": ""}},
-  {"key": "csp_Duopan","name": "☁️蜡笔┃高峰不卡*网盘4K","type": 3,"quickSearch": 1,"changeable": "0","timeout": 15,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["http://tvpanpan.site","http://feimo.fun","http://xiaocgege.shop","https://www.mmpanpan.site","http://www.xiaocgege.shop"],"url_key": "Duopan4"}},
+  {"key": "zhizhen1","name": "🚀臻彩┃高峰不卡*网盘4K","type": 3,"api": "csp_ZhiZhen","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": "eyJzaXRlIjoiaHR0cHM6Ly93d3cueG4tLTZrcnozMGQuZGU1Lm5ldCIsInNlY3JldCI6IlpoaVpoZW5AMjAyNl8hIyJ9"},
+  {"key": "csp_Netfixtv","name": "🚀臻臻┃高峰不卡*网盘4K","type": 3,"changeable": "0","quickSearch": 1,"timeout": 15,"api": "csp_Duopan","filterable": 1,"ext": "ewogICJzaXRlX3VybHMiOiBbCiAgICAiaHR0cHM6Ly93d3cuemhpemhlbjguY2xpY2siLAogICAgImh0dHBzOi8vcGFuLm1paGRyLnRvcCIsCiAgICAiaHR0cHM6Ly93d3cuemhpemhlbjEudG9wIiwKICAgICJodHRwczovL3d3dy5taWhkci50b3AiLAogICAgImh0dHBzOi8vd3d3Lm1pcWsuY2MiCiAgXSwKICAidXJsX2tleSI6ICJOZXRmaXh0diIsCiAgInRva2VuIjogIiIsCiAgInVjQ29va2llIjogIiIsCiAgInF1YXJrQ29va2llIjogIiIKfQ=="},
+  {"key": "csp_Wogg","name": "🧸玩偶┃高峰不卡*网盘4K","type": 3,"api": "csp_Gege","timeout": 15,"changeable": "0","quickSearch": 1,"filterable": 1,"ext": "ewogICJzaXRlX3VybHMiOiBbCiAgICAiaHR0cHM6Ly93d3cud29nZy5saXZlIiwKICAgICJodHRwOi8vd29nZ3Bhbi54eG9vby5jZiIsCiAgICAiaHR0cHM6Ly93d3cud29nZy5uZXQiCiAgXSwKICAidG9rZW4iOiAiIiwKICAidWNDb29raWUiOiAiIiwKICAicXVhcmtDb29raWUiOiAiIgp9"},
+  {"key": "csp_Duopan","name": "☁️蜡笔┃高峰不卡*网盘4K","type": 3,"quickSearch": 1,"changeable": "0","timeout": 15,"api": "csp_Duopan","filterable": 1,"ext": "ewogICJzaXRlX3VybHMiOiBbCiAgICAiaHR0cDovL3R2cGFucGFuLnNpdGUiLAogICAgImh0dHA6Ly9mZWltby5mdW4iLAogICAgImh0dHA6Ly94aWFvY2dlZ2Uuc2hvcCIsCiAgICAiaHR0cHM6Ly93d3cubW1wYW5wYW4uc2l0ZSIsCiAgICAiaHR0cDovL3d3dy54aWFvY2dlZ2Uuc2hvcCIKICBdLAogICJ1cmxfa2V5IjogIkR1b3BhbjQiCn0="},
+
    
   {"key": "短剧","name": "🦛短剧","type": 3,"api": "https://gitee.com/PizazzXS/another-d/raw/master/movie/py/HMDJ.py","searchable": 1,"changeable": 1,"quickSearch": 1,"filterable": 1,"playerType": 2},
   {"key": "商店","name": "应用商店","type": 3,"api": "csp_Market","searchable": 0,"changeable": 0,"jar": "./jar/FM.jar","ext": "./ext/market.json"}
