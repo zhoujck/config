@@ -173,10 +173,14 @@ def extract_and_save_spider(json_text, name):
 
 
 def decode_nested_base64(data):
-    """递归解码 sites[].ext 中嵌套的 base64 字符串"""
+    """递归解码嵌套的 base64 字符串，但跳过 sites 保持原样"""
     if isinstance(data, dict):
         result = {}
         for k, v in data.items():
+            # sites 内容保持原样，不做任何解码
+            if k == 'sites':
+                result[k] = v
+                continue
             if k == 'ext' and isinstance(v, str) and len(v) > 50:
                 # 尝试 base64 解码
                 try:
@@ -185,7 +189,6 @@ def decode_nested_base64(data):
                     if stripped.startswith('{') or stripped.startswith('['):
                         try:
                             result[k] = json.loads(decoded)
-                           # print(f"  📦 解码 ext 字段 -> JSON 对象")
                         except json.JSONDecodeError:
                             result[k] = decoded
                     else:
