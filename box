@@ -1,5 +1,5 @@
 {
- "spider": "./jar/xiaomi.txt;md5;33afef828e6005506fa473d5809be72f",
+ "spider": "./jar/xiaomi.txt;md5;2698d595a4b0a782e4f3e1242e5e6511",
  "logo": "./ext/app_icon.png",
  "lives": [
   {"name": "🍬移动🍬","type": 0,"url": "./ext/移动","playerType": 2,"ua": "okhttp/3.15","epg": "https://epg.cdn.loc.cc/?ch={name}&date={date}"},
