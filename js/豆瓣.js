@@ -359,10 +359,21 @@ async function category(tid, pg, filter, extend) {
             }
 
         } else if (tid === "high_score") {
-            tag = (ext.area || "全部") === "全部" ? "豆瓣高分" : ext.area;
-            sort = "rank";
-            type = "movie";
-            items = getByTag(tag, type, sort, start, count);
+            let area = (ext.area || "全部") === "全部" ? "" : ext.area;
+            try {
+                let data = rexGet("/movie/recommend", {
+                    refresh: 0, start: start, count: count,
+                    selected_categories: area ? JSON.stringify({"地区": area}) : "{}",
+                    uncollect: false, score_range: "8,10",
+                    tags: area || "豆瓣高分", sort: "U"
+                });
+                items = parseRexItems(data.items || []);
+                let total = data.total || data.count || items.length;
+                return JSON.stringify({ list: items, page: p, pagecount: Math.ceil(total / count), total: total });
+            } catch (e) {
+                tag = area || "豆瓣高分";
+                items = getByTag(tag, "movie", "rank", start, count);
+            }
 
         } else {
             return JSON.stringify({ list: [], page: p, pagecount: 0, total: 0 });
