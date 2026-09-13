@@ -40,9 +40,9 @@ jobs:
           cd tools/
           pip install demjson3 requests==2.31.0 pycryptodome
           python config.py
-          # spider 下载成功则拷贝到 jar 目录，失败则跳过（JSON 里保留上游 URL）
-          [ -f ./output/xiaomi.txt ] && cp -p ./output/xiaomi.txt ../jar/xiaomi.txt || echo "⚠️ 跳过 xiaomi.txt（未下载到）"
-          [ -f ./output/feimao.txt ] && cp -p ./output/feimao.txt ../jar/feimao.txt || echo "⚠️ 跳过 feimao.txt（未下载到）"
+          # 根据标记文件判断：spider 下载成功才拷贝 jar
+          if [ -f ./output/.xiaomi.spider_ok ]; then cp -p ./output/xiaomi.txt ../jar/xiaomi.txt; else echo "⚠️ 跳过 xiaomi.txt（未下载到）"; fi
+          if [ -f ./output/.feimao.spider_ok ]; then cp -p ./output/feimao.txt ../jar/feimao.txt; else echo "⚠️ 跳过 feimao.txt（未下载到）"; fi
           python combine.py
           python combineF.py
           cd ../
