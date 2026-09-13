@@ -91,18 +91,38 @@ if __name__ == "__main__":
     demo_path = sys.argv[1] if len(sys.argv) > 1 else DEMO_PATH
 
     try:
-        md5_value = get_md5(JAR_PATH)
-        print(f"🔐 jar 的 MD5: {md5_value}")
-
         jo = load_json(demo_path)
 
-        if "spider" in jo:
-            old_spider = jo["spider"]
-            new_spider = re.sub(r'txt', f'txt;md5;{md5_value}', old_spider)
-            jo["spider"] = new_spider
-            print(f"🔄 替换 spider 字段为: {new_spider}")
+        # 检查标记文件：config.py 本次是否成功下载了 spider
+        marker_dir = os.path.join(os.path.dirname(__file__), "output")
+        # 根据 JAR_PATH 判断是 xiaomi 还是 feimao
+        jar_name = os.path.basename(JAR_PATH).replace(".txt", "")
+        marker = os.path.join(marker_dir, f".{jar_name}.spider_ok")
+
+        if os.path.isfile(marker):
+            # 本次下载成功，用本地 jar + md5
+            md5_value = get_md5(JAR_PATH)
+            print(f"🔐 jar 的 MD5: {md5_value}")
+            if "spider" in jo:
+                old_spider = jo["spider"]
+                new_spider = re.sub(r'txt', f'txt;md5;{md5_value}', old_spider)
+                jo["spider"] = new_spider
+                print(f"🔄 替换 spider 字段为: {new_spider}")
         else:
-            print("⚠️ 未找到 spider 字段")
+            # 本次下载失败，从 output 里读上游 spider URL
+            print(f"⚠️ [{jar_name}] spider 未更新，使用上游 URL")
+            output_json = os.path.join(marker_dir, f"{jar_name}.json")
+            if os.path.isfile(output_json):
+                with open(output_json, "r", encoding="utf-8") as f:
+                    output_data = json.load(f)
+                upstream_spider = output_data.get("spider", "")
+                if upstream_spider:
+                    jo["spider"] = upstream_spider
+                    print(f"🔗 使用上游 spider: {upstream_spider[:80]}...")
+                else:
+                    print("⚠️ output 中未找到 spider 字段")
+            else:
+                print(f"⚠️ output 文件不存在: {output_json}")
 
         save_json(jo, BOX_PATH)
 
