@@ -280,9 +280,16 @@ def process_source(source):
     spider_ok = extract_and_save_spider(raw_text, name)
     data = clean_data(raw_text, name)
     if spider_ok:
+        # 写标记文件，combine.py 据此判断用本地 jar 还是上游 URL
+        marker = os.path.join(OUTPUT_DIR, f".{name}.spider_ok")
+        with open(marker, "w") as f:
+            f.write("1")
         print(f"✅ [{name}] spider 下载成功，使用本地 jar")
     else:
-        # spider 下载失败，保留上游 URL，TVBox 端自行下载
+        # spider 下载失败，删除旧标记
+        marker = os.path.join(OUTPUT_DIR, f".{name}.spider_ok")
+        if os.path.exists(marker):
+            os.remove(marker)
         spider_url = data.get("spider", "")
         if spider_url:
             print(f"🔗 [{name}] spider 下载失败，保留上游 URL: {spider_url[:80]}...")
