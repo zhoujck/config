@@ -100,8 +100,16 @@ def try_extract_base64_json(data: bytes) -> str | None:
     return None
 
 
-def fetch_raw_json(url):
-    resp = requests.get(url, timeout=15)
+def fetch_raw_json(url, retries=2):
+    for attempt in range(retries + 1):
+        try:
+            resp = requests.get(url, timeout=10)
+            break
+        except requests.exceptions.RequestException as e:
+            if attempt < retries:
+                print(f"⚠️ 请求失败，重试 {attempt + 1}/{retries}...")
+            else:
+                raise
     resp.encoding = 'utf-8'
     text = resp.text.strip()
 
@@ -160,16 +168,25 @@ def extract_and_save_spider(json_text, name):
     match = re.search(r'"spider"\s*:\s*"([^"]+)"', json_text)
     if not match:
         print(f"⚠️ [{name}] 没找到 spider 字段，跳过")
-        return None
+        return False
     full_spider = match.group(1)
     spider_url = full_spider.split(";")[0]
     print(f"📥 [{name}] 下载 spider: {spider_url}")
     headers = {"User-Agent": "okhttp/3.15"}
-    resp = requests.get(spider_url, timeout=15, headers=headers)
-    filepath = os.path.join(OUTPUT_DIR, f"{name}.txt")
-    with open(filepath, "wb") as f:
-        f.write(resp.content)
-    print(f"✅ [{name}] spider 保存为 {filepath}（{len(resp.content)} 字节）")
+    for attempt in range(3):
+        try:
+            resp = requests.get(spider_url, timeout=10, headers=headers)
+            filepath = os.path.join(OUTPUT_DIR, f"{name}.txt")
+            with open(filepath, "wb") as f:
+                f.write(resp.content)
+            print(f"✅ [{name}] spider 保存为 {filepath}（{len(resp.content)} 字节）")
+            return True
+        except requests.exceptions.RequestException as e:
+            if attempt < 2:
+                print(f"⚠️ [{name}] spider 下载失败，重试 {attempt + 1}/2...")
+            else:
+                print(f"❌ [{name}] spider 下载失败: {e}")
+                return False
 
 
 def decode_nested_base64(data):
@@ -260,10 +277,18 @@ def process_source(source):
     print(f"{'='*40}")
 
     raw_text = fetch_raw_json(url)
-    extract_and_save_spider(raw_text, name)
+    spider_ok = extract_and_save_spider(raw_text, name)
     data = clean_data(raw_text, name)
+    if spider_ok:
+        print(f"✅ [{name}] spider 下载成功，使用本地 jar")
+    else:
+        # spider 下载失败，保留上游 URL，TVBox 端自行下载
+        spider_url = data.get("spider", "")
+        if spider_url:
+            print(f"🔗 [{name}] spider 下载失败，保留上游 URL: {spider_url[:80]}...")
     save_json(data, name)
     print(f"✅ [{name}] 完成\n")
+    return spider_ok
 
 
 if __name__ == "__main__":
