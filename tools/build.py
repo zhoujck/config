@@ -22,7 +22,7 @@ SOURCES = [
     {
         "name": "xiaomi",
         "url": "https://raw.githubusercontent.com/ggrrttyyiii/CatVodSpider/refs/heads/main/json/demo.json",
-        "template": "demo1.json",
+        "template": "demox.json",
         "jar": "../jar/xiaomi.txt",
         "output": "../box",
     },
