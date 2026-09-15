@@ -20,6 +20,8 @@ jobs:
         with:
           repository: zhoujck/iptv
           path: iptv
+          sparse-checkout: live.txt
+          sparse-checkout-cone-mode: false
 
       - name: Delete workflows
         uses: Mattraks/delete-workflow-runs@v2
@@ -33,17 +35,13 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.x
+          cache: pip
 
-      - name: tools
+      - name: build
         run: |
-          pwd
           cd tools/
           pip install demjson3 requests==2.31.0 pycryptodome
-          python config.py
-          # 根据标记文件判断：spider 下载成功才拷贝 jar
-          if [ -f ./output/.xiaomi.spider_ok ]; then cp -p ./output/xiaomi.txt ../jar/xiaomi.txt; else echo "⚠️ 跳过 xiaomi.txt（未下载到）"; fi
-          if [ -f ./output/.feimao.spider_ok ]; then cp -p ./output/feimao.txt ../jar/feimao.txt; else echo "⚠️ 跳过 feimao.txt（未下载到）"; fi
-          python combine.py
+          python build.py
           cd ../
           mkdir -p ext
           cp -p iptv/live.txt ./ext/live.txt
@@ -54,8 +52,6 @@ jobs:
         run: |
           git config user.email "zhoujck@live.com"
           git config user.name "zhoujck"
-          find tools/output/ -name '*.spider_ok' -delete 2>/dev/null || true
-          find tools/output/ -name '*.txt' -delete 2>/dev/null || true
           git add .
           if ! git diff-index --quiet HEAD --; then
           git commit -m "更新JAR $(date +%Y%m%d%H%M)"
