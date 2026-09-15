@@ -32,7 +32,7 @@ def decrypt_aes_cbc(hex_data):
     hex_data = re.sub(r'\s+', '', hex_data)
     raw = bytes.fromhex(hex_data).decode('utf-8', errors='replace').lower()
 
-    # 提取 key: $#<key>#$
+    # 提取 key: $#<key>$#
     key_str = raw[raw.index('$#') + 2 : raw.index('#$')]
     # 提取 IV: 最后13个字符
     iv_str = raw[-13:]
@@ -164,6 +164,14 @@ def fetch_raw_json(url, retries=2):
     return text
 
 
+def fix_malformed_json(text):
+    """修复常见的 JSON 格式问题"""
+    # 修复缺少开头引号的 key: 行首空白后跟 xxx": → "xxx":
+    # 匹配模式: 行首空白 + 一个或多个非空白非引号字符 + ":
+    text = re.sub(r'(?m)^(\s*)([A-Za-z_]\w*)":', r'\1"\2":', text)
+    return text
+
+
 def extract_and_save_spider(json_text, name):
     match = re.search(r'"spider"\s*:\s*"([^"]+)"', json_text)
     if not match:
@@ -220,7 +228,24 @@ def clean_data(raw_text, name):
         "before",
         "after"
     )
-    data = demjson.decode(raw_text)
+
+    # 先尝试标准 json.loads（更快更严格）
+    try:
+        data = json.loads(raw_text)
+    except json.JSONDecodeError:
+        # 标准解析失败，尝试修复常见格式问题后重新解析
+        fixed = fix_malformed_json(raw_text)
+        try:
+            data = json.loads(fixed)
+            print(f"🔧 [{name}] JSON 格式已自动修复")
+        except json.JSONDecodeError:
+            # 修复后仍失败，降级到 demjson（容错性更强）
+            try:
+                data = demjson.decode(fixed)
+                print(f"🔧 [{name}] 使用 demjson 兜底解析")
+            except demjson.JSONDecodeError as e:
+                print(f"❌ [{name}] JSON 解析最终失败: {e}")
+                raise
 
     # 递归解码嵌套的 base64 字段（sites 保持原样）
     data = decode_nested_base64(data)
@@ -278,14 +303,23 @@ def process_source(source):
 
     raw_text = fetch_raw_json(url)
     spider_ok = extract_and_save_spider(raw_text, name)
-    data = clean_data(raw_text, name)
+
+    # ✅ 先写标记，保证 spider 下载成功就不会丢失
     if spider_ok:
-        # 写标记文件，combine.py 据此判断用本地 jar 还是上游 URL
         marker = os.path.join(OUTPUT_DIR, f".{name}.spider_ok")
         with open(marker, "w") as f:
             f.write("1")
         print(f"✅ [{name}] spider 下载成功，使用本地 jar")
-    else:
+
+    try:
+        data = clean_data(raw_text, name)
+        save_json(data, name)
+    except Exception as e:
+        print(f"⚠️ [{name}] JSON 解析失败: {e}")
+        print(f"⚠️ [{name}] spider 已保存，标记已写入，继续处理下一个源")
+        return spider_ok
+
+    if not spider_ok:
         # spider 下载失败，删除旧标记
         marker = os.path.join(OUTPUT_DIR, f".{name}.spider_ok")
         if os.path.exists(marker):
@@ -293,7 +327,7 @@ def process_source(source):
         spider_url = data.get("spider", "")
         if spider_url:
             print(f"🔗 [{name}] spider 下载失败，保留上游 URL: {spider_url[:80]}...")
-    save_json(data, name)
+
     print(f"✅ [{name}] 完成\n")
     return spider_ok
 
