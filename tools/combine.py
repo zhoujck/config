@@ -5,9 +5,11 @@ import sys
 import os
 
 # ============ 配置区 ============
-DEMO_PATH = "demo1.json"       # demo JSON 输入文件路径
-JAR_PATH  = "../jar/xiaomi.txt" # 需要计算 MD5 的 jar 文件路径
-BOX_PATH  = "../box"            # 最终输出的 box 文件路径
+# 每个任务: (demo模板, jar路径, 输出路径)
+TASKS = [
+    ("demo1.json",  "../jar/xiaomi.txt",  "../box"),
+    ("demof.json",  "../jar/feimao.txt",  "../boxf"),
+]
 # =================================
 
 def get_md5(filepath):
@@ -86,22 +88,22 @@ def save_json(data, path):
         json.dump(data, f, indent=2, ensure_ascii=False, cls=CompactJSONEncoder)
         print(f"✅ 已保存：{path}")
 
-if __name__ == "__main__":
-    # 命令行可覆盖 demo 路径
-    demo_path = sys.argv[1] if len(sys.argv) > 1 else DEMO_PATH
+def process_task(demo_path, jar_path, box_path):
+    jar_name = os.path.basename(jar_path).replace(".txt", "")
+    print(f"\n{'='*40}")
+    print(f"▶️ 合并: {jar_name}")
+    print(f"{'='*40}")
 
     try:
         jo = load_json(demo_path)
 
         # 检查标记文件：config.py 本次是否成功下载了 spider
         marker_dir = os.path.join(os.path.dirname(__file__), "output")
-        # 根据 JAR_PATH 判断是 xiaomi 还是 feimao
-        jar_name = os.path.basename(JAR_PATH).replace(".txt", "")
         marker = os.path.join(marker_dir, f".{jar_name}.spider_ok")
 
         if os.path.isfile(marker):
             # 本次下载成功，用本地 jar + md5
-            md5_value = get_md5(JAR_PATH)
+            md5_value = get_md5(jar_path)
             print(f"🔐 jar 的 MD5: {md5_value}")
             if "spider" in jo:
                 old_spider = jo["spider"]
@@ -124,7 +126,15 @@ if __name__ == "__main__":
             else:
                 print(f"⚠️ output 文件不存在: {output_json}")
 
-        save_json(jo, BOX_PATH)
+        save_json(jo, box_path)
 
     except Exception as e:
-        print(f"❌ 出错: {e}")
+        print(f"❌ [{jar_name}] 出错: {e}")
+
+if __name__ == "__main__":
+    # 支持命令行指定单个任务: combine.py demo1.json ../jar/xiaomi.txt ../box
+    if len(sys.argv) >= 4:
+        process_task(sys.argv[1], sys.argv[2], sys.argv[3])
+    else:
+        for demo_path, jar_path, box_path in TASKS:
+            process_task(demo_path, jar_path, box_path)
