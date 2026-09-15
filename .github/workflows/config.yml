@@ -54,6 +54,7 @@ jobs:
         run: |
           git config user.email "zhoujck@live.com"
           git config user.name "zhoujck"
+          git rm -r --cached tools/output/ 2>/dev/null || true
           git add .
           if ! git diff-index --quiet HEAD --; then
           git commit -m "更新JAR $(date +%Y%m%d%H%M)"
