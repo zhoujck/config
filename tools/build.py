@@ -355,9 +355,9 @@ def process_source(source):
         return False
 
     # 保存原版配置
-    ext_dir = os.path.join(os.path.dirname(__file__), "..", "ext")
-    os.makedirs(ext_dir, exist_ok=True)
-    with open(os.path.join(ext_dir, f"{name}.json"), "w", encoding="utf-8") as f:
+    out_dir = os.path.join(os.path.dirname(__file__), "output")
+    os.makedirs(out_dir, exist_ok=True)
+    with open(os.path.join(out_dir, f"{name}.json"), "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2, cls=CompactJSONEncoder)
     print(f"💾 [{name}] 原版配置已保存")
 
