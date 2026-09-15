@@ -7,6 +7,7 @@ import os
 import base64
 import string
 import hashlib
+from datetime import datetime
 from Crypto.Cipher import AES
 
 # ============ 配置区 ============
@@ -341,17 +342,35 @@ def process_source(source):
     print(f"▶️ {name}")
     print(f"{'='*40}")
 
-    result = {"name": name, "config_ok": False, "spider_ok": False, "spider_url": ""}
+    result = {"name": name, "config_ok": False, "spider_ok": False, "spider_url": "", "skipped": False}
 
     # 1. 拉取数据
     raw_text = fetch_raw_json(source["url"])
 
-    # 2. 下载 spider jar
+    # 2. 内容哈希，没变就跳过
+    content_hash = hashlib.md5(raw_text.encode("utf-8")).hexdigest()[:12]
+    out_dir = os.path.join(os.path.dirname(__file__), "output")
+    hash_path = os.path.join(out_dir, f".{name}.hash")
+    os.makedirs(out_dir, exist_ok=True)
+
+    old_hash = ""
+    if os.path.isfile(hash_path):
+        with open(hash_path, "r") as f:
+            old_hash = f.read().strip()
+
+    if content_hash == old_hash:
+        print(f"⏭️ [{name}] 内容未变化（{content_hash}），跳过")
+        result["skipped"] = True
+        result["config_ok"] = True
+        result["spider_ok"] = True
+        return result
+
+    # 3. 下载 spider jar
     spider_url = download_spider(raw_text, source["jar"], name)
     result["spider_ok"] = bool(spider_url)
     result["spider_url"] = spider_url or ""
 
-    # 3. 解析配置
+    # 4. 解析配置
     try:
         data = parse_config(raw_text, name)
         result["config_ok"] = True
@@ -360,13 +379,11 @@ def process_source(source):
         return result
 
     # 保存原版配置
-    out_dir = os.path.join(os.path.dirname(__file__), "output")
-    os.makedirs(out_dir, exist_ok=True)
     with open(os.path.join(out_dir, f"{name}.json"), "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2, cls=CompactJSONEncoder)
     print(f"💾 [{name}] 原版配置已保存")
 
-    # 4. 合成最终配置
+    # 5. 合成最终配置
     upstream_spider = data.get("spider", "")
     build_box(
         template_path=source["template"],
@@ -378,36 +395,49 @@ def process_source(source):
     if not spider_url:
         result["spider_url"] = upstream_spider
 
+    # 6. 保存哈希
+    with open(hash_path, "w") as f:
+        f.write(content_hash)
+
     print(f"✅ [{name}] 完成\n")
     return result
 
 
 if __name__ == "__main__":
-    from datetime import datetime
     log_lines = []
     log_lines.append(f"运行时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     log_lines.append(f"{'='*40}")
 
     success = 0
+    all_skipped = True
     for source in SOURCES:
         try:
             result = process_source(source)
             name = result["name"]
-            if result["config_ok"] and result["spider_ok"]:
+            if result["skipped"]:
+                log_lines.append(f"⏭️ {name} - 内容未变化，跳过")
+            elif result["config_ok"] and result["spider_ok"]:
                 log_lines.append(f"✅ {name} - 源保存成功，spider下载成功")
+                all_skipped = False
                 success += 1
             elif result["config_ok"] and not result["spider_ok"]:
                 url = result["spider_url"][:60] if result["spider_url"] else "无"
                 log_lines.append(f"⚠️ {name} - 源保存成功，spider未下载，使用上游链接: {url}")
+                all_skipped = False
                 success += 1
             else:
                 log_lines.append(f"❌ {name} - 源解析失败")
+                all_skipped = False
         except Exception as e:
             print(f"❌ [{source['name']}] 出错: {e}")
             log_lines.append(f"❌ {source['name']} - {e}")
+            all_skipped = False
 
     log_lines.append(f"{'='*40}")
-    log_lines.append(f"结果: {success}/{len(SOURCES)} 个源成功")
+    if all_skipped:
+        log_lines.append(f"结果: 全部未变化，跳过更新")
+    else:
+        log_lines.append(f"结果: {success}/{len(SOURCES)} 个源更新成功")
     print(f"\n🎉 完成: {success}/{len(SOURCES)}")
 
     # 写日志（保留最近 20 条记录）
