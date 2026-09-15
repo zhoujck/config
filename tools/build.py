@@ -354,6 +354,13 @@ def process_source(source):
         print(f"⚠️ [{name}] 解析失败: {e}，跳过")
         return False
 
+    # 保存原版配置
+    ext_dir = os.path.join(os.path.dirname(__file__), "..", "ext")
+    os.makedirs(ext_dir, exist_ok=True)
+    with open(os.path.join(ext_dir, f"{name}.json"), "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2, cls=CompactJSONEncoder)
+    print(f"💾 [{name}] 原版配置已保存")
+
     # 4. 合成最终配置
     upstream_spider = data.get("spider", "")
     build_box(
