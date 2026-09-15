@@ -341,18 +341,23 @@ def process_source(source):
     print(f"▶️ {name}")
     print(f"{'='*40}")
 
+    result = {"name": name, "config_ok": False, "spider_ok": False, "spider_url": ""}
+
     # 1. 拉取数据
     raw_text = fetch_raw_json(source["url"])
 
     # 2. 下载 spider jar
     spider_url = download_spider(raw_text, source["jar"], name)
+    result["spider_ok"] = bool(spider_url)
+    result["spider_url"] = spider_url or ""
 
     # 3. 解析配置
     try:
         data = parse_config(raw_text, name)
+        result["config_ok"] = True
     except Exception as e:
         print(f"⚠️ [{name}] 解析失败: {e}，跳过")
-        return False
+        return result
 
     # 保存原版配置
     out_dir = os.path.join(os.path.dirname(__file__), "output")
@@ -370,9 +375,11 @@ def process_source(source):
         upstream_spider=upstream_spider if not spider_url else None,
         spider_ok=bool(spider_url),
     )
+    if not spider_url:
+        result["spider_url"] = upstream_spider
 
     print(f"✅ [{name}] 完成\n")
-    return True
+    return result
 
 
 if __name__ == "__main__":
@@ -384,11 +391,17 @@ if __name__ == "__main__":
     success = 0
     for source in SOURCES:
         try:
-            if process_source(source):
+            result = process_source(source)
+            name = result["name"]
+            if result["config_ok"] and result["spider_ok"]:
+                log_lines.append(f"✅ {name} - 源保存成功，spider下载成功")
                 success += 1
-                log_lines.append(f"✅ {source['name']} - 成功")
+            elif result["config_ok"] and not result["spider_ok"]:
+                url = result["spider_url"][:60] if result["spider_url"] else "无"
+                log_lines.append(f"⚠️ {name} - 源保存成功，spider未下载，使用上游链接: {url}")
+                success += 1
             else:
-                log_lines.append(f"⚠️ {source['name']} - 解析失败，spider 已保存")
+                log_lines.append(f"❌ {name} - 源解析失败")
         except Exception as e:
             print(f"❌ [{source['name']}] 出错: {e}")
             log_lines.append(f"❌ {source['name']} - {e}")
