@@ -54,7 +54,8 @@ jobs:
         run: |
           git config user.email "zhoujck@live.com"
           git config user.name "zhoujck"
-          rm -rf tools/output/
+          find tools/output/ -name '*.spider_ok' -delete 2>/dev/null || true
+          find tools/output/ -name '*.txt' -delete 2>/dev/null || true
           git add .
           if ! git diff-index --quiet HEAD --; then
           git commit -m "更新JAR $(date +%Y%m%d%H%M)"
