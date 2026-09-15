@@ -376,11 +376,31 @@ def process_source(source):
 
 
 if __name__ == "__main__":
+    from datetime import datetime
+    log_lines = []
+    log_lines.append(f"运行时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    log_lines.append(f"{'='*40}")
+
     success = 0
     for source in SOURCES:
         try:
             if process_source(source):
                 success += 1
+                log_lines.append(f"✅ {source['name']} - 成功")
+            else:
+                log_lines.append(f"⚠️ {source['name']} - 解析失败，spider 已保存")
         except Exception as e:
             print(f"❌ [{source['name']}] 出错: {e}")
+            log_lines.append(f"❌ {source['name']} - {e}")
+
+    log_lines.append(f"{'='*40}")
+    log_lines.append(f"结果: {success}/{len(SOURCES)} 个源成功")
     print(f"\n🎉 完成: {success}/{len(SOURCES)}")
+
+    # 写日志
+    out_dir = os.path.join(os.path.dirname(__file__), "output")
+    os.makedirs(out_dir, exist_ok=True)
+    log_path = os.path.join(out_dir, "log.txt")
+    # 追加模式，保留历史记录
+    with open(log_path, "a", encoding="utf-8") as f:
+        f.write("\n".join(log_lines) + "\n\n")
