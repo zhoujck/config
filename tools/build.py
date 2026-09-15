@@ -410,10 +410,21 @@ if __name__ == "__main__":
     log_lines.append(f"结果: {success}/{len(SOURCES)} 个源成功")
     print(f"\n🎉 完成: {success}/{len(SOURCES)}")
 
-    # 写日志
+    # 写日志（保留最近 20 条记录）
     out_dir = os.path.join(os.path.dirname(__file__), "output")
     os.makedirs(out_dir, exist_ok=True)
     log_path = os.path.join(out_dir, "log.txt")
-    # 追加模式，保留历史记录
-    with open(log_path, "a", encoding="utf-8") as f:
-        f.write("\n".join(log_lines) + "\n\n")
+    new_entry = "\n".join(log_lines) + "\n"
+
+    # 读取旧日志，追加新记录，保留最近 20 条
+    old_log = ""
+    if os.path.isfile(log_path):
+        with open(log_path, "r", encoding="utf-8") as f:
+            old_log = f.read()
+    # 按 "运行时间:" 分割记录
+    entries = [e.strip() for e in old_log.split("运行时间:") if e.strip()]
+    entries.insert(0, new_entry.replace("运行时间:", "").strip())
+    entries = entries[:20]
+    with open(log_path, "w", encoding="utf-8") as f:
+        for entry in entries:
+            f.write(f"运行时间: {entry}\n\n")
