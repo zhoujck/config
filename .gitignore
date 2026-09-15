@@ -1,2 +1,3 @@
-tools/output/*.spider_ok
-tools/output/*.txt
+tools/output/.spider_ok
+tools/output/feimao.txt
+tools/output/xiaomi.txt
