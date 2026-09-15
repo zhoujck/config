@@ -334,6 +334,10 @@ def process_source(source):
 
 if __name__ == "__main__":
     os.makedirs(OUTPUT_DIR, exist_ok=True)
+    # 清理上次残留的标记文件，防止误判
+    for f in os.listdir(OUTPUT_DIR):
+        if f.startswith(".") and f.endswith(".spider_ok"):
+            os.remove(os.path.join(OUTPUT_DIR, f))
     success = 0
     for source in SOURCES:
         try:
