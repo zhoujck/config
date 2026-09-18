@@ -57,7 +57,7 @@
   {"name": "Quad9","url": "https://dns.quad9.net/dns-quer","ips": ["9.9.9.9","149.112.112.112"]}
  ],
  "lives": [
-  {"name": "Kimentanm","type": 0,"url": "./lives/Kimentanm.txt"},
+  {"name": "2oo","type": 0,"url": "https://live.ottiptv.cc/iptv.m3u?userid=5803665715&sign=6ea585b301324eabb7b9f18e73839bab903fb60ee5bdb37b3a4276b4d6f3e3b1f4e6f8921a09e3c5b55ba377a8b82967c6fadcbd5c6222b3c2ede9ad273142ee164cdbd1931f03&auth_token=b6823db883fc12f91cf1127973951993"},
   {"name": "develop202","type": 0,"url": "./lives/develop202.txt","epg": "http://diyp5.112114.xyz/?ch={name}&date={date}"}
  ],
  "headers": [
