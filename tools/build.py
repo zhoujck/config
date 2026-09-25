@@ -21,7 +21,7 @@ SOURCES = [
     },
     {
         "name": "xiaomi",
-        "url": "https://raw.githubusercontent.com/ggrrttyyiii/CatVodSpider/refs/heads/main/json/demo.json",
+        "url": "https://www.tangsan.fun/tv/",
         "template": "demox.json",
         "jar": "../jar/xiaomi.txt",
         "output": "../box",
