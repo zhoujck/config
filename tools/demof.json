@@ -28,8 +28,8 @@
 { "key": "线路1", "name": "🐼潮流", "type": 3, "api": "csp_AppRJ","timeout": 25,"ext": "http://v.rbotv.cn"},
 { "key": "线路2", "name": "🐼瓜子", "type": 3, "api": "csp_Gz360","timeout": 25},
 { "key": "线路3", "name": "🐼金牌", "type": 3, "api": "csp_Jpys","timeout": 25},
-{ "key": "线路4","name": "🐼蔬菜","type": 3,"api": "csp_AppGet","ext": "https://allinadmin.oss-cn-hangzhou.aliyuncs.com/bk/9.txt|88689667dce61725"},
-
+{ "key": "线路4", "name": "🐼蔬菜","type": 3,"api": "csp_AppGet","ext": "https://allinadmin.oss-cn-hangzhou.aliyuncs.com/bk/9.txt|88689667dce61725"},
+{ "key": "线路4", "name": "🐼干饭","type": 3,"api": "csp_AppGet","ext": "https://www.douy32mf.top|1234567887654321"},
 {"key": "csp_Wogg","name": "🧸玩偶┃4K","type": 3,"api": "csp_Gege","timeout": 15, "jar": "./jar/xiaomi.txt","ext": "ewogICJzaXRlX3VybHMiOiBbCiAgICAiaHR0cHM6Ly93d3cud29nZy5saXZlIiwKICAgICJodHRwOi8vd29nZ3Bhbi54eG9vby5jZiIsCiAgICAiaHR0cHM6Ly93d3cud29nZy5uZXQiCiAgXSwKICAidG9rZW4iOiAiIiwKICAidWNDb29raWUiOiAiIiwKICAicXVhcmtDb29raWUiOiAiIgp9"},
 
 { "key": "商店", "name": "应用商店", "type": 3, "api": "csp_Market", "searchable": 0, "changeable": 0, "jar": "./jar/FM.jar", "ext": "./ext/market.json" }
