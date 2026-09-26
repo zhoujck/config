@@ -58,7 +58,7 @@
  ],
  "lives": [
   {"name": "Gather「蕉」","type": 3,"url": "https://tv.tmxk.kdns.fr/4grxobbf","epg": "https://material.1989.click/epg.xml.gz","ua": "okhttp/3.8.1","timeout": 10,"playerType": 2},
-  {"name": "develop202","type": 0,"url": "./lives/develop202.txt","epg": "http://diyp5.112114.xyz/?ch={name}&date={date}"}
+  {"name": "Gather「果」","type": 3,"url": "https://tv.tmxk.kdns.fr/yplrnuc7","epg": "https://material.1989.click/epg.xml.gz","ua": "okhttp/3.8.1","timeout": 10,"playerType": 2}
  ],
  "headers": [
   {"host": "hlsztemgsplive.miguvideo.com","header": {"User-Agent": "okHttp/Mod-1.5.0.0"}}

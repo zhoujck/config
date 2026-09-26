@@ -1,3 +1,10 @@
+运行时间: 2026-09-26 23:53:28
+========================================
+✅ feimao - 源保存成功，spider下载成功
+❌ xiaomi - HTTPSConnectionPool(host='www.tangsan.fun', port=443): Max retries exceeded with url: /tv/ (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.tangsan.fun', port=443) at 0x7f573d56ce10>, 'Connection to www.tangsan.fun timed out. (connect timeout=10)'))
+========================================
+结果: 1/2 个源更新成功
+
 运行时间: 2026-09-26 11:46:02
 ========================================
 ✅ feimao - 源保存成功，spider下载成功
@@ -125,13 +132,6 @@
 结果: 2/2 个源更新成功
 
 运行时间: 2026-09-18 23:55:10
-========================================
-✅ feimao - 源保存成功，spider下载成功
-⚠️ xiaomi - 源保存成功，spider未下载，使用上游链接: https://www.lnjubao.cn/minio-jbpt/upload/20260902/c48ed63d2f
-========================================
-结果: 2/2 个源更新成功
-
-运行时间: 2026-09-18 11:25:13
 ========================================
 ✅ feimao - 源保存成功，spider下载成功
 ⚠️ xiaomi - 源保存成功，spider未下载，使用上游链接: https://www.lnjubao.cn/minio-jbpt/upload/20260902/c48ed63d2f
