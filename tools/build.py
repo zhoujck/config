@@ -56,9 +56,7 @@ TVBOX_FINGERPRINTS = [
     {"User-Agent": "okhttp/3.12.13", "X-Requested-With": "com.fongmi.android.tv"},
     {"User-Agent": "okhttp/3.15", "X-Requested-With": "com.fongmi.android.tv"},
     {"User-Agent": "okhttp/4.9.3", "X-Requested-With": "com.github.tvbox"},
-    {"User-Agent": "Dalvik/2.1.0 (Linux; U; Android 9; Pixel 3 XL Build/PQ3A.190801.002)",
-     "X-Requested-With": "com.fongmi.android.tv"},
-    {"User-Agent": "TVBox/1.0.0", "X-Requested-With": "com.iptvbox"},
+    {"User-Agent": "Dalvik/2.1.0 (Linux; U; Android 9; Pixel 3 XL Build/PQ3A.190801.002)","X-Requested-With": "com.fongmi.android.tv"},
 ]
 
 # 可选文本补丁：(原文, 修正)，针对特定上游的已知格式问题。留空则不做任何全文替换。
