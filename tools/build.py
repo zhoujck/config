@@ -26,23 +26,23 @@ SOURCES = [
         "jar": "../jar/feimao.txt",
         "output": "../boxf",
     },
+    # {
+    #     "name": "xiaomi",
+    #     "urls": [
+    #              "https://www.tangsan.fun/tv/", 
+    #            ],
+    #     "template": "demox.json",
+    #     "jar": "../jar/xiaomi.txt",
+    #     "output": "../box",
+    # },
     {
-        "name": "xiaomi",
-        "urls": [
-                 "https://www.tangsan.fun/tv/", 
-               ],
-        "template": "demox.json",
-        "jar": "../jar/xiaomi.txt",
-        "output": "../box",
-    },
-    {
-        "name": "呜嗷",
+        "name": "wuao",
         "urls": [
                   "http://www.英格里希嗷呜.top/tv",
                   "https://9763.kstore.vip/aowu.json",
                   "http://itv666.cc/aowu/config.webp",
                ],
-        "template": "demox.json",
+        "template": "demow.json",
         "jar": "../jar/woao.txt",
         "output": "../boxw",
     },
