@@ -43,7 +43,7 @@ SOURCES = [
                   "http://itv666.cc/aowu/config.webp",
                ],
         "template": "demow.json",
-        "jar": "../jar/woao.txt",
+        "jar": "../jar/wuao.txt",
         "output": "../boxw",
     },
 ]
