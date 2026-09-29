@@ -30,6 +30,7 @@
   {"name": "⭐热播┃快速","key": "线路15","type": 3,"api": "csp_RbysAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "Rbys"},
   {"name": "⭐杜北┃秒播","key": "线路16","type": 3,"api": "csp_DubkAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "Dubk"},
   {"name": "⭐荐片┃快速","key": "线路17","type": 3,"api": "csp_JPianAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "JPian"},
+  {"name": "📽️嗷嗚┃短剧","key": "DjHggg","type": 3,"api": "csp_HgggAmns","searchable": 0,"quickSearch": 0,"changeable": 1,"genre": "shortdrama"},
   {"name": "💥玩偶┃4K","key": "woWogg","type": 3,"api": "csp_WoggAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "woWogg"},
   {"key": "商店","name": "应用商店","type": 3,"api": "csp_Market","searchable": 0,"changeable": 0,"jar": "./jar/FM.jar","ext": "./ext/market.json"}
  ],
