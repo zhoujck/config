@@ -10,7 +10,7 @@
  "sites": [
   {"key": "豆瓣","name": "🍬糖果影视🍬","type": 3,"api": "./js/豆瓣.js","searchable": 0,"changeable": 1},
   //{"key": "豆瓣jar","name": "🍬糖果影视🍬","type": 3,"api": "csp_Douban","searchable": 0,"changeable": 1},
-  {"key": "配置中心","name": "👨‍🍳‍配置┃中心","type": 3,"api": "csp_Config","searchable": 0,"changeable": 0,"indexs": 0,"style": {"type": "rect","ratio": 1.43}},
+  {"key": "配置中心","name": "👨‍🍳‍配置┃中心","type": 3,"api": "csp_AAConfigAmns","searchable": 0,"changeable": 0,"indexs": 0,"style": {"type": "rect","ratio": 1.43}},
   {"key": "哔站记录片","name": "🍬🅱哔站影视","type": 3,"api": "./js/哔哩纪录片.js","searchable": 1,"ext": ""},
   {"key": "哔站教育","name": "🍬🅱哔站教育","type": 3,"api": "./js/哔站教育.js","searchable": 0,"changeable": 0,"ext": "","style": {"type": "rect","ratio": 1.43}},
   {"name": "🚀瓜子┃秒播","key": "线路1","type": 3,"api": "csp_GuaziAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "Guazi"},
