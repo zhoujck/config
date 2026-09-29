@@ -11,17 +11,34 @@ from datetime import datetime
 from Crypto.Cipher import AES
 
 # ============ 配置区 ============
+# 每个源的地址支持两种写法：
+#   "url": "http://a.com/"                      # 单个地址
+#   "urls": ["http://a.com/", "http://b.com/"]  # 多个备选，依次试验，谁成功用谁
+# （也可以直接写 "url": ["http://a.com/", "http://b.com/"]，效果相同）
 SOURCES = [
     {
         "name": "feimao",
-        "url": "http://肥猫.net/",
+         "urls": [
+                "http://肥猫.net/", # 你的主地址
+                "http://肥猫.net/tv", # 官方公告的正路
+                "http://肥猫.com/",
+                "http://肥猫.com/tv",
+                "http://hello.肥猫.com/",
+                "https://6296.kstore.vip/facat.json",
+ ],
         "template": "demof.json",
         "jar": "../jar/feimao.txt",
         "output": "../boxf",
     },
     {
         "name": "xiaomi",
-        "url": "https://www.tangsan.fun/tv/",
+        "urls": [
+                 "https://www.tangsan.fun/tv/", # 你的主地址
+                 "http://www.mpanso.com/小米/DEMO.json",
+                 "https://www.mpanso.com/小米/DEMO.json",
+                 "http://miqk.cc/小米/DEMO.json",
+                 "http://xhww.fun:63/小米/DEMO.json",
+ ],
         "template": "demox.json",
         "jar": "../jar/xiaomi.txt",
         "output": "../box",
@@ -450,6 +467,14 @@ def build_box(template_path, jar_path, box_path, upstream_spider, spider_ok):
 
 # ========== 主流程 ==========
 
+def _source_urls(source):
+    """兼容单地址/多地址写法，返回 url 列表（按试验顺序）"""
+    urls = source.get("urls") or source.get("url") or []
+    if isinstance(urls, str):
+        urls = [urls]
+    return [u for u in urls if u]
+
+
 def process_source(source):
     name = source["name"]
     print(f"\n{'='*40}")
@@ -458,8 +483,33 @@ def process_source(source):
 
     result = {"name": name, "config_ok": False, "spider_ok": False, "spider_url": "", "skipped": False}
 
-    # 1. 拉取数据
-    raw_text = fetch_raw_json(source["url"])
+    # 1. 拉取+解析：多个备选 URL 依次试验，抓取失败或解析失败都换下一个
+    urls = _source_urls(source)
+    raw_text = data = None
+    errors = []
+    for u in urls:
+        try:
+            raw = fetch_raw_json(u)
+        except Exception as e:
+            errors.append(f"{u} -> 抓取失败: {e}")
+            print(f"⚠️ [{name}] {u} 抓取失败: {e}")
+            continue
+        try:
+            data = parse_config(raw, name)
+            raw_text = raw
+            print(f"✅ [{name}] 实际使用源: {u}")
+            break
+        except Exception as e:
+            errors.append(f"{u} -> 解析失败: {e}")
+            print(f"⚠️ [{name}] {u} 解析失败，尝试下一个源")
+            continue
+    if raw_text is None:
+        print(f"❌ [{name}] 所有备选源均失败:")
+        for e in errors:
+            print(f"   - {e}")
+        return result
+
+    result["config_ok"] = True
 
     # 2. 内容哈希，没变就跳过
     content_hash = hashlib.md5(raw_text.encode("utf-8")).hexdigest()[:12]
@@ -484,13 +534,7 @@ def process_source(source):
     result["spider_ok"] = bool(spider_url)
     result["spider_url"] = spider_url or ""
 
-    # 4. 解析配置
-    try:
-        data = parse_config(raw_text, name)
-        result["config_ok"] = True
-    except Exception as e:
-        print(f"⚠️ [{name}] 解析失败: {e}，跳过")
-        return result
+    # 4. 配置已在拉取阶段解析完成（用于验证源可用性）
 
     # 保存原版配置
     with open(os.path.join(out_dir, f"{name}.json"), "w", encoding="utf-8") as f:
