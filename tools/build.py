@@ -29,6 +29,21 @@ SOURCES = [
 ]
 
 KEYWORDS = []  # 空列表=不过滤；需要过滤时填入关键词，如 ["广告"]
+
+# 请求指纹池（模拟 TVBox 系客户端）
+# 部分源只对这类客户端返回真配置，对 python-requests 默认 UA 返回网页/假数据
+TVBOX_FINGERPRINTS = [
+    {"User-Agent": "okhttp/3.12.13", "X-Requested-With": "com.fongmi.android.tv"},
+    {"User-Agent": "okhttp/3.15", "X-Requested-With": "com.fongmi.android.tv"},
+    {"User-Agent": "okhttp/4.9.3", "X-Requested-With": "com.github.tvbox"},
+    {"User-Agent": "Dalvik/2.1.0 (Linux; U; Android 9; Pixel 3 XL Build/PQ3A.190801.002)",
+     "X-Requested-With": "com.fongmi.android.tv"},
+    {"User-Agent": "TVBox/1.0.0", "X-Requested-With": "com.iptvbox"},
+]
+
+# 可选文本补丁：(原文, 修正)，针对特定上游的已知格式问题。留空则不做任何全文替换。
+# 例如某源配置里字面写了 "before" 需要改成 "after" 时才填：TEXT_PATCHES = [("before", "after")]
+TEXT_PATCHES = []
 # =================================
 
 
@@ -127,23 +142,100 @@ def save_json(data, path):
 
 # ========== 数据拉取 ==========
 
+def _pkcs7_unpad(data: bytes) -> bytes:
+    if not data:
+        return data
+    pad_len = data[-1]
+    if 0 < pad_len <= 16 and len(data) >= pad_len and all(b == pad_len for b in data[-pad_len:]):
+        return data[:-pad_len]
+    return data
+
+
+def _aes_cbc_decrypt(cipher: bytes, key: bytes, iv: bytes) -> str:
+    key16 = key[:16].ljust(16, b"0")
+    iv16 = iv[:16].ljust(16, b"0")
+    plaintext = AES.new(key16, AES.MODE_CBC, iv16).decrypt(cipher)
+    return _pkcs7_unpad(plaintext).decode("utf-8", errors="replace")
+
+
 def decrypt_aes_cbc(hex_data):
-    """解密 AES-CBC 加密的接口数据（格式: $#<key>#$ + 密文 + 13位IV）"""
+    """解密 hex 形态（整串为 hex，解码后格式: $#<key>#$<密文><13字节IV>）
+    与旧版区别：
+    1. 不再 .lower() —— key/IV 大小写敏感，lower 会毁掉 key 导致解密失败
+    2. 用字节级标记定位，不再在 hex 串里搜 '2324'（可能撞上密文）
+    3. PKCS7 填充校验 + errors='replace'，失败时能看出是 key 错还是格式错
+    """
     hex_data = re.sub(r'\s+', '', hex_data)
-    raw = bytes.fromhex(hex_data).decode('utf-8', errors='replace').lower()
-    key_str = raw[raw.index('$#') + 2 : raw.index('#$')]
-    iv_str = raw[-13:]
-    key = (key_str + '0000000000000000'[:16 - len(key_str)]).encode('utf-8')
-    iv = (iv_str + '0000000000000000'[:16 - len(iv_str)]).encode('utf-8')
-    ct_start = hex_data.index('2324') + 4
-    ct_end = len(hex_data) - 26
-    ct = bytes.fromhex(hex_data[ct_start:ct_end])
-    cipher = AES.new(key, AES.MODE_CBC, iv)
-    plaintext = cipher.decrypt(ct)
-    pad_len = plaintext[-1]
-    if 0 < pad_len <= 16:
-        plaintext = plaintext[:-pad_len]
-    return plaintext.decode('utf-8')
+    raw = bytes.fromhex(hex_data)
+    k0 = raw.find(b'$#')
+    k1 = raw.find(b'#$', k0 + 2) if k0 != -1 else -1
+    if k0 == -1 or k1 == -1 or k1 + 2 > len(raw) - 13:
+        raise ValueError("hex形态: 未找到 $#...#$ key区间")
+    key = raw[k0 + 2:k1]
+    iv = raw[-13:]
+    ct = raw[k1 + 2:-13]
+    if not ct or len(ct) % 16 != 0:
+        raise ValueError(f"hex形态: 密文长度非法 ({len(ct)})")
+    return _aes_cbc_decrypt(ct, key, iv)
+
+
+def decrypt_aes_cbc_plain(text):
+    """解密 plain 形态（标记直接嵌在文本里: 2324<密文hex>$#<key>#$<...><13字符IV>）
+    旧版完全不支持这种形态，源切换到这种形态后就会"经常失败"
+    """
+    t = re.sub(r'\s+', '', text)
+    k0 = t.index('$#')
+    k1 = t.index('#$', k0 + 2)
+    d0 = t.index('2324') + 4
+    if d0 > k0:
+        raise ValueError("plain形态: 数据区间非法")
+    data_hex = re.sub(r'[^0-9a-fA-F]', '', t[d0:k0])
+    if len(data_hex) % 2 != 0:
+        data_hex = data_hex[:-1]
+    key = t[k0 + 2:k1].encode('latin-1', 'ignore')
+    iv = t[-13:].encode('latin-1', 'ignore')
+    ct = bytes.fromhex(data_hex)
+    if not ct or len(ct) % 16 != 0:
+        raise ValueError(f"plain形态: 密文长度非法 ({len(ct)})")
+    return _aes_cbc_decrypt(ct, key, iv)
+
+
+def try_decrypt_payload(text):
+    """识别两种加密形态并解密；识别不了/解密失败返回 None（交给后续流程）"""
+    if not text:
+        return None
+    s = text.lstrip()
+    if s.startswith('{') or s.startswith('['):   # 明文 JSON 不碰
+        return None
+    clean = re.sub(r'\s+', '', text)
+    # hex 形态：整串合法 hex，解码后含 $#...#$ 标记
+    try:
+        if (len(clean) >= 40 and len(clean) % 2 == 0
+                and re.fullmatch(r'[0-9a-fA-F]+', clean)):
+            raw = bytes.fromhex(clean)
+            if b'$#' in raw and b'#$' in raw:
+                try:
+                    return decrypt_aes_cbc(clean)
+                except Exception as e:
+                    print(f"⚠️ hex形态解密失败: {e}")
+    except Exception as e:
+        print(f"⚠️ hex形态识别失败: {e}")
+    # plain 形态
+    if '2324' in clean and '$#' in clean and '#$' in clean:
+        try:
+            return decrypt_aes_cbc_plain(clean)
+        except Exception as e:
+            print(f"⚠️ plain形态解密失败: {e}")
+    return None
+
+
+def dump_snippet(data, tag="响应"):
+    """诊断用：输出响应前 200 字节，一眼看出是被拦（HTML）还是解码问题（2423/$#/base64）"""
+    snippet = data[:200]
+    try:
+        print(f"🔎 {tag}前200字节: {snippet!r}")
+    except Exception:
+        print(f"🔎 {tag}前200字节(hex): {snippet[:200].hex()}")
 
 
 def try_extract_base64_json(data: bytes) -> str | None:
@@ -178,36 +270,49 @@ def try_extract_base64_json(data: bytes) -> str | None:
 
 
 def fetch_raw_json(url, retries=2):
-    for attempt in range(retries + 1):
+    # 请求指纹轮换：每个指纹试一次；返回 HTML 视为被拦，换下一个指纹
+    resp = None
+    last_err = None
+    for i, fp in enumerate(TVBOX_FINGERPRINTS):
         try:
-            resp = requests.get(url, timeout=10)
-            break
-        except requests.exceptions.RequestException:
-            if attempt < retries:
-                print(f"⚠️ 请求失败，重试 {attempt + 1}/{retries}...")
-            else:
-                raise
+            r = requests.get(url, headers=fp, timeout=10)
+        except requests.exceptions.RequestException as e:
+            last_err = e
+            print(f"⚠️ 请求失败（{fp['User-Agent'][:24]}）: {e}")
+            continue
+        if r.status_code != 200:
+            last_err = RuntimeError(f"HTTP {r.status_code}")
+            print(f"⚠️ HTTP {r.status_code}（{fp['User-Agent'][:24]}）")
+            continue
+        if r.content.lstrip()[:1] == b'<' and i < len(TVBOX_FINGERPRINTS) - 1:
+            print(f"⚠️ 返回 HTML（疑似被拦），换指纹: {fp['User-Agent'][:24]}")
+            continue
+        resp = r
+        break
+    if resp is None:
+        raise RuntimeError(f"所有请求指纹均失败: {last_err}")
+
     resp.encoding = 'utf-8'
     text = resp.text.strip()
 
-    clean = re.sub(r'\s+', '', text)
-    try:
-        test = bytes.fromhex(clean[:20]).decode('utf-8', errors='replace')
-        if test.startswith('$#'):
-            print("🔐 检测到 AES-CBC 加密，正在解密...")
-            return decrypt_aes_cbc(clean)
-    except Exception:
-        pass
+    # 1) AES-CBC 加密形态（hex / plain 双形态）
+    decrypted = try_decrypt_payload(text)
+    if decrypted is not None:
+        print("🔐 检测到 AES-CBC 加密，已解密")
+        return decrypted
 
+    # 2) BMP 伪装文件头
     if resp.content[:2] == b'BM':
         print("🖼️  检测到 BMP 伪装文件头，尝试提取 base64 JSON...")
         result = try_extract_base64_json(resp.content)
         if result:
             return result
 
+    # 3) 明文 JSON
     if text.startswith('{'):
         return text
 
+    # 4) base64 片段扫描
     print("🔍 非 JSON 响应，扫描 base64 片段...")
     result = try_extract_base64_json(resp.content)
     if result:
@@ -232,6 +337,8 @@ def fetch_raw_json(url, retries=2):
                 except Exception:
                     continue
 
+    # 全部失败：dump 前 200 字节方便定位（HTML=被拦 / 2423、$#=解码器不支持）
+    dump_snippet(resp.content, "无法识别的响应")
     return text
 
 
@@ -263,7 +370,8 @@ def decode_nested_base64(data):
 
 def parse_config(raw_text, name):
     """解析配置 JSON（三级容错）"""
-    raw_text = raw_text.replace("before", "after")
+    for old, new in TEXT_PATCHES:
+        raw_text = raw_text.replace(old, new)
     try:
         data = json.loads(raw_text)
     except json.JSONDecodeError:
@@ -324,7 +432,13 @@ def build_box(template_path, jar_path, box_path, upstream_spider, spider_ok):
         md5_value = get_md5(jar_path)
         print(f"🔐 jar MD5: {md5_value}")
         if "spider" in jo:
-            jo["spider"] = re.sub(r'txt', f'txt;md5;{md5_value}', jo["spider"])
+            # 干净拼接 md5，不再 re.sub('txt')（会在 URL 多处含 txt 时改坏）
+            spider = jo["spider"]
+            if ";md5;" in spider:
+                spider = re.sub(r';md5;[0-9a-fA-F]*', f';md5;{md5_value}', spider, count=1)
+            else:
+                spider = f"{spider};md5;{md5_value}"
+            jo["spider"] = spider
             print(f"🔄 spider: {jo['spider']}")
     elif upstream_spider:
         jo["spider"] = upstream_spider
