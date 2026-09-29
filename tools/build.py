@@ -21,11 +21,7 @@ SOURCES = [
          "urls": [
                 "http://肥猫.net/", # 你的主地址
                 "http://肥猫.net/tv", # 官方公告的正路
-                "http://肥猫.com/",
-                "http://肥猫.com/tv",
-                "http://hello.肥猫.com/",
-                "https://6296.kstore.vip/facat.json",
- ],
+                 ],
         "template": "demof.json",
         "jar": "../jar/feimao.txt",
         "output": "../boxf",
@@ -33,15 +29,22 @@ SOURCES = [
     {
         "name": "xiaomi",
         "urls": [
-                 "https://www.tangsan.fun/tv/", # 你的主地址
-                 "http://www.mpanso.com/小米/DEMO.json",
-                 "https://www.mpanso.com/小米/DEMO.json",
-                 "http://miqk.cc/小米/DEMO.json",
-                 "http://xhww.fun:63/小米/DEMO.json",
- ],
+                 "https://www.tangsan.fun/tv/", 
+               ],
         "template": "demox.json",
         "jar": "../jar/xiaomi.txt",
         "output": "../box",
+    },
+    {
+        "name": "呜嗷",
+        "urls": [
+                  "http://www.英格里希嗷呜.top/tv",
+                  "https://9763.kstore.vip/aowu.json",
+                  "http://itv666.cc/aowu/config.webp",
+               ],
+        "template": "demox.json",
+        "jar": "../jar/woao.txt",
+        "output": "../boxw",
     },
 ]
 
