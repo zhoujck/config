@@ -1,3 +1,10 @@
+运行时间: 2026-10-07 01:59:31
+========================================
+✅ feimao - 源保存成功，spider下载成功
+✅ wuao - 源保存成功，spider下载成功
+========================================
+结果: 2/2 个源更新成功
+
 运行时间: 2026-10-06 13:06:45
 ========================================
 ✅ feimao - 源保存成功，spider下载成功
@@ -129,13 +136,6 @@
 ========================================
 ❌ feimao - 源解析失败
 ❌ xiaomi - 源解析失败
-========================================
-结果: 0/2 个源更新成功
-
-运行时间: 2026-09-29 16:22:14
-========================================
-❌ feimao - 所有请求指纹均失败: HTTPConnectionPool(host='xn--z7x900a.net', port=80): Read timed out. (read timeout=10)
-❌ xiaomi - 所有请求指纹均失败: HTTPSConnectionPool(host='www.tangsan.fun', port=443): Max retries exceeded with url: /tv/ (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.tangsan.fun', port=443) at 0x7f6c6ecc6990>, 'Connection to www.tangsan.fun timed out. (connect timeout=10)'))
 ========================================
 结果: 0/2 个源更新成功
 
