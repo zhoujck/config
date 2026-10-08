@@ -3,7 +3,7 @@
  "wallpaper": "https://深色壁纸.xxooo.cf/",
  "logo": "http://w.junce.dpdns.org/fm.gif",
  "sites": [
-  {"key": "豆瓣","name": "🐼┃公众号：熊猫是只肥猫┃","type": 3,"api": "csp_Douban","searchable": 0},
+  {"key": "豆瓣","name": "🐼┃QQ频道：肥猫宝贝┃","type": 3,"api": "csp_Douban","searchable": 0},
   {"key": "豆瓣预告","name": "🐼┃豆瓣┃预告","type": 3,"api": "csp_YGP","playerType": 2,"searchable": 0},
   {"key": "config","name": "🐼┃配置┃中心","type": 3,"api": "csp_Config","playerType": 2},
   {"key": "csp_FeiMaoUC","name": "⚡┃闪电┃优汐","type": 3,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["http://shandian.blog/","http://sd.sduc.site/"],"threadinfo": {"chunksize": 512,"threads": 16},"url_key": "FeiMaoUC"}},
@@ -41,7 +41,7 @@
   {"key": "csp_小学","name": "📚┃小学┃课堂","type": 3,"api": "csp_Bili","playerType": 2,"ext": {"json": "https://img2.gelonghui.com/library/a1140-144855fe-3eaa-44f3-b689-6812c233de54null","cookie": ""},"style": {"type": "rect","ratio": 1.333}},
   {"key": "csp_初中","name": "📚┃初中┃课堂","type": 3,"api": "csp_Bili","playerType": 2,"ext": {"json": "https://img2.gelonghui.com/library/ba156-73e16cad-8257-4f33-b8c0-e051e72e546dnull","cookie": ""},"style": {"type": "rect","ratio": 1.333}},
   {"key": "csp_高中","name": "📚┃高中┃课堂","type": 3,"api": "csp_Bili","playerType": 2,"ext": {"json": "https://img2.gelonghui.com/library/e44b3-4a82ab48-e014-49b2-bb66-ee5207e8f195null","cookie": ""},"style": {"type": "rect","ratio": 1.333}},
-  {"key": "push_agent","name": "关注公众号：熊猫是只肥猫","type": 3,"api": "csp_Push","playerType": "1","searchable": 0,"ext": ".json/txt/ken.txt"}
+  {"key": "push_agent","name": "QQ频道：肥猫宝贝","type": 3,"api": "csp_Push","playerType": "1","searchable": 0,"ext": ".json/txt/ken.txt"}
  ],
  "parses": [
   {"name": "Json聚合","type": 3,"url": "Demo"},
@@ -57,7 +57,6 @@
   {"name": "Quad9","url": "https://dns.quad9.net/dns-quer","ips": ["9.9.9.9","149.112.112.112"]}
  ],
  "lives": [
-  {"name": "Gather「蕉」","type": 3,"url": "https://tv.tmxk.kdns.fr/4grxobbf","epg": "https://material.1989.click/epg.xml.gz","ua": "okhttp/3.8.1","timeout": 10,"playerType": 2},
   {"name": "Gather「果」","type": 3,"url": "https://tv.tmxk.kdns.fr/yplrnuc7","epg": "https://material.1989.click/epg.xml.gz","ua": "okhttp/3.8.1","timeout": 10,"playerType": 2}
  ],
  "headers": [
