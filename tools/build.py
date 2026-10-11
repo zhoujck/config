@@ -44,7 +44,7 @@ SOURCES = [
                ],
         "template": "demow.json",
         "jar": "../jar/wuao.txt",
-        "output": "../boxw",
+        "output": "../box",
     },
 ]
 
