@@ -1,5 +1,5 @@
 {
- "spider": "https://file.icve.com.cn/file_doc/305/994/4C4F8A2CE645A5539405DEFE99D17FA3.png;md5;4c4f8a2ce645a5539405defe99d17fa3",
+ "spider": "https://file.icve.com.cn/file_doc/997/227/F9538F89E13ADF0CFBCA7909AE555AB6.png;md5;f9538f89e13adf0cfbca7909ae555ab6",
  "logo": "https://file.icve.com.cn/file_doc/945/35/EC508FBD046D33EC4832BB76B63B6C94.gif",
  "danmaku": "http://127.0.0.1:2525/danmu?name={name}&epid={episode}",
  "wallpaper": "http://127.0.0.1:9978/proxy?do=AowuWapper&mode=2",
@@ -35,7 +35,7 @@
   {"name": "☁️逸动┃4K","key": "SheQuyd","type": 3,"api": "csp_SheQuydAmns","searchable": 1,"quickSearch": 1,"changeable": 1},
   {"name": "☁️123┃4K","key": "SheQu123","type": 3,"api": "csp_SheQu123Amns","searchable": 1,"quickSearch": 1,"changeable": 1},
   {"name": "☁️蜗牛┃4K","key": "SheQuwon","type": 3,"api": "csp_SheQuwonAmns","searchable": 1,"quickSearch": 1,"changeable": 1},
-  {"name": "🐱番薯┃动漫","key": "DMfans","type": 3,"api": "csp_DMfansAmns","searchable": 0,"quickSearch": 0,"changeable": 1},
+  {"name": "🐱冬瓜┃动漫","key": "DMxigua","type": 3,"api": "csp_DMxiguaAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "DMxigua"},
   {"name": "🐱牛来┃动漫","key": "DMox","type": 3,"api": "csp_DMoxAmns","searchable": 1,"quickSearch": 1,"changeable": 1},
   {"name": "🐱青云┃动漫","key": "DMqingk","type": 3,"api": "csp_DMqingkAmns","searchable": 1,"quickSearch": 1,"changeable": 1},
   {"name": "🐱魔都┃动漫","key": "DMmodu","type": 3,"api": "csp_DMmoduAmns","searchable": 1,"quickSearch": 1,"changeable": 1},
@@ -109,14 +109,8 @@
   {"name": "阿里","url": "https://dns.alidns.com/dns-query","ips": ["223.5.5.5","223.6.6.6","2400:3200::1"]},
   {"name": "腾讯","url": "https://doh.pub/dns-query","ips": ["119.29.29.29","119.28.28.28","2402:4e00::"]},
   {"name": "360","url": "https://doh.360.cn/dns-query","ips": ["101.226.4.6","218.30.118.6"]},
-  {"name": "OneDNS","url": "https://doh-pure.onedns.net/dns-query","ips": ["117.50.10.10","52.80.52.52"]},
   {"name": "Cloudflare","url": "https://cloudflare-dns.com/dns-query","ips": ["1.1.1.1","1.0.0.1","2606:4700:4700::1111","2606:4700:4700::1001"]},
-  {"name": "Google","url": "https://dns.google/dns-query","ips": ["8.8.8.8","8.8.4.4"]},
-  {"name": "Quad9","url": "https://dns.quad9.net/dns-query","ips": ["9.9.9.9","149.112.112.112"]},
-  {"name": "AdGuard","url": "https://dns.adguard-dns.com/dns-query","ips": ["94.140.14.14","94.140.15.15"]},
-  {"name": "DNSWatch","url": "https://resolver2.dns.watch/dns-query","ips": ["84.200.69.80","84.200.70.40"]},
-  {"name": "NextDNS","url": "https://dns.nextdns.io/your_profile_id","ips": ["45.90.28.0","45.90.30.0"]},
-  {"name": "ControlD","url": "https://freedns.controld.com/p0","ips": ["76.76.2.0","76.76.10.0"]}
+  {"name": "Google","url": "https://dns.google/dns-query","ips": ["8.8.8.8","8.8.4.4"]}
  ],
  "rules": [
   {"name": "cl","hosts": ["magnet"],"regex": ["最 新","直 播","更 新"]},
