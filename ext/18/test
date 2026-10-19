@@ -12,7 +12,20 @@
 {"key":"lbapi9.com","name":"06","type":1,"api":"https://lbapi9.com/api.php/provide/vod/","playUrl": "json:http://127.0.0.1:10079/parse/?thread=0&proxy=&url=","searchable":1,"recordable":0,"style":{"type":"rect","ratio":1.33},"header":{"Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7","User-Agent":"Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/117.0.0.0Safari/537.36"}},
 {"key": "❤黄AV资源 ", "name": "07", "type": 0, "api": "https://www.pgxdy.com/api/xml.php", "searchable": 1, "quickSearch": 1, "filterable": 1 },
 { "key": "乐播", "name": "09", "type": 1, "style": { "type": "rect", "ratio": 1.6 }, "api": "https://lbapi9.com/api.php/provide/vod" },
-{ "key": "大奶子资源", "name": "08", "type": 1, "api": "https://apidanaizi.com/api.php/provide/vod", "searchable": 1, "style": { "type": "rect", "ratio": 1.33 }, "changeable": 1 }
+{ "key": "大奶子资源", "name": "08", "type": 1, "api": "https://apidanaizi.com/api.php/provide/vod", "searchable": 1, "style": { "type": "rect", "ratio": 1.33 }, "changeable": 1 },
+
+{ "key": "ynzy", "name": "🔞越南", "type": 1, "api": "https://vnzyz.com/api.php/provide/vod", "searchable": 1, "quickSearch": 1 },
+{ "key": "dnzzy", "name": "🔞大奶子", "type": 1, "api": "https://apidanaizi.com/api.php/provide/vod", "searchable": 1, "quickSearch": 1 },
+{ "key": "ddzy", "name": "🔞滴滴", "type": 1, "api": "https://api.ddapi.cc/api.php/provide/vod", "searchable": 1, "quickSearch": 1 },
+{ "key": "ysjzy", "name": "🔞淫水机", "type": 1, "api": "https://www.xrbsp.com/api/json.php", "searchable": 1, "quickSearch": 1 },
+{ "key": "xnezy", "name": "🔞香奶儿", "type": 1, "api": "https://www.gdlsp.com/api/json.php", "searchable": 1, "quickSearch": 1 },
+{ "key": "bpzy", "name": "🔞白嫖", "type": 1, "api": "https://www.kxgav.com/api/json.php", "searchable": 1, "quickSearch": 1 },
+{ "key": "lbzy", "name": "🔞乐播", "type": 1, "api": "https://lbapi9.com/api.php/provide/vod", "searchable": 1, "quickSearch": 1 },
+{ "key": "hlxzy", "name": "🔞黑料X", "type": 1, "api": "https://www.heiliaozyapi.com/api.php/provide/vod/?ac=list", "searchable": 1, "quickSearch": 1 },
+{ "key": "slzy", "name": "🔞森林", "type": 1, "api": "https://slapibf.com/api.php/provide/vod/", "searchable": 1, "quickSearch": 1 },
+{ "key": "aosika", "name": "🔞奥斯卡资源", "type": 1, "api": "https://aosikazy.com/api.php/provide/vod", "searchable": 1, "quickSearch": 1 },
+{ "key": "pgxzy", "name": "🔞PGX资源", "type": 1, "api": "https://www.pgxdy.com/api/json.php", "searchable": 1, "quickSearch": 1 },
+{ "key": "meishaonvzy", "name": "🔞美少女资源", "type": 1, "api": "https://www.msnii.com/api/json.php", "searchable": 1, "quickSearch": 1 }
 
 ],
     
