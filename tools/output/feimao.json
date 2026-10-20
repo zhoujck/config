@@ -1,6 +1,6 @@
 {
  "spider": "http://肥猫.net/spider.php;md5;2d842238d97d949fef5c679cb876f81d",
- "danmaku": "http://127.0.0.1:9978/proxy?do=danmaku&name={name}&episode={episode}",
+ "danmaku": "http://xn--z7x900a.net/danmu5266/auto.php?name={name}&episode={episode}",
  "wallpaper": "https://深色壁纸.xxooo.cf/",
  "logo": "http://w.junce.dpdns.org/fm.gif",
  "sites": [
