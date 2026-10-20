@@ -1,7 +1,3 @@
 资源来自网络，仅供学习研究，请勿商用
 
-肥猫接口本地化
-
-在线接口：https://gh-proxy.com/https://raw.githubusercontent.com/zhoujck/config/main/box
-
-本地接口：file://tvboxqq/config/box
+在线接口：https://gh-proxy.org/https://raw.githubusercontent.com/zhoujck/config/main/box
