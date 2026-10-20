@@ -338,7 +338,8 @@ async function category(tid, pg, filter, extend) {
         } else if (tid === "documentary") {
             // 纪录片 - 统一走 recommend 接口，数据量远大于 recent_hot
             let genre = ext.genre || "";
-            sort = ext.sort || "U";
+            // 未使用筛选时默认按高分排序（相当于 Top250 榜单）；一旦使用筛选则恢复原有逻辑
+            sort = hasFilter(ext, ["genre", "sort"]) ? (ext.sort || "U") : "S";
 
             let selectedCategories = { "形式": "纪录片" };
             if (genre) selectedCategories["类型"] = genre;
