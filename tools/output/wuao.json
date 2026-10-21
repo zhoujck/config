@@ -1,5 +1,5 @@
 {
- "spider": "https://file.icve.com.cn/file_doc/997/227/F9538F89E13ADF0CFBCA7909AE555AB6.png;md5;f9538f89e13adf0cfbca7909ae555ab6",
+ "spider": "https://file.icve.com.cn/file_doc/575/169/8FE2A4482421CA98AEC940B755BCC7CE.png;md5;8fe2a4482421ca98aec940b755bcc7ce",
  "logo": "https://file.icve.com.cn/file_doc/945/35/EC508FBD046D33EC4832BB76B63B6C94.gif",
  "danmaku": "http://127.0.0.1:2525/danmu?name={name}&epid={episode}",
  "wallpaper": "http://127.0.0.1:9978/proxy?do=AowuWapper&mode=2",
@@ -42,7 +42,7 @@
   {"name": "🛸哔嘀┃2K","key": "Bidys","type": 3,"api": "csp_BidysAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "Bidys"},
   {"name": "🛸厂长┃2K","key": "Czzy","type": 3,"api": "csp_CzzyAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "Czzy"},
   {"name": "🛸LBV┃2K","key": "Libvio","type": 3,"api": "csp_LibvioAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "Libvio"},
-  {"name": "📽️嗷嗚┃短剧","key": "DjHggg","type": 3,"api": "csp_HgggAmns","searchable": 0,"quickSearch": 0,"changeable": 0,"genre": "shortdrama"},
+  {"name": "📽️嗷嗚┃短剧","key": "DjHggg","type": 3,"api": "csp_HgggAmns","searchable": 0,"quickSearch": 0,"changeable": 0,"ext": "DjHggg","genre": "shortdrama"},
   {"name": "📽️豪堪┃短剧","key": "HHkk","type": 3,"api": "csp_HHkkAmns","searchable": 0,"quickSearch": 0,"changeable": 1,"genre": "shortdrama"},
   {"name": "📽️盒马┃短剧","key": "Hema","type": 3,"api": "csp_HemaAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"genre": "shortdrama"},
   {"name": "📽️拜拜┃短剧","key": "Bddj","type": 3,"api": "csp_BddjAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"genre": "shortdrama"},
