@@ -388,37 +388,37 @@ async function category(tid, pg, filter, extend) {
     } catch (e) { return JSON.stringify({ list: [], page: pg || 1, pagecount: 0, total: 0 }); }
 }
 
-// async function detail(id) {
-//     try {
-//         let r = getDetail(id);
-//         if (!r || !r.title) return JSON.stringify({ list: [] });
-//         return JSON.stringify({ list: [{
-//             vod_id: id, vod_name: r.title, vod_pic: fixPic(r.pic), type_name: r.area,
-//             vod_year: r.year, vod_area: r.area, vod_remarks: r.rating ? "评分: " + r.rating : "",
-//             vod_actor: r.actors, vod_director: r.director, vod_content: r.summary,
-//             vod_play_from: "豆瓣", vod_play_url: "暂无播放源$无"
-//         }]});
-//     } catch (e) { return JSON.stringify({ list: [] }); }
-// }
+async function detail(id) {
+    try {
+        let r = getDetail(id);
+        if (!r || !r.title) return JSON.stringify({ list: [] });
+        return JSON.stringify({ list: [{
+            vod_id: id, vod_name: r.title, vod_pic: fixPic(r.pic), type_name: r.area,
+            vod_year: r.year, vod_area: r.area, vod_remarks: r.rating ? "评分: " + r.rating : "",
+            vod_actor: r.actors, vod_director: r.director, vod_content: r.summary,
+            vod_play_from: "豆瓣", vod_play_url: "暂无播放源$无"
+        }]});
+    } catch (e) { return JSON.stringify({ list: [] }); }
+}
 
-// async function search(wd, quick, pg) {
-//     try {
-//         let items = suggest(wd), list = [];
-//         if (Array.isArray(items)) {
-//             for (let it of items) {
-//                 if (it.type !== "movie" && it.type !== "tv") continue;
-//                 list.push({ vod_id: it.id || "", vod_name: it.title || "", vod_pic: fixPic(it.img), vod_remarks: it.year || "" });
-//             }
-//         }
-//         if (list.length < 5) {
-//             try {
-//                 let webList = parseItems(getByTag(wd, "movie", "recommend", 0, 20));
-//                 let existIds = new Set(list.map(i => i.vod_id));
-//                 for (let it of webList) { if (!existIds.has(it.vod_id)) list.push(it); }
-//             } catch (e) { }
-//         }
-//         return JSON.stringify({ list });
-//     } catch (e) { return JSON.stringify({ list: [] }); }
-// }
+async function search(wd, quick, pg) {
+    try {
+        let items = suggest(wd), list = [];
+        if (Array.isArray(items)) {
+            for (let it of items) {
+                if (it.type !== "movie" && it.type !== "tv") continue;
+                list.push({ vod_id: it.id || "", vod_name: it.title || "", vod_pic: fixPic(it.img), vod_remarks: it.year || "" });
+            }
+        }
+        if (list.length < 5) {
+            try {
+                let webList = parseItems(getByTag(wd, "movie", "recommend", 0, 20));
+                let existIds = new Set(list.map(i => i.vod_id));
+                for (let it of webList) { if (!existIds.has(it.vod_id)) list.push(it); }
+            } catch (e) { }
+        }
+        return JSON.stringify({ list });
+    } catch (e) { return JSON.stringify({ list: [] }); }
+}
 
 export default { init, home, homeVod, category, detail, search };
