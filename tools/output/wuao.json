@@ -1,5 +1,5 @@
 {
- "spider": "https://file.icve.com.cn/file_doc/575/169/8FE2A4482421CA98AEC940B755BCC7CE.png;md5;8fe2a4482421ca98aec940b755bcc7ce",
+ "spider": "https://file.icve.com.cn/file_doc/653/727/A37B5C22B56C4DCE38B519EE92256A8E.png;md5;a37b5c22b56c4dce38b519ee92256a8e",
  "logo": "https://file.icve.com.cn/file_doc/945/35/EC508FBD046D33EC4832BB76B63B6C94.gif",
  "danmaku": "http://127.0.0.1:2525/danmu?name={name}&epid={episode}",
  "wallpaper": "http://127.0.0.1:9978/proxy?do=AowuWapper&mode=2",
@@ -7,6 +7,7 @@
   {"name": "🔥豆瓣┃推荐","key": "Douban","type": 3,"api": "csp_DoubanAmns","indexs": 1,"searchable": 0,"quickSearch": 0,"changeable": 1,"ext": "Douban"},
   {"name": "更新日期:【侏罗纪】","key": "Y360","type": 3,"api": "csp_Y360Amns","searchable": 0,"quickSearch": 0,"changeable": 1,"ext": "Y360"},
   {"name": "🔥短剧┃推荐","key": "Hgdh","type": 3,"api": "csp_HgdhAmns","searchable": 1,"quickSearch": 1,"changeable": 0,"genre": "shortdrama","ext": "Hgdh"},
+  {"name": "🔥经典┃推荐","key": "Xxxg","type": 3,"api": "csp_XxxgAmns","searchable": 0,"quickSearch": 0,"changeable": 0,"ext": "Xxxg"},
   {"name": "⚙️配置┃中心","key": "MyConfig","type": 3,"api": "csp_AAConfigAmns","searchable": 0,"quickSearch": 0,"changeable": 0},
   {"name": "📁资源┃中心","key": "MyAll","type": 3,"api": "csp_MyAllAmns","searchable": 0,"quickSearch": 0,"changeable": 0},
   {"name": "💥玩偶┃4K","key": "woWogg","type": 3,"api": "csp_WoggAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "woWogg"},
