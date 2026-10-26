@@ -1,5 +1,5 @@
 {
- "spider": "./jar/feimao.txt;md5;2d842238d97d949fef5c679cb876f81d",
+ "spider": "./jar/feimao.txt;md5;7bfc9f9c0b3ed23d0ea38400ac9d356b",
  "logo": "./ext/app_icon.png",
  "lives": [
   {"name": "🍬移动🍬","type": 0,"url": "./ext/移动","playerType": 2,"ua": "okhttp/3.15","epg": "https://epg.cdn.loc.cc/?ch={name}&date={date}"},
