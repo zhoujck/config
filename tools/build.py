@@ -26,15 +26,6 @@ SOURCES = [
         "jar": "../jar/feimao.txt",
         "output": "../boxf",
     },
-    # {
-    #     "name": "xiaomi",
-    #     "urls": [
-    #              "https://www.tangsan.fun/tv/", 
-    #            ],
-    #     "template": "demox.json",
-    #     "jar": "../jar/xiaomi.txt",
-    #     "output": "../box",
-    # },
     {
         "name": "wuao",
         "urls": [
