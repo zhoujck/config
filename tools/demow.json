@@ -1,6 +1,9 @@
 {
  "spider": "./jar/wuao.txt",
  "logo": "./ext/app_icon.png",
+ "danmaku": "http://127.0.0.1:2525/danmu?name={name}&epid={episode}",
+ "wallpaper": "http://127.0.0.1:9978/proxy?do=AowuWapper&mode=2",
+ 
  "lives": [
   {"name": "🍬移动🍬","type": 0,"url": "./ext/移动","playerType": 2,"ua": "okhttp/3.15","epg": "https://epg.cdn.loc.cc/?ch={name}&date={date}"},
   {"name": "🍬联通🍬","type": 0,"url": "./ext/联通","playerType": 2,"ua": "okhttp/3.15","epg": "https://epg.cdn.loc.cc/?ch={name}&date={date}"},
@@ -11,7 +14,7 @@
   {"key": "豆瓣","name": "🍬糖果影视🍬","type": 3,"api": "./js/豆瓣.js","searchable": 0,"changeable": 1},
   //{"key": "豆瓣jar","name": "🍬糖果影视🍬","type": 3,"api": "csp_Douban","searchable": 0,"changeable": 1},
   {"key": "配置中心","name": "👨‍🍳‍配置┃中心","type": 3,"api": "csp_AAConfigAmns","searchable": 0,"changeable": 0,"indexs": 0,"style": {"type": "rect","ratio": 1.43}},
-  {"key": "哔站记录片","name": "🍬🅱哔站影视","type": 3,"api": "./js/哔哩纪录片.js","searchable": 1,"ext": ""},
+  {"key": "哔站记录片","name": "🍬🅱哔站纪录片","type": 3,"api": "./js/哔哩纪录片.js","searchable": 1,"ext": ""},
   {"key": "哔站教育","name": "🍬🅱哔站教育","type": 3,"api": "./js/哔站教育.js","searchable": 0,"changeable": 0,"ext": "","style": {"type": "rect","ratio": 1.43}},
   {"key": "体育", "name": "🏆瓜子┃体育","type": 3,"api": "csp_GuaziLiveAmns","searchable": 0,"quickSearch": 0,"changeable": 1,"ext": "GuaziLive"},
   
@@ -45,12 +48,25 @@
   {"name": "🐮 牛牛解析","type": 1,"url": "","ext": {"flag": ["QD4K","iyf","duanju","gzcj","GTV","GZYS","weggz","Ace"],"header": {"User-Agent": "okhttp/4.9.1"}}},
   {"name": "🌃 夜幕解析","type": 0,"url": ""}
  ],
+
+  "doh": [
+  {"name": "阿里","url": "https://dns.alidns.com/dns-query","ips": ["223.5.5.5","223.6.6.6","2400:3200::1"]},
+  {"name": "腾讯","url": "https://doh.pub/dns-query","ips": ["119.29.29.29","119.28.28.28","2402:4e00::"]},
+  {"name": "360","url": "https://doh.360.cn/dns-query","ips": ["101.226.4.6","218.30.118.6"]},
+  {"name": "Cloudflare","url": "https://cloudflare-dns.com/dns-query","ips": ["1.1.1.1","1.0.0.1","2606:4700:4700::1111","2606:4700:4700::1001"]},
+  {"name": "Google","url": "https://dns.google/dns-query","ips": ["8.8.8.8","8.8.4.4"]}
+ ],
+ 
  "rules": [
-  {"name": "农民","hosts": ["toutiaovod.com"],"regex": ["video/tos/cn"]},
-  {"name": "火山","hosts": ["huoshan.com"],"regex": ["item_id="]},
-  {"name": "抖音","hosts": ["douyin.com"],"regex": ["is_play_url="]},
-  {"name": "磁力广告","hosts": ["magnet"],"regex": ["更多","请访问","example","社 區","x u u","直 播","更 新","社 区","有趣","有 趣","英皇体育","全中文AV在线","澳门皇冠赌场","哥哥快来","美女荷官","裸聊","新片首发","UUE29"]},
-  {"name": "饭团点击","hosts": ["dadagui","freeok","dadagui"],"script": ["document.querySelector(\"#playleftiframe\").contentWindow.document.querySelector(\"#start\").click();"]},
-  {"name": "毛驴点击","hosts": ["www.maolvys.com"],"script": ["document.getElementsByClassName('swal-buttonswal-button--confirm')[0].click()"]}
+  {"name": "cl","hosts": ["magnet"],"regex": ["最 新","直 播","更 新"]},
+  {"name": "火山嗅探","hosts": ["huoshan.com"],"regex": ["item_id="]},
+  {"name": "抖音嗅探","hosts": ["douyin.com"],"regex": ["is_play_url="]},
+  {"name": "农民嗅探","hosts": ["toutiaovod.com"],"regex": ["video/tos/cn"]},
+  {"name": "七新嗅探","hosts": ["api.52wyb.com"],"regex": ["m3u8?pt=m3u8"]},
+  {"name": "夜市","hosts": ["yeslivetv.com"],"script": ["document.getElementsByClassName('vjs-big-play-button')[0].click()"]},
+  {"name": "毛驴","hosts": ["www.maolvys.com"],"script": ["document.getElementsByClassName('swal-button swal-button--confirm')[0].click()"]},
+  {"name": "czzy","hosts": ["10086.cn"],"regex": ["/storageWeb/servlet/downloadServlet"]},
+  {"name": "bdys","hosts": ["bytetos.com","byteimg.com","bytednsdoc.com","pstatp.com"],"regex": ["/tos-cn"],"exclude": [".m3u8"]},
+  {"name": "bdys10","hosts": ["bdys10.com"],"regex": ["/obj/"],"exclude": [".m3u8"]}
  ]
 }
