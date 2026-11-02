@@ -1,5 +1,5 @@
 {
- "spider": "https://img2.gelonghui.com/library/efdab-c02a57ed-4928-4bdb-b4f7-bed7ea1b5f28.png;md5;efdab3edef534eb3d98706f0023a8676",
+ "spider": "https://img2.gelonghui.com/library/6a396-4e09c48e-c9bc-4313-b788-8d5120f90e5d.png;md5;6a396033ae45efee57ba789f91d7123e",
  "danmaku": "http://127.0.0.1:9978/proxy?do=danmaku&name={name}&episode={episode}",
  "wallpaper": "https://深色壁纸.xxooo.cf/",
  "logo": "http://w.junce.dpdns.org/fm.gif",
@@ -7,6 +7,7 @@
   {"key": "豆瓣","name": "🐼┃QQ频道：肥猫宝贝┃","type": 3,"api": "csp_Douban","searchable": 0},
   {"key": "豆瓣预告","name": "🐼┃豆瓣┃预告","type": 3,"api": "csp_YGP","playerType": 2,"searchable": 0},
   {"key": "config","name": "🐼┃配置┃中心","type": 3,"api": "csp_Config","playerType": 2},
+  {"key": "PanMarket","name": "🐼┃网盘┃应用","type": 3,"api": "csp_PanMarket","searchable": 0,"style": {"type": "list"},"ext": {"categories": [{"name": "Fongmi影视","url": "https://pan.quark.cn/s/7129866d8655"},{"name": "OK影视","url": "https://pan.quark.cn/s/cc286c991136"},{"name": "Kazumi","url": "https://pan.quark.cn/s/e77ca870e15e"}]}},
   {"key": "alllive","name": "🎮┃游戏┃直播","type": 3,"api": "csp_Alllive","style": {"type": "rect","ratio": 1.597},"timeout": 20,"playerType": 2,"searchable": 0,"quickSearch": 0,"changeable": 0,"ext": "game"},
   {"key": "csp_FeiMaoUC","name": "⚡┃闪电┃优汐","type": 3,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["http://shandian.blog/","http://sd.sduc.site/"],"threadinfo": {"chunksize": 512,"threads": 16},"url_key": "FeiMaoUC"}},
   {"key": "潮流","name": "🏜┃潮流┃APP","type": 3,"api": "csp_AppRJ","ext": "http://v.rbotv.cn"},
