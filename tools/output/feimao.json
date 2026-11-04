@@ -10,6 +10,7 @@
   {"key": "PanMarket","name": "🐼┃网盘┃应用","type": 3,"api": "csp_PanMarket","searchable": 0,"style": {"type": "list"},"ext": {"categories": [{"name": "Fongmi影视","url": "https://pan.quark.cn/s/7129866d8655"},{"name": "OK影视","url": "https://pan.quark.cn/s/cc286c991136"},{"name": "Kazumi","url": "https://pan.quark.cn/s/e77ca870e15e"},{"name": "LxMusic","url": "https://pan.quark.cn/s/c24085164146"}]}},
   {"key": "alllive","name": "🎮┃游戏┃直播","type": 3,"api": "csp_Alllive","style": {"type": "rect","ratio": 1.597},"timeout": 20,"playerType": 2,"searchable": 0,"quickSearch": 0,"changeable": 0,"ext": "game"},
   {"key": "csp_FeiMaoUC","name": "⚡┃闪电┃优汐","type": 3,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["http://shandian.blog/","http://sd.sduc.site/"],"threadinfo": {"chunksize": 512,"threads": 16},"url_key": "FeiMaoUC"}},
+  {"key": "csp_Duopan","name": "🖍︎┃蜡笔┃影视","type": 3,"api": "csp_Duopan","filterable": 1,"ext": {"site_urls": ["http://xiaocge.fun","http://feimo.fun","http://www.labi88.sbs","http://fmao.site","http://fmao.shop","http://xiaocgege.shop","http://www.xiaocgege.shop"],"threadinfo": {"chunksize": 512,"threads": 16},"url_key": "Duopan2"}},
   {"key": "潮流","name": "🏜┃潮流┃APP","type": 3,"api": "csp_AppRJ","ext": "http://v.rbotv.cn"},
   {"key": "肥猫","name": "🐼┃肥猫┃APP","type": 3,"api": "csp_AppQi","ext": "https://lanyingjisu.oss-cn-wuhan-lr.aliyuncs.com/lyjszx.txt|oW5UxZ5kWVr1DI69"},
   {"key": "干饭","name": "🍚┃干饭┃APP","type": 3,"api": "csp_AppDrama2","ext": {"appName": "小苹果","publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCduNEnfxGaLuQRk5ABzXHhPV43zi00sCHjLo8BYc+Wi6xXm2b4v0i28Sq4WlNCKhseft9fz8kO/qLr6/022o1RcuOU7e4GFL3U9WnNODwRBYSYWd+K8nqpI/tAUDmZEBGRWqjrc7x6aMl3A+xpnWkLbPCLsuhbuuUE3tv09oeOpwIDAQAB","dataKey": "S0VNDTJHOFHHCNMRAW5IV2TOS2PBPQ==","dataIv": "OC1A06E197EF10CF3F6058CA7A803B5E","pkg": "com.juechufsh.android.xpg1","host": "","site": "https://xpgandroid03-1372779881.cos.ap-beijing.myqcloud.com/app_xpg_android.txt","version": "1.0.0.3","decrypt": "0"}},
@@ -59,7 +60,7 @@
   {"name": "Quad9","url": "https://dns.quad9.net/dns-quer","ips": ["9.9.9.9","149.112.112.112"]}
  ],
  "lives": [
-  {"name": "Gather「果」","type": 3,"url": "https://tv.tmxk.kdns.fr/yplrnuc7","epg": "https://material.1989.click/epg.xml.gz","ua": "okhttp/3.8.1","timeout": 10,"playerType": 2}
+  {"name": "Gather「果」","type": 3,"url": "https://down.nigx.cn/raw.githubusercontent.com/Kimentanm/aptv/master/m3u/iptv.m3u","epg": "https://material.1989.click/epg.xml.gz","ua": "okhttp/3.8.1","timeout": 10,"playerType": 2}
  ],
  "headers": [
   {"host": "hlsztemgsplive.miguvideo.com","header": {"User-Agent": "okHttp/Mod-1.5.0.0"}}
