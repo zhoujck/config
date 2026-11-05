@@ -12,7 +12,7 @@
 
     
     {
-    "name": "OK通道",
+    "name": "OK影视",
     "list": [
       {
         "name": "電視-4.X",
@@ -36,20 +36,20 @@
   },
 
         {
-    "name": "FM通道",
+    "name": "Aerial",
     "list": [
 
       {
-        "name": "電視-java",
-        "url": "https://gh-proxy.org/https://raw.githubusercontent.com/FongMi/Release/fongmi/apk/leanback-armeabi_v7a.apk",
-        "icon": "https://raw.githubusercontent.com/zhoujck/local_config/main/ext/app_icon.png",
-        "version": "电视5+最新版"
+        "name": "Aerial-lite",
+        "url": "https://aerial.qust.me/download/aerial-lite.apk",
+        "icon": "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/docs/brand/icon.png",
+        "version": "安卓4.0版"
       },   
       {
-        "name": "手機-java",
-        "url": "https://gh-proxy.org/https://raw.githubusercontent.com/FongMi/Release/fongmi/apk/mobile-arm64_v8a.apk",
-        "icon": "https://raw.githubusercontent.com/zhoujck/local_config/main/ext/app_icon.png",
-        "version": "手机最新版"
+        "name": "Aerial-standard",
+        "url": "https://aerial.qust.me/download/aerial-standard.apk",
+        "icon": "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/docs/brand/icon.png",
+        "version": "安卓5.0以上"
       }
     ]
   }
