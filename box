@@ -30,7 +30,7 @@
   {"name": "🚀金牌┃秒播","key": "线路11","type": 3,"api": "csp_JinPaiAmns","searchable": 1,"quickSearch": 1,"changeable": 1},
   {"name": "🚀秋天┃秒播","key": "线路12","type": 3,"api": "csp_NewGrV2Amns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "NewGrV2"},
   {"name": "📦师兄┃秒播","key": "线路13","type": 3,"api": "csp_AppV7Amns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "AppV7Dsx"},
-  {"name": "⭐橘汁┃快速","key": "线路14","type": 3,"jar": "https://zl.wpscdn.cn/2026/09/11/space_img/0f5c235d-ee40-42a0-a19a-b7f29986c51c.png;md5;7a2cb30dc4937d27e57288b5c381e19c","api": "csp_Woshinidie","searchable": 1,"quickSearch": 1,"changeable": 1},
+  {"name": "⭐橘汁┃快速","key": "Woshinidie","type": 3,"jar": "https://nos.netease.com/vcloud-statistic/nrtc/35012678-318a-469d-866b-00e9d74468df.png;md5;528450abfa7bbee80d68034ae045a1f6","api": "csp_Woshinidie","searchable": 1,"quickSearch": 1,"changeable": 1},
   {"name": "⭐热播┃快速","key": "线路15","type": 3,"api": "csp_RbysAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "Rbys"},
   {"name": "⭐杜北┃秒播","key": "线路16","type": 3,"api": "csp_DubkAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "Dubk"},
   {"name": "⭐荐片┃快速","key": "线路17","type": 3,"api": "csp_JPianAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "JPian"},
