@@ -1,5 +1,5 @@
 {
- "spider": "https://nos.netease.com/vcloud-statistic/nrtc/ebab8029-2b87-42f8-a964-ec1ca3de4052.png;md5;bb065fc30372ceee6fb15feec0c6a5fe",
+ "spider": "https://fmsc525.oss-cn-hangzhou.aliyuncs.com/upload/235/20261111/04d7de872fa893cd2cf6139cab519da0.png;md5;6870d54372a2b98ee6f327bae3541dbd",
  "logo": "https://file.icve.com.cn/file_doc/945/35/EC508FBD046D33EC4832BB76B63B6C94.gif",
  "danmaku": "http://127.0.0.1:2525/danmu?name={name}&epid={episode}",
  "wallpaper": "http://127.0.0.1:9978/proxy?do=AowuWapper&mode=2",
@@ -8,6 +8,7 @@
   {"name": "更新日期:【侏罗纪】","key": "Y360","type": 3,"api": "csp_Y360Amns","searchable": 0,"quickSearch": 0,"changeable": 1,"ext": "Y360"},
   {"name": "🔥短剧┃推荐","key": "Hgdh","type": 3,"api": "csp_HgdhAmns","searchable": 1,"quickSearch": 1,"changeable": 0,"genre": "shortdrama","ext": "Hgdh"},
   {"name": "🔥经典┃推荐","key": "Xxxg","type": 3,"api": "csp_XxxgAmns","searchable": 0,"quickSearch": 0,"changeable": 0,"ext": "Xxxg"},
+  {"name": "🔥下饭┃推荐","key": "Xfdh","type": 3,"api": "csp_XfdhAmns","searchable": 0,"quickSearch": 0,"changeable": 0},
   {"name": "⚙️配置┃中心","key": "MyConfig","type": 3,"api": "csp_AAConfigAmns","searchable": 0,"quickSearch": 0,"changeable": 0},
   {"name": "📁资源┃中心","key": "MyAll","type": 3,"api": "csp_MyAllAmns","searchable": 0,"quickSearch": 0,"changeable": 0},
   {"name": "💥玩偶┃4K","key": "woWogg","type": 3,"api": "csp_WoggAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "woWogg"},
@@ -82,7 +83,6 @@
   {"name": "🎸酷听┃音乐","key": "Kuwo","type": 3,"api": "csp_KuwoAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"genre": "music"},
   {"name": "🎸蜻蜓┃电台","key": "QTfm","type": 3,"api": "csp_QTfmAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"genre": "music"},
   {"name": "🔍fish┃盘搜","key": "PSfish","type": 3,"api": "csp_PSfishAmns","searchable": 1,"quickSearch": 1,"changeable": 1},
-  {"name": "🔍短剧┃盘搜","key": "PSdju","type": 3,"api": "csp_PSdjuAmns","searchable": 1,"quickSearch": 1,"changeable": 1},
   {"name": "🛴推送┃播放","key": "push_agent","type": 3,"api": "csp_PushAmns","searchable": 0,"quickSearch": 0,"changeable": 1}
  ],
  "lives": [
