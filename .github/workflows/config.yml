@@ -48,13 +48,43 @@ jobs:
         shell: bash
 
       - name: 提交更改
+        id: commit
         run: |
           git config user.email "zhoujck@live.com"
           git config user.name "zhoujck"
           git add .
           if ! git diff-index --quiet HEAD --; then
-          git commit -m "更新JAR $(date +%Y%m%d%H%M)"
-          git push -f origin main
+            git commit -m "更新JAR $(date +%Y%m%d%H%M)"
+            git diff --name-only HEAD^ HEAD > "$RUNNER_TEMP/changed_files.txt"
+            git push -f origin main
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
           else
-          echo "没有文件更新，不执行 git push"
+            echo "没有文件更新，不执行 git push"
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: 清理 jsDelivr 缓存
+        if: steps.commit.outputs.pushed == 'true'
+        run: |
+          python3 - <<'PY'
+          import os, urllib.parse, urllib.request
+
+          def purge(path):
+              url = "https://purge.jsdelivr.net/gh/zhoujck/config@main/" + urllib.parse.quote(path)
+              try:
+                  with urllib.request.urlopen(url, timeout=30) as r:
+                      print(f"[{r.status}] {path}")
+              except Exception as e:
+                  print(f"[ERR] {path}: {e}")
+
+          # 入口配置必清
+          purge("box")
+
+          # 本次更新变更过的文件逐个清理
+          p = os.path.join(os.environ.get("RUNNER_TEMP", "/tmp"), "changed_files.txt")
+          if os.path.exists(p):
+              for line in open(p, encoding="utf-8"):
+                  f = line.strip()
+                  if f and f != "box" and not f.startswith(".github/"):
+                      purge(f)
+          PY
