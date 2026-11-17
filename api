@@ -1,6 +1,6 @@
 {"urls":
 [
 {"url":"https://gh-proxy.org/https://raw.githubusercontent.com/zhoujck/config/main/box","name":"糖果影视(优选)"},
-{"url":"https://gcore.jsdelivr.net/gh/zhoujck/config@main/box","name":"糖果影视(高速)"}
+{"url":"https://cdn.jsdelivr.net/gh/zhoujck/config@main/box","name":"糖果影视(高速)"}
 ]
 }
