@@ -1,5 +1,5 @@
 {
- "spider": "./jar/wuao.txt;md5;f448fc2d9b86ae8ca1f1ff8b35b08735",
+ "spider": "./jar/wuao.txt;md5;e76d6f0107817970b9f57d7d29129efe",
  "logo": "./ext/app_icon.png",
  "danmaku": "http://127.0.0.1:2525/danmu?name={name}&epid={episode}",
  "wallpaper": "http://127.0.0.1:9978/proxy?do=AowuWapper&mode=2",
