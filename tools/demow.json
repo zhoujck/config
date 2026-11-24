@@ -40,7 +40,7 @@
 
   {"name": "🔆橘汁┃快速","key": "线路14","type": 3,"api": "csp_JuzhiAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "Juzhi"},
   {"name": "🔆热播┃快速","key": "线路15","type": 3,"api": "csp_RbysAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "Rbys"},
-  {"name": "🔆杜北┃秒播","key": "线路16","type": 3,"api": "csp_DubkAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "Dubk"},
+  //{"name": "🔆杜北┃秒播","key": "线路16","type": 3,"api": "csp_DubkAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "Dubk"},
   {"name": "🔆荐片┃快速","key": "线路17","type": 3,"api": "csp_JPianAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "JPian"},
   {"name": "🔆爱看┃采集","key": "线路18","type": 3,"api": "csp_AiBotAmns","searchable": 1,"quickSearch": 1,"changeable": 1},
 
