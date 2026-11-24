@@ -1,5 +1,5 @@
 {
- "spider": "./jar/wuao.txt;md5;b67c6648a07391b7bee0fc0848ada8eb",
+ "spider": "./jar/wuao.txt;md5;f33fe0621341289e1491f2ae55b4423b",
  "logo": "./ext/app_icon.png",
  "danmaku": "http://127.0.0.1:2525/danmu?name={name}&epid={episode}",
  "wallpaper": "http://127.0.0.1:9978/proxy?do=AowuWapper&mode=2",
@@ -32,7 +32,6 @@
   {"name": "🚀秋天┃秒播","key": "线路13","type": 3,"api": "csp_NewGrV2Amns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "NewGrV2"},
   {"name": "🔆橘汁┃快速","key": "线路14","type": 3,"api": "csp_JuzhiAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "Juzhi"},
   {"name": "🔆热播┃快速","key": "线路15","type": 3,"api": "csp_RbysAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "Rbys"},
-  {"name": "🔆杜北┃秒播","key": "线路16","type": 3,"api": "csp_DubkAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "Dubk"},
   {"name": "🔆荐片┃快速","key": "线路17","type": 3,"api": "csp_JPianAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "JPian"},
   {"name": "🔆爱看┃采集","key": "线路18","type": 3,"api": "csp_AiBotAmns","searchable": 1,"quickSearch": 1,"changeable": 1},
   {"name": "呜嗷短剧","key": "短剧","type": 3,"api": "csp_HgggAmns","searchable": 1,"quickSearch": 0,"changeable": 0,"genre": "shortdrama"},

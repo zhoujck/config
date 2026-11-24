@@ -1,5 +1,5 @@
 {
- "spider": "https://nos.netease.com/vcloud-statistic/nrtc/4f052dfd-2873-4f1e-9c42-c3f444fc60fa.png;md5;b67c6648a07391b7bee0fc0848ada8eb",
+ "spider": "https://nos.netease.com/vcloud-statistic/nrtc/8273a7a3-e148-4d4c-ac7a-e3dbd5f020f9.png;md5;f33fe0621341289e1491f2ae55b4423b",
  "logo": "https://file.icve.com.cn/file_doc/945/35/EC508FBD046D33EC4832BB76B63B6C94.gif",
  "danmaku": "http://127.0.0.1:2525/danmu?name={name}&epid={episode}",
  "wallpaper": "http://127.0.0.1:9978/proxy?do=AowuWapper&mode=2",
@@ -7,7 +7,7 @@
   {"name": "🔥┃豆瓣┃推荐","key": "Douban","type": 3,"api": "csp_DoubanAmns","indexs": 1,"searchable": 0,"quickSearch": 0,"changeable": 1,"ext": "Douban"},
   {"name": "更新日期:【侏罗纪】","key": "Y360","type": 3,"api": "csp_Y360Amns","searchable": 0,"quickSearch": 0,"changeable": 1,"ext": "Y360"},
   {"name": "⚙️┃配置┃中心","key": "MyConfig","type": 3,"api": "csp_AAConfigAmns","searchable": 0,"quickSearch": 0,"changeable": 0},
-  {"name": "📁┃资源┃中心","key": "MyAll","type": 3,"api": "csp_MyAllAmns","searchable": 0,"quickSearch": 0,"changeable": 0},
+  {"name": "⚙️┃资源┃中心","key": "MyAll","type": 3,"api": "csp_MyAllAmns","searchable": 0,"quickSearch": 0,"changeable": 0},
   {"name": "🔥┃短剧┃推荐","key": "Hgdh","type": 3,"api": "csp_HgdhAmns","searchable": 1,"quickSearch": 1,"changeable": 0,"genre": "shortdrama","ext": "Hgdh"},
   {"name": "🔥┃经典┃推荐","key": "Xxxg","type": 3,"api": "csp_XxxgAmns","searchable": 0,"quickSearch": 0,"changeable": 0,"ext": "Xxxg"},
   {"name": "🔥┃下饭┃推荐","key": "Xfdh","type": 3,"api": "csp_XfdhAmns","searchable": 0,"quickSearch": 0,"changeable": 0},
@@ -83,9 +83,11 @@
   {"name": "🎸┃酷狗┃音乐","key": "KuGou","type": 3,"api": "csp_KuGouAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"genre": "music"},
   {"name": "🎸┃酷听┃音乐","key": "Kuwo","type": 3,"api": "csp_KuwoAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"genre": "music"},
   {"name": "🎸┃蜻蜓┃电台","key": "QTfm","type": 3,"api": "csp_QTfmAmns","searchable": 1,"quickSearch": 1,"changeable": 1,"genre": "music"},
+  {"name": "🏪┃应用┃商店","key": "Store","type": 3,"api": "csp_StoreAmns","searchable": 0,"quickSearch": 0,"changeable": 0},
+  {"name": "🏪┃壁纸┃商店","key": "WPbzm","type": 3,"api": "csp_WPbzmAmns","searchable": 0,"quickSearch": 0,"changeable": 0},
   {"name": "🔍┃飞鱼┃盘搜","key": "PSfish","type": 3,"api": "csp_PSfishAmns","searchable": 1,"quickSearch": 1,"changeable": 1},
   {"name": "🔍┃觅寻┃盘搜","key": "PSdju","type": 3,"api": "csp_PSdjuAmns","searchable": 1,"quickSearch": 1,"changeable": 1},
-  {"name": "🛴┃推送┃播放","key": "push_agent","type": 3,"api": "csp_PushAmns","searchable": 0,"quickSearch": 0,"changeable": 1}
+  {"name": "🛴┃推送┃播放","key": "push_agent","type": 3,"api": "csp_PushAmns","searchable": 0,"quickSearch": 0,"changeable": 0}
  ],
  "lives": [
   {"name": "Kimentanm","type": 0,"url": "https://down.nigx.cn/raw.githubusercontent.com/Kimentanm/aptv/master/m3u/iptv.m3u","playerType": 2},
@@ -97,11 +99,8 @@
   {"name": "YY轮播","type": 0,"url": "https://sub.ottiptv.cc/yylunbo.m3u","playerType": 2,"timeout": 10,"ua": "okHttp/Mod-1.5.0.0"}
  ],
  "parses": [
-  {"name": "聚合1","type": 3,"url": "Demo"},
-  {"name": "聚合0","type": 3,"url": "Web"},
-  {"name": "冰豆","type": 0,"url": "https://bd.jx.cn/?url="},
-  {"name": "云播","type": 0,"url": "https://free.maccms.xyz?url="},
-  {"name": "77","type": 0,"url": "https://jx.77flv.cc/?url="}
+  {"name": "嗷呜","type": 0,"url": "https://free.maccms.xyz?url="},
+  {"name": "真帅","type": 0,"url": "https://jx.77flv.cc/?url="}
  ],
  "doh": [
   {"name": "阿里","url": "https://dns.alidns.com/dns-query","ips": ["223.5.5.5","223.6.6.6","2400:3200::1"]},
@@ -113,13 +112,6 @@
  "rules": [
   {"name": "cl","hosts": ["magnet"],"regex": ["最 新","直 播","更 新"]},
   {"name": "火山嗅探","hosts": ["huoshan.com"],"regex": ["item_id="]},
-  {"name": "抖音嗅探","hosts": ["douyin.com"],"regex": ["is_play_url="]},
-  {"name": "农民嗅探","hosts": ["toutiaovod.com"],"regex": ["video/tos/cn"]},
-  {"name": "七新嗅探","hosts": ["api.52wyb.com"],"regex": ["m3u8?pt=m3u8"]},
-  {"name": "夜市","hosts": ["yeslivetv.com"],"script": ["document.getElementsByClassName('vjs-big-play-button')[0].click()"]},
-  {"name": "毛驴","hosts": ["www.maolvys.com"],"script": ["document.getElementsByClassName('swal-button swal-button--confirm')[0].click()"]},
-  {"name": "czzy","hosts": ["10086.cn"],"regex": ["/storageWeb/servlet/downloadServlet"]},
-  {"name": "bdys","hosts": ["bytetos.com","byteimg.com","bytednsdoc.com","pstatp.com"],"regex": ["/tos-cn"],"exclude": [".m3u8"]},
-  {"name": "bdys10","hosts": ["bdys10.com"],"regex": ["/obj/"],"exclude": [".m3u8"]}
+  {"name": "抖音嗅探","hosts": ["douyin.com"],"regex": ["is_play_url="]}
  ]
 }
